@@ -1,5 +1,20 @@
 # Mini Mario frame budget, November 8
 
+Latest follow-up: `d7a91c05` removes another redundant Mini collision bank
+dispatch, saving 479 cycles when reached. The identical controller route records
+702 missed controller polls versus 706 on `84d372ef`; this is a small improvement,
+not a solution to the remaining busy-stage lag. The candidate and installed
+Downloads ROM both clear nonshortcut 1-1 with both lives and all three native lifts.
+Empty idle/movement, the earned mushroom, and both GBC fireballs pass.
+Exact-current interrupt qualification covers 169 IRQ, 169 lag-NMI, and 969 nested
+IRQ cuts. Affected foreign upper-veneer calls cost 11 additional cycles.
+Receipts: `build/mini-current-peak-1110/delivery/verified-delivery.json` and
+`build/mini-adder-current-1110/irq.json`.
+
+The exact preceding build's X750 frame takes 31,456 foreground cycles and 35,490
+including interrupts. That frame does not reach this collision fallback.
+Its repeated bounding-box transport is the next investigation target.
+
 The MMC5 build `e90d30c1c9636be6eb304a7b3b1506b862f8171dc2773d809482e25b0a5417df`
 uses the same three 1-1 lifts, two native 4×4 fireball collision boxes and
 Game Boy Color moving and impact art as `fc7d4554`. It still has busy-stage lag.
