@@ -4,7 +4,11 @@ The functional roster pass is not complete. This inventory separates source
 placements from actual route verification; it is not the final all-character list.
 
 Inventory fixture SHA256: `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
-Current nightly SHA256: `c8bd2e2c75015b84fe7bc3c4dba5b24b87e517620ef914ff229b5d4249acbe48`.
+Current nightly SHA256: `f33c7b19d27309ab4e4771125a74360f978dba08bd807d25bc6307026e568734`.
+
+The shared draw successor repeats Mini's full Downloads 1-1 replay and all
+three offscreen constructions and assisted crossings. Their placements are
+unchanged. [Delivery receipt](../../build/shared-sparse-draw-delivery-1110/verified-delivery.json)
 
 The current Mini successor admits its native lifts at camera-relative left
 X256–263, before they are visible, and also checks admission after scrolling

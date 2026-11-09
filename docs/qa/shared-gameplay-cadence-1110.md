@@ -1,6 +1,6 @@
 # Shared gameplay cadence on MMC5
 
-The current public ROM `c8bd2e2c` applies shared work reductions to the native
+The previous public ROM `c8bd2e2c` applied shared work reductions to the native
 game loop, terrain parser, platform pairing, and ordinary player contact.
 The paired contact proof measured 63–84 cycles saved per update for Mario and
 75–100 for the other sampled owners, including Samus and Mini Mario, in the
@@ -48,4 +48,34 @@ at PRG78 `$BC9A` skips the type comparisons for empty slots and preserves
 the ordered CHR shadow writes. It saves 24 cycles with all four slots empty
 and can add up to eight with all four occupied. The trial matched registers
 and publication writes in 13,156 CPU controls and passed 80 IRQ or lag-NMI
-pairs. Native cadence for this trial is pending.
+pairs. In native runs of that change alone, Bill missed two idle reads and
+Samus missed 21 walking reads.
+[Shot-only native replay](../../build/shared-shot-scan-native-1110/proof.json)
+
+## Sparse world draw and projectile scan
+
+The released `f33c7b19` nightly avoids a second native scan when the current
+enemy IDs cannot draw firebars or small lifts. Firebars and lifts still use
+their existing renderer. The combined CPU proof verifies 544 cold-entry
+updates for Mario, Bill, Samus and Rogue Dawn with exact game state and sprite
+output. The world change saves 80 cycles on those updates. The combined
+change saves 104 cycles in the Mini opening fixture. Real positive firebar
+and small-lift OAM and the existing native actor IDs were checked.
+[Combined CPU proof](../../build/native-sparse-world-draw-1110/combo.json)
+
+| Easy opening | `c8bd2e2c` missed reads | `f33c7b19` missed reads |
+|---|---:|---:|
+| Bill idle | 3 | 1 |
+| Bill walk | 29 | 28 |
+| Samus idle | 0 | 0 |
+| Samus walk | 22 | 18 |
+
+Samus's walk also went from six to five frames with no game-loop entry.
+The identical Mini controller cleared the full nonshortcut 1-1 and rode all
+three lifts with 3,494 updates in 3,494 active frames and zero lag NMIs.
+[Matched native openings](../../build/shared-sparse-draw-native-1110/proof.json) ·
+[Mini native timing](../../build/shared-sparse-draw-native-1110/mini/capture/timing.json)
+
+The actual Downloads launch repeated Mini's timing, lift contacts and audio
+order. The sole Current IPS reconstructs the tested Downloads file exactly.
+[Delivery verification](../../build/shared-sparse-draw-delivery-1110/verified-delivery.json)
