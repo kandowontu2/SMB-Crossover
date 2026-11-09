@@ -1,4 +1,16 @@
 {
+  "mini_frame_budget_1108": {
+    "status": "DELIVERED_REDUCED_LAG_WITH_ORIGINAL_GBC_FIREBALLS_ZERO_LAG_OPEN",
+    "previous_turn_classification": "Progress. Mini's native lifts and original GBC fireball and impact art shipped and passed the installed route.",
+    "installed_nightly": "e90d30c1c9636be6eb304a7b3b1506b862f8171dc2773d809482e25b0a5417df",
+    "current_IPS_SHA256": "09b712e1e9d9b6b056c7f9ea718934ac17e574b6b64d1cbffd223942b5d1c0fc",
+    "native_receipts": ["build/mini-frame-budget-delivery-1108/verified-delivery.json", "build/mini-frame-budget-route-1108/capture/timing.json", "build/mini-frame-budget-fire-gate-1108/capture/result.json"],
+    "tested": "Both copies cleared all three native lift crossings into 1-2, lives 2 to 2, without wall grab. Exact candidate earned mushroom and passed 180 idle updates in 180 video frames, empty movement, 60 powered idle updates, two native shots in DMA in three directions and both original impact tiles after a staged Goomba hit.",
+    "cadence": "Same controller 1-1 active: 2597 updates, 3084 to 3022 video frames, 1132 to 998 frames without controller reads. Busy-stage lag remains.",
+    "scope": "Raw Mini side probe deduplication; Mini-owned projectile and Goomba draw; already-used lift windows; shared exact-output mixer and decoder. The Goomba clone adds 15 cycles once per legacy full OAM clear and leaves its per-actor path intact.",
+    "next": "Profile the new build at the busy fallback near X758. Old physical bank33:BEA2→28:BFB0→33:BEE2→89:BC58→124:AAD9→124:AD9B makes four repeated dispatch chains into the exact Mini filter. Seek a funded native shortcut and compare caller flags, SMC, IRQ and non-Mini output. CurrentBankC normally remains 9 outside explicitly mapped Mini scopes, so do not jump into the C2 overlay blindly. Rebase roster work over the new current hash without touching these spans.",
+    "root_queue": "All native and Downloads validations terminal. No existing user Mesen sessions changed."
+  },
   "mini_performance_lifts_1108": {
     "status": "DELIVERED_NATIVE_LIFTS_AND_GBC_FIREBALLS_BUSY_ZERO_LAG_OPEN",
     "baseline": "244734bbc2690b4e97e654cc72f8f153bedbe3fcc799f714e9508784e4f33af4",

@@ -84,6 +84,14 @@ def main():
     if args.donor_art:
         report=json.loads(args.donor_art.read_text())
         assert report['passed'] and report['candidate_SHA256']==sha(rom)
+        if 'native_draw_address' in report:
+            # Watch the wrapper on every render pass, including an empty pool.
+            # The direct renderer is entered only while a shot is active.
+            pc=0xd239
+            wrapper=1048592+967*1024+(pc&0x3ff)
+            assert raw[wrapper:wrapper+3]==bytes.fromhex('4c45d4')
+            hooks['MiniFireballDraw']=dict(name='MiniFireballDraw',pc=pc,physical=2*8192+(pc&8191),
+                                           memory='nesWorkRam',bytes=list(raw[wrapper:wrapper+4]))
         for row in report['frames'].values():
             offset=1048592+967*1024+row['CHR_offset']
             assert raw[offset:offset+32].hex()==row['bytes']

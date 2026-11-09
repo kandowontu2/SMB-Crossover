@@ -4,6 +4,8 @@ local stack, hooks, stats, cadence = {}, {}, {}, {}
 local sample = MiniSample or {}
 local instructionSample, instructionCounts = nil, {}
 local instructionCalls = {}
+local transports = {}
+local minimumSampleSP = {sp=255}
 local lastInstruction
 local function sampleInstruction()
  if not instructionSample then return end
@@ -18,8 +20,19 @@ local function sampleInstruction()
  if phys and phys.memType==emu.memType.nesPrgRom then bank=tostring(phys.address//8192)
  elseif phys and phys.memType==emu.memType.nesWorkRam then bank='WRAM'..(phys.address//8192) end
  local key=string.format('%s:%04x',bank,pc)
+ if state['cpu.sp']<minimumSampleSP.sp then minimumSampleSP={sp=state['cpu.sp'],pc=key} end
  instructionCalls[key]=(instructionCalls[key] or 0)+1
- lastInstruction={key=key,cycle=cycle}
+ if pc==0x015a or (pc==0x015d and (not lastInstruction or lastInstruction.pc~=0x015a)) then
+  local sp=state['cpu.sp']
+  local ret=(read(0x100+((sp+1)&255))+256*read(0x100+((sp+2)&255))+1)&65535
+  local source=emu.convertAddress(ret)
+  local owner=source and source.memType==emu.memType.nesPrgRom and tostring(source.address//8192) or 'RAM'
+  local tag=pc==0x015a and state['cpu.a'] or read(0x0163)
+  local target=read(0x016c)+256*read(0x016d)
+  local edge=string.format('%s:%04x -> %02x:%04x',owner,ret,tag,target)
+  transports[edge]=(transports[edge] or 0)+1
+ end
+ lastInstruction={key=key,cycle=cycle,pc=pc}
 end
 local skippedAddress = 0x013a
 local priorSkipped, priorUpdates = nil, 0
@@ -89,7 +102,8 @@ local function closeProfile()
     for key,cycles in pairs(instructionCounts) do sorted[#sorted+1]={key=key,cycles=cycles,visits=instructionCalls[key]} end
     table.sort(sorted,function(a,b)return a.cycles>b.cycles end)
     local file=assert(io.open(OUTPUT..'instruction-sample.json','w'))
-    file:write(json({scene=call.scene,opcodes=sorted,scope='One actual controller-reached GameLoop; elapsed cycles include interrupted work.'})..'\n')
+    file:write(json({scene=call.scene,opcodes=sorted,farcall_edges=transports,minimum_sample_SP=minimumSampleSP,
+                     scope='One actual controller-reached GameLoop; elapsed cycles include interrupted work. Farcall labels record the stack return and native bank tag.'})..'\n')
     file:close()
     result(true,'Bounded one-update diagnostic completed')
     csv:close()

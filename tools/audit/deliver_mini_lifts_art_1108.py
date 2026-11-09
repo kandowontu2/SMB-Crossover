@@ -21,6 +21,7 @@ def main():
     parser.add_argument('--idle',type=Path,required=True)
     parser.add_argument('--power',type=Path,required=True)
     parser.add_argument('--output',type=Path,required=True)
+    parser.add_argument('--previous',default=CURRENT,help='Expected installed parent ROM SHA-256.')
     args=parser.parse_args()
     rom=args.candidate/'candidate.nes'
     manifest=args.candidate/'candidate.json'
@@ -54,7 +55,7 @@ def main():
     assert fire['impact_art_frames']==dict(C=True,D=True)
 
     delivery.O=args.output.resolve()
-    delivery.PREVIOUS=CURRENT
+    delivery.PREVIOUS=args.previous
     assert delivery.O.is_relative_to(delivery.R/'build')
     # The downloaded cartridge replays the identical full-stage controller.
     sys.argv=[sys.argv[0],args.action,'--rom',str(rom),'--packet',str(args.route),'--candidate',str(manifest)]
@@ -72,6 +73,11 @@ def main():
             'Exact candidate earned mushroom, zero-lag empty-area idle/movement, and a focused Fire Mini fixture '
             'with real two-shot controls and a staged Goomba impact. Busy-stage lag remains.')
         p.write_text(json.dumps(receipt,indent=2)+'\n',encoding='utf-8')
+        performance=''
+        if 'whole_GameCore' in art:
+            performance=(f'Mini has faster collision, enemy drawing, lift admission, fireball drawing and audio. '
+                         f'The active 1-1 replay recorded {cadence["no_controller_read"]:,} frames without a controller '
+                         'read. Empty-area idle and movement recorded zero.\n\n')
         (delivery.O/'release-notes.txt').write_text(
             'Current MMC5 work-in-progress nightly.\n\n'
             'Apply this IPS to clean, headered Super Mario Bros. (World).\n'
@@ -81,7 +87,8 @@ def main():
             'each 32 pixels wide at initial top Y192. The wall grab has been removed. '
             'Mini clears 1-1 with both lives through the three assisted pipe crossings.\n\n'
             'Fire Mini retains two shots and 4x4 collision boxes. They use the original GBC 6x6 moving '
-            'art and original impact tiles, timed to native projectile impact lifetime. '
+            'art and original impact tiles, timed to native projectile impact lifetime.\n\n'
+            + performance +
             'Busy-stage lag remains. Reopen the ROM and start a fresh game.\n',encoding='utf-8')
 
 
