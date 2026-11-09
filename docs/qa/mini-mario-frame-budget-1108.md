@@ -96,6 +96,27 @@ behavior. IRQ and lag-NMI cuts also passed for the lift change.
 The busiest update on the new replay was near X1513 at 37,148 elapsed
 cycles. Busy-stage lag remains.
 
+## Terrain drawing and Mini terrain reads
+
+Build `ee9b3f55` completed the same route with both lives and all three lifts.
+It used 2,885 active video frames and 2,590 game updates, with 774 missed
+controller reads compared with 832 on the previous build. Empty-area movement
+and 180 idle updates ran every frame. The mushroom and two fireballs passed
+their separate native replays.
+
+Each pair of native graphics columns renders the same metatiles. The left
+column sets their palette bits and the right column now reuses those bits.
+The right column still produces its graphics packet and its final scratch
+state. Across 5,120 paired cases the right pass saves 508–522 cycles and
+the left saves 34. The 1-1 replay observed 290 pairs with matching metatile
+data and preexisting palette bits. Both actual interrupt paths preserved
+foreground state across 759 cuts each.
+
+Mini's physics also avoids rereading a native metatile when successive probe
+points are in the same cell. The owner-only update saved 86–436 cycles over
+232 CPU-tested game updates, with 3,403 interrupt checks. Busy gameplay still
+exceeds the frame budget near the crowded pipes and blocks.
+
 ## Local receipts
 
 - `build/mini-frame-budget-delivery-1108/verified-delivery.json`
@@ -117,3 +138,9 @@ cycles. Busy-stage lag remains.
 - `build/parser-dual-shadow-1109/proof.json`
 - `build/parser-dual-shadow-irq-1109/health-batch-async-v3.json`
 - `build/mini-active-actor-1108-v1/lift-bridge-v5-CPU.json`
+- `build/mini-columns-transport-delivery-1109/verified-delivery.json`
+- `build/mini-columns-transport-native-1109/route/capture/timing.json`
+- `build/mini-columns-transport-native-1109/route/capture/column-pairs.json`
+- `build/mini-column-graphics-1109/proof.json`
+- `build/mini-column-irq-1109/irq.json`
+- `build/mini-kernel-transport-1109/v2/irq.json`

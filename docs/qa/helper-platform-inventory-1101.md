@@ -4,7 +4,7 @@ The functional roster pass is not complete. This inventory separates source
 placements from actual route verification; it is not the final all-character list.
 
 Inventory fixture SHA256: `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
-Current nightly SHA256: `a08d839b187fc6866a3fd3658200c2f26b8e3724b3b4de3b5e7d2a65702598d2`.
+Current nightly SHA256: `ee9b3f55e010f7673a046e6dbc20b220b13cd83dcc95f95c799e6f9def565f6b`.
 Bub/Bob added no helper platforms. Earlier route proofs below retain their stated hashes.
 Thomas's two late placements were added on d0b445a7; other placements are unchanged. The original admission fixture belongs to its stated earlier hash.
 `tools/audit/inventory_named_helpers_1101_v2.py` verified identical installed and
@@ -236,5 +236,6 @@ wall-jump restarts. Each girder is 32 pixels wide.
 | 1-1 | 688 | 704 | 192 | 736 |
 | 1-1 | 864 | 880 | 192 | 912 |
 
-Evidence is in `build/mini-fireball-gbc-route-1108/capture/result.json`. The
-first pipe at X448 and the three gaps use Mini's ordinary jump.
+The current `ee9b3f55` Downloads route repeats all three crossings and clears
+1-1 with both lives. Evidence is in `build/mini-columns-transport-delivery-1109/verified-delivery.json`.
+The first pipe at X448 and the three gaps use Mini's ordinary jump.
