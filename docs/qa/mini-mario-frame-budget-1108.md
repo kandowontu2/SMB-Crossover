@@ -1,5 +1,15 @@
 # Mini Mario frame budget, November 8
 
+The next delivered build, `52e147c9`, returns Mini's existing bounding-box control
+without the generic bank-dispatch chain. It saves 469 cycles per update and reduces
+the same route from 702 to 597 missed controller polls. Candidate and actual
+Downloads full-route checks pass, as do idle/movement, mushroom and both fireballs.
+Mario and Proto are cycle-neutral; affected foreign upper callers add seven cycles.
+Exact current qualification includes 30 IRQ, 30 lag NMI, and 1,033 nested IRQ cuts.
+Proto's inherited interrupted OAM behavior was compared byte-for-byte with its
+parent. Receipts: `build/mini-box-dispatch-1110/irq.json` and
+`build/mini-box-delivery-1110/verified-delivery.json`. Busy-stage lag remains.
+
 Latest follow-up: `d7a91c05` removes another redundant Mini collision bank
 dispatch, saving 479 cycles when reached. The identical controller route records
 702 missed controller polls versus 706 on `84d372ef`; this is a small improvement,
