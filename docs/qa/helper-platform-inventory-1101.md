@@ -4,16 +4,34 @@ The functional roster pass is not complete. This inventory separates source
 placements from actual route verification; it is not the final all-character list.
 
 Inventory fixture SHA256: `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
-Current nightly SHA256: `94650fbc11ede25b9d08e579bdc6b1d6da81fca8f29c6b0c25dadad2e685ede1`.
+Current nightly SHA256: `9906787a73b6d319cd30a2d3a89f50e4aa6892d912a9c22e9c5e19a14e581835`.
 
 The Giant nightly repeats Mini's actual Downloads 1-1 clear, boarding all three
 existing lifts with unchanged positions and timing. It adds no Giant helper.
 [Delivery receipt](../../build/mega-giant-delivery-1110/verified-delivery.json)
 
-Pending user-requested assistance: Mini Mario and Karnov, Up + Select to spawn
+Delivered user-requested assistance: Mini Mario and Karnov, Up + Select to spawn
 or replace one small vertical platform directly below the player. This is a
-dynamic player-position placement, not a fixed stage coordinate; it is not yet
-implemented in the current nightly.
+dynamic player-position placement, not a fixed stage coordinate. Both controls
+were replayed from the actual Downloads launch in the current nightly.
+
+Implementation `00cf5481231239967994bd3ad69ea65fe9f02c7dc74560a997d3722ad6a4566c`
+passed actual native input, carrying and replacement checks for both owners.
+The current nightly includes that implementation plus the title credit, with
+identical replay outcomes and Mini's zero-miss normal 1-1 regression.
+[Verified delivery](../../build/manual-title-delivery-v2-1110/verified-delivery.json)
+The control is available in ordinary gameplay, not restricted to stage 1-2.
+It uses native actor `$25`, width 32 pixels, and replaces only its own manual
+platform. A full actor pool queues the request until a slot is available.
+
+| Character | Initial left edge | Initial center | Initial top | Native 1-1 observed births (left, center, top) |
+|---|---|---|---|---|
+| Mini Mario | Player world X − 12, clamped at zero | Left + 16 | Native player Y + 32 | (28, 44, 208), then (37, 53, 119) |
+| Karnov | Player world X − 8, clamped at zero | Left + 16 | Native player Y + 32 | (32, 48, 208), then (59, 75, 110) |
+
+These are initial placements at the button press, not later moving-platform
+positions. Existing fixed helpers are retained. Evidence is in
+`build/manual-platform-native-1110/{mini,karnov}/capture/result.json`.
 
 The shared side-collision update repeats the actual Downloads Mini 1-1 route,
 including offscreen construction and boarding all three lifts, with the same
