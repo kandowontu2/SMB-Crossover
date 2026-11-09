@@ -4,12 +4,22 @@ The functional roster pass is not complete. This inventory separates source
 placements from actual route verification; it is not the final all-character list.
 
 Inventory fixture SHA256: `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
-Current nightly SHA256: `d998e71b112ec63d086865210f4e20f62f59156d182136f23bd627db0df3d811`.
+Current nightly SHA256: `bca98ddef87633c4d2e83cfc188115572803b4fc58962108abf3ed505aa4af2f`.
+
+The current Mini successor admits its native lifts at camera-relative left
+X256–263, before they are visible, and also checks admission after scrolling
+during native injury. The actual earned-mushroom damage replay constructed the
+third lift at relative X263 and reached its visible edge in the same injury,
+retaining both lives. The full Downloads 1-1 replay boards and crosses all three.
+Their authored left edges remain X560, X688, and X864; centers remain X576,
+X704, and X880, initial top Y192 and width32. The natural 1-1 slot bound and
+injury timing audit are in [the capacity note](mini-helper-slot-capacity-1110.md).
+This is not a guarantee for artificially saturated actor RAM.
 
 Camera-entry fixes are delivered. Full native routes on parent `f2050c19` verify
 Mini's three lifts, Thomas's six lifts, and both Goku/Karnov lifts spawning at
 relative X286–287, followed by actual support and assisted crossings into 1-2.
-The `d998e71b` successor preserves the camera admission and placement bytes.
+The earlier `d998e71b` successor preserved the camera admission and placement bytes.
 It shortens Mini's already-seen helper path and source-qualifies native actor
 bounds across all seven platform types; actual construction remains unchanged. Its actual Downloads launch
 repeats Mini's route and matches audio and helper evidence. Goku/Karnov retain
