@@ -1,4 +1,16 @@
 {
+  "mini_combined_current_1110": {
+    "status": "DELIVERED_511_MISSED_READS_BUSY_ZERO_LAG_OPEN",
+    "previous_turn_classification": "Progress. Two independently verified nightlies shipped, exact current component interrupt rebinding and controller routes passed. Full roster objective remains incomplete.",
+    "installed_nightly": "6af068b73709880ee5e2e07c8d9c9df1724bde1774f2dc67f16dff32bb73d018",
+    "current_IPS_SHA256": "6f14c365fe93007f9c6467553c5267d608dd01d0a9fc6f5e5d91caef1214093c",
+    "cadence": "Same controller route702->597->511 missed polls,2764 active video frames,2590updates,480 zero-update frames. Candidate and actual Downloads full nonshortcut1-1 clear with both lives and3 lifts into1-2. Empty idle/movement zero misses, real mushroom and two GBC fireballs/impacts pass. Still substantial busy-stage lag; do not claim60fps/no lag.",
+    "source": "Mini bound-box constant469 and visibility503 cycles saved every update. Shared same-size105B terrain scan skips zero ceiling and hoists checks,260 saved at sampled normal column (44-322 across directcases). Strict96 GameCore updates save972-1232 vsd7a91 with full RAM/AXYP/mappers exact. All three components rebound to exact6af068: box30IRQ/30FF/1033nested; visibility884IRQ/1768FF/1201nested; terrain170IRQ/426FF/1nested across42rawselectors. Ordinary foreign visibility+1, box upper+7; preserve those limits.",
+    "receipts": ["build/mini-combined-delivery-1110/verified-delivery.json", "build/mini-box-terrain-visible-1110/native/route/capture/timing.json", "build/mini-box-dispatch-1110/final-irq.json", "build/mini-terrain-scan-1110/final-irq.json", "build/mini-visibility-dispatch-1110/final-vectors.json"],
+    "next": "Exact6af068 worst foreground X1511/frame1971:30801CPU/36306elapsed with2actors. X1839/frame2272:30695/33796; X1999/frame2418:30674/33775. Sample these using prepare_mini_split_profile_1110.py and the final route controller, keeping root Mesen queue. Inspect native head/side fallback and enemy visibility without changing physics/input cadence. Missed clusters X64076,X76873,X192062.",
+    "profiling": "Corrected observer build/mini-box-peak-v2-1110 samples52e147 X782/frame1341:31812 sampled foreground vs31814 routineCPU (two boundarycycles);3893 interrupt cycles;35705 total vs35707 elapsed. Ordinary mapper synthetic RTI must NOT pop the ISR stack unless SP matches actual ISR entry. First observer rejected that condition; its failed run remains in mini-box-peak-1110. Actual foreground nearest-symbol fixed126 costs GetXOffscreen789,BlockBufferCollision703,MegaManResetBlockHealth550,BoundingBoxCore339,GetYOffscreen312. These precede final terrain/visibility fixes; do not overgeneralize to current peaks.",
+    "storage": "Pruned164 reproducible historical .o files only with adjacent .s and .bin retained, plus19 completed rawlogs. Build about2.89GB/19000files; prune own completed rawlogs before future wrapper reservations. No video or image sequence created. User roster tracker remains unstaged."
+  },
   "mini_box_current_1110": {
     "status": "DELIVERED_597_MISSED_READS_BUSY_ZERO_LAG_OPEN",
     "installed_nightly": "52e147c97c709377628a4461d5f9b10e76841f4d410c934243c38869c14353d7",

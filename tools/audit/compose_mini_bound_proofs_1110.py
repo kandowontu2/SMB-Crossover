@@ -29,7 +29,11 @@ def main():
     candidate = bytearray(original)
     for path in args.proof:
         previous = original if args.independent else bytes(candidate)
-        compose(previous, candidate, load(path), parent=digest(previous))
+        proof = load(path)
+        if 'patch' in proof and 'patches' not in proof:
+            proof = dict(proof, patches=[proof['patch']],
+                         expected_memory_only_SHA256=proof['memory_only_SHA256'])
+        compose(previous, candidate, proof, parent=digest(previous))
     rows = check_full_cpu(original, candidate, {})
     assert all(row['min_saved'] >= 0 for row in rows), rows
     args.output.mkdir()

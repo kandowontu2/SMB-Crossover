@@ -1,5 +1,24 @@
 # Mini Mario frame budget, November 8
 
+Current delivered build `6af068b7` combines the box shortcut with a 503-cycle
+visibility shortcut and a shared terrain scan improvement (260 cycles for the
+sampled ordinary column). The same route improves from 702 to 597 to **511 missed
+controller polls**, with 2,764 active video frames and 2,590 gameplay updates.
+Both candidate and actual Downloads clear nonshortcut 1-1 with both lives and all
+three lifts. Empty movement/idle, earned mushroom, and both GBC shots pass. This
+still has substantial busy-stage lag. Final image IRQ proofs are in
+`build/mini-box-dispatch-1110/final-irq.json`,
+`build/mini-terrain-scan-1110/final-irq.json`, and
+`build/mini-visibility-dispatch-1110/final-vectors.json`; delivery and IPS roundtrip
+are in `build/mini-combined-delivery-1110/verified-delivery.json`.
+
+The separated profiler now distinguishes mapper synthetic RTI from interrupt
+returns by actual stack depth. The preceding build's X782 update has 31,814
+foreground cycles and 3,893 interrupt cycles; the sampled instruction sums differ
+by only two boundary cycles. Current worst foreground is instead X1511/frame1971:
+30,801 foreground and 36,306 elapsed. That current frame is the next profiling
+target, not proof of zero lag.
+
 The next delivered build, `52e147c9`, returns Mini's existing bounding-box control
 without the generic bank-dispatch chain. It saves 469 cycles per update and reduces
 the same route from 702 to 597 missed controller polls. Candidate and actual
