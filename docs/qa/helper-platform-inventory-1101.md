@@ -239,3 +239,14 @@ wall-jump restarts. Each girder is 32 pixels wide.
 The current `84d372ef` Downloads route repeats all three crossings and clears
 1-1 with both lives. Evidence is in `build/mini-contact-render-delivery-1109/verified-delivery.json`.
 The first pipe at X448 and the three gaps use Mini's ordinary jump.
+
+November 10 camera-spawn candidate `56c4135e` retains those same placements.
+The three native constructors run with left edges 287, 286 and 287 pixels
+from the camera's left edge, before entering the visible screen. Each gets
+its own native actor slot (5, 4 and 3); an earlier visible platform is no
+longer retargeted to the next placement. Mini's floor sweep recognizes all
+three. The controller-only route boarded and departed each and reached
+active 1-2 with both lives. Evidence:
+`build/mini-combined-camera-native-1110/route-v2/capture/result.json`.
+The shared non-Mini helper manager already uses camera-relative margins;
+this change repairs Mini's separate player-proximity admission.

@@ -30,6 +30,9 @@ def main():
     for path in args.proof:
         previous = original if args.independent else bytes(candidate)
         proof = load(path)
+        if 'base_ROM_SHA256' in proof:
+            proof = dict(proof, parent_SHA256=proof['base_ROM_SHA256'],
+                         expected_memory_only_SHA256=proof['expected_memory_ROM_SHA256'])
         if 'patch' in proof and 'patches' not in proof:
             proof = dict(proof, patches=[proof['patch']],
                          expected_memory_only_SHA256=proof['memory_only_SHA256'])
