@@ -4,7 +4,7 @@ The functional roster pass is not complete. This inventory separates source
 placements from actual route verification; it is not the final all-character list.
 
 Inventory fixture SHA256: `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
-Current nightly SHA256: `9906787a73b6d319cd30a2d3a89f50e4aa6892d912a9c22e9c5e19a14e581835`.
+Current nightly SHA256: `12f3e4163631887e134cbce7f1caa015bfe4b3786c2ee3d71217c80c1f677a6c`.
 
 The Giant nightly repeats Mini's actual Downloads 1-1 clear, boarding all three
 existing lifts with unchanged positions and timing. It adds no Giant helper.
@@ -13,12 +13,15 @@ existing lifts with unchanged positions and timing. It adds no Giant helper.
 Delivered user-requested assistance: Mini Mario and Karnov, Up + Select to spawn
 or replace one small vertical platform directly below the player. This is a
 dynamic player-position placement, not a fixed stage coordinate. Both controls
-were replayed from the actual Downloads launch in the current nightly.
+were replayed from the actual Downloads launch in build `9906787a`; their
+implementation is retained unchanged in the current nightly.
 
 Implementation `00cf5481231239967994bd3ad69ea65fe9f02c7dc74560a997d3722ad6a4566c`
 passed actual native input, carrying and replacement checks for both owners.
 The current nightly includes that implementation plus the title credit, with
-identical replay outcomes and Mini's zero-miss normal 1-1 regression.
+identical manual-platform implementation. The latest Giant impact repair also
+passed Mini's normal 1-1 regression with 3,494 updates / 3,494 gameplay frames,
+zero lag NMIs, and no new helper placements.
 [Verified delivery](../../build/manual-title-delivery-v2-1110/verified-delivery.json)
 The control is available in ordinary gameplay, not restricted to stage 1-2.
 It uses native actor `$25`, width 32 pixels, and replaces only its own manual
