@@ -25,11 +25,13 @@ DOWNLOADS = Path('C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes')
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('case', choices=(*CASES, 'green-grounded'))
+    parser.add_argument('case', choices=(*CASES, 'green-grounded', 'inhale-close'))
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
     grounded = args.case == 'green-grounded'
-    prior_name, ready_hash = CASES['green' if grounded else args.case]
+    close = args.case == 'inhale-close'
+    base_case = {'green-grounded': 'green', 'inhale-close': 'inhale'}.get(args.case, args.case)
+    prior_name, ready_hash = CASES[base_case]
     prior = R / 'build' / prior_name
     prior_ready = prior / 'ready.json'
     binding = prior / 'capture/binding.json'
@@ -85,19 +87,37 @@ def main():
         end = text.index("\n end\n if r('KbCopy')~=2", start)
         text = text[:start] + GREEN_APPROACH.read_text().rstrip('\n') + text[end:]
         refs.append(GREEN_APPROACH)
+    elif close:
+        old_range = 'gap>=34 and gap<=56'
+        assert text.count(old_range) == 1
+        text = text.replace(old_range, 'gap>=10 and gap<=16')
+        # The linked early-suction leaf calls Suction while the opening
+        # pose timer is live. Require that early capture in this replay.
+        pull_offset = 0x9422a
+        assert reconstructed[pull_offset:pull_offset + 14] == bytes.fromhex('2055a24c37a2eaeaeaeaeaeaeaea')
+        old_guard = "or r('KbActionAge')~=0 or"
+        assert text.count(old_guard) == 1
+        text = text.replace(old_guard, "or r('KbActionAge')==0 or r('KbActionAge')>8 or\n    frame-fresh.player.frame>2 or")
+        old_capture = "capture={player=player(),target=a,gap=gap,input=r('SavedJoypadBits')}"
+        assert text.count(old_capture) == 1
+        text = text.replace(old_capture, old_capture[:-1] + ",action_age=r('KbActionAge'),\n          frames_since_fresh=frame-fresh.player.frame}")
     text = text.replace("print('Kirby 29aa green-shell '", "print('Kirby current green-shell '")
+    text = text.replace("print('Kirby 29aa first inhale '", "print('Kirby current first inhale '")
     sys.path.insert(0, str(LUA_DEPS))
     from lupa.lua54 import LuaRuntime
     assert LuaRuntime().eval('function(s) local f,e=load(s); assert(f,e); return true end')(text)
-    approach_scope = (' Settles on the ground early to meet the moving Koopa.' if grounded
-                      else ' Controller inputs are unchanged.')
+    approach_scope = {
+        'green-grounded': ' Settles on the ground early to meet the moving Koopa.',
+        'inhale-close': ' Keeps walking until the first Goomba is 10–16 world pixels ahead before pressing B.',
+    }.get(args.case, ' Controller inputs are unchanged.')
     prepare(args.output, rom, text, refs,
             expected=PIN, timeout=q['timeout'], allow_interactive=True,
             scope=q['scope'] + ' Exact current Downloads-equivalent ROM.' + approach_scope)
     ready = args.output / 'ready.json'
     current = json.loads(ready.read_text())
     current.update(previous_pass_SHA256=sha(result), compared_ROM_SHA256=old_pin,
-                   compared_shared_patch_spans=span_count, hooks=q['hooks'], controller_inputs_unchanged=not grounded)
+                   compared_shared_patch_spans=span_count, hooks=q['hooks'],
+                   controller_inputs_unchanged=not (grounded or close))
     ready.write_text(json.dumps(current, indent=2) + '\n', encoding='utf-8')
 
 

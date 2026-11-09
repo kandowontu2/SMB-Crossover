@@ -1,4 +1,37 @@
 {
+  "getsu_native_kernels_giant_resident_kirby_close_1110": {
+    "status": "GETSU_DONOR_SIDE_SCROLL_AND_KERNELS_PASS_GIANT_RESIDENT_CPU_PASS_KIRBY_CLOSE_NATIVE_PASS",
+    "public_ROM_SHA256": "c8bd2e2c75015b84fe7bc3c4dba5b24b87e517620ef914ff229b5d4249acbe48",
+    "getsu_fuma": {
+      "native_donor": "build/getsu-fuma-donor-action-1110/capture/observations.json",
+      "native_donor_SHA256": "fb68ce7b1235da23bf0a82d2bcc5dd4ab13936963a901b71a2aa964c78bae70c",
+      "proof": "build/getsu-fuma-kernels-1110/proof.json",
+      "proof_SHA256": "00e2f32ae61066e0624e0753326d28bff3f776e5bdd2db5fbfd9396b161b86fc",
+      "frontend_audit": "build/getsu-frontend-audit-1110/audit.json",
+      "frontend_audit_SHA256": "b10e14e3a333c3834daafdde1a941fb51c24062a777b9c20444ba958ff8e7bb5",
+      "scope": "Original a4135675 controller-only boot and overworld to a natural side-scrolling entrance at frame4044. The path was derived from matched donor map tiles and replayed without writes. Actual sprite palette, visible CHR offsets and idle/walk/jump/crouch/sword/crouch-sword OAM captured. Linked 399B movement and basic sword kernel matches 6882 donor CPU cases including 96 real sword cue calls isolated at the audio mapper boundary. Donor terrain/enemy contact, equipped weapons, host transport, graphics placement and native selection are open. CPU-only frontend leaves fit a fifth Simon-family cycle and raw42 confirm; no menu variant or owner published."
+    },
+    "mega_giant": {
+      "resident_proof": "build/mega-giant-mario-resident-1110/proof-v2.json",
+      "resident_proof_SHA256": "467967829b34faecd1000fff6a438744ba7c894fb869af62d34ea071b07e3dc6",
+      "rogue_nmi_proof": "build/mega-giant-mario-resident-1110/rogue-nmi-v2.json",
+      "rogue_nmi_proof_SHA256": "d97926af0f55ce30740f422d0c1625c4a66f4f06b393af1c810b1e39580337cc",
+      "scope": "Actual PRG93:AFA7 to PRG90:B744 body/crush path reaches X482/229 updates/HP and lives intact after one private variant9 assignment. Exact Mini foreground cycles and full native state in qualified cases. 57344 exact Rogue logical audio reads, 20 paired reader and eight Giant foreground vectors. 288 actual Rogue CPU NMI tests retain ordered APU writes, worst observed +82 cycles, with special remapped rows exercised separately. Needs resident graphics descriptors, 22 CHR pages, menu and complete native route, plus remaining motion/contact fidelity. No image published."
+    },
+    "kirby_close": {
+      "result": "build/kirby-current-close-inhale-1110-v2/capture/result.json",
+      "result_SHA256": "1bffb390b6c540e8a22b9efb6265ecded249755a7fb8d8cf35d25916db11e4ce",
+      "scope": "Current c8 cold Easy first natural Goomba. B issued with gap16 and forward held. Actual fresh input at frame524, source capture one frame later with action age7 and gap9, native erase, HP6 and lives2. Earlier close observer incorrectly required action age0. Verified the exact startup suction bytes and corrected observer to require active opening age1..8 and at most two frames after fresh B. No gameplay byte change."
+    },
+    "prince": {
+      "cpu": "build/prince-goomba-recovery-1110/handoff.json",
+      "cpu_SHA256": "28651e37f3f3927cd4d57a2d9d2b47cffa143fbd46ae5c51bb1cd6e8e9137cd8",
+      "native_negative": "build/prince-goomba-clear-native-1110/capture/third-goombas.json",
+      "native_negative_SHA256": "ba82a7d21b6cdf9db856a37e965ec3ffeb228ce9894c4e49ab1cd6b30811dad9",
+      "scope": "Three CPU controller-only cap trajectories at exact private4699 grounded beyond both live native Goombas at X891 with HP5/lives2. Actual Mesen performed the grounded shuttles and earned camera R819; 600-update combined limit expired after only 33 Up updates at X710/pose74, before the prior successful native Up sequence reached hang. Separate bounded climb budget and repeat pending."
+    },
+    "storage": "Removed superseded Getsu navigation runs, one superseded kernel receipt, and only identical screenshots/empty session markers among current Mini, Prince and Kirby captures. No donor or successor ROM copies. Root sole Mesen queue."
+  },
   "kirby_current_native_and_giant_compound_1110": {
     "status": "CURRENT_KIRBY_FIRST_INHALE_AND_BOTH_SHELLS_NATIVE_PASS_GIANT_PRIVATE_CPU_PASS",
     "ROM_SHA256": "c8bd2e2c75015b84fe7bc3c4dba5b24b87e517620ef914ff229b5d4249acbe48",
