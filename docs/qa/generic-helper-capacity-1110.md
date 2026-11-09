@@ -49,6 +49,19 @@ used the stock pulley and pogo to board record 11. The native actor recorded
 both lives. Stage select was used and all other cheats were off.
 [Controller-only 3-3 evidence](../../build/generic-helper-3-3-native-1110-v7/capture/result.json)
 
+An Easy Kirby route on the same private image verified record 20 in 6-3.
+Its left edge started at X2600, center X2608, with initial top Y64 and width
+16. It used slot 3 when the camera covered X2313–2568 and five slots were
+occupied. The first stock drop at X2256 retired through the native erase
+routine at camera-left X2329, inside the offscreen birth window. The helper
+had already spawned by then. It first appeared with its moving left edge
+X2627 and camera-right X2628. Kirby kept both lives. This route verifies
+the native retirement and visible entry. It contains no full-slot retry or
+assisted carry. The separate Darkwing replay stopped at the early canopy
+gap before reaching the window.
+[Kirby entry and native retirement](../../build/generic-helper-6-3-kirby-1110-v1/capture/result.json) ·
+[Darkwing route limit](generic-helper-6-3-darkwing-negative-1110.md)
+
 Natural capacity is still open across the complete roster and stage set.
 The stream-origin recensus uses camera-left minus 73 at first Easy eligibility
 through the last offscreen camera-right plus 48, rounded down to a 16-pixel

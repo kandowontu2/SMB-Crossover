@@ -33,6 +33,10 @@ The private generic guard has an Easy Scrooge scroll-in witness for 3-3.
 The native horizontal lift began at left X2344, center X2352 and top Y64.
 It first appeared at the right edge of the camera. Scrooge rode the lift
 with 21 native carry calls, then cleared to 3-4 with both lives.
+Easy Kirby also verified scroll-in for the 6-3 native horizontal lift at
+initial left X2600, center X2608 and top Y64. Its moving left edge was one
+pixel inside the screen at first visibility. That route reached entry with
+both lives and did not test a full actor pool.
 [Entry and capacity evidence](generic-helper-capacity-1110.md)
 Bub/Bob added no helper platforms. Earlier route proofs below retain their stated hashes.
 Thomas's two late placements were added on d0b445a7; other placements are unchanged. The original admission fixture belongs to its stated earlier hash.
