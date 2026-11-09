@@ -35,6 +35,8 @@ def assemble(output, b):
     symbols = STATE | {name: address(b, name) for name in imports - STATE.keys()}
     for name, bank in (('MetaspriteRenderLoop', 4), ('X5SetPhysicalChr', 62)):
         assert (location(b, name) - 16) // 8192 == bank and 0xa000 <= symbols[name] < 0xc000
+    empty = location(b, 'ClimbPLocAdder') + 1
+    assert (empty - 16) // 8192 == 126 and b['raw'][empty] == 0
     defines = ''.join(f'{name}=${symbols[name]:04x}\n' for name in sorted(imports))
     src = defines + re.sub(r'^\.import .+\n', '', src, flags=re.M)
     art = (ART / 'poses.inc').read_text().replace(', GfPortraitOam', '')
@@ -132,6 +134,9 @@ def render(seed, labels, donor, tile_map):
         max_cycles = max(max_cycles, result['CPU'])
         tested += 1
         assert m.rawtags == seed.rawtags
+        ptr = address(m.bundle, 'SmPosePtr')
+        reserve = m[ptr] + 256*m[ptr+1]
+        assert reserve == address(m.bundle, 'ClimbPLocAdder')+1 and m[reserve] == 0
         assert m[0xc040] == 4 * len(rows), (body, upper, m[0xc040], len(rows))
         if cursor + 4 * len(rows) >= 256:
             assert not result['P'] & 1 and bytes(m[0x200:0x300]) == bytes([0xf8]) * 256
@@ -249,6 +254,7 @@ def main():
                   draw_address=labels['GfDraw'], free_bytes=LIMIT - START - len(code),
                   full_kernel_SHA256=sha256(body).hexdigest(), cookie=cookie.hex(), labels=labels,
                   cold=load, source_gait=source_gait, native_OAM=oam, palette=palette, interrupts=interrupts,
+                  native_empty_reservation=address(b, 'ClimbPLocAdder')+1,
                   bindings={p.relative_to(R).as_posix(): sha(p) for p in
                             (Path(__file__), SOURCE, PREVIOUS, Owner.Page.ASSET, ART / 'poses.inc', ART / 'atlas.chr')})
     (out / 'proof.json').write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8')

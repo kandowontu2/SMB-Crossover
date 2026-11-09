@@ -5,6 +5,7 @@ local screenshots, caps, pits = {}, {}, {}
 local firstAttack, swordHit, liveRender, flag, lastX, jumpUntil = nil, nil, nil, nil, 0, 0
 local launched = {}
 local visualAge, visualRows, lastDraw = 0, {}, nil
+local chrUpper, spriteBank0, ppuControl = 0, -1, 0
 local routePipes = {{448,176,404},{608,160,563},{736,144,679},{912,144,855}}
 local routePits = {{1104,1136},{1376,1424},{2448,2480}}
 
@@ -70,23 +71,27 @@ hook(C.draw,emu.memType.nesWorkRam,3*8192+(C.draw&8191),function()
 end)
 hook(C.main,emu.memType.nesPrgRom,126*8192+(C.main&8191),function() if active() then updates=updates+1 end end)
 hook(C.flag,emu.memType.nesPrgRom,126*8192+(C.flag&8191),function() if not flag then flag=state() end end)
+emu.addMemoryCallback(function(_,value) chrUpper=value&3 end,emu.callbackType.write,0x5130)
+emu.addMemoryCallback(function(_,value) spriteBank0=value+256*chrUpper end,emu.callbackType.write,0x5120)
+emu.addMemoryCallback(function(_,value) ppuControl=value end,emu.callbackType.write,0x2000)
 
 local function renderEvidence()
- if draws==0 or ppu(0x3f11)~=0 or ppu(0x3f12)~=0x20 or ppu(0x3f13)~=5 then return end
+ if draws==0 or ppuControl&0x20==0 or spriteBank0~=990
+    or ppu(0x3f11)~=0 or ppu(0x3f12)~=0x20 or ppu(0x3f13)~=5 then return end
  local rows={}
  local localX,y=playerX()-cameraX(),r('Player_Y_Position')
  for slot=0,63 do
   local at=slot*4
   local oy=emu.read(at,emu.memType.nesSpriteRam)
   local tile=emu.read(at+1,emu.memType.nesSpriteRam)
+  local attr=emu.read(at+2,emu.memType.nesSpriteRam)
   local ox=emu.read(at+3,emu.memType.nesSpriteRam)
-  if oy<240 and tile<60 and tile%2==0 and math.abs(ox-localX)<25 and math.abs(oy-y)<32 then
-   for i=0,31 do if ppu(tile*16+i)~=C.atlas[tile*16+i+1] then return end end
-   rows[#rows+1]={slot=slot,y=oy,tile=tile,x=ox}
+  if oy<240 and tile<60 and tile%2==0 and attr&0xbf==0 and math.abs(ox-localX)<25 and math.abs(oy-y)<32 then
+   rows[#rows+1]={slot=slot,y=oy,tile=tile,attr=attr,x=ox}
   end
  end
  if #rows>=4 then
-  liveRender={player=state(),parts=rows,palette={0,0x20,5}}
+  liveRender={player=state(),parts=rows,palette={0,0x20,5},hardware_chr_bank=spriteBank0}
   shot('native-render')
  end
 end
@@ -96,7 +101,8 @@ local function visualProbe()
  input=visualAge>=30 and {right=true} or {}
  local marks={[1]=true,[4]=true,[8]=true,[16]=true,[29]=true,[42]=true,[64]=true,[90]=true}
  if marks[visualAge] then
-  local row={player=state(),last_draw=lastDraw,palette={},hardware={},shadow={},chr_matches={},age=visualAge}
+  local row={player=state(),last_draw=lastDraw,palette={},hardware={},shadow={},chr_matches={},age=visualAge,
+             sprite_bank0=spriteBank0,ppu_control=ppuControl}
   for i=0,31 do row.palette[#row.palette+1]=ppu(0x3f00+i) end
   for slot=0,63 do
    local at=4*slot

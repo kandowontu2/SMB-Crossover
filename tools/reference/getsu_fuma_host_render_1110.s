@@ -3,7 +3,7 @@
 .export GfDraw, GfBuildRecord, GfWalkAdvance, GfDrawEnd
 .import GfClock, GfAction, GfFacing, GfVXLo, GfVXHi, GfBodyPose, GfBodyFacing
 .import GfSwordActive, GfSwordPhase, GfSwordPose, GfSwordFacing
-.import SelectedCharacter
+.import ClimbPLocAdder, SmPosePtr
 .import Player_State, Player_X_Position, Player_PageLoc, Player_Y_Position, Player_Y_HighPos
 .import ScreenLeft_X_Pos, ScreenLeft_PageLoc, StarInvincibleTimer, GuestPowerupActive
 .import CurrentCHRBank, X5ChrMode, VRAM_Buffer1, VRAM_Buffer1_Offset
@@ -43,9 +43,13 @@ Record = $c040
 ; Called only through an authenticated RAM3 owner gate in the stage draw.
 ; The caller maps C=2 and controls the OAM cursor and injury flicker.
 .proc GfDraw
-    lda SelectedCharacter
-    cmp #42
-    jne Rejected
+    ; The typed owner gate already authenticates raw42. This renderer emits
+    ; its body directly, so the later native reservation must read a zero
+    ; header even after the caller restores the C window.
+    lda #<(ClimbPLocAdder+1)
+    sta SmPosePtr
+    lda #>(ClimbPLocAdder+1)
+    sta SmPosePtr+1
     jsr UpdatePose
     ldx UpperPose
     jsr GfBuildRecord
