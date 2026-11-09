@@ -4,7 +4,7 @@ The functional roster pass is not complete. This inventory separates source
 placements from actual route verification; it is not the final all-character list.
 
 Inventory fixture SHA256: `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
-Current nightly SHA256: `14a4e10058c683605344564d118202970da6ccae4482bf1dfca76b9ad743aacc`.
+Current nightly SHA256: `705906f45d3e09d5ebed30f2a9ac15295283a0ca41eb00879ce08fb2f020c7fe`.
 
 Camera-entry audit on this successor: Mini's three lifts spawn beyond the right
 edge and all assisted crossings pass. Thomas's six lifts still use player-distance
