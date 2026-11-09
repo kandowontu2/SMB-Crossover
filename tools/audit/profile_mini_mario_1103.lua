@@ -1,7 +1,9 @@
 -- This observer is appended to the controller so it can share its phase and
 -- physical bank/stack return checks. No additional input or emulated writes.
 local stack, hooks, stats, cadence = {}, {}, {}, {}
+local sample = MiniSample or {}
 local instructionSample, instructionCounts = nil, {}
+local instructionCalls = {}
 local lastInstruction
 local function sampleInstruction()
  if not instructionSample then return end
@@ -12,7 +14,11 @@ local function sampleInstruction()
  end
  local pc=state['cpu.pc']
  local phys=emu.convertAddress(pc)
- local key=string.format('%s:%04x',phys and phys.memType==emu.memType.nesPrgRom and tostring(phys.address//8192) or 'RAM',pc)
+ local bank = 'RAM'
+ if phys and phys.memType==emu.memType.nesPrgRom then bank=tostring(phys.address//8192)
+ elseif phys and phys.memType==emu.memType.nesWorkRam then bank='WRAM'..(phys.address//8192) end
+ local key=string.format('%s:%04x',bank,pc)
+ instructionCalls[key]=(instructionCalls[key] or 0)+1
  lastInstruction={key=key,cycle=cycle}
 end
 local skippedAddress = 0x013a
@@ -23,25 +29,40 @@ local function controllerRead() polled = true end
 emu.addMemoryCallback(controllerRead, emu.callbackType.read, 0x4016)
 emu.addMemoryCallback(controllerRead, emu.callbackType.read, 0x4017)
 local interrupts, isrCycles = {}, 0
-local function interruptHook(pc, bank, returning)
+local isrCompleted, unmatchedReturns = {}, 0
+local function interruptHook(pc, bank, kind, returning)
  emu.addMemoryCallback(guard(function()
   local physical = emu.convertAddress(pc)
   if not physical or physical.memType ~= emu.memType.nesPrgRom then return end
   local mapped = physical.address//8192
   if mapped ~= bank and not (bank == 127 and (mapped == 119 or mapped == 120 or mapped == 125)) then return end
-  local cycle = emu.getState()['cpu.cycleCount']
+  local state = emu.getState()
+  local cycle, sp = state['cpu.cycleCount'], state['cpu.sp']
   if returning then
-   local started = table.remove(interrupts)
-   if started and #interrupts == 0 then isrCycles = isrCycles + cycle+6-started end
+   local entry = interrupts[#interrupts]
+   if not entry or entry.kind ~= kind or entry.sp ~= sp then
+    unmatchedReturns = unmatchedReturns+1
+    return
+   end
+   table.remove(interrupts)
+   local duration = cycle+6-entry.cycle
+   local row = isrCompleted[entry.path] or {calls=0,cycles=0,max=0}
+   row.calls = row.calls+1
+   row.cycles = row.cycles+duration
+   row.max = math.max(row.max,duration)
+   isrCompleted[entry.path] = row
+   if #interrupts == 0 then isrCycles = isrCycles+duration end
   else
-   interrupts[#interrupts+1] = cycle-7
+   local path = kind
+   if kind == 'nmi' then path = read(0x0139) >= 128 and 'lag_nmi' or 'normal_nmi' end
+   interrupts[#interrupts+1] = {kind=kind,path=path,sp=sp,cycle=cycle-7}
   end
  end), emu.callbackType.exec, pc)
 end
-interruptHook(0xe33c, 127, false)
-interruptHook(0xe40f, 127, true)
-interruptHook(0x8000, 126, false)
-interruptHook(0x8043, 126, true)
+interruptHook(0xe33c, 127, 'nmi', false)
+interruptHook(0xe40f, 127, 'nmi', true)
+interruptHook(0x8000, 126, 'irq', false)
+interruptHook(0x8043, 126, 'irq', true)
 local function closeProfile()
  local state = emu.getState()
  while #stack > 0 and matches(stack[#stack]) do
@@ -65,7 +86,7 @@ local function closeProfile()
     sampleInstruction()
     instructionSample=nil
     local sorted={}
-    for key,cycles in pairs(instructionCounts) do sorted[#sorted+1]={key=key,cycles=cycles} end
+    for key,cycles in pairs(instructionCounts) do sorted[#sorted+1]={key=key,cycles=cycles,visits=instructionCalls[key]} end
     table.sort(sorted,function(a,b)return a.cycles>b.cycles end)
     local file=assert(io.open(OUTPUT..'instruction-sample.json','w'))
     file:write(json({scene=call.scene,opcodes=sorted,scope='One actual controller-reached GameLoop; elapsed cycles include interrupted work.'})..'\n')
@@ -120,7 +141,9 @@ for name, hook in pairs(MiniProfileHooks) do
    stats[phase][name].last_entry = guard
   end
   stack[#stack+1] = context
-  if name=='GameLoop' and sampleX and not instructionSample and context.scene.x>=sampleX and context.scene.y<145 then
+  if name=='GameLoop' and not instructionSample and
+     ((sample.frame and frame==sample.frame) or
+      (sample.x and context.scene.x>=sample.x and context.scene.y<145)) then
    instructionSample=context
    emu.addMemoryCallback(sampleInstruction,emu.callbackType.exec,0x0000,0xffff)
   end
@@ -160,6 +183,7 @@ end), emu.eventType.endFrame)
 profileFinish = function()
  local file = assert(io.open(OUTPUT..'timing.json', 'w'))
  file:write(json({ROM_sha256=C.ROM_sha256,cadence=cadence,routines=stats,open_calls=#stack,
-                  mesen_lag_key=mesenLagKey})..'\n')
+                  mesen_lag_key=mesenLagKey,interrupts=isrCompleted,
+                  unmatched_interrupt_returns=unmatchedReturns,open_interrupts=#interrupts})..'\n')
  file:close()
 end

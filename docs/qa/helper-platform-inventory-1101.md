@@ -4,7 +4,7 @@ The functional roster pass is not complete. This inventory separates source
 placements from actual route verification; it is not the final all-character list.
 
 Inventory fixture SHA256: `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
-Current nightly SHA256: `244734bbc2690b4e97e654cc72f8f153bedbe3fcc799f714e9508784e4f33af4`.
+Current nightly SHA256: `fc7d4554fed204e8efa4c4489ee70cd5c6529ce95e0d606ffee1cda525188ec5`.
 Bub/Bob added no helper platforms. Earlier route proofs below retain their stated hashes.
 Thomas's two late placements were added on d0b445a7; other placements are unchanged. The original admission fixture belongs to its stated earlier hash.
 `tools/audit/inventory_named_helpers_1101_v2.py` verified identical installed and
@@ -223,3 +223,18 @@ waits for grounded takeoff at X2434 or later before the final gap. It uses the
 existing native `$25` lifts in 1-1 at initial Y208, centers X704 and X888,
 left edges X688 and X872. No placement or ROM byte changed. Evidence is in
 `build/goku-current-last-gap-1108/capture/result.json`.
+
+November 8 Mini Mario (Mario Select alternate 8, raw 41) nightly `fc7d4554`
+replaces the wall grab with three existing native `$25` vertical
+girder actors. The controller-only run boarded and jumped from each, cleared
+the four pipes and three gaps, and reached active 1-2 with lives 2 → 2 and zero
+wall-jump restarts. Each girder is 32 pixels wide.
+
+| Stage | Native left edge X | Center X | Initial top Y | Assisted pipe left edge X |
+|---|---:|---:|---:|---:|
+| 1-1 | 560 | 576 | 192 | 608 |
+| 1-1 | 688 | 704 | 192 | 736 |
+| 1-1 | 864 | 880 | 192 | 912 |
+
+Evidence is in `build/mini-fireball-gbc-route-1108/capture/result.json`. The
+first pipe at X448 and the three gaps use Mini's ordinary jump.

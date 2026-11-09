@@ -7,6 +7,8 @@ local coreCalls,draws,dmas,bounces,minimumSP=0,0,0,0,255
 local coreBySlot,movedBySlot,bounceBySlot,spawnPending,last={0,0},{false,false},{0,0},{},{}
 local maxActive,maxVisible,twoDraws,twoDMAs=0,0,0,0
 local visibleByGroup,upward={right=0,left=0,up=0},false
+local liveFrames,impactFrames={},{}
+local impactTargetHit=false
 local pending,returns=nil,{}
 local initialLives,stable,groupStart=0,0,0
 local cadence,readCounts,framePhase,previousUpdates,previousSkipped={}, {0,0},nil,0,nil
@@ -45,7 +47,8 @@ local function result(ok,why)
    cleared_native_enemies=true,cleared_native_fireball_pool=true,
    description='Native power tier2 and empty native actor/projectile pools are seeded once after actual cold MiniReady2/engine8/floor handoff. Idle, movement, fresh/held B, two native actors, third-shot rejection, reversal, Up, bounce, clipping and OAM execute natively from real polled input.'},
   controller_only=false,earned_powerup_claim=false,enemy_kill_claim=false,full_stage=false,
-  helpers_added=false,tile_extent=C.tile_extent,expected_projectile_palette=C.palette}
+  helpers_added=false,tile_extent=C.tile_extent,expected_projectile_palette=C.palette,
+  moving_art_phases=liveFrames,impact_art_frames=impactFrames,staged_goomba_hit=impactTargetHit}
  local f=assert(io.open(OUTPUT..'result.json','w'));f:write(json(q)..'\n');f:close()
 end
 local function guard(fn)return function(...)
@@ -83,10 +86,22 @@ local function stateSample()
    if old.vy and old.vy<128 and vy>=128 then bounced=true end
   end
   if bounced then bounces=bounces+1;bounceBySlot[slot+1]=bounceBySlot[slot+1]+1 end
-  last[slot]={state=state,x=x,y=y,vy=vy,bounce=bounce}
+  local animation=C.phase_ram and ram(C.phase_ram[slot+1])or 0
+  if C.phase_ram then
+   local tick=state==1 and r('FrameCounter')&3==0 and 1 or 0
+   check(animation==(((old.animation or 0)+tick)&255),'Per-slot source artwork advances every fourth active update')
+  end
+  last[slot]={state=state,x=x,y=y,vy=vy,bounce=bounce,animation=animation}
  end
  maxActive=math.max(maxActive,live);check(live<=2,'Native two-shot capacity bound')
  return live,total
+end
+local function addImpactTarget()
+ local slot=5
+ local x=r('Player_X_Position')+256*r('Player_PageLoc')+22
+ local fields={Enemy_Flag=1,Enemy_ID=6,Enemy_State=0,Enemy_X_Position=x&255,Enemy_PageLoc=x//256,
+  Enemy_Y_Position=184,Enemy_Y_HighPos=1,Enemy_X_Speed=248,Enemy_MovingDir=2,Enemy_BoundBoxCtrl=9}
+ for name,value in pairs(fields)do emu.write(assert(L[name])+slot,value,emu.memType.nesDebug)end
 end
 local function sample()
  updates=updates+1;age=age+1
@@ -116,6 +131,11 @@ local function sample()
  elseif phase=='face-right'then
   if age>=2 then check(r('PlayerFacingDir')==1,'Controller establishes native right facing');transition('up-one-hold')end
   return
+ elseif phase=='impact'then
+  if rs('Enemy_State',5)&32~=0 then impactTargetHit=true end
+  if impactFrames.C and impactFrames.D and impactTargetHit and total==0 then transition('finish')end
+  check(age<100,'Actual Goomba defeat and both original impact tiles must reach normal DMA')
+  return
  end
  local group,stage=groupStage();local plan=plans[group]
  if not plan then return end
@@ -144,7 +164,7 @@ local function sample()
   check(age<plan.clear,'Native '..group..' terrain/clipping completion bound')
   if total==0 then
    check(count==2,'Exactly two shots in '..group..' group')
-   check(visibleByGroup[group]>0,'Two distinct 4x4 OAM records reached actual '..group..' normal DMA')
+   check(visibleByGroup[group]>0,'Two distinct OAM records reached actual '..group..' normal DMA')
    if group=='right'then
     check(movedBySlot[1]and movedBySlot[2]and bounceBySlot[1]>0 and bounceBySlot[2]>0,'Both native actors moved and bounced on actual terrain')
     transition('face-left')
@@ -152,8 +172,14 @@ local function sample()
    else
     check(#spawns==6 and upward,'Exactly six real-input shots across right/left/Up')
     check(coreBySlot[1]>0 and coreBySlot[2]>0,'Actual native Core executes independently for X0 and X1')
-    check(maxActive==2 and maxVisible==2 and twoDMAs>0,'Two active fireballs and two concurrent 4x4 normal-DMA records verified')
-    transition('finish')
+    check(maxActive==2 and maxVisible==2 and twoDMAs>0,'Two active fireballs and two concurrent normal-DMA records verified')
+    if C.donor_frames then
+     for i=0,3 do check(liveFrames[tostring(i)],'All four original moving phases reached DMA')end
+     addImpactTarget()
+     transition('impact')
+    else
+     transition('finish')
+    end
    end
   end
  end
@@ -192,15 +218,38 @@ for slot=0,1 do local ownedSlot=slot
 end
 
 local draw=C.hooks.MiniFireballDraw;local drawPending=nil;local drawReturns={}
+local function spriteRecord(slot,x,y,state)
+ local tile,attribute,yOffset=0x6f,2,C.draw_y-1
+ local frameName,phase
+ if C.donor_frames then
+  if state==1 then
+   phase=ram(C.phase_ram[slot+1])&3
+   frameName=(phase&1==0)and'A'or'B'
+   if phase>=2 then attribute=0xc2;yOffset=yOffset-8 end
+  else
+   frameName=(state&2==0)and'C'or'D'
+  end
+  tile=C.donor_frames[frameName].tile
+ end
+ return {tile=tile,attribute=attribute,x=(x+C.draw_x)&255,y=(y+yOffset)&255,
+         frameName=frameName,phase=phase,live=state==1}
+end
+local function sameRecord(at,part)
+ return read(at)==part.y and read(at+1)==part.tile and read(at+2)==part.attribute and read(at+3)==part.x
+end
 emu.addMemoryCallback(guard(function()
  if not active()or not valid(draw)then return end
- local q=context();q.parts={};q.logical=r('CurrentOAMOffset');q.group=groupStage()
+ local q=context();q.parts={};q.logical=r('CurrentOAMOffset');q.group=groupStage();q.live=0
  local logical=q.logical;local rotation=r('GuestOamRotationActive')~=0 and r('RgOamRotation')or 0
  for slot=0,1 do
   local x=rs('Fireball_X_Position',slot)-r('ScreenLeft_X_Pos')
   local y=rs('Fireball_Y_Position',slot);local page=rs('Fireball_PageLoc',slot)-r('ScreenLeft_PageLoc')
-  if rs('Fireball_State',slot)==1 and logical<252 and page==0 and x>=0 and x<C.draw_limit and y<236 then
-   q.parts[#q.parts+1]={actor=slot,slot=(logical+rotation)&255,x=x,y=y};logical=logical+4
+  local state=rs('Fireball_State',slot)
+  local allowed=state==1 or (C.donor_frames and state>=0x80 and state<0x86)
+  if allowed and logical<252 and page==0 and x>=0 and x<C.draw_limit and y<236 and (not C.donor_frames or y>=8) then
+   local part=spriteRecord(slot,x,y,state);part.actor=slot;part.slot=(logical+rotation)&255
+   q.parts[#q.parts+1]=part;logical=logical+4
+   if part.live then q.live=q.live+1 end
   end
  end
  drawPending=q
@@ -209,16 +258,14 @@ emu.addMemoryCallback(guard(function()
    local p=drawPending;drawPending=nil;draws=draws+1;latestDraw=nil
    check(r('CurrentOAMOffset')==p.logical+#p.parts*4,'Each admitted native shot reserves its own four OAM bytes')
    for _,part in ipairs(p.parts)do
-    local a=0x200+part.slot
-    check(read(a+1)==0x6f and read(a+2)==2,'Each actual 4x4 projectile OAM tile/attribute')
-    check(read(a+3)==((part.x+C.draw_x)&255)and read(a)==((part.y+C.draw_y-1)&255),'Each 4x4 opaque origin matches its native collision box')
+    check(sameRecord(0x200+part.slot,part),'Each exact projectile OAM tile, attribute and position')
    end
-   if #p.parts==2 then
+   if p.live==2 then
     check(p.parts[1].slot~=p.parts[2].slot,'Two native shots have distinct OAM records')
     check(p.parts[1].x~=p.parts[2].x or p.parts[1].y~=p.parts[2].y,'Staggered shots render independent projectile positions')
     twoDraws=twoDraws+1
    end
-   maxVisible=math.max(maxVisible,#p.parts)
+   maxVisible=math.max(maxVisible,p.live)
    if #p.parts>0 then latestDraw=p end
   end
  end),emu.callbackType.exec,q.ret)end
@@ -228,14 +275,18 @@ emu.addMemoryCallback(guard(function(_,page)
  local s=emu.getState()
  check(s['mapper.chrBanks5']==967,'Published projectile CHR slot5=physical967')
  check(s['mapper.chrMode']==3 and s['ppu.control.largeSprites']==true,'MMC5 1KB spritebank and 8x16 sprite mode')
- for i,v in ipairs(C.art)do check(emu.read(967*1024+0x2e0+i-1,emu.memType.nesChrRom)==v,'Exact physical 4x4 sprite art')end
+ local frames=C.donor_frames or {A={offset=0x2e0,data=C.art}}
+ for _,art in pairs(frames)do
+  for i,v in ipairs(art.data)do check(emu.read(967*1024+art.offset+i-1,emu.memType.nesChrRom)==v,'Exact physical sprite art')end
+ end
  for i,v in ipairs(C.palette)do check(emu.read(0x3f18+i,emu.memType.nesPpuDebug)==v,'Actual warm native spritepalette2 red/white/orange')end
  local p=latestDraw
  for _,part in ipairs(p.parts)do
-  local a=page*256+part.slot
-  check(read(a+1)==0x6f and read(a+2)==2 and read(a+3)==((part.x+C.draw_x)&255)and read(a)==((part.y+C.draw_y-1)&255),'Actual normal DMA contains each independent native projectile record')
+  check(sameRecord(page*256+part.slot,part),'Actual normal DMA contains each independent native projectile record')
+  if part.phase then liveFrames[tostring(part.phase)]=true
+  elseif part.frameName then impactFrames[part.frameName]=true end
  end
- if #p.parts==2 then twoDMAs=twoDMAs+1;if visibleByGroup[p.group]then visibleByGroup[p.group]=visibleByGroup[p.group]+1 end end
+ if p.live==2 then twoDMAs=twoDMAs+1;if visibleByGroup[p.group]then visibleByGroup[p.group]=visibleByGroup[p.group]+1 end end
  local mini=false;for at=page*256,page*256+252,4 do if read(at)<240 and read(at+1)%2==1 and read(at+1)<64 then mini=true end end
  check(mini,'Actual DMA includes Mini body beside native projectiles')
 end),emu.callbackType.write,0x4014)
@@ -259,7 +310,8 @@ emu.addEventCallback(guard(function()
  elseif phase=='confirm'and age<6 then keys.start=true
  elseif plans[group]and(stage=='one-hold'or stage=='two-hold'or stage=='third-hold')then keys.b=true;if group=='up'then keys.up=true end
  elseif phase=='face-left'then keys.left=true
- elseif phase=='face-right'then keys.right=true end
+ elseif phase=='face-right'then keys.right=true
+ elseif phase=='impact'and age<4 then keys.b=true end
  emu.setInput(keys,0)
 end),emu.eventType.inputPolled)
 local pictured={}
@@ -284,6 +336,6 @@ emu.addEventCallback(guard(function()
   if variant<8 then variant=variant+1;age=0 else check(r('SelectedCharacter')==41,'Actual Mini selected');transition('confirm')end
  elseif phase=='confirm'and age>=8 then transition('game')
  elseif phase=='game'then check(age<700,'Actual cold MiniReady2 floor handoff bound')
- elseif phase=='finish'then result(true);done=true;print('PASS focused native Mini two4x4 fireball fixture');emu.stop(0)
- elseif latestDraw and #latestDraw.parts==2 and latestDraw.group and not pictured[latestDraw.group]then pictured[latestDraw.group]=true;shot('mini-two-fireballs-'..latestDraw.group)end
+ elseif phase=='finish'then result(true);done=true;print('PASS focused native Mini two-fireball fixture');emu.stop(0)
+ elseif latestDraw and latestDraw.live==2 and latestDraw.group and not pictured[latestDraw.group]then pictured[latestDraw.group]=true;shot('mini-two-fireballs-'..latestDraw.group)end
 end),emu.eventType.endFrame)

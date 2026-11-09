@@ -1,4 +1,18 @@
 {
+  "mini_performance_lifts_1108": {
+    "status": "DELIVERED_NATIVE_LIFTS_AND_GBC_FIREBALLS_BUSY_ZERO_LAG_OPEN",
+    "baseline": "244734bbc2690b4e97e654cc72f8f153bedbe3fcc799f714e9508784e4f33af4",
+    "installed_nightly": "fc7d4554fed204e8efa4c4489ee70cd5c6529ce95e0d606ffee1cda525188ec5",
+    "current_IPS_SHA256": "656f2a369cd7fe4c2c1cd0954dafa22736b22f65937991c34950b4dab872c591",
+    "previous_turn_classification": "Progress. Native Goku Hard 1-1 passed on the installed nightly, and private Prince and DK Jr findings were recorded and pushed.",
+    "performance_only": "Private 9855a47a clears controller-only 1-1 with lives2to2. Compared with the installed route, active physical frames 3182 to3130 and lag NMIs/controller misses1157to1069. Geometry changes remove duplicate scan copies and shorten pixel shifts. Native fireball, Y-offscreen and parser changes preserve actual CPU state across144 whole fixture updates. Fixture fireballs still show two independent active/drawn shots in both facings and Up.",
+    "corrected_profile": "Physical-frame sample at installed X1518 is 37326 elapsed and30962 foreground after correctly matching nested IRQ/NMI by stack depth. Normal NMI in that bounded run averages4324 cycles and peaks10051. Source motion, enemy AI/contact, OAM draw, parser and audio all consume the budget. See build/mini-busy-x1518-isr-1108/capture/timing.json.",
+    "private_lift_candidate": "ffdb314bcf94c8608c4fc75758a53953a9f1f0f30df5256d4feb6e9ac327ca93 at build/mini-native-lifts-v2-1108/candidate.nes. Existing native25 lifts leftX560/688/864, center576/704/880, initial topY192, width32. Original Mini wall grab removed. Controller-only boarding and departure from all three, no wall restarts, lives2to2, and active1-2 pass. Active2597 updates/3084 frames,1131 lag NMIs. Source floor check passes2592 linked edge cases. No zero-lag claim.",
+    "native_receipts": ["build/mini-current-delivery-1108/verified-delivery.json", "build/mini-fireball-gbc-route-1108/capture/result.json", "build/mini-fireball-gbc-impact-1108/capture/result.json", "build/mini-fireball-gbc-idle-1108/capture/timing.json", "build/mini-fireball-gbc-power-1108/capture/result.json"],
+    "fireball_art": "Pinned donor moving tiles at file offsets10FF30/10FF50, with both mirror phases, and impact tiles10FF70/10FF90 now ship. Two original per-actor moving phases plus both mirrors reached actual DMA in both facings and Up. Both donor impact tiles reached DMA after a staged Goomba defeat. Native4x4 collision and two independent slots remain. Cold loader reconstructs all256 original encoded metatile attributes before cookie publication.",
+    "delivered_cadence": "Exact actual Downloads controller-only 1-1 to1-2 lives2to2; three real lift crossings, no wall grab. Active2597 updates/3084 frames,1132 skipped NMIs. Empty180idle and walk/turn/brake/jump/landing have no skipped NMI or missed controller poll. Focused powered idle60/60; busy and two-shot action still skip.",
+    "next": "Mini zero-lag remains the immediate performance priority. Fund draw-side savings without penalizing other roster actors if possible. CPU-only funded Goomba route build/mini-goomba-draw-1108-v1/goomba-funded-v2.json saves90–97cycles per actor but adds12 per visible foreign actor and15 on a legacy full clear, so remains private. Preserve delivered Mini lifts and donor art when composing Prince, DK Jr and further roster work."
+  },
   "roster_resume_1108": {
     "status": "WRAPPED_INCOMPLETE_GOKU_VERIFIED_PRINCE_AND_DK_JR_PRIVATE",
     "installed_nightly": "244734bbc2690b4e97e654cc72f8f153bedbe3fcc799f714e9508784e4f33af4",

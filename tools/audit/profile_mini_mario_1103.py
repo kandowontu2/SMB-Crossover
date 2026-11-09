@@ -23,7 +23,12 @@ def main():
     parser.add_argument('--idle-updates', type=int, default=20)
     parser.add_argument('--render-details', action='store_true')
     parser.add_argument('--bg-labels', type=Path)
-    parser.add_argument('--sample-x', type=int)
+    parser.add_argument('--native-lifts', action='store_true',
+                        help='Use and verify the native lifts on the controller-only 1-1 route.')
+    sample = parser.add_mutually_exclusive_group()
+    sample.add_argument('--sample-x', type=int)
+    sample.add_argument('--sample-frame', type=int,
+                        help='Attribute every instruction of the first GameLoop at this replay frame.')
     args = parser.parse_args()
     controller = args.controller.read_text()
     digest = sha(args.rom)
@@ -38,6 +43,23 @@ def main():
     labels = dict((name, int(pc, 16)) for pc, name in
                   re.findall(r'^al ([\dA-Fa-f]+) \.(\w+)$', args.labels.read_text(), re.M))
     refs = [args.controller, args.labels, Path(__file__)]
+    if args.native_lifts:
+        policy = R/'tools/playthroughs/mini_native_lifts_11_1108.lua'
+        start = 'local function route_tick(s)'
+        pad = ' local want=front or gap or route_enemy(x,y)'
+        finish = '  check(#route_clears==7,'
+        for anchor in (start,pad,finish,'helpers_added=false'):
+            assert controller.count(anchor) == 1, anchor
+        controller = controller.replace(start,policy.read_text()+'\n'+start)
+        controller = controller.replace(pad,
+            ' local assisted=mini_lift_inputs(s,ob,x)\n if assisted then route_pad=assisted;return end\n'+pad)
+        controller = controller.replace(finish,
+            '  for _,left in ipairs({560,688,864})do\n'
+            '   local lift=mini_lift_runs[left]\n'
+            '   check(lift and lift.boarded and lift.departed,"Each native lift was boarded and jumped from")\n'
+            '  end\n  check(route_walls==0,"No wall-jump restarts")\n'+finish)
+        controller = controller.replace('helpers_added=false','helpers_added=true')
+        refs.append(policy)
     if args.labels.resolve() != KERNEL.resolve():
         kernel = args.labels.with_suffix('.bin')
         binary = kernel.read_bytes()
@@ -85,14 +107,17 @@ def main():
     controller = controller.replace(old, 'local profileFinish\n' + old +
                                     '\n if profileFinish then profileFinish() end')
     controller += '\nlocal MiniProfileHooks=' + lua(hooks) + '\n' + observer.read_text()
-    if args.sample_x is not None:
-        controller = controller.replace('local stack, hooks, stats, cadence = {}, {}, {}, {}',
-            f'local sampleX={args.sample_x}\nlocal stack, hooks, stats, cadence = {{}}, {{}}, {{}}, {{}}')
+    controller = controller.replace('local stack, hooks, stats, cadence = {}, {}, {}, {}',
+        'local MiniSample=' + lua(dict(x=args.sample_x, frame=args.sample_frame)) +
+        '\nlocal stack, hooks, stats, cadence = {}, {}, {}, {}')
     prepare(args.output, args.rom, controller,
             [*refs, observer], expected=digest,
             timeout=180, scope='Stack and physical-bank matched Mini 1-1 timings, lag NMI count and update cadence.',
             allow_interactive=True)
-    return subprocess.call([sys.executable, '-B', args.output / 'run.py'])
+    result = subprocess.call([sys.executable, '-B', args.output / 'run.py'])
+    if result == 0 and (args.sample_x is not None or args.sample_frame is not None):
+        assert (args.output/'capture/instruction-sample.json').is_file(), 'Requested replay sample was not reached'
+    return result
 
 
 if __name__ == '__main__':
