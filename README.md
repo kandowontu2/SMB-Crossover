@@ -188,7 +188,7 @@ The chosen starting level applies when confirming a character. Invincibility doe
 
 ## Development status
 
-The current MMC5 nightly is `66a7b932`. It adds Getsu Fuma, repairs his head probe and powerup freeze, and reduces his idle slowdown while retaining the Giant contact/crushing repairs, **BY KANDOWONTU** title credit, and Mini/Karnov's **Up + Select** moving-platform summon. Downloads and the sole Current/Latest IPS were verified against the same ROM bytes. The requested **Down + Select** horizontal summon is still being implemented.
+The current MMC5 nightly is `74fde1db`. Mini Mario and Karnov now use **Up + Select** for a vertical platform and **Down + Select** for a separate horizontal platform. The horizontal one spawns to the right regardless of facing, moves right first for 112 pixels, then travels back and forth. One of each can coexist; a fresh chord replaces only that axis. Both characters passed actual Downloads tests, and the sole Current/Latest IPS reconstructs the tested ROM. Getsu's powerup/head repairs, Giant contact/crushing repairs and **BY KANDOWONTU** credit are retained.
 
 Highlight Mario and press Select until **MINI MARIO**. A jumps and B runs. Three native vertical platforms help him cross the taller pipes in 1-1; Up + Select creates or replaces a platform beneath him. Fire Flower grants up to two small fireballs using the Game Boy Color moving/impact sprites and 4×4 collision boxes. The latest non-shortcut replay reaches active 1-2 with both lives and records **3,494 gameplay updates over 3,494 gameplay frames, with no lag NMIs or missed updates**. This result is specific to that route, not every level or character. See the [helper inventory](docs/qa/helper-platform-inventory-1101.md).
 

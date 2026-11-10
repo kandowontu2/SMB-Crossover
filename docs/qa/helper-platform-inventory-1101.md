@@ -343,3 +343,37 @@ The installed Downloads ROM repeats the full route successfully; see
 `build/mini-camera-delivery-1110/verified-delivery.json`.
 The shared non-Mini helper manager already uses camera-relative margins;
 this change repairs Mini's separate player-proximity admission.
+
+### Manually summoned support: Mini Mario and Karnov
+
+Up + Select summons a native vertical girder beneath the player. The new
+Down + Select horizontal girder is delivered on `74fde1db`, with actual
+Downloads controller tests for both characters. Mini's normal 1-1 regression
+retains zero lag NMIs and missed updates. These are dynamic summons in the current stage/area,
+including 1-1, rather than fixed stage records. Each is 32 pixels wide.
+
+Here X and Y mean the native player world X and native player Y at the actual
+constructor event. Left edges clamp to zero when necessary; center is always
+the final left edge + 16. Initial top is Y + 32.
+
+| Character / alternate | Control | Initial native left edge | Initial center | Initial top |
+|---|---|---:|---:|---:|
+| Mini Mario, Mario alternate 8 / raw 41 | Up + Select | max(0, X − 12) | left + 16 | Y + 32 |
+| Mini Mario, Mario alternate 8 / raw 41 | Down + Select | X + 20 | X + 36 | Y + 32 |
+| Karnov, Rygar alternate / raw 34 | Up + Select | max(0, X − 8) | left + 16 | Y + 32 |
+| Karnov, Rygar alternate / raw 34 | Down + Select | X + 24 | X + 40 | Y + 32 |
+
+Horizontal placement always uses the right side, including when facing left.
+It begins moving right at one pixel per gameplay update, reaches initial
+left edge + 112, then returns to its initial left edge and repeats. Its top
+remains at its initial Y. One manual girder of each axis can coexist; a new
+matching chord replaces only that axis. Holding the chord does not repeatedly
+construct actors. A full native pool queues the request.
+
+The delivered 1-1 opening tests verify both directions of native carrying,
+right–left–right motion, actual controller edges, independent replacement,
+and right-side placement while facing left. The camera retains SMB's native
+one-way scroll: a returning platform can leave the rider at the viewport's
+left boundary, and an older vertical girder can be culled offscreen. These
+tests do not yet establish a manual horizontal-assisted pit crossing. Mini's
+full non-shortcut 1-1 route still uses the three fixed girders listed above.
