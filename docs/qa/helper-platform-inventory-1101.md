@@ -4,7 +4,12 @@ The functional roster pass is not complete. This inventory separates source
 placements from actual route verification; it is not the final all-character list.
 
 Inventory fixture SHA256: `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
-Current nightly SHA256: `12f3e4163631887e134cbce7f1caa015bfe4b3786c2ee3d71217c80c1f677a6c`.
+Current nightly SHA256: `095c164a574479401f284c1669264034404b83cb2e1d6cdc4a1f5ef37dcafe79`.
+
+Requested next addition, not yet delivered: Mini Mario and Karnov **Down + Select**
+summons one horizontal native platform in front of the player. Horizontal and
+vertical ownership are independent; a fresh combination replaces only its own
+platform type. Placement and actual crossing verification are pending.
 
 The Giant nightly repeats Mini's actual Downloads 1-1 clear, boarding all three
 existing lifts with unchanged positions and timing. It adds no Giant helper.

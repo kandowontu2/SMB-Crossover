@@ -6,7 +6,7 @@ A native NES adaptation of [Super Mario Bros. Crossover](https://www.smbgames.be
 
 [Player's guide](<Player Guide/SMB-Crossover-Players-Guide-NU.pdf>) · [Full roster image](docs/images/SMB-Crossover-Full-Roster.png) · [Build from source](#build-from-source) · [Report a bug](https://github.com/kandowontu2/SMB-Crossover/issues)
 
-> **In development:** the November 3 expanded MMC5 nightly has **93 selectable identities** across a **32-slot, four-row menu**. Prince of Persia is displayed but remains locked; additional requested characters are still being integrated. Menu availability does not mean every character has completed stage and powerup testing. The prepared source build currently contains 37 identities; see the build table below.
+> **In development:** the expanded MMC5 nightly uses a **32-slot, four-row menu** with Select alternates. The [Current release](https://github.com/kandowontu2/SMB-Crossover/releases/tag/Current) contains the latest IPS. Getsu Fuma and Mega Giant Mario are now playable; Prince of Persia and Donkey Kong Jr. are still being validated. Menu availability does not mean every character has completed stage and powerup testing. The prepared source build contains 37 identities; see the build table below.
 
 <p align="center">
   <img src="docs/images/character-select.png" width="512" alt="Actual NES character-select screen with four rows of heroes and highlighted Imajin">
@@ -27,16 +27,16 @@ The title opens a separate character-select screen. Use the D-pad to highlight a
 
 ## Current roster
 
-This table describes the **93-selectable development nightly**, including work in progress. Availability follows the recorded menu confirmation tests. Prince of Persia is the remaining displayed entry that cannot start gameplay.
+This table records the core roster and verified recent additions, including work in progress. Select cycles alternates within a slot. Full-stage and powerup verification is still in progress.
 
 | Slot | Playable now | Coming soon |
 | --- | --- | --- |
-| Mario | Mario / Luigi / Toad / Peach / Super Maaa / Kamikaze Mario / Celeste Mario / Mario the Tank / Mini Mario (WIP) | — |
+| Mario | Mario / Luigi / Toad / Peach / Super Maaa / Kamikaze Mario / Celeste Mario / Mario the Tank / Mini Mario / Mega Giant Mario | — |
 | Mega Man | Mega Man / Proto Man | — |
 | Metroid | Samus / Rogue Dawn | — |
 | Contra | Bill Rizer / Lance Bean | — |
 | Zelda | Link / Zelda II Link | — |
-| Castlevania | Simon / Grant / Sypha / Alucard | — |
+| Castlevania | Simon / Grant / Sypha / Alucard / Getsu Fuma | — |
 | Kid Icarus | Pit / GB Pit | — |
 | Rygar | Rygar / Karnov (WIP) | — |
 | DuckTales | Scrooge / Darkwing Duck | — |
@@ -58,7 +58,7 @@ This table describes the **93-selectable development nightly**, including work i
 | SMB2 / Doki Doki Panic | Mario / Luigi / Toad / Peach / Imajin / Lina / Papa / Mama | — |
 | Mr. Gimmick | Mr. Gimmick / Bub / Bob | — |
 | Bowser | SMB3 Bowser / SMB1 Bowser | — |
-| Donkey Kong | Donkey Kong | — |
+| Donkey Kong | Donkey Kong | Donkey Kong Jr. |
 | WWF WrestleMania | Hulk Hogan / Ted DiBiase / Bam Bam Bigelow / Honky Tonk Man / Randy Savage / Andre the Giant | — |
 | Excitebike | Excitebike (WIP) | Prince of Persia |
 | Contra Force | Burns / Smith / Iron / Beans | — |
@@ -73,7 +73,11 @@ The image includes unfinished characters and predates the two new SMB1 alternate
 
 </details>
 
-The four SMB2 characters, four Final Fantasy classes and both SMB1 and SMB3 Toad/Peach are enabled, with bounded emulator checks recorded for their respective build hashes. Goku is an Arthur Select alternate. Bub and Bob are Select alternates for Mr. Gimmick. Sonic, Donkey Kong Jr., Getsu Fuma, Mega Giant Mario, Jay McCray and Steve Hermann remain absent from the current menu; see the [current roster gaps](docs/qa/current-roster-gaps-1101.md).
+The four SMB2 characters, four Final Fantasy classes and both SMB1 and SMB3 Toad/Peach are enabled, with emulator checks recorded for their respective build hashes. Goku is an Arthur Select alternate. Bub and Bob are Select alternates for Mr. Gimmick. Older roster-gap reports describe their recorded builds and should not be treated as a current unlock list.
+
+**Getsu Fuma:** highlight Simon and press Select past the Castlevania III alternates. His movement, sword and original sprites are integrated, and the delivered build clears 1-1 into 1-2 with both lives. Idle slowdown is reduced, but combat lag and powerup validation remain open.
+
+**Mega Giant Mario:** select his Mario alternate to defeat enemies by body contact and crush question blocks and bricks. Pipes, ground and exit objects retain their structural behavior. The delivered build clears 1-1 with both lives. Firebar and thrown-hammer rules remain under review.
 
 **Bub and Bob:** A jumps; B blows bubbles. Trap enemies, then touch their bubbles to pop them; hold A to bounce on free bubbles. Mushrooms grant the original speed upgrade. Both characters pass first-mushroom collection and separate full non-shortcut 1-1 runs without life loss or additional helper platforms, on the candidate and the actual Downloads nightly. Block contacts and starting power status are repaired. The later flower route, original audio and idle/walk performance remain under test. See the [November 3 verification](docs/qa/checkpoints/2026-11-03/bub-earned-delivery-v99/receipt.json).
 
@@ -107,7 +111,7 @@ Both Bowser versions are enabled in the October 31 WIP. They have source-derived
 
 | Target | Roster | Cartridge layout | Status |
 | --- | --- | --- | --- |
-| Expanded MMC5 nightly | 93 selectable / 94 displayed identities | 1 MiB PRG + 1 MiB CHR | Includes unfinished characters; frozen source and recipes are in the checkpoint archives. |
+| Expanded MMC5 nightly | Expanded roster with Select alternates | 1 MiB PRG + 1 MiB CHR | Includes unfinished characters; frozen source and recipes are in the checkpoint archives. |
 | Prepared expanded MMC5 | 37 identities | 1 MiB PRG + 1 MiB CHR | Reproduced by the commands below. |
 | Standard MMC3 / MMC5 | 14 identities in 12 slots | 512 KiB PRG + 256 KiB CHR | Smaller original roster. |
 | Oversized MMC3 | Expanded roster | 2 MiB PRG + 256 KiB CHR RAM | Experimental; feature parity and physical cartridge compatibility remain unverified. |
@@ -184,9 +188,9 @@ The chosen starting level applies when confirming a character. Invincibility doe
 
 ## Development status
 
-The November 8 MMC5 nightly is `84d372ef`, with **93 selectable identities**. Highlight Mario and press Select until **MINI MARIO**. A jumps and B runs. Three native vertical platforms help Mini cross the taller pipes in 1-1. After a Fire Flower, press B to launch up to two fireballs. They use the original Game Boy Color moving and impact sprites, with native bounce and 4×4 collision boxes. The controller-only 1-1 replay reaches 1-2 with both lives, and the separate mushroom replay completes the growth animation. Mini runs without skipped frames in the empty-area test. Faster terrain rendering, collision probes, and enemy drawing reduced the 1-1 replay from 832 to 706 frames without a controller read. Busy-stage lag remains.
+The current MMC5 nightly is `095c164a`. It adds Getsu Fuma while retaining the Giant contact/crushing repairs, **BY KANDOWONTU** title credit, and Mini/Karnov's **Up + Select** moving-platform summon. Downloads and the sole Current/Latest IPS were verified against the same ROM bytes.
 
-Mini now clears non-shortcut **1-1 into active 1-2**, crossing all four pipes and three gaps without life loss or helper platforms. The ending repair restores native castle collisions and uses native coordinates during scripted movement and the lives screen. His original transition timing, exact mushroom/flower progression, fireballs, audio, swimming and performance still need review. Roster integration has resumed. See the [current checkpoint and remaining work](docs/qa/checkpoints/2026-11-03/roster-resume-v62/receipt.json).
+Highlight Mario and press Select until **MINI MARIO**. A jumps and B runs. Three native vertical platforms help him cross the taller pipes in 1-1; Up + Select creates or replaces a platform beneath him. Fire Flower grants up to two small fireballs using the Game Boy Color moving/impact sprites and 4×4 collision boxes. The latest non-shortcut replay reaches active 1-2 with both lives and records **3,494 gameplay updates over 3,494 gameplay frames, with no lag NMIs or missed updates**. This result is specific to that route, not every level or character. See the [helper inventory](docs/qa/helper-platform-inventory-1101.md).
 
 Earlier Bub/Bob, Metal Storm, Excitebike and Arthur repairs remain included, with verification scoped to their recorded ROM hashes. The preceding Bub/Bob build passes first-mushroom collection and independent full non-shortcut 1-1 runs from Downloads; see its [verification](docs/qa/checkpoints/2026-11-03/bub-earned-delivery-v99/receipt.json). Full roster stages, shortcuts, every earned powerup and steady performance remain unfinished.
 
