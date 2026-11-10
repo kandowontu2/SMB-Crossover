@@ -6,7 +6,10 @@ placements from actual route verification; it is not the final all-character lis
 Earlier shared-record inventory fixture SHA256:
 `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
 Current nightly SHA256:
-`c10b7d87f466bf028096bddd33b7ac2baee242870ee83ccc4eebd529af57bd7f`.
+`a76d7610eed8493806200c52b96065af0369b926c55d033e17841f818756e2e0`.
+The November10 Excitebike progression repair changes no helper actor,
+admission, location or movement. Its actual earned-pickup run is documented
+in [the delivery report](excitebike-physical-delivery-1110.md).
 
 **Current delivered Level 2 controls:** Mini Mario, Karnov, all six WWF
 wrestlers and all four Final Fantasy classes have Up + Select vertical and

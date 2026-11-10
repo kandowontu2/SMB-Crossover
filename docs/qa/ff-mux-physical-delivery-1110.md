@@ -39,9 +39,10 @@ cheats, state loads, capture files or backup copies were used.
 The clean-base IPS is2,099,510 bytes, SHA256
 `c562f772312dab68907cfe2dcc8b205af811241a6f505f389c93614c4d534d64`.
 It reconstructs the installed bytes exactly. The Downloads automatic-patch
-guard passed before and after installation. Current/Latest publication follows
-the source push; the publication tool downloads and reconstructs its asset
-again before reporting success.
+guard passed before and after installation. Current/Latest publication passed
+after source push95d5a1d5: sole asset731227150 has the exact digest above. The
+publication tool downloaded and reconstructed the asset again, equal to the
+tested Downloads bytes. No disk patch or backup was generated.
 
 ## Empty-area physical comparison
 
