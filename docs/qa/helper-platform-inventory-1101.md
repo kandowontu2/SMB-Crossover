@@ -394,3 +394,54 @@ The first assisted pipe crossing still failed at jump/detach; the new nightly
 qualifies only selection and the early walk/jump opening before these lifts.
 Do not treat their presence as a verified crossing. Prince of Persia adds no
 helper platforms in this opening prototype.
+
+### November 10: full WWF and Final Fantasy Level 2 support
+
+Delivered nightly `c10b7d87` extends both manual native `$25` girder controls
+to **Hulk Hogan, Ted DiBiase, Bam Bam Bigelow, Honky Tonk Man, Randy Savage,
+Andre the Giant, Fighter, White Mage, Black Mage and Thief**. Mini Mario and
+Karnov retain their existing controls and placements above. Sonic, Jay McCray
+and Steve Hermann add no helper records.
+
+These are dynamic summons in **any active gameplay stage/area**, verified in
+1-1, rather than fixed world coordinates. Each is 32 pixels wide. X means
+player world X and Y means native player Y at the constructor event. For each
+of the ten newly supported characters:
+
+| Control | Initial native left edge X | Initial center X | Initial top Y |
+|---|---:|---:|---:|
+| Up + Select, vertical | max(0, X − 8) | left + 16 | Y + 32 |
+| Down + Select, horizontal | X + 24 | X + 40 | Y + 32 |
+
+The horizontal platform starts right, reaches initial left edge + 112, returns
+left 112 and repeats. Facing left does not reverse its birth side. Each axis
+has its own single actor; a fresh chord replaces only that axis, held chords
+do not repeat, and an occupied pool queues the request.
+
+The following **observed initial world positions in 1-1** are from the first
+vertical and horizontal births in each final-ROM controller replay. Initial
+height differs because the vertical platform has already lifted the player
+two pixels when the horizontal one is summoned.
+
+| Character / alternate | Vertical left / center / top | Horizontal left / center / top |
+|---|---|---|
+| Hulk Hogan | 32 / 48 / 208 | 64 / 80 / 206 |
+| Ted DiBiase | 32 / 48 / 208 | 64 / 80 / 206 |
+| Bam Bam Bigelow | 33 / 49 / 208 | 66 / 82 / 206 |
+| Honky Tonk Man | 32 / 48 / 208 | 64 / 80 / 206 |
+| Randy Savage | 32 / 48 / 208 | 64 / 80 / 206 |
+| Andre the Giant | 33 / 49 / 208 | 66 / 82 / 206 |
+| Fighter | 32 / 48 / 208 | 64 / 80 / 206 |
+| White Mage | 32 / 48 / 208 | 64 / 80 / 206 |
+| Black Mage | 32 / 48 / 208 | 64 / 80 / 206 |
+| Thief | 32 / 48 / 208 | 64 / 80 / 206 |
+
+All ten final-hash replays pass six birth/replacement events, both axes alive,
+native carrying and right–left–right 112-pixel endpoints with both lives.
+Fighter repeats from the actual Downloads filename. Final Fantasy uses a
+temporary one-pixel platform-only foot allowance; ordinary body collision
+boxes are restored exactly. Mini's separate full non-shortcut 1-1 route still
+passes at 3,494 updates / 3,494 gameplay frames with zero lag NMIs/missed updates.
+The manual helper opening tests do not establish every character's assisted
+pit crossing or full 1-1 clear. Evidence and prototype limits:
+`docs/qa/complete-roster-starts-1110.md`.

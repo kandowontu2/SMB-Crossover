@@ -10,7 +10,7 @@ A native NES adaptation of [Super Mario Bros. Crossover](https://www.smbgames.be
 
 [Player's guide](<Player Guide/SMB-Crossover-Players-Guide-NU.pdf>) · [Full roster image](docs/images/SMB-Crossover-Full-Roster.png) · [Build from source](#build-from-source) · [Report a bug](https://github.com/kandowontu2/SMB-Crossover/issues)
 
-> **In development:** the expanded MMC5 nightly uses a **32-slot, four-row menu** with Select alternates. The [Current release](https://github.com/kandowontu2/SMB-Crossover/releases/tag/Current) contains the latest IPS. Prince of Persia and Donkey Kong Jr. now start as unfinished playable prototypes. Menu availability does not mean every character has completed stage and powerup testing. The prepared source build contains 37 identities; see the build table below.
+> **In development:** the expanded MMC5 nightly uses a **32-slot, four-row menu** with **100 named entries**, including Select alternates. The [Current release](https://github.com/kandowontu2/SMB-Crossover/releases/tag/Current) contains the latest IPS. Sonic, Jay McCray, Steve Hermann, Prince of Persia and Donkey Kong Jr. can start as unfinished playable prototypes. Menu availability does not mean every character has completed stage and powerup testing. The prepared source build contains 37 identities; see the build table below.
 
 <p align="center">
   <img src="docs/images/character-select.png" width="512" alt="Actual NES character-select screen with four rows of heroes and highlighted Imajin">
@@ -35,7 +35,7 @@ This table records the core roster and verified recent additions, including work
 
 | Slot | Playable now | Coming soon |
 | --- | --- | --- |
-| Mario | Mario / Luigi / Toad / Peach / Super Maaa / Kamikaze Mario / Celeste Mario / Mario the Tank / Mini Mario / Mega Giant Mario | — |
+| Mario | Mario / Luigi / Toad / Peach / Super Maaa / Kamikaze Mario / Celeste Mario / Mario the Tank / Mini Mario / Mega Giant Mario / Sonic (prototype) | — |
 | Mega Man | Mega Man / Proto Man | — |
 | Metroid | Samus / Rogue Dawn | — |
 | Contra | Bill Rizer / Lance Bean | — |
@@ -50,7 +50,7 @@ This table records the core roster and verified recent additions, including work
 | Kirby | Kirby / Meta Knight | — |
 | Rescue Rangers | Chip / Dale | — |
 | Punch-Out!! | Little Mac / Doc Louis / Mike Tyson | — |
-| StarTropics | Mike Jones | — |
+| StarTropics | Mike Jones / Jay McCray (prototype) / Steve Hermann (prototype) | — |
 | SMB3 | SMB3 Mario / Luigi / Toad / Peach | — |
 | Gradius / Parodius | Vic Viper / Octopus / TwinBee / Pentarou | — |
 | TMNT | Leonardo / Raphael / Michelangelo / Donatello | — |
@@ -91,7 +91,7 @@ The four SMB2 characters, four Final Fantasy classes and both SMB1 and SMB3 Toad
 
 **Metal Storm** now has repaired sprite allocation: his body stays coherent at its native position instead of scrambling during OAM rotation. The latest candidate clears non-shortcut1-1 into active1-2 without life loss or helpers, and the actual Downloads launch passes. His palette/HUD name and original audio remain unfinished; empty-area update cadence is unchanged. See the [November2 verification](docs/qa/metal-reservation-1102-v42.md).
 
-**All six WWF wrestlers** are playable. Select cycles **Hogan → DiBiase → Bigelow → Honky Tonk Man → Savage → Andre**. Their original actor routines, poses, palettes and themes are integrated with SMB terrain and enemies. A jumps; B punches; Down+B kicks, and Up+B retains the original directional attack. Every wrestler passes a cold Mesen opening route through selection, lives, jump/landing, a Goomba defeat and scrolling across a page. Full stages, advanced wrestling, authentic endurance/upgrades and steady performance remain unfinished. See the [81-character verification](docs/qa/checkpoints/2026-11-01/ready81-wwf-native-v1/README.md).
+**All six WWF wrestlers** are playable. Select cycles **Hogan → DiBiase → Bigelow → Honky Tonk Man → Savage → Andre**. Their original actor routines, poses, palettes and themes are integrated with SMB terrain and enemies. A jumps; B punches; Down+B kicks, and Up+B retains the original directional attack. Every wrestler passes a cold Mesen opening route through selection, lives, jump/landing, a Goomba defeat and scrolling across a page. All six now support independent **Up + Select** vertical and **Down + Select** horizontal helper platforms, as do all four Final Fantasy classes. Full stages, advanced wrestling, authentic endurance/upgrades and steady performance remain unfinished. See the [81-character verification](docs/qa/checkpoints/2026-11-01/ready81-wwf-native-v1/README.md) and [current helper inventory](docs/qa/helper-platform-inventory-1101.md).
 
 **WWF death recovery:** all six wrestlers now complete the native life-loss sequence and respawn after enemy contact. Hogan also recovers from a natural pit death; the actual Downloads launch is verified. A missing death-tick binding had left them stuck. Full WWF routes and powerups remain unfinished. See the [November2 checks](docs/qa/wwf-death-1102-v2.md).
 
@@ -101,7 +101,7 @@ The four SMB2 characters, four Final Fantasy classes and both SMB1 and SMB3 Toad
 
 **Kirby** now applies suction immediately during the opening animation and slows gradually while inhaling, matching the original game's timing and friction. Copied green/red shells retain native enemy hitboxes and a 3 px/update speed. On the current nightly, Hard Kirby cleared 1-1 with both lives. Separate emulator fixtures verified three close-range directional inhales with no injury, both grounded shell hits, all 14 copy abilities, mushroom and Fire Flower healing, air puff, and slide. These fixtures set up the terrain and targets, then used controller input for acquisition and attacks. See the [original repair verification](docs/qa/checkpoints/2026-11-01/kirby-approach-nightly-v3/README.md).
 
-**Character selection** also has rendering and input repairs. A cold-controller sweep covers all 90 identities through 124 D-pad/Select transitions without sampled heading flashes or visible rendering changes. Select pressed during construction is deferred, simultaneous Select+confirm chooses the alternate, and returning through the title retains it. Alex and Ryan retain their required outlines. See the [current WIP verification](docs/qa/checkpoints/2026-11-01/karnov-hud-nightly-v9/README.md).
+**Character selection** also has rendering and input repairs. An earlier cold-controller sweep covered 90 identities through 124 D-pad/Select transitions without sampled heading flashes or visible rendering changes. Select pressed during construction is deferred, simultaneous Select+confirm chooses the alternate, and returning through the title retains it. Alex and Ryan retain their required outlines. The current build's CPU inventory confirms all 100 named entries can start, with no locked entries. A known preview-header glitch remains when cycling through Mini Mario toward Sonic; the earlier sweep does not establish current menu-wide graphical correctness. See the [earlier verification](docs/qa/checkpoints/2026-11-01/karnov-hud-nightly-v9/README.md) and [November 10 update](docs/qa/complete-roster-starts-1110.md).
 
 On **Battletoads**, Select cycles **Rash → Zitz**. On **Contra Force**, it cycles **Burns → Smith → Iron → Beans**. These six use recovered original-game movement, graphics and attacks. The preceding checkpoint repairs Contra Force's projectile contact with native enemies, following the camera and enemy-graphics fixes. All four Contra Force characters passed controller-earned pistol kills with native score, hit sound and original projectile impacts; SMB1 Peach also passed a bounded regression check on that ROM. Those results remain attached to their tested hashes. Full levels, complete special moves, upgrades and dedicated audio remain unfinished. Battletoads and Contra Force are noticeably slow. See the [74-character WIP receipt](docs/qa/functional-roster-ready74-cf-projectile-2026-10-31.json).
 
@@ -171,6 +171,7 @@ The experimental oversized builder is `tools/build_mmc3_oversized.py`. It requir
 | Mega Man / Bass weapons | Select cycles acquired weapons, including the normal weapon. |
 | Supported weapon inventories | Paused Left/Right chooses equipment; paused Select returns to the primary weapon. |
 | Gradius / Parodius | A fires; B purchases the highlighted upgrade. |
+| Mini Mario, Karnov, WWF and Final Fantasy helpers | Up + Select summons a vertical platform; Down + Select summons a separate horizontal platform. A fresh chord replaces only that axis. |
 | Audio test | Up/Down chooses a character; Left/Right chooses a cue; Select switches music/SFX; A plays; Start stops; B returns. |
 
 See the [illustrated player's guide](<Player Guide/SMB-Crossover-Players-Guide-NU.pdf>) for individual moves and tips. Zelda II Link has his own paused spell/stat interface. The guide is updated separately and may lag behind the ROM.
@@ -192,9 +193,13 @@ The chosen starting level applies when confirming a character. Invincibility doe
 
 ## Development status
 
-The current MMC5 nightly is `d1333adf`. **Select on Excitebike** starts Prince of Persia, and **Select on Donkey Kong** starts DK Jr. Both pass cold menu-to-gameplay, authentic initialization/graphics, walking and jumping from the actual Downloads filename. They remain prototypes: Prince has a later Easy landing/contact issue, and DK Jr. has a first-pipe lift/jump-detach issue. Full 1-1 completion is not claimed for them.
+The current MMC5 nightly is `c10b7d87`. All **100 named roster entries** can confirm a new game in the CPU menu inventory. Seventeen emulator checks pass on this exact ROM: ten wrestler/Final Fantasy helper variants, five prototype openings, Mini's full 1-1 route and Getsu's earned powerup regression. Sonic and Fighter's helper replay also pass from the actual Downloads filename. See the [verification and limitations](docs/qa/complete-roster-starts-1110.md).
 
-Mini Mario and Karnov use **Up + Select** for a vertical platform and **Down + Select** for a separate horizontal platform. The horizontal one spawns to the right regardless of facing, moves right first for 112 pixels, then travels back and forth. One of each can coexist; a fresh chord replaces only that axis. The sole Current/Latest IPS reconstructs the tested Downloads ROM. Getsu's powerup/head repairs, Giant contact/crushing repairs and **BY KANDOWONTU** credit are retained. Wrestler/Final Fantasy platform support and Sonic/Jay/Steve startup prototypes are in progress.
+**Sonic:** highlight Mario and press Select ten times. His Master System-derived graphics currently use Mario's native movement, abilities and audio. **Jay McCray / Steve Hermann:** highlight Mike Jones and press Select once / twice. Their original-game sprite cores currently use Mike's movement, weapons, health and audio. They are startup prototypes, not completed original movesets. Active level-select cheats currently clear Jay/Steve's prototype selection. A preexisting Mini preview-header glitch can carry through to Sonic's preview.
+
+**Select on Excitebike** starts Prince of Persia, and **Select on Donkey Kong** starts DK Jr. Both pass cold menu-to-gameplay, authentic initialization/graphics, walking and jumping. They remain prototypes: Prince has a later Easy landing/contact issue, and DK Jr. has a first-pipe lift/jump-detach issue. Full 1-1 completion is not claimed for them.
+
+Mini Mario, Karnov, **all six WWF wrestlers and all four Final Fantasy classes** use **Up + Select** for a vertical platform and **Down + Select** for a separate horizontal platform. The horizontal one spawns to the right regardless of facing, moves right first for 112 pixels, then travels back and forth. One of each can coexist; a fresh chord replaces only that axis. The sole Current/Latest IPS reconstructs the tested Downloads ROM. Getsu's powerup/head repairs, Giant contact/crushing repairs and **BY KANDOWONTU** credit are retained.
 
 Highlight Mario and press Select until **MINI MARIO**. A jumps and B runs. Three native vertical platforms help him cross the taller pipes in 1-1; Up + Select creates or replaces a platform beneath him. Fire Flower grants up to two small fireballs using the Game Boy Color moving/impact sprites and 4×4 collision boxes. The latest non-shortcut replay reaches active 1-2 with both lives and records **3,494 gameplay updates over 3,494 gameplay frames, with no lag NMIs or missed updates**. This result is specific to that route, not every level or character. See the [helper inventory](docs/qa/helper-platform-inventory-1101.md).
 
