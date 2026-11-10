@@ -8,6 +8,9 @@ repeated with identical receipts. The before and after patch guards were clean.
 The 2,099,510-byte IPS has SHA-256
 `92527edf832ecb5349c3c3bfc568914a7fae3e746c5dc9982886b296ea9821cb`
 and reconstructs the tested Downloads ROM.
+The source is pushed at `fc65fcba`. GitHub’s Latest release is `Current` and
+holds sole IPS asset `732894985`. The downloaded patch reconstructs the
+tested Downloads ROM byte for byte.
 
 Prince keeps his original running jump, ledge hang and climb. The updated
 terrain bridge keeps his original careful step attached to the fourth pipe
