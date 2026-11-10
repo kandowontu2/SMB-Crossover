@@ -6,7 +6,10 @@ placements from actual route verification; it is not the final all-character lis
 Earlier shared-record inventory fixture SHA256:
 `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
 Current nightly SHA256:
-`d76e070ef5923e05e61088fc7e91e05a637e0c4184c6ccf29feea23637252486`.
+`d2542ff3c9f78ac26eb7e19d64a7708711bc766515f634b05952bab1be9103f0`.
+Sonic now uses his original Master System movement and clears 1-1 in Mesen
+with two lives and zero helper platforms. His menu location is row 4, column 2,
+Mr. Gimmick Select 3. [Sonic delivery](sonic-original-delivery-1110.md)
 The WWF pickup and secondary-palette repair changes none of the six wrestlers'
 existing helpers or summon controls. All-six actual mushroom/recovery checks
 are documented in the [current delivery report](wwf-pickup-palette-delivery-1110.md);

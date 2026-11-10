@@ -8,7 +8,7 @@ Numbers before names are Select presses from that portrait's first name: **0** m
 
 | Menu row | Column | Select presses: displayed name |
 |---:|---:|---|
-| 1 | 1 | **0:** MARIO; **1:** LUIGI; **2:** TOAD; **3:** PEACH; **4:** SUPERMAAA MARIO; **5:** KAMIKAZE MARIO; **6:** CELESTE MARIO; **7:** MARIO THE TANK; **8:** MINI MARIO; **9:** MEGA GIANT MARIO; **10:** SONIC |
+| 1 | 1 | **0:** MARIO; **1:** LUIGI; **2:** TOAD; **3:** PEACH; **4:** SUPERMAAA MARIO; **5:** KAMIKAZE MARIO; **6:** CELESTE MARIO; **7:** MARIO THE TANK; **8:** MINI MARIO; **9:** MEGA GIANT MARIO |
 | 1 | 2 | **0:** MEGA MAN; **1:** PROTO MAN |
 | 1 | 3 | **0:** SAMUS ARAN; **1:** ROGUE DAWN |
 | 1 | 4 | **0:** BILL RIZER; **1:** LANCE BEAN |
@@ -33,7 +33,7 @@ Numbers before names are Select presses from that portrait's first name: **0** m
 | 3 | 7 | **0:** SUNNY |
 | 3 | 8 | **0:** RASH; **1:** ZITZ |
 | 4 | 1 | **0:** SMB2 MARIO; **1:** SMB2 LUIGI; **2:** SMB2 TOAD; **3:** SMB2 PEACH; **4:** IMAJIN; **5:** LINA; **6:** PAPA; **7:** MAMA |
-| 4 | 2 | **0:** MR GIMMICK; **1:** BUB; **2:** BOB |
+| 4 | 2 | **0:** MR GIMMICK; **1:** BUB; **2:** BOB; **3:** SONIC |
 | 4 | 3 | **0:** SMB3 BOWSER; **1:** SMB1 BOWSER |
 | 4 | 4 | **0:** DONKEY KONG; **1:** DONKEY KONG JR |
 | 4 | 5 | **0:** HULK HOGAN; **1:** TED DIBIASE; **2:** BAM BAM BIGELOW; **3:** HONKY TONK MAN; **4:** RANDY SAVAGE; **5:** ANDRE THE GIANT |
@@ -45,7 +45,7 @@ Numbers before names are Select presses from that portrait's first name: **0** m
 
 | Character | Where to find them | Current limits |
 |---|---|---|
-| SONIC | Row 1, column 1: MARIO, Select 10 times | Temporary Mario-family location. Master System-derived sprite adaptation currently uses Mario movement, abilities and audio; the HUD still says MARIO. Original Sonic behavior is being integrated separately. |
+| SONIC | Row 4, column 2: MR GIMMICK, Select 3 times | Original Master System movement. Mesen verified the menu and lives portraits and a full 1-1 clear into underground 1-2. Rings, full animation, original audio and performance remain in development. |
 | JAY MCCRAY | Row 2, column 8: MIKE JONES, Select once | Original sprite core using Mike's movement, weapons, health and audio. Original Journey to Silius abilities/audio remain unfinished. |
 | STEVE HERMANN | Row 2, column 8: MIKE JONES, Select twice | Original sprite core with a rough palette/limb fit, using Mike's behavior. Original Shatterhand abilities/audio remain unfinished. |
 | PRINCE PERSIA | Row 4, column 6: EXCITEBIKE, Select once | Original startup, sprites and movement are present. Later terrain/combat and a full 1-1 route remain unfinished. |
@@ -53,6 +53,4 @@ Numbers before names are Select presses from that portrait's first name: **0** m
 | GETSU FUMA | Row 1, column 6: SIMON BELMONT, Select 4 times | Startable through the existing Simon-family cycle. |
 | MEGA GIANT MARIO | Row 1, column 1: MARIO, Select 9 times | Startable through the Mario-family cycle. |
 
-Sonic's current placement under Mario is temporary. Moving it to Mr. Gimmick's family and replacing the borrowed behavior are separate work. Older locked/diamond screenshots and older roster notes do not describe this checked 100-name menu.
-
-Checked November 10 against delivered build `a5c54d7624ee961f11b45598ca7cf7fecc24de6ee87d8e8aa70dad55834f2eaa`: actual compiled menu/Select/Start and A confirmation, plus native stage initialization and 60 opening controller updates for every name in the source CPU model. The newer `d76e070ef5923e05e61088fc7e91e05a637e0c4184c6ccf29feea23637252486` nightly includes the Excitebike, Thomas and WWF earned-mushroom repairs plus original WWF secondary palettes, and preserves every menu/admission table. This is not 100 physical emulator playthroughs, full-stage clears or every-powerup qualification. See [the current delivery notes](qa/wwf-pickup-palette-delivery-1110.md) for verification scope.
+The November 10 a5 CPU check covers compiled menu/Select/Start and A confirmation, native stage initialization and 60 opening updates for all 100 names. The current `d2542ff3` nightly changes Sonic's selection and movement. Paired CPU menu checks preserve the other 99 names and the Mesen replay verifies Sonic's new route. [Startup evidence](qa/roster-active-starts-1110.md) · [Current Sonic delivery](qa/sonic-original-delivery-1110.md)

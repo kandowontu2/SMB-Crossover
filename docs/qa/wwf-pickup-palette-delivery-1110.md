@@ -6,7 +6,9 @@ The IPS is2,099,510 bytes, SHA256
 `a8b2bd9a2fe1677e87e7119f07b10eac5607fc5e4f6d26d9f2b10c49b90ffd1e`.
 Its clean-base reconstruction equals the installed ROM. The automatic patch
 guards before and after installation find no same-name IPS/BPS/UPS files.
-Current/Latest publication is pending the source push and remote roundtrip.
+Source commit `74d16a6b` was pushed. GitHub's Latest release is `Current`,
+with sole asset `731792275` named `SMB-Crossover-Latest-WIP-MMC5.ips`.
+The downloaded patch reconstructs the exact tested Downloads ROM.
 
 The six wrestlers previously rejected native pickup maturity/progression and
 native armor queries. Five existing resolver triples now use the native

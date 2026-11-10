@@ -10,7 +10,7 @@ A native NES adaptation of [Super Mario Bros. Crossover](https://www.smbgames.be
 
 [Player's guide](<Player Guide/SMB-Crossover-Players-Guide-NU.pdf>) · [Full roster image](docs/images/SMB-Crossover-Full-Roster.png) · [Build from source](#build-from-source) · [Report a bug](https://github.com/kandowontu2/SMB-Crossover/issues)
 
-> **In development:** the expanded MMC5 nightly uses a **32-slot, four-row menu** with **100 named entries**, including Select alternates. The [Current release](https://github.com/kandowontu2/SMB-Crossover/releases/tag/Current) contains the latest IPS. All 100 entries pass an [active 1-1 startup and short opening CPU check](docs/qa/roster-active-starts-1110.md). Sonic, Jay McCray, Steve Hermann, Prince of Persia and Donkey Kong Jr. remain unfinished playable prototypes. This does not mean every character has completed stage, graphical and powerup testing. The prepared source build contains 37 identities; see the build table below.
+> **In development:** the expanded MMC5 nightly uses a **32-slot, four-row menu** with **100 named entries**, including Select alternates. Every entry has passed a startup check. Sonic now uses his Master System movement and has cleared 1-1 in Mesen. Jay McCray, Steve Hermann, Prince of Persia and Donkey Kong Jr. remain playable work in progress. The prepared source build contains 37 identities. [Current IPS release](https://github.com/kandowontu2/SMB-Crossover/releases/tag/Current) · [Startup verification](docs/qa/roster-active-starts-1110.md)
 
 <p align="center">
   <img src="docs/images/character-select.png" width="512" alt="Actual NES character-select screen with four rows of heroes and highlighted Imajin">
@@ -35,7 +35,7 @@ This table records the core roster and verified recent additions, including work
 
 | Slot | Can start | Coming soon |
 | --- | --- | --- |
-| Mario | Mario / Luigi / Toad / Peach / Super Maaa / Kamikaze Mario / Celeste Mario / Mario the Tank / Mini Mario / Mega Giant Mario / Sonic (prototype) | — |
+| Mario | Mario / Luigi / Toad / Peach / Super Maaa / Kamikaze Mario / Celeste Mario / Mario the Tank / Mini Mario / Mega Giant Mario | — |
 | Mega Man | Mega Man / Proto Man | — |
 | Metroid | Samus / Rogue Dawn | — |
 | Contra | Bill Rizer / Lance Bean | — |
@@ -60,7 +60,7 @@ This table records the core roster and verified recent additions, including work
 | Super Sunny World | Sunny | — |
 | Battletoads | Rash / Zitz | — |
 | SMB2 / Doki Doki Panic | Mario / Luigi / Toad / Peach / Imajin / Lina / Papa / Mama | — |
-| Mr. Gimmick | Mr. Gimmick / Bub / Bob | — |
+| Mr. Gimmick | Mr. Gimmick / Bub / Bob / Sonic (WIP) | — |
 | Bowser | SMB3 Bowser / SMB1 Bowser | — |
 | Donkey Kong | Donkey Kong / Donkey Kong Jr. (prototype) | — |
 | WWF WrestleMania | Hulk Hogan / Ted DiBiase / Bam Bam Bigelow / Honky Tonk Man / Randy Savage / Andre the Giant | — |
@@ -101,7 +101,7 @@ The four SMB2 characters, four Final Fantasy classes and both SMB1 and SMB3 Toad
 
 **Kirby** now applies suction immediately during the opening animation and slows gradually while inhaling, matching the original game's timing and friction. Copied green/red shells retain native enemy hitboxes and a 3 px/update speed. On the current nightly, Hard Kirby cleared 1-1 with both lives. Separate emulator fixtures verified three close-range directional inhales with no injury, both grounded shell hits, all 14 copy abilities, mushroom and Fire Flower healing, air puff, and slide. These fixtures set up the terrain and targets, then used controller input for acquisition and attacks. See the [original repair verification](docs/qa/checkpoints/2026-11-01/kirby-approach-nightly-v3/README.md).
 
-**Character selection** also has rendering and input repairs. An earlier cold-controller sweep covered 90 identities through 124 D-pad/Select transitions without sampled heading flashes or visible rendering changes. Select pressed during construction is deferred, simultaneous Select+confirm chooses the alternate, and returning through the title retains it. Alex and Ryan retain their required outlines. The current build's CPU inventory confirms all 100 named entries can start, with no locked entries. A known preview-header glitch remains when cycling through Mini Mario toward Sonic; the earlier sweep does not establish current menu-wide graphical correctness. See the [earlier verification](docs/qa/checkpoints/2026-11-01/karnov-hud-nightly-v9/README.md) and [November 10 update](docs/qa/complete-roster-starts-1110.md).
+**Character selection** also has rendering and input repairs. An earlier cold-controller sweep covered 90 identities through 124 D-pad/Select transitions without sampled heading flashes or visible rendering changes. Select pressed during construction is deferred, simultaneous Select+confirm chooses the alternate, and returning through the title retains it. Alex and Ryan retain their required outlines. Mesen verifies Sonic's new portrait and palette on the select and lives screens. [Earlier menu verification](docs/qa/checkpoints/2026-11-01/karnov-hud-nightly-v9/README.md) · [Sonic delivery](docs/qa/sonic-original-delivery-1110.md)
 
 On **Battletoads**, Select cycles **Rash → Zitz**. On **Contra Force**, it cycles **Burns → Smith → Iron → Beans**. These six use recovered original-game movement, graphics and attacks. The preceding checkpoint repairs Contra Force's projectile contact with native enemies, following the camera and enemy-graphics fixes. All four Contra Force characters passed controller-earned pistol kills with native score, hit sound and original projectile impacts; SMB1 Peach also passed a bounded regression check on that ROM. Those results remain attached to their tested hashes. Full levels, complete special moves, upgrades and dedicated audio remain unfinished. Battletoads and Contra Force are noticeably slow. See the [74-character WIP receipt](docs/qa/functional-roster-ready74-cf-projectile-2026-10-31.json).
 
@@ -193,11 +193,13 @@ The chosen starting level applies when confirming a character. Invincibility doe
 
 ## Development status
 
-The current MMC5 nightly is `d76e070e`. All **100 named roster entries** are admitted; the [access list](docs/character-select-access.md) shows every Select alternate. The preceding a5 build passes menu confirmation, native initialization and 60 opening updates for every name in the CPU model. This nightly preserves those tables and includes the [Excitebike](docs/qa/excitebike-physical-delivery-1110.md), [Thomas](docs/qa/thomas-physical-delivery-1110.md) and [all-six WWF](docs/qa/wwf-pickup-palette-delivery-1110.md) earned-mushroom repairs, verified in Mesen from the Downloads filename. WWF also keeps each wrestler's original secondary palette instead of replacing it with Hogan's. Its standard SMB tier armor is an interim adaptation; original WWF endurance/gear remains unfinished. Startup checks do not establish complete original abilities or full stages.
+The current MMC5 nightly is `d2542ff3`. All **100 named roster entries** can start. The nightly includes the verified Excitebike, Thomas and WWF earned-mushroom repairs. Each wrestler uses his own secondary palette and receives interim SMB tier armor. Original WWF endurance and gear remain in development. [Character Select access](docs/character-select-access.md) · [Excitebike](docs/qa/excitebike-physical-delivery-1110.md) · [Thomas](docs/qa/thomas-physical-delivery-1110.md) · [WWF](docs/qa/wwf-pickup-palette-delivery-1110.md)
 
 The preceding a5 build also passes actual Mesen mushroom/flower acquisition, upgraded attacks and full 1-1 into 1-2 for all four Final Fantasy classes. Their empty-area benchmark improves from 80 updates in 159 video frames to 80 in 119, with significant lag still present. Kirby's close and medium first-enemy inhales and a copied green-shell full 1-1 route also pass on a5. These results retain their exact tested hashes in the [FF delivery](docs/qa/ff-mux-physical-delivery-1110.md) and [Kirby checks](docs/qa/kirby-current-functional-1110.md); the current Excitebike-only change preserves their code.
 
-**Sonic:** highlight Mario and press Select ten times. His Master System-derived graphics currently use Mario's native movement, abilities and audio. **Jay McCray / Steve Hermann:** highlight Mike Jones and press Select once / twice. Their original-game sprite cores currently use Mike's movement, weapons, health and audio. They are startup prototypes, not completed original movesets. Active level-select cheats currently clear Jay/Steve's prototype selection. A preexisting Mini preview-header glitch can carry through to Sonic's preview.
+**Sonic:** highlight Mr. Gimmick in row 4, column 2 and press Select three times. He uses his original Master System movement. The Mesen replay clears 1-1 and enters underground 1-2 with both lives and zero helper platforms. The current standing sprite is temporary, lag is still visible, and rings, full animation and original audio remain in development. [Sonic delivery](docs/qa/sonic-original-delivery-1110.md)
+
+**Jay McCray / Steve Hermann:** highlight Mike Jones and press Select once or twice. Their original-game sprites currently use Mike's movement, weapons, health and audio. Active level-select cheats currently clear their prototype selection.
 
 **Select on Excitebike** starts Prince of Persia, and **Select on Donkey Kong** starts DK Jr. Both pass cold menu-to-gameplay, authentic initialization/graphics, walking and jumping. They remain prototypes. Prince's Easy landing/contact issue is repaired in a privately tested candidate awaiting the Downloads launch check; it is not yet in this nightly. DK Jr. now passes the first pipe using both existing lifts without changing his physics: walk from the lift's right edge rather than jumping again. Full 1-1 completion is not claimed for either character. See the [follow-up checks](docs/qa/roster-functional-followup-1110.md).
 
