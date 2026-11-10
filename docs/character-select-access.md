@@ -48,9 +48,9 @@ Numbers before names are Select presses from that portrait's first name: **0** m
 | SONIC | Row 4, column 2: MR GIMMICK, Select 3 times | Original Master System movement. Mesen verified the menu and lives portraits and a full 1-1 clear into underground 1-2. Rings, full animation, original audio and performance remain in development. |
 | JAY MCCRAY | Row 2, column 8: MIKE JONES, Select once | Original sprite core using Mike's movement, weapons, health and audio. Original Journey to Silius abilities/audio remain unfinished. |
 | STEVE HERMANN | Row 2, column 8: MIKE JONES, Select twice | Original sprite core with a rough palette/limb fit, using Mike's behavior. Original Shatterhand abilities/audio remain unfinished. |
-| PRINCE PERSIA | Row 4, column 6: EXCITEBIKE, Select once | Original startup, sprites and movement are present. Later terrain/combat and a full 1-1 route remain unfinished. |
+| PRINCE PERSIA | Row 4, column 6: EXCITEBIKE, Select once | Original movement and ledge climb. Mesen verified four pipes and two gaps with both lives. The later route and pickup progression remain in testing. |
 | DONKEY KONG JR | Row 4, column 4: DONKEY KONG, Select once | Original startup, sprites and movement are present. Full-stage and ability review remain unfinished. |
 | GETSU FUMA | Row 1, column 6: SIMON BELMONT, Select 4 times | Startable through the existing Simon-family cycle. |
 | MEGA GIANT MARIO | Row 1, column 1: MARIO, Select 9 times | Startable through the Mario-family cycle. |
 
-The November 10 a5 CPU check covers compiled menu/Select/Start and A confirmation, native stage initialization and 60 opening updates for all 100 names. The current `d2542ff3` nightly changes Sonic's selection and movement. Paired CPU menu checks preserve the other 99 names and the Mesen replay verifies Sonic's new route. [Startup evidence](qa/roster-active-starts-1110.md) · [Current Sonic delivery](qa/sonic-original-delivery-1110.md)
+The November 10 a5 CPU check covers compiled menu/Select/Start and A confirmation, native stage initialization and 60 opening updates for all 100 names. The current `47a7a6ae` nightly retains Sonic’s updated selection and movement and improves Prince’s traversal. Mesen verified both routes on the installed ROM. [Startup evidence](qa/roster-active-starts-1110.md) · [Current delivery](qa/prince-native-pipe-gap-delivery-1110.md)

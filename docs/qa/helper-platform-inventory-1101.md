@@ -6,7 +6,10 @@ placements from actual route verification; it is not the final all-character lis
 Earlier shared-record inventory fixture SHA256:
 `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
 Current nightly SHA256:
-`d2542ff3c9f78ac26eb7e19d64a7708711bc766515f634b05952bab1be9103f0`.
+`47a7a6aeabe2cc7db593f431591e52331b834485b3d7638e3f10f95cbf43db4b`.
+Prince of Persia (Excitebike Select 1) clears four authored pipes and the first
+two gaps in 1-1 with his original jump and climb. This route uses zero helper
+platforms. [Prince delivery](prince-native-pipe-gap-delivery-1110.md)
 Sonic now uses his original Master System movement and clears 1-1 in Mesen
 with two lives and zero helper platforms. His menu location is row 4, column 2,
 Mr. Gimmick Select 3. [Sonic delivery](sonic-original-delivery-1110.md)
