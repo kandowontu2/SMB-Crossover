@@ -1,5 +1,15 @@
 # Kirby: current-ROM inhale, shell and full1-1 checks
 
+The exact installed `9897c2b8` nightly repeated the close inhale and
+green-shell full 1‑1 routes in Mesen. The first Goomba was captured with
+HP6 and two lives, receipt
+`ab07077569f76ea2f3f1806751459ca0ba4bce598db42ab52b009aa60c6374af`.
+The second run acquired copy 2, defeated a separate Goomba with the grounded
+shell, reached the flag at frame 4935 and entered active 1‑2 at frame 6026
+with HP5 and two lives. Receipt
+`bd5819297dd6d59006a48dd5c397d1933ba8cfbf153071a44ce2a80b4d22c57a`.
+Both used the controllers pinned below and produced zero files.
+
 No new Kirby gameplay patch was needed for these cases. The existing repairs
 now have actual Mesen checks on96 and the installed a5 ROM. Both images use
 unchanged Kirby code. The new observers run through the shared stdout-only
