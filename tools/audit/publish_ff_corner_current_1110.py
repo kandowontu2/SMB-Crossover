@@ -52,13 +52,14 @@ def release_body(head):
         'Heavy FF lag, further abilities and visual review remain unfinished. The separate guard optimization '
         'is source-only and is not in this ROM. No helper platform locations changed.\n')
 
-def main():
-    ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument('--report-sha', required=True)
-    args = ap.parse_args()
+def main(report_sha=None):
+    if report_sha is None:
+        ap = argparse.ArgumentParser(description=__doc__)
+        ap.add_argument('--report-sha', required=True)
+        report_sha = ap.parse_args().report_sha
     report_path = REPORT
     report = report_path.read_bytes()
-    assert sha256(report).hexdigest() == args.report_sha
+    assert sha256(report).hexdigest() == report_sha
     assert all(value.encode() in report for value in (*RECEIPTS, SCRIPT_PIN, PIN, PATCH_PIN))
     assert sha256(SCRIPT.read_bytes()).hexdigest() == SCRIPT_PIN
     guard = check(NIGHTLY)
@@ -105,7 +106,7 @@ def main():
         source_commit=head, ROM_SHA256=PIN, IPS_SHA256=PATCH_PIN, IPS_bytes=len(patch),
         remote_asset_id=asset['id'], downloaded_roundtrip_equals_Downloads=True,
         automatic_patch_guard=after, generated_files=0, private_ROM_published=False,
-        report_SHA256=args.report_sha, native_receipts=RECEIPTS)), flush=True)
+        report_SHA256=report_sha, native_receipts=RECEIPTS)), flush=True)
 
 
 if __name__ == '__main__':
