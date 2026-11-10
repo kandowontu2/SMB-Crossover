@@ -74,7 +74,7 @@ local task=coroutine.create(function()
   local s=snapshot();local h=s.horizontal[1]
   assert(h and #s.vertical==1 and #births==3,'Ownership changed while boarding')
   local center=s.x+C.player_center
-  pad={right=center<h.x+8,b=true,a=updates-jump<23}
+  pad={right=center<h.x+12,left=center>h.x+20,b=true,a=updates-jump<23}
   if center>=h.x+4 and center<h.x+28 and math.abs(s.y+32-h.y)<=1 then
    pad={}
    if prior and s.x>prior.x and h.x>prior.hx and math.abs((s.x-prior.x)-(h.x-prior.hx))<=1 then carried=carried+1 end

@@ -7,9 +7,11 @@ Inventory fixture SHA256: `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68
 Current nightly SHA256: `66a7b9325d90efb7751387e0c1c95a756fde57d92f13d6180178ade3e535090c`.
 
 Requested next addition, not yet delivered: Mini Mario and Karnov **Down + Select**
-summons one horizontal native platform in front of the player. Horizontal and
+summons one horizontal native platform to the player's right. It must travel
+112 world pixels to the right and then stop. Horizontal and
 vertical ownership are independent; a fresh combination replaces only its own
-platform type. Placement and actual crossing verification are pending.
+platform type. The earlier private left-first oscillator is superseded and was
+not delivered. New motion and actual crossing verification are pending.
 
 The Giant nightly repeats Mini's actual Downloads 1-1 clear, boarding all three
 existing lifts with unchanged positions and timing. It adds no Giant helper.
