@@ -2,6 +2,11 @@
 
 This is a source plan against public `c10b7d87f466bf028096bddd33b7ac2baee242870ee83ccc4eebd529af57bd7f`, not a native admission or RAM grant. No ROM, emulator run or build artifact was produced. The separate seven-owner cold proposal authenticates transport only. The public selector and scene bounds must continue excluding raw43 until Sonic has its own service bridge, constructor, real terrain adapter and renderer.
 
+The later [isolated PointRead qualification](sonic-point-read-1110.md) completes
+the narrow cell-reader source step below. Its proposed code/scratch addresses
+are unallocated and unlinked; the shape, actor and native admission work in
+this plan remain open.
+
 ## Exact current admission boundaries
 
 All addresses below are physical PRG65, CPU A-window, unless stated otherwise. These are actual current bytes, not historical symbol aliases.

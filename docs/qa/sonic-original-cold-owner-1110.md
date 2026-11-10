@@ -19,6 +19,13 @@ The fixture map C800..D7FF and flags D800..D8FF are **test-only** and overlap
 the real metadata/startup window. Native PointRead and16px shape adaptation
 remain required; see the [exact source/lifetime map](sonic-native-policy-map-1110.md).
 
+A later [isolated native PointRead](sonic-point-read-1110.md) now passes315,463
+actual CPU calls, including genuine parser phases and all256 metatiles in
+every native buffer cell. Its365-byte code and22-byte scratch signature are
+proposed addresses only, not yet linked or allocated to the ordinary-frame
+core. It explicitly rejects unavailable cells; shape adaptation, the caller's
+OOB handling and gameplay integration remain required.
+
 Storage uses the existing
 [conditional Zelda-II duplicate-page alias](allocations/sonic-sms-fairy-repack-1110.json).
 Only after that exact atomic table change, pages321..327 carry seven padded
