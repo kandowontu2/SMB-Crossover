@@ -17,6 +17,7 @@ local fourthEntry=false
 local injury
 local descentSamples={}
 local firstGap
+local ledgeGoomba
 local gap={planes=0,native_carries=0}
 local gapLeft,gapTop,takeoffX,farBank=1408,208,1366,1424
 local pendingPlane
@@ -112,6 +113,15 @@ local function nearEnemy(player)
  end
  return false
 end
+local function approachActors()
+ local actors={}
+ for slot=0,5 do
+  if read(0x10+slot)>0 then
+   actors[#actors+1]={slot,read(0x17+slot),pos(0x76,0x5d,slot),read(0xbe+slot),read(0x1f+slot)}
+  end
+ end
+ return actors
+end
 local function drive()
  assert(read(0x75f)==2 and read(0x0f)~=11 and ram(2,0x6b)~=5,
   'Original fall or native injury '..json(snapshot()))
@@ -127,7 +137,7 @@ local function drive()
     and y+32==top and ram(2,0x210)==y+15
  end
  local grounded=ram(2,0x6b)==1 and (read(0x1e)==0 or carried(u,up)or carried(d,down))
- local right=false
+ local right,left=false,false
  for _,left in ipairs(lifts)do
   local key=tostring(left);local top=currentTop(left);local relative=left-camera()
   if top and relative>=0 and relative<256 and not visible[key]then
@@ -236,11 +246,35 @@ local function drive()
   right=player<takeoffX
   if right and grounded and y==176 and updates>=rearm and nearEnemy(player)then
    hold=updates+8;rearm=updates+47;remember('second-gap-enemy-hop')
+   events[#events].actors=approachActors()
+  end
+  if player>=1175 and player<1182 and not ledgeGoomba then
+   for _,actor in ipairs(approachActors())do
+    if actor[2]==6 and actor[3]>player+30 and actor[4]<176 then
+     ledgeGoomba={slot=actor[1],started=updates}
+     right=false;setPhase('wait-ledge-goomba')
+     break
+    end
+   end
   end
   if player==takeoffX and grounded and read(0x1e)==0 and y==176 then
    assert(gap.birth and gap.initialized and gap.on_screen and movingLeft,'Live stock second-gap actor')
    gap.wait=snapshot()
    setPhase('second-gap-wait')
+  end
+ end
+ if phase=='wait-ledge-goomba'then
+  local slot=ledgeGoomba.slot
+  local dx=pos(0x76,0x5d,slot)-player
+  assert(updates-ledgeGoomba.started<110 and dx>=14,'Wait for the falling Goomba at a safe distance')
+  if grounded and y==176 then
+   if player>1187 then
+    left=true
+   elseif read(0xbe+slot)>=154 and dx<=34 then
+    right=true;hold=updates+8;rearm=updates+47
+    setPhase('to-second-gap');remember('ledge-goomba-hop')
+    events[#events].actors=approachActors()
+   end
   end
  end
  if phase=='second-gap-wait'then
@@ -269,7 +303,7 @@ local function drive()
    return
   end
  end
- bits=(right and 1 or 0)|(updates<hold and 128 or 0)
+ bits=(right and 1 or 0)|(left and 2 or 0)|(updates<hold and 128 or 0)
  priorTop[u],priorTop[d]=up,down
 end
 local function wait(pred)
@@ -369,11 +403,13 @@ emu.addMemoryCallback(guarded('carry',function()
  local c=carries[key]or {count=0,first=snapshot()};c.count=c.count+1;c.last=snapshot();carries[key]=c
 end),emu.callbackType.exec,0xac29)
 emu.addMemoryCallback(guarded('injury',function()
- if active()and mapped(0xbd93,'nesWorkRam',3*8192+0x1d93)then injury=snapshot()end
+ if active()and mapped(0xbd93,'nesWorkRam',3*8192+0x1d93)then
+  injury=snapshot();injury.actors=approachActors()
+ end
 end),emu.callbackType.exec,0xbd93)
 emu.addEventCallback(guarded('input',function()
  polls=polls+1
- emu.setInput({right=bits&1~=0,down=bits&4~=0,start=bits&16~=0,select=bits&32~=0,a=bits&128~=0},0)
+ emu.setInput({right=bits&1~=0,left=bits&2~=0,down=bits&4~=0,start=bits&16~=0,select=bits&32~=0,a=bits&128~=0},0)
 end),emu.eventType.inputPolled)
 emu.addEventCallback(guarded('frame',function()
  frame=frame+1;assert(frame<18000,'Physical bound')

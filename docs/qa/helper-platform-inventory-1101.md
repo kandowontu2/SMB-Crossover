@@ -6,10 +6,12 @@ placements from actual route verification; it is not the final all-character lis
 Earlier shared-record inventory fixture SHA256:
 `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
 Current nightly SHA256:
-`b031802c7bc4f4e9596683e66f2f53c124b3a3ac155b80bbec03c5965b8e4e65`.
+`3d327d47b8127c1e76d9868191d34b8ebb1ca9ec29d6bb609ccab9c60c6cb3d8`.
 Donkey Kong Jr. (Donkey Kong, Select once) has eight stock 32-pixel-wide
-vertical girders in World 1-1. Mesen verified all four pipe crossings with
-both lives. The first gap required no platform. [DK Jr. delivery](dkjr-four-pipe-delivery-1110.md)
+vertical girders and one stock 48-pixel-wide horizontal platform in World 1-1.
+Mesen verified all four pipe crossings and both early gaps with both lives.
+The first gap required no platform. [Pipe delivery](dkjr-four-pipe-delivery-1110.md)
+[Second-gap delivery](dkjr-second-gap-delivery-1111.md)
 
 | Pipe | World left X | Center X | Initial top Y |
 |---|---:|---:|---:|
@@ -21,6 +23,14 @@ both lives. The first gap required no platform. [DK Jr. delivery](dkjr-four-pipe
 | Third, descent | 752 | 768 | 192 |
 | Fourth, ascent | 880 | 896 | 192 |
 | Fourth, descent | 944 | 960 | 192 |
+
+| Gap | World left X | Center X | Initial top Y | Width | Actor |
+|---|---:|---:|---:|---:|---|
+| Second, pit X1376–1423 | 1408 | 1432 | 208 | 48 | Stock horizontal `$28` |
+
+The horizontal platform spawns at camera-left X1121. Its left edge first
+enters screen bounds at X1397 with camera-left X1143. Donkey Kong Jr. lands
+on it at X1393 and reaches the far side at X1425/Y176.
 
 The [SMB2 preview update](smb2-menu-tier-isolation-1110.md) changes menu
 power state and uses no new helper platforms.
