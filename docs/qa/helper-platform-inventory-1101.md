@@ -3,15 +3,23 @@
 The functional roster pass is not complete. This inventory separates source
 placements from actual route verification; it is not the final all-character list.
 
-Inventory fixture SHA256: `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
-Current nightly SHA256: `66a7b9325d90efb7751387e0c1c95a756fde57d92f13d6180178ade3e535090c`.
+Earlier shared-record inventory fixture SHA256:
+`128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
+Current nightly SHA256:
+`c10b7d87f466bf028096bddd33b7ac2baee242870ee83ccc4eebd529af57bd7f`.
 
-Requested next addition, not yet delivered: Mini Mario and Karnov **Down + Select**
-summons one horizontal native platform to the player's right. It must travel
-112 world pixels to the right and then stop. Horizontal and
-vertical ownership are independent; a fresh combination replaces only its own
-platform type. The earlier private left-first oscillator is superseded and was
-not delivered. New motion and actual crossing verification are pending.
+**Current delivered Level 2 controls:** Mini Mario, Karnov, all six WWF
+wrestlers and all four Final Fantasy classes have Up + Select vertical and
+Down + Select horizontal summons. Horizontal begins to the right, travels
+112 world pixels, then goes back and forth. The axes have separate ownership;
+a fresh chord replaces only its own platform type. See the November 10 tables
+at the end for all names, initial world left edges, centers and heights.
+Native carrying/oscillation tests pass; every character's assisted pit/full
+stage route remains a separate qualification.
+
+The entries below retain their recorded build hashes and chronology. A
+historical paragraph's use of “current” describes that paragraph's build,
+not a newer test result. The final November 10 section records this delivery.
 
 The Giant nightly repeats Mini's actual Downloads 1-1 clear, boarding all three
 existing lifts with unchanged positions and timing. It adds no Giant helper.
@@ -20,8 +28,9 @@ existing lifts with unchanged positions and timing. It adds no Giant helper.
 Delivered user-requested assistance: Mini Mario and Karnov, Up + Select to spawn
 or replace one small vertical platform directly below the player. This is a
 dynamic player-position placement, not a fixed stage coordinate. Both controls
-were replayed from the actual Downloads launch in build `9906787a`; their
-implementation is retained unchanged in the current nightly.
+were replayed from the actual Downloads launch in build `9906787a`; the
+vertical controls remain available in the current nightly alongside the
+subsequent horizontal and roster extensions.
 
 Implementation `00cf5481231239967994bd3ad69ea65fe9f02c7dc74560a997d3722ad6a4566c`
 passed actual native input, carrying and replacement checks for both owners.
