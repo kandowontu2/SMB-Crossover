@@ -34,8 +34,18 @@ def proposal(raw):
     return bytes(joined), common, packet, details
 
 
+def parent_bytes():
+    current = Four.NIGHTLY.read_bytes()
+    if Feedback.digest(current) == PARENT:
+        return current
+    from deliver_dkjr_four_pipe_1110 import Recipe
+    original = Recipe.proposal(Recipe.V1.BASE.read_bytes())[0]
+    assert Feedback.digest(original) == PARENT
+    return original
+
+
 def main():
-    image, _, packet, details = proposal(Four.NIGHTLY.read_bytes())
+    image, _, packet, details = proposal(parent_bytes())
     print(json.dumps(details, sort_keys=True), flush=True)
     print(json.dumps(Feedback.natural(image, packet), sort_keys=True), flush=True)
 

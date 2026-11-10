@@ -126,7 +126,7 @@ def preflight(output: Path, reserved_bytes: int = RUN_BYTES,
     allowed = (WORKSPACE.resolve(), ARCHIVE.resolve())
     if not any(output != root and output.is_relative_to(root) for root in allowed):
         raise CaptureBudgetExceeded('Capture output must stay in the project or its existing archive; no alternate storage root.')
-    if not 0 < reserved_bytes <= min(RUN_BYTES,HARD_RUN_BYTES) or not 0 < reserved_files <= RUN_FILES:
+    if not 0 < reserved_bytes <= min(RUN_BYTES,HARD_RUN_BYTES) or not 0 <= reserved_files <= RUN_FILES:
         raise CaptureBudgetExceeded('Capture reservation exceeds the per-run 128 MB / 64-file cap.')
     try:
         from .build_storage_guard_v1 import preflight as build_preflight

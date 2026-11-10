@@ -53,7 +53,8 @@ def run(script, rom, output, expected, timeout, variant=0, extra_env=None):
     lock, stopped = threading.Lock(), threading.Event()
     started = time.monotonic()
     with C.capture_lease():
-        preflight = C.preflight(output, reserved_bytes=C.RUN_BYTES, reserved_files=1)
+        # Screenshots and receipts stay in memory, so the run needs no new file slots.
+        preflight = C.preflight(output, reserved_bytes=C.RUN_BYTES, reserved_files=0)
         baseline = C.inventory(output, C.RUN_BYTES, 1)
         assert baseline.complete
         process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
