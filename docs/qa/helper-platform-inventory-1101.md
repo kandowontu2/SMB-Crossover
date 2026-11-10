@@ -6,7 +6,11 @@ placements from actual route verification; it is not the final all-character lis
 Earlier shared-record inventory fixture SHA256:
 `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
 Current nightly SHA256:
-`9897c2b85489024be25b4b296d0ea57975a579ba1e3ff37a71f7ac3e0b195b97`.
+`a20d254d4730583ee1f039b10abcf873559987e4f989968037a38e17427faac1`.
+Donkey Kong Jr. adds two stock 32-pixel-wide vertical girders in 1‑1.
+Their native left/center/initial top positions are **560/576/192** and
+**624/640/192**. Mesen verified the two new lifts and the existing pair
+through the first and second pipes with both lives. [DK Jr. delivery](dkjr-second-pipe-delivery-1110.md)
 The [SMB2 preview update](smb2-menu-tier-isolation-1110.md) changes menu
 power state and uses no new helper platforms.
 Prince of Persia (Excitebike Select 1) clears four authored pipes and the first
