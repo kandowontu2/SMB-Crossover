@@ -27,13 +27,13 @@ A native NES adaptation of [Super Mario Bros. Crossover](https://www.smbgames.be
 - **Options for testing and play.** Player outlines, level selection, invincibility, mid-air jumps, screen wrapping, a frozen timer and full power.
 - **An audio browser.** Test character-labelled music and sound effects in the expanded MMC5 build.
 
-The title opens a separate character-select screen. Use the D-pad to highlight a slot and **Select** to cycle its alternates.
+The title opens a separate character-select screen. Use the D-pad to highlight a slot and **Select** to cycle its alternates. The [complete access list](docs/character-select-access.md) gives the row, column and Select presses for all 100 names, with the unfinished prototypes clearly marked.
 
 ## Current roster
 
 This table records the core roster and verified recent additions, including work in progress. Select cycles alternates within a slot. Full-stage and powerup verification is still in progress.
 
-| Slot | Playable now | Coming soon |
+| Slot | Can start | Coming soon |
 | --- | --- | --- |
 | Mario | Mario / Luigi / Toad / Peach / Super Maaa / Kamikaze Mario / Celeste Mario / Mario the Tank / Mini Mario / Mega Giant Mario / Sonic (prototype) | — |
 | Mega Man | Mega Man / Proto Man | — |
@@ -85,7 +85,7 @@ The four SMB2 characters, four Final Fantasy classes and both SMB1 and SMB3 Toad
 
 **Bub and Bob:** A jumps; B blows bubbles. Trap enemies, then touch their bubbles to pop them; hold A to bounce on free bubbles. Mushrooms grant the original speed upgrade. Both characters pass first-mushroom collection and separate full non-shortcut 1-1 runs without life loss or additional helper platforms, on the candidate and the actual Downloads nightly. Block contacts and starting power status are repaired. The later flower route, original audio and idle/walk performance remain under test. See the [November 3 verification](docs/qa/checkpoints/2026-11-03/bub-earned-delivery-v99/receipt.json).
 
-**Excitebike** is now selectable on row four, column six. Right accelerates, B uses the original turbo, A jumps, and Up/Down lean the bike. Left reverses travel after stopping. Cold selection, coasting, reversing, a 61-pixel back-lean jump, landing and native graphics checks pass. The latest repair restores the original overheat recovery; a full non-shortcut 1-1 run reaches active 1-2 with no life loss or helper platforms. Shortcut, powerup and dedicated audio testing remain unfinished. See the [November 2 verification](docs/qa/checkpoints/2026-11-02/excitebike-recovery-native-v2/receipt.json).
+**Excitebike** is selectable on row four, column six. Right accelerates, B uses the original turbo, A jumps, and Up/Down lean the bike. Left reverses travel after stopping. Earlier checks cover coasting, reversing, a 61-pixel back-lean jump, landing, overheat recovery and a full non-shortcut 1-1 run. The latest nightly fixes freezing after collecting a mushroom: actual Mesen runs on both the candidate and installed Downloads ROM earn the first mushroom, complete all 60 animation updates and resume movement. See the [current pickup verification](docs/qa/excitebike-physical-delivery-1110.md) and [earlier stage verification](docs/qa/checkpoints/2026-11-02/excitebike-recovery-native-v2/receipt.json). Shortcut, other naturally earned upgrades and dedicated audio testing remain unfinished.
 
 **Arthur** now has corrected block-side separation, natural flower/torch pickup, and working shot contact with native enemies. The current build passes a full non-shortcut 1-1 route into active 1-2 with no injuries, life loss or helper platforms. Other earned weapons, modes and audio remain under review. See the [weapon and stage verification](docs/qa/checkpoints/2026-11-02/arthur-weapon-tail-v15/receipt.json).
 
@@ -193,7 +193,9 @@ The chosen starting level applies when confirming a character. Invincibility doe
 
 ## Development status
 
-The current MMC5 nightly is `c10b7d87`. All **100 named roster entries** can confirm a new game in the CPU menu inventory. Seventeen emulator checks pass on this exact ROM: ten wrestler/Final Fantasy helper variants, five prototype openings, Mini's full 1-1 route and Getsu's earned powerup regression. Sonic and Fighter's helper replay also pass from the actual Downloads filename. See the [verification and limitations](docs/qa/complete-roster-starts-1110.md).
+The current MMC5 nightly is `a76d7610`. All **100 named roster entries** are admitted; the [access list](docs/character-select-access.md) shows every Select alternate. The preceding a5 build passes menu confirmation, native initialization and 60 opening updates for every name in the CPU model. This nightly preserves those tables and adds the [Excitebike earned-mushroom freeze repair](docs/qa/excitebike-physical-delivery-1110.md), verified in actual Mesen from the Downloads filename. Startup checks do not establish complete original abilities or full stages.
+
+The preceding a5 build also passes actual Mesen mushroom/flower acquisition, upgraded attacks and full 1-1 into 1-2 for all four Final Fantasy classes. Their empty-area benchmark improves from 80 updates in 159 video frames to 80 in 119, with significant lag still present. Kirby's close and medium first-enemy inhales and a copied green-shell full 1-1 route also pass on a5. These results retain their exact tested hashes in the [FF delivery](docs/qa/ff-mux-physical-delivery-1110.md) and [Kirby checks](docs/qa/kirby-current-functional-1110.md); the current Excitebike-only change preserves their code.
 
 **Sonic:** highlight Mario and press Select ten times. His Master System-derived graphics currently use Mario's native movement, abilities and audio. **Jay McCray / Steve Hermann:** highlight Mike Jones and press Select once / twice. Their original-game sprite cores currently use Mike's movement, weapons, health and audio. They are startup prototypes, not completed original movesets. Active level-select cheats currently clear Jay/Steve's prototype selection. A preexisting Mini preview-header glitch can carry through to Sonic's preview.
 

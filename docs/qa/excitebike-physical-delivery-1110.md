@@ -5,8 +5,10 @@ The installed nightly is
 `a76d7610eed8493806200c52b96065af0369b926c55d033e17841f818756e2e0`.
 The sole Current IPS reconstructs it from the clean headered SMB World base:
 `aa6424bd4603d1b30152a64aa65026dc729dab72334ea420678f577fdf70f79f`
-(2,099,510 bytes). GitHub publication is pending the source push; Downloads
-has already been installed and tested directly. No backup was created.
+(2,099,510 bytes). GitHub publication passed after source push `e85fafbe`:
+Current is Latest, with sole asset731354495. The downloaded asset reconstructs
+the exact tested Downloads ROM. Downloads was installed and tested directly.
+No backup was created.
 
 ## Reproduced failure and fix
 
