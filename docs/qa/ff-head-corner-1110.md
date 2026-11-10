@@ -1,8 +1,9 @@
 # Final Fantasy head/side corners and pipe entry — November 10
 
-This is a private fix pending physical Mesen verification. The public Downloads
-ROM remains `c10b7d87f466bf028096bddd33b7ac2baee242870ee83ccc4eebd529af57bd7f`.
-All four FF classes already start in that public ROM. Starting alone does not
+The fix is now physically verified and installed in Downloads as
+`96e09ab1b67a7c75b89d49219e8e529582b9a05b7dd82dd3cd570fdb239212bd`.
+The previous public c10 image remains the frozen source-comparison parent.
+All four FF classes already started in that parent. Starting alone does not
 establish that their movement, attacks, powerups or stage transitions work.
 
 ## Reproduced faults
@@ -83,8 +84,8 @@ changed instruction boundaries. Reached cuts exercised 166 actual-vector NMIs,
 resumption and paired native ISR effects remained exact within the stated
 intended head/attribute differences. This is CPU execution of actual vectors.
 
-Physical Mesen route tests, exact Downloads delivery and updated Current IPS
-remain pending. A separate stdout-only Mesen transport probe passed with zero
+At this earlier source-only checkpoint, physical routes and delivery were
+pending. The final physical results appear below. The stdout transport passed with zero
 files created, retaining the shared queue, storage preflight and live watchdog.
 
 ## First physical controls: explicit negative results
@@ -115,3 +116,69 @@ the actual cold title/menu, no RAM writes/cheats/saves, and zero capture files.
 The public run counted 1,506 zero-completion physical frames out of 3,054
 gameplay frames. These are measured lag symptoms, not a zero-lag claim; the
 full-route and empty-area cost investigation remains open.
+
+## Star and 1UP regressions
+
+The public c10 and private v2 images each pass all four classes times hidden
+1UP and Star: eight independent earned controller branches per image.
+
+| Native pickup | Authored block X/Y | Verified continuation |
+|---|---|---|
+| Hidden 1UP | 1024 / 128 | Born366, collected454 at1045/150; actual deferred native life increment at$8987 on459, two→three lives; tier1/Earned1 retained |
+| Star | 1616 / 144 | Born213, collected337 at1672/144; timer35, native ground-Goomba protection415; all36 timer states/four PPU phases, GroundMusic1 restored1005, expiry1070 |
+
+White Mage retains one Heal charge in the 1UP branch and three in the Star
+branch; other classes retain zero. Star leaves tier2/Earned2 unchanged.
+The source route is frozen SHA
+`19650c8f19ad03c8eecf4652a91b6ecd33ce9676c5544206cbe4e4ce23d72ee2`;
+the clean v2 aggregate driver is frozen SHA
+`71756c16095da1cb7d4cbdd1a03a8f54dc287a0bdefe51150118bdcf231b5279`.
+These are actual CPU/menu/controller/native-parser and logical normal-NMI
+executions. They add no physical Mesen, cadence, audible-output or full-stage
+claim. An earlier aggregate's final module-name assertion failed after its
+eight branches passed; the corrected aggregate was rerun cleanly to exit zero.
+
+## Final physical verification and Downloads delivery
+
+The frozen v5 controller is SHA
+`aa18b8bcf1b81bbd817e507d1228a5f889dfea09cf73015c68f93de2c8fa4025`.
+It changes controller inputs only. It waits for actual source acceptance of a
+jump, releases A after witnessed takeoff, and records a declined airborne A
+sample separately. It does not turn a walk off a ledge into an accepted jump.
+Unexplained grounded requests still fail after16 updates. Earlier v1–v4
+controllers and their genuine negative witnesses remain unchanged.
+
+All four classes passed actual Mesen on the exact v2 ROM. Every run earned the
+native mushroom and flower, completed60 transformation updates each, used the
+tier-two class attack on a naturally streamed enemy, reached the native flagpole,
+completed score/castle handling, entered the automatic side pipe and reached
+active underground1-2. All retained two lives, tier2/Earned2 and no injury.
+
+| Class | Terminal physical frame / Main | Full native receipt SHA256 |
+|---|---|---|
+| Fighter | 6739 / 3813 | `5ff65b833f37a33f2805cfe78a0b3f3d4e94c4fd3889e9f4cd64605b6e2ecd3d` |
+| White Mage | 6759 / 3813 | `e459a78ab4c82dc4dff14a586502efa1a131ccb1ca0aa59454d61e703c34b03c` |
+| Black Mage | 6798 / 3855 | `526700c034bb471ce7ab68d84fdc983224b0f173917f01bb26afd2a2fc231477` |
+| Thief | 6765 / 3834 | `989cc82be327567590df4f88f627d51e245d965d0fbb39f3d3f5f3ff7a2026ef` |
+
+The delivery replaced `C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes`
+directly, with no backup file. The guard passed before/after, finding no matching
+automatic patches. A fifth physical run launched this exact Downloads path,
+repeated Fighter's full route and produced the same receipt hash. The clean-base
+IPS reconstructs the installed bytes exactly, SHA
+`0a1960fecf87202e175a26004e6b8f384ff93fdb40fffd1ed582fbc28fd57ab0`
+(2,099,510 bytes). The sole Current/Latest release refresh is recorded separately.
+
+All five runs retained zero capture files and left unrelated Mesen processes
+alone. Two earlier diagnostic PNGs were emitted in memory only. The first active
+frame preceded visible body publication; it is not a missing-body verdict.
+The pipe608 frame visibly showed the normal Fighter body. This limited visual
+check does not establish exhaustive art, forced shadow masks or every frame.
+
+Heavy FF lag remains: the final Fighter run counts2,936 physical frames with no
+completed Main out of6,399 gameplay frames. Empty CPU profiles measure52,816
+cycles idle and53,403 walking before normal NMI/DMA/IRQ costs. A separate
+source-qualified immediate-guard proposal saves2,728 cycles per update but is
+**not installed** and would still leave about50,000. No60fps claim is made.
+Shortcuts, every enemy, all attacks, audible output, complete original-source
+parity and the full100-character stage/powerup goal remain unfinished.
