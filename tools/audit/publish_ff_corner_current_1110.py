@@ -8,11 +8,13 @@ import subprocess
 from check_ff_physical_routes_stdout_1110 import R, PIN, SCRIPT, SCRIPT_PIN, NIGHTLY, CANDIDATE
 from deliver_manual_title_1110 import ips_for, apply_ips, SOURCE_BASE
 from nightly_patch_guard_v1 import check
+import check_ff_head_corner_1110_v2 as Fix
 
 REPO = 'kandowontu2/SMB-Crossover'
 ASSET = 'SMB-Crossover-Latest-WIP-MMC5.ips'
 PATCH_PIN = '0a1960fecf87202e175a26004e6b8f384ff93fdb40fffd1ed582fbc28fd57ab0'
 OLD_PATCH = '76c918b4bd1fb51319a28f1e09a19f98ba1b47b063c647616cc23530e059e663'
+REPORT = R / 'docs/qa/ff-head-corner-1110.md'
 RECEIPTS = (
     '5ff65b833f37a33f2805cfe78a0b3f3d4e94c4fd3889e9f4cd64605b6e2ecd3d',
     'e459a78ab4c82dc4dff14a586502efa1a131ccb1ca0aa59454d61e703c34b03c',
@@ -39,11 +41,22 @@ def upload(url, payload):
     return api(url.split('{', 1)[0] + '?name=' + ASSET, 'POST', payload, binary=True)
 
 
+def release_body(head):
+    return ('Current MMC5 WIP nightly. Apply the sole IPS to clean headered Super Mario Bros. (World).\n\n'
+        f'ROM SHA-256: {PIN}\nIPS SHA-256: {PATCH_PIN}\nSource commit: {head}\n\n'
+        'All 100 named roster entries remain startable; some added characters still use borrowed prototype moves.\n\n'
+        'Fixes Final Fantasy staircase head/side corners and automatic side-pipe entry. '
+        'All four classes earned mushroom and flower, used their upgraded attack, cleared 1-1 and entered '
+        'underground 1-2 without injury in actual Mesen. The installed Downloads ROM repeated the run. '
+        'Star/1UP and Black Mage Bolt/Ice have separate CPU qualifications.\n\n'
+        'Heavy FF lag, further abilities and visual review remain unfinished. The separate guard optimization '
+        'is source-only and is not in this ROM. No helper platform locations changed.\n')
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--report-sha', required=True)
     args = ap.parse_args()
-    report_path = R / 'docs/qa/ff-head-corner-1110.md'
+    report_path = REPORT
     report = report_path.read_bytes()
     assert sha256(report).hexdigest() == args.report_sha
     assert all(value.encode() in report for value in (*RECEIPTS, SCRIPT_PIN, PIN, PATCH_PIN))
@@ -51,7 +64,11 @@ def main():
     guard = check(NIGHTLY)
     assert guard['ROM_sha256'] == PIN
     raw = NIGHTLY.read_bytes()
-    assert CANDIDATE.read_bytes() == raw
+    # The installed exact image and qualified source are authoritative after
+    # its byte-identical disposable build copy has been pruned for storage.
+    assert Fix.proposal(Fix.V1.BASE.read_bytes())[0] == raw
+    if CANDIDATE.exists():
+        assert CANDIDATE.read_bytes() == raw
     patch = ips_for(raw)
     assert sha256(patch).hexdigest() == PATCH_PIN
     assert apply_ips(SOURCE_BASE.read_bytes(), patch)[0] == raw
@@ -74,15 +91,7 @@ def main():
             if not remaining:
                 upload(current['upload_url'], previous)
             raise
-    body = ('Current MMC5 WIP nightly. Apply the sole IPS to clean headered Super Mario Bros. (World).\n\n'
-        f'ROM SHA-256: {PIN}\nIPS SHA-256: {PATCH_PIN}\nSource commit: {head}\n\n'
-        'All 100 named roster entries remain startable; some added characters still use borrowed prototype moves.\n\n'
-        'Fixes Final Fantasy staircase head/side corners and automatic side-pipe entry. '
-        'All four classes earned mushroom and flower, used their upgraded attack, cleared 1-1 and entered '
-        'underground 1-2 without injury in actual Mesen. The installed Downloads ROM repeated the run. '
-        'Star/1UP and Black Mage Bolt/Ice have separate CPU qualifications.\n\n'
-        'Heavy FF lag, further abilities and visual review remain unfinished. The separate guard optimization '
-        'is source-only and is not in this ROM. No helper platform locations changed.\n')
+    body = release_body(head)
     api(f'repos/{REPO}/releases/{current["id"]}', 'PATCH', json.dumps(dict(body=body, make_latest='true')).encode())
     latest = api(f'repos/{REPO}/releases/latest')
     asset, = latest['assets']

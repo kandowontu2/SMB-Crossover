@@ -1,7 +1,8 @@
 # Final Fantasy head/side corners and pipe entry — November 10
 
-The fix is now physically verified and installed in Downloads as
+The first fix was physically verified and installed in Downloads as
 `96e09ab1b67a7c75b89d49219e8e529582b9a05b7dd82dd3cd570fdb239212bd`.
+The newer current build is described in `ff-mux-physical-delivery-1110.md`.
 The previous public c10 image remains the frozen source-comparison parent.
 All four FF classes already started in that parent. Starting alone does not
 establish that their movement, attacks, powerups or stage transitions work.
@@ -49,8 +50,10 @@ in all 16 directed comparisons. Do not install the earlier proposal.
 - Builder/checker: `e508771dbac9dfb42c33ca41b3d3af4c07f98f81fd2f742205f6e4a3ce690665`
 - Full-stage checker: `054a0e4fbcbf3ccc84e15240383cc0c546fee234343cddc2a84461e9fa8aedee`
 
-The private file is `build/ff-head-corner-native-1110/candidate.nes`.
-It is the sole new build file: 2,097,168 bytes. No capture files, videos,
+The original private file was `build/ff-head-corner-native-1110/candidate.nes`.
+After exact Downloads/Current delivery, that byte-identical disposable copy
+was pruned; it is no longer live. The frozen builder reconstructs96 in memory.
+It was the sole new build file: 2,097,168 bytes. No capture files, videos,
 per-frame dumps or copied source trees were created.
 
 ## Verification already completed
