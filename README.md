@@ -10,7 +10,7 @@ A native NES adaptation of [Super Mario Bros. Crossover](https://www.smbgames.be
 
 [Player's guide](<Player Guide/SMB-Crossover-Players-Guide-NU.pdf>) · [Full roster image](docs/images/SMB-Crossover-Full-Roster.png) · [Build from source](#build-from-source) · [Report a bug](https://github.com/kandowontu2/SMB-Crossover/issues)
 
-> **In development:** the expanded MMC5 nightly uses a **32-slot, four-row menu** with **100 named entries**, including Select alternates. The [Current release](https://github.com/kandowontu2/SMB-Crossover/releases/tag/Current) contains the latest IPS. Sonic, Jay McCray, Steve Hermann, Prince of Persia and Donkey Kong Jr. can start as unfinished playable prototypes. Menu availability does not mean every character has completed stage and powerup testing. The prepared source build contains 37 identities; see the build table below.
+> **In development:** the expanded MMC5 nightly uses a **32-slot, four-row menu** with **100 named entries**, including Select alternates. The [Current release](https://github.com/kandowontu2/SMB-Crossover/releases/tag/Current) contains the latest IPS. All 100 entries pass an [active 1-1 startup and short opening CPU check](docs/qa/roster-active-starts-1110.md). Sonic, Jay McCray, Steve Hermann, Prince of Persia and Donkey Kong Jr. remain unfinished playable prototypes. This does not mean every character has completed stage, graphical and powerup testing. The prepared source build contains 37 identities; see the build table below.
 
 <p align="center">
   <img src="docs/images/character-select.png" width="512" alt="Actual NES character-select screen with four rows of heroes and highlighted Imajin">
