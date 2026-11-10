@@ -25,7 +25,9 @@ def api(endpoint, method='GET', data=None, binary=False):
     if data is not None:
         command += ['--input', '-']
         if binary:
-            command += ['-H', 'Content-Type: application/octet-stream']
+            # uploads.github.com requires a known length for stdin bodies.
+            command += ['-H', 'Content-Type: application/octet-stream',
+                        '-H', f'Content-Length: {len(data)}']
     elif binary:
         command += ['-H', 'Accept: application/octet-stream']
     p = subprocess.run(command, input=data, stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True)
