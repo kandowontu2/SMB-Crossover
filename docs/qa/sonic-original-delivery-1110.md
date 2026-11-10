@@ -8,6 +8,9 @@ identical receipts in the Downloads launch context. Both automatic patch
 guards found no same-name patches. The 2,099,510-byte IPS has SHA-256
 `0584f89085f4470ecd97fd306d9a761ab4bb350d6fdf7caf58ab191e97524405`.
 Its clean-base reconstruction equals the tested Downloads ROM.
+The source is pushed at `01e2693f`. GitHub's `Current` release is Latest and
+contains the sole IPS asset `732843904`. The downloaded patch reconstructs
+the exact tested Downloads ROM.
 
 Sonic uses the original Master System movement and jump state, including its
 grounded jump latch, acceleration and rolling collision shape. The port reads
