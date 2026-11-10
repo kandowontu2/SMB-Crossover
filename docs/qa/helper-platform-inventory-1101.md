@@ -6,7 +6,9 @@ placements from actual route verification; it is not the final all-character lis
 Earlier shared-record inventory fixture SHA256:
 `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
 Current nightly SHA256:
-`49295acff1d70349119b599882a2ec0b4e2f58d21f153c90b2228dc9aceee2a7`.
+`9897c2b85489024be25b4b296d0ea57975a579ba1e3ff37a71f7ac3e0b195b97`.
+The [SMB2 preview update](smb2-menu-tier-isolation-1110.md) changes menu
+power state and uses no new helper platforms.
 Prince of Persia (Excitebike Select 1) clears four authored pipes and the first
 two gaps in 1-1 with his original jump and climb. This route uses zero helper
 platforms. [Prince delivery](prince-native-pipe-gap-delivery-1110.md)

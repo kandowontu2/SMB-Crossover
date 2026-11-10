@@ -27,11 +27,9 @@ No:clc
 .proc S2NewLife
  lda SelectedCharacter
  cmp #CHARACTER_SMB2_ROSTER
- bne No
+ bne S2ColdInit::No
  ; Native byte10 survives loss of a life. Never save/restore this NMI owner.
- jmp S2InitializeRecord
-No:clc
- rts
+ ; Fall through to the shared initializer.
 .endproc
 .proc S2InitializeRecord
  lda #0
@@ -41,7 +39,10 @@ No:clc
  lda #$1f                      ; original two-heart initial health.
  sta S2Health
  jsr S2ResetTransient
+ lda OperMode
+ beq Ready                    ; the title preview only needs the private record.
  jsr S2ExportPosition         ; native initial two-heart/large form, before draw.
+Ready:
  lda #$b2                      ; publish initialized owner state LAST.
  sta S2Ready
  sec
