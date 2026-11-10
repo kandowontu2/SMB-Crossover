@@ -1,0 +1,52 @@
+{
+  "owner": "Sonic original SMS movement, native effects and temporary own renderer",
+  "status": "source-qualified conditional runtime component; public admission/native route pending",
+  "source_only": true,
+  "ROM_written": false,
+  "build_outputs_written": 0,
+  "storage_lease": "docs/qa/allocations/sonic-append330-1110.json",
+  "mandatory_Z2_alias_file_offset": 574138,
+  "source_parent_SHA256": "a5c54d7624ee961f11b45598ca7cf7fecc24de6ee87d8e8aa70dad55834f2eaa",
+  "source_reconstruction": "Retained c10 plus exact FF source proposal; later public Excite/Thomas changes require root's explicit disjoint rebase.",
+  "current_plain_aligned_image_SHA256": "44cf95d842bf52937705740e1e39a9c882e9c98d9d9da304225887ea4e1a7642",
+  "with_qualified_shared_native_audio_SHA256": "e952d0e03be15b900bf4da8608271136118467d3be25f8da58cf42a12e35482d",
+  "code_pages": [321, 322, 323, 324, 325, 326, 327, 330],
+  "metadata_page": 328,
+  "Prince329_untouched": true,
+  "original_motor_half_open": [40960, 46486],
+  "original_motor_bytes_exact": 5526,
+  "dedicated_private_glue_half_open": [48489, 49120],
+  "dedicated_private_glue_bytes": 631,
+  "runtime_code_loaded_half_open": [40960, 49120],
+  "runtime_code_loaded_bytes": 8160,
+  "metadata_header_half_open": [53248, 53310],
+  "root_granted_executable_metadata_half_open": [53312, 53854],
+  "metadata_code_segments": {
+    "META1": [53312, 53502],
+    "VECTORS38": [53504, 53618],
+    "META2": [53618, 53854]
+  },
+  "remaining_granted_bytes_half_open": [53502, 53504],
+  "immutable_startup_half_open": [53854, 53993],
+  "ungranted_after_startup_half_open": [53993, 54272],
+  "service_table": "RAM2 D100..D172,38 three-byte JMP rows. Existing AB12 maps RAM2 into C and RAM3 into A; raw43's separately funded dispatcher must choose highD1 after full header authentication.",
+  "private_contexts_half_open": [[49152, 49369], [49408, 49451], [49664, 49848], [49920, 49946]],
+  "context_explanation": "Original source/shape/sweep C000..C0D9; PointRead/frame/host/effect scratch C100..C12B; snapshot C200..C2B8; internal ctor record C300..C31A. These are proposed exclusive typed actor contexts, not host-ZP borrowing or an independent live RAM grant.",
+  "constraints": [
+    "Exact mandatory Z2 alias must precede every321..334 overwrite. Retain319/320/335 and Prince329; do not borrow foreign carriers.",
+    "Metadata code/table may execute only under authenticated Sonic code+state headers and the RAM2-C/RAM3-A lifetime. D25E startup is the existing verified forced-blank cold exception.",
+    "The139-byte startup remains exact; its eighth row copies992 bytes only. Headers BFE0/DFE0, BFF0..BFFF and mailbox DFD0..DFD2 retain their contracts.",
+    "D2E9..D400 remains ungranted and unused. Capacity is not permission to extend there.",
+    "No C300/private render pointer is exported. Runtime renderer owns four native OAM writes directly and uses existing genuine-SMS prototype page224.",
+    "Shared exact raw43 foot service35, public bounds/D1 selection/failure tile ABI, frontend, current-parent rebasing and native controller route must close before delivery.",
+    "Temporary native150/168-update death/audio and16px standing artwork do not complete original SMS rings/combat/abilities/audio or full24x32/24 animation. No helper platform is added by this component."
+  ],
+  "source_bindings": {
+    "tools/reference/sonic_sms_native_effects_1110.py": "5dfe216183cf8909dd7482b4b120bb668b2374b9e84c0e946b4824b46c9253f9",
+    "tools/reference/sonic_sms_native_effects_aligned_1110.py": "a05a4391a5ceaa4eaceb48deb7d9063eade4cd3a71bb1ae83dbe30e42b2b0714",
+    "tools/audit/check_sonic_native_effects_1110.py": "6bd35e86b71e747e7146d0202714ed7b1e9f833fe11c29e84aeba876959afbe4",
+    "tools/audit/check_sonic_native_effects_aligned_1110.py": "664c00f49316232e2760b66865cda58454d710b0708269e3458cf63efdb5bd0c",
+    "tools/audit/check_sonic_native_effects_vectors_1110.py": "38d23cb47d005a0664b74357e25e9b372234ba935f604783a0515e5d0f60a3ae"
+  },
+  "report": "docs/qa/sonic-native-effects-aligned-1110.md"
+}

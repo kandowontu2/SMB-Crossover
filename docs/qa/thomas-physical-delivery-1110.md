@@ -6,7 +6,9 @@ The tested Downloads ROM is
 The in-memory IPS has SHA-256
 `8ad06ee63a73991830b26bb9bd9792f33fede4b4c6b3ba91b0afda11febccc5c`
 and 2,099,510 bytes. It reconstructs the tested Downloads bytes from the clean
-headered SMB World base. GitHub publication awaits the source push.
+headered SMB World base. Source commit `a88fd8a0` was pushed. The sole
+`Current` release asset `731434969` was replaced and the release marked Latest;
+downloading that remote IPS reconstructs the exact tested Downloads ROM.
 
 ## Failure reproduced in Mesen
 
@@ -61,8 +63,10 @@ completed Main call. The earlier full-stage evidence retains its own hash.
 
 ## Storage, helper and delivery scope
 
-The sole active new task ROM is
-`build/thomas-powerup-native-1110/candidate.nes`, byte-identical to Downloads.
+The task ROM `build/thomas-powerup-native-1110/candidate.nes` was verified
+byte-identical to Downloads, then removed after delivery to reuse its single
+file slot for the next private WWF candidate. The source reconstruction and
+the installed Downloads ROM are retained; the historical task path is not live.
 The superseded task-owned a76 copy at
 `build/excitebike-powerup-native-1110/candidate.nes` was removed after literal
 path, size and hash verification against Downloads. Its source reconstruction
