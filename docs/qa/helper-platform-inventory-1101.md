@@ -6,11 +6,22 @@ placements from actual route verification; it is not the final all-character lis
 Earlier shared-record inventory fixture SHA256:
 `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
 Current nightly SHA256:
-`a20d254d4730583ee1f039b10abcf873559987e4f989968037a38e17427faac1`.
-Donkey Kong Jr. adds two stock 32-pixel-wide vertical girders in 1‑1.
-Their native left/center/initial top positions are **560/576/192** and
-**624/640/192**. Mesen verified the two new lifts and the existing pair
-through the first and second pipes with both lives. [DK Jr. delivery](dkjr-second-pipe-delivery-1110.md)
+`b031802c7bc4f4e9596683e66f2f53c124b3a3ac155b80bbec03c5965b8e4e65`.
+Donkey Kong Jr. (Donkey Kong, Select once) has eight stock 32-pixel-wide
+vertical girders in World 1-1. Mesen verified all four pipe crossings with
+both lives. The first gap required no platform. [DK Jr. delivery](dkjr-four-pipe-delivery-1110.md)
+
+| Pipe | World left X | Center X | Initial top Y |
+|---|---:|---:|---:|
+| First, ascent | 416 | 432 | 192 |
+| First, descent | 480 | 496 | 192 |
+| Second, ascent | 560 | 576 | 192 |
+| Second, descent | 624 | 640 | 192 |
+| Third, ascent | 688 | 704 | 192 |
+| Third, descent | 752 | 768 | 192 |
+| Fourth, ascent | 880 | 896 | 192 |
+| Fourth, descent | 944 | 960 | 192 |
+
 The [SMB2 preview update](smb2-menu-tier-isolation-1110.md) changes menu
 power state and uses no new helper platforms.
 Prince of Persia (Excitebike Select 1) clears four authored pipes and the first
