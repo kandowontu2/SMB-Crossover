@@ -1,8 +1,9 @@
 Prince's frozen logical support packet loads on the current public Sonic
-transport. The controller reaches full fourth-pipe support and clears the
-first two gaps in the native CPU scene. The same scene begins from the prior
-translated third-pipe approach and executes the authored parser, enemy loops,
-collision, ordinary NMI, and original Prince actions from there.
+transport. The controller reaches full fourth-pipe support, clears the first
+two gaps, and proceeds past the next Goomba pair in the native CPU scene.
+The scene begins from the prior translated third-pipe approach and executes
+the authored parser, enemy loops, collision, ordinary NMI, and original
+Prince actions from there.
 
 | Exact transport parent | Combined SHA-256 |
 |---|---|
@@ -47,6 +48,9 @@ The static-portrait and scene combinations passed these source checks.
 | Second gap far bank | 1016 | X1461, Y176 | Native ground, HP4, two lives |
 | Leftward return to the near lip | 1160 | X1372, Y176 | Original action 4, actual native left-foot support |
 | Both walkers fell and retired | 1360 | X1372, Y176 | Original standing pose 15, HP4, two lives |
+| Wide approach and standing retreat | 1384 | X1371, Y176 | Original action 3, native near-bank support |
+| Standing return after backing up | 1760 | X1441, Y176 | Original action 3, native far-bank support |
+| Original run past the retired pair | 1856 | X1547, Y176 | Original action 1, native ground, HP4, two lives |
 
 The second gap spans X1376 through X1423. The parser naturally creates the
 next Goomba pair before the far-bank landing. At update 1016 those actors are
@@ -57,8 +61,8 @@ near ground. Up from the supported X1488 stance starts original reach action
 8 and reaches X1496 before the fatal contact at update 1099. Pressing Left
 on the far-bank running-jump pose enters original action 6 and continues
 right to X1515. The fatal contact at update 1061 precedes the turn and reverse
-jump. These inputs preserve the authentic source reactions. The affected identity is Prince of
-Persia, Excitebike Select1/raw38. Helper placements are unchanged.
+jump. The affected identity is Prince of Persia, Excitebike Select1/raw38.
+Helper placements are unchanged.
 
 The controller that first lets Prince settle can reverse successfully. It
 reaches original left run frame 6 at X1456 and requests Left+A at update
@@ -76,11 +80,33 @@ at X1349. The earlier jump lands at X1459, two pixels left of the standard
 route. This branch also sees both walkers fall, but the camera edge of X1370
 still leaves the final right-facing stance unsupported at X1379.
 
-Root separately ran the physical menu and first pipe on exact 47a7. The
-controller entered the original jump at X206, used original Up and climb,
-then reached supported far-side floor at X563/Y176 with HP5 and two lives at
-commit 509. The reported receipt SHA-256 is
-`c2b0c955979942b90d8e968d34e13b495af98ac6032052697f08a2ab75da2390`.
+A brake, left turn and new run-up select two earlier jump positions with
+genuine support. The X1330 request lands at X1440, and the X1338 request lands
+at X1448. The corresponding camera edges after the neutral stop are X1351
+and X1359. Both running reverse attempts start original action 4 from
+supported ground, at X1435 and X1443 respectively, then enter original fall 7
+before the near bank. This leaves more space for a return turn and less space
+for the reverse running jump's takeoff.
+
+On the X1440 branch, a left-facing standing pose at X1457 starts original
+standing jump 3 at update 1334. It reaches native near-bank support at X1371
+at update 1384. The two native walkers fall at X1408 and Y206 on updates 1536
+and 1583. Both retire by update 1600 with Prince standing at X1369, HP4, and
+two lives. Turning right directly from X1369 moves to X1375, then settles at
+X1378 over the gap. The camera left edge remains X1351.
+
+The successful branch backs up under original left run from X1369 to X1353,
+then releases Left. Prince settles against the camera edge at X1351 on
+update 1667. Original turn action 5 and neutral settle into right-facing
+pose 15 at X1360 on update 1707 with both feet supported. Standing A starts
+action 3 at update 1710 and lands on the far bank at X1441 on update 1760.
+Original right run reaches X1547 at update 1856 with HP4 and two lives. The
+retired pair is absent, and the next native actor is ID0 at X1706.
+
+The root's exact 47a7 Mesen candidate and Downloads replays passed the
+menu, four pipes, and both gaps through X1461. That physical receipt is
+`07216d828e974a8dead673eed93021fb10873bd53b5c562b7ed8bb46dcd78b95`.
+See [the native delivery report](prince-native-pipe-gap-delivery-1110.md).
 
 Use `check_prince_sonic_transport_1110.proposal(sonic_scene=True)` to recover
 the 47a7 image and the matching current common loader program. The standalone
@@ -93,8 +119,10 @@ $env:PYTHONDONTWRITEBYTECODE='1'
 python tools/audit/run_bounded_build_v1.py --output build/prince-sonic-current-transport-1110 --max-files 1 --timeout 600 -- python -B tools/audit/check_prince_sonic_transport_1110.py --sonic-scene --cold --readback --owners --cold-vectors --route --hot-vectors
 python tools/audit/run_bounded_build_v1.py --output build/prince-post-pair-climb-1110 --max-files 1 --timeout 600 -- python -B tools/audit/check_prince_late_route_1110.py --sonic-scene --approach climb-A
 python tools/audit/run_bounded_build_v1.py --output build/prince-post-pair-bank-1110 --max-files 1 --timeout 600 -- python -B tools/audit/check_prince_late_route_1110.py --sonic-scene --approach retreat-unturned
+python tools/audit/run_bounded_build_v1.py --output build/prince-standing-retreat-1110 --max-files 1 --timeout 600 -- python -B tools/audit/check_prince_late_route_1110.py --sonic-scene --turn --earliest-second --approach retreat-standing
+python tools/audit/run_bounded_build_v1.py --output build/prince-standing-backup-1110 --max-files 1 --timeout 600 -- python -B tools/audit/check_prince_late_route_1110.py --sonic-scene --turn --earliest-second --approach retreat-standing-backup
 ```
 
 The recipes retain zero files under `build/`. Physical verification beyond
-the first pipe, full stage completion, and Prince's natural powerup
+the second gap, full stage completion, and Prince's natural powerup
 progression remain pending.

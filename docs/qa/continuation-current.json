@@ -1,4 +1,19 @@
 {
+  "Sonic_earned_injury_delivery_1110": {
+    "nightly_path": "C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes",
+    "nightly_SHA256": "49295acff1d70349119b599882a2ec0b4e2f58d21f153c90b2228dc9aceee2a7",
+    "previous_public_SHA256": "47a7a6aeabe2cc7db593f431591e52331b834485b3d7638e3f10f95cbf43db4b",
+    "Current_release": "Current/Latest sole asset732952816 SMB-Crossover-Latest-WIP-MMC5.ips SHA3981798af56cbd37efcd3283bfdd9e2bf339340476de553e7e99df86eabdb2af 2099510B. Source28d3a667a03c7ef372754ccbd01cbece465765f7 pushed. Remote asset bytes independently downloaded and reconstruct exact tested Downloads. Guards clean before and after. No backups.",
+    "report": "docs/qa/sonic-earned-injury-delivery-1110.md",
+    "native_evidence": "Actual controller-only V2 same inputs and all event states through injury. Sonic raw43 from Mr. Gimmick Select3, correct tier0 start, authored C1 pointer70 D5 03, native slot5 mushroom, mature collection and SFX20, 60 growth updates, live Goomba X688/Y184 contacts Sonic X678/Y176. Old tier43/C0; new tier0/C0, 55 native injury updates, jump from X722/Y176 to X738/Y104 with lives2. Old receipt00ac3ee5ae97f7eeed76aa2add63cdacfeda217d8f53fe5dd4b8873b39188f50, candidate and Downloads b27c49992aa49955eec69819c3b6d1fc2f53cad6754b7ff6ba24fa1e28c7798d, V2 Lua a6e1dc5caf708a6d7fbe21bc7d7d18207061befc5e9bb1972bedb2e7125b182c. Sonic 520/1123 gameplay frames without update. Prince candidate and Downloads exact receipt800fd9ee54cb740e1d065ecf777dd4ca6cf5cb7497f6a5261e55d268977c9572, four pipes/two gaps X1461/176 HP4 lives2 no helpers.",
+    "menu_state_leak": "First physical control used Down three times then Right. SMB2 Mario preview sets PlayerStatus1 at PRG118 AF8A. Its tier survives the right move to Mr. Gimmick and all three Selects. The native block therefore produces the next powerup. Exact current CPU navigation reproduces it and identifies S2InitializeRecord->S2ExportPosition. Right then Down three times avoids the leak and earns an actual mushroom in the released test. Fix menu state separately without altering SMB2 stage health.",
+    "parallel_source_progress": {
+      "Prince": "Exact47a7 CPU and frozen reconstruction pass later route X1547/Y176 HP4 lives2. Wider second landing X1440, actual left standing jump, two native Goombas fall, supported X1351 reverse run-up and standing A return to X1441, then original run. Next native ID0 at X1706. Source checker tools/audit/check_prince_late_route_1110.py. Physical verification still reaches X1461.",
+      "Jay": "347B D002 tile adapter source, exact47a7 standalone checker. Three true menu/controller starts verify Mike/Jay/Steve still share host Mike motion/weapon path. 8 parser phases, 940 valid/120 stale with no stale reads, 5120 tile/direction cases and 282 real donor D002 ABI pairs. Proposed CHR331/332 needs live lease/retirement proof and integration. docs/qa/jay-silius-host-tile-1110.md."
+    },
+    "storage": "Build3,120,985,802B/19,998files after removing only the exact tested candidate duplicate, verified against Downloads and the remote patch. No new build files, videos, captures or backups retained. Root sole Mesen queue.",
+    "goal_status": "active. Original rings, full Prince/Jay/Steve routes and mechanics, remaining characters and pickups, Kirby inhale/attack and broader lag still require work."
+  },
   "Prince_four_pipes_two_gaps_delivery_1110": {
     "nightly_path": "C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes",
     "nightly_SHA256": "47a7a6aeabe2cc7db593f431591e52331b834485b3d7638e3f10f95cbf43db4b",
