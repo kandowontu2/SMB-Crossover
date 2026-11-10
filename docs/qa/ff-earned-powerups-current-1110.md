@@ -28,7 +28,12 @@ All four classes reach Power/Earned2; White's charge count becomes3 and
 the others remain0. The same erasure, floaty and native sound-queue checks
 pass, followed by exactly60 freeze callbacks and16px resumed movement to
 X1253 by700, lives2. Native BG collision calls, proper class palettes,
-outlinesOff0 and mandatory visible shadow OAM remain intact.
+outlinesOff0 and visible shadow OAM remain intact in this CPU fixture.
+The fixture starts the option byte at zero; physical cold startup defaults it
+to one. Consequently this result does not prove mandatory FF black masks with
+the global option off. The later physical-start observer caught that scope
+error; the game's existing conditional FF ink path still needs a separate
+visual check against the user's always-on FF-shadow requirement.
 
 Further ordinary controls cross the second pit and attack a naturally
 streamed Goomba:
@@ -68,6 +73,10 @@ class. Reproduce it without generated files:
 python -B tools/audit/run_bounded_build_v1.py --output build/ff-earned-attacks-cpu-1110 --max-files 1 --timeout 600 -- python -B tools/audit/check_ff_earned_attacks_current_1110.py
 ```
 
-Star,1UP, Bolt/Ice/Light, every possible attack, full1-1 and native emulator
-review remain open. Existing helper positions did not change; see the
+The later `check_ff_star_life_current_1110.py` adds actual earned Star and 1UP
+routes for all four classes on this same c10 image. They verify native deferred
+life awards, Star protection, timer expiry, palette phases and music recovery.
+See `ff-head-corner-1110.md` for subsequent private full-stage repairs and their
+separate qualifications. Bolt/Ice/Light, every possible attack and complete
+native emulator review remain open. Existing helper positions did not change; see the
 [helper inventory](helper-platform-inventory-1101.md).
