@@ -1,0 +1,37 @@
+{
+  "owner": "Sonic the Hedgehog, original Master System engine integration",
+  "status": "conditional source-funded reservation; native integration pending",
+  "source_qualified": true,
+  "native_pending": true,
+  "ROM_written": false,
+  "base_ROM_SHA256": "c10b7d87f466bf028096bddd33b7ac2baee242870ee83ccc4eebd529af57bd7f",
+  "source_checker": "tools/audit/check_sonic_fairy_funding_1110.py",
+  "source_checker_SHA256": "f2ecce2cb940d6203b840b35b67c257d2887960fa505ffe2e63d96e0289ad1a7",
+  "qualification": "Bounded stdout-only audit; no artifact output. 88 finite source domains, 50 current tables, 15 private writer chunks rebound. 512 actual Z2SetPose/setter+regular-NMI cases (all256 indices, both facings); 54 menu,54 lives,54 gameplay/world/HUD pairs; all100 named menu entries exact. All14 proposed pages poisoned in memory and never published; undo-alias negative publishes321 and fails. Published1KB contents and foreign state exact with explicitly constrained physical selector/transport normalization.",
+  "mandatory_atomic_source_change": {
+    "table": "Z2PoseChrLo, actual sole indexed reader physical69:A4DF, actual CPX27/BCC/LDX3 clamp and physical70 mapping",
+    "file_offset": 574138,
+    "old_hex": "3435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e",
+    "new_hex": "3435363738393a3b3c3d3e3f403f403f403f403f403f403f403f40",
+    "table_only_memory_ROM_SHA256": "1456a9a92ab86ff3d7f591c227b23b88b3c82d96a013e4342b474a71241ca5cc",
+    "meaning": "Normal pages308..318 unchanged; sixteen fairy entries use canonical319/320 instead of duplicate319..334. Source publishes one body1KB page; world335 and HUD236..243 retained."
+  },
+  "conditional_physical_CHR_pages": [321, 322, 323, 324, 325, 326, 327, 328, 329, 330, 331, 332, 333, 334],
+  "bytes": 14336,
+  "retained_canonical_pages": [319, 320],
+  "retained_world_page": 335,
+  "constraints": [
+    "No page is free in the currently released ROM. Apply and qualify the exact alias table change atomically before overwriting any reserved page.",
+    "Do not change source Zelda II pose indices, pixels, palettes, ordinary states, fairy form, menu/lives/HUD behavior or publication ABI.",
+    "This reservation grants storage only. It grants no host RAM, raw character ID, shared hook, native-call endpoint or menu selector marker.",
+    "Compose disjoint changes against an exact parent; recompute typed carrier headers and qualify cold load, foreground/IRQ/NMI, all affected rendered forms and actual native gameplay before delivery.",
+    "The intended Sonic body is the source24x32/24 with original movement and abilities. Current MarioSelect10 skin remains only a temporary prototype. Preserve Bub/Bob while implementing the originally requested fourth Mr. Gimmick alternate.",
+    "FmGroups bit6 is live paletteDirty and raw39 is live Bub/Bob/common-manager; neither is Sonic funding."
+  ],
+  "related_component": {
+    "proof": "build/sonic-original-composed-frame-1110/proof.json",
+    "proof_SHA256": "1ae399417eb3ce4de5dfdaddbf017d9398d4b2399988db175662124a277a11ca",
+    "bytes": 4864,
+    "scope": "Original ordinary frame composition only; source terrain fixture, host adapter and lifecycle not yet integrated."
+  }
+}

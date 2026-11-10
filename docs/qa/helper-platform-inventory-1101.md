@@ -454,3 +454,30 @@ passes at 3,494 updates / 3,494 gameplay frames with zero lag NMIs/missed update
 The manual helper opening tests do not establish every character's assisted
 pit crossing or full 1-1 clear. Evidence and prototype limits:
 `docs/qa/complete-roster-starts-1110.md`.
+
+### November 10 follow-up: DK Jr. first-pipe crossing verified
+
+The unchanged installed `c10b7d87` ROM now has a passing controller-only
+two-girder crossing. Both fixed **1-1** platforms retain their original
+placements: left/center/top **416/432/192** and **480/496/192**, width32.
+Both spawn 287 pixels beyond camera-left, get different native actor slots,
+and have45 authenticated native carries each. The replay reaches ordinary
+far-ground **X517 / native Y176**, source state1, native grounded state0,
+engine8 and lives2, with1,749 scroll publications and zero mismatches.
+Body checks include906 matching DMA/hardware observations.
+
+The former jump attempt failed because the rising lift recaptured the original
+slow jump. The passing route walks toward the supported right edge and steps
+across without a second A press. The first revised observer then stalled on
+the second lift because it sampled transient native Player_State2 between
+source/terrain/platform updates. Its successor accepts intermediate support
+only with source state1, exact source/native feet and a current/prior actual
+carry from the same lift. Strict ordinary far-ground, both lives, both births
+and both carries remain required. No ROM bytes, physics or platform coordinates
+changed. This qualifies the first pipe, **not a full DK Jr. 1-1 clear**.
+
+Live positive packet: `build/dkjr-supported-departure-1110/`.
+Result SHA256: `9ddf1e6ea00af9b182f0663e35fcfa9ed1c8f355825098f6d6387170e9f07a92`.
+Its bindings are valid. The two earlier failed packets remain diagnostic
+evidence; see `docs/qa/cleanup-current-owned-1110.md` for exact disposable files
+whose deletion was rejected before execution.
