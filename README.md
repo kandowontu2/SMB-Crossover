@@ -75,7 +75,7 @@ The image includes unfinished characters and predates the two new SMB1 alternate
 
 The four SMB2 characters, four Final Fantasy classes and both SMB1 and SMB3 Toad/Peach are enabled, with emulator checks recorded for their respective build hashes. Goku is an Arthur Select alternate. Bub and Bob are Select alternates for Mr. Gimmick. Older roster-gap reports describe their recorded builds and should not be treated as a current unlock list.
 
-**Getsu Fuma:** highlight Simon and press Select past the Castlevania III alternates. His movement, sword and original sprites are integrated, and the delivered build clears 1-1 into 1-2 with both lives. Head collisions activate powerup blocks. Real mushroom and Fire Flower pickups complete their60-update transformations and resume movement. Combat lag and broader powerup behavior remain under review.
+**Getsu Fuma:** highlight Simon and press Select past the Castlevania III alternates. His movement, sword and original sprites are integrated, and the delivered build clears 1-1 into 1-2 with both lives. Head collisions activate powerup blocks. Real mushroom and Fire Flower pickups finish their transformations after 60 updates and resume movement. The latest idle test missed 2 controller reads in 120 frames, down from 60. Combat lag and broader powerup behavior remain under review.
 
 **Mega Giant Mario:** select his Mario alternate to defeat enemies by body contact and crush question blocks and bricks. Pipes, ground and exit objects retain their structural behavior. The delivered build clears 1-1 with both lives. Firebar and thrown-hammer rules remain under review.
 
@@ -188,7 +188,7 @@ The chosen starting level applies when confirming a character. Invincibility doe
 
 ## Development status
 
-The current MMC5 nightly is `c6ab5610`. It adds Getsu Fuma and repairs his head probe and powerup freeze while retaining the Giant contact/crushing repairs, **BY KANDOWONTU** title credit, and Mini/Karnov's **Up + Select** moving-platform summon. Downloads and the sole Current/Latest IPS were verified against the same ROM bytes. The requested **Down + Select** horizontal summon is still being implemented.
+The current MMC5 nightly is `66a7b932`. It adds Getsu Fuma, repairs his head probe and powerup freeze, and reduces his idle slowdown while retaining the Giant contact/crushing repairs, **BY KANDOWONTU** title credit, and Mini/Karnov's **Up + Select** moving-platform summon. Downloads and the sole Current/Latest IPS were verified against the same ROM bytes. The requested **Down + Select** horizontal summon is still being implemented.
 
 Highlight Mario and press Select until **MINI MARIO**. A jumps and B runs. Three native vertical platforms help him cross the taller pipes in 1-1; Up + Select creates or replaces a platform beneath him. Fire Flower grants up to two small fireballs using the Game Boy Color moving/impact sprites and 4×4 collision boxes. The latest non-shortcut replay reaches active 1-2 with both lives and records **3,494 gameplay updates over 3,494 gameplay frames, with no lag NMIs or missed updates**. This result is specific to that route, not every level or character. See the [helper inventory](docs/qa/helper-platform-inventory-1101.md).
 

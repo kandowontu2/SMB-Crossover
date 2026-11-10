@@ -4,7 +4,7 @@ The functional roster pass is not complete. This inventory separates source
 placements from actual route verification; it is not the final all-character list.
 
 Inventory fixture SHA256: `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
-Current nightly SHA256: `c6ab56107cf78954ff24f0fddbd40a0207afd4e7743eaeb8c762a53329d30f1b`.
+Current nightly SHA256: `66a7b9325d90efb7751387e0c1c95a756fde57d92f13d6180178ade3e535090c`.
 
 Requested next addition, not yet delivered: Mini Mario and Karnov **Down + Select**
 summons one horizontal native platform in front of the player. Horizontal and
