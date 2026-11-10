@@ -25,7 +25,7 @@ their final original abilities.
 | Jay McCray | Highlight Mike Jones; Select once | Original sprite core on Mike movement, weapons, health and audio. Original donor moves/audio remain pending. |
 | Steve Hermann | Highlight Mike Jones; Select twice | Original sprite core, reduced palette/outer-limb fit, on Mike movement, weapons, health and audio. Original donor moves/audio remain pending. |
 | Prince of Persia | Select on Excitebike | Original donor startup, sprites, movement and short opening passed; later Easy landing/contact at X891 still failed. Full 1-1 remains unqualified. |
-| Donkey Kong Jr. | Select on Donkey Kong | Original donor startup, sprites, movement and short opening passed; first-pipe lift/jump-detach still failed. Full 1-1 remains unqualified. |
+| Donkey Kong Jr. | Select on Donkey Kong | Original donor startup, sprites, movement and short opening passed. A later controller-only replay verifies both existing first-pipe lifts and far ground on unchanged c10; full 1-1 remains unqualified. |
 
 Jay/Steve choices survive ordinary confirmation and their scoped life/respawn
 CPU tests. An active level-select cheat clears the prototype choice. A known
@@ -33,6 +33,10 @@ Mini preview-header corruption remains when cycling toward Sonic. Comparison
 with the preceding Mini nightly showed the same corruption; no claim of a
 clean full-menu graphical sweep is made here. Sonic/Jay/Steve gameplay and
 menu screenshots were visually reviewed on the final ROM.
+
+A later [zero-output CPU sweep](roster-active-starts-1110.md) reaches active1-1
+and60 opening updates with all100 named entries. It supplements the original
+menu census and17 native cases, without replacing native/full-stage review.
 
 ## Platform support
 

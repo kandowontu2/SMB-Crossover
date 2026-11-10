@@ -1,5 +1,13 @@
 # November 10 functional follow-up
 
+Later source work and qualification are recorded in
+[all 100 active starts](roster-active-starts-1110.md),
+[the earned FF mushroom/flower/attack checks](ff-earned-powerups-current-1110.md),
+[the original Sonic cold integration](sonic-original-cold-owner-1110.md), and
+[the Prince fourth-pipe source diagnosis](prince-fourth-pipe-floor-method-1110.md).
+Those reports supersede this snapshot's earlier FF pickup and Sonic storage
+status. The public ROM remains c10; the later source proposals are unpublished.
+
 The prior turn made authoritative progress: all100 current named entries
 became startable on `c10b7d87`, with17 native tests and a matching installed
 ROM/Current IPS. This follow-up continues the broader original-ability,
