@@ -6,7 +6,11 @@ placements from actual route verification; it is not the final all-character lis
 Earlier shared-record inventory fixture SHA256:
 `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
 Current nightly SHA256:
-`6d83dea872b42cd39c14d756334a801c8f7da7dfa63ecea16d9f13835c63638d`.
+`d76e070ef5923e05e61088fc7e91e05a637e0c4184c6ccf29feea23637252486`.
+The WWF pickup and secondary-palette repair changes none of the six wrestlers'
+existing helpers or summon controls. All-six actual mushroom/recovery checks
+are documented in the [current delivery report](wwf-pickup-palette-delivery-1110.md);
+these are not new full-stage assisted-crossing proofs.
 The Thomas mushroom admission/progression repair changes none of his existing
 six helpers. Its actual earned-pickup result is in the
 [Thomas delivery report](thomas-physical-delivery-1110.md).
