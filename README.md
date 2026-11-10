@@ -6,6 +6,8 @@
 
 A native NES adaptation of [Super Mario Bros. Crossover](https://www.smbgames.be/smb-crossover.php), built on [SMB1Base](https://github.com/smbstudio/smb1base). Play SMB's levels with character-specific movement, weapons, upgrades, music and health systems.
 
+# This is an AI assisted project.
+
 [Player's guide](<Player Guide/SMB-Crossover-Players-Guide-NU.pdf>) · [Full roster image](docs/images/SMB-Crossover-Full-Roster.png) · [Build from source](#build-from-source) · [Report a bug](https://github.com/kandowontu2/SMB-Crossover/issues)
 
 > **In development:** the expanded MMC5 nightly uses a **32-slot, four-row menu** with Select alternates. The [Current release](https://github.com/kandowontu2/SMB-Crossover/releases/tag/Current) contains the latest IPS. Getsu Fuma and Mega Giant Mario are now playable; Prince of Persia and Donkey Kong Jr. are still being validated. Menu availability does not mean every character has completed stage and powerup testing. The prepared source build contains 37 identities; see the build table below.
