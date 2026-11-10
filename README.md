@@ -10,7 +10,7 @@ A native NES adaptation of [Super Mario Bros. Crossover](https://www.smbgames.be
 
 [Player's guide](<Player Guide/SMB-Crossover-Players-Guide-NU.pdf>) · [Full roster image](docs/images/SMB-Crossover-Full-Roster.png) · [Build from source](#build-from-source) · [Report a bug](https://github.com/kandowontu2/SMB-Crossover/issues)
 
-> **In development:** the expanded MMC5 nightly uses a **32-slot, four-row menu** with Select alternates. The [Current release](https://github.com/kandowontu2/SMB-Crossover/releases/tag/Current) contains the latest IPS. Getsu Fuma and Mega Giant Mario are now playable; Prince of Persia and Donkey Kong Jr. are still being validated. Menu availability does not mean every character has completed stage and powerup testing. The prepared source build contains 37 identities; see the build table below.
+> **In development:** the expanded MMC5 nightly uses a **32-slot, four-row menu** with Select alternates. The [Current release](https://github.com/kandowontu2/SMB-Crossover/releases/tag/Current) contains the latest IPS. Prince of Persia and Donkey Kong Jr. now start as unfinished playable prototypes. Menu availability does not mean every character has completed stage and powerup testing. The prepared source build contains 37 identities; see the build table below.
 
 <p align="center">
   <img src="docs/images/character-select.png" width="512" alt="Actual NES character-select screen with four rows of heroes and highlighted Imajin">
@@ -62,9 +62,9 @@ This table records the core roster and verified recent additions, including work
 | SMB2 / Doki Doki Panic | Mario / Luigi / Toad / Peach / Imajin / Lina / Papa / Mama | — |
 | Mr. Gimmick | Mr. Gimmick / Bub / Bob | — |
 | Bowser | SMB3 Bowser / SMB1 Bowser | — |
-| Donkey Kong | Donkey Kong | Donkey Kong Jr. |
+| Donkey Kong | Donkey Kong / Donkey Kong Jr. (prototype) | — |
 | WWF WrestleMania | Hulk Hogan / Ted DiBiase / Bam Bam Bigelow / Honky Tonk Man / Randy Savage / Andre the Giant | — |
-| Excitebike | Excitebike (WIP) | Prince of Persia |
+| Excitebike | Excitebike (WIP) / Prince of Persia (prototype) | — |
 | Contra Force | Burns / Smith / Iron / Beans | — |
 | Ghosts 'n Goblins / Dragon Power | Arthur / Goku | — |
 
@@ -192,7 +192,9 @@ The chosen starting level applies when confirming a character. Invincibility doe
 
 ## Development status
 
-The current MMC5 nightly is `74fde1db`. Mini Mario and Karnov now use **Up + Select** for a vertical platform and **Down + Select** for a separate horizontal platform. The horizontal one spawns to the right regardless of facing, moves right first for 112 pixels, then travels back and forth. One of each can coexist; a fresh chord replaces only that axis. Both characters passed actual Downloads tests, and the sole Current/Latest IPS reconstructs the tested ROM. Getsu's powerup/head repairs, Giant contact/crushing repairs and **BY KANDOWONTU** credit are retained.
+The current MMC5 nightly is `d1333adf`. **Select on Excitebike** starts Prince of Persia, and **Select on Donkey Kong** starts DK Jr. Both pass cold menu-to-gameplay, authentic initialization/graphics, walking and jumping from the actual Downloads filename. They remain prototypes: Prince has a later Easy landing/contact issue, and DK Jr. has a first-pipe lift/jump-detach issue. Full 1-1 completion is not claimed for them.
+
+Mini Mario and Karnov use **Up + Select** for a vertical platform and **Down + Select** for a separate horizontal platform. The horizontal one spawns to the right regardless of facing, moves right first for 112 pixels, then travels back and forth. One of each can coexist; a fresh chord replaces only that axis. The sole Current/Latest IPS reconstructs the tested Downloads ROM. Getsu's powerup/head repairs, Giant contact/crushing repairs and **BY KANDOWONTU** credit are retained. Wrestler/Final Fantasy platform support and Sonic/Jay/Steve startup prototypes are in progress.
 
 Highlight Mario and press Select until **MINI MARIO**. A jumps and B runs. Three native vertical platforms help him cross the taller pipes in 1-1; Up + Select creates or replaces a platform beneath him. Fire Flower grants up to two small fireballs using the Game Boy Color moving/impact sprites and 4×4 collision boxes. The latest non-shortcut replay reaches active 1-2 with both lives and records **3,494 gameplay updates over 3,494 gameplay frames, with no lag NMIs or missed updates**. This result is specific to that route, not every level or character. See the [helper inventory](docs/qa/helper-platform-inventory-1101.md).
 

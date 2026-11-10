@@ -377,3 +377,20 @@ one-way scroll: a returning platform can leave the rider at the viewport's
 left boundary, and an older vertical girder can be culled offscreen. These
 tests do not yet establish a manual horizontal-assisted pit crossing. Mini's
 full non-shortcut 1-1 route still uses the three fixed girders listed above.
+
+### Donkey Kong Jr. opening prototype
+
+Nightly `d1333adf` makes DK Jr. startable through Select on Donkey Kong. His
+source prototype retains two native vertical girders in 1-1, both 32 pixels
+wide and initially at top Y192:
+
+| Character | Stage | Native left edge X | Center X | Initial top Y |
+|---|---|---:|---:|---:|
+| Donkey Kong Jr. | 1-1 | 416 | 432 | 192 |
+| Donkey Kong Jr. | 1-1 | 480 | 496 | 192 |
+
+Their earlier native offscreen births were observed on private `88e62d81`.
+The first assisted pipe crossing still failed at jump/detach; the new nightly
+qualifies only selection and the early walk/jump opening before these lifts.
+Do not treat their presence as a verified crossing. Prince of Persia adds no
+helper platforms in this opening prototype.
