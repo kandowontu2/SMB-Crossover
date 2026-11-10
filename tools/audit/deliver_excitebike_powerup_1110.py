@@ -12,6 +12,7 @@ from stage_excitebike_powerup_1110 import R, NIGHTLY, PARENT, PIN, reconstruct
 CANDIDATE = R/'build/excitebike-powerup-native-1110/candidate.nes'
 SCRIPT = R/'tools/playthroughs/excitebike_earned_powerup_stdout_1110_v4.lua'
 SCRIPT_PIN = '547675a20cda944233757c664a89fde1a97d98435d98ce5e09be43b5c663b228'
+EXPECTED_X = 306
 
 
 def main():
@@ -34,7 +35,7 @@ def main():
         assert check(NIGHTLY)['ROM_sha256'] == PIN
         result = run(SCRIPT, NIGHTLY, out, PIN, 150)
         assert result['passed'] and result['receipt']['powerup_ticks'] == 60
-        assert result['receipt']['terminal']['x'] == 306
+        assert result['receipt']['terminal']['x'] == EXPECTED_X
         assert result['receipt']['terminal']['lives'] == 2
         assert NIGHTLY.read_bytes() == CANDIDATE.read_bytes() == image
         after = check(NIGHTLY)

@@ -1,5 +1,9 @@
 # Excitebike earned pickup: tested Downloads delivery
 
+This records the historical a76 delivery. The later Thomas repair retains
+this implementation; see [the current delivery](thomas-physical-delivery-1110.md).
+The private a76 build copy below was subsequently pruned after verification.
+
 The installed nightly is
 `C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes`, SHA-256
 `a76d7610eed8493806200c52b96065af0369b926c55d033e17841f818756e2e0`.

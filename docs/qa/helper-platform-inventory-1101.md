@@ -6,7 +6,10 @@ placements from actual route verification; it is not the final all-character lis
 Earlier shared-record inventory fixture SHA256:
 `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
 Current nightly SHA256:
-`a76d7610eed8493806200c52b96065af0369b926c55d033e17841f818756e2e0`.
+`6d83dea872b42cd39c14d756334a801c8f7da7dfa63ecea16d9f13835c63638d`.
+The Thomas mushroom admission/progression repair changes none of his existing
+six helpers. Its actual earned-pickup result is in the
+[Thomas delivery report](thomas-physical-delivery-1110.md).
 The November10 Excitebike progression repair changes no helper actor,
 admission, location or movement. Its actual earned-pickup run is documented
 in [the delivery report](excitebike-physical-delivery-1110.md).
