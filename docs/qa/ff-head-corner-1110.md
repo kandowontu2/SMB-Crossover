@@ -169,6 +169,12 @@ IPS reconstructs the installed bytes exactly, SHA
 `0a1960fecf87202e175a26004e6b8f384ff93fdb40fffd1ed582fbc28fd57ab0`
 (2,099,510 bytes). The sole Current/Latest release refresh is recorded separately.
 
+Current/Latest publication subsequently passed: sole asset731066739 has that
+exact IPS digest; its downloaded bytes reconstruct the tested Downloads ROM.
+Initial stdin upload failed until an explicit Content-Length was supplied;
+the corrected upload and complete verification passed without a disk patch or
+backup. Source through `fde41db6` was pushed before publication.
+
 All five runs retained zero capture files and left unrelated Mesen processes
 alone. Two earlier diagnostic PNGs were emitted in memory only. The first active
 frame preceded visible body publication; it is not a missing-body verdict.

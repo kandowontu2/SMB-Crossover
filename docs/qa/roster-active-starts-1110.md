@@ -1,10 +1,17 @@
 # All 100 named entries: active-stage startup check
 
-The installed nightly remains
-`C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes`, SHA256
+This startup census is bound to the retained parent ROM
+`build/complete-roster-native-1110/candidate.nes`, SHA256
 `c10b7d87f466bf028096bddd33b7ac2baee242870ee83ccc4eebd529af57bd7f`.
-No new ROM, backup, capture or build file was created in this follow-up.
-The nightly guard still finds no same-name automatic patches.
+No new ROM, backup, capture or build file was created by this census.
+The newer installed nightly at
+`C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes` is now
+`96e09ab1b67a7c75b89d49219e8e529582b9a05b7dd82dd3cd570fdb239212bd`.
+It preserves the roster admission/menu and adds the FF corner/pipe repair;
+all four changed FF classes passed actual Mesen full1-1/earned-upgrade runs.
+See `ff-head-corner-1110.md` for the exact new-image qualification. This is
+not a claim that the complete100-entry CPU census was rerun on that image.
+The Downloads guard still finds no same-name automatic patches.
 
 All **100 distinct named entries** now have an actual active1-1/opening CPU
 check, extending the earlier menu-confirmation inventory. The test starts in
