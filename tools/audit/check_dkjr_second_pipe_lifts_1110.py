@@ -319,8 +319,13 @@ def main():
     parser.add_argument('--output',type=Path)
     parser.add_argument('--admission-only',action='store_true')
     args=parser.parse_args()
+    guard=check(NIGHTLY)
     raw=NIGHTLY.read_bytes()
-    assert check(NIGHTLY)['ROM_sha256']==PARENT
+    assert S.sha(raw)==guard['ROM_sha256']
+    if guard['ROM_sha256']!=PARENT:
+        # Keep the old input reproducible after replacing the nightly.
+        from deliver_smb2_menu_tier_1110 import Recipe
+        raw=Recipe.proposal(Recipe.V1.BASE.read_bytes())[0]
     image,cookie,labels=proposal(raw)
     print(json.dumps(dict(admission=verify_admission(image,cookie,labels)),sort_keys=True),flush=True)
     if not args.admission_only:

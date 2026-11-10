@@ -1,4 +1,17 @@
 {
+  "DK_Jr_second_pipe_delivery_1110": {
+    "nightly_path": "C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes",
+    "nightly_SHA256": "a20d254d4730583ee1f039b10abcf873559987e4f989968037a38e17427faac1",
+    "previous_public_SHA256": "9897c2b85489024be25b4b296d0ea57975a579ba1e3ff37a71f7ac3e0b195b97",
+    "Current_release": "Current/Latest sole asset733091964 SMB-Crossover-Latest-WIP-MMC5.ips SHA a1621d5ef67b60d5a617651a3cb0260d56141160376454a5db2c9d6a53a13852 2099510B. Source e8202761d1b735cfdff1acb067c9091641144a05 pushed. Remote round-trip equals Mesen-tested Downloads. Automatic patch guards clean and zero backups.",
+    "report": "docs/qa/dkjr-second-pipe-delivery-1110.md",
+    "helper_scope": "Only Donkey Kong Jr. (Donkey Kong Select once), World 1-1. Four native ID25 32px girders. Existing first pipe left/center/initial top416/432/192 and480/496/192 with motion center128; new second pipe560/576/192 and624/640/192 with motion center177. Offscreen camera births at129,193,273,337. See docs/qa/helper-platform-inventory-1101.md.",
+    "source_scope": "Private D18B..D200 exact117B, BOX8 atBD3C, camera two bytes D2FC, world four D7FC, redirect atB7B8, full cookie a72801590fbf90c3715698c8af6e16e3. AreaDataLow CE unique among all34 loaded native area records, stage pointer25 unique in stage table. 3840 CPU scope combos, 48 actual full-pool retries/releases, wrong loaded map rejects and warm life reset. Final controller reaches X516 after first pipe then X660/Y176 at epoch2635 with lives2, carries46/47/41/12. Pruned only identical verified candidate.",
+    "native_scope": "Identical candidate and installed Mesen receipt a3cd3ef76fb2b6423f833c2b6b4348344c15c416ad911789296a234864a3523f, Lua e782a077485520ed8832587acd8af31839bbf58096b5b6cee4c89641bd11f43f. First crossing X517/Y176. Second original jump X589/Y126 from lift top158, roof X612/Y128, descending lift then ordinary ground X660/Y176 at frame5698 with lives2. Carries45/46/45/11. No emulated writes, captures or backups.",
+    "next": "Third/fourth cap left/top736/144 and912/144. Do not reuse first adjacent ascent placement blindly: X576 near second cap recaptured and caused genuine lethal fall even without A. Shifted route left560 solved it. Later source placement/funding audit underway. First gap actual local parser CPU Right+A8 from X1094 passes X1136 ground with both lives; Right-only dies and neither path has carry. No gap helper justified by that local test. Full DK route, pickups and other roster items remain open.",
+    "storage": "3,120,985,802 build bytes /19,998 files after removing only identical candidate. Retained zero generated captures/receipts. Root sole Mesen queue.",
+    "goal_status": "active"
+  },
   "SMB2_preview_tier_isolation_delivery_1110": {
     "nightly_path": "C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes",
     "nightly_SHA256": "9897c2b85489024be25b4b296d0ea57975a579ba1e3ff37a71f7ac3e0b195b97",
@@ -14,7 +27,12 @@
       "DK_Jr": "Exact9897 compiled cold selector and controller with real authored actors repeats first pipe X516/Y176, carries46/47 on girders left416/480, lives2. Continuing Right with ordinary 8-update A jumps on enemy or approaching pipe reaches the second shaft and oscillates X590–592 at Y176 after350 logical updates, with minY160 before the wall. Actual stage parser locates remaining early pipe caps at left/top608/160,736/144,912/144, each32px wide. This is a directed failed crossing; check native jump range and reuse stock helpers where necessary. No new helper added. Prior controller tools/audit/check_dkjr_first_pipe_runtime_1110.py, production creation PC D1FD."
     },
     "storage": "Build3,120,985,802B/19,998files after pruning only identical private9897 candidate. No backups, new captures, videos or retained disposable outputs.",
-    "goal_status": "active. Full stages, every powerup, fidelity of remaining character integrations, and lag/scroll/visual issues remain under test."
+    "goal_status": "active. Full stages, every powerup, fidelity of remaining character integrations, and lag/scroll/visual issues remain under test.",
+    "subsequent_source_work": {
+      "Prince": "Exact49295 qualified to X1547/Y176 HP4/lives2. Eight supported original standing-jump windows beyond this reach a live Koopa and fail, as do the earlier running-jump attempts. A retained older private physical run crosses that Koopa to X1708/HP4/lives2, then dies at X1817. Its different camera/actor spawn chronology is recorded in docs/qa/prince-flagpole-route-1110.md for exact rebase. No full-stage claim.",
+      "Jay": "Exact9897 isolated typed lifecycle executes actual compact Co transaction, CHR331/332 readback, warm headers, 86 genuine original Main updates, held jump52.5px and native floor landing X78/176 lives2. Mike/Steve 60 updates each exact. 512 Zelda setter/NMI pairs plus negative, seven old-owner cold paths, 1968 actual NMI/IRQ cuts. Resident 136B cold/434B hot/7B descriptor and weapon/camera/effects funding remain open. Synthetic placement is not shippable. docs/qa/jay-silius-scene-lifecycle-1110.md.",
+      "Sonic": "Exact9897 source-only conditional CHR333 ninth page loaded and authenticated, 394B donor adapter plus195B bridge and 435B spare. Real raw43 CPU path collects five rings from a separate three-tile fixture, real Goomba at326/184 kills Sonic at317/176 via host injury, actual same1-1 Fresh/Construct clears BCD5 and restores7A7B7B on next life. 54 Zelda and 6 other typed owners exact, fault controls pass. Source original RingHurt remains unhooked, placement/HUD/effects still open. docs/qa/sonic-sms-ring-live-1110.md."
+    }
   },
   "Sonic_earned_injury_delivery_1110": {
     "nightly_path": "C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes",
