@@ -1,8 +1,12 @@
+# THIS IS HEAVILY A WIP - THIS IS NOT READY FOR RELEASE - MOST CHARACTERS ARE LAGGY AND NOT FULLY FUNCTIONAL - PLAY AT YOUR OWN PERIL
+
 # SMB Crossover for NES
 
 **One Mushroom Kingdom. A whole NES library of heroes.**
 
 A native NES adaptation of [Super Mario Bros. Crossover](https://www.smbgames.be/smb-crossover.php), built on [SMB1Base](https://github.com/smbstudio/smb1base). Play SMB's levels with character-specific movement, weapons, upgrades, music and health systems.
+
+# This is an AI assisted project.
 
 [Player's guide](<Player Guide/SMB-Crossover-Players-Guide-NU.pdf>) · [Full roster image](docs/images/SMB-Crossover-Full-Roster.png) · [Build from source](#build-from-source) · [Report a bug](https://github.com/kandowontu2/SMB-Crossover/issues)
 
