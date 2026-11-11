@@ -22,7 +22,7 @@ def replace_once(source, expression, replacement):
     return updated
 
 
-def published_controller():
+def published_controller(cookie=None):
     assert digest(PUBLISHED) == PUBLISHED_PIN
     source = PUBLISHED.read_text(encoding='utf-8')
     source = replace_once(source, r'local function fourthAndGap\(s\)',
@@ -34,6 +34,9 @@ def published_controller():
                           '    elseif #caps==2 then fourthAndGap(s) else laterTick(s) end')
     source = replace_once(source, r'emu\.setInput\(\{right=pad&1~=0,',
                           'emu.setInput({right=pad&1~=0,left=pad&2~=0,')
+    if cookie is not None:
+        assert re.fullmatch(r'a72602[0-9a-f]{26}',cookie)
+        source = replace_once(source, r"local cookie = 'a726021676a00802119275ac7f48cce7'", f"local cookie = '{cookie}'")
     return source.replace('#events<52', '#events<100').replace('frame<=8000', 'frame<=16000')
 
 
@@ -41,18 +44,22 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', required=True, type=Path)
     parser.add_argument('--koopa-brake', type=int, action='append', choices=range(1450,1561))
-    parser.add_argument('--koopa-mode', choices=('standing','climb','ledge','step'), default='climb')
+    parser.add_argument('--koopa-mode', choices=('standing','climb','ledge','step','air','air-right','runway'), default='climb')
     parser.add_argument('--koopa-jump-x', type=int, default=1501, choices=range(1491,1519))
+    parser.add_argument('--rom', type=Path, default=NIGHTLY)
+    parser.add_argument('--expected', default=PIN)
+    parser.add_argument('--cookie')
     args = parser.parse_args()
     output = args.output.resolve()
     assert output.is_relative_to(R / 'build') and output != R / 'build'
-    assert check(NIGHTLY)['ROM_sha256'] == PIN
+    rom = args.rom.resolve()
+    assert check(rom)['ROM_sha256'] == args.expected
     output.mkdir(exist_ok=True)
     script = output / 'controller.lua'
-    script.write_text(published_controller(), encoding='utf-8', newline='\n')
+    script.write_text(published_controller(args.cookie), encoding='utf-8', newline='\n')
     default_brake = 1540 if args.koopa_mode == 'standing' else 1470
     for brake in args.koopa_brake or (default_brake,):
-        result = run(script, NIGHTLY, output, PIN, 120, variant=3,
+        result = run(script, rom, output / 'capture', args.expected, 120, variant=3,
                      extra_env={'SMB_PRINCE_KOOPA_BRAKE': str(brake),
                                 'SMB_PRINCE_KOOPA_MODE': args.koopa_mode,
                                 'SMB_PRINCE_KOOPA_JUMP_X': str(args.koopa_jump_x)})
@@ -68,6 +75,8 @@ def main():
             assert set(reverse['falls']) == {'0', '1'}
         if koopa and 'writes' in koopa:
             koopa = dict(koopa, writes=[write for write in koopa['writes'] if write['pc'] == 0xc42a])
+        if koopa and 'query_writes' in koopa:
+            koopa = dict(koopa, query_writes=koopa['query_writes'][-8:])
         print(json.dumps(dict(brake=brake, mode=args.koopa_mode, passed=result['passed'],
             receipt_SHA256=result['receipt_SHA256'], script_SHA256=result['script_SHA256'],
             reason=receipt['reason'], phase=receipt.get('phase'),

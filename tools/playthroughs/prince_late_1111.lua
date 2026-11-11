@@ -3,6 +3,21 @@ local koopaBrake=tonumber(os.getenv('SMB_PRINCE_KOOPA_BRAKE') or '1540')
 local koopaMode=os.getenv('SMB_PRINCE_KOOPA_MODE') or 'standing'
 local koopaJumpX=tonumber(os.getenv('SMB_PRINCE_KOOPA_JUMP_X') or '1501')
 
+for _,address in ipairs({0xc078,0xc07a,0xc07f,0xc4b1}) do
+  emu.addMemoryCallback(guarded(function(_,value)
+    local k=late.koopa
+    if not k or not k.top or progress~='late-ledge-run' or commits>k.top.commit+6 then return end
+    local q=k.query_writes or {}
+    k.query_writes=q
+    if #q>=80 then return end
+    local cpu=emu.getState()
+    local pc=cpu['cpu.pc']
+    local memory=emu.convertAddress(pc)
+    q[#q+1]={address=address,value=value,pc=pc,physical=memory and memory.address,
+      commit=commits,frame=frame,x=read(0x75)+256*read(0x5c),action=source(0x616)}
+  end),emu.callbackType.write,address)
+end
+
 for _,address in ipairs({0x75,0x5c,0xc60f,0xc610}) do
   emu.addMemoryCallback(guarded(function(_,value)
     if not late.koopa or (progress~='late-ledge-run' and progress~='late-ledge-step'
@@ -147,6 +162,9 @@ local function afterSecondGap(s)
         finish(true,'Original climb reaches the authored brick above the Koopa route')
       elseif koopaMode=='step' then
         switch('late-ledge-step',65)
+      elseif koopaMode=='air' or koopaMode=='air-right' then
+        late.koopa.ledge_request=s
+        switch('late-ledge-jump',koopaMode=='air' and 128 or 129)
       else
         switch('late-ledge-run',1)
       end
@@ -174,10 +192,26 @@ local function afterSecondGap(s)
     elseif x>=1521 or s.y>116 then
       error('Lost native brick support before original jump admission')
     end
-  elseif progress=='late-ledge-jump' and s.action==4 then
-    late.koopa.ledge_admission=s
-    switch('late-ledge-flight',1)
+  elseif progress=='late-ledge-jump' then
+    if s.action==4 or s.action==3 then
+      late.koopa.ledge_admission=s
+      if koopaMode=='runway' then
+        assert(s.action==4 and s.x==1513 and s.y==112 and s.hp==4 and s.lives==2
+          and support(s),'Real running jump admission from the coin brick')
+        final=s
+        finish(true,'Original walk and running jump admission on the supported coin brick')
+      else
+        switch('late-ledge-flight',1)
+      end
+    elseif s.y>119 or commits-changedAt>24 then
+      error('Lost the authored brick before original A admission')
+    end
   elseif progress=='late-ledge-flight' then
+    local airborne=late.koopa.airborne or {}
+    late.koopa.airborne=airborne
+    if #airborne<18 and (not airborne[#airborne] or s.pose~=airborne[#airborne].pose) then
+      airborne[#airborne+1]=s
+    end
     if x+13>=1600 and s.y<=114 and onFloor then
       late.koopa.ledge_landing=s
       final=s
