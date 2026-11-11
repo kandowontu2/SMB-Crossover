@@ -8,10 +8,10 @@ Earlier shared-record inventory fixture SHA256:
 Earlier Jay route ROM SHA256:
 `4df817587ea5b0aff3f278a4201976745bad4d9dd1b2a99d6cb5fd3b9c74dadc`.
 
-The `41bd1143` nightly retains the helper placements below. Its installed
-Mesen replay gets Prince of Persia (Excitebike, Select once) through all six
-pipes, three gaps, and the final staircase in 1-1 without a helper. The
-flagpole approach is still pending. [Prince staircase replay](prince-late-route-1111.md)
+The `2d7fb6e6` nightly retains the helper placements below. Its Mesen replay
+gets Prince of Persia (Excitebike, Select once) through all six pipes, three
+gaps, the final staircase and the native flagpole, then into active 1-2 with
+both lives. Prince uses no helpers. [Prince full replay](prince-native-flag-delivery-1111.md)
 
 Jay McCray (Mike Jones, Select once) uses two stock 32-pixel-wide vertical
 platforms in 1-1. Mesen verified offscreen admission, visible entry at

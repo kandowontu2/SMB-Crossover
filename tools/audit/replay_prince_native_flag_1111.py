@@ -42,7 +42,7 @@ def replay(script, rom, output, pin):
     route = result['receipt']['later_route'].get('finish', {})
     if result['passed']:
         assert result['receipt']['controller_only'] and not result['receipt']['added_helpers']
-        assert route['flag'] and route['castle'] and route['gap']
+        assert route['flag']['native_flag_write'] == 4 and route['castle'] and route['gap']
         terminal = result['receipt']['terminal']
         assert (terminal['world'], terminal['level'], terminal['engine'], terminal['lives']) == (0, 1, 8, 2)
     return result, route
