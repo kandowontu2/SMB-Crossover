@@ -66,8 +66,9 @@ def main():
     output = args.output.resolve()
     assert output == Companion.H.ROOT / 'build/steve-companion-native-1111'
     source = Companion.DONOR.HOST
-    assert check(source)['ROM_sha256'] == Companion.Ingress.PIN
-    candidate, info = Companion.proposal(source.read_bytes())
+    raw = source.read_bytes()
+    assert check(source)['ROM_sha256'] == Companion.C.digest(raw)
+    candidate, info = Companion.on_nightly(raw)
     output.mkdir(exist_ok=True)
     rom, script = output / 'candidate.nes', output / 'controller.lua'
     if args.reuse_route:

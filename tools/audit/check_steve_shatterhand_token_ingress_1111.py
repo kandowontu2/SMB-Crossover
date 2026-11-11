@@ -50,7 +50,7 @@ def link(bundle, *, lifecycle_tick=None, token_draw=None, token_hud=''):
 
 
 def proposal(raw, *, lifecycle=b'', lifecycle_tick=None, token_draw=None, token_hud='',
-             extra=b'', extra_edits=()):
+             extra=b'', extra_edits=(), roll_storage=False):
     assert T.digest(raw) == PIN
     info, punch = link(W.Symbols.bundle(), lifecycle_tick=lifecycle_tick,
                        token_draw=token_draw, token_hud=token_hud)
@@ -87,12 +87,15 @@ def proposal(raw, *, lifecycle=b'', lifecycle_tick=None, token_draw=None, token_
     at = C.offset(94, 0xb2ef)
     options = {'extra': extra} if extra else {}
     candidate, resident = Transport.allocate(raw, raw[at:at+16], ingress=images['TOKEN_INGRESS'],
-                                             lifecycle=lifecycle, binding=binding, **options)
+                                             lifecycle=lifecycle, binding=binding,
+                                             roll_storage=roll_storage, **options)
     output = bytearray(candidate)
     for at, before, after in edits:
         assert output[at:at+len(before)] == before, hex(at)
         output[at:at+len(after)] = after
-    return bytes(output), dict(info, cookie=resident['cookie'], punch=punch, edits=edits)
+    return bytes(output), dict(info, cookie=resident['cookie'], punch=punch, edits=edits,
+                               upgrade_page=resident['upgrade_page'],
+                               upgrade_descriptor=resident['upgrade_descriptor'])
 
 
 def authored_reveal(raw, info, *, trace=False):
@@ -207,7 +210,7 @@ def second_block(raw, info):
     return m, dict(first=first_receipt, second=second_receipt, frame=frame, walk=walk)
 
 
-def third_block(raw, info):
+def third_block(raw, info, *, third_beta=False):
     import replay_steve_route_1111 as Route
 
     m, route = second_block(raw, info)
@@ -239,18 +242,25 @@ def third_block(raw, info):
     assert item == (1744, 56) and N.get(m, 'InvPickup', 5) == 0x8c
     side = board(1670, 1692)
     assert side['settled'] == (1702, 112)
+    mature_tag = W.address(m.bundle, 'InvPickup')+5
+    switches = 0
     for age in range(80):
-        frame((128 if age < 9 else 0) | 1)
+        tag = m[mature_tag]
+        frame((128 if age < 9 else 0) | (64 if third_beta and age == 17 else 0) | 1)
+        if tag == 0x8c and m[mature_tag] == 0x8d:
+            switches += 1
         if m.ram[2][0x3fd]:
             break
     contact = Live.player(m)
-    assert age == 27 and contact == (1732, 44) and m.ram[2][0x3fd] == 0x15
+    pattern = 0x25 if third_beta else 0x15
+    assert switches == int(third_beta)
+    assert age == 27 and contact == (1732, 44) and m.ram[2][0x3fd] == pattern
     for _ in range(30):
         frame(0)
-    assert m.ram[2][0x1f1] == 0x15 and not m.ram[2][0x3fd]
+    assert m.ram[2][0x1f1] == pattern and not m.ram[2][0x3fd]
     assert Live.player(m) == (1740, 48) and N.get(m, 'JnHealth') == 6
     route['third'] = dict(center=center, left_support=side, collection_age=age, collection=contact,
-                          item=item, terminal=Live.player(m), pattern=0x15, health=6, lives=2)
+                          item=item, terminal=Live.player(m), pattern=pattern, health=6, lives=2)
     return m, route
 
 
@@ -374,7 +384,7 @@ def main():
     parser.add_argument('--trace', action='store_true')
     parser.add_argument('--all-blocks', action='store_true')
     args = parser.parse_args()
-    raw = S.Donor.HOST.read_bytes()
+    raw = Transport.source_image(S.Donor.HOST.read_bytes())
     image, info = proposal(raw)
     m, route = authored_reveal(image, info, trace=args.trace)
     alpha = collect(m, route, info)

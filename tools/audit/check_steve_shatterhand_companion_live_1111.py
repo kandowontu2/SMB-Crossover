@@ -1,5 +1,6 @@
 """Build the first earned Shatterhand companion and verify the live game route."""
 
+import argparse
 import json
 
 import check_steve_shatterhand_companion_transport_1111 as Transport
@@ -19,7 +20,7 @@ NATIVE = ('GamePauseStatus', 'GameEngineSubroutine', 'FrameCounter', 'SavedJoypa
           'JnEnemyHurt', 'JnEnemyHP', 'BoundingBox_UL_Corner', 'Square1SoundQueue')
 
 
-def proposal(raw):
+def proposal(raw, *, roll_storage=False):
     bundle = W.Symbols.bundle()
     lifecycle = Ingress.Transport
     private = {name: lifecycle.STATE+i for i, name in enumerate(lifecycle.Upgrade.ALIASES)}
@@ -44,7 +45,8 @@ def proposal(raw):
     host = H.assemble(bindings(host_symbols) + SOURCE.read_text(),
                       {'COMPANION_HOST': (Transport.EXT_ORIGIN, Transport.EXT_CAPACITY)})
     tick, draw = (host['symbols'][name] for name in ('SteveCompanionTick', 'SteveCompanionDraw'))
-    token_image, info = Draw.proposal(raw, companion_tick=tick, companion_draw=draw)
+    token_image, info = Draw.proposal(raw, companion_tick=tick, companion_draw=draw,
+                                     roll_storage=roll_storage)
     donor_chr = DONOR.ShatterhandBus(donor).chr
     art = b''.join(donor_chr[88*1024+start:88*1024+start+32]
                    for start in (0x20, 0x40, 0, 0x60, 0x140, 0x160))
@@ -52,10 +54,27 @@ def proposal(raw):
     art_edit = (C.CHR+1024*CHR_PAGE+CHR_OFFSET, bytes(len(art)), art)
     candidate, info = Transport.mount(token_image, info, core['images']['COMPANION'],
                                      extension=host['images']['COMPANION_HOST'],
-                                     extra_edits=(art_edit,))
+                                     extra_edits=(art_edit,), funding_source=raw if roll_storage else None)
     return candidate, info | dict(companion_fields=fields | private | {'SteveBotDrawPhase': Transport.EXT_STATE},
                                   companion_symbols=host['symbols'] | core['symbols'],
                                   live_bytes=len(host['images']['COMPANION_HOST']))
+
+
+def on_nightly(raw):
+    if C.digest(raw) == Ingress.PIN:
+        return proposal(raw)
+    from deliver_sonic_vol2_forms_1111 import recover_parent
+
+    parent = recover_parent(raw)
+    steve, info = proposal(parent, roll_storage=True)
+    image = bytearray(raw)
+    changes = 0
+    for offset, (old, new) in enumerate(zip(parent, steve, strict=True)):
+        if old != new:
+            assert raw[offset] == old, hex(offset)
+            image[offset] = new
+            changes += 1
+    return bytes(image), info | dict(rebased_changes=changes)
 
 
 def bindings(symbols):
@@ -169,14 +188,40 @@ def native_contact(base, info):
     return len(values)
 
 
+def laser_grant(candidate, info):
+    model, route = Ingress.third_block(candidate, info, third_beta=True)
+    fields = info['companion_fields']
+    count = fields['SteveTokenCountdown']
+    actor = fields['SteveBotActor']
+    wait = resident(model, count)-0x30
+    assert wait == 54
+    for _ in range(wait):
+        assert resident(model, actor) == 0
+        route['frame'](0)
+    assert resident(model, actor) == 3 and resident(model, count) == 0x30
+    assert resident(model, fields['SteveTokenPattern']) == 0
+    return dict(actor=3, birth_wait=wait, route=route['third'])
+
+
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--laser-grant', action='store_true')
+    args = parser.parse_args()
     raw = DONOR.HOST.read_bytes()
-    candidate, info = proposal(raw)
+    candidate, info = on_nightly(raw)
+    if args.laser_grant:
+        print(json.dumps(dict(passed=True, candidate=C.digest(candidate),
+                              **laser_grant(candidate, info), output_files=0)), flush=True)
+        return
     model, result = natural(candidate, info)
     contacts = native_contact(model, info)
-    print(json.dumps(dict(passed=True, candidate=C.digest(candidate),
+    report = dict(passed=True, candidate=C.digest(candidate),
                           core_bytes=len(info['companion']), host_bytes=info['live_bytes'],
-                          native_contact_checks=contacts, **result, output_files=0)), flush=True)
+                          native_contact_checks=contacts, **result, output_files=0)
+    if 'rebased_changes' in info:
+        report['rebased_changes'] = info['rebased_changes']
+        report['roll_parity'] = Transport.roll_parity(raw, candidate, extended=True, roll_storage=True)
+    print(json.dumps(report), flush=True)
 
 
 if __name__ == '__main__':

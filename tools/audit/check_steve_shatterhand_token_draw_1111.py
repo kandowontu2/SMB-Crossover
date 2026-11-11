@@ -17,7 +17,7 @@ NATIVE = ('InvPickup', 'Enemy_State', 'Enemy_X_Position', 'Enemy_PageLoc', 'Enem
           'ScreenLeft_X_Pos', 'ScreenLeft_PageLoc')
 
 
-def proposal(raw, *, companion_tick=None, companion_draw=None):
+def proposal(raw, *, companion_tick=None, companion_draw=None, roll_storage=False):
     bundle = W.Symbols.bundle()
     transport = Ingress.Transport
     origin, scan = transport.LIFECYCLE, transport.EXTRA
@@ -54,7 +54,8 @@ def proposal(raw, *, companion_tick=None, companion_draw=None):
     hud = f'SteveDrawTokenPair=${pair:04x}\n' + HUD.read_text(encoding='utf-8')
     image, info = Ingress.proposal(raw, lifecycle=program['images']['TOKEN_DRAW'], token_draw=scan,
                                    lifecycle_tick=companion_tick, token_hud=hud,
-                                   extra=program['images']['DRAW_SCAN'], extra_edits=edits)
+                                   extra=program['images']['DRAW_SCAN'], extra_edits=edits,
+                                   roll_storage=roll_storage)
     assert info['symbols']['SteveTokenOwned'] == fields['SteveTokenOwned']
     return image, info | dict(draw_bytes=len(program['images']['TOKEN_DRAW']), draw_pair=pair,
                               scan_bytes=len(program['images']['DRAW_SCAN']))
@@ -153,7 +154,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--all-blocks', action='store_true')
     args = parser.parse_args()
-    raw = S.Donor.HOST.read_bytes()
+    raw = Ingress.Transport.source_image(S.Donor.HOST.read_bytes())
     image, info = proposal(raw)
     alpha, beta = (replay(image, info, beta=value) for value in (False, True))
     result = dict(passed=True, candidate=C.digest(image), cookie=info['cookie'].hex(),

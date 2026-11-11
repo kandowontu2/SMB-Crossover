@@ -20,11 +20,18 @@ SOURCE = H.ROOT / 'tools/reference/steve_shatterhand_companion_cold_1111.s'
 LEDGER = H.ROOT / 'build/mini-mario-owner-1103-v15/carrier-audit-v16.json'
 LEDGER_PIN = 'beaef6513ec8471a60d254daacbf30808b6090cf177a378647801c9be98dac01'
 OLD_DESC = Transport.DESCRIPTOR
-DESCRIPTOR = bytes((10, 6)) + OLD_DESC[2:13] + bytes((PAGE & 255, PAGE >> 8)) + OLD_DESC[13:]
-EXT_DESCRIPTOR = bytes((11, 7)) + DESCRIPTOR[2:15] + bytes((EXT_PAGE & 255, EXT_PAGE >> 8)) + DESCRIPTOR[15:]
 
 
-def roll_funding(raw, *, extended=False):
+def companion_descriptors(upgrade):
+    core = bytes((10, 6)) + upgrade[2:13] + PAGE.to_bytes(2, 'little') + upgrade[13:]
+    full = bytes((11, 7)) + core[2:15] + EXT_PAGE.to_bytes(2, 'little') + core[15:]
+    return core, full
+
+
+DESCRIPTOR, EXT_DESCRIPTOR = companion_descriptors(OLD_DESC)
+
+
+def roll_funding(raw, *, extended=False, roll_storage=False):
     from audit_mega_giant_chr_candidates_1110_v1 import table, MAP_BANKS, prg_at, compiled_readers
 
     assert T.page(raw, PAGE) == T.page(raw, ROLL_MIRROR)
@@ -44,6 +51,8 @@ def roll_funding(raw, *, extended=False):
     assert T.digest(prior) == LEDGER_PIN
     ledger = json.loads(prior)
     pages = (PAGE, EXT_PAGE) if extended else (PAGE,)
+    if roll_storage:
+        pages += (Transport.ROLL_PAGE,)
     for page in pages:
         owners = [name for name, values in ledger['exact_finite_domains'].items() if page in values]
         assert owners == ['Roll body/effect']
@@ -59,18 +68,20 @@ def roll_funding(raw, *, extended=False):
     first = tuple((C.offset(79, at), bytes.fromhex('be73cc'), bytes.fromhex('a201ea'))
                   for at in (0xb052, 0xb072, 0xb092))
     last = (C.offset(79, 0xb08c), bytes.fromhex('b96dcc186903'), bytes.fromhex('b973cc18b8ea'))
-    index = (highs, b'\x01'*6, bytes((111, 115, 111 if extended else 119, 111, 51, 83)))
+    index = (highs, b'\x01'*6,
+             bytes((111, 111 if roll_storage else 115, 111 if extended else 119, 111, 51, 83)))
     return first + (last, index)
 
 
-def compact_cold(cookie, *, extended=False):
-    source = T.cold_program(DESCRIPTOR, cookie)['source']
+def compact_cold(cookie, *, extended=False, upgrade=OLD_DESC):
+    core, full = companion_descriptors(upgrade)
+    source = T.cold_program(core, cookie)['source']
     source = Ingress.S.changed(source, ' and #$60\n cmp #$20\n beq ReturnIdentity\n',
                                ' adc #$1f\n asl a\n asl a\n rts\n')
     if extended:
         edits = ((' ldx #22\nPushDescriptor:', ' ldx #24\nPushDescriptor:'),
                  (' ldx #23\nPullDescriptor:', ' ldx #25\nPullDescriptor:'),
-                 (' .byte '+','.join(map(str, DESCRIPTOR)), ' .byte '+','.join(map(str, EXT_DESCRIPTOR))),
+                 (' .byte '+','.join(map(str, core)), ' .byte '+','.join(map(str, full))),
                  (' lda #0\n sta $c033', ' stx $c033'))
         for before, after in edits:
             source = Ingress.S.changed(source, before, after)
@@ -79,17 +90,22 @@ def compact_cold(cookie, *, extended=False):
     return linked
 
 
-def mount(token_image, token_info, companion, *, extension=b'', extra_edits=()):
+def mount(token_image, token_info, companion, *, extension=b'', extra_edits=(), funding_source=None):
     """Mount 960 core bytes and optional 1 KiB plus its 64 state bytes."""
     assert 0 < len(companion) <= CAPACITY
     assert len(extension) <= EXT_CAPACITY
     extended = bool(extension)
-    descriptor = EXT_DESCRIPTOR if extended else DESCRIPTOR
+    upgrade = token_info['upgrade_descriptor']
+    upgrade_page = token_info['upgrade_page']
+    roll_storage = upgrade_page == Transport.ROLL_PAGE
+    assert roll_storage == (funding_source is not None)
+    core, full = companion_descriptors(upgrade)
+    descriptor = full if extended else core
     if extended:
         assert Ingress.S.code(token_image, 126, 0x80c2, 7) == bytes.fromhex('8da17d8d165160')
     old_cookie = token_info['cookie']
-    old_cold = Steve.cold_program(OLD_DESC, old_cookie)
-    old_row = T.page(token_image, Transport.PAGE)
+    old_cold = Steve.cold_program(upgrade, old_cookie)
+    old_row = T.page(token_image, upgrade_page)
     continuation = bytes.fromhex('a94085034c04a0')
     assert old_row[0x100:0x160].count(continuation) == 1
     at = old_row.index(continuation, 0x100, 0x160)
@@ -101,11 +117,12 @@ def mount(token_image, token_info, companion, *, extension=b'', extra_edits=()):
     payload = companion.ljust(CAPACITY, b'\xea') + loader.ljust(BOOT_SIZE, b'\xea')
     assert len(payload) == 1024
     extension = extension.ljust(EXT_CAPACITY, b'\xea') if extended else b''
-    roll_edits = roll_funding(token_image, extended=extended)
+    roll_edits = roll_funding(token_image if funding_source is None else funding_source,
+                              extended=extended, roll_storage=roll_storage)
     edits = roll_edits + tuple(extra_edits)
     binding = b''.join(offset.to_bytes(4, 'little') + new for offset, _, new in edits)
     cookie = old_cookie[:4] + bytes.fromhex(T.digest(old_cookie + descriptor + row + payload + extension + binding))[:12]
-    cold = compact_cold(cookie, extended=extended)
+    cold = compact_cold(cookie, extended=extended, upgrade=upgrade)
     output = bytearray(token_image)
 
     def patch(offset, old, new):
@@ -116,7 +133,7 @@ def mount(token_image, token_info, companion, *, extension=b'', extra_edits=()):
           cold['images']['COLD65'].ljust(T.COLD_SIZE, b'\xea'))
     patch(C.offset(65, 0xaf01), T.J.u16(old_cold['symbols']['JaySelect']), T.J.u16(cold['symbols']['JaySelect']))
     patch(C.offset(94, 0xb2ef), old_cookie, cookie)
-    patch(C.CHR+1024*Transport.PAGE, old_row, row)
+    patch(C.CHR+1024*upgrade_page, old_row, row)
     patch(C.CHR+1024*PAGE, T.page(token_image, ROLL_MIRROR), payload)
     if extended:
         patch(C.CHR+1024*EXT_PAGE, T.page(token_image, ROLL_MIRROR), extension)
@@ -194,11 +211,13 @@ def loaded_parity(raw, candidate, info, old_info):
     return report
 
 
-def roll_parity(before, after, *, extended=False):
+def roll_parity(before, after, *, extended=False, roll_storage=False):
     pairs = [C.Common.blank(dict(W.Symbols.bundle(), raw=image)) for image in (before, after)]
     setter = W.address(pairs[0].bundle, 'X5SetPhysicalChr')
     bases = (364, 368, 372, 376, 304, 336)
     rebounds = {PAGE, EXT_PAGE} if extended else {PAGE}
+    if roll_storage:
+        rebounds.add(Transport.ROLL_PAGE)
     verified = 0
     aliases = []
     for pool, incoming in product(range(len(bases)), (0x30, 0x31, 0x70, 0x71)):
@@ -223,7 +242,8 @@ def roll_parity(before, after, *, extended=False):
             if old_page != page:
                 aliases.append((pool, old_page, page))
         verified += 1
-    assert set(aliases) == {(pool, page, ROLL_MIRROR) for pool, page in ((2, EXT_PAGE), (3, PAGE))
+    pools = ((1, Transport.ROLL_PAGE), (2, EXT_PAGE), (3, PAGE))
+    assert set(aliases) == {(pool, page, ROLL_MIRROR) for pool, page in pools
                             if page in rebounds}
 
     import check_current_roster_stage_ingress_1110 as Active
@@ -338,7 +358,7 @@ def main():
     parser.add_argument('--full-routes', action='store_true')
     parser.add_argument('--seventh-row', action='store_true')
     args = parser.parse_args()
-    raw = Draw.S.Donor.HOST.read_bytes()
+    raw = Transport.source_image(Draw.S.Donor.HOST.read_bytes())
     assert T.digest(raw) == Ingress.PIN
     token, token_info = Draw.proposal(raw)
     assert T.digest(token) == BASE

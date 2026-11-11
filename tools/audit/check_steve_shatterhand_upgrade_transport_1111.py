@@ -12,7 +12,7 @@ import trace_steve_shatterhand_upgrades_1111 as Upgrade
 
 T, Steve = Jay.T, Jay.Steve
 C, H, N = Jay.C, Jay.H, Jay.N
-PAGE, MIRROR = 230, 226
+PAGE, MIRROR, ROLL_PAGE, ROLL_MIRROR = 230, 226, 371, 367
 ORIGIN, STATE = 0xc100, 0xc1f0
 BOOT = 0xb100
 INGRESS, INGRESS_SIZE = 0xc200, 0x1bf
@@ -22,7 +22,11 @@ ALIAS, ALIAS_SIZE = 0xa9c0, 64
 ALIAS_FIX, ALIAS_FIX_SIZE = 0xa9b8, 8
 OLD_NMI = H.ROOT / 'tools/reference/sonic_sms_native_skin_1110.s'
 JAY_PIN = 'c8d328a27efbc900216985aeb86600a1f626f8cc76e93a91bb30b2c1f8c2e727'
-DESCRIPTOR = bytes((9, 5)) + Steve.DESCRIPTOR[2:11] + bytes((PAGE, 0)) + Steve.DESCRIPTOR[11:]
+def descriptor(page):
+    return bytes((9, 5)) + Steve.DESCRIPTOR[2:11] + page.to_bytes(2, 'little') + Steve.DESCRIPTOR[11:]
+
+
+DESCRIPTOR = descriptor(PAGE)
 
 
 def skin_alias(raw):
@@ -66,20 +70,27 @@ def transfer_program(regions, *, reuse_y=False):
     return H.assemble('\n'.join(asm) + '\n', {'COPY': (BOOT, 0x80)})['images']['COPY']
 
 
-def allocate(raw, cookie, *, ingress=b'', lifecycle=b'', extra=b'', binding=b''):
+def allocate(raw, cookie, *, ingress=b'', lifecycle=b'', extra=b'', binding=b'', roll_storage=False):
     pin = T.digest(raw)
     assert pin in (JAY_PIN, Prince.CANDIDATE)
-    assert T.page(raw, PAGE) == T.page(raw, MIRROR)
-    physical = T.page
+    page, twin = (ROLL_PAGE, ROLL_MIRROR) if roll_storage else (PAGE, MIRROR)
+    assert T.page(raw, page) == T.page(raw, twin)
+    if roll_storage:
+        owners = {'Roll body/effect': (page, twin)}
+        old_skin = new_skin = None
+        alias = mirror = b''
+    else:
+        physical = T.page
 
-    def verify_mirror(image, page):
-        # The census tests the historical page-2 duplicate before it audits
-        # reader reachability. Our duplicate is verified separately above.
-        return physical(image, 2 if page == PAGE else page)
+        def verify_mirror(image, index):
+            # The census expects page 2 for its historical mirror assertion.
+            return physical(image, 2 if index == page else index)
 
-    with patch.multiple(T, PIN=pin, EXTRA_PAGE=PAGE, page=verify_mirror):
-        owners = T.carrier_ownership(raw, PAGE)
-    old_skin, new_skin = skin_alias(raw)
+        with patch.multiple(T, PIN=pin, EXTRA_PAGE=page, page=verify_mirror):
+            owners = T.carrier_ownership(raw, page)
+        old_skin, new_skin = skin_alias(raw)
+        alias = new_skin['images']['NMI'].ljust(ALIAS_SIZE, b'\xea')
+        mirror = new_skin['images']['MIRROR'].ljust(ALIAS_FIX_SIZE, b'\xff')
     symbols = {name: STATE+i for i, name in enumerate(Upgrade.ALIASES)}
     constants = ''.join(f'{name}=${at:04x}\n' for name, at in symbols.items())
     worker = H.assemble(constants + Upgrade.SOURCE.read_text(), {'UPGRADE': (ORIGIN, STATE-ORIGIN)})
@@ -104,11 +115,10 @@ def allocate(raw, cookie, *, ingress=b'', lifecycle=b'', extra=b'', binding=b'')
     original = T.page(raw, T.PACKET_PAGE)
     assert original[:4] == bytes.fromhex('a9408503')
     packet = b'\x4c' + T.J.u16(BOOT) + b'\xea' + original[4:]
-    alias = new_skin['images']['NMI'].ljust(ALIAS_SIZE, b'\xea')
-    mirror = new_skin['images']['MIRROR'].ljust(ALIAS_FIX_SIZE, b'\xff')
-    next_cookie = cookie[:4] + bytes.fromhex(T.digest(cookie + DESCRIPTOR + packet + row + alias + mirror + binding))[:12]
+    desc = descriptor(page)
+    next_cookie = cookie[:4] + bytes.fromhex(T.digest(cookie + desc + packet + row + alias + mirror + binding))[:12]
     old_cold = Steve.cold_program(Steve.DESCRIPTOR, cookie)
-    new_cold = Steve.cold_program(DESCRIPTOR, next_cookie)
+    new_cold = Steve.cold_program(desc, next_cookie)
     assert len(old_cold['images']['COLD65']) == 159 and len(new_cold['images']['COLD65']) == 161
     out = bytearray(raw)
 
@@ -116,18 +126,20 @@ def allocate(raw, cookie, *, ingress=b'', lifecycle=b'', extra=b'', binding=b'')
         assert len(before) == len(after) and raw[at:at+len(before)] == before, hex(at)
         out[at:at+len(after)] = after
 
-    edit(C.offset(62, ALIAS), old_skin['images']['NMI'].ljust(ALIAS_SIZE, b'\xea'), alias)
-    edit(C.offset(62, ALIAS_FIX), b'\xff'*ALIAS_FIX_SIZE, mirror)
-    old_entry, new_entry = (link['symbols']['SonicGraphics'] for link in (old_skin, new_skin))
-    edit(C.offset(62, 0xb690), b'\x4c'+T.J.u16(old_entry), b'\x4c'+T.J.u16(new_entry))
+    if not roll_storage:
+        edit(C.offset(62, ALIAS), old_skin['images']['NMI'].ljust(ALIAS_SIZE, b'\xea'), alias)
+        edit(C.offset(62, ALIAS_FIX), b'\xff'*ALIAS_FIX_SIZE, mirror)
+        old_entry, new_entry = (link['symbols']['SonicGraphics'] for link in (old_skin, new_skin))
+        edit(C.offset(62, 0xb690), b'\x4c'+T.J.u16(old_entry), b'\x4c'+T.J.u16(new_entry))
     edit(C.offset(65, T.COLD), old_cold['images']['COLD65'].ljust(T.COLD_SIZE, b'\xea'),
          new_cold['images']['COLD65'].ljust(T.COLD_SIZE, b'\xea'))
     edit(C.offset(65, 0xaf01), T.J.u16(old_cold['symbols']['JaySelect']),
          T.J.u16(new_cold['symbols']['JaySelect']))
     edit(C.offset(94, 0xb2ef), cookie, next_cookie)
     edit(C.CHR+1024*T.PACKET_PAGE, original, packet)
-    edit(C.CHR+1024*PAGE, T.page(raw, PAGE), row)
+    edit(C.CHR+1024*page, T.page(raw, page), row)
     return bytes(out), dict(cookie=next_cookie, code=code, owners=owners, symbols=worker['symbols'], cold=new_cold,
+                            upgrade_page=page, upgrade_descriptor=desc,
                             old_skin=old_skin, new_skin=new_skin, transfer_bytes=len(transfer),
                             residents=tuple(sorted((target, data) for _, target, data in regions if data)))
 
@@ -298,6 +310,11 @@ def source_image(raw):
     pin = T.digest(raw)
     if pin == Upgrade.HOST_PIN:
         return Jay.proposal(raw)[0]
+    if pin not in (JAY_PIN, Prince.CANDIDATE):
+        from deliver_sonic_vol2_forms_1111 import PIN, recover_parent
+
+        if pin == PIN:
+            return recover_parent(raw)
     assert pin in (JAY_PIN, Prince.CANDIDATE)
     return raw
 
