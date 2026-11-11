@@ -4,11 +4,12 @@ On exact Downloads ROM
 `677aad54c55f829d9e7b2aab9e2b1f4eddebcd3c6e6532eeddd9f2ce4e1a26ab`,
 Steve’s authored 1-1 mushroom still feeds the Mike-family pickup handler.
 After the real first Goomba punch, the controller walks to X333 and jumps
-into the block. `JnPreparePickup` reveals the actor at X336/Y136. The
+into the block. `JnPreparePickup` at PRG98 `$A61E` reveals the actor at X336/Y136. The
 controller backs to X298/Y176, holds Right+A for nine updates, and collects
-the mature actor at X336/Y120 from player X324/Y112. Its native payload
-is `$81`, owner 16. Health rises 6→8 and the maximum rises from three to
-four hearts. The weapon tier stays 1 and Steve’s armor byte stays zero.
+the mature actor at X336/Y120 from player X324/Y112 through
+`JnCollectPickup` at PRG98 `$A72A`. Its native payload is `$81`, owner 16.
+Health rises 6→8 and the maximum rises from three to four hearts. The
+weapon tier stays 1 and Steve’s armor byte at `$5C85` stays zero.
 
 The Shatterhand cartridge is the US release, SHA-256
 `fbdfaab40aedda270d7473be37566b59e68811d932740c105d84fa6b1a7f19e1`.
@@ -54,11 +55,11 @@ original 6502 leaves in the comparison and uses the existing donor boot
 whose OAM matches three physical opening anchors. The paired timer and
 actor tests begin from explicitly directed state.
 
-The host still needs a physical Alpha/Beta producer, Steve-specific
-pickup ownership, and the companion and armor runtime. The current punch
-worker already has original armored animation rows and a dedicated armor
-field. Its use depends on an earned grant and the remaining original
-armor combat and rendering paths.
+The host still needs a Steve-specific pickup actor that reveals and awards
+Alpha and Beta tokens, plus the companion and armor runtime. The current
+punch worker already has original armored animation rows and a dedicated
+armor field. Its use depends on an earned grant and the remaining
+original armor combat and rendering paths.
 
 ## Cold transport alongside Jay’s machine gun
 
@@ -75,7 +76,7 @@ identical pixels from their replacement page.
 
 The Mike-family cold wrapper grows from 159 to 161 of its 162 reserved
 bytes. The loader adds CHR230 as its fifth code row and stages it at raw3
-`$B000–$B3FF`. The `$A000` packet entry calls the 27-byte copy-and-readback
+`$B000–$B3FF`. The `$A000` packet entry jumps to the 27-byte copy-and-readback
 routine at `$B100`. The relocated 239-byte worker ends at raw2 `$C1EE`
 and reserves `$C1F0–$C1FF` for its fields. The original bootstrap then
 restores the staging window byte for byte. There is no mapper expansion.

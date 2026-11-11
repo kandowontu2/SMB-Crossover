@@ -27,7 +27,7 @@ end
 local function endingFrame()
   if not ending then return false end
   local s=state()
-  if s.world==0 and s.level==1 and s.engine==8 and read(0x773)==3 then
+  if s.world==0 and s.level==1 and s.engine==8 and read(0x773)==3 and read(0x753)==2 then
     assert(ending.flag and ending.castle and ending.gap and s.lives==2,
       'Native flagpole, castle, third gap and active underground 1-2')
     final=s
@@ -96,6 +96,7 @@ local function endingTick(s)
     if s.mode==2 or s.mode==6 or s.action==10 then attempt.hang=attempt.hang or s end
     local takeoffY=attempt.pipe_left and 147
       or (attempt.kind=='stair' or attempt.kind=='third-stair') and 104
+      or attempt.kind=='final-stair' and attempt.stance.y-20
     if takeoffY and attempt.hang and s.action==10 and idle(s) and s.y<=takeoffY then
       attempt.cap=s
       local kind=attempt.pipe_left and 'pipe-top'
@@ -210,7 +211,8 @@ local function endingTick(s)
     end
     if support(s) and commits-p.advanced>=28 and solid(x+17,s.y+24) then
       local kind=x>=2110 and x<=2143 and 'stair'
-        or x>=2330 and x<=2367 and 'third-stair' or 'wall'
+        or x>=2330 and x<=2367 and 'third-stair'
+        or x>=2928 and x<3008 and 'final-stair' or 'wall'
       local pipe=x>=2575 and x<2608 and 2608 or x>=2830 and x<2864 and 2864 or nil
       p.climbs[#p.climbs+1]={wall=s,kind=kind,pipe_left=pipe,tiles=finishGeometry(s)}
       switch('late-finish-brake',0)

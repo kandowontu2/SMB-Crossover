@@ -15,8 +15,8 @@ COOKIE = 'a710200a5b78f52474bff8a681fb9156'
 CANDIDATE = R / 'build/jay-machinegun-native-1111/candidate.nes'
 
 
-def replay(script, rom, output):
-    result = run(script, rom, output, PIN, 130, variant=2,
+def replay(script, rom, output, expected=PIN):
+    result = run(script, rom, output, expected, 130, variant=2,
                  extra_env={'SMB_JAY_COOKIE': COOKIE, 'SMB_JAY_DONOR_FLAGS': '49170'})
     receipt = result['receipt']
     if result['passed']:
