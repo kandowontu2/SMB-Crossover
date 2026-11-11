@@ -21,7 +21,8 @@ live donor hits through `$E747`. A separate paired test executed the real
 donor `$C49E` loop and the relocated host flight for 156 full 16-byte
 records. The 104 moving cases used the actual host D002 class at the
 donor's D002 boundary. Both CPUs produced the same query coordinates and
-record bytes. The real host parser supplied 52 clear and 52 solid results.
+record bytes. The host adapter returned 52 clear and 52 blocking results,
+including its fail-closed response beyond the valid Y range.
 
 The naturally selected Jay CPU path ran 60 ordinary 1-1 Main updates.
 One new B press creates its first projected shot at X56/Y191 on update 4.
