@@ -3,9 +3,8 @@
 The MMC5 nightly with SHA-256
 `409d5a2e3b8ca1fdf6fa4512cac399310c44c1837b88b9f7d2a1e5bde858d280`
 passed both native food pickups in one controller run. The same checker
-passes on the installed successor
-`ac2624467d4c3abc8988088ab22a4d2a0f52059e2e2d23373940fc9d17006066`.
-The CPU model executes
+passes on the Prince footing build `ac262446` and the installed Steve
+movement build `e6b152e2`. The CPU model executes
 the reset vector, title, roster, area parser, native Main and normal NMI. It
 uses five directional menu presses to select Easy Kirby, raw 13, variant 0,
 then confirms with Start. Active World 1-1 begins at X40/Y176 with 6 HP and
@@ -45,5 +44,7 @@ python -B tools/audit/run_bounded_build_v1.py --output build/kirby-natural-food-
 
 Canonical JSON line SHA-256 on `409d5a2e`
 `f38d1d122f3ba57a2ff0b9f8ef939ae5886e1cf61b0e009102b49f054db2d315`.
-On installed `ac262446`
+On `ac262446`
 `680abca80a817488b2d31d8eb7c1ab8f30bacf336bbe004666bb44acca9d2455`.
+On installed `e6b152e2`
+`e03ca798290491ca9a0b153f9cce33966785dd7d0c4b9b90c46dc9beaa4d0a65`.

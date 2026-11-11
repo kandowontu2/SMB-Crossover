@@ -13,6 +13,7 @@ import prepare_kirby_contacts_current_1108_v1 as Authority
 N = Host.N
 PIN = '409d5a2e3b8ca1fdf6fa4512cac399310c44c1837b88b9f7d2a1e5bde858d280'
 PRINCE_IDLE_PIN = 'ac2624467d4c3abc8988088ab22a4d2a0f52059e2e2d23373940fc9d17006066'
+STEVE_MOVE_PIN = 'e6b152e26b43449115a7ff21903ae756346052e55dbdd94d8751e8c3a0951f23'
 ROM = Path('C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes')
 RIGHT, LEFT, DOWN, UP, START, B, A = 1, 2, 4, 8, 16, 64, 128
 MENU_STEPS = (LEFT, RIGHT, RIGHT, RIGHT, DOWN, LEFT, LEFT, LEFT, LEFT, RIGHT,
@@ -31,7 +32,7 @@ class BootBus(Host.ControllerBus):
 class Replay:
     def __init__(self, raw):
         self.rom_sha256 = sha256(raw).hexdigest()
-        assert self.rom_sha256 in (PIN, PRINCE_IDLE_PIN)
+        assert self.rom_sha256 in (PIN, PRINCE_IDLE_PIN, STEVE_MOVE_PIN)
         assert Authority.sha(Authority.AUTHORITY) == Authority.AUTHORITY_ROM
         assert Authority.sha(Authority.AUTHORITY.with_suffix('.dbg')) == Authority.AUTHORITY_DBG
         bundle = Authority.scoped_load(Authority.AUTHORITY)
