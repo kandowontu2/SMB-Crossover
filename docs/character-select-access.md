@@ -1,6 +1,6 @@
 # Character Select access
 
-All **100 names** below can start a new game in the current nightly. There are no locked names in this checked menu. Some characters are unfinished prototypes; starting a game does not mean every ability or a full stage is finished.
+All **101 names** below can start a new game in the current nightly. Some playable characters still use prototype moves.
 
 Open Character Select, move with the direction pad, press **Select** to cycle the highlighted portrait's characters, then press **Start** or **A** to begin. The menu has **four rows of eight portraits**. Rows count from the top and columns from the left.
 
@@ -33,7 +33,7 @@ Numbers before names are Select presses from that portrait's first name: **0** m
 | 3 | 7 | **0:** SUNNY |
 | 3 | 8 | **0:** RASH; **1:** ZITZ |
 | 4 | 1 | **0:** SMB2 MARIO; **1:** SMB2 LUIGI; **2:** SMB2 TOAD; **3:** SMB2 PEACH; **4:** IMAJIN; **5:** LINA; **6:** PAPA; **7:** MAMA |
-| 4 | 2 | **0:** MR GIMMICK; **1:** BUB; **2:** BOB; **3:** SONIC |
+| 4 | 2 | **0:** MR GIMMICK; **1:** BUB; **2:** BOB; **3:** SONIC; **4:** SUPER SONIC |
 | 4 | 3 | **0:** SMB3 BOWSER; **1:** SMB1 BOWSER |
 | 4 | 4 | **0:** DONKEY KONG; **1:** DONKEY KONG JR |
 | 4 | 5 | **0:** HULK HOGAN; **1:** TED DIBIASE; **2:** BAM BAM BIGELOW; **3:** HONKY TONK MAN; **4:** RANDY SAVAGE; **5:** ANDRE THE GIANT |
@@ -45,7 +45,8 @@ Numbers before names are Select presses from that portrait's first name: **0** m
 
 | Character | Where to find them | Current limits |
 |---|---|---|
-| SONIC | Row 4, column 2: MR GIMMICK, Select 3 times | Original Master System movement. Mesen verified the menu and lives portraits and a full 1-1 clear into underground 1-2. Rings, full animation, original audio and performance remain in development. |
+| SONIC | Row 4, column 2, MR GIMMICK, Select 3 times | Master System movement, new standing art and working rings. Mesen verified the menu and lives portraits, 1-1 clear, earned mushroom and ring loss. |
+| SUPER SONIC | Row 4, column 2, MR GIMMICK, Select 4 times | Gold standing art from the same sheet and the same verified 1-1 route. Shares Sonic's movement, ring and mushroom rules in this nightly. |
 | JAY MCCRAY | Row 2, column 8: MIKE JONES, Select once | Original sprite core using Mike's movement, weapons, health and audio. Original Journey to Silius abilities/audio remain unfinished. |
 | STEVE HERMANN | Row 2, column 8: MIKE JONES, Select twice | Original sprite core with a rough palette/limb fit, using Mike's behavior. Original Shatterhand abilities/audio remain unfinished. |
 | PRINCE PERSIA | Row 4, column 6: EXCITEBIKE, Select once | Original movement and ledge climb. Mesen verified four pipes and two gaps with both lives. The later route and pickup progression remain in testing. |
@@ -53,4 +54,4 @@ Numbers before names are Select presses from that portrait's first name: **0** m
 | GETSU FUMA | Row 1, column 6: SIMON BELMONT, Select 4 times | Startable through the existing Simon-family cycle. |
 | MEGA GIANT MARIO | Row 1, column 1: MARIO, Select 9 times | Startable through the Mario-family cycle. |
 
-The November 10 a5 CPU check covers compiled menu/Select/Start and A confirmation, native stage initialization and 60 opening updates for all 100 names. The current `a20d254d` nightly verifies Donkey Kong Jr.’s first two pipes in 1‑1. Earlier tests cover the SMB2 and Doki Doki previews, Sonic’s earned mushroom and injury recovery, and Prince’s four-pipe and two-gap crossing. [Startup evidence](qa/roster-active-starts-1110.md) · [DK Jr. delivery](qa/dkjr-second-pipe-delivery-1110.md) · [Menu verification](qa/smb2-menu-tier-isolation-1110.md) · [Sonic and Prince](qa/sonic-earned-injury-delivery-1110.md)
+The earlier a5 CPU check exercised stage initialization and 60 opening updates for the previous 100 names. The Sonic update confirms Start and A for all 101 menu names and verifies both Sonic forms through 1-1 in Mesen. [Earlier startup evidence](qa/roster-active-starts-1110.md) · [Sonic update](qa/sonic-vol2-delivery-1111.md)

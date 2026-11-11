@@ -32,13 +32,17 @@ def run_stage(rom, output):
 
 
 def run_power(rom, output):
+    return run_adapted(POWER, power_controller(PIN, RING_COOKIE).encode(), rom, output)
+
+
+def power_controller(pin, cookie):
     original = POWER.read_bytes()
     assert sha256(original).hexdigest() == POWER_PIN
     script = original.decode('utf-8').replace('\r\n', '\n')
     former_pin = '49295acff1d70349119b599882a2ec0b4e2f58d21f153c90b2228dc9aceee2a7'
     former_cookie = 'a72b0194a989064ae62ef75a04986523'
     assert script.count(former_pin) == script.count(former_cookie) == 1
-    script = script.replace(former_pin, PIN).replace(former_cookie, RING_COOKIE.decode())
+    script = script.replace(former_pin, pin).replace(former_cookie, cookie.decode())
     first = script.index(' if injury then\n')
     last = script.index(' local bits=0\n', first)
     script = script[:first] + ''' if injury then
@@ -62,7 +66,7 @@ def run_power(rom, output):
     contact = "  injury={actor=enemy,player=player};queueImage('Sonic_powered_Goomba_contact')"
     assert script.count(contact) == 1
     script = script.replace(contact, "  assert(source(0x340)==5,'Five earned rings before powered contact')\n" + contact)
-    return run_adapted(POWER, script.encode(), rom, output)
+    return script
 
 
 def run_adapted(source, content, rom, output):
