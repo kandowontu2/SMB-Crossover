@@ -55,6 +55,14 @@ local finalLaunches={{2912,2912,2907},{2923,2928,2925},{2939,2944,2941},
         ("first_gap=firstGap,second_gap=gap", """first_gap=firstGap,second_gap=gap,third_gap=thirdGap,
   flag=flagResult,castle=castleResult,entrance=entranceResult"""),
         ("local function drive()\n", "local function drive()\n" + STAGE_EXIT),
+        ("   gap.wait=snapshot()",
+         """   gap.wait=snapshot()
+   gap.wait.actor={left=movingLeft,direction=direction,primary=read(0x8f+gap.birth.slot),
+    secondary=read(0x47+gap.birth.slot),frame_counter=read(0x0e)}"""),
+        ("  if movingLeft==gapLeft and direction==2 then",
+         """  local earlyTakeoff=os.getenv('SMB_DKJR_FAST_ROUTE')=='1' and updates==gap.wait.Main
+    and movingLeft>=1401 and movingLeft<=1403 and direction==2
+  if earlyTakeoff or (movingLeft==gapLeft and direction==2) then"""),
         ("   for _,left in ipairs(lifts)do\n    local key=", "   for i=1,8 do\n    local left=lifts[i];local key="),
         ("   finish(true,'All three gaps and four opening pipes')\n   return",
          "   thirdGap=snapshot();setPhase('pipe5-approach')"),
@@ -104,7 +112,8 @@ def main():
     print(json.dumps(dict(passed=result['passed'], SHA256=result['receipt_SHA256'],
                           script_SHA256=result['script_SHA256'], terminal=q['terminal'],
                           reason=q['reason'], injury=q.get('injury'),
-                          third_gap=q.get('third_gap'), flag=q.get('flag'), castle=q.get('castle'),
+                          second_gap=q.get('second_gap'), third_gap=q.get('third_gap'),
+                          flag=q.get('flag'), castle=q.get('castle'),
                           entrance=q.get('entrance'), births=q['births'], visible=q['visible'],
                           events=[event for event in q['events'] if event['x'] >= 2120]),
                      sort_keys=True), flush=True)

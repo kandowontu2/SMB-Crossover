@@ -6,12 +6,12 @@ placements from actual route verification; it is not the final all-character lis
 Earlier shared-record inventory fixture SHA256:
 `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
 Current nightly SHA256:
-`6cb828b3c97bd287f5fb3421e01a478319bf3615e5f2eeed8a6b7888b15c9657`.
-Donkey Kong Jr. (Donkey Kong, Select once) has eight stock 32-pixel-wide
+`b1d449ebd7bbcc6f9c75be00891afc627a8354acb56a18bb9cd7a4ef40129576`.
+Donkey Kong Jr. (Donkey Kong, Select once) has twelve stock 32-pixel-wide
 vertical girders and one stock 48-pixel-wide horizontal platform in World 1-1.
-Mesen verified all four pipe crossings and both early gaps with both lives.
-The first gap required no platform. [Pipe delivery](dkjr-four-pipe-delivery-1110.md)
-[Second-gap delivery](dkjr-second-gap-delivery-1111.md)
+Mesen verified a continuous clear through all six pipes, all three gaps,
+the flagpole and active 1-2 with both lives. The first and third gaps required
+no platform. [Full delivery](dkjr-full-nightly-delivery-1111.md)
 
 | Pipe | World left X | Center X | Initial top Y |
 |---|---:|---:|---:|
@@ -23,6 +23,10 @@ The first gap required no platform. [Pipe delivery](dkjr-four-pipe-delivery-1110
 | Third, descent | 752 | 768 | 192 |
 | Fourth, ascent | 880 | 896 | 192 |
 | Fourth, descent | 944 | 960 | 192 |
+| Fifth, ascent | 2576 | 2592 | 192 |
+| Fifth, descent | 2640 | 2656 | 192 |
+| Sixth, ascent | 2832 | 2848 | 192 |
+| Flagpole approach, staircase descent | 3040 | 3056 | 192 |
 
 | Gap | World left X | Center X | Initial top Y | Width | Actor |
 |---|---:|---:|---:|---:|---|
