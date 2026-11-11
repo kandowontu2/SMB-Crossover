@@ -6,6 +6,7 @@ import json
 from unittest.mock import patch
 
 import check_jay_silius_machinegun_1111 as Jay
+import check_prince_native_flag_1111 as Prince
 import trace_steve_shatterhand_upgrades_1111 as Upgrade
 
 
@@ -13,7 +14,10 @@ T, Steve = Jay.T, Jay.Steve
 C, H, N = Jay.C, Jay.H, Jay.N
 PAGE, MIRROR = 230, 226
 ORIGIN, STATE = 0xc100, 0xc1f0
-BOOT, BOOT_SIZE = 0xb100, 64
+BOOT = 0xb100
+INGRESS, INGRESS_SIZE = 0xc200, 0x1bf
+LIFECYCLE, LIFECYCLE_SIZE = 0xc400, 0x80
+EXTRA, EXTRA_SIZE = 0xc480, 0x20
 ALIAS, ALIAS_SIZE = 0xa9c0, 64
 ALIAS_FIX, ALIAS_FIX_SIZE = 0xa9b8, 8
 OLD_NMI = H.ROOT / 'tools/reference/sonic_sms_native_skin_1110.s'
@@ -41,8 +45,30 @@ def skin_alias(raw):
     return old, new
 
 
-def allocate(raw, cookie):
-    assert T.digest(raw) == JAY_PIN
+def transfer_program(regions, *, reuse_y=False):
+    asm = ['.segment "COPY"']
+    previous_count = 0
+    for index, (source, target, data) in enumerate(regions):
+        for offset in range(0, len(data), 256):
+            count = min(len(data) - offset, 256)
+            label = f'Copy{index}_{offset}'
+            if not reuse_y or previous_count != 256:
+                asm.append('    ldy #0')
+            asm += [f'{label}:', f'    lda ${source+offset:04x},y',
+                    f'    sta ${target+offset:04x},y', f'    cmp ${target+offset:04x},y',
+                    '    bne BadCopy', '    iny']
+            if count < 256:
+                asm.append(f'    cpy #{count}')
+            asm.append(f'    bne {label}')
+            previous_count = count
+    asm += ['    lda #$40', '    sta $03', '    jmp $a004', 'BadCopy:']
+    asm += ['    clc', '    rts']
+    return H.assemble('\n'.join(asm) + '\n', {'COPY': (BOOT, 0x80)})['images']['COPY']
+
+
+def allocate(raw, cookie, *, ingress=b'', lifecycle=b'', extra=b'', binding=b''):
+    pin = T.digest(raw)
+    assert pin in (JAY_PIN, Prince.CANDIDATE)
     assert T.page(raw, PAGE) == T.page(raw, MIRROR)
     physical = T.page
 
@@ -51,41 +77,36 @@ def allocate(raw, cookie):
         # reader reachability. Our duplicate is verified separately above.
         return physical(image, 2 if page == PAGE else page)
 
-    with patch.multiple(T, PIN=JAY_PIN, EXTRA_PAGE=PAGE, page=verify_mirror):
+    with patch.multiple(T, PIN=pin, EXTRA_PAGE=PAGE, page=verify_mirror):
         owners = T.carrier_ownership(raw, PAGE)
     old_skin, new_skin = skin_alias(raw)
     symbols = {name: STATE+i for i, name in enumerate(Upgrade.ALIASES)}
     constants = ''.join(f'{name}=${at:04x}\n' for name, at in symbols.items())
     worker = H.assemble(constants + Upgrade.SOURCE.read_text(), {'UPGRADE': (ORIGIN, STATE-ORIGIN)})
     code = worker['images']['UPGRADE']
-    transfer = H.assemble(f'''
-.segment "COPY"
-    ldy #0
-CopyUpgrade:
-    lda $b000,y
-    sta ${ORIGIN:04x},y
-    cmp ${ORIGIN:04x},y
-    bne BadCopy
-    iny
-    cpy #{len(code)}
-    bne CopyUpgrade
-    lda #$40
-    sta $03
-    jmp $a004
-BadCopy:
-    clc
-    rts
-''', {'COPY': (BOOT, BOOT_SIZE)})['images']['COPY']
-    # The incumbent copier rewrites B000..B3BE. Zero the staging suffix
-    # so its B3BF..B3FF padding matches the original cold image exactly.
-    row = (code.ljust(0x100, b'\xea') + transfer).ljust(1024, b'\x00')
+    assert len(ingress) <= INGRESS_SIZE and len(lifecycle) <= LIFECYCLE_SIZE and len(extra) <= EXTRA_SIZE
+    regions = ((0xb000, ORIGIN, code), (0xb200, INGRESS, ingress),
+               (0xb180, LIFECYCLE, lifecycle), (0xb160, EXTRA, extra))
+    transfer = transfer_program(regions, reuse_y=bool(extra))
+    if extra:
+        assert len(transfer) <= 0x60
+    row = bytearray(1024)
+    row[:0x100] = code.ljust(0x100, b'\xea')
+    row[0x100:0x100+len(transfer)] = transfer
+    for address, _, data in regions[1:]:
+        offset = address - 0xb000
+        row[offset:offset+len(data)] = data
+    # The incumbent stage loader can reject a corrupted transfer before our
+    # copier runs. It only restores B000–B3BE, so leave the suffix zero.
+    assert not any(row[0x3bf:])
+    row = bytes(row)
 
     original = T.page(raw, T.PACKET_PAGE)
     assert original[:4] == bytes.fromhex('a9408503')
     packet = b'\x4c' + T.J.u16(BOOT) + b'\xea' + original[4:]
     alias = new_skin['images']['NMI'].ljust(ALIAS_SIZE, b'\xea')
     mirror = new_skin['images']['MIRROR'].ljust(ALIAS_FIX_SIZE, b'\xff')
-    next_cookie = cookie[:4] + bytes.fromhex(T.digest(cookie + DESCRIPTOR + packet + row + alias + mirror))[:12]
+    next_cookie = cookie[:4] + bytes.fromhex(T.digest(cookie + DESCRIPTOR + packet + row + alias + mirror + binding))[:12]
     old_cold = Steve.cold_program(Steve.DESCRIPTOR, cookie)
     new_cold = Steve.cold_program(DESCRIPTOR, next_cookie)
     assert len(old_cold['images']['COLD65']) == 159 and len(new_cold['images']['COLD65']) == 161
@@ -107,7 +128,8 @@ BadCopy:
     edit(C.CHR+1024*T.PACKET_PAGE, original, packet)
     edit(C.CHR+1024*PAGE, T.page(raw, PAGE), row)
     return bytes(out), dict(cookie=next_cookie, code=code, owners=owners, symbols=worker['symbols'], cold=new_cold,
-                            old_skin=old_skin, new_skin=new_skin, transfer_bytes=len(transfer))
+                            old_skin=old_skin, new_skin=new_skin, transfer_bytes=len(transfer),
+                            residents=tuple(sorted((target, data) for _, target, data in regions if data)))
 
 
 def alias_parity(raw, candidate, info):
@@ -148,12 +170,18 @@ def play_parity(raw, candidate, info, old_cookie):
 
     report = {}
     pad_sequence = [0]*6 + [64]*12 + [1]*19 + [129]*9 + [2]*15 + [0]*10 + [64]*9
-    begin, end = ORIGIN-0xc000, ORIGIN-0xc000+len(info['code'])
+    regions = tuple((origin-0xc000, data) for origin, data in info['residents'])
+    preserved = []
+    previous = 0
+    for start, data in regions:
+        preserved.append(slice(previous, start))
+        previous = start + len(data)
+    preserved.extend((slice(previous, 0x1fe0), slice(0x1ff0, None)))
 
     def snapshot(memory):
         app = C.Vector.app(memory)
         ram = list(app[3])
-        ram[2] = ram[2][:begin] + ram[2][end:0x1fe0] + ram[2][0x1ff0:]
+        ram[2] = b''.join(ram[2][piece] for piece in preserved)
         ram[3] = ram[3][:0x1fe0] + ram[3][0x1ff0:]
         return (*app[:3], ram, *app[4:], memory.vram, memory.chr_latches)
 
@@ -165,11 +193,11 @@ def play_parity(raw, candidate, info, old_cookie):
             assert before.ppu_reads == 16400 and after.ppu_reads == 18450
             assert C.Common.headers(before) == (old_cookie,)*2
             assert C.Common.headers(after) == (info['cookie'],)*2
-            assert bytes(before.ram[2][begin:end]) == bytes(end-begin)
-            assert bytes(after.ram[2][begin:end]) == info['code']
         else:
             assert before.ppu_reads == after.ppu_reads == 0
-            assert bytes(after.ram[2][begin:end]) == bytes(end-begin)
+        for start, data in regions:
+            assert before.ram[2][start:start+len(data)] == bytes(len(data))
+            assert after.ram[2][start:start+len(data)] == (data if variant else bytes(len(data)))
         reads = [before.ppu_reads, after.ppu_reads]
         calls = [Counter(), Counter()]
         for pad in pad_sequence:
@@ -184,6 +212,9 @@ def play_parity(raw, candidate, info, old_cookie):
 
                 C.Game.frame(memory, observe)
             assert snapshot(before) == snapshot(after), (name, pad, Steve.Live.player(after))
+            for start, data in regions:
+                assert before.ram[2][start:start+len(data)] == bytes(len(data))
+                assert after.ram[2][start:start+len(data)] == (data if variant else bytes(len(data)))
         assert calls[0] == calls[1]
         if variant == 1:
             assert calls[1]['JayMachinegun']
@@ -198,8 +229,10 @@ def cold_fail_closed(candidate, info):
     trial = dict(Jay.W.Symbols.bundle(), raw=candidate)
     stop = T.Weapon.Stock.STOP
     target = info['cold']['symbols']['JaySceneOrRetire']
-    last = ORIGIN-0xc000+len(info['code'])-1
-    faults = ((3, 0x1000), (2, ORIGIN-0xc000), (2, last))
+    faults = [(3, 0x1000)]
+    for origin, data in info['residents']:
+        first = origin - 0xc000
+        faults.extend(((2, first), (2, first + len(data) - 1)))
 
     def call(memory):
         cpu = C.ColdVector.entry(memory)
@@ -217,6 +250,10 @@ def cold_fail_closed(candidate, info):
     call(positive)
     assert positive.ppu_reads == 18450
     assert C.Common.headers(positive) == (info['cookie'],)*2
+    for origin, data in info['residents']:
+        first = origin - 0xc000
+        assert positive.ram[2][first:first+len(data)] == data
+    assert not any(positive.ram[3][0x13bf:0x1400])
     call(positive)
     assert positive.ppu_reads == 18450
     for fault in faults:
@@ -224,7 +261,20 @@ def cold_fail_closed(candidate, info):
         m.corrupt_at = fault
         call(m)
         assert not any(header[0] for header in C.Common.headers(m)), fault
+        assert not any(m.ram[3][0x13bf:0x1400]), fault
     return dict(warm_reads=0, fault_locations=faults)
+
+
+def extension_transport(raw, cookie):
+    # Distinct nonzero patterns at both boundaries also exercise the full
+    # indexed page loop and short last copy before the zero staging suffix.
+    ingress = bytes(1 + (i * 17) % 255 for i in range(INGRESS_SIZE))
+    lifecycle = bytes(1 + (i * 33) % 255 for i in range(LIFECYCLE_SIZE))
+    extra = bytes(1 + (i * 65) % 255 for i in range(EXTRA_SIZE))
+    candidate, info = allocate(raw, cookie, ingress=ingress, lifecycle=lifecycle, extra=extra)
+    result = cold_fail_closed(candidate, info)
+    return dict(regions=[(origin, len(data)) for origin, data in info['residents']],
+                transfer_bytes=info['transfer_bytes'], opening=play_parity(raw, candidate, info, cookie), **result)
 
 
 def full_routes(candidate, info, machinegun):
@@ -244,33 +294,60 @@ def full_routes(candidate, info, machinegun):
                                    lives=steve['lives'], crossings=steve['passed'], first_pipe=first['pipe1']))
 
 
+def source_image(raw):
+    pin = T.digest(raw)
+    if pin == Upgrade.HOST_PIN:
+        return Jay.proposal(raw)[0]
+    assert pin in (JAY_PIN, Prince.CANDIDATE)
+    return raw
+
+
+def original_jay_image(raw):
+    if T.digest(raw) == Prince.CANDIDATE:
+        raw = Prince.Source.Signed.recover_parent(Prince.Source.recover_parent(raw))
+    assert T.digest(raw) == JAY_PIN
+    return raw
+
+
+def latest_prince_parity(raw, candidate, cookie):
+    jay = original_jay_image(raw)
+    earlier, _ = allocate(jay, cookie)
+    for parent, latest, previous, result in zip(jay, raw, earlier, candidate, strict=True):
+        assert not (parent != latest and parent != previous)
+        assert result == (latest if parent != latest else previous)
+    (before, _), (after, _) = Prince.B.cold(raw), Prince.B.cold(candidate)
+    native = Prince.native_flag(after, 3137, 60)
+    assert native == Prince.native_flag(before, 3137, 60)
+    trace, writes = native
+    assert len(writes) == 2 and trace[-1] == ((3161, 176, 3, 3, 23, 1), 5)
+    return dict(unchanged_1_1_flag_approach_updates=len(trace), native_events=writes)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--full-routes', action='store_true')
+    parser.add_argument('--extension', action='store_true')
     args = parser.parse_args()
-    raw = Upgrade.D.HOST.read_bytes()
-    existing = None
-    if T.digest(raw) == Upgrade.HOST_PIN:
-        jay, existing = Jay.proposal(raw)
-        cookie = existing['cookie']
-    else:
-        jay = raw
-        assert T.digest(jay) == JAY_PIN
-        at = C.offset(94, 0xb2ef)
-        cookie = raw[at:at+16]
-    image, info = allocate(jay, cookie)
-    aliases = alias_parity(jay, image, info)
-    play = play_parity(jay, image, info, cookie)
+    raw = source_image(Upgrade.D.HOST.read_bytes())
+    at = C.offset(94, 0xb2ef)
+    cookie = raw[at:at+16]
+    image, info = allocate(raw, cookie)
+    aliases = alias_parity(raw, image, info)
+    play = play_parity(raw, image, info, cookie)
     negatives = cold_fail_closed(image, info)
-    result = dict(passed=True, existing_Jay=JAY_PIN, transport_SHA256=T.digest(image),
+    result = dict(passed=True, existing_Jay=JAY_PIN, parent_SHA256=T.digest(raw), transport_SHA256=T.digest(image),
                   extra_page=PAGE, mirror=MIRROR, descriptor=DESCRIPTOR.hex(),
                   resident_code_bytes=len(info['code']), transfer_bytes=info['transfer_bytes'],
                   owners=info['owners'], aliases=aliases, real_menu_and_Main=play,
                   cold_negatives=negatives, output_files=0)
+    if T.digest(raw) == Prince.CANDIDATE:
+        result['prince'] = latest_prince_parity(raw, image, cookie)
+    if args.extension:
+        result['extension'] = extension_transport(raw, cookie)
     if args.full_routes:
-        if existing is None:
-            rebuilt, existing = Jay.proposal(Jay.recover_parent(jay))
-            assert rebuilt == jay
+        jay = original_jay_image(raw)
+        rebuilt, existing = Jay.proposal(Jay.recover_parent(jay))
+        assert rebuilt == jay
         result['full_routes'] = full_routes(image, info, existing)
     print(json.dumps(result))
 
