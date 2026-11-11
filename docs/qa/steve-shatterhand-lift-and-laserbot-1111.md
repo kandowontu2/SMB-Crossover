@@ -56,8 +56,13 @@ drawable pairs. It covers the held-B charge and burst, mirrored firing,
 standing and crouching slopes, cooldown, and segment movement and
 sprite choices. The donor decrements segment power on enemy contact
 and keeps the beam active until that power runs out. Native damage,
-sound, body and projectile graphics
-remain open. The lift and Laserbot need additional authenticated
+sound, body and projectile integration remain open. The donor OAM
+points to CHR90, with body tiles `$41/$43` standing and `$45/$47`
+crouching. The muzzle uses `$57`, the standing beam uses `$59/$5B`,
+and the crouching beam uses `$5D/$5F`. The crouching cells are exact
+horizontal and vertical mirrors, leaving eight distinct art cells
+after mirroring. The known blank host tails on CHR710 and CHR711 hold
+seven cells. The lift and Laserbot also need additional authenticated
 executable storage before they can both run in the crossover.
 
 ```powershell
