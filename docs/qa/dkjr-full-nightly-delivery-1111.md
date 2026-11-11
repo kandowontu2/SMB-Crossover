@@ -21,6 +21,10 @@ updates over the earlier wait. Donkey Kong Jr. reached the flagpole at update
 lives. The replay traversed all three gaps and six pipes without using the
 shortcut pipe.
 
+The [second-gap CPU replay](../../tools/audit/check_dkjr_second_gap_early_1111.py)
+also verified the same single A press at all four frame-counter phases on the
+released ROM. Each route reached X1424/Y176 with both lives.
+
 - ROM SHA-256 `b1d449ebd7bbcc6f9c75be00891afc627a8354acb56a18bb9cd7a4ef40129576`
 - IPS SHA-256 `c4d7f170903bf6c7d416f358897e197a7bc9d0cd86f94b4a7440aa14a02a8c89`
 - Candidate Mesen receipt `51064f55fb39b1dfa59e7c9e20aa67fcb57180c6d2365f78ecbb6d37fdf0069f`
