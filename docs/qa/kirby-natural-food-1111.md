@@ -48,3 +48,33 @@ On `ac262446`
 `680abca80a817488b2d31d8eb7c1ab8f30bacf336bbe004666bb44acca9d2455`.
 On installed `e6b152e2`
 `e03ca798290491ca9a0b153f9cce33966785dd7d0c4b9b90c46dc9beaa4d0a65`.
+
+## Installed Mesen replay
+
+On `e6b152e2`, an input-only run from title verifies both native foods
+through 2,410 physical frames and 1,811 active gameplay updates. Kirby
+keeps both lives. The mature mushroom uses the original metasprite
+`$41` with attributes 0. The mature flower uses the distinct `$40`
+metasprite and the sample captures palette 2 during the native cycle.
+
+| Food | Birth frame | Mature render frame | Collection frame | HP |
+| --- | ---: | ---: | ---: | --- |
+| Mushroom | 692 | 780 | 883 | 5 → 6 |
+| Fire Flower | 2175 | 2270 | 2409 | 4 → 6 |
+
+Both pickups erase the mature actor and start the 24-update heal animation.
+The game reaches these states through the authored blocks and Goombas.
+The [physical replay](../../tools/audit/replay_kirby_food_native_1111.py)
+verifies the metasprite selections. The CPU replay independently checks
+the score and sound request. The physical run writes no captures.
+
+- Mesen receipt SHA-256 `d2287de0c8c20778352ce45e8860d13c97b2c4627edeece7796088343c8d0829`
+- Assembled controller SHA-256 `4967d394f295505fec5928c40021bc93d23970c676635e5942b231d665bb8ddb`
+
+Two separate native regressions on the same installed bytes also pass.
+The close inhale takes the first Goomba at X287 with full health and
+both lives. The green-shell route reaches the 1-1 flagpole at frame 4973
+and active 1-2 at frame 6084, with green copy, 5 HP and both lives.
+Their respective receipts are
+`08c15ed394ece63cf841cb7fbae0fcd88df9c431fbaea44ade9f2faf8c7e73b8` and
+`54fe1a5fbf2b810d8d339c8c61aa0c98fc1c3c0d8c57e04471a3a0ce47339656`.
