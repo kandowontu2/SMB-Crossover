@@ -102,10 +102,12 @@ def main():
     p.add_argument('--first-slot', type=int, default=0)
     p.add_argument('--last-slot', type=int, default=31)
     p.add_argument('--name', help='Optional one-name fixture/scheduler diagnosis')
+    p.add_argument('--rom', type=Path, default=F.ROM)
+    p.add_argument('--expected', default=F.PIN)
     args = p.parse_args()
     assert 0 <= args.first_slot <= args.last_slot < 32
-    raw = F.ROM.read_bytes()
-    assert sha256(raw).hexdigest() == F.PIN
+    raw = args.rom.read_bytes()
+    assert sha256(raw).hexdigest() == args.expected
     # The compact menu inventory bundle deliberately omits local labels.
     # Continue/IdleLoop need the full retained native symbol table instead.
     bundle = F.Symbols.bundle()
@@ -129,7 +131,7 @@ def main():
         print(json.dumps(result, sort_keys=True), flush=True)
     passed = all(row['passed'] for row in results)
     print(json.dumps(dict(passed=passed, source_only=True, outputs_written=0, ROM_written=False,
-                          ROM_SHA256=F.PIN, source_SHA256=sha256(Path(__file__).read_bytes()).hexdigest(),
+                          ROM_SHA256=args.expected, source_SHA256=sha256(Path(__file__).read_bytes()).hexdigest(),
                           first_slot=args.first_slot, last_slot=args.last_slot, cases=len(results),
                           passing=sum(row['passed'] for row in results),
                           failures=[row for row in results if not row['passed']]), sort_keys=True), flush=True)
