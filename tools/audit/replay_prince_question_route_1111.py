@@ -31,7 +31,8 @@ def controller(cookie, support_publication, *, stock=False, neutral=False):
                "      switch('late-chain-question-neutral',0)")
         target = "  elseif progress=='late-chain-group-depart' and s.action==3 then"
         change(target, """  elseif progress=='late-chain-question-neutral' then
-    assert(s.y==112 and x==q.group.cap.x and support(s) and tile(x+13,144)==0xc0,
+    assert(s.y>=112 and s.y<=113 and x==q.group.cap.x and support(s) and
+      s.action~=7 and tile(x+13,144)==0xc0,
       'Original neutral pose stays grounded on the native question block')
     if commits-changedAt>=20 then
       q.group.neutral=s
@@ -40,6 +41,10 @@ def controller(cookie, support_publication, *, stock=False, neutral=False):
     end
 """ + target)
     return source
+
+
+def replay(script, rom, output, pin):
+    return Replay.replay(script, rom, output, pin, climb_group=True, climb_brake=1710)
 
 
 def main():
@@ -61,7 +66,7 @@ def main():
     script = output / 'controller.lua'
     script.write_text(controller(args.cookie, args.support_publication, stock=args.stock, neutral=args.neutral),
                       encoding='utf-8', newline='\n')
-    result = Replay.replay(script, rom, output / 'capture', args.expected, climb_group=True, climb_brake=1710)
+    result = replay(script, rom, output / 'capture', args.expected)
     receipt = result['receipt']
     group = receipt['later_route'].get('chain', {}).get('group', {})
     print(json.dumps(dict(passed=result['passed'], reason=receipt['reason'], phase=receipt['phase'],

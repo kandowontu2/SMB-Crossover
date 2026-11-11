@@ -2,10 +2,19 @@
 local rom=assert(os.getenv('SMB_STDOUT_ROM_SHA'))
 local frame,age,step=0,0,1
 local phase,done='title',false
-local actions,rows={},{}
+local actions,rows,expected={},{},{}
 for _=1,10 do actions[#actions+1]='select' end
 actions[#actions+1]='right'
 actions[#actions+1]='left'
+local menuRoute=os.getenv('SMB_MENU_ROUTE')
+if menuRoute then
+ actions={}
+ for key,slot,raw in menuRoute:gmatch('(%a+):(%d+):(%d+)') do
+  actions[#actions+1]=key
+  expected[#expected+1]={slot=tonumber(slot),raw=tonumber(raw)}
+ end
+ assert(#actions>=100 and #actions<=180,'Bounded full roster route')
+end
 local history,events={},{}
 local initial,old,miniSeen
 local mask=0
@@ -108,6 +117,10 @@ emu.addEventCallback(function()
    end
    local row={key=actions[step],before=old,after=new,transient=abnormal,visible_writes=events}
    rows[#rows+1]=row
+   local target=expected[step]
+   if target and (target.slot~=new.state.slot or target.raw~=new.state.raw) then
+    finish(false,'Unexpected roster slot or selected character at step '..step);return
+   end
    if new.state.slot==0 and new.state.variant==8 and new.state.raw==41 then miniSeen=step end
    old=new
    history,events={},{}
@@ -115,5 +128,5 @@ emu.addEventCallback(function()
    if step>#actions then finish(miniSeen~=nil,'Observed Mario Select cycle and D-pad return');return end
   end
  end
- if frame>720 then finish(false,'Bounded roster transition observer');return end
+ if frame>(menuRoute and 4300 or 720) then finish(false,'Bounded roster transition observer');return end
 end,emu.eventType.endFrame)

@@ -1,4 +1,16 @@
 {
+  "Mini_roster_Giant_Prince_repair_1111": {
+    "nightly_path": "C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes",
+    "nightly_SHA256": "677aad54c55f829d9e7b2aab9e2b1f4eddebcd3c6e6532eeddd9f2ce4e1a26ab",
+    "parent_SHA256": "e6b152e26b43449115a7ff21903ae756346052e55dbdd94d8751e8c3a0951f23",
+    "IPS_SHA256": "0c7c0b82a204bcd53a42e9e84abc1575fee7791a6867a06158de17aa83fa06ae",
+    "report": "docs/qa/roster-repair-delivery-1111.md",
+    "Mini_roster": "Installed and candidate 135 actual Select/D-pad transitions with zero sampled heading/preview/grid/name or visible PPU-mask/BG-CHR anomalies, receipt e844ad71ed50db8043aa719d4711f154f5215054a8c5bda12af7ca61f1bba46a. Old exact e6 Mini step8 loses heading frame301 and truncates it thereafter, receipt65b3ee0ce4baaced6eccc0800ad4fd22fd63feeb596fe0c4675d31bfe613f097. 31 byte PRG66 patch updates two guarded palette bytes while preserving name, cursor and CHR968. CPU 65536 palette shape controls. Lua2c3c9c267a0e94950183031d8e85bd54dcdb55d0f71d61cb732e56c14904190a.",
+    "Giant": "Five-byte private descriptor fixes Sonic shared compact loader regression d76e070e→d2542ff3. Correct CHR214/212 and raw3 A200. Combined candidate and Downloads full Mesen 1-1→1-2 X40/Y48/lives2 in3512 frames, flag frame2321, 46-part body CHR180/182, receipt108b755260e4b3e0548e178e644f19404f3c6b995e1d9ef7617783b1d22507cc. Standalone Giant-repair image 5482f0d6 passes all100 CPU startups.",
+    "Prince": "Typed exposed 16px native question block X1744 top144. Same donor climb starts X1728, lands X1731/Y112 and keeps grounded through20 original updates (combined installed/candidate c34792eacb57239a84d592599dad376f7f19fe7be5b62060c691c700376d74db). Separate live Goomba pass reaches X1853/Y176 with4HP/lives2 (d429efa0d32b51e92d841fad95d9ec1bcb32c1904ce9a9ced3a096590ff5bf22). CPU42 unchanged geometry,1279 material pairs,355 IRQ and355 lag-NMI cuts. 6400-byte runtime stays inside existing loader capacity. No helpers added.",
+    "pending": "Prince continue from X1853 past late stairs and third gap to flag, then earned abilities. Steve and Kirby full routes verified on e6b152e2. Continue roster traversal, powers, and idle/scroll performance. Reconstruct exact e6 predecessor using compose_roster_repair_1111.recover_parent.",
+    "goal_status": "active"
+  },
   "Steve_original_movement_delivery_1111": {
     "nightly_path": "C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes",
     "nightly_SHA256": "e6b152e26b43449115a7ff21903ae756346052e55dbdd94d8751e8c3a0951f23",
