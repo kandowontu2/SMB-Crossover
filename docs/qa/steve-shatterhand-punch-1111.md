@@ -60,3 +60,20 @@ ROM. The live hook still needs cartridge space,
 private state initialization, hit collision and rendering, with separate
 ownership for power-ups, companions, and the original movement. No Steve
 candidate was delivered, and Steve’s 1-1 clear remains open.
+
+## Cartridge transport
+
+An in-memory transport experiment against `4df81758` fits in 160 of the
+existing 162 bytes at physical PRG65. It adds physical CHR220 as the third
+metadata row and copies that 1 KiB row to WRAM2 `$D800–$DBFF`. Its 384-byte
+tail starts at `$DA80`, large enough for the 337-byte worker. The native
+menu-to-Main path reached 167 updates each for Mike, Jay, and Steve. Mike
+made zero PPU reads and left both headers and the proposed row untouched.
+Jay and Steve each made 14,350 PPU reads, acquired both full headers, and
+copied the CHR220 row byte for byte. The experiment retained the original
+cookie to test transport in isolation.
+
+The proposed hot path uses the existing two-header validation at physical
+PRG94 and a Steve-only gate in physical PRG98 `$AFDC–$AFFF`. The hook,
+relocated worker, CHR tile-use checks, and hit/render integration still need
+qualification. No assembled ROM or capture was written.
