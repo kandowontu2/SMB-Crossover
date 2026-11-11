@@ -10,6 +10,7 @@ import check_sonic_sms_fast_snapshot_1111 as Sonic
 
 
 PIN = 'e295500856ed5a9bfc718699d52bc5b36ecdc2717bed31cf275d87c1af25bf09'
+WITH_JAY_PIN = 'b1d449ebd7bbcc6f9c75be00891afc627a8354acb56a18bb9cd7a4ef40129576'
 
 
 def proposal(parent):
@@ -27,6 +28,22 @@ def proposal(parent):
     return bytes(image), dict(image_SHA256=PIN, dk_cookie=dk_cookie.hex(),
                               dk_edits=len(dk_edits), retained_sonic_edits=len(sonic_edits),
                               constructor=hex(labels['DkAfterNativeConstructor']))
+
+
+def compose_with_jay(sonic, jay):
+    from deliver_jay_stock_draw_1111 import PIN as JAY_PIN
+
+    assert sha256(jay).hexdigest() == JAY_PIN
+    dk, evidence = proposal(sonic)
+    dk_edits, jay_edits = Sonic.changed(sonic, dk), Sonic.changed(sonic, jay)
+    assert len(jay_edits) == 4717 and dk_edits.isdisjoint(jay_edits)
+    image = bytearray(jay)
+    for address in dk_edits:
+        image[address] = dk[address]
+    assert Sonic.changed(dk, image) == jay_edits
+    assert sha256(image).hexdigest() == WITH_JAY_PIN
+    return bytes(image), dict(evidence, image_SHA256=WITH_JAY_PIN,
+                              retained_jay_edits=len(jay_edits))
 
 
 def main():

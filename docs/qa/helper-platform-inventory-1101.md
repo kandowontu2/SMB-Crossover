@@ -6,7 +6,7 @@ placements from actual route verification; it is not the final all-character lis
 Earlier shared-record inventory fixture SHA256:
 `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
 Current nightly SHA256:
-`8c1ebb1bfbe21499461c5fd65ea75b784460ac2cb81a712a9db9941aa7cec711`.
+`6cb828b3c97bd287f5fb3421e01a478319bf3615e5f2eeed8a6b7888b15c9657`.
 Donkey Kong Jr. (Donkey Kong, Select once) has eight stock 32-pixel-wide
 vertical girders and one stock 48-pixel-wide horizontal platform in World 1-1.
 Mesen verified all four pipe crossings and both early gaps with both lives.

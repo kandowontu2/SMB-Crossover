@@ -43,14 +43,15 @@ def compose(original, driver, cookie, constructor):
         ("[880]=161,[944]=161}", "[880]=161,[944]=161,[2576]=177,[2640]=128,[2832]=177,[3040]=128}"),
         ("local pendingPlane", """local pendingPlane
 local thirdGap,flagHop,flagResult,castleResult,entranceResult
+local p5DownDirection=0
 local finalRiser,finalRiserStart,finalRiserAttempts=1,nil,0
-local finalWaitX,finalWaitStart
+local finalWaitX,finalWaitStart,finalLandAt
 local finalLaunches={{2912,2912,2907},{2923,2928,2925},{2939,2944,2941},
-                     {2955,2960,2957},{2971,2976,2973},{2987,2992,2989}}"""),
+                     {2955,2960,2957},{2971,2976,2973},{2987,2991,2992,2989}}"""),
         ("assert(#events<100", "assert(#events<160"),
         ("phase=phase,pipe=index}", """phase=phase,pipe=index,
   world=read(0x764),level=read(0x761),area_type=read(0x753),mode=read(0x771),task=read(0x773),
-  timer=100*read(0x7bf)+10*read(0x7c0)+read(0x7c1)}"""),
+  timer=100*read(0x7bf)+10*read(0x7c0)+read(0x7c1),timer_expired=read(0x75e)}"""),
         ("first_gap=firstGap,second_gap=gap", """first_gap=firstGap,second_gap=gap,third_gap=thirdGap,
   flag=flagResult,castle=castleResult,entrance=entranceResult"""),
         ("local function drive()\n", "local function drive()\n" + STAGE_EXIT),
@@ -71,7 +72,7 @@ local finalLaunches={{2912,2912,2907},{2923,2928,2925},{2939,2944,2941},
     return source
 
 
-def replay(rom, expected, output, constructor):
+def replay(rom, expected, output, constructor, fast=False):
     raw = rom.read_bytes()
     assert sha256(raw).hexdigest() == expected
     offset = Delivery.Gap.Four.COOKIE_AT
@@ -86,7 +87,8 @@ def replay(rom, expected, output, constructor):
     with TemporaryDirectory(dir=output) as directory:
         script = Path(directory) / 'dkjr_full_stage.lua'
         script.write_text(source, encoding='utf-8')
-        return run(script, rom, output, expected, 240)
+        return run(script, rom, output, expected, 240,
+                   extra_env={'SMB_DKJR_FAST_ROUTE': '1' if fast else '0'})
 
 
 def main():
@@ -95,8 +97,9 @@ def main():
     parser.add_argument('--expected', required=True)
     parser.add_argument('--constructor', type=lambda s: int(s, 0), required=True)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--fast', action='store_true')
     args = parser.parse_args()
-    result = replay(args.rom, args.expected, args.output.resolve(), args.constructor)
+    result = replay(args.rom, args.expected, args.output.resolve(), args.constructor, args.fast)
     q = result['receipt']
     print(json.dumps(dict(passed=result['passed'], SHA256=result['receipt_SHA256'],
                           script_SHA256=result['script_SHA256'], terminal=q['terminal'],
