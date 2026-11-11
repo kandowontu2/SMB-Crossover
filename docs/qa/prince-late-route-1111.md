@@ -82,3 +82,19 @@ guard passed before and after replacement, with zero backups.
 [Signed row recipe](../../tools/audit/compose_prince_signed_world_row_1111.py) ·
 [CPU verifier](../../tools/audit/check_prince_late_stairs_1111.py) ·
 [Delivery recipe](../../tools/audit/deliver_prince_signed_world_row_1111.py)
+
+## Flagpole approach on the released ROM
+
+From the far side of the final staircase, release Right at X3099. Prince
+settles at X3137/Y176 in original action 0 and pose 15. Fresh A begins the
+original standing jump. The next update reaches X3148, but donor action 47
+responds to the shaft as a wall before the native flagpole accepts contact.
+The real shaft is `$25` at world X3168, with `$61` footing beginning at Y192.
+On a grounded approach, the native lower side probe reaches the footing and
+the upper side probe can read the shaft. The flag’s usual horizontal
+admission remains X3158–3161 on this approach.
+
+- Mesen negative control `3761a0a817d78ff2cf08d2f567d8b2f1fbdc1e9033bd5524968ec97bdee790bb`
+- Assembled controller `6fb5207d65f500721ff81d735784fe07aa13f9339b0467733736147059251cbc`
+
+[Controller and native flag observer](../../tools/audit/replay_prince_native_flag_1111.py)
