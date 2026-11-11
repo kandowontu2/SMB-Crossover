@@ -36,6 +36,16 @@ def current_domains(parent):
         historical[start:start+1024] = ff_old[start:start+1024]
 
     old_authority = inspect.getsource(Lease.chr_authority)
+    if PAGE == 234:
+        # This conservative historical range includes retired SMB3 form
+        # arrays. The same authority below verifies the compiled seven-form
+        # reader, whose current physical outputs are 524..543.
+        old_domain = "    assert not any(pages.intersection(v) for v in prior['exact_finite_domains'].values())"
+        actual_domain = """    overlap = {name:sorted(pages.intersection(values))
+               for name,values in prior['exact_finite_domains'].items() if pages.intersection(values)}
+    assert overlap == {'SMB3 seven forms81frames':[234]}, overlap"""
+        assert old_authority.count(old_domain) == 1
+        old_authority = old_authority.replace(old_domain, actual_domain)
     old_line = "        name=row['name'];assert name in ('M3Form2ChrLo','M3Form3ChrLo','M3Form4ChrLo','M3Form6ChrLo'),name"
     assert old_authority.count(old_line)==1
     line = '''        if row['name']=='Z2PoseChrLo':

@@ -6,7 +6,18 @@ placements from actual route verification; it is not the final all-character lis
 Earlier shared-record inventory fixture SHA256:
 `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
 Current nightly SHA256:
-`852712c9a2afce71c45f9f2c970e1f5c7969c58d878cfa0a250d2bdb7ba93383`.
+`4df817587ea5b0aff3f278a4201976745bad4d9dd1b2a99d6cb5fd3b9c74dadc`.
+
+Jay McCray (Mike Jones, Select once) uses two stock 32-pixel-wide vertical
+platforms in 1-1. Mesen verified offscreen admission, visible entry at
+relative X255, both rides, and a clear into active 1-2 with both lives.
+[Jay delivery](jay-silius-scrolling-delivery-1111.md)
+
+| World 1-1 location | World left X | Center X | Initial top Y |
+|---|---:|---:|---:|
+| Third pipe, ascent | 688 | 704 | 192 |
+| Fourth pipe, ascent | 880 | 896 | 192 |
+
 Donkey Kong Jr. (Donkey Kong, Select once) has twelve stock 32-pixel-wide
 vertical girders and one stock 48-pixel-wide horizontal platform in World 1-1.
 Mesen verified a continuous clear through all six pipes, all three gaps,
