@@ -17,12 +17,12 @@ NATIVE = ('InvPickup', 'Enemy_State', 'Enemy_X_Position', 'Enemy_PageLoc', 'Enem
           'ScreenLeft_X_Pos', 'ScreenLeft_PageLoc')
 
 
-def proposal(raw):
+def proposal(raw, *, companion_tick=None, companion_draw=None):
     bundle = W.Symbols.bundle()
     transport = Ingress.Transport
     origin, scan = transport.LIFECYCLE, transport.EXTRA
     hud_stub = '.segment "TOKEN_INGRESS"\nSteveTokenHud:\n    rts\n'
-    ingress, punch = Ingress.link(bundle, token_draw=scan, token_hud=hud_stub)
+    ingress, punch = Ingress.link(bundle, lifecycle_tick=companion_tick, token_draw=scan, token_hud=hud_stub)
     fields = {name: ingress['symbols'][name] for name in (
         'SteveTokenStamp', 'SteveTokenOwned', 'SteveTokenPending', 'SteveTokenPattern',
         'SteveTokenFlightX', 'SteveTokenFlightY')}
@@ -30,7 +30,10 @@ def proposal(raw):
     fields.update(NativeRender=W.address(bundle, 'MetaspriteRenderLoop'),
                   SteveDrawInvoke=punch['symbols']['SteveDrawInvoke'])
     bindings = ''.join(f'{name}=${address:04x}\n' for name, address in fields.items())
-    program = H.assemble(bindings + SOURCE.read_text(encoding='utf-8'),
+    source = SOURCE.read_text(encoding='utf-8')
+    if companion_draw is not None:
+        source = S.changed(source, 'AllWorldDone:\n', f'AllWorldDone:\n    jsr ${companion_draw:04x}\n')
+    program = H.assemble(bindings + source,
                          {'ITEM_SELECT': (START, END-START), 'TOKEN_DRAW': (origin, transport.LIFECYCLE_SIZE),
                           'DRAW_SCAN': (scan, transport.EXTRA_SIZE)})
     assert program['symbols']['SteveDrawTokens'] == scan
@@ -50,7 +53,8 @@ def proposal(raw):
     pair = program['symbols']['SteveDrawTokenPair']
     hud = f'SteveDrawTokenPair=${pair:04x}\n' + HUD.read_text(encoding='utf-8')
     image, info = Ingress.proposal(raw, lifecycle=program['images']['TOKEN_DRAW'], token_draw=scan,
-                                   token_hud=hud, extra=program['images']['DRAW_SCAN'], extra_edits=edits)
+                                   lifecycle_tick=companion_tick, token_hud=hud,
+                                   extra=program['images']['DRAW_SCAN'], extra_edits=edits)
     assert info['symbols']['SteveTokenOwned'] == fields['SteveTokenOwned']
     return image, info | dict(draw_bytes=len(program['images']['TOKEN_DRAW']), draw_pair=pair,
                               scan_bytes=len(program['images']['DRAW_SCAN']))
