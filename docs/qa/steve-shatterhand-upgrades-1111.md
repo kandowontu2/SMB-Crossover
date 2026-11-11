@@ -54,20 +54,55 @@ original 6502 leaves in the comparison and uses the existing donor boot
 whose OAM matches three physical opening anchors. The paired timer and
 actor tests begin from explicitly directed state.
 
-The host still needs a physical Alpha/Beta producer, separate pickup
-ownership for Steve, and a loaded companion or armor runtime. The current
-authenticated movement page has 48 spare bytes across its two segments,
-which cannot hold this 231-byte worker and its host bridge. The current
-punch worker already has original armored animation rows and a dedicated
-armor field. Its use still depends on an actual earned grant and on the
-remaining original armor combat and rendering paths. The installed
-movement, punch, and stage route are the baseline for those tests.
+The host still needs a physical Alpha/Beta producer, Steve-specific
+pickup ownership, and the companion and armor runtime. The current punch
+worker already has original armored animation rows and a dedicated armor
+field. Its use depends on an earned grant and the remaining original
+armor combat and rendering paths.
+
+## Cold transport alongside Jay’s machine gun
+
+The exact in-memory transport starts from Jay machine gun candidate
+`c8d328a27efbc900216985aeb86600a1f626f8cc76e93a91bb30b2c1f8c2e727`.
+The finite selector census checks 88 domains, 49 exact legacy tables, and
+four copies of the native map. Physical CHR230 and CHR226 start with
+identical bytes. Sonic’s mode `$85` NMI selector rebinds the two inputs
+that select CHR230, `$13` and `$93`, to CHR226. The patch uses PRG62
+`$A9B8–$A9FF` and rebinds the existing `$B690` graphics jump to its
+relocated entry. The 2,809 selector comparisons preserve X, Y, processor
+flags and the mapper’s upper-page selection. Both rebound inputs read
+identical pixels from their replacement page.
+
+The Mike-family cold wrapper grows from 159 to 161 of its 162 reserved
+bytes. The loader adds CHR230 as its fifth code row and stages it at raw3
+`$B000–$B3FF`. The `$A000` packet entry calls the 27-byte copy-and-readback
+routine at `$B100`. The relocated 239-byte worker ends at raw2 `$C1EE`
+and reserves `$C1F0–$C1FF` for its fields. The original bootstrap then
+restores the staging window byte for byte. There is no mapper expansion.
+
+Actual menu-to-1-1 entry and 80 native Main updates for each of Mike,
+Jay and Steve preserve application RAM, OAM, VRAM and mapper latches
+after excluding the new code and authentication headers. Jay’s
+machine gun dispatcher runs on all 80 updates, and Steve’s movement
+worker runs on its 160 existing calls. Jay and Steve cold reads grow from
+16,400 to 18,450. Mike and authenticated warm calls make no cold reads.
+Readback corruption in the CHR staging destination or at either end of
+the raw2 resident worker prevents both headers from authenticating.
+The same image also completes both existing CPU controller routes. Jay
+reaches 1-2, equips his earned machine gun from Pause and produces five
+matching DMA shots five updates apart, leaving 58 rounds. Steve punches
+the first Goomba, crosses all nine existing route landmarks, and reaches
+playable 1-2 at X40/Y48 with six health and two lives.
+The transport has no live pickup or combat caller and exists only in
+the in-memory source test.
 
 | Source result | SHA-256 |
 | --- | --- |
 | Linked upgrade worker | `65fe9380ba6b8fd8c6adc1c0e1db0986b07f8e1a011b7485263690c3d046f975` |
+| In-memory transport image | `116c48b7ca8c8ae6a31feb1b322b11c43b09c45bcc686fac98fc9c65accd04fd` |
 
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/steve-shatterhand-upgrades-1111 --max-files 1 --timeout 240 -- python -B tools/audit/trace_steve_shatterhand_upgrades_1111.py
 python -B tools/audit/run_bounded_build_v1.py --output build/steve-shatterhand-pickups-1111 --max-files 1 --timeout 240 -- python -B tools/audit/trace_steve_shatterhand_upgrades_1111.py --host
+python -B tools/audit/run_bounded_build_v1.py --output build/steve-upgrade-transport-1111 --max-files 1 --timeout 240 -- python -B tools/audit/check_steve_shatterhand_upgrade_transport_1111.py --full-routes
 ```
