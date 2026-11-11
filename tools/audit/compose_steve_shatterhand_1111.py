@@ -48,14 +48,18 @@ def address_bytes(address):
     return address.to_bytes(2, 'little')
 
 
-def link(bundle):
+def link(bundle, *, movement_entry=None):
     aliases = {name: W.address(bundle, name) for name in NATIVE}
     aliases.update(FIELDS, HotEntry=HOT, StevePressed=W.address(bundle, 'JnPressed'),
                    NativeDefeat=W.address(bundle, 'JnDefeat'),
                    NativeRender=W.address(bundle, 'MetaspriteRenderLoop'))
     assert aliases['StevePressed'] == 0x5c02 and aliases['NativeDefeat'] == 0xa563
     definitions = ''.join('%s=$%04x\n' % (name, address) for name, address in aliases.items())
-    result = H.assemble(definitions + SOURCE.read_text() + Donor.SOURCE.read_text(), LAYOUT)
+    source = SOURCE.read_text()
+    if movement_entry is not None:
+        source = changed(source, 'OtherSteveCaller:\n    clc\n    rts\n',
+                         f'OtherSteveCaller:\n    jmp ${movement_entry:04x}\n')
+    result = H.assemble(definitions + source + Donor.SOURCE.read_text(), LAYOUT)
     punch = result['images']['STEVE_PUNCH']
     assert len(punch) == 340, len(punch)
     # The host's unarmored body has its nominal center 8px from the left
