@@ -22,7 +22,7 @@ from sonic_sms_compact_cold_worker_1110 import assemble
 
 def proposal(raw, bundle):
     parent = sha256(raw).hexdigest()
-    assert parent in (Control.PIN, Control.JAY_SUCCESSOR)
+    assert parent in Control.PARENTS
     at = A.location(bundle,'KbShellEnemyContact')
     assert A.address(bundle,'KbShellEnemyContact')==START and at==16+74*8192+(START&8191)
     assert int(bundle['syms']['KbShellEnemyContact']['size'],0)==SIZE

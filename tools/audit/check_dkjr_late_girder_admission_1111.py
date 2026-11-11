@@ -15,6 +15,11 @@ R, B, N, S = Four.R, Four.B, Four.N, Four.S
 SOURCE = R/'tools/reference/dkjr_late_girder_admission_1111.s'
 PARENT = Late.PIN
 PIN = 'f837a0259b069392003a8dbd1a71571f86189a309c92a6c68b468e8794321dab'
+SUCCESSORS = {
+    PARENT: PIN,
+    '6cb828b3c97bd287f5fb3421e01a478319bf3615e5f2eeed8a6b7888b15c9657':
+        'b1d449ebd7bbcc6f9c75be00891afc627a8354acb56a18bb9cd7a4ef40129576',
+}
 PARENT_COOKIE = bytes.fromhex('a72801b96058ad9af823ba7f575bf9d0')
 LAYOUT = {name:Second.LAYOUT[name] for name in ('BOX','ROWS','PIPE','REFRESH_TARGET','REFRESH')}
 LAYOUT['NATIVE_CALL'] = (0xb7ca,30)
@@ -49,7 +54,8 @@ def source_parent(current=None):
 
 def proposal(raw):
     """Return candidate ROM bytes, owner cookie, and linked source addresses."""
-    assert sha256(raw).hexdigest()==PARENT
+    parent = sha256(raw).hexdigest()
+    assert parent in SUCCESSORS
     payload = S.V.T.payload(raw)
     assert raw[Four.COOKIE_AT:Four.COOKIE_AT+16]==PARENT_COOKIE
     assert PARENT_COOKIE==b'\xa7\x28\x01'+sha256(payload).digest()[:13]
@@ -103,7 +109,7 @@ def proposal(raw):
         else:
             at = S.Art.CHR+page*1024
             assert image[at+first:at+last]==raw[at+first:at+last]
-    assert sha256(image).hexdigest()==PIN
+    assert sha256(image).hexdigest()==SUCCESSORS[parent]
     return bytes(image),cookie,labels
 
 

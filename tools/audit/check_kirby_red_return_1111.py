@@ -12,6 +12,8 @@ N = Authority.N
 R = Authority.R
 PIN = '8c1ebb1bfbe21499461c5fd65ea75b784460ac2cb81a712a9db9941aa7cec711'
 JAY_SUCCESSOR = '6cb828b3c97bd287f5fb3421e01a478319bf3615e5f2eeed8a6b7888b15c9657'
+DK_JAY_SUCCESSOR = 'b1d449ebd7bbcc6f9c75be00891afc627a8354acb56a18bb9cd7a4ef40129576'
+PARENTS = (PIN, JAY_SUCCESSOR, DK_JAY_SUCCESSOR)
 NIGHTLY = Path('C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes')
 RED_RECEIPT = R / 'build/kirby-red-shell-1110-v3/capture/result.json'
 RED_PIN = 'aed82618f6fc0bbd7ed0a6073c1a81efe68e36f25ed4bba270f587ed34af94a7'
@@ -73,7 +75,7 @@ def call(m, label, *, x=0, y=0, observe=None):
 def prepare(current=None):
     if current is None:
         current = NIGHTLY.read_bytes()
-    assert sha256(current).hexdigest() in (PIN,JAY_SUCCESSOR)
+    assert sha256(current).hexdigest() in PARENTS
     assert Authority.sha(Authority.AUTHORITY)==Authority.AUTHORITY_ROM
     assert Authority.sha(Authority.AUTHORITY.with_suffix('.dbg'))==Authority.AUTHORITY_DBG
     source = Authority.scoped_load(Authority.AUTHORITY)
