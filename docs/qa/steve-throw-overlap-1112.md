@@ -46,3 +46,10 @@ The 79-byte leaf matched the installed table through page carries, with no
 outputs. Player-only controls with signed offsets are outside this contract;
 native actor admission must reject inappropriate controls before using it.
 This has not yet been mounted or used to apply damage.
+
+The combined `SteveThrowEnemyOverlap` entry adds an 11-byte wrapper that builds
+the rectangle and calls the expanded overlap leaf while preserving the native
+enemy slot in X. The carry flag remains the hit result across stack restoration.
+The audit now also passes 24,192 composed boundary cases through both routines,
+including exclusive-right/inclusive-bottom edges and page carry. The rectangle
+segment is now 90 bytes including the wrapper; the overlap leaf remains 81.

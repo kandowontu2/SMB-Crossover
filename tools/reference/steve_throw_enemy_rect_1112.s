@@ -41,3 +41,14 @@ SteveThrowEnemyRect:
     eor #$80
     sta ThrowHigh+3
     rts
+
+; Caller has already packed the robot's world center in ThrowPoint.
+; Preserve the native enemy slot across the axis worker, which uses X.
+SteveThrowEnemyOverlap:
+    txa
+    pha
+    jsr SteveThrowEnemyRect
+    jsr SteveThrowOverlap
+    pla
+    tax
+    rts
