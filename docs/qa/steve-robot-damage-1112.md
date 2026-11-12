@@ -35,3 +35,12 @@ is a sentinel: this does not claim a real native kill, score, or sound test.
 Both checks generated zero files. All these routines remain detached pending
 live contact admission, linkage, graphics allocation and Mesen verification.
 Downloads and the Current IPS remain unchanged.
+
+The helper extended the donor audit to execute eleven original contact cases
+through PRG8 `$83E2` and sixteen original `$A6DA` graphics publications. Root
+reran the extended audit successfully. These confirm that flag `$21` can damage
+the robot without an outgoing hit/return receipt; a normal surviving overlap
+sets the receipt even during enemy cooldown; and fatal contact overrides the
+actor with `$FF`. The shot-clear callback must preserve `$92/$93`, which hold
+the already prepared death movement delta. Detailed source seams are recorded
+in `steve-robot-destruction-1112.md`.

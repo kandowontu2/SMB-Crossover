@@ -120,7 +120,8 @@ def contacts(raw):
         invoke(cpu, 0x83e2, x=0)
         admitted = bot_age >= 12 and armor == 0 and flags < 128
         if admitted:
-            assert m[0x6ec] == 0 and m[0xf1] == 0x33, (
+            cue = 0x35 if flags == 1 and enemy_age >= 8 else 0x33
+            assert m[0x6ec] == 0 and m[0xf1] == cue, (
                 flags, enemy_age, hp, m[0x6ec], hex(m[0xf1]))
             assert m[0x6fc] == (hp-1 if hp > 1 else hp)
             assert m[0x60c] == (0xff if hp == 1 else 0xc1 if flags == 1 else 1), (
@@ -130,7 +131,8 @@ def contacts(raw):
         else:
             assert (m[0x60c], m[0x6ec], m[0x6fc], m[0x6f0], m[0xf1]) == (1, bot_age, hp, 6, 0)
         results.append(dict(flag=flags, enemy_age=enemy_age, bot_hp=hp, bot_age=bot_age, armor=armor,
-                            actor=m[0x60c], final_hp=m[0x6fc], enemy_hp=m[0x6f0], timer=m[0x62c]))
+                            actor=m[0x60c], final_hp=m[0x6fc], enemy_hp=m[0x6f0], timer=m[0x62c],
+                            sound=m[0xf1]))
     return results
 
 

@@ -53,3 +53,17 @@ enemy slot in X. The carry flag remains the hit result across stack restoration.
 The audit now also passes 24,192 composed boundary cases through both routines,
 including exclusive-right/inclusive-bottom edges and page carry. The rectangle
 segment is now 90 bytes including the wrapper; the overlap leaf remains 81.
+
+## Native target search
+
+`steve_throw_target_1112.s` adds a 51-byte search across the six native enemy
+slots, in descending order. It applies the existing companion hostile-actor
+filters and admits only bounding-box controls 3–11 before calling the combined
+rectangle/overlap entry. It intentionally does not reject enemy hurt cooldown:
+the return receipt must be issued even when outgoing damage is suppressed.
+
+The bounded `check_steve_throw_target_1112.py` passed 81 composed cases, covering
+page-edge hits/misses, four cooldown values, rejected inactive/high-bit actors,
+excluded enemy IDs, defeated states, invalid Y pages/controls, and slot order
+when two enemies overlap. The search preserves the stack and cooldown bytes.
+This is still detached; native damage and defeat effects are not exercised.
