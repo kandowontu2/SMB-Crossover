@@ -2,6 +2,7 @@
 import json
 from py65.devices.mpu6502 import MPU
 import check_steve_throw_controls_live_1111 as Controls
+import check_steve_shatterhand_robot_death_1112 as Death
 
 Live, H = Controls.Live, Controls.H
 PARTS = (
@@ -26,7 +27,9 @@ def link(info):
     fields.update(SteveThrowFrame=0xc978, SteveDeathDraw=0xc979,
                   SteveDeathPolarity=fields['SteveBotRoomPolarity'], SteveBotHP=fields['SteveRobotArrival'],
                   ThrowPoint=3, ThrowLow=7, ThrowHigh=11, ThrowDelta=0x90, ThrowExtent=0x92)
-    source = Live.bindings(fields)+'\n'.join((H.ROOT/'tools/reference'/name).read_text() for _, name in PARTS)
+    source = Live.bindings(fields)+'\n'.join(Death.source(fields) if segment == 'ROBOT_DEATH'
+                                           else (H.ROOT/'tools/reference'/name).read_text()
+                                           for segment, name in PARTS)
     # First pass obtains exact instruction lengths; second packs all leaves
     # into the authenticated 1KiB row, without changing zero-page selection.
     layout = {name: (0xa000+index*0x200, 512) for index, (name, _) in enumerate(PARTS)}

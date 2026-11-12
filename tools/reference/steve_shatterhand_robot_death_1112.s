@@ -111,16 +111,22 @@ RobotDeathAnimReady:
     dec SteveLiftBotDelay
     bne RobotDeathAnimDone
 RobotDeathAnimRead:
-    lda SteveLiftBotStep
+    ; Original five rows: three updates each for DC/DE/E0/E2, then FF/E2.
+    ; Valid animation steps are 0..4; reset retires the terminal step.
+    ldx SteveLiftBotStep
+    lda #3
+    cpx #4
+    bcc RobotDeathRowReady
+    lda #$ff
+    ldx #3
+RobotDeathRowReady:
+    sta SteveLiftBotDelay
+    txa
     asl a
     clc
-    adc SteveLiftBotStep
-    tay
-    lda SteveDeathRows,y
-    sta SteveLiftBotDelay
-    lda SteveDeathRows+1,y
+    adc #$dc
     sta SteveBotPose
-    lda SteveDeathRows+2,y
+    lda #1
     sta SteveBotPose+1
     inc SteveLiftBotStep
 RobotDeathAnimDone:
@@ -133,13 +139,11 @@ SteveRobotDeathReset:
     sta SteveThrowSpeed
     sta SteveThrowAux
     sta SteveThrowAim
+    sta SteveThrowAnimAux
     sta SteveLiftBotDelay
     sta SteveLiftBotStep
-    sta SteveThrowAnimAux
     sta SteveLiftBotAnim
     sta SteveBotPose
     sta SteveBotPose+1
     rts
 
-SteveDeathRows:
-    .byte 3,$dc,1, 3,$de,1, 3,$e0,1, 3,$e2,1, $ff,$e2,1

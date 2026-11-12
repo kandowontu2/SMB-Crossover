@@ -3,6 +3,7 @@
 from hashlib import sha256
 from itertools import product
 import json
+import argparse
 
 from py65.devices.mpu6502 import MPU
 
@@ -17,14 +18,35 @@ DEATH_ROWS = bytes.fromhex('03dc0103de0103e00103e201ffe201')
 ALIASES = {0x55: 0x77, 0x57: 0x79}
 
 
+def source(fields):
+    text = SOURCE.read_text()
+    groups = (('Throw', ('SteveThrowTimer', 'SteveThrowSpeed', 'SteveThrowAux', 'SteveThrowAim', 'SteveThrowAnimAux')),
+              ('Pose', ('SteveLiftBotAnim', 'SteveLiftBotDelay', 'SteveLiftBotStep', 'SteveBotPose', 'SteveBotPose+1')))
+    head, marker, reset = text.partition('SteveRobotDeathReset:\n')
+    assert marker
+    for label, names in groups:
+        addresses = [fields[name] if '+' not in name else fields[name[:-2]]+1 for name in names]
+        if addresses != list(range(addresses[0], addresses[0]+5)):
+            continue
+        # Order of zeroing is unobservable; only these five bytes are owned.
+        for name in names:
+            line = f'    sta {name}\n'
+            assert reset.count(line) == 1
+            reset = reset.replace(line, '')
+        loop = f'    ldx #4\nRobotClear{label}:\n    sta {names[0]},x\n    dex\n    bpl RobotClear{label}\n'
+        reset = reset.replace('    lda #0\n', '    lda #0\n'+loop, 1)
+    return head+marker+reset
+
+
 def link(raw, fields=None, *, origin=ORIGIN):
     assert sha256(raw).hexdigest() == D.PIN
     if fields is None:
         fields = Throw.link(raw)[1] | dict(SteveDeathDraw=0x6200, SteveDeathPolarity=0x6201,
                                            SteveBotHP=0x6202, SteveDeathClearShots=0x6400)
     definitions = ''.join(f'{name} = ${at:04x}\n' for name, at in fields.items())
-    linked = H.assemble(definitions + SOURCE.read_text(), {'ROBOT_DEATH': (origin, 512)})
-    assert linked['images']['ROBOT_DEATH'][-15:] == DEATH_ROWS
+    linked = H.assemble(definitions + source(fields), {'ROBOT_DEATH': (origin, 512)})
+    rows_at = 16+13*8192+(0xbe08 & 8191)
+    assert raw[rows_at:rows_at+15] == DEATH_ROWS
     return linked, fields
 
 
@@ -210,10 +232,21 @@ def graphics(raw, host):
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--live-layout', action='store_true')
+    args = parser.parse_args()
     raw, host = D.DONOR.read_bytes(), D.HOST.read_bytes()
     linked, fields = link(raw)
+    if args.live_layout:
+        import check_steve_throw_controls_live_1111 as Controls
+        _, info = Controls.proposal(host, graphics=True)
+        fields.update(info['throw_control_fields'])
+        fields.update(SteveBotHP=fields['SteveRobotArrival'], SteveDeathDraw=0xc979,
+                      SteveDeathPolarity=fields['SteveBotRoomPolarity'])
+        linked, fields = link(raw, fields)
     code = linked['images']['ROBOT_DEATH']
-    result = dict(donor=sha256(raw).hexdigest(), worker_bytes=len(code), worker_sha256=sha256(code).hexdigest(),
+    result = dict(donor=sha256(raw).hexdigest(), live_layout=args.live_layout,
+                  worker_bytes=len(code), worker_sha256=sha256(code).hexdigest(),
                   entrypoints={name: hex(at) for name, at in linked['symbols'].items()
                                if name in ('SteveRobotDamage', 'SteveRobotDeathTick', 'SteveRobotDeathReset')},
                   damage=damage(raw, linked, fields), original_contacts=contacts(raw),
