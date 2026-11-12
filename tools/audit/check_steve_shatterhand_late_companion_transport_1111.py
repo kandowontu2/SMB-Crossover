@@ -59,13 +59,15 @@ def funding(image):
     return lo+5, b'\x50', b'\x30'
 
 
-def mount(image, info, code, *, extra_edits=()):
+def mount(image, info, code, *, extra_edits=(), pose_carrier=None):
     """Link raw2 D000–D77F and clear D780–D7FF before both cookies commit."""
     assert C.digest(image) == BASE
     assert 0 < len(code) <= CAPACITY
     assert info['live_bytes'] <= BOOT - Transport.EXT_ORIGIN
     old_cookie = info['cookie']
-    loader = H.assemble(SOURCE.read_text(), {'STEVE_LATE_COLD': (BOOT, BOOT_SIZE)})
+    assert pose_carrier is None or pose_carrier == 307
+    definitions = '' if pose_carrier is None else f'STEVE_POSE_CARRIER={pose_carrier}\n'
+    loader = H.assemble(definitions + SOURCE.read_text(), {'STEVE_LATE_COLD': (BOOT, BOOT_SIZE)})
     program = loader['images']['STEVE_LATE_COLD']
     assert loader['symbols']['SteveLateCold'] == BOOT and program[:3] == b'\x20\xc0\xa7'
     continuation = T.page(image, CONTINUATION_PAGE)
@@ -157,7 +159,7 @@ def openings(image, old_info, candidate, info):
     return report
 
 
-def cold_controls(candidate, info):
+def cold_controls(candidate, info, *, pose_worker=None):
     at = info['cold']['symbols']['JaySceneOrRetire']
     symbols = info['late_loader']['symbols']
     stop = T.Weapon.Stock.STOP
@@ -194,19 +196,27 @@ def cold_controls(candidate, info):
 
     m = seed()
     assert m.ram[2][0x1780:0x1800] == b'\x9d'*STATE_SIZE
-    assert call(m, nmi=True) == [(0x50, 0xd0), (0x52, 0xd4)]
-    assert len(cuts) >= 32 and m.ppu_reads == 26650
+    rows = ([(0x33, 0xce)] if pose_worker is not None else []) + [(0x50, 0xd0), (0x52, 0xd4)]
+    expected_reads = 26650 + (2050 if pose_worker is not None else 0)
+    assert call(m, nmi=True) == rows
+    assert len(cuts) >= 32 and m.ppu_reads == expected_reads
     assert C.Common.headers(m) == (info['cookie'],)*2
     assert m.ram[2][0x1000:0x1800] == info['late_stage']
     assert not any(m.ram[2][0x1780:0x1800])
+    if pose_worker is not None:
+        assert m.ram[2][0xe00:0x1000] == pose_worker.ljust(512, b'\xea')
     m.ram[2][0x1780], m.ram[2][0x17ff] = 0xa6, 0x6a
-    assert not call(m) and m.ppu_reads == 26650
+    assert not call(m) and m.ppu_reads == expected_reads
     assert (m.ram[2][0x1780], m.ram[2][0x17ff]) == (0xa6, 0x6a)
 
-    faults = (0xd000, 0xd3ff, 0xd400, 0xd77f, 0xd780, 0xd7ff)
+    faults = ((0xce00, 0xcfff) if pose_worker is not None else ()) + (0xd000, 0xd3ff, 0xd400, 0xd77f, 0xd780, 0xd7ff)
     for fault in faults:
         m = seed()
-        assert len(call(m, fault=fault)) == (1 if fault < 0xd400 else 2)
+        # D000 also belongs to the temporary upper half of the pose row;
+        # its first readback must reject the candidate before later copies.
+        expected_rows = next(i+1 for i, (_, high) in enumerate(rows)
+                             if high*256 <= fault < high*256+ROW_SIZE)
+        assert len(call(m, fault=fault)) == expected_rows
         assert m.corrupt_at == (2, fault-0xc000), hex(fault)
         assert not any(header[0] for header in C.Common.headers(m)), hex(fault)
     m = seed()

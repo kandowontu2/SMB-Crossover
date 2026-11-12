@@ -25,7 +25,7 @@ def funding(raw):
     return A.W.location(bundle, 'RlPoolChrHi')+4, b'\x33', b'\x30'
 
 
-def plan(raw, donor):
+def plan(raw, donor, *, pose_worker=None):
     base = A.plan(raw, donor)
     cells, tile_map, poses = [], {}, dict(base['poses'])
     # Recovery poses select their own slot-zero page. Slot five retains the
@@ -36,15 +36,19 @@ def plan(raw, donor):
             cell = A.original_cell(donor, page, tile)
             if cell not in cells:
                 cells.append(cell)
-            tile_map[page, tile] = cells.index(cell)*2
+            tile_map[page, tile] = cells.index(cell)*2 + (32 if pose_worker is not None else 0)
         records = []
         for facing in (0, 1):
             source_page, parts = A.Geometry.parts(donor, pose+facing)
             assert source_page == page
             records.append(A.packet([(y, x, tile_map[page, tile], attr) for y, x, tile, attr in parts]))
         poses[pose] = tuple(records)
-    assert len(cells) <= 32
-    payload = b''.join(cells).ljust(1024, b'\x00')
+    assert len(cells) <= (16 if pose_worker is not None else 32)
+    if pose_worker is not None:
+        assert len(pose_worker) <= 512
+        payload = pose_worker.ljust(512, b'\xea') + b''.join(cells).ljust(512, b'\x00')
+    else:
+        payload = b''.join(cells).ljust(1024, b'\x00')
     edits = (*base['edits'], funding(raw), (A.C.CHR+1024*EXTRA_PAGE, bytes(1024), payload))
     pages = {pose: EXTRA_PAGE if pose in EXTRA_POSES else A.PAGE for pose in poses}
     return dict(edits=edits, poses=poses, pages=pages, recovery_cells=len(cells))

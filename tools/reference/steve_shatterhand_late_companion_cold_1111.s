@@ -6,6 +6,14 @@
 SteveLateCold:
     jsr $a7c0
     bcc SteveLateFailed
+.ifdef STEVE_POSE_CARRIER
+    ; Load the pose worker before the two later rows. The lower half stays
+    ; in CE00-CFFF; D000-D1FF is replaced by the original Laserbot row.
+    lda #<STEVE_POSE_CARRIER
+    ldx #$ce
+    jsr SteveLateRow
+    bcc SteveLateFailed
+.endif
     lda #$50                       ; CHR336, retired Roll slot 0 mirror
     ldx #$d0
     jsr SteveLateRow
