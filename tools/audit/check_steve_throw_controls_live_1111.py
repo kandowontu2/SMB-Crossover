@@ -25,7 +25,9 @@ def address(pc):
     raise AssertionError(hex(pc))
 
 
-def proposal(raw, *, graphics=False, flight_storage=False, flight_active=False):
+def proposal(raw, *, graphics=False, flight_storage=False, flight_active=False, combat_storage=False):
+    if combat_storage:
+        graphics = flight_storage = flight_active = True
     base, info = Pose.proposal(raw)
     assert base == raw
     donor = Live.DONOR.DONOR.read_bytes()
@@ -41,7 +43,13 @@ def proposal(raw, *, graphics=False, flight_storage=False, flight_active=False):
         import check_steve_throw_flight_leaf_1111 as Flight
 
         assert graphics and flight_storage
-        flight_link, _ = Flight.link(info | dict(throw_control_fields=fields, throw_core_link=core))
+        link_info = info | dict(throw_control_fields=fields, throw_core_link=core)
+        if combat_storage:
+            import link_steve_throw_combat_1112 as Combat
+
+            flight_link, _, _ = Combat.link(link_info)
+        else:
+            flight_link, _ = Flight.link(link_info)
         fields['SteveThrowReset'] = flight_link['symbols']['SteveThrowReset']
     table = shared['LiftSequenceOffsets']
     assert shared['LiftSequences'] == table+7 and shared['SteveLiftForget'] == table+64
@@ -125,7 +133,11 @@ def proposal(raw, *, graphics=False, flight_storage=False, flight_active=False):
         flight = flight_link
         if flight is None:
             flight, _ = Flight.link(info | dict(throw_control_fields=fields, throw_core_link=core))
-        extension = dict(page=304, origin=0xab00, payload=flight['images']['THROW_FLIGHT'])
+        payload = flight['images']['THROW_FLIGHT']
+        if combat_storage:
+            payload = b''.join(flight['images'][name] for name, _ in Combat.PARTS)
+        extension = dict(page=304, origin=0xab00, payload=payload)
+        pose_info.update(throw_combat_storage=combat_storage, throw_extension_used=len(payload))
         pose_info.update(throw_flight_link=flight, throw_flight_active=flight_active)
     if graphics:
         import check_steve_shatterhand_throw_pose_1111 as Render
@@ -288,15 +300,21 @@ def main():
     parser.add_argument('--graphics', action='store_true')
     parser.add_argument('--flight-storage', action='store_true')
     parser.add_argument('--flight', action='store_true')
+    parser.add_argument('--combat-storage', action='store_true',
+                        help='Load combat leaves with live flight; contact dispatch remains unwired.')
     args = parser.parse_args()
     raw = Live.DONOR.HOST.read_bytes()
     candidate, info = proposal(raw, graphics=args.graphics or args.flight_storage or args.flight,
-                               flight_storage=args.flight_storage or args.flight, flight_active=args.flight)
+                               flight_storage=args.flight_storage or args.flight, flight_active=args.flight,
+                               combat_storage=args.combat_storage)
     if args.cold_only:
         proof = Carrier.cold_controls(raw, info['throw_control_parent'], candidate, info,
                                       info['pose_worker'], info['throw_core_link'], info['throw_control_fields'],
                                       live_bindings=True, resident_edits=info['throw_control_edits'])
-        print(json.dumps(dict(candidate=C.digest(candidate), cold=proof, output_files=0, delivered=False)), flush=True)
+        print(json.dumps(dict(candidate=C.digest(candidate), cold=proof,
+                              extension_used=info.get('throw_extension_used', 0),
+                              combat_storage=info.get('throw_combat_storage', False),
+                              output_files=0, delivered=False)), flush=True)
         return
     seed, _ = Live.natural(candidate, info)
     cases = [launch_case(seed, info, entry, facing) for entry in (5, 6, 7) for facing in (0, 0x80)]
