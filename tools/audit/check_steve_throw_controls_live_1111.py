@@ -156,6 +156,10 @@ def proposal(raw, *, graphics=False, flight_storage=False, flight_active=False, 
         destinations = (0xce00, 0xc8a5, draw+renderedits[2][0]-host_at)
         resident_edits.extend((pc, old, new) for pc, (_, old, new) in zip(destinations, renderedits, strict=True))
         pose_info.update(pose_worker=worker, pose_link=renderer, throw_graphics=True)
+    if combat_storage:
+        import steve_robot_death_art_funding_1112 as DeathArt
+
+        edits.extend(DeathArt.edits(raw, donor))
     candidate, result = Carrier.mount(raw, info, core['images']['THROW'], data,
                                       pose=True, bridge=bridge, extra_edits=edits, bridge_tail=tail,
                                       extension=extension, funding_edit=funding_edit)

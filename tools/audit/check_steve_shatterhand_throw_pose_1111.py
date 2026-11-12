@@ -71,6 +71,7 @@ PlayerPoseReady:
         ('    lda SteveLaserActive\n    beq LiftFirstShot',
          'LiftDrawProjectiles:\n    lda SteveLaserActive\n    beq LiftFirstShot'),
         ('NoLiftDraw:\n    clc', 'NoLiftDraw:\n    bit SteveThrowFrame\n    bmi LiftDrawProjectiles\n    clc'),
+        ('    lda #<(PoseBuffer+32)', 'SteveDeathBuildPose:\n    lda #<(PoseBuffer+32)'),
     )
     for old, new in swaps:
         assert source.count(old) == 1, old
