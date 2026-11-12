@@ -8,7 +8,7 @@ A native NES adaptation of [Super Mario Bros. Crossover](https://www.smbgames.be
 
 # This is an AI assisted project.
 
-[Player's guide](<Player Guide/SMB-Crossover-Players-Guide-NU.pdf>) · [Full roster image](docs/images/SMB-Crossover-Full-Roster.png) · [Build from source](#build-from-source) · [Report a bug](https://github.com/kandowontu2/SMB-Crossover/issues)
+[Player's guide](<Player Guide/SMB-Crossover-Players-Guide-NU.pdf>) · [Full roster image](docs/images/SMB-Crossover-Full-Roster.png) · [Build from source](#build-from-source) · [Credits](CREDITS.md) · [Report a bug](https://github.com/kandowontu2/SMB-Crossover/issues)
 
 > **In development:** the expanded MMC5 nightly uses a **32-slot, four-row menu** with **101 named entries**, including Select alternates. Sonic and Super Sonic have new sprites and have cleared 1-1 in Mesen. Jay McCray, Steve Hermann, Prince of Persia and Donkey Kong Jr. remain playable work in progress. The prepared source build contains 37 identities. [Current IPS release](https://github.com/kandowontu2/SMB-Crossover/releases/tag/Current) · [Sonic and Super Sonic verification](docs/qa/sonic-vol2-delivery-1111.md)
 
@@ -256,17 +256,4 @@ QA results apply to their recorded ROM hashes. A passing older test does not cer
 
 ## Credits
 
-- **[Super Mario Bros. Crossover](https://www.smbgames.be/smb-crossover.php):** the browser-game concept and reference.
-- **[SMB1Base](https://github.com/smbstudio/smb1base):** the foundation for this port. Its original information is preserved in [the upstream README](docs/SMB1BASE.md).
-
-Additional ROM-hack sources, including requested alternates still in development:
-
-| Source | Credit |
-| --- | --- |
-| [Super Duper Mario Bros. 4P](https://github.com/benj-edwards/NESCoopMods), supplied v44 build | Benj Edwards |
-| Super Mario Bros. 3+ | infidelity |
-| Super Maaaaaaaaaaaaaaaa | jroweboy |
-| Celeste Mario's Zap & Dash Deluxe | w7n, studsx and edengt |
-| [Metroid: Rogue Dawn](https://metroidconstruction.com/hack.php?id=441) | Grimlock (lead, graphics and level design), snarfblam (programming and editor), Optomon (sound engine, effects and music), plus its original README's contributors |
-
-This is an unofficial fan project. Original games, characters, artwork and music belong to their respective creators. Source and asset provenance are documented in the research and architecture notes.
+The original game teams, Exploding Rabbit, SMB1Base, ROM-hack authors, sprite artists and rippers, and audio and tool contributors are listed in [CREDITS.md](CREDITS.md).
