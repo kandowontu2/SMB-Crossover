@@ -25,7 +25,7 @@ def fields(shared):
     return result
 
 
-def proposal(raw, *, lift=False):
+def proposal(raw, *, lift=False, pose_draw=None):
     import check_steve_shatterhand_late_companion_transport_1111 as Late
     from check_steve_shatterhand_lift_live_1111 import QUALIFIED as qualified_lift
 
@@ -38,7 +38,7 @@ def proposal(raw, *, lift=False):
 
         raw = recover_parent(raw)
     base, prior = Live.on_nightly(raw)
-    staged, linked = Live.on_nightly(raw, laser=True, lift=lift)
+    staged, linked = Live.on_nightly(raw, laser=True, lift=lift, pose_draw=pose_draw)
     old_cookie, intermediate_cookie = prior['cookie'], linked['cookie']
     assert base.count(old_cookie) == staged.count(intermediate_cookie) == 2
     staged = staged.replace(intermediate_cookie, old_cookie)

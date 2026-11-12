@@ -59,7 +59,7 @@ def funding(image):
     return lo+5, b'\x50', b'\x30'
 
 
-def mount(image, info, code, *, extra_edits=(), pose_carrier=None):
+def mount(image, info, code, *, extra_edits=(), pose_carrier=None, cookie_prefix=None):
     """Link raw2 D000–D77F and clear D780–D7FF before both cookies commit."""
     assert C.digest(image) == BASE
     assert 0 < len(code) <= CAPACITY
@@ -88,7 +88,9 @@ def mount(image, info, code, *, extra_edits=(), pose_carrier=None):
     )
     binding = b''.join(at.to_bytes(4, 'little') + len(new).to_bytes(4, 'little') + new
                        for at, _, new in sorted(allocations))
-    cookie = old_cookie[:4] + bytes.fromhex(C.digest(old_cookie + info['descriptor'] + binding))[:12]
+    assert cookie_prefix is None or len(cookie_prefix) == 4
+    prefix = old_cookie[:4] if cookie_prefix is None else cookie_prefix
+    cookie = prefix + bytes.fromhex(C.digest(old_cookie + info['descriptor'] + binding + (cookie_prefix or b'')))[:12]
     cold = Transport.compact_cold(cookie, extended=True, upgrade=info['upgrade_descriptor'])
     cold_old = info['cold']['images']['COLD65'].ljust(T.COLD_SIZE, b'\xea')
     cold_new = cold['images']['COLD65'].ljust(T.COLD_SIZE, b'\xea')

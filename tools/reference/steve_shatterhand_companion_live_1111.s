@@ -114,6 +114,12 @@ SteveCompanionDraw:
     lda GameEngineSubroutine
     cmp #8
     bne TickDone
+.ifdef STEVE_LIFT_POSE
+    jsr SteveLiftDraw
+    bcc OrdinaryCompanionDraw
+    rts
+OrdinaryCompanionDraw:
+.endif
 .ifdef STEVE_LASER_LIVE
     lda SteveLaserActive
     beq DrawFirstCompanion

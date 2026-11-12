@@ -1,6 +1,7 @@
 """Replay the natural first-companion route and check physical Mesen DMA."""
 
 import argparse
+import base64
 from itertools import groupby
 import json
 from pathlib import Path
@@ -36,7 +37,7 @@ def record(candidate, info, exercise=Companion.natural):
     return [(sum(1 for _ in group), pad) for pad, group in groupby(pads)]
 
 
-def controller(groups, info, *, laser=False, laser_stage=False, lift=False):
+def controller(groups, info, *, laser=False, laser_stage=False, lift=False, lift_art=False):
     text = Punch.SCRIPT.read_text(encoding='utf-8')
     tail = TAIL.read_text(encoding='utf-8')
     fields = info['companion_fields']
@@ -92,6 +93,11 @@ def controller(groups, info, *, laser=False, laser_stage=False, lift=False):
         tail = tail.replace(old, 'finishLift()')
         values['LIFT_STATE'] = info['lift_fields']['SteveLiftState']
         values['LIFT_BOT_Y'] = fields['SteveBotY']
+        if lift_art:
+            art = LIFT_TAIL.with_name('steve_lift_art_native_1111.lua').read_text()
+            tail = tail.replace('local function playCompanionRoute()', art + '\nlocal function playCompanionRoute()')
+            tail = tail.replace('  observeLift()\n', '  observeLift()\n  observeLiftArt()\n')
+            tail = tail.replace('  finishLift()', "  assert(liftArtPng and liftArtDma>2,'Original lift art reaches physical OAM')\n  finishLift()")
     for name, value in values.items():
         assert 'STEVE_'+name in tail
         tail = tail.replace('STEVE_'+name, str(value))
@@ -117,11 +123,14 @@ def main():
     parser.add_argument('--laser', action='store_true')
     parser.add_argument('--laser-stage', action='store_true')
     parser.add_argument('--lift', action='store_true')
+    parser.add_argument('--lift-art', action='store_true')
     args = parser.parse_args()
+    if args.lift_art:
+        args.lift = True
     if args.laser_stage and not args.laser:
         parser.error('--laser-stage requires --laser')
     output = args.output.resolve()
-    component = ('steve-lift-native-1111' if args.lift else
+    component = ('steve-pose-native-1111' if args.lift_art else 'steve-lift-native-1111' if args.lift else
                  'steve-laserbot-native-1111' if args.laser else 'steve-companion-native-1111')
     assert output == Companion.H.ROOT / 'build' / component
     source = Companion.DONOR.HOST
@@ -138,6 +147,11 @@ def main():
         build = lambda raw: Lift.Laser.proposal(raw, lift=True)
         if not args.laser:
             exercise = Lift.exercise
+    if args.lift_art:
+        import check_steve_shatterhand_pose_live_1111 as Pose
+        build = Pose.proposal
+        if not args.laser:
+            exercise = Pose.graphics
     candidate, info = build(raw)
     output.mkdir(exist_ok=True)
     rom, script = output / 'candidate.nes', output / 'controller.lua'
@@ -150,7 +164,7 @@ def main():
         groups = record(candidate, info, exercise)
         rom.write_bytes(candidate)
     script.write_text(controller(groups, info, laser=args.laser, laser_stage=args.laser_stage,
-                                 lift=args.lift and not args.laser),
+                                 lift=args.lift and not args.laser, lift_art=args.lift_art and not args.laser),
                       encoding='utf-8', newline='\n')
     pin = Companion.C.digest(candidate)
     punch = info['punch']['symbols']
@@ -159,6 +173,11 @@ def main():
         'SMB_STEVE_BIRTH': str(punch['StevePunchBirth']),
         'SMB_STEVE_DRAW': str(punch['SteveDrawEmit']),
     })
+    if args.lift_art and not args.laser:
+        if result['passed']:
+            assert len(result['images']) == 1, (len(result['images']), result['receipt'])
+        if result['images']:
+            (output / 'lift.png').write_bytes(base64.b64decode(result['images'][0]['base64']))
     print(json.dumps(dict(passed=result['passed'], candidate=pin, receipt=result['receipt'],
                           receipt_SHA256=result['receipt_SHA256'], script_SHA256=result['script_SHA256'],
                           groups=len(groups), inputs=sum(count for count, _ in groups))), flush=True)

@@ -12,21 +12,21 @@ Late, Live = Art.A.Late, Laser.Live
 ORIGIN, SIZE = 0xce00, 512
 
 
-def proposal(raw, worker):
+def proposal(raw, worker, *, host_edits=(), cookie_prefix=None, pose_draw=None):
     mount = Late.mount
     saved = {}
 
     def with_pose(image, info, code, *, extra_edits=()):
         art = Art.plan(image, Art.A.D.DONOR.read_bytes(), pose_worker=worker)
         candidate, result = mount(image, info, code,
-                                  extra_edits=(*extra_edits, *art['edits']),
-                                  pose_carrier=Art.EXTRA_PAGE)
+                                  extra_edits=(*extra_edits, *art['edits'], *host_edits),
+                                  pose_carrier=Art.EXTRA_PAGE, cookie_prefix=cookie_prefix)
         saved.update(art=art, late_loader=result['late_loader'],
                      loader_bytes=result['late_loader']['used']['STEVE_LATE_COLD'])
         return candidate, result
 
     with patch.object(Late, 'mount', with_pose):
-        candidate, info = Laser.proposal(raw, lift=True)
+        candidate, info = Laser.proposal(raw, lift=True, pose_draw=pose_draw)
     return candidate, info | saved
 
 

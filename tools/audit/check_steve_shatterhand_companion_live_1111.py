@@ -20,7 +20,7 @@ NATIVE = ('GamePauseStatus', 'GameEngineSubroutine', 'FrameCounter', 'SavedJoypa
           'JnEnemyHurt', 'JnEnemyHP', 'BoundingBox_UL_Corner', 'Square1SoundQueue')
 
 
-def proposal(raw, *, roll_storage=False, laser=False, lift=False):
+def proposal(raw, *, roll_storage=False, laser=False, lift=False, pose_draw=None):
     """Build the first companion, or stage the host edits for the late Laserbot loader."""
     bundle = W.Symbols.bundle()
     lifecycle = Ingress.Transport
@@ -52,6 +52,10 @@ def proposal(raw, *, roll_storage=False, laser=False, lift=False):
         host_symbols.update(laser_fields)
         layout.update(LASERBOT=(Laser.ORIGIN, Laser.STATE-Laser.ORIGIN))
         options = 'STEVE_LASER_LIVE=1\n'
+        if pose_draw is not None:
+            assert lift
+            options += 'STEVE_LIFT_POSE=1\n'
+            host_symbols['SteveLiftDraw'] = pose_draw
         source = '\n'.join(path.read_text() for path in (SOURCE, Laser.Core.SOURCE, Laser.BRIDGE))
         if lift:
             import check_steve_shatterhand_lift_live_1111 as Lift
@@ -92,13 +96,13 @@ def proposal(raw, *, roll_storage=False, laser=False, lift=False):
     return candidate, info
 
 
-def on_nightly(raw, *, laser=False, lift=False):
+def on_nightly(raw, *, laser=False, lift=False, pose_draw=None):
     if C.digest(raw) == Ingress.PIN:
-        return proposal(raw, laser=laser, lift=lift)
+        return proposal(raw, laser=laser, lift=lift, pose_draw=pose_draw)
     from deliver_sonic_vol2_forms_1111 import recover_parent
 
     parent = recover_parent(raw)
-    steve, info = proposal(parent, roll_storage=True, laser=laser, lift=lift)
+    steve, info = proposal(parent, roll_storage=True, laser=laser, lift=lift, pose_draw=pose_draw)
     image = bytearray(raw)
     changes = 0
     for offset, (old, new) in enumerate(zip(parent, steve, strict=True)):
