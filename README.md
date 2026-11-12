@@ -6,8 +6,6 @@
 
 A native NES adaptation of [Super Mario Bros. Crossover](https://www.smbgames.be/smb-crossover.php), built on [SMB1Base](https://github.com/smbstudio/smb1base). Play SMB's levels with character-specific movement, weapons, upgrades, music and health systems.
 
-# This is an AI assisted project.
-
 [Player's guide](<Player Guide/SMB-Crossover-Players-Guide-NU.pdf>) · [Full roster image](docs/images/SMB-Crossover-Full-Roster.png) · [Build from source](#build-from-source) · [Report a bug](https://github.com/kandowontu2/SMB-Crossover/issues)
 
 > **In development:** the expanded MMC5 nightly uses a **32-slot, four-row menu** with **101 named entries**, including Select alternates. Sonic and Super Sonic have new sprites and have cleared 1-1 in Mesen. Jay McCray, Steve Hermann, Prince of Persia and Donkey Kong Jr. remain playable work in progress. The prepared source build contains 37 identities. [Current IPS release](https://github.com/kandowontu2/SMB-Crossover/releases/tag/Current) · [Sonic and Super Sonic verification](docs/qa/sonic-vol2-delivery-1111.md)
