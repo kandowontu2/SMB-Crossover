@@ -100,8 +100,14 @@ The lift and full-stage Mesen receipts matched the isolated candidate exactly
 when launched from Downloads. Pre/post automatic-patch guards found no
 matching sidecar patches; installed bytes matched the tested candidate.
 The reverse patch embedded in `deliver_steve_lift_art_1111.py` recovers the
-previous `235de3ed` image in memory. Public IPS refresh is the remaining
-delivery step. Other Steve upgrades and the overall roster audit remain open.
+previous `235de3ed` image in memory.
+
+Current was marked Latest and its sole IPS replaced (asset737750496). The
+independently downloaded IPS reconstructed the exact installed ROM. Published
+source: `0cdea54c7abb182dadae9dd576e1ed651e944801`; publication-time report
+SHA256: `e3a1509a0c7baf9aacc7a6c2f42ee2d6e0e84194178b1b0b8425b8f3270f32b6`.
+Build storage after delivery: 3,123,057,669 bytes /19,997 files, no retained
+capture files. Other Steve upgrades and the overall roster audit remain open.
 
 Still verify the fixed candidate, Downloads launch and replacement IPS before
 publishing a nightly. B throw, remaining companion attacks, armor and original
