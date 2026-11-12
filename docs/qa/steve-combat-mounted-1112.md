@@ -23,3 +23,18 @@ All six controller launch cases (states 5/6/7, both facings) passed recovery,
 outbound flight, hidden phase, homing, and exactly one reattachment update.
 The check verified 102 player recovery DMA updates. These are CPU/PPU model
 tests, not a Mesen playthrough or evidence of working combat dispatch.
+
+## Robot coordinates for contact
+
+`steve_throw_point_1112.s` adds a 91-byte conversion from wrapping Q4 robot
+coordinates to the biased native world coordinates used by the overlap
+worker. X is reconstructed relative to the full camera position, so passing
+4,096 pixels does not put contact back at the start of the stage. Signed Y
+is converted with arithmetic shifts and the native page-1 offset. The caller
+must admit a visible robot within 2,048 pixels of the camera.
+
+Bounded test 79132 exited 0: 2,268 conversion cases and 472 composed
+conversion/admission/rectangle/overlap hit-or-miss cases passed, including
+fractional coordinates, negative Y, page carries, and the Q4 world wrap.
+No outputs were created. This new conversion is not mounted or dispatched
+yet; scratch ownership and incoming robot damage still need integration.
