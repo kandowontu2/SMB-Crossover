@@ -20,7 +20,8 @@ NATIVE = ('GamePauseStatus', 'GameEngineSubroutine', 'FrameCounter', 'SavedJoypa
           'JnEnemyHurt', 'JnEnemyHP', 'BoundingBox_UL_Corner', 'Square1SoundQueue')
 
 
-def proposal(raw, *, roll_storage=False):
+def proposal(raw, *, roll_storage=False, laser=False):
+    """Build the first companion, or stage the host edits for the late Laserbot loader."""
     bundle = W.Symbols.bundle()
     lifecycle = Ingress.Transport
     private = {name: lifecycle.STATE+i for i, name in enumerate(lifecycle.Upgrade.ALIASES)}
@@ -42,8 +43,17 @@ def proposal(raw, *, roll_storage=False):
                         SteveBotDrawPhase=Transport.EXT_STATE,
                         NativeRender=W.address(bundle, 'MetaspriteRenderLoop'),
                         NativeDefeat=W.address(bundle, 'JnDefeat'))
-    host = H.assemble(bindings(host_symbols) + SOURCE.read_text(),
-                      {'COMPANION_HOST': (Transport.EXT_ORIGIN, Transport.EXT_CAPACITY)})
+    layout = {'COMPANION_HOST': (Transport.EXT_ORIGIN, Transport.EXT_CAPACITY)}
+    if laser:
+        import check_steve_shatterhand_laser_live_1111 as Laser
+
+        laser_fields = Laser.fields(host_symbols)
+        host = H.assemble('STEVE_LASER_LIVE=1\n' + bindings(host_symbols | laser_fields) + SOURCE.read_text()
+                          + '\n' + Laser.Core.SOURCE.read_text() + '\n' + Laser.BRIDGE.read_text(),
+                          layout | {'LASERBOT': (Laser.ORIGIN, Laser.STATE-Laser.ORIGIN)})
+        assert len(host['images']['COMPANION_HOST']) <= 0x300
+    else:
+        host = H.assemble(bindings(host_symbols) + SOURCE.read_text(), layout)
     tick, draw = (host['symbols'][name] for name in ('SteveCompanionTick', 'SteveCompanionDraw'))
     token_image, info = Draw.proposal(raw, companion_tick=tick, companion_draw=draw,
                                      roll_storage=roll_storage)
@@ -52,21 +62,27 @@ def proposal(raw, *, roll_storage=False):
                    for start in (0x20, 0x40, 0, 0x60, 0x140, 0x160))
     assert len(art) == 192 and all(any(art[i:i+32]) for i in range(0, 192, 32))
     art_edit = (C.CHR+1024*CHR_PAGE+CHR_OFFSET, bytes(len(art)), art)
+    extra_edits = (art_edit,)
+    if laser:
+        extra_edits += Laser.Art.edits(raw, donor)
     candidate, info = Transport.mount(token_image, info, core['images']['COMPANION'],
                                      extension=host['images']['COMPANION_HOST'],
-                                     extra_edits=(art_edit,), funding_source=raw if roll_storage else None)
-    return candidate, info | dict(companion_fields=fields | private | {'SteveBotDrawPhase': Transport.EXT_STATE},
-                                  companion_symbols=host['symbols'] | core['symbols'],
-                                  live_bytes=len(host['images']['COMPANION_HOST']))
+                                     extra_edits=extra_edits, funding_source=raw if roll_storage else None)
+    info = info | dict(companion_fields=fields | private | {'SteveBotDrawPhase': Transport.EXT_STATE},
+                       companion_symbols=host['symbols'] | core['symbols'],
+                       live_bytes=len(host['images']['COMPANION_HOST']))
+    if laser:
+        info.update(laser_payload=host['images']['LASERBOT'], laser_fields=laser_fields)
+    return candidate, info
 
 
-def on_nightly(raw):
+def on_nightly(raw, *, laser=False):
     if C.digest(raw) == Ingress.PIN:
-        return proposal(raw)
+        return proposal(raw, laser=laser)
     from deliver_sonic_vol2_forms_1111 import recover_parent
 
     parent = recover_parent(raw)
-    steve, info = proposal(parent, roll_storage=True)
+    steve, info = proposal(parent, roll_storage=True, laser=laser)
     image = bytearray(raw)
     changes = 0
     for offset, (old, new) in enumerate(zip(parent, steve, strict=True)):
@@ -149,9 +165,9 @@ def natural(candidate, info):
                    shot_tiles=sorted(visible_shot), uninterrupted_shot_updates=51)
 
 
-def native_contact(base, info):
+def native_contact(base, info, *, laser=False):
     fields = info['companion_fields']
-    entry = info['companion_symbols']['SteveCompanionHit']
+    entry = info['companion_symbols']['SteveLaserContact' if laser else 'SteveCompanionHit']
     values = (('left outside', 95, 108, 2, 0, False),
               ('right outside', 112, 108, 2, 0, False),
               ('top outside', 100, 99, 2, 0, False),
@@ -160,6 +176,8 @@ def native_contact(base, info):
               ('right inside and bottom inclusive', 111, 116, 2, 0, True),
               ('native hurt cooldown', 100, 108, 2, 1, False),
               ('native defeat', 100, 108, 1, 0, True))
+    if laser:
+        values += (('beam exhausted', 100, 108, 2, 0, True),)
     for name, x, y, hp, cooldown, hit in values:
         m = C.Vector.clone(base)
         m.raw_page(2, 2)
@@ -171,16 +189,29 @@ def native_contact(base, info):
             m[fields[field]] = value
         for i, byte in enumerate((96, 100, 112, 116)):
             m[fields['BoundingBox_UL_Corner']+4+i] = byte
-        for field, number in (('ShotX', (5*256+252+x)*16+7), ('ShotY', y*16+9)):
-            at = fields['SteveBot'+field]
-            m[at], m[at+1] = number & 255, number >> 8
-        m[fields['SteveBotShotType']] = 0x95
-        m[fields['SteveBotShotPower']] = 1
-        m[fields['SteveBotShotTimer']] = 30
-        cpu = N.NesMPU(memory=m)
-        Transport.Transport.Upgrade.call(cpu, entry)
-        assert resident(m, fields['SteveBotShotType']) == (0x15 if hit else 0x95), name
-        assert resident(m, fields['SteveBotShotTimer']) == (0 if hit else 30), name
+        if laser:
+            beam = info['laser_fields']
+            for field, number in (('RelX', x*16+7), ('RelY', y*16+9)):
+                at = beam['SteveLaser'+field]
+                m[at], m[at+1] = number & 255, number >> 8
+            power = hp if name == 'beam exhausted' else 0x7f
+            shot_type, shot_power, packed = (beam['SteveLaserShot'+part] for part in ('Type', 'Power', 'Packed'))
+            m[shot_type], m[shot_power], m[packed] = 0x88, power, 0x74
+            Transport.Transport.Upgrade.call(N.NesMPU(memory=m), entry)
+            remaining = power - hp*int(hit)
+            assert resident(m, shot_power) == remaining, name
+            assert resident(m, shot_type) == (0x88 if remaining else 8), name
+            assert resident(m, packed) == (0x74 if remaining else 0), name
+        else:
+            for field, number in (('ShotX', (5*256+252+x)*16+7), ('ShotY', y*16+9)):
+                at = fields['SteveBot'+field]
+                m[at], m[at+1] = number & 255, number >> 8
+            m[fields['SteveBotShotType']] = 0x95
+            m[fields['SteveBotShotPower']] = 1
+            m[fields['SteveBotShotTimer']] = 30
+            Transport.Transport.Upgrade.call(N.NesMPU(memory=m), entry)
+            assert resident(m, fields['SteveBotShotType']) == (0x15 if hit else 0x95), name
+            assert resident(m, fields['SteveBotShotTimer']) == (0 if hit else 30), name
         if hit and hp == 1:
             assert m[fields['Enemy_State']] & 0x20, name
         else:
@@ -188,7 +219,7 @@ def native_contact(base, info):
     return len(values)
 
 
-def laser_grant(candidate, info):
+def earn_laser(candidate, info):
     model, route = Ingress.third_block(candidate, info, third_beta=True)
     fields = info['companion_fields']
     count = fields['SteveTokenCountdown']
@@ -200,7 +231,12 @@ def laser_grant(candidate, info):
         route['frame'](0)
     assert resident(model, actor) == 3 and resident(model, count) == 0x30
     assert resident(model, fields['SteveTokenPattern']) == 0
-    return dict(actor=3, birth_wait=wait, route=route['third'])
+    return model, route, dict(actor=3, birth_wait=wait, route=route['third'])
+
+
+def laser_grant(candidate, info):
+    _, _, result = earn_laser(candidate, info)
+    return result
 
 
 def main():

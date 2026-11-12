@@ -43,30 +43,48 @@ rendering and the thrown robot trajectory still need integration.
 
 ## Laserbot
 
-The same private ROM can earn the Alpha–Alpha–Beta pattern naturally.
-The controller punches the exposed third token at X1744 to switch it
-to Beta and collects it at X1732/Y44. Pattern `$25` settles with six
-health and two lives. Actor ID 3 appears 54 updates after the route
-settles. The grant is live in the candidate. Laserbot’s attack still
-needs to be connected to the actor and renderer.
+The updated private ROM `7fcf58df189d70586e46ecc0fcbf7fc219d3c09dba25da383d4e91ccc8fb4973`
+earns Laserbot through the Alpha–Alpha–Beta pattern. The CPU controller
+punches the exposed third token at X1744 and collects it at X1732/Y44.
+Pattern `$25` settles with six health and two lives. Actor ID 3 appears
+54 updates after the route settles. The Mesen controller uses a three-update
+B pulse on the third jump to register the switch with physical input polling.
 
 The 580-byte detached Laserbot source matches 8,064 donor emitter
 updates, 640 births and 12,288 projectile updates, including 4,320
 drawable pairs. It covers the held-B charge and burst, mirrored firing,
 standing and crouching slopes, cooldown, and segment movement and
-sprite choices. The donor decrements segment power on enemy contact
-and keeps the beam active until that power runs out. Native damage,
-sound, body and projectile integration remain open. The donor OAM
-points to CHR90, with body tiles `$41/$43` standing and `$45/$47`
-crouching. The muzzle uses `$57`, the standing beam uses `$59/$5B`,
-and the crouching beam uses `$5D/$5F`. The crouching cells are exact
-horizontal and vertical mirrors, leaving eight distinct art cells
-after mirroring. The known blank host tails on CHR710 and CHR711 hold
-seven cells. The lift and Laserbot also need additional authenticated
-executable storage before they can both run in the crossover.
+sprite choices. The live bridge advances segments with the preceding
+orbit delta before updating the bot and emitter. It keeps the donor’s
+eleven-slot allocation and advances slots 0–7. Contacts use native
+enemy hitboxes and HP, and segments spend that HP from their penetration
+power. Nine directed contacts passed, including a defeat and an exhausted
+segment. The sound uses the crossover fire cue on the original cue events.
+
+The eight unique art cells come from donor CHR90. The crossover uses
+CHR710/711 for both body poses, the muzzle, and both beam slopes. The
+two crouching beam cells share a tile with combined horizontal and
+vertical flip. The last cell reuses Mike’s transparent item-zero tile
+after its metasprite was made empty. Six pickup controls and the first
+companion’s 51-update attack remained identical in the art-only check.
+
+Mesen verified both body poses, the muzzle and both beam slopes in
+hardware OAM, with 86 body-pair frames and 31 shot-pair frames. Steve kept
+both lives. Receipt `1843913a56777a6c194526f6d0d5b5979cd82c0d596688d4d3a67cc77899c3c6`.
+The same ROM passed the first companion’s controller route and eight
+native contact cases in the CPU test.
+
+The 1,114-byte Laserbot program uses the new authenticated loader and
+leaves 806 bytes in its executable range. The final companion host uses
+631 bytes. The lift, original Laserbot sound, naturally spawned enemy
+contacts, and a full stage regression on this exact ROM remain open.
+The Downloads nightly and GitHub IPS remain on `c4568faf`.
+[Late carrier proof](steve-shatterhand-late-companion-transport-1111.md)
 
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/steve-lift-source-proof-1111 --max-files 1 --timeout 65 -- python -B tools/audit/check_steve_shatterhand_lift_1111.py
 python -B tools/audit/run_bounded_build_v1.py --output build/steve-laserbot-core-proof-1111 --max-files 1 --timeout 120 -- python -B tools/audit/check_steve_shatterhand_laserbot_1111.py
 python -B tools/audit/run_bounded_build_v1.py --output build/steve-laserbot-grant-1111 --max-files 1 --timeout 150 -- python -B tools/audit/check_steve_shatterhand_companion_live_1111.py --laser-grant
+python -B tools/audit/run_bounded_build_v1.py --output build/steve-laser-mounted-proof-1111 --max-files 1 --timeout 175 -- python -B tools/audit/check_steve_shatterhand_laser_live_1111.py --first-regression
+python -B tools/audit/run_bounded_build_v1.py --output build/steve-laserbot-native-1111 --max-files 2 --timeout 230 -- python -B tools/audit/replay_steve_companion_native_1111.py --laser --output build/steve-laserbot-native-1111
 ```

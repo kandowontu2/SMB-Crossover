@@ -13,8 +13,28 @@ TickUnpaused:
     ror a
     sta SteveBotPlayerFacing
     jsr SteveTokenTick
+.ifdef STEVE_LASER_LIVE
+    lda SteveBotActor
+    cmp #3
+    beq UpdateLaserLifecycle
+    lda SteveLaserActive
+    beq CheckFirstBot
+UpdateLaserLifecycle:
+    jsr SteveLaserLifecycle
+    lda SteveUpgradeState
+    beq LaserUpgradeReady
+    rts
+LaserUpgradeReady:
+    lda SteveBotActor
+    cmp #3
+    beq PackBotPlayer
+CheckFirstBot:
+.endif
     jsr FirstBotActive
     bne TickDone
+.ifdef STEVE_LASER_LIVE
+PackBotPlayer:
+.endif
     ; Keep world coordinates modulo 4096 in donor Q4. Subtract the
     ; camera only at the native collision and metasprite boundaries.
     lda Player_X_Position
@@ -57,6 +77,13 @@ PackPlayer:
     lda #3
 PostureReady:
     sta SteveBotPlayerState
+.ifdef STEVE_LASER_LIVE
+    lda SteveBotActor
+    cmp #3
+    bne UpdateFirstCompanion
+    jmp SteveLaserTick
+UpdateFirstCompanion:
+.endif
     jsr SteveFirstBotShotUpdate
     jsr SteveCompanionHit
     jsr SteveCompanionOrbit
@@ -80,6 +107,12 @@ SteveCompanionDraw:
     lda GameEngineSubroutine
     cmp #8
     bne TickDone
+.ifdef STEVE_LASER_LIVE
+    lda SteveLaserActive
+    beq DrawFirstCompanion
+    jmp SteveLaserDraw
+DrawFirstCompanion:
+.endif
     jsr FirstBotActive
     bne TickDone
     lda SteveBotPose+1
@@ -139,11 +172,27 @@ SteveCompanionHit:
     rts
 LiveContact:
     jsr ProjectShot
+.ifdef STEVE_LASER_LIVE
+    jsr FindCompanionTarget
+    bcs ConsumeCompanionShot
+    rts
+FindCompanionTarget:
+    lda $08
+    bne TargetInvalid
+    lda $0a
+    cmp #1
+    beq SearchTargets
+TargetInvalid:
+    clc
+    rts
+SearchTargets:
+.else
     lda $08
     bne HitDone
     lda $0a
     cmp #1
     bne HitDone
+.endif
     ldx #5
 EnemyLoop:
     lda Enemy_Flag,x
@@ -178,11 +227,17 @@ EnemyLoop:
     bcc DamageEnemy
     bne NextEnemy
 DamageEnemy:
+.ifdef STEVE_LASER_LIVE
+    sec
+    rts
+ConsumeCompanionShot:
+.endif
     lda #$15
     sta SteveBotShotType
     lda #0
     sta SteveBotShotTimer
     sta SteveBotShotPower
+ApplyCompanionDamage:
     lda #12
     sta JnEnemyHurt,x
     lda JnEnemyHP,x
@@ -204,6 +259,9 @@ NextEnemy:
     dex
     bpl EnemyLoop
 HitDone:
+.ifdef STEVE_LASER_LIVE
+    clc
+.endif
     rts
 
 ProjectShot:
