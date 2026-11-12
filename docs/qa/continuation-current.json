@@ -1,4 +1,13 @@
 {
+  "Steve_throw_player_1111": {
+    "report": "docs/qa/steve-throw-player-1111.md",
+    "source": "tools/reference/steve_shatterhand_throw_player_1111.s",
+    "proof": "Root reran bounded donor comparison: 60 launches,288 recovery updates,landing and explicit scene cancellation;58B begin+74B tick,20B extra action tables. Zero outputs. WorkerSHA919a68235276d082ea017f3d6e64e39f5612c2abf0942c8818185986c412240b.",
+    "finding": "Original steering caps opposite-sign throw recoil too. Fixture motion_source retargets two branches without length changes: DFA1 38→10, DFB1 28→F0. Live source unchanged.",
+    "input_order": "Bounded physical-input CPU trace on80e6 passes: earnedAlpha latch5, calls LiftMovement→LiftDecision→CompanionTick→LiftOrbit→AttackMain→PunchControl. Fresh nativeB40 arrives at all six; detachedLiftPressed remains0. Next heldB frame has0. Consume accepted edge afterLiftDecision before both weapons. tools/audit/check_steve_throw_input_order_1111.py;zerooutputs.",
+    "pending": "Bind actual scatter workers, relocate action table extension, connect fresh B/punch ordering, recovery art and enemy contact/retirement; then native validation. Detached only; nightly80e6 and Current IPS unchanged.",
+    "goal_status": "active"
+  },
   "Steve_throw_bridge_space_1111": {
     "report": "docs/qa/steve-throw-bridge-storage-1111.md",
     "source": "tools/audit/check_steve_shatterhand_throw_carrier_1111.py --live-pose --bridge-space",
