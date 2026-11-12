@@ -50,7 +50,8 @@ def funding(image):
     return at, ROLL_OLD, ROLL_NEW
 
 
-def mount(image, info, code, data, *, pose=False, extra_edits=(), bridge=None, bridge_tail=b''):
+def mount(image, info, code, data, *, pose=False, extra_edits=(), bridge=None, bridge_tail=b'',
+          extension=None, funding_edit=None):
     """Bind the D800 prefix, CD80 data, and exact pre-existing DA80 suffix."""
     data_origin = DATA if bridge is None else DATA+8
     data_capacity = DATA_CAPACITY-(data_origin-DATA)
@@ -65,7 +66,14 @@ def mount(image, info, code, data, *, pose=False, extra_edits=(), bridge=None, b
     bridge_loader = None
     if bridge is not None:
         assert pose and len(bridge) == 224
-        bridge_loader = H.assemble(SOURCE.with_name('steve_shatterhand_throw_bridge_cold_1111.s').read_text(),
+        copier = SOURCE.with_name('steve_shatterhand_throw_bridge_cold_1111.s').read_text()
+        if extension is not None:
+            assert extension['page'] == 304 and extension['origin'] == 0xab00
+            assert 0 < len(extension['payload']) <= 1024
+            old = '    sec\n    rts\nBridgeFailed:'
+            assert copier.count(old) == 1
+            copier = copier.replace(old, '    jmp $c4f4\nBridgeFailed:')
+        bridge_loader = H.assemble(copier,
                                    {'THROW_BRIDGE_COLD': (ORIGIN+len(code), CAPACITY-len(code))})
         helper = bridge_loader['images']['THROW_BRIDGE_COLD']
         entry = bridge_loader['symbols']['SteveThrowBridgeCold']
@@ -81,13 +89,20 @@ def mount(image, info, code, data, *, pose=False, extra_edits=(), bridge=None, b
     loader = H.assemble(new_source, layout)
     bootstrap = loader['images']['STEVE_LATE_COLD']
     assert len(bootstrap) == (127 if pose else 118) + (5 if bridge is not None else 0)
+    extension_edits = ()
+    if extension is not None:
+        assert bridge is not None and bridge[212:219] == b'\xea'*7
+        cold_tail = bytes((0xa9, 0x30, 0xa2, 0xab, 0x4c)) + loader['symbols']['SteveLateRow'].to_bytes(2, 'little')
+        bridge = bridge[:212]+cold_tail+bridge[219:]
+        bridge_edits = ((spare, bytes(256), bridge.ljust(256, b'\x00')),)
+        extension_edits = ((C.CHR+304*1024, bytes(1024), extension['payload'].ljust(1024, b'\xea')),)
     new_boot = bootstrap.ljust(data_origin-Late.BOOT, b'\xea') + data.ljust(data_capacity, b'\xea')
     punch = T.page(image, PUNCH_PAGE)
     carrier = code.ljust(CAPACITY, b'\xea') + punch[CAPACITY:]
     assert len(new_boot) == 256 and len(carrier) == 1024
-    allocations = (funding(image),
+    allocations = (funding(image) if funding_edit is None else funding_edit,
                    (C.CHR+1024*PAGE, bytes(1024), carrier),
-                   (C.CHR+1024*Late.BOOT_PAGE+0x300, old_boot, new_boot), *bridge_edits, *extra_edits)
+                   (C.CHR+1024*Late.BOOT_PAGE+0x300, old_boot, new_boot), *bridge_edits, *extension_edits, *extra_edits)
     binding = b''.join(at.to_bytes(4, 'little')+len(new).to_bytes(4, 'little')+new
                        for at, _, new in sorted(allocations))
     old_cookie = info['cookie']
@@ -107,7 +122,7 @@ def mount(image, info, code, data, *, pose=False, extra_edits=(), bridge=None, b
     return bytes(output), info | dict(cookie=cookie, cold=cold, throw_loader=loader, throw_stage=carrier,
                                       throw_edits=edits, throw_boot=new_boot, throw_state=dict(STATE_FIELDS),
                                       throw_bridge_loader=bridge_loader, throw_bridge=bridge,
-                                      throw_data_origin=data_origin)
+                                      throw_data_origin=data_origin, throw_extension=extension)
 
 
 def detached(donor):
@@ -176,6 +191,7 @@ def cold_controls(before, old_info, candidate, info, pose_worker, linked, fields
     data_origin = info['throw_data_origin']
     bridge = info['throw_bridge']
     helper = info['throw_bridge_loader']
+    extension = info.get('throw_extension')
     helper_start = helper['symbols']['SteveThrowBridgeCold'] if helper else 0
     helper_end = helper_start+len(helper['images']['THROW_BRIDGE_COLD']) if helper else 0
 
@@ -193,7 +209,8 @@ def cold_controls(before, old_info, candidate, info, pose_worker, linked, fields
 
         def observe(m, c):
             if m.rawtags[1:3] != [3, 2] or not (Late.BOOT <= c.pc < data_origin or
-                                                              helper_start <= c.pc < helper_end):
+                                                              helper_start <= c.pc < helper_end or
+                                                              (extension is not None and 0xc4f4 <= c.pc < 0xc4fb)):
                 return
             assert c.p & 4 and m.ppuctrl & 4 == 0
             assert all(header != selected['cookie'] for header in C.Common.headers(m))
@@ -202,7 +219,7 @@ def cold_controls(before, old_info, candidate, info, pose_worker, linked, fields
                 if c.pc == labels['SteveLateRow']:
                     rows.append((c.a, c.x))
                 if fault and c.pc == labels['SteveLateVerify'] and m[4] == fault >> 8:
-                    m.corrupt_at = (2, fault-0xc000)
+                    m.corrupt_at = (3, fault-0xa000) if extension and 0xab00 <= fault < 0xaf00 else (2, fault-0xc000)
                 if fault and c.pc == helper_start and fault in (0xc980, 0xc9ff, 0xc4a0, 0xc4ff):
                     m.corrupt_at = (2, fault-0xc000)
             if nmi and c.pc not in cuts:
@@ -223,8 +240,12 @@ def cold_controls(before, old_info, candidate, info, pose_worker, linked, fields
         assert 0 <= offset and offset+len(prior) <= 0x2000 and len(prior) == len(replacement)
         assert expected_resident[offset:offset+len(prior)] == prior, hex(pc)
         expected_resident[offset:offset+len(prior)] = replacement
-    expected = ([(0x33, 0xce)] if pose_worker is not None else []) + [(0x32, 0xd8), (0x50, 0xd0), (0x52, 0xd4)]
-    assert rows == expected and new.ppu_reads-old.ppu_reads == 2050
+    expected = ([(0x33, 0xce)] if pose_worker is not None else []) + [(0x32, 0xd8)]
+    if extension:
+        expected.append((0x30, 0xab))
+    expected += [(0x50, 0xd0), (0x52, 0xd4)]
+    extra_reads = 4100 if extension else 2050
+    assert rows == expected and new.ppu_reads-old.ppu_reads == extra_reads
     assert C.Common.headers(new) == (info['cookie'],)*2
     assert old.ram[2][0x1800:0x1c00] == T.page(before, PUNCH_PAGE)
     assert new.ram[2][0x1800:0x1c00] == info['throw_stage']
@@ -236,7 +257,10 @@ def cold_controls(before, old_info, candidate, info, pose_worker, linked, fields
     if bridge is not None:
         assert new.ram[2][0x980:0xa00] == bridge[:128]
         assert new.ram[2][0x4a0:0x500] == bridge[128:]
-    assert old.ram[3][:0x1fe0] == new.ram[3][:0x1fe0] and old.ram[3][0x1ff0:] == new.ram[3][0x1ff0:]
+    spans3 = ((0, 0xb00), (0xf00, 0x1fe0)) if extension else ((0, 0x1fe0),)
+    assert all(old.ram[3][a:b] == new.ram[3][a:b] for a, b in (*spans3, (0x1ff0, 0x2000)))
+    if extension:
+        assert new.ram[3][0xb00:0xf00] == extension['payload'].ljust(1024, b'\xea')
     assert old.chr_latches == new.chr_latches and old.vram == new.vram and old.rawtags == new.rawtags
     state = STATE-0xc000
     assert new.ram[2][state:state+STATE_CAPACITY] == bytes(STATE_CAPACITY)
@@ -258,6 +282,12 @@ def cold_controls(before, old_info, candidate, info, pose_worker, linked, fields
         m = seed(candidate)
         assert run(m, info, fault=fault) == expected[:2]
         assert not any(header[0] for header in C.Common.headers(m))
+    extension_faults = (0xab00, 0xaeff) if extension else ()
+    for fault in extension_faults:
+        m = seed(candidate)
+        assert run(m, info, fault=fault) == expected[:3]
+        assert m.corrupt_at == (3, fault-0xa000)
+        assert not any(header[0] for header in C.Common.headers(m))
 
     foreign_roundtrip = None
     if bridge is not None:
@@ -266,7 +296,7 @@ def cold_controls(before, old_info, candidate, info, pose_worker, linked, fields
         spans = (slice(0x980, 0xa00), slice(0x4a0, 0x500))
 
         def contents(m):
-            return tuple(bytes(m.ram[2][span]) for span in spans)
+            return tuple(bytes(m.ram[2][span]) for span in spans) + ((bytes(m.ram[3][0xb00:0xf00]),) if extension else ())
 
         def header_order(m, cookie):
             events = [(bank, value) for bank, at, value in m.ram_writes if at == 0x1fe0]
@@ -286,6 +316,8 @@ def cold_controls(before, old_info, candidate, info, pose_worker, linked, fields
         assert all(a != b for a, b in zip(before, contents(m), strict=True))
         covered = {at for span in spans for at in range(span.start, span.stop)}
         assert covered <= {at for bank, at, _ in m.ram_writes if bank == 2}
+        if extension:
+            assert set(range(0xb00, 0xf00)) <= {at for bank, at, _ in m.ram_writes if bank == 3}
         header_order(m, prince_cookie)
         C.Common.scene(m, 16)
         m[0x730b] = 0x40
@@ -295,6 +327,7 @@ def cold_controls(before, old_info, candidate, info, pose_worker, linked, fields
         assert C.Common.headers(m) == (info['cookie'],)*2 and contents(m) == before
         header_order(m, info['cookie'])
         foreign_roundtrip = dict(owner=38, overwritten_bytes=len(covered),
+                                 overwritten_raw3_bytes=1024 if extension else 0,
                                  foreign_PPU_reads=prince['PPU_reads'], return_PPU_reads=m.ppu_reads-reads)
 
     new.raw_page(2, 2)
@@ -321,9 +354,9 @@ def cold_controls(before, old_info, candidate, info, pose_worker, linked, fields
         assert new[fields['SteveBotPose']+1] != 0, 'Live lift animation decoder must publish the throw pose'
         live_launch = dict(x_q4=0x2260, timer=new[fields['SteveThrowTimer']],
                            pose=new[fields['SteveBotPose']]+256*new[fields['SteveBotPose']+1])
-    return dict(loader_bytes=info['throw_loader']['used']['STEVE_LATE_COLD'], extra_cold_reads=2050,
+    return dict(loader_bytes=info['throw_loader']['used']['STEVE_LATE_COLD'], extra_cold_reads=extra_reads,
                 declared_resident_edit_bytes=sum(len(new) for _, _, new in resident_edits),
-                NMI_cuts=len(cuts), faults=[hex(a) for a in (*faults, data_origin, *bridge_faults)], state_bytes=STATE_CAPACITY,
+                NMI_cuts=len(cuts), faults=[hex(a) for a in (*faults, data_origin, *bridge_faults, *extension_faults)], state_bytes=STATE_CAPACITY,
                 bridge_bytes=0 if bridge is None else len(bridge),
                 foreign_roundtrip=foreign_roundtrip,
                 exact_punch_tail=384, executed_direction=direction, live_launch=live_launch)

@@ -32,6 +32,9 @@ OriginalDecision:
 
 SteveThrowForget:
     jsr SteveThrowPlayerCancel
+.ifdef STEVE_THROW_FLIGHT
+    jsr SteveThrowReset
+.endif
     lda #0
     sta SteveHostReady
     sta SteveLiftState

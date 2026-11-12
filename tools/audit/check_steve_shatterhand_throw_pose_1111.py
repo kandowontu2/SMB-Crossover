@@ -18,7 +18,7 @@ LAYOUT = {'POSE_GATE': (0xc040, 14), 'POSE_BANK': (0xc38c, 41),
 STOP = 0x5000
 
 
-def link(info):
+def link(info, *, chr_origin=0xda71):
     old_link, old_worker = info['pose_link'], info['pose_worker']
     assert len(old_worker) == 499
     source = old_link['source']
@@ -75,7 +75,8 @@ PlayerPoseReady:
     for old, new in swaps:
         assert source.count(old) == 1, old
         source = source.replace(old, new)
-    linked = H.assemble(Live.bindings(FIELDS) + source + '\n' + SOURCE.read_text(), LAYOUT)
+    layout = LAYOUT | {'THROW_POSE_CHR': (chr_origin, 0xda80-chr_origin)}
+    linked = H.assemble(Live.bindings(FIELDS) + source + '\n' + SOURCE.read_text(), layout)
     assert linked['symbols']['StevePoseSelect'] == old_link['symbols']['StevePoseSelect'] == 0xcecf
     for segment in ('POSE_GATE', 'POSE_BANK'):
         assert linked['images'][segment] == old_link['images'][segment]

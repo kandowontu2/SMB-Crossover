@@ -12,6 +12,12 @@ SOURCE = H.ROOT / 'tools/reference/steve_shatterhand_throw_controls_1111.s'
 
 
 def address(pc):
+    if 0xc500 <= pc < 0xc900:
+        return C.CHR + 379*1024 + pc-0xc500
+    if 0xca00 <= pc < 0xcd00:
+        return C.CHR + 375*1024 + pc-0xca00
+    if 0xd000 <= pc < 0xd400:
+        return C.CHR + 336*1024 + pc-0xd000
     if 0xd400 <= pc < 0xd780:
         return C.CHR + 338*1024 + pc-0xd400
     if 0xdc00 <= pc < 0xdfe0:
@@ -19,7 +25,7 @@ def address(pc):
     raise AssertionError(hex(pc))
 
 
-def proposal(raw, *, graphics=False):
+def proposal(raw, *, graphics=False, flight_storage=False, flight_active=False):
     base, info = Pose.proposal(raw)
     assert base == raw
     donor = Live.DONOR.DONOR.read_bytes()
@@ -30,6 +36,13 @@ def proposal(raw, *, graphics=False):
     fields.update({name: value for name, value in move['symbols'].items() if name.startswith('SteveMove')})
     fields.update(SteveThrowBegin=core['symbols']['SteveThrowBegin'], SteveThrowPlayerAction=0xc977,
                   SteveThrowAirVY=Player.AIR_VY, SteveMotionProject=move['symbols']['SteveMotionProject'])
+    flight_link = None
+    if flight_active:
+        import check_steve_throw_flight_leaf_1111 as Flight
+
+        assert graphics and flight_storage
+        flight_link, _ = Flight.link(info | dict(throw_control_fields=fields, throw_core_link=core))
+        fields['SteveThrowReset'] = flight_link['symbols']['SteveThrowReset']
     table = shared['LiftSequenceOffsets']
     assert shared['LiftSequences'] == table+7 and shared['SteveLiftForget'] == table+64
     layout = {'THROW_PLAYER_BEGIN': (table, 64), 'THROW_PLAYER_TICK': (0xc980, 74),
@@ -37,7 +50,7 @@ def proposal(raw, *, graphics=False):
               'THROW_CONTROL': (0xc9ca, 54)}
     definitions = Live.bindings({name: value for name, value in fields.items()
                                 if name not in ('LiftSequenceOffsets', 'LiftSequences')})
-    source = (definitions + Player.SOURCE.read_text() + '\n' + SOURCE.read_text() +
+    source = (('STEVE_THROW_FLIGHT=1\n' if flight_active else '') + definitions + Player.SOURCE.read_text() + '\n' + SOURCE.read_text() +
               '\n.segment "THROW_TABLE"\n' + Player.animation_tables(donor))
     linked = H.assemble(source, layout)
     symbols, images = linked['symbols'], linked['images']
@@ -77,16 +90,52 @@ def proposal(raw, *, graphics=False):
          fields['JnPressed'].to_bytes(2, 'little'))
     for pc, old, new in ((0xdfa1, 0x38, 0x10), (0xdfb1, 0x28, 0xf0)):
         edit(pc, bytes((old,)), bytes((new,)))
+    if flight_active:
+        def jsr(name):
+            return b'\x20'+flight_link['symbols'][name].to_bytes(2, 'little')
+
+        facing = Live.W.address(Live.W.Symbols.bundle(), 'PlayerFacingDir')
+        prefix = bytes((0xa5, facing)) if facing < 256 else b'\xad'+facing.to_bytes(2, 'little')
+        old = prefix+b'\xc9\x02'
+        edit(shared['TickUnpaused'], old, jsr('SteveThrowTickPrelude')+b'\xea'*(len(old)-3))
+        old = b'\xad'+fields['SteveLiftState'].to_bytes(2, 'little')
+        edit(shared['SteveLiftOrbit'], old, b'\x4c'+flight_link['symbols']['SteveThrowOrbit'].to_bytes(2, 'little'))
+        for start, end in ((shared['SteveCompanionTick'], shared['FirstBotActive']),
+                           (shared['SteveLaserTick'], shared['LaserCueDone'])):
+            region = bytes(raw[address(pc)] for pc in range(start, end))
+            needle = old+b'\xc9\x04\xb0'
+            assert region.count(needle) == 1, (hex(start), region.count(needle))
+            edit(start+region.index(needle), needle[:5], jsr('SteveThrowEmissionGate')+b'\xea\xea')
+        edit(0xd777, b'\xea'*9, flight_link['images']['THROW_EMISSION'])
+        needle = b'\x20'+shared['SteveTokenTick'].to_bytes(2, 'little')
+        start, end = shared['SteveCompanionTick'], shared['FirstBotActive']
+        region = bytes(raw[address(pc)] for pc in range(start, end))
+        assert region.count(needle) == 1
+        edit(start+region.index(needle), needle, jsr('SteveThrowGrant'))
     data, tail, pose_info = core['images']['THROW_DATA'], b'', {}
+    extension, funding_edit = None, None
+    if flight_storage:
+        import check_steve_shatterhand_roll_blank_1111 as Roll
+        import check_steve_shatterhand_throw_raw3_1111 as Space
+        import check_steve_throw_flight_leaf_1111 as Flight
+
+        assert graphics
+        funding_edit, _ = Roll.funding(raw)
+        assert len(Space.preimage(raw)) == 1024
+        flight = flight_link
+        if flight is None:
+            flight, _ = Flight.link(info | dict(throw_control_fields=fields, throw_core_link=core))
+        extension = dict(page=304, origin=0xab00, payload=flight['images']['THROW_FLIGHT'])
+        pose_info.update(throw_flight_link=flight, throw_flight_active=flight_active)
     if graphics:
         import check_steve_shatterhand_throw_pose_1111 as Render
         from deliver_steve_lift_art_1111 import recover_parent
 
-        worker, renderer = Render.link(info)
+        worker, renderer = Render.link(info, chr_origin=0xda72 if flight_storage else 0xda71)
         art = Render.Art.plan(recover_parent(raw), donor, pose_worker=worker)
         data += Render.records(art)
         tail = renderer['images']['THROW_POSE_CHR']
-        assert len(core['images']['THROW'])+36+0xd800 == renderer['symbols']['SteveThrowPoseChr']
+        assert len(core['images']['THROW'])+(37 if flight_storage else 36)+0xd800 == renderer['symbols']['SteveThrowPoseChr']
         renderedits = Render.rom_edits(raw, info, worker, renderer)
         edits.extend(renderedits)
         draw = shared['SteveCompanionDraw']
@@ -94,9 +143,10 @@ def proposal(raw, *, graphics=False):
         host_at = C.CHR+1024*host.EXT_PAGE+draw-host.EXT_ORIGIN
         destinations = (0xce00, 0xc8a5, draw+renderedits[2][0]-host_at)
         resident_edits.extend((pc, old, new) for pc, (_, old, new) in zip(destinations, renderedits, strict=True))
-        pose_info = dict(pose_worker=worker, pose_link=renderer, throw_graphics=True)
+        pose_info.update(pose_worker=worker, pose_link=renderer, throw_graphics=True)
     candidate, result = Carrier.mount(raw, info, core['images']['THROW'], data,
-                                      pose=True, bridge=bridge, extra_edits=edits, bridge_tail=tail)
+                                      pose=True, bridge=bridge, extra_edits=edits, bridge_tail=tail,
+                                      extension=extension, funding_edit=funding_edit)
     return candidate, result | dict(throw_control_link=linked, throw_control_fields=fields,
                                     throw_control_parent=info, throw_core_link=core,
                                     throw_control_edits=resident_edits) | pose_info
@@ -107,6 +157,10 @@ def launch_case(seed, info, entry, facing):
     fields = info['throw_control_fields']
     state = fields['SteveLiftState']
     graphics = info.get('throw_graphics', False)
+    flight_active = info.get('throw_flight_active', False)
+    frame_at = 0xc978
+    flight_seen = dict(body_draws=0, hidden_updates=0, reattach_updates=0)
+    weapon_entries = {info['companion_symbols'][name] for name in ('SteveFirstBotWeapon', 'SteveLaserBotWeapon')}
     pending, dma_count, poses = None, 0, set()
     if graphics:
         from check_jay_silius_stock_draw_dispatch_1111 import DmaBus
@@ -123,7 +177,14 @@ def launch_case(seed, info, entry, facing):
 
         def observe(memory, cpu):
             nonlocal current
-            if not graphics or memory.rawtags[2] != 2 or cpu.pc != renderer:
+            if memory.rawtags[2] != 2:
+                return
+            if flight_active and Live.resident(memory, frame_at):
+                assert cpu.pc not in weapon_entries, ('weapon emitted while thrown', hex(cpu.pc))
+                if cpu.pc == info['companion_symbols']['DrawCompanionMeta']:
+                    assert Live.resident(memory, fields['SteveBotPose']) != 0, 'hidden robot body drawn'
+                    flight_seen['body_draws'] += 1
+            if not graphics or cpu.pc != renderer:
                 return
             if (memory[3], memory[4]) != (0xc0, 0xc8) or not Live.resident(memory, fields['SteveThrowPlayerAction']):
                 return
@@ -155,6 +216,12 @@ def launch_case(seed, info, entry, facing):
                 assert current is not None, ('recovery bypassed native renderer', entry, facing)
             pending = current
         assert Live.N.get(m, 'NumberofLives') == 2
+        if flight_active and Live.resident(m, frame_at):
+            if Live.resident(m, fields['SteveBotPose']) == 0:
+                flight_seen['hidden_updates'] += 1
+            if not Live.resident(m, fields['SteveThrowSelector']) & 128:
+                assert Live.resident(m, fields['SteveBotPose']) == 0
+                flight_seen['reattach_updates'] += 1
         return Live.resident(m, state)
 
     frame(2 if facing else 1)
@@ -199,17 +266,32 @@ def launch_case(seed, info, entry, facing):
         frame(0)
         assert m.chr_latches[0] == 220, ('ordinary CHR not restored', m.chr_latches[0])
         assert poses == {first_pose, last_pose}, poses
+    if flight_active:
+        for update in range(600):
+            if not Live.resident(m, fields['SteveThrowSelector']) & 128:
+                break
+            frame(0)
+        else:
+            raise AssertionError(('throw never returned', entry, facing))
+        assert flight_seen['body_draws'] > 0 and flight_seen['hidden_updates'] > 0
+        assert flight_seen['reattach_updates'] == 1, flight_seen
+        frame(0)
+        assert Live.resident(m, frame_at) == 0
     return dict(entry=entry, facing=facing, launch=values, recovery=phases,
-                graphics=dict(dma_updates=dma_count, poses=sorted(poses)) if graphics else None)
+                graphics=dict(dma_updates=dma_count, poses=sorted(poses)) if graphics else None,
+                flight=flight_seen if flight_active else None)
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--cold-only', action='store_true')
     parser.add_argument('--graphics', action='store_true')
+    parser.add_argument('--flight-storage', action='store_true')
+    parser.add_argument('--flight', action='store_true')
     args = parser.parse_args()
     raw = Live.DONOR.HOST.read_bytes()
-    candidate, info = proposal(raw, graphics=args.graphics)
+    candidate, info = proposal(raw, graphics=args.graphics or args.flight_storage or args.flight,
+                               flight_storage=args.flight_storage or args.flight, flight_active=args.flight)
     if args.cold_only:
         proof = Carrier.cold_controls(raw, info['throw_control_parent'], candidate, info,
                                       info['pose_worker'], info['throw_core_link'], info['throw_control_fields'],
