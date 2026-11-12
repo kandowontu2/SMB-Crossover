@@ -30,3 +30,19 @@ The private full-flight candidate remains `bc7d0ff551d91bc41e339c575442a911b5395
 Neither this geometry leaf nor native damage is mounted. The Downloads nightly
 and Current IPS remain unchanged. The helper resumed the separate original
 robot-destruction implementation after the pause.
+
+## Native rectangle construction
+
+`steve_throw_enemy_rect_1112.s` now builds a 16-bit world rectangle from the
+installed native `BoundBoxCtrlData`, enemy position, and bounding-box control.
+It avoids the clipped eight-bit screen rectangle, so right-edge carry and
+offscreen positioning cannot silently wrap the hit area. X and the stack are
+preserved. Its caller must express the robot center in the same world space
+and include native Y page 1 before calling the overlap leaf.
+
+The bounded `check_steve_throw_enemy_rect_1112.py` passed 1,512 combinations of
+six native slots, enemy controls 3–11, seven X coordinates and four Y positions.
+The 79-byte leaf matched the installed table through page carries, with no
+outputs. Player-only controls with signed offsets are outside this contract;
+native actor admission must reject inappropriate controls before using it.
+This has not yet been mounted or used to apply damage.
