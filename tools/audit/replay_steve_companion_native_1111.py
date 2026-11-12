@@ -37,10 +37,16 @@ def record(candidate, info, exercise=Companion.natural):
     return [(sum(1 for _ in group), pad) for pad, group in groupby(pads)]
 
 
-def controller(groups, info, *, laser=False, laser_stage=False, lift=False, lift_art=False):
+def controller(groups, info, *, laser=False, laser_stage=False, lift=False, lift_art=False, lift_projectile=False):
     text = Punch.SCRIPT.read_text(encoding='utf-8')
     tail = TAIL.read_text(encoding='utf-8')
     fields = info['companion_fields']
+    if lift_projectile:
+        groups = list(groups)
+        assert groups[-3:] in ([(3,4),(1,68),(8,132)], [(3,4),(3,68),(16,132)])
+        # Hold the trigger across physical controller polls, as in the
+        # existing Laserbot route, then retain enough approach frames.
+        groups[-3:] = [(3,4),(3,68),(16,132)]
     if laser:
         groups = list(groups)
         physical_pulse = [(9, 1), (3, 65), (7, 1)]
@@ -98,6 +104,14 @@ def controller(groups, info, *, laser=False, laser_stage=False, lift=False, lift
             tail = tail.replace('local function playCompanionRoute()', art + '\nlocal function playCompanionRoute()')
             tail = tail.replace('  observeLift()\n', '  observeLift()\n  observeLiftArt()\n')
             tail = tail.replace('  finishLift()', "  assert(liftArtPng and liftArtDma>2,'Original lift art reaches physical OAM')\n  finishLift()")
+    if lift_projectile:
+        assert not laser and not lift
+        witness = LIFT_TAIL.with_name('steve_lift_projectile_native_1111.lua').read_text()
+        tail = tail.replace('local function playCompanionRoute()', witness + '\nlocal function playCompanionRoute()\n  observeLiftProjectile()')
+        old = "  finish(true,string.format('Earned first companion, body pairs %d, shot pairs %d',bodyPairs,shotPairs))"
+        assert tail.count(old) == 1
+        tail = tail.replace(old, "  assert(liftProjectileTiles[0x77] and liftProjectileTiles[0x79], string.format('Lift DMA frames %d, tiles77=%s 79=%s', liftProjectileFrames,tostring(liftProjectileTiles[0x77]),tostring(liftProjectileTiles[0x79])))\n" + old)
+        values['LIFT_STATE'] = info['lift_fields']['SteveLiftState']
     for name, value in values.items():
         assert 'STEVE_'+name in tail
         tail = tail.replace('STEVE_'+name, str(value))
@@ -124,7 +138,10 @@ def main():
     parser.add_argument('--laser-stage', action='store_true')
     parser.add_argument('--lift', action='store_true')
     parser.add_argument('--lift-art', action='store_true')
+    parser.add_argument('--lift-projectile', action='store_true')
     args = parser.parse_args()
+    if args.lift_projectile:
+        args.lift_art = True
     if args.lift_art:
         args.lift = True
     if args.laser_stage and not args.laser:
@@ -151,7 +168,7 @@ def main():
         import check_steve_shatterhand_pose_live_1111 as Pose
         build = Pose.proposal
         if not args.laser:
-            exercise = Pose.graphics
+            exercise = Pose.projectile_lift if args.lift_projectile else Pose.graphics
     candidate, info = build(raw)
     output.mkdir(exist_ok=True)
     rom, script = output / 'candidate.nes', output / 'controller.lua'
@@ -164,7 +181,9 @@ def main():
         groups = record(candidate, info, exercise)
         rom.write_bytes(candidate)
     script.write_text(controller(groups, info, laser=args.laser, laser_stage=args.laser_stage,
-                                 lift=args.lift and not args.laser, lift_art=args.lift_art and not args.laser),
+                                 lift=args.lift and not args.laser and not args.lift_projectile,
+                                 lift_art=args.lift_art and not args.laser and not args.lift_projectile,
+                                 lift_projectile=args.lift_projectile),
                       encoding='utf-8', newline='\n')
     pin = Companion.C.digest(candidate)
     punch = info['punch']['symbols']
@@ -173,14 +192,16 @@ def main():
         'SMB_STEVE_BIRTH': str(punch['StevePunchBirth']),
         'SMB_STEVE_DRAW': str(punch['SteveDrawEmit']),
     })
-    if args.lift_art and not args.laser:
+    if args.lift_art and not args.laser and not args.lift_projectile:
         if result['passed']:
             assert len(result['images']) == 1, (len(result['images']), result['receipt'])
         if result['images']:
             (output / 'lift.png').write_bytes(base64.b64decode(result['images'][0]['base64']))
+    executed_route, = re.findall(r'^local routeGroups=\{(.*)\}$', script.read_text(), re.MULTILINE)
+    executed_inputs = sum(int(count) for count, _ in re.findall(r'\{(\d+),(\d+)\}', executed_route))
     print(json.dumps(dict(passed=result['passed'], candidate=pin, receipt=result['receipt'],
                           receipt_SHA256=result['receipt_SHA256'], script_SHA256=result['script_SHA256'],
-                          groups=len(groups), inputs=sum(count for count, _ in groups))), flush=True)
+                          groups=len(groups), inputs=executed_inputs)), flush=True)
     raise SystemExit(0 if result['passed'] else 1)
 
 

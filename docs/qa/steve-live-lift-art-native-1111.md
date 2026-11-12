@@ -1,7 +1,7 @@
 # Steve original lift poses: physical replay
 
 Private candidate: `c36c9f76e462a214405a6431a7810934c6b2de45ca8620071cbf5f967d2b8ebf`.
-Installed nightly remains `235de3ed2487cd3f93c695e1eb2ceec55c172cede3cb6d98c5309afbc7cfbe38`.
+This initial candidate was superseded by the verified `80e6aa3e` delivery below.
 
 The native pose integration builds original player and companion records in
 raw WRAM bank 2, with a fixed-ROM guard before entering the loaded worker.
@@ -63,6 +63,45 @@ C141, PRG97 (mapper value E1), four visible OAM cells and published CHR220.
 The 21-pixel rise, same-ledge landing, both lives and five brick-headroom
 updates also passed. This proves renderer dispatch, not a natural simultaneous
 live-shot-and-lift OAM witness; that stronger test remains required.
+
+## Fixed candidate qualification
+
+The exact `80e6aa3e32574f38b23fa6da6ab3c94bbe7b5ae11b29339b32b11a624fe6f1ed`
+candidate passed the physical lift replay in 3817 frames and the full Laserbot
+1-1 to 1-2 route in 6828 frames, with the same positions, HP and lives as above.
+
+- Lift receipt: `419f9eb10237870f7149a03f73b7752e23c87aea5d5f65537c7314b733178430`
+- Stage receipt: `205d84b12328cccafe048785d4b78ffcfdb6c59f1e2594ebe32275ac2875dda6`
+- Lift controller: `80bb8bf4a304bf4c2ee797ea7c8d1baecb064663d38778f4443e20d45c31aece`
+- Stage controller: `8f3cd1a21b2207452661ce380533230bc48242c05edcd5fcc5d7fe5e64ff31f9`
+- Lift art Lua source: `e29187abfd088669f406b3c2fe58f7ba1978b5ae375756abec7a9917f60338dd`
+- Reconstructed IPS: `c05dd20cd818d6683a520c983bf53fa563b3a2dce1db445771bfc4de07f28be9`
+
+The separate controller-only CPU witness `--projectile-lift` earned Alpha,
+fired Down+B, and switched to Down+A. Both $77 and $79 projectile frames were
+present at their computed coordinates/palettes and in the following DMA while
+the original lift body rendered in state4. The two observed shot timers were
+49 and44. This is now an actual live-projectile witness, not merely a call-count
+check. The equivalent physical Mesen replay also passed after holding Down+B
+for three controller updates rather than a single update, followed by sixteen
+Down+A updates. Both projectile tiles reached actual sprite RAM while the lift
+was active; no game state was injected. The one-update physical pulse failed
+to demonstrate this overlap and is not counted as a pass.
+
+- Physical overlap receipt: `bb012fdc6616a11c769081c7585ef787db3124d1f43b71578e70a74164dfc807`
+- Physical overlap controller: `1803970ec23f13539cb9a8500618a7d8c3e4f0bfe1f2e69e612db030aa0b1169`
+- Terminal state: X1743/Y48, both lives, 3694 physical frames.
+
+## Downloads delivery
+
+Installed exact `80e6aa3e` directly over
+`C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes`, without backups.
+The lift and full-stage Mesen receipts matched the isolated candidate exactly
+when launched from Downloads. Pre/post automatic-patch guards found no
+matching sidecar patches; installed bytes matched the tested candidate.
+The reverse patch embedded in `deliver_steve_lift_art_1111.py` recovers the
+previous `235de3ed` image in memory. Public IPS refresh is the remaining
+delivery step. Other Steve upgrades and the overall roster audit remain open.
 
 Still verify the fixed candidate, Downloads launch and replacement IPS before
 publishing a nightly. B throw, remaining companion attacks, armor and original

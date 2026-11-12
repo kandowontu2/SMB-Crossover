@@ -60,6 +60,10 @@ def link(raw, info):
 
 
 def proposal(raw):
+    if Live.C.digest(raw) == '80e6aa3e32574f38b23fa6da6ab3c94bbe7b5ae11b29339b32b11a624fe6f1ed':
+        from deliver_steve_lift_art_1111 import recover_parent
+
+        raw = recover_parent(raw)
     original, info = Laser.proposal(raw, lift=True)
     assert original == raw
     worker, edits, linked = link(raw, info)
@@ -154,18 +158,97 @@ def graphics(candidate, info):
                 ordinary_body_after_release=ordinary_body, lift_shot_dispatches=lift_shot_dispatches)
 
 
+def projectile_lift(candidate, info):
+    """Fire an earned Alpha shot and observe its OAM DMA during lift."""
+    from check_jay_silius_stock_draw_dispatch_1111 import DmaBus
+
+    m, earned = Live.natural(candidate, info)
+    m.__class__ = DmaBus
+    fields = info['companion_fields']
+    lift_state = info['lift_fields']['SteveLiftState']
+    renderer = Live.W.address(m.bundle, 'MetaspriteRenderLoop')
+    start_x, _ = Live.Ingress.Live.player(m)
+
+    def bot(name):
+        return Live.resident(m, fields['SteveBot'+name])
+
+    def frame(pad, observe=None):
+        m.controller_pad = pad
+        m.dma = None
+        Live.C.Game.frame(m, observe)
+        assert Live.Ingress.Live.mode(m) == Live.Ingress.S.PLAY and Live.N.get(m, 'NumberofLives') == 2
+        assert Live.Ingress.Live.player(m)[0] == start_x and bot('Actor') == 1
+
+    for update in range(12):
+        frame(4)
+        if update >= 2 and bot('Anim') == 0:
+            break
+    else:
+        raise AssertionError('Alpha never re-armed after the first shot')
+    assert Live.resident(m, Live.Move.Motion.FIELDS['State']) == 3
+    frame(68)  # Down+B fires from crouch.
+    assert (bot('ShotType'), bot('ShotTimer'), Live.resident(m, lift_state)) == (0x95, 51, 0)
+
+    state_at_draw = None
+
+    def see_lift_body(memory, cpu):
+        nonlocal state_at_draw
+        if cpu.pc == renderer and memory.rawtags[2] == 2 and (memory[3], memory[4]) == (0xe0, 0xc8):
+            state_at_draw = Live.resident(memory, lift_state)
+
+    pending = None
+    dma_tiles = set()
+    evidence = []
+    for update in range(12):
+        state_at_draw = None
+        frame(132, see_lift_body)  # Release B and hold Down+A.
+        state = Live.resident(m, lift_state)
+        assert (state == 4 if update == 0 else 4 <= state <= 7), (update, state)
+        assert (bot('ShotType'), bot('ShotTimer')) == (0x95, 50-update), update
+        if pending is not None:
+            assert m.dma is not None and m.chr_latches[5] == Live.CHR_PAGE
+            dma = {tuple(m.dma[at:at+4]) for at in range(0, 256, 4)}
+            tile, cells = pending
+            assert cells <= dma, ('missing Alpha projectile DMA during lift', cells-dma)
+            dma_tiles.add(tile)
+        if dma_tiles == {0x77, 0x79}:
+            break
+
+        pending = None
+        if state_at_draw is None:
+            continue
+        assert state_at_draw == state
+        x, y = Live.native_position(m, fields, 'SteveBotShotX', 'SteveBotShotY')
+        if 8 <= x < 248 and 8 <= y < 240:
+            tile, palette = (0x77, 1) if bot('DrawPhase') & 1 else (0x79, 2)
+            cells = {(y-8, tile, palette, x-8), (y-8, tile, palette | 64, x)}
+            actual = Live.sprites(m, (0x77, 0x79))
+            assert cells <= actual, ('missing Alpha projectile OAM during lift', cells-actual)
+            pending = tile, cells
+            evidence.append(dict(update=update+1, state=state, timer=bot('ShotTimer'), cells=sorted(cells)))
+    assert dma_tiles == {0x77, 0x79}, evidence
+    return dict(earned_pattern=earned['route']['pattern'], projectile_dma_tiles=sorted(dma_tiles), frames=evidence)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--graphics', action='store_true')
     parser.add_argument('--opening-only', action='store_true')
+    parser.add_argument('--projectile-lift', action='store_true')
     args = parser.parse_args()
     raw = A.D.HOST.read_bytes()
     candidate, info = proposal(raw)
     print(json.dumps(dict(candidate=Live.C.digest(candidate), worker_bytes=len(info['pose_worker']),
                           outputs=0)), flush=True)
-    if args.graphics:
+    if args.projectile_lift:
+        print(json.dumps(projectile_lift(candidate, info), indent=2), flush=True)
+    elif args.graphics:
         print(json.dumps(graphics(candidate, info), indent=2), flush=True)
     else:
+        if raw == candidate:
+            from deliver_steve_lift_art_1111 import recover_parent
+
+            raw = recover_parent(raw)
         print(json.dumps(Carrier.openings(raw, candidate), indent=2), flush=True)
         if args.opening_only:
             return
