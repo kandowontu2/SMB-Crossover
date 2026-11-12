@@ -38,3 +38,15 @@ conversion/admission/rectangle/overlap hit-or-miss cases passed, including
 fractional coordinates, negative Y, page carries, and the Q4 world wrap.
 No outputs were created. This new conversion is not mounted or dispatched
 yet; scratch ownership and incoming robot damage still need integration.
+
+## Updated mounted payload
+
+The subsequent contact-order correction adds the conversion and a 19-byte
+contact composition to the mounted row: 766 bytes used, 258 remaining.
+Candidate SHA256 is now
+`d0f7594ca698e8078086a74a3da5e23856d07d8a436049f713819cd45693db99`.
+Bounded cold session 18805 exited 0 with the same 78 cuts, 11 fault locations,
+and complete Prince overwrite/restore checks. Contact dispatch is still not
+hooked into gameplay. See `steve-robot-destruction-1112.md` for the corrected
+outgoing-before-incoming damage order and original-ROM comparison coverage.
+No output files were generated; no nightly or release was replaced.

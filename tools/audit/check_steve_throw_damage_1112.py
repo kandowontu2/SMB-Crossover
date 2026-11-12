@@ -27,7 +27,7 @@ def main():
             cpu.step()
         else:
             raise AssertionError('damage leaf did not return')
-        assert m[0x6000] == actor|128
+        assert m[0x6000] == actor|192
         assert cpu.x == slot
         fatal = not hurt and hp <= 2
         assert (cpu.pc == 0x5001) == fatal

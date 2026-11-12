@@ -12,6 +12,8 @@ PARTS = (
     ('THROW_TARGET', 'steve_throw_target_1112.s'),
     ('THROW_DAMAGE', 'steve_throw_damage_1112.s'),
     ('DEATH_SHOTS', 'steve_robot_clear_shots_1112.s'),
+    ('THROW_POINT', 'steve_throw_point_1112.s'),
+    ('THROW_CONTACT', 'steve_throw_contact_1112.s'),
 )
 
 

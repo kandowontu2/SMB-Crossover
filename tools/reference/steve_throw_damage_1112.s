@@ -1,10 +1,10 @@
-; X is an admitted native enemy. Only surviving robot contacts enter here;
-; fatal actor $FF must branch to destruction before this call.
+; X is an admitted native enemy. Call before incoming robot damage; even a
+; fatal contact deals outgoing damage before actor $FF replaces the receipt.
 .setcpu "6502"
 .segment "THROW_DAMAGE"
 SteveThrowDamageEnemy:
     lda SteveBotActor
-    ora #$80
+    ora #$c0
     sta SteveBotActor          ; Return receipt precedes enemy cooldown.
     lda JnEnemyHurt,x
     bne ThrowDamageDone

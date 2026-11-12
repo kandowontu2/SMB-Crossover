@@ -37,6 +37,20 @@ ordinary hit is followed by age one in that same Main update. It saturates at
 zero. PRG13 `$A523` clears surviving actor bits seven and six after its update.
 Apply that mask only after surviving dispatch.
 
+The host composition now preserves this ordering explicitly in
+`steve_throw_contact_1112.s`: outgoing enemy damage first, incoming robot
+damage second. Do not skip outgoing damage just because the incoming hit will
+be fatal. The adapter sets both original receipt bits (`$C0`); fatal damage
+then replaces the actor with `$FF`. Bit `$20` collision flags bypass outgoing
+damage. The caller still owns age, armor, overlap, and visible-actor admission.
+
+Root's bounded `check_steve_throw_contact_1112.py` compared twelve composed
+cases against the actual donor `$83E2` path: flags `$01/$21`, robot HP 1/2/16,
+and enemy cooldown on/off. Actor, robot age/HP/timer, and enemy HP matched.
+Native sound conversion and the native enemy kill routine are not covered by
+this comparison. The separate 432-case damage adapter test also passed with
+the corrected `$C0` receipt.
+
 ## Destruction worker
 
 `SteveRobotDeathTick` matches `$A4C9–$A50D`. Its caller admits actor `$FF`
