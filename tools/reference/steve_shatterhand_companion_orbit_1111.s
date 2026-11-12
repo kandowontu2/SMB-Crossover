@@ -95,9 +95,15 @@ StepRestInc:
 OrbitOffset:
     lda SteveBotAge
     cmp #6
+.ifdef STEVE_LIFT_LIVE
+    lda #$80
+    bcs RadiusReady
+    lda #$70
+.else
     lda #16
     bcs RadiusReady
     lda #0
+.endif
 RadiusReady:
     sta SteveBotRadius
     lda SteveBotAngle

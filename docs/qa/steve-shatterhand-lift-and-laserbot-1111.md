@@ -1,6 +1,6 @@
 # Steve Hermann’s lift and Laserbot
 
-## Private build on the current nightly
+## Initial companion transport on the Sonic nightly
 
 The first companion now composes on the Sonic and Super Sonic nightly
 `c4568faf4f472d4d6c3915c9b4258d5c04d6dcbb562b3e5602a5d580bb3046a2`.
@@ -38,8 +38,8 @@ animation clocks in 72 cases and 3,666 updates, including 12 complete
 lifts, gravity polarity, early release, lost support, lost robot, and
 the B throw decision. Its seven animation sequences come from the
 donor cartridge’s indexed tables. The fixture delegates terrain to
-controlled support and headroom inputs. Live terrain, attached body
-rendering and the thrown robot trajectory still need integration.
+controlled support and headroom inputs. The live lift uses SMB support,
+headroom, and airborne movement after release.
 
 ## Laserbot
 
@@ -76,7 +76,7 @@ native contact cases in the CPU test.
 
 The 1,114-byte Laserbot program uses the new authenticated loader and
 leaves 806 bytes in its executable range. The final companion host uses
-631 bytes. The lift and original sound still need runtime integration.
+631 bytes in this build. The original sound still needs runtime integration.
 The donor cue audit traces the exact 23-byte pulse stream and confirms
 the host pulse-one shadow can suppress and restore music across six
 cases. The nightly currently plays the crossover firing sound.
@@ -103,6 +103,36 @@ can still be reconstructed in memory.
 - Controller continuation SHA-256 `a5462727f378dcd4be06b61c886a9781bb0dee5da5bf0f2d06a55e1728e03e5f`
 - IPS SHA-256 `fa17ebd6e7da0f9c5616456e2d543cb7b475881fa3222a612f72086041e648f8`
 
+## Lift nightly
+
+The MMC5 lift build is `235de3ed2487cd3f93c695e1eb2ceec55c172cede3cb6d98c5309afbc7cfbe38`.
+The Mesen controller earns the first companion in 1-1, cancels an early
+approach, then crouches again and holds A until the robot latches. Releasing
+Down while holding A starts the grip and rise. Steve goes from Y48 to Y27
+in 21 one-pixel updates and returns to the same ledge after releasing A.
+His robot stays 28 pixels above his center during ascent. Both lives remain.
+
+The same ROM lifts with an earned Laserbot in the CPU model. A directed
+solid-brick test stops the rise at Y44 and preserves the native metatile
+across five held updates. The full physical Laserbot route damages the
+same Goomba and reaches underground 1-2 at X40/Y48 with both lives and
+4 HP. The full route ran in 6,710 physical frames compared with 6,681
+for the earlier Laserbot ROM. Both runs logged 3,356 native updates.
+The Downloads ROM reproduced both isolated Mesen receipts. No helper
+platforms were added.
+
+This build uses the existing body sprites during the lift. The donor
+geometry audit checks 178 lift updates and 354 sprite and CHR comparisons.
+Its packed artwork covers 10 poses, including the initial throw pose,
+and fits 992 bytes in reclaimed CHR339 with four existing CHR711 aliases.
+The Roll alias passed 24 publisher cases and 60 equal OAM frames.
+The original lift pose renderer, B throw, and original sound are pending.
+
+- Mesen lift receipt `c6eeeb230c81c56ba86f401bb5844e50464360d816253f4dcf49303567c78c93`
+- Mesen Laserbot stage receipt `e57d3fe797ea7ff5487271cb6aaf04b3a9a69695be3b4d2fae87262ea4a105e7`
+- Lift controller source SHA-256 `d980b9a7b3f488d9526b788b2cfd6dc067f377dbf4f30fcc9e0ec69e07acab40`
+- IPS SHA-256 `46d745633a6c05cc9c69531c5cebf7a16ac82a92282534560b9f3d353989ba9b`
+
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/steve-lift-source-proof-1111 --max-files 1 --timeout 65 -- python -B tools/audit/check_steve_shatterhand_lift_1111.py
 python -B tools/audit/run_bounded_build_v1.py --output build/steve-laserbot-core-proof-1111 --max-files 1 --timeout 120 -- python -B tools/audit/check_steve_shatterhand_laserbot_1111.py
@@ -110,4 +140,6 @@ python -B tools/audit/run_bounded_build_v1.py --output build/steve-laserbot-gran
 python -B tools/audit/run_bounded_build_v1.py --output build/steve-laser-mounted-proof-1111 --max-files 1 --timeout 175 -- python -B tools/audit/check_steve_shatterhand_laser_live_1111.py --first-regression
 python -B tools/audit/run_bounded_build_v1.py --output build/steve-laserbot-native-1111 --max-files 2 --timeout 230 -- python -B tools/audit/replay_steve_companion_native_1111.py --laser --output build/steve-laserbot-native-1111
 python -B tools/audit/run_bounded_build_v1.py --output build/steve-laserbot-native-1111 --resume --max-files 2 --timeout 170 -- python -B tools/audit/replay_steve_companion_native_1111.py --laser --laser-stage --reuse-route --output build/steve-laserbot-native-1111
+python -B tools/audit/run_bounded_build_v1.py --output build/steve-lift-native-1111 --max-files 2 --timeout 230 -- python -B tools/audit/replay_steve_companion_native_1111.py --lift --output build/steve-lift-native-1111
+python -B tools/audit/run_bounded_build_v1.py --output build/steve-lift-native-1111 --resume --max-files 2 --timeout 240 -- python -B tools/audit/replay_steve_companion_native_1111.py --lift --laser --laser-stage --output build/steve-lift-native-1111
 ```

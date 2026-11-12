@@ -26,8 +26,9 @@ for name, original in ORIGINAL.items():
 assert next_field <= Orbit.STATE + 0x40
 
 
-def link(raw, *, fields=FIELDS, tail=''):
-    return Orbit.link(raw, fields=fields, tail=SOURCE.read_text(encoding='utf-8')+'\n'+tail, shot_polar=True)
+def link(raw, *, fields=FIELDS, tail='', lift_polar=False):
+    return Orbit.link(raw, fields=fields, tail=SOURCE.read_text(encoding='utf-8')+'\n'+tail,
+                      shot_polar=True, lift_polar=lift_polar)
 
 
 def compare(raw, program):

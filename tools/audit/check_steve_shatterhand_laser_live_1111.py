@@ -25,15 +25,20 @@ def fields(shared):
     return result
 
 
-def proposal(raw):
+def proposal(raw, *, lift=False):
     import check_steve_shatterhand_late_companion_transport_1111 as Late
+    from check_steve_shatterhand_lift_live_1111 import QUALIFIED as qualified_lift
 
+    if Live.C.digest(raw) == qualified_lift:
+        from deliver_steve_lift_1111 import recover_parent as recover_laser
+
+        raw = recover_laser(raw)
     if Live.C.digest(raw) == QUALIFIED:
         from deliver_steve_laserbot_1111 import recover_parent
 
         raw = recover_parent(raw)
     base, prior = Live.on_nightly(raw)
-    staged, linked = Live.on_nightly(raw, laser=True)
+    staged, linked = Live.on_nightly(raw, laser=True, lift=lift)
     old_cookie, intermediate_cookie = prior['cookie'], linked['cookie']
     assert base.count(old_cookie) == staged.count(intermediate_cookie) == 2
     staged = staged.replace(intermediate_cookie, old_cookie)
@@ -46,7 +51,12 @@ def proposal(raw):
             edits.append((start, base[start:at], staged[start:at]))
             start = None
     assert start is None
-    candidate, info = Late.mount(base, prior, linked['laser_payload'], extra_edits=edits)
+    payload = linked['laser_payload']
+    if lift:
+        from check_steve_shatterhand_lift_live_1111 import ORIGIN as lift_origin
+
+        payload = payload.ljust(lift_origin-ORIGIN, b'\xea') + linked['lift_payload']
+    candidate, info = Late.mount(base, prior, payload, extra_edits=edits)
     assert Art.apply(candidate, ((at, new, old) for at, old, new in info['late_edits'])) == base
     return candidate, linked | {name: info[name] for name in ('cookie', 'cold', 'late_stage', 'late_edits')}
 

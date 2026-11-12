@@ -83,7 +83,11 @@ LaserSaveOrbit:
     sta SteveLaserDeltaY,x
     dex
     bpl LaserSaveOrbit
+.ifdef STEVE_LIFT_LIVE
+    jsr SteveLiftOrbit
+.else
     jsr SteveCompanionOrbit
+.endif
     sec
     lda SteveBotX
     sbc SteveLaserDeltaX
@@ -100,6 +104,11 @@ LaserSaveOrbit:
     sta SteveLaserDeltaY+1
     lda #0
     sta SteveBotShotSound
+.ifdef STEVE_LIFT_LIVE
+    lda SteveLiftState
+    cmp #4
+    bcs LaserCueDone
+.endif
     jsr SteveLaserBotWeapon
     lda SteveBotShotSound
     beq LaserCueDone

@@ -35,15 +35,19 @@ def rom_data(raw, bank, cpu):
     return raw[16+bank*8192+(cpu&0x1fff):16+(bank+1)*8192]
 
 
-def link(raw, *, fields=FIELDS, origin=ORIGIN, tail='', shot_polar=False):
+def link(raw, *, fields=FIELDS, origin=ORIGIN, tail='', shot_polar=False, lift_polar=False):
     assert sha256(raw).hexdigest() == Donor.PIN and FIELDS.keys() <= fields.keys()
     bob = rom_data(raw, 13, 0xae6b)[:16]
     polar = rom_data(raw, 12, 0x90e8)[:32]
     assert len(bob) == 16 and len(polar) == 32
+    if lift_polar:
+        polar = rom_data(raw, 12, 0x9078)[:0x70] + polar
     assert rom_data(raw, 13, 0xadfb)[:6] == bytes((27, 37, 27, 37, 27, 37))
     if shot_polar:
         polar += rom_data(raw, 12, 0x9158)[:16]
     definitions = ''.join(f'{name}=${address:04x}\n' for name, address in fields.items())
+    if lift_polar:
+        definitions = 'STEVE_LIFT_LIVE=1\n' + definitions
     tables = '\n'.join(f'\n{name}:\n    .byte ' + ','.join(map(str, data))
                        for name, data in (('CompanionBob', bob), ('CompanionPolar', polar)))
     return H.assemble(definitions + SOURCE.read_text(encoding='utf-8') + '\n' + tail + tables + '\n',

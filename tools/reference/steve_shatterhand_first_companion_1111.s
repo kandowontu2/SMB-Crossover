@@ -130,7 +130,11 @@ SpinShot:
     sta SteveBotShotAngle
     dec SteveBotShotTimer
     beq EndShot
+.ifdef STEVE_LIFT_LIVE
+    lda #$90
+.else
     lda #32
+.endif
     sta SteveBotRadius
     lda SteveBotShotAngle
     jsr CompanionVector

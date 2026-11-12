@@ -86,7 +86,14 @@ UpdateFirstCompanion:
 .endif
     jsr SteveFirstBotShotUpdate
     jsr SteveCompanionHit
+.ifdef STEVE_LIFT_LIVE
+    jsr SteveLiftOrbit
+    lda SteveLiftState
+    cmp #4
+    bcs TickDone
+.else
     jsr SteveCompanionOrbit
+.endif
     jsr SteveFirstBotWeapon
     lda SteveBotShotTimer
     cmp #$33

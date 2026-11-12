@@ -17,6 +17,7 @@ TAIL = Companion.H.ROOT / 'tools/playthroughs/steve_companion_native_1111.lua'
 LASER_TAIL = TAIL.with_name('steve_laserbot_native_1111.lua')
 LASER_STAGE = TAIL.with_name('steve_laserbot_stage_1111.lua')
 STAGE_ROUTE = TAIL.with_name('steve_native_full_route_1111.lua')
+LIFT_TAIL = TAIL.with_name('steve_lift_native_1111.lua')
 
 
 def record(candidate, info, exercise=Companion.natural):
@@ -35,7 +36,7 @@ def record(candidate, info, exercise=Companion.natural):
     return [(sum(1 for _ in group), pad) for pad, group in groupby(pads)]
 
 
-def controller(groups, info, *, laser=False, laser_stage=False):
+def controller(groups, info, *, laser=False, laser_stage=False, lift=False):
     text = Punch.SCRIPT.read_text(encoding='utf-8')
     tail = TAIL.read_text(encoding='utf-8')
     fields = info['companion_fields']
@@ -80,6 +81,17 @@ def controller(groups, info, *, laser=False, laser_stage=False):
         values['LASER_ENEMY_HP'] = fields['JnEnemyHP']
         text = text.replace("assert(frame<=4200,'Bounded physical Steve replay')",
                             "assert(frame<=8500,'Bounded physical Steve replay')")
+    if lift:
+        head, marker, route = tail.partition('local function playCompanionRoute()')
+        assert marker
+        tail = head + LIFT_TAIL.read_text(encoding='utf-8') + '\n' + marker + route
+        tail = tail.replace('local function playCompanionRoute()\n',
+                            'local function playCompanionRoute()\n  observeLift()\n')
+        old = "finish(true,string.format('Earned first companion, body pairs %d, shot pairs %d',bodyPairs,shotPairs))"
+        assert tail.count(old) == 1
+        tail = tail.replace(old, 'finishLift()')
+        values['LIFT_STATE'] = info['lift_fields']['SteveLiftState']
+        values['LIFT_BOT_Y'] = fields['SteveBotY']
     for name, value in values.items():
         assert 'STEVE_'+name in tail
         tail = tail.replace('STEVE_'+name, str(value))
@@ -104,11 +116,13 @@ def main():
     parser.add_argument('--reuse-route', action='store_true')
     parser.add_argument('--laser', action='store_true')
     parser.add_argument('--laser-stage', action='store_true')
+    parser.add_argument('--lift', action='store_true')
     args = parser.parse_args()
     if args.laser_stage and not args.laser:
         parser.error('--laser-stage requires --laser')
     output = args.output.resolve()
-    component = 'steve-laserbot-native-1111' if args.laser else 'steve-companion-native-1111'
+    component = ('steve-lift-native-1111' if args.lift else
+                 'steve-laserbot-native-1111' if args.laser else 'steve-companion-native-1111')
     assert output == Companion.H.ROOT / 'build' / component
     source = Companion.DONOR.HOST
     raw = source.read_bytes()
@@ -118,6 +132,12 @@ def main():
         import check_steve_shatterhand_laser_live_1111 as Laser
 
         build, exercise = Laser.proposal, Laser.exercise
+    if args.lift:
+        import check_steve_shatterhand_lift_live_1111 as Lift
+
+        build = lambda raw: Lift.Laser.proposal(raw, lift=True)
+        if not args.laser:
+            exercise = Lift.exercise
     candidate, info = build(raw)
     output.mkdir(exist_ok=True)
     rom, script = output / 'candidate.nes', output / 'controller.lua'
@@ -129,7 +149,8 @@ def main():
     else:
         groups = record(candidate, info, exercise)
         rom.write_bytes(candidate)
-    script.write_text(controller(groups, info, laser=args.laser, laser_stage=args.laser_stage),
+    script.write_text(controller(groups, info, laser=args.laser, laser_stage=args.laser_stage,
+                                 lift=args.lift and not args.laser),
                       encoding='utf-8', newline='\n')
     pin = Companion.C.digest(candidate)
     punch = info['punch']['symbols']

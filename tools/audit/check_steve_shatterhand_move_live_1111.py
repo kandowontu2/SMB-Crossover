@@ -27,18 +27,23 @@ PRELUDE = bytes.fromhex('ee035cad045cf003ce045cad3e5f0aa9002a8d5b07a900'
                         '8d59078db0688d006b8d0f6c8d17078d14608dc1688dc068a5758d095c8db568')
 
 
-def proposal(raw):
-    assert S.C.digest(raw) == S.LIVE_PIN
+def link():
     bundle = S.W.Symbols.bundle()
     aliases = {name: S.W.address(bundle, name) for name in NATIVE}
     assert aliases['XgWallContact'] == 0x6eba and aliases['JnPressed'] == 0x5c02
-    assert S.code(raw, 96, 0xa2cb, 9) == bytes.fromhex('200ea020f5a020c8a0')
-    assert S.code(raw, 96, 0xa2d4, len(PRELUDE)) == PRELUDE
     aliases.update(HOST)
     aliases.update({f'SteveMove{name}': address for name, address in Motion.FIELDS.items()})
     definitions = ''.join(f'{name} = ${address:04x}\n' for name, address in aliases.items())
     bridge = BRIDGE.read_text().replace('StockPreludeBytes', ','.join(map(str, PRELUDE)))
-    linked = S.H.assemble(definitions + bridge + Motion.SOURCE.read_text(), LAYOUT)
+    return S.H.assemble(definitions + bridge + Motion.SOURCE.read_text(), LAYOUT)
+
+
+def proposal(raw):
+    assert S.C.digest(raw) == S.LIVE_PIN
+    assert S.code(raw, 96, 0xa2cb, 9) == bytes.fromhex('200ea020f5a020c8a0')
+    assert S.code(raw, 96, 0xa2d4, len(PRELUDE)) == PRELUDE
+    bundle = S.W.Symbols.bundle()
+    linked = link()
     worker = linked['images']['BRIDGE'].ljust(LAYOUT['BRIDGE'][1], b'\xea') + linked['images']['MOTION']
     punch = S.link(bundle, movement_entry=linked['symbols']['SteveLiveMovement'])
     original = S.link(bundle)['images']

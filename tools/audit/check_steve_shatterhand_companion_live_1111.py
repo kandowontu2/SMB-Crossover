@@ -20,7 +20,7 @@ NATIVE = ('GamePauseStatus', 'GameEngineSubroutine', 'FrameCounter', 'SavedJoypa
           'JnEnemyHurt', 'JnEnemyHP', 'BoundingBox_UL_Corner', 'Square1SoundQueue')
 
 
-def proposal(raw, *, roll_storage=False, laser=False):
+def proposal(raw, *, roll_storage=False, laser=False, lift=False):
     """Build the first companion, or stage the host edits for the late Laserbot loader."""
     bundle = W.Symbols.bundle()
     lifecycle = Ingress.Transport
@@ -33,7 +33,8 @@ def proposal(raw, *, roll_storage=False, laser=False):
     fields.update(SteveBotClock=fields['FrameCounter'], SteveBotPad=fields['SavedJoypadBits'],
                   SteveBotPressed=fields['JnPressed'])
     donor = DONOR.DONOR.read_bytes()
-    core = First.link(donor, fields=fields)
+    assert not lift or laser
+    core = First.link(donor, fields=fields, lift_polar=lift)
     upgrade = H.assemble(bindings(private) + lifecycle.Upgrade.SOURCE.read_text(),
                          {'UPGRADE': (lifecycle.ORIGIN, lifecycle.STATE-lifecycle.ORIGIN)})
     punch = Ingress.S.link(bundle, movement_entry=0xdc00)['symbols']
@@ -48,9 +49,20 @@ def proposal(raw, *, roll_storage=False, laser=False):
         import check_steve_shatterhand_laser_live_1111 as Laser
 
         laser_fields = Laser.fields(host_symbols)
-        host = H.assemble('STEVE_LASER_LIVE=1\n' + bindings(host_symbols | laser_fields) + SOURCE.read_text()
-                          + '\n' + Laser.Core.SOURCE.read_text() + '\n' + Laser.BRIDGE.read_text(),
-                          layout | {'LASERBOT': (Laser.ORIGIN, Laser.STATE-Laser.ORIGIN)})
+        host_symbols.update(laser_fields)
+        layout.update(LASERBOT=(Laser.ORIGIN, Laser.STATE-Laser.ORIGIN))
+        options = 'STEVE_LASER_LIVE=1\n'
+        source = '\n'.join(path.read_text() for path in (SOURCE, Laser.Core.SOURCE, Laser.BRIDGE))
+        if lift:
+            import check_steve_shatterhand_lift_live_1111 as Lift
+
+            lift_fields = Lift.bindings(host_symbols, bundle)
+            host_symbols.update(lift_fields)
+            options += 'STEVE_LIFT_LIVE=1\n'
+            source += '\n' + Lift.source(donor)
+            layout['LASERBOT'] = Laser.ORIGIN, Lift.ORIGIN-Laser.ORIGIN
+            layout['LIFT'] = Lift.ORIGIN, Laser.STATE-Lift.ORIGIN
+        host = H.assemble(options + bindings(host_symbols) + source, layout)
         assert len(host['images']['COMPANION_HOST']) <= 0x300
     else:
         host = H.assemble(bindings(host_symbols) + SOURCE.read_text(), layout)
@@ -65,6 +77,8 @@ def proposal(raw, *, roll_storage=False, laser=False):
     extra_edits = (art_edit,)
     if laser:
         extra_edits += Laser.Art.edits(raw, donor)
+    if lift:
+        extra_edits += Lift.movement_edits(raw, host['symbols'])
     candidate, info = Transport.mount(token_image, info, core['images']['COMPANION'],
                                      extension=host['images']['COMPANION_HOST'],
                                      extra_edits=extra_edits, funding_source=raw if roll_storage else None)
@@ -73,16 +87,18 @@ def proposal(raw, *, roll_storage=False, laser=False):
                        live_bytes=len(host['images']['COMPANION_HOST']))
     if laser:
         info.update(laser_payload=host['images']['LASERBOT'], laser_fields=laser_fields)
+    if lift:
+        info.update(lift_fields=lift_fields, lift_payload=host['images']['LIFT'])
     return candidate, info
 
 
-def on_nightly(raw, *, laser=False):
+def on_nightly(raw, *, laser=False, lift=False):
     if C.digest(raw) == Ingress.PIN:
-        return proposal(raw, laser=laser)
+        return proposal(raw, laser=laser, lift=lift)
     from deliver_sonic_vol2_forms_1111 import recover_parent
 
     parent = recover_parent(raw)
-    steve, info = proposal(parent, roll_storage=True, laser=laser)
+    steve, info = proposal(parent, roll_storage=True, laser=laser, lift=lift)
     image = bytearray(raw)
     changes = 0
     for offset, (old, new) in enumerate(zip(parent, steve, strict=True)):
