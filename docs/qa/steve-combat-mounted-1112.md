@@ -50,3 +50,24 @@ and complete Prince overwrite/restore checks. Contact dispatch is still not
 hooked into gameplay. See `steve-robot-destruction-1112.md` for the corrected
 outgoing-before-incoming damage order and original-ROM comparison coverage.
 No output files were generated; no nightly or release was replaced.
+
+## Loaded native defeat verification
+
+`check_steve_throw_contact_loaded_1112.py` now executes the mounted contact
+routine against a runtime state reached by earning Alpha through the level.
+Bounded session 89038 exited 0: 24 combinations of Alpha/Laser actor IDs,
+robot HP 1/16, enemy HP 1/2/6, and cooldown 0/7 passed. Lethal enemy hits
+execute the real native bank-switched defeat routine and set the defeated
+state; robot damage still runs afterward, including fatal robot hits. The
+test checks return bank mappings, robot age/HP/timer, and enemy cooldown/HP.
+
+The initial cold-only fixture lacked initialized runtime services. The warm
+fixture additionally requires `CurrentBank=3` when explicitly mapping raw
+bank 3 at A000, alongside `CurrentBankC=2`. Omitting the logical bank shadow
+made the native call return through the wrong bank; the fixture now keeps
+both hardware mapping and logical shadow consistent.
+
+Candidate remains `d0f7594c…`. These are direct loaded-routine calls after
+normal setup, not controller-triggered robot contacts. Score placement,
+audio, interrupt scratch ownership, contact admission, age advancement,
+and fatal rendering remain pending. No output files were generated.
