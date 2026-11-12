@@ -79,15 +79,17 @@ def plan(raw, donor):
                 edits=edits, payload=payload)
 
 
-def roll(before, after):
+def roll(before, after, *, aliases=None):
     import check_current_roster_stage_ingress_1110 as Active
 
     bundle = W.Symbols.bundle()
     models = [C.Common.blank(dict(bundle, raw=image)) for image in (before, after)]
     setter = W.address(bundle, 'X5SetPhysicalChr')
 
+    aliases = {PAGE: ROLL_MIRROR} if aliases is None else aliases
+
     def physical(page):
-        return ROLL_MIRROR if page == PAGE else page
+        return aliases.get(page, page)
 
     for pool, status in product(range(6), (0x30, 0x31, 0x70, 0x71)):
         results, registers = [], []
@@ -126,7 +128,8 @@ def roll(before, after):
     for (old_oam, old_map), (oam, new_map) in zip(*draws, strict=True):
         assert old_oam == oam and new_map == tuple(map(physical, old_map))
         assert all(T.page(before, old) == T.page(after, new) for old, new in zip(old_map, new_map, strict=True))
-    assert T.page(before, 307) == T.page(after, 307)
+    if 307 not in aliases:
+        assert T.page(before, 307) == T.page(after, 307)
     return dict(compiled_publishers=24, compared_1KiB_pages=72, equal_OAM_frames=60)
 
 
