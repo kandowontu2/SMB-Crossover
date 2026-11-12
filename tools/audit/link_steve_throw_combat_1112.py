@@ -25,7 +25,7 @@ def link(info):
         fields[name] = Live.W.address(Live.W.Symbols.bundle(), name)
     fields.update(SteveThrowFrame=0xc978, SteveDeathDraw=0xc979,
                   SteveDeathPolarity=fields['SteveBotRoomPolarity'], SteveBotHP=fields['SteveRobotArrival'],
-                  ThrowPoint=0, ThrowLow=4, ThrowHigh=8, ThrowDelta=12, ThrowExtent=14)
+                  ThrowPoint=3, ThrowLow=7, ThrowHigh=11, ThrowDelta=0x90, ThrowExtent=0x92)
     source = Live.bindings(fields)+'\n'.join((H.ROOT/'tools/reference'/name).read_text() for _, name in PARTS)
     # First pass obtains exact instruction lengths; second packs all leaves
     # into the authenticated 1KiB row, without changing zero-page selection.

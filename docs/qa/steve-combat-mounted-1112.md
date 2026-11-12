@@ -95,3 +95,37 @@ uses 7B–7F. CHR710 has native shots, tokens, and Laser cells. The remaining
 explosion cells in the current mapping. Hardware sprite slot 1 also contains
 native misc graphics; replacing it would corrupt unrelated actors. Do not
 overwrite these cells. A properly funded/remapped atlas remains necessary.
+
+## Interrupt correction and funded explosion cells
+
+The first interrupt sweep exposed a real geometry hazard: NMI overwrites
+zero-page 00 while the point conversion was using it. The live linker now
+uses point 03–06, low 07–0A, high 0B–0E, delta 90–91, and extent 92.
+The scan saves/restores 90–92 in addition to its previous scratch range.
+Interrupt comparisons deliberately exclude 00–02, which are not live geometry
+inputs or outputs in this version.
+
+Bounded session 31031 exited 0 with 24 contacts, ten rejection cases, and
+346 NMI plus 346 IRQ injection points. Twelve mapper publication windows
+were checked by executing the pending STA 5115 on both the interrupted and
+uninterrupted branches and comparing their resulting state. Native kills,
+bank returns, and all live contact scratch survived. Candidate SHA256:
+`ba910ef27bdafbe5547d82f183b30805c7880383aa508f7b72a3163e1ec436f0`.
+
+The subsequent duplicate-cell audit resolves the CHR shortage without
+overwriting other images. CHR711 cells +1E0/+200 equal CHR710 +280/+2A0.
+Only the shared item-9/item-13 record at PRG97:C210 references those old
+tiles. Remapping record C211 from 5F to 29 and C215 from 61 to 2B preserves
+pixels for Mike/Jay/Steve, whose shared JnDraw publishes both pages.
+`steve_robot_death_art_funding_1112.py` qualifies exact publication opcodes,
+item pointers, all 71 native packed records, and identical item pixels before
+replacing the freed 64 bytes with original donor cells 51/53. Root bounded
+test passed with zero output files. These art edits are not mounted yet.
+
+Helper audit also identified the later routing seams: intercept the grant
+call before LaserLifecycle/FirstBotActive for actor FF; retain projectile
+updates through timer expiry; branch LaserTick before its normal pose call.
+The renderer can branch at SteveLiftDraw, then reuse its existing BuildPose
+and draw/projectile suffix. Preserve a death-frame marker on terminal actor
+zero to avoid drawing stale Laser body art. Gameplay hooks, rendering,
+audio, and emulator validation remain pending.

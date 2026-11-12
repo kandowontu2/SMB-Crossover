@@ -33,8 +33,12 @@ ThrowScanSave:
     pha
     dex
     bpl ThrowScanSave
-    lda $90
+    ldx #2
+ThrowScanSaveDelta:
+    lda $90,x
     pha
+    dex
+    bpl ThrowScanSaveDelta
     jsr SteveThrowWorldPoint
     jsr SteveThrowFindTarget
     bcc ThrowScanRestore
@@ -42,8 +46,13 @@ ThrowScanSave:
     lda #1
     jsr SteveThrowContactDamage
 ThrowScanRestore:
+    ldx #0
+ThrowScanRestoreDelta:
     pla
-    sta $90
+    sta $90,x
+    inx
+    cpx #3
+    bne ThrowScanRestoreDelta
     ldx #0
 ThrowScanRestoreScratch:
     pla
