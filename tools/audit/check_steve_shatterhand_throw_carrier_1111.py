@@ -167,7 +167,8 @@ def roll(before, after):
     return 24
 
 
-def cold_controls(before, old_info, candidate, info, pose_worker, linked, fields, *, live_bindings=False):
+def cold_controls(before, old_info, candidate, info, pose_worker, linked, fields, *, live_bindings=False,
+                  resident_edits=()):
     stop = T.Weapon.Stock.STOP
     cuts = set()
     data_origin = info['throw_data_origin']
@@ -214,6 +215,12 @@ def cold_controls(before, old_info, candidate, info, pose_worker, linked, fields
     old, new = seed(before), seed(candidate)
     run(old, old_info)
     rows = run(new, info, nmi=True)
+    expected_resident = bytearray(old.ram[2])
+    for pc, prior, replacement in resident_edits:
+        offset = pc-0xc000
+        assert 0 <= offset and offset+len(prior) <= 0x2000 and len(prior) == len(replacement)
+        assert expected_resident[offset:offset+len(prior)] == prior, hex(pc)
+        expected_resident[offset:offset+len(prior)] = replacement
     expected = ([(0x33, 0xce)] if pose_worker is not None else []) + [(0x32, 0xd8), (0x50, 0xd0), (0x52, 0xd4)]
     assert rows == expected and new.ppu_reads-old.ppu_reads == 2050
     assert C.Common.headers(new) == (info['cookie'],)*2
@@ -222,7 +229,7 @@ def cold_controls(before, old_info, candidate, info, pose_worker, linked, fields
     assert old.ram[2][0x1a80:0x1c00] == new.ram[2][0x1a80:0x1c00]
     assert new.ram[2][0xd00:0xe00] == info['throw_boot']
     common = ((0, 0xd00),) if bridge is None else ((0, 0x4a0), (0x500, 0x980), (0xa00, 0xd00))
-    assert all(old.ram[2][a:b] == new.ram[2][a:b] for a, b in
+    assert all(expected_resident[a:b] == new.ram[2][a:b] for a, b in
                (*common, (0xe00, 0x1800), (0x1a80, 0x1fe0), (0x1ff0, 0x2000)))
     if bridge is not None:
         assert new.ram[2][0x980:0xa00] == bridge[:128]
@@ -313,6 +320,7 @@ def cold_controls(before, old_info, candidate, info, pose_worker, linked, fields
         live_launch = dict(x_q4=0x2260, timer=new[fields['SteveThrowTimer']],
                            pose=new[fields['SteveBotPose']]+256*new[fields['SteveBotPose']+1])
     return dict(loader_bytes=info['throw_loader']['used']['STEVE_LATE_COLD'], extra_cold_reads=2050,
+                declared_resident_edit_bytes=sum(len(new) for _, _, new in resident_edits),
                 NMI_cuts=len(cuts), faults=[hex(a) for a in (*faults, data_origin, *bridge_faults)], state_bytes=STATE_CAPACITY,
                 bridge_bytes=0 if bridge is None else len(bridge),
                 foreign_roundtrip=foreign_roundtrip,
