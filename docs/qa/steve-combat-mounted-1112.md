@@ -71,3 +71,27 @@ Candidate remains `d0f7594c…`. These are direct loaded-routine calls after
 normal setup, not controller-triggered robot contacts. Score placement,
 audio, interrupt scratch ownership, contact admission, age advancement,
 and fatal rendering remain pending. No output files were generated.
+
+## Contact scan admission
+
+The mounted payload now includes `steve_throw_scan_1112.s` (110 bytes).
+It admits Alpha/Laser actors, age >=12, no armor or transformation, an active
+throw, visible throw phase, and a nonzero pose. It composes world-coordinate
+conversion, enemy selection, and damage. Scratch bytes 00–0E and 90 plus the
+caller's ObjectOffset are saved/restored around contact. Normal enemy contact
+uses flag 01. Surviving age increments with saturation; fatal age stays zero.
+
+Bounded session 88035 exited 0: 24 loaded contact cases, including actual
+native enemy kills, plus ten rejection/saturation cases. Tests verify scratch
+and ObjectOffset restoration. Candidate:
+`c927815d46e960571a3d2e646af7b770cdd6d8d27b9d7ed63fb1b6e6e51aec45`.
+Combined row is 876 bytes, leaving 148. The scan entry is loaded but not yet
+called by the gameplay update. Interrupt safety remains unverified.
+
+The read-only art helper found no free pair of 32-byte cells in CHR710/711:
+native item records occupy CHR711 tiles 41–6D, Alpha uses 6F–79, and Laser
+uses 7B–7F. CHR710 has native shots, tokens, and Laser cells. The remaining
+32-byte tails in CHR339 and CHR307 cannot simultaneously supply both missing
+explosion cells in the current mapping. Hardware sprite slot 1 also contains
+native misc graphics; replacing it would corrupt unrelated actors. Do not
+overwrite these cells. A properly funded/remapped atlas remains necessary.

@@ -14,13 +14,14 @@ PARTS = (
     ('DEATH_SHOTS', 'steve_robot_clear_shots_1112.s'),
     ('THROW_POINT', 'steve_throw_point_1112.s'),
     ('THROW_CONTACT', 'steve_throw_contact_1112.s'),
+    ('THROW_SCAN', 'steve_throw_scan_1112.s'),
 )
 
 
 def link(info):
     fields = info['throw_control_fields'] | info['throw_core_link']['symbols'] | info['laser_fields']
     for name in ('Enemy_BoundBoxCtrl', 'Enemy_X_Position', 'Enemy_PageLoc', 'Enemy_Y_Position',
-                 'Enemy_Y_HighPos', 'BoundBoxCtrlData', 'PlayerFacingDir'):
+                 'Enemy_Y_HighPos', 'BoundBoxCtrlData', 'PlayerFacingDir', 'ObjectOffset'):
         fields[name] = Live.W.address(Live.W.Symbols.bundle(), name)
     fields.update(SteveThrowFrame=0xc978, SteveDeathDraw=0xc979,
                   SteveDeathPolarity=fields['SteveBotRoomPolarity'], SteveBotHP=fields['SteveRobotArrival'],
