@@ -31,9 +31,10 @@ def link(raw, info):
     fields.update(info['lift_fields'] | labels, FmGroups=0x730b, PoseBuffer=0xc8c0,
                   PoseMirror=0xc942, PoseAnchorX=0xc943, PoseAnchorY=0xc944)
     fields.update({name: info['companion_fields'][name] for name in ('SteveBotFacing', 'SteveBotX')})
+    fields['SteveLaserActive'] = info['laser_fields']['SteveLaserActive']
     assert info['companion_fields']['SteveBotY'] == fields['SteveBotX']+2
     fields.update({name: info['companion_symbols'][name] for name in
-                   ('SetCompanionMeta', 'ProjectToScreen', 'DrawCompanionMeta')})
+                   ('SetCompanionMeta', 'ProjectToScreen', 'DrawCompanionMeta', 'DrawShot', 'LaserDrawShots')})
     assembled = Live.H.assemble(Live.bindings(fields) + SOURCE.read_text(),
                                 {'POSE_GATE': (0xc040, 14), 'POSE_BANK': (0xc38c, 41),
                                  'POSE_WORKER': (0xcecf, 305)})
@@ -75,46 +76,88 @@ def graphics(candidate, info):
     native_frame = Live.C.Game.frame
     bundle = Live.W.Symbols.bundle()
     renderer = Live.W.address(bundle, 'MetaspriteRenderLoop')
+    pose_ptr = Live.W.address(bundle, 'SmPosePtr')
+    chr_fields = tuple(Live.W.address(bundle, name) for name in ('SmChrBank', 'PlayerChrBank'))
+    lift_state = info['lift_fields']['SteveLiftState']
+    draw_shot = info['companion_symbols']['DrawShot']
+    stock_table = Live.C.offset(97, 0xc032)
+    stock_lows = set(candidate[stock_table:stock_table+14])
     counts = Counter()
+    lift_memory = None
+    ordinary_body = None
+    lift_shot_dispatches = 0
 
     def frame(m, observe=None):
         expected = set()
+        lift_bot_drawn = False
 
         def visit(memory, cpu):
+            nonlocal lift_memory, ordinary_body, lift_bot_drawn, lift_shot_dispatches
             if observe:
                 observe(memory, cpu)
-            pointer = memory[3]+256*memory[4]
-            if cpu.pc != renderer or pointer not in (0xc8c0, 0xc8e0):
+            if cpu.pc == draw_shot and memory.rawtags[2] == 2 and lift_bot_drawn:
+                lift_shot_dispatches += 1
+            if cpu.pc != renderer:
                 return
-            assert memory.rawtags[2] == 2, ('body PRG owner', memory.rawtags)
-            offset = pointer-0xc000
-            record = bytes(memory.ram[2][offset:offset+29])
-            field = 'SteveLiftPlayerPose' if pointer == 0xc8c0 else 'SteveLiftBotPose'
-            pose = Live.resident(memory, info['lift_fields'][field]) + (0x100 if pointer == 0xc8e0 else 0)
-            counts[pose] += 1
+            pointer = memory[3]+256*memory[4]
+            is_ordinary = False
+            if pointer in (0xc8c0, 0xc8e0):
+                assert memory.rawtags[2] == 2, ('body PRG owner', memory.rawtags)
+                offset = pointer-0xc000
+                record = bytes(memory.ram[2][offset:offset+29])
+                field = 'SteveLiftPlayerPose' if pointer == 0xc8c0 else 'SteveLiftBotPose'
+                pose = Live.resident(memory, info['lift_fields'][field]) + (0x100 if pointer == 0xc8e0 else 0)
+                counts[pose] += 1
+                if pointer == 0xc8e0:
+                    lift_bot_drawn = True
+                elif lift_memory is None and Live.resident(memory, lift_state) == 7:
+                    lift_memory = memory
+            elif (memory is lift_memory and ordinary_body is None and
+                  pointer == memory[pose_ptr]+256*memory[pose_ptr+1] and
+                  Live.resident(memory, lift_state) == 0):
+                assert pointer >> 8 == 0xc1 and pointer & 0xff in stock_lows, ('stock body pointer', hex(pointer))
+                assert memory.rawtags[2] == 0xe1, ('stock body PRG owner', memory.rawtags)
+                assert tuple(memory[at] for at in chr_fields) == (220, 220), 'stock body CHR selection'
+                offset = Live.C.offset(97, pointer)
+                record = bytes(memory[pointer:pointer+17])
+                assert record == candidate[offset:offset+17] and record[0] == 16
+                is_ordinary = True
+            else:
+                return
             x = memory[7] + 256*memory[8]
             y = memory[9] + 256*memory[10]
+            cells = set()
             for at in range(1, record[0]+1, 4):
                 tile, attr, dy, dx = record[at:at+4]
                 sx = x + (dx-256 if dx & 128 else dx)
                 sy = y + (dy-256 if dy & 128 else dy)
                 if 0 <= sx < 256 and 256 <= sy < 496:
-                    expected.add((sy & 255, tile, (attr | memory[6]) & 0xf3, sx))
+                    cells.add((sy & 255, tile, (attr | memory[6]) & 0xf3, sx))
+            expected.update(cells)
+            if is_ordinary:
+                assert cells, 'released Steve body did not enter visible OAM'
+                ordinary_body = dict(pointer=f'{pointer:04x}', prg=memory.rawtags[2], oam_cells=len(cells))
 
         native_frame(m, visit)
         if expected:
             actual = {tuple(m[0x200+i:0x204+i]) for i in range(0, 256, 4)}
-            assert expected <= actual, ('missing original lift body', expected-actual)
+            assert expected <= actual, ('missing selected Steve body', expected-actual)
+        if m is lift_memory and ordinary_body is not None and m.chr_latches[0] == 220:
+            ordinary_body['published_chr'] = 220
 
     with patch.object(Live.C.Game, 'frame', frame):
         proof = Lift.exercise(candidate, info)
     assert {0x6c, 0xac, 0xb0, 0xb6, 0xb8, 0x15e, 0x160, 0x162, 0x164} <= counts.keys(), counts
-    return dict(movement=proof, body_draws={f'{pose:02x}': count for pose, count in counts.items()})
+    assert ordinary_body is not None and ordinary_body.get('published_chr') == 220, ordinary_body
+    assert lift_shot_dispatches > 0, 'first companion projectile renderer was bypassed during lift'
+    return dict(movement=proof, body_draws={f'{pose:02x}': count for pose, count in counts.items()},
+                ordinary_body_after_release=ordinary_body, lift_shot_dispatches=lift_shot_dispatches)
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--graphics', action='store_true')
+    parser.add_argument('--opening-only', action='store_true')
     args = parser.parse_args()
     raw = A.D.HOST.read_bytes()
     candidate, info = proposal(raw)
@@ -124,6 +167,8 @@ def main():
         print(json.dumps(graphics(candidate, info), indent=2), flush=True)
     else:
         print(json.dumps(Carrier.openings(raw, candidate), indent=2), flush=True)
+        if args.opening_only:
+            return
         print(json.dumps(Lift.exercise(candidate, info), indent=2), flush=True)
 
 

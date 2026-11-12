@@ -194,6 +194,7 @@ LaserBodyPointer:
     sta $0a
     jsr ProjectToScreen
     jsr DrawCompanionMeta
+LaserDrawShots:
     lda #7
     sta SteveLaserDrawSlot
 LaserDrawSegments:

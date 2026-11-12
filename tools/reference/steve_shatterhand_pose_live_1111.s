@@ -191,6 +191,14 @@ CopyLiftPosition:
     bpl CopyLiftPosition
     jsr ProjectToScreen
     jsr DrawCompanionMeta
+    ; Replacing the body must not hide shots that remain active during lift.
+    lda SteveLaserActive
+    beq LiftFirstShot
+    jsr LaserDrawShots
+    jmp LiftDrawDone
+LiftFirstShot:
+    jsr DrawShot
+LiftDrawDone:
     sec
     rts
 NoLiftDraw:
