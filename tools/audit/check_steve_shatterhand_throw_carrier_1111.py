@@ -50,25 +50,42 @@ def funding(image):
     return at, ROLL_OLD, ROLL_NEW
 
 
-def mount(image, info, code, data, *, pose=False, extra_edits=()):
+def mount(image, info, code, data, *, pose=False, extra_edits=(), bridge=None):
     """Bind the D800 prefix, CD80 data, and exact pre-existing DA80 suffix."""
-    assert 0 < len(code) <= CAPACITY and 0 < len(data) <= DATA_CAPACITY
+    data_origin = DATA if bridge is None else DATA+8
+    data_capacity = DATA_CAPACITY-(data_origin-DATA)
+    assert 0 < len(code) <= CAPACITY and 0 < len(data) <= data_capacity
     old_source = ('STEVE_POSE_CARRIER=307\n' if pose else '') + Late.SOURCE.read_text()
     anchor = '    lda #$50                       ; CHR336, retired Roll slot 0 mirror\n'
     assert old_source.count(anchor) == 1
-    layout = {'STEVE_LATE_COLD': (Late.BOOT, DATA-Late.BOOT)}
+    layout = {'STEVE_LATE_COLD': (Late.BOOT, data_origin-Late.BOOT)}
     old_boot = H.assemble(old_source, layout)['images']['STEVE_LATE_COLD'].ljust(256, b'\xea')
-    new_source = old_source.replace(anchor, SOURCE.read_text() + '\n' + anchor)
+    throw_source = SOURCE.read_text()
+    bridge_edits = ()
+    bridge_loader = None
+    if bridge is not None:
+        assert pose and len(bridge) == 224
+        bridge_loader = H.assemble(SOURCE.with_name('steve_shatterhand_throw_bridge_cold_1111.s').read_text(),
+                                   {'THROW_BRIDGE_COLD': (ORIGIN+len(code), CAPACITY-len(code))})
+        helper = bridge_loader['images']['THROW_BRIDGE_COLD']
+        entry = bridge_loader['symbols']['SteveThrowBridgeCold']
+        code += helper
+        throw_source += f'\n    jsr ${entry:04x}\n    bcc SteveLateFailed\n'
+        # Exactly eight recovery cells end at CHR307+$300. Preserve them.
+        spare = C.CHR+307*1024+0x300
+        assert image[spare:spare+256] == bytes(256)
+        bridge_edits = ((spare, bytes(256), bridge.ljust(256, b'\x00')),)
+    new_source = old_source.replace(anchor, throw_source + '\n' + anchor)
     loader = H.assemble(new_source, layout)
     bootstrap = loader['images']['STEVE_LATE_COLD']
-    assert len(bootstrap) == (127 if pose else 118)
-    new_boot = bootstrap.ljust(DATA-Late.BOOT, b'\xea') + data.ljust(DATA_CAPACITY, b'\xea')
+    assert len(bootstrap) == (127 if pose else 118) + (5 if bridge is not None else 0)
+    new_boot = bootstrap.ljust(data_origin-Late.BOOT, b'\xea') + data.ljust(data_capacity, b'\xea')
     punch = T.page(image, PUNCH_PAGE)
     carrier = code.ljust(CAPACITY, b'\xea') + punch[CAPACITY:]
     assert len(new_boot) == 256 and len(carrier) == 1024
     allocations = (funding(image),
                    (C.CHR+1024*PAGE, bytes(1024), carrier),
-                   (C.CHR+1024*Late.BOOT_PAGE+0x300, old_boot, new_boot), *extra_edits)
+                   (C.CHR+1024*Late.BOOT_PAGE+0x300, old_boot, new_boot), *bridge_edits, *extra_edits)
     binding = b''.join(at.to_bytes(4, 'little')+len(new).to_bytes(4, 'little')+new
                        for at, _, new in sorted(allocations))
     old_cookie = info['cookie']
@@ -86,7 +103,9 @@ def mount(image, info, code, data, *, pose=False, extra_edits=()):
         output[at:at+len(old)] = new
         cursor = at+len(old)
     return bytes(output), info | dict(cookie=cookie, cold=cold, throw_loader=loader, throw_stage=carrier,
-                                      throw_edits=edits, throw_boot=new_boot, throw_state=dict(STATE_FIELDS))
+                                      throw_edits=edits, throw_boot=new_boot, throw_state=dict(STATE_FIELDS),
+                                      throw_bridge_loader=bridge_loader, throw_bridge=bridge,
+                                      throw_data_origin=data_origin)
 
 
 def detached(donor):
@@ -101,7 +120,7 @@ def detached(donor):
     return linked, fields
 
 
-def live_link(donor, info):
+def live_link(donor, info, *, data_origin=DATA):
     """Bind the source throw core to the already-loaded companion/lift code."""
     original, _ = detached(donor)
     fields = info['companion_fields'] | info['lift_fields'] | STATE_FIELDS
@@ -114,7 +133,8 @@ def live_link(donor, info):
     angles = original['images']['THROW_DATA']
     source = Live.bindings({name: fields[name] for name in required} | symbols) + Throw.SOURCE.read_text()
     source += '\n.segment "THROW_DATA"\nSteveThrowAngles: .byte ' + ','.join(map(str, angles)) + '\n'
-    linked = H.assemble(source, {'THROW': (ORIGIN, CAPACITY), 'THROW_DATA': (DATA, DATA_CAPACITY)})
+    linked = H.assemble(source, {'THROW': (ORIGIN, CAPACITY),
+                               'THROW_DATA': (data_origin, DATA_CAPACITY-(data_origin-DATA))})
     # Live clock/input aliases can use zero-page opcodes rather than the
     # detached fixture's absolute RAM addresses.
     assert 0 < len(linked['images']['THROW']) <= CAPACITY and linked['images']['THROW_DATA'] == angles
@@ -150,6 +170,11 @@ def roll(before, after):
 def cold_controls(before, old_info, candidate, info, pose_worker, linked, fields, *, live_bindings=False):
     stop = T.Weapon.Stock.STOP
     cuts = set()
+    data_origin = info['throw_data_origin']
+    bridge = info['throw_bridge']
+    helper = info['throw_bridge_loader']
+    helper_start = helper['symbols']['SteveThrowBridgeCold'] if helper else 0
+    helper_end = helper_start+len(helper['images']['THROW_BRIDGE_COLD']) if helper else 0
 
     def seed(image):
         m = C.Common.blank(dict(W.Symbols.bundle(), raw=image))
@@ -164,7 +189,8 @@ def cold_controls(before, old_info, candidate, info, pose_worker, linked, fields
         rows = []
 
         def observe(m, c):
-            if m.rawtags[1:3] != [3, 2] or not Late.BOOT <= c.pc < DATA:
+            if m.rawtags[1:3] != [3, 2] or not (Late.BOOT <= c.pc < data_origin or
+                                                              helper_start <= c.pc < helper_end):
                 return
             assert c.p & 4 and m.ppuctrl & 4 == 0
             assert all(header != selected['cookie'] for header in C.Common.headers(m))
@@ -173,6 +199,8 @@ def cold_controls(before, old_info, candidate, info, pose_worker, linked, fields
                 if c.pc == labels['SteveLateRow']:
                     rows.append((c.a, c.x))
                 if fault and c.pc == labels['SteveLateVerify'] and m[4] == fault >> 8:
+                    m.corrupt_at = (2, fault-0xc000)
+                if fault and c.pc == helper_start and fault in (0xc980, 0xc9ff, 0xc4a0, 0xc4ff):
                     m.corrupt_at = (2, fault-0xc000)
             if nmi and c.pc not in cuts:
                 cuts.add(c.pc)
@@ -193,8 +221,12 @@ def cold_controls(before, old_info, candidate, info, pose_worker, linked, fields
     assert new.ram[2][0x1800:0x1c00] == info['throw_stage']
     assert old.ram[2][0x1a80:0x1c00] == new.ram[2][0x1a80:0x1c00]
     assert new.ram[2][0xd00:0xe00] == info['throw_boot']
+    common = ((0, 0xd00),) if bridge is None else ((0, 0x4a0), (0x500, 0x980), (0xa00, 0xd00))
     assert all(old.ram[2][a:b] == new.ram[2][a:b] for a, b in
-               ((0, 0xd00), (0xe00, 0x1800), (0x1a80, 0x1fe0), (0x1ff0, 0x2000)))
+               (*common, (0xe00, 0x1800), (0x1a80, 0x1fe0), (0x1ff0, 0x2000)))
+    if bridge is not None:
+        assert new.ram[2][0x980:0xa00] == bridge[:128]
+        assert new.ram[2][0x4a0:0x500] == bridge[128:]
     assert old.ram[3][:0x1fe0] == new.ram[3][:0x1fe0] and old.ram[3][0x1ff0:] == new.ram[3][0x1ff0:]
     assert old.chr_latches == new.chr_latches and old.vram == new.vram and old.rawtags == new.rawtags
     state = STATE-0xc000
@@ -210,8 +242,51 @@ def cold_controls(before, old_info, candidate, info, pose_worker, linked, fields
         assert m.corrupt_at == (2, fault-0xc000)
         assert not any(header[0] for header in C.Common.headers(m))
     m = seed(candidate)
-    m.corrupt_at = (2, DATA-0xc000)
+    m.corrupt_at = (2, data_origin-0xc000)
     assert not run(m, info) and not any(header[0] for header in C.Common.headers(m))
+    bridge_faults = (0xc980, 0xc9ff, 0xc4a0, 0xc4ff) if bridge is not None else ()
+    for fault in bridge_faults:
+        m = seed(candidate)
+        assert run(m, info, fault=fault) == expected[:2]
+        assert not any(header[0] for header in C.Common.headers(m))
+
+    foreign_roundtrip = None
+    if bridge is not None:
+        from prince_cold_packet_1111 import COOKIE as PRINCE_COOKIE
+
+        spans = (slice(0x980, 0xa00), slice(0x4a0, 0x500))
+
+        def contents(m):
+            return tuple(bytes(m.ram[2][span]) for span in spans)
+
+        def header_order(m, cookie):
+            events = [(bank, value) for bank, at, value in m.ram_writes if at == 0x1fe0]
+            for bank in (2, 3):
+                assert events.index((bank, 0)) < events.index((bank, cookie[0])), events
+
+        foreign = C.Common.blank(new.bundle)
+        C.Common.cold(foreign, 38)
+        prince_cookie = candidate[PRINCE_COOKIE:PRINCE_COOKIE+16]
+        assert C.Common.headers(foreign) == (prince_cookie,)*2
+        m = C.Vector.clone(new)
+        before = contents(m)
+        m[0x730b] = 0
+        prince = C.Common.cold(m, 38)
+        assert prince['PPU_reads'] > 0 and C.Common.headers(m) == (prince_cookie,)*2
+        assert contents(m) == contents(foreign)
+        assert all(a != b for a, b in zip(before, contents(m), strict=True))
+        covered = {at for span in spans for at in range(span.start, span.stop)}
+        assert covered <= {at for bank, at, _ in m.ram_writes if bank == 2}
+        header_order(m, prince_cookie)
+        C.Common.scene(m, 16)
+        m[0x730b] = 0x40
+        C.Common.clear_logs(m)
+        reads = m.ppu_reads
+        assert run(m, info) == expected and m.ppu_reads > reads
+        assert C.Common.headers(m) == (info['cookie'],)*2 and contents(m) == before
+        header_order(m, info['cookie'])
+        foreign_roundtrip = dict(owner=38, overwritten_bytes=len(covered),
+                                 foreign_PPU_reads=prince['PPU_reads'], return_PPU_reads=m.ppu_reads-reads)
 
     new.raw_page(2, 2)
     N.put(new, CurrentBankC=2)
@@ -238,15 +313,70 @@ def cold_controls(before, old_info, candidate, info, pose_worker, linked, fields
         live_launch = dict(x_q4=0x2260, timer=new[fields['SteveThrowTimer']],
                            pose=new[fields['SteveBotPose']]+256*new[fields['SteveBotPose']+1])
     return dict(loader_bytes=info['throw_loader']['used']['STEVE_LATE_COLD'], extra_cold_reads=2050,
-                NMI_cuts=len(cuts), faults=[hex(a) for a in (*faults, DATA)], state_bytes=STATE_CAPACITY,
+                NMI_cuts=len(cuts), faults=[hex(a) for a in (*faults, data_origin, *bridge_faults)], state_bytes=STATE_CAPACITY,
+                bridge_bytes=0 if bridge is None else len(bridge),
+                foreign_roundtrip=foreign_roundtrip,
                 exact_punch_tail=384, executed_direction=direction, live_launch=live_launch)
+
+
+def warm_routes(parent, candidate, info):
+    import check_steve_shatterhand_pose_live_1111 as Art
+    import check_steve_shatterhand_upgrade_transport_1111 as UpgradeTransport
+    import deliver_steve_lift_art_1111 as ArtDelivery
+    import deliver_steve_lift_1111 as LiftDelivery
+    import deliver_steve_laserbot_1111 as LaserDelivery
+
+    base = LaserDelivery.recover_parent(LiftDelivery.recover_parent(ArtDelivery.recover_parent(parent)))
+    jay_base = UpgradeTransport.original_jay_image(UpgradeTransport.source_image(base))
+    rebuilt, jay_info = UpgradeTransport.Jay.proposal(UpgradeTransport.Jay.recover_parent(jay_base))
+    assert rebuilt == jay_base
+    native_frame = Live.C.Game.frame
+    accesses, updates = [], [0]
+
+    def selected(m):
+        return all(bytes(m.ram[bank][0x1fe0:0x1ff0]) == info['cookie'] for bank in (2, 3))
+
+    def watch(m, observe=None):
+        bus_type = type(m)
+        read, write = bus_type.__getitem__, bus_type.__setitem__
+
+        def hit(memory, at, kind):
+            if (isinstance(at, int) and memory.rawtags[2] == 2 and selected(memory) and
+                    (0xc4a0 <= at < 0xc500 or 0xc980 <= at < 0xca00)):
+                accesses.append((kind, hex(at)))
+                assert len(accesses) < 16, accesses
+
+        def get(memory, at):
+            hit(memory, at, 'read')
+            return read(memory, at)
+
+        def put(memory, at, value):
+            hit(memory, at, 'write')
+            return write(memory, at, value)
+
+        with patch.object(bus_type, '__getitem__', get), patch.object(bus_type, '__setitem__', put):
+            native_frame(m, observe)
+        if selected(m):
+            assert m.ram[2][0x980:0xa00] == info['throw_bridge'][:128]
+            assert m.ram[2][0x4a0:0x500] == info['throw_bridge'][128:]
+            updates[0] += 1
+
+    with patch.object(Live.C.Game, 'frame', watch):
+        steve = Art.graphics(candidate, info)
+        jay = UpgradeTransport.Jay.earned_route(candidate, jay_info | {'cookie': info['cookie']})
+    assert not accesses, accesses
+    return dict(Steve=steve, Jay=jay, authenticated_updates=updates[0], gap_reads_writes=accesses)
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--openings', action='store_true')
     parser.add_argument('--live-pose', action='store_true', help='Qualify on the delivered original lift poses')
+    parser.add_argument('--bridge-space', action='store_true', help='Probe the candidate scatter-copy allocation')
+    parser.add_argument('--warm-routes', action='store_true', help='Watch both scatter regions through earned Steve and Jay routes')
     args = parser.parse_args()
+    assert not args.bridge_space or args.live_pose
+    assert not args.warm_routes or args.bridge_space
     raw, donor = Live.DONOR.HOST.read_bytes(), Live.DONOR.DONOR.read_bytes()
     if args.live_pose:
         import check_steve_shatterhand_pose_live_1111 as LivePose
@@ -270,8 +400,10 @@ def main():
     pair.host.memory[DATA:DATA+64] = linked['images']['THROW_DATA']
     assert Throw.directions(pair) == 529 and Throw.begins(pair) == 12 and Throw.contacts(pair) == 8
     if args.live_pose:
-        linked, fields = live_link(donor, old_info)
-    candidate, info = mount(parent, old_info, linked['images']['THROW'], linked['images']['THROW_DATA'], pose=True)
+        linked, fields = live_link(donor, old_info, data_origin=DATA+8 if args.bridge_space else DATA)
+    bridge = bytes((i*31+17) & 255 for i in range(224)) if args.bridge_space else None
+    candidate, info = mount(parent, old_info, linked['images']['THROW'], linked['images']['THROW_DATA'],
+                            pose=True, bridge=bridge)
     report = dict(base=C.digest(raw), live_pose=args.live_pose, pose_parent=C.digest(parent), fixture=C.digest(candidate),
                   cookie=info['cookie'].hex(), code_bytes=len(linked['images']['THROW']), angle_bytes=64,
                   preimage_D800=C.digest(T.page(raw, PUNCH_PAGE)[:CAPACITY]),
@@ -281,6 +413,8 @@ def main():
                                    live_bindings=args.live_pose)
     if args.openings:
         report['openings'] = Pose.openings(parent, candidate)
+    if args.warm_routes:
+        report['warm_routes'] = warm_routes(raw, candidate, info)
     print(json.dumps(report, indent=2), flush=True)
 
 
