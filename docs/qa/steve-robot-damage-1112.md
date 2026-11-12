@@ -44,3 +44,23 @@ sets the receipt even during enemy cooldown; and fatal contact overrides the
 actor with `$FF`. The shot-clear callback must preserve `$92/$93`, which hold
 the already prepared death movement delta. Detailed source seams are recorded
 in `steve-robot-destruction-1112.md`.
+
+## Combined live-field link
+
+`link_steve_throw_combat_1112.py` assembles the verified flight, destruction,
+rectangle, overlap, target-search and damage routines with actual live field
+addresses. It packs the routines contiguously from `$AB00` in a two-pass link.
+The row uses **656 bytes**, leaving **368 bytes** for contact/update hooks.
+The separate nine-byte emission gate remains at `$D777`. Zero-page scratch
+bindings reduce several routines relative to their detached fixtures.
+
+`steve_robot_clear_shots_1112.s` supplies the destruction callback: it clears
+Alpha type/timer/power and all eleven Laserbot type entries while preserving
+the prepared `$92/$93` movement delta. A directed CPU execution with all types
+active verified those clears, the unchanged delta and a balanced stack.
+The bounded linker check completed with no generated files.
+
+The proposed geometry scratch uses `$00–$0E` only during synchronous contact
+processing. Actual caller/interrupt lifetime checks are still required; the
+link alone does not prove scratch ownership. This combined code is not yet
+mounted in a candidate or connected to native enemy collision.
