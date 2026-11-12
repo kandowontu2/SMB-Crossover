@@ -10,6 +10,7 @@ import check_steve_shatterhand_laserbot_1111 as Core
 
 BRIDGE = Live.H.ROOT / 'tools/reference/steve_shatterhand_laserbot_live_1111.s'
 ORIGIN, STATE, END = 0xd000, 0xd780, 0xd800
+QUALIFIED = '7fcf58df189d70586e46ecc0fcbf7fc219d3c09dba25da383d4e91ccc8fb4973'
 
 
 def fields(shared):
@@ -27,6 +28,10 @@ def fields(shared):
 def proposal(raw):
     import check_steve_shatterhand_late_companion_transport_1111 as Late
 
+    if Live.C.digest(raw) == QUALIFIED:
+        from deliver_steve_laserbot_1111 import recover_parent
+
+        raw = recover_parent(raw)
     base, prior = Live.on_nightly(raw)
     staged, linked = Live.on_nightly(raw, laser=True)
     old_cookie, intermediate_cookie = prior['cookie'], linked['cookie']

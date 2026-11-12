@@ -43,7 +43,7 @@ rendering and the thrown robot trajectory still need integration.
 
 ## Laserbot
 
-The updated private ROM `7fcf58df189d70586e46ecc0fcbf7fc219d3c09dba25da383d4e91ccc8fb4973`
+The updated MMC5 ROM `7fcf58df189d70586e46ecc0fcbf7fc219d3c09dba25da383d4e91ccc8fb4973`
 earns Laserbot through the Alpha–Alpha–Beta pattern. The CPU controller
 punches the exposed third token at X1744 and collects it at X1732/Y44.
 Pattern `$25` settles with six health and two lives. Actor ID 3 appears
@@ -76,10 +76,32 @@ native contact cases in the CPU test.
 
 The 1,114-byte Laserbot program uses the new authenticated loader and
 leaves 806 bytes in its executable range. The final companion host uses
-631 bytes. The lift, original Laserbot sound, naturally spawned enemy
-contacts, and a full stage regression on this exact ROM remain open.
-The Downloads nightly and GitHub IPS remain on `c4568faf`.
+631 bytes. The lift and original sound still need runtime integration.
+The donor cue audit traces the exact 23-byte pulse stream and confirms
+the host pulse-one shadow can suppress and restore music across six
+cases. The nightly currently plays the crossover firing sound.
 [Late carrier proof](steve-shatterhand-late-companion-transport-1111.md)
+
+## Full stage and Downloads delivery
+
+A controller-only run earns Laserbot, verifies both shot slopes in hardware
+OAM, and keeps playing through the native flagpole and castle sequence.
+The beam lowers a naturally spawned Goomba from 2 HP to 1 HP at world
+X2027/Y184. Steve enters underground 1-2 at X40/Y48 with 4 HP, both lives,
+and Laserbot still present. The route needs no helpers, cheats, or shortcut.
+The late jump at X2729 avoids a ground contact after the exit pipe.
+
+The exact Downloads launch matched the isolated candidate’s receipt.
+The standalone ROM was replaced directly without a backup. The sidecar
+guard found no matching IPS, BPS, or UPS files beside it. The release
+patch rebuilds the verified ROM from clean headered *Super Mario Bros.*
+The recipe contains a compact reverse delta so the previous Sonic nightly
+can still be reconstructed in memory.
+
+- Stage and Downloads receipt `44974889026db10ae469cf6e8a2538bff40a59676e15edeb88b5baf234aac008`
+- Generated controller SHA-256 `a268a5ce195a3aca29c0e41300635b3fc31d541ea48d6b9f176dcf1e9ba82ddc`
+- Controller continuation SHA-256 `a5462727f378dcd4be06b61c886a9781bb0dee5da5bf0f2d06a55e1728e03e5f`
+- IPS SHA-256 `fa17ebd6e7da0f9c5616456e2d543cb7b475881fa3222a612f72086041e648f8`
 
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/steve-lift-source-proof-1111 --max-files 1 --timeout 65 -- python -B tools/audit/check_steve_shatterhand_lift_1111.py
@@ -87,4 +109,5 @@ python -B tools/audit/run_bounded_build_v1.py --output build/steve-laserbot-core
 python -B tools/audit/run_bounded_build_v1.py --output build/steve-laserbot-grant-1111 --max-files 1 --timeout 150 -- python -B tools/audit/check_steve_shatterhand_companion_live_1111.py --laser-grant
 python -B tools/audit/run_bounded_build_v1.py --output build/steve-laser-mounted-proof-1111 --max-files 1 --timeout 175 -- python -B tools/audit/check_steve_shatterhand_laser_live_1111.py --first-regression
 python -B tools/audit/run_bounded_build_v1.py --output build/steve-laserbot-native-1111 --max-files 2 --timeout 230 -- python -B tools/audit/replay_steve_companion_native_1111.py --laser --output build/steve-laserbot-native-1111
+python -B tools/audit/run_bounded_build_v1.py --output build/steve-laserbot-native-1111 --resume --max-files 2 --timeout 170 -- python -B tools/audit/replay_steve_companion_native_1111.py --laser --laser-stage --reuse-route --output build/steve-laserbot-native-1111
 ```
