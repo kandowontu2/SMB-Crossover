@@ -1,5 +1,10 @@
 # Steve throw controls in the loaded game
 
+The graphics-integrated successor is
+`4422a746bb5cd14b27787e7244dc7b52917542daeee8bd54529d9b5e56403e69`;
+see the mounted graphics verification below. Both candidates remain private
+in-memory fixtures. Neither has been installed in Downloads.
+
 Private, in-memory candidate:
 `ba5846ebcbdabc430c735836c4ec6dfaa09886cdad9d80dae3a15edce83a95e6`.
 The Downloads nightly and public IPS are unchanged. This candidate connects
@@ -82,3 +87,38 @@ weapon emission during every thrown update, including reattach. Implement
 native contact, two-HP damage, robot damage/destruction and scene retirement.
 Then validate actual OAM, collision and a complete Mesen route before replacing
 the nightly. No helper-platform changes were made.
+
+## Mounted graphics verification
+
+`proposal(raw, graphics=True)` now combines the original recovery records,
+511-byte renderer, its two helpers, updated companion draw call, and the
+verified controls. The carrier accepts an explicit suffix after its scatter
+copier; this puts the 11-byte CHR helper at `$DA71` without moving the core or
+copier. The 46-byte recovery records follow the angle table at `$CDC8`.
+Every edit remains bound to the load cookie and checked against its preimage.
+
+Both bounded commands passed with no output files:
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/steve-throw-render-cold-1111 --max-files 1 --timeout 180 -- python -B tools/audit/check_steve_throw_controls_live_1111.py --graphics --cold-only
+python -B tools/audit/run_bounded_build_v1.py --output build/steve-throw-render-live-1111 --max-files 1 --timeout 210 -- python -B tools/audit/check_steve_throw_controls_live_1111.py --graphics
+```
+
+Cold verification passed 76 NMI cut points and nine readback faults, with
+671 declared resident edit bytes. The original punch suffix remained intact,
+and the actual Prince ownership round trip restored the scatter payload.
+
+All six controller-driven launch cases passed again. The test now observes the
+real metasprite renderer, derives visible cells from its position/attribute
+inputs, and checks those cells in the next `$4014` DMA transfer. Across the six
+cases, 102 DMA updates carried the expected recovery cells. The corresponding
+physical sprite page was CHR339 for launch poses and CHR307 for recovery poses;
+each case returned to CHR220 on the update after recovery ended. Both facings
+and all three lift states were covered, with both lives preserved.
+
+This is a live CPU/PPU model proof, not Mesen video or visual inspection. Robot
+flight, the per-frame throw marker, contact, destruction and audio are still
+pending; their absence prevents publishing this as a completed throw feature.
+The helper is auditing additional authenticated code space before those
+remaining bridges are linked. Do not reclaim the existing `$DA80–DBFF` punch
+suffix merely because it looks like graphics padding: it contains live code.

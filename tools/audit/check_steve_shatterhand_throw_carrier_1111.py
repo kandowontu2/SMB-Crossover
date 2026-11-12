@@ -50,7 +50,7 @@ def funding(image):
     return at, ROLL_OLD, ROLL_NEW
 
 
-def mount(image, info, code, data, *, pose=False, extra_edits=(), bridge=None):
+def mount(image, info, code, data, *, pose=False, extra_edits=(), bridge=None, bridge_tail=b''):
     """Bind the D800 prefix, CD80 data, and exact pre-existing DA80 suffix."""
     data_origin = DATA if bridge is None else DATA+8
     data_capacity = DATA_CAPACITY-(data_origin-DATA)
@@ -69,12 +69,14 @@ def mount(image, info, code, data, *, pose=False, extra_edits=(), bridge=None):
                                    {'THROW_BRIDGE_COLD': (ORIGIN+len(code), CAPACITY-len(code))})
         helper = bridge_loader['images']['THROW_BRIDGE_COLD']
         entry = bridge_loader['symbols']['SteveThrowBridgeCold']
-        code += helper
+        code += helper + bridge_tail
+        assert len(code) <= CAPACITY
         throw_source += f'\n    jsr ${entry:04x}\n    bcc SteveLateFailed\n'
         # Exactly eight recovery cells end at CHR307+$300. Preserve them.
         spare = C.CHR+307*1024+0x300
         assert image[spare:spare+256] == bytes(256)
         bridge_edits = ((spare, bytes(256), bridge.ljust(256, b'\x00')),)
+    assert bridge is not None or not bridge_tail
     new_source = old_source.replace(anchor, throw_source + '\n' + anchor)
     loader = H.assemble(new_source, layout)
     bootstrap = loader['images']['STEVE_LATE_COLD']
