@@ -16,6 +16,12 @@ PIN = '3b7990bc59b490a1c5e488133a7c65d05526944d63b7e987f0b3f44df733343d'
 
 def image():
     raw = Path('C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes').read_bytes()
+    if sha256(raw).hexdigest() == 'c5ce8c1557f6eb27c97f1fb1b0404c7854f59feb18717f27171d7dcb890efbbd':
+        from compose_prince_menu_1112 import transform
+        raw = transform(raw,reverse=True)[0]
+    if sha256(raw).hexdigest() == 'a0dc025be05d1a9e697bb47f1affaea9d33f70be3d7fbee240b520e433f12327':
+        from prince_sword_box_1112 import reverse
+        raw = reverse(raw)
     if sha256(raw).hexdigest() == 'cebb0ae64b4e6cc92e473a239cb8fd4011d54cfd5e6814013a3afbd2de2bf7d7':
         raw,_,_ = Reach.transform(raw)
     assert sha256(raw).hexdigest() == PIN
