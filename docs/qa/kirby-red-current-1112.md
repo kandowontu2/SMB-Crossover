@@ -23,3 +23,20 @@ This proves acquisition and an outbound hit against a naturally spawned enemy.
 It does not prove return flight: this shell was consumed on impact. Full4-3,
 underwater behavior, all enemies and all copy powers remain outside this run.
 No ROM change or new nightly delivery was made.
+
+## Follow-up: return flight and remaining defect
+
+`--return-flight` now releases B after the enemy hit, waits60 physical frames,
+then presses B for6 frames. The earlier20-frame delay produced no second shot;
+that timeout was controller timing, not evidence of broken return physics.
+
+The second naturally earned shell starts X619 at age1, moves right at3px/update,
+then returns left at3px/update and reaches Kirby at X600. Health6/lives2 remain.
+It expires at frame1874. Receipt
+`02acc9f7fd773cdd41a1e2de3d88d85c2b5f1c822e76ece460a112ccc1679033`,
+controller `c14d7413ac5f34415527747dfb6fcecdd5bc92f2e0662ad2e949e69c1fa8da4c`.
+
+**Remaining defect:** after reaching Kirby, it oscillates X598/X601 at ages68..89
+instead of retiring on return. The replay's `passed` means travel/return/expiry
+were observed; it does not certify this visual behavior as acceptable. The return
+observer must be tightened when catch retirement is implemented. No fix delivered.
