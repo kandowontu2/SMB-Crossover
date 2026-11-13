@@ -99,6 +99,9 @@ Controller SHA `848c67e399f5166ffea335d437a82a565885303a2753e5911e629d559b4aa0b3
 CPU binding `6d7e240640cee6500931a8a6e114e7ab589c9db280b7994482c787d111533b12`.
 This binding uses read-only observations and ordinary controller inputs only;
 it includes the entire actual title/menu/Start prefix for root's physical run.
+Native invocation must pass `variant=3` to `run_stdout_mesen_1110.run`
+(`SMB_TEST_VARIANT=3`), matching the CPU adapter. The inherited variant0
+stops at the first pipe; that result does not qualify earned-sword combat.
 
 Root owns later physical Mesen, full-stage/regressions, installation and IPS
 publication. No physical pass or delivery is claimed here. Prince is the only
