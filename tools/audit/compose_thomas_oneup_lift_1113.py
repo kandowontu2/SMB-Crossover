@@ -121,6 +121,8 @@ def main():
     parser.add_argument('--section', choices=('compose', 'cpu', 'all'), default='all')
     args = parser.parse_args()
     raw = Current.ROM.read_bytes()
+    if sha256(raw).hexdigest() == PIN:
+        raw = inverse(raw)
     image, info = proposal(raw)
     assert inverse(image) == raw
     result = dict(candidate_SHA256=sha256(image).hexdigest(), source_SHA256=info['source_SHA256'],

@@ -117,6 +117,12 @@ old cookie. It verifies the complete parent hash and recomposes the
 candidate byte-for-byte. It writes no files and requires no parent ROM
 copy. The forward/inverse round trip passes on 65ee94.
 
+The three command-line entry points accept installed 65ee94 as their
+Downloads input. They authenticate it through the exact inverse and
+recompose the same candidate before running checks. The strict proposal
+API continues to require its 318a087 parent. The native controller text
+retains SHA256 `66de68b126ddf089e27861f33d44600216b6752c578c9c70714ac675afb6d352`.
+
 ## Complete stage regression and delivery qualification
 
 The same candidate separately passes the ordinary-controller mushroom,

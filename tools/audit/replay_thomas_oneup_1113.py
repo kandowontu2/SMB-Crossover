@@ -117,7 +117,10 @@ def main():
     parser.add_argument('--check-only', action='store_true')
     parser.add_argument('--prepare-only', action='store_true')
     args = parser.parse_args()
-    image, _ = Fix.proposal(Fix.Current.ROM.read_bytes())
+    raw = Fix.Current.ROM.read_bytes()
+    if sha256(raw).hexdigest() == PIN:
+        raw = Fix.inverse(raw)
+    image, _ = Fix.proposal(raw)
     assert sha256(image).hexdigest() == PIN
     text = controller()
     if args.check_only:

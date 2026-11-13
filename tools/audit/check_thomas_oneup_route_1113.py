@@ -140,6 +140,8 @@ def run(seed, limit=4300):
 
 def main():
     raw = Current.ROM.read_bytes()
+    if sha256(raw).hexdigest() == Fix.PIN:
+        raw = Fix.inverse(raw)
     image, info = Fix.proposal(raw)
     _, seed = Base.cold(image, expected=sha256(image).hexdigest(), kernel=info['kernel'], cookie=info['cookie'])
     result = run(seed)
