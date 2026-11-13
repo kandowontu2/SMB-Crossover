@@ -88,8 +88,26 @@ checks real floor support there, settles, then approaches below1248. The
 first run's unqualified raw address counts were corrected to bank-qualified
 counts before either final pass. No game-code defect was demonstrated.
 
-Actual native natural acquisition remains pending for root's sole Mesen
-queue. Existing full1-1→1-2 native proofs in
+Root then qualified both exact controllers on actual Downloads7ef, without
+changing the ROM or controller:
+
+| Identity | Physical frames / all returned Main | Native mushroom collector | Native flower collector | Terminal after60 resumed Main |
+| --- | --- | --- | --- | --- |
+| SMB3,58d777bc |2473 /1266|actor409/184, hero397/176|actor1248/119, hero1263/124|1352/176, HP34, lives2|
+| SMB1,d23ba56d |2897 /1617|actor407/184, hero395/176, HP4→5|actor1248/119, hero1260/117, HP3→5|1319/129, HP5, lives2|
+
+Both actual native collectors required mature actors, erased them, queued
+SFX32/popup6, advanced tier0→1→2 and completed both60-tick upgrade sequences.
+Both finished60 ordinary resumed Main updates. Root retained zero helpers,
+captures, ROM changes or gameplay state writes. Native receipt SHA-256:
+
+- SMB3:
+  `f4150018d5e33cafb81742d56073df58322fa2651e996d59f8f20278331bed1d`.
+- SMB1:
+  `fea00aef1e959e421dff959332b8728a936645182cb3c72e22e2fb744a2f46e1`.
+
+These native proofs supersede the earlier pending natural-acquisition scope.
+Existing full1-1→1-2 native proofs in
 `docs/qa/roster-native-followup-1113.md` remain separate. This task does not
 qualify natural Star/1UP for either Bowser or claim a new donor weapon from
 flower. No runtime, ROM, shared inventory or release was modified. All jobs
