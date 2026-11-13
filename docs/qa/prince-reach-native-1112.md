@@ -56,3 +56,20 @@ Both loader formats round-trip; reverse reconstructs the exact parentcebb ROM.
 User additionally requested sword drawing and use. Flower acquisition, drawing,
 attack and sheathing checks are now required before this candidate's delivery.
 No Downloads overwrite or Current release update has occurred yet.
+
+## Sword acquisition route in progress
+
+`--flower` joins the successful mushroom acquisition to the existing native
+four-pipe route, then tries the block at X1248. Current baseline reaches it,
+but HP5→4 at X846/Y177 after the third-pipe jump also loses native power status.
+Consequently the block produces kind0 (another mushroom), not a flower.
+Receipt `5a5c5da7d1b0a49e93807f2efbfe33f0a58f1998c252eb3ea3cc289f729304ce`;
+controller `137381376487caf7db7ff1fc634c924c1bf2d8e8216b7342b71e715297e9de63`.
+This is not a flower-reward failure. A changed third-pipe enemy-wait threshold
+of800 instead of848 is prepared but untested; storage preflight stopped it.
+
+Both root-owned private candidates (Prince3b7990 and Metal1595c7f) were removed
+after exact hash checks to free file slots. Their source transforms reconstruct
+them; do not assume the old build paths remain populated. Downloads stayscebb.
+The Prince helper is separately checking whether source opponent import's
+box3-only admission prevents real Goomba box9 from triggering sword draw.

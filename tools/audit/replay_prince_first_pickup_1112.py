@@ -20,7 +20,10 @@ def main():
     parser.add_argument('--top-walk', action='store_true')
     parser.add_argument('--reach-candidate', action='store_true')
     parser.add_argument('--collect', action='store_true')
+    parser.add_argument('--flower', action='store_true')
     args = parser.parse_args()
+    if args.flower:
+        args.collect=True
     assert 1 <= args.hold_updates <= 90
     assert 324 <= args.runout_x <= 400
     assert 100 <= args.observe_updates <= 400
@@ -40,7 +43,12 @@ def main():
     source = PUBLISHED.read_text()
     source = source.replace('a726021676a00802119275ac7f48cce7', cookie)
     source = source.replace('emu.setInput({right=pad&1~=0,', 'emu.setInput({right=pad&1~=0,left=pad&2~=0,')
+    if args.flower:
+        import replay_prince_native_flag_1111 as Full
+        source=Full.controller(cookie,0xd74b,3115,True)
+        source=source.replace('walkers[1].x<=848 and walkers[2].x<=848', 'walkers[1].x<=800 and walkers[2].x<=800')
     begin, end = source.index('local function tick()'), source.index('local function frames(count)')
+    original_tick=source[begin:end].replace('local function tick()', 'local function routeTick()',1)
     tick = '''
 local itemSeen=false
 local minimumY=255
@@ -201,11 +209,42 @@ end
     end
   end
   assert(commits<1200,'Bounded first pickup approach')""")
+    if args.flower:
+        source=source.replace("switch('late-second-approach',1)","switch('flower-approach',1)")
+        begin,end=source.index('local function tick()'),source.index('local function frames(count)')
+        original_tick=source[begin:end].replace('local function tick()', 'local function routeTick()',1)
+        tick=tick.replace('local itemSeen=false','local collected=false\nlocal flowerSeen=false\nlocal flowerTrace={}\nlocal itemSeen=false')
+        tick=tick.replace('local function tick()\n', '''local function tick()
+  if collected then
+    if progress:sub(1,7)~='flower-' then routeTick();return end
+    if commits==lastCommit then return end
+    lastCommit=commits
+    local s=state()
+    local age=commits-changedAt
+    assert(s.lives==2 and s.hp>0,'Alive reaching flower')
+    if read(0x15)~=0 and read(0x1c)==0x2e and read(0x34)==1 then flowerSeen=true end
+    if #flowerTrace<80 and commits%5==0 then flowerTrace[#flowerTrace+1]={state=s,itemFlag=read(0x15),kind=read(0x34),itemState=read(0x24),sword=source(0x6ee)} end
+    if progress=='flower-approach' and s.x>=1224 then switch('flower-settle',0)
+    elseif progress=='flower-settle' and s.action==0 and s.pose==15 and s.mode==0 and s.lock==0 then switch('flower-up',8)
+    elseif progress=='flower-up' then
+      if age>=80 then pad=0 end
+      if age>=110 then
+        late.flower={spawned=flowerSeen,trace=flowerTrace,sword=source(0x6ee)}
+        finish(flowerSeen,'Natural flower reveal after mushroom');return
+      end
+    end
+    assert(age<500,'Bounded flower approach');return
+  end
+''',1)
+        tick=tick.replace("    finish(true,'Naturally emerged mushroom collected');return", "    collected=true;switch('pipe-settle',0);return")
+        tick=tick.replace("      switch('pickup-evade',129)","      jump={request=s,enemy=enemy,minimumY=s.y};switch('pickup-evade',129)")
+        tick=tick.replace("    if s.action==4 then pad=1 end", "    jump.minimumY=math.min(jump.minimumY,s.y)\n    if s.action==4 then jump.admission=jump.admission or s;pad=1 end")
+        tick=original_tick+'\n'+tick
     source = source[:begin]+tick+source[end:]
     OUTPUT.mkdir(exist_ok=True)
     script = OUTPUT/'controller.lua'
     script.write_text(source, encoding='utf-8', newline='\n')
-    result = run(script,rom,OUTPUT/'capture',expected,60)
+    result = run(script,rom,OUTPUT/'capture',expected,120 if args.flower else 60,variant=3 if args.flower else 0)
     pickup = result['receipt'].get('later_route', {}).get('pickup', {})
     trace = pickup.get('trace', [])
     pickup['trace'] = [s for i,s in enumerate(trace) if i == 0 or
@@ -215,8 +254,14 @@ end
         pickup.pop('yWrites', None)
         pickup.pop('supportTrace', None)
         pickup['headTrace'] = [s for s in pickup.get('headTrace', []) if s['dy'] >= 128]
+    if args.flower:
+        route=result['receipt'].get('later_route',{})
+        flower=route.get('flower',{})
+        flower['trace']=[{'x':r['state']['x'],'y':r['state']['y'],'action':r['state']['action'],'pose':r['state']['pose'],'itemFlag':r['itemFlag'],'kind':r['kind']} for r in flower.get('trace',[])]
+        route.clear();route['flower']=flower
     print(json.dumps(dict(passed=result['passed'],receipt_SHA256=result['receipt_SHA256'],
                          script_SHA256=result['script_SHA256'],receipt=result['receipt'].get('later_route'),
+                         injuries=result['receipt'].get('injuries'),
                          reason=result['receipt']['reason'],terminal=result['receipt']['terminal'])),flush=True)
     assert result['passed'],result['receipt']['reason']
 
