@@ -13,12 +13,25 @@ UNCONDITIONAL_NEGATIVE='521df90eac82d3102d816a65c3780ca331c32403ac383313bdae6749
 PRE_BALANCE_PROPOSAL='a34528084135c5dcddd348265ea45e556400d8ae37979d16f78c777130562e90'
 PIN='b420e2bee469be38250b24b9925b94e1b56935247f0636384a4fb0c1a49ca45b'
 ENTRY=0xb98e
+BUB_CURRENT='f88cfe5aee15bb3921c691b7f06d905246be9ff88b9b43eea71c2405722724a7'
+
+
+def normalize_public(raw):
+    """Explicit known Bub successor normalization; frozen proof pin stays7ef."""
+    digest=sha256(raw).hexdigest()
+    if digest==BUB_CURRENT:
+        import bub_native_noops_1113 as U
+        assert U.B.PIN==P.PRINCE_CURRENT
+        raw=U.combined_reverse(raw)
+    else:assert digest==P.PRINCE_CURRENT,digest
+    assert sha256(raw).hexdigest()==P.PRINCE_CURRENT
+    return raw
 
 
 def load_parent():
     """Reconstruct strict e73 from actual known public7ef, without a ROM copy."""
     raw=Path('C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes').read_bytes()
-    assert sha256(raw).hexdigest()==P.PRINCE_CURRENT
+    raw=normalize_public(raw)
     parent,_=P.proposal_current(raw)
     assert sha256(parent).hexdigest()==PARENT
     return parent

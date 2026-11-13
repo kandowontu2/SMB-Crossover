@@ -1,6 +1,7 @@
 """Pinned private descending-only native successor of exact e73; no output."""
 from hashlib import sha256
 import json
+from pathlib import Path
 
 import compose_dkjr_platform_contact_1113 as Old
 
@@ -16,6 +17,19 @@ LAYOUT=dict(RYU=(0xb963,37),NATIVE=(ENTRY,48),RESTORE=(0xb707,11),
 
 
 def load_parent():return Old.load_parent()
+
+
+def load_inputs(*,reuse_private=False):
+    """Default current recomposition, or explicit exact root-held14ae reuse."""
+    if not reuse_private:
+        parent=load_parent();return parent,transform(parent)[0]
+    public=Path('C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes').read_bytes()
+    Old.normalize_public(public)
+    candidate=(R/'build/metal-flower-native-1112/candidate.nes').read_bytes()
+    assert sha256(candidate).hexdigest()==PIN
+    parent=reverse(candidate)
+    assert sha256(parent).hexdigest()==PARENT and transform(parent)[0]==candidate
+    return parent,candidate
 
 
 def parts():

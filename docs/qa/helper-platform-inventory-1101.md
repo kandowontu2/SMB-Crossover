@@ -205,8 +205,9 @@ on it at X1393 and reaches the far side at X1425/Y176.
 
 PRIVATE / UNRELEASED November13 DK Jr. first-pickup proposal: the public
 thirteen placements above remain authoritative. This additional helper has
-passed the first mushroom route but fails the ordinary full-stage regression;
-it is not installed in public62.
+passed the first mushroom route; the full-stage successor remains under
+qualification. It is not installed in current publicf88 (whose DK bytes retain the
+thirteen public placements from62).
 
 | Character/alternate | Stage | World left X | Center X | Initial top Y | Collision width | Visual width | Status |
 |---|---|---:|---:|---:|---:|---:|---|
@@ -221,6 +222,14 @@ then a Goomba injures DK Jr. atX851; receipt
 `384e3259e90cd6c107523efd3e62ba2608577a22c13fda374e611ba2ca13868e`.
 Measured native collision width is32, while the normal1-1 six-sprite visual
 width is48. [Private source and scope](dkjr-head-bridge-1113.md).
+
+The later private14ae descending-contact successor also passes actual Mesen
+first mushroom with the same placement: Luab784, root receipt
+`1f300c240acfb2eebedcecf7957dd73142f3ecd3581d292892740e7497c81881`,
+1911 physical/671 controller epochs, actual selected item2 maturity/collector,
+status1/both lives and30 resumed updates. Full1-1 and local delivery remain
+pending; this does not promote336 to a public placement.
+[Current private qualification](dkjr-descending-platform-1113.md).
 
 The [SMB2 preview update](smb2-menu-tier-isolation-1110.md) changes menu
 power state and uses no new helper platforms.
