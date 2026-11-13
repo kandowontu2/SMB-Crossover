@@ -141,11 +141,83 @@ end),emu.eventType.endFrame)
     return text
 
 
-def source_check(raw, identity=0, *, lag_cut=False):
+def cost_controller(raw, identity=0):
+    """Add passive inclusive routine costs; retain the frozen baseline API."""
+    text=controller(raw,identity)
+    b=B.W.Symbols.bundle();b['raw']=raw
+    native=('GameLoop','GameCoreRoutine','HuMovement','HuFullBox','HuHead','HuSide',
+            'HuVisible','HuWeaponTail','HuDraw','HuUi','X5BounceUiDispatch',
+            'DrawAllMetasprites','MetaspriteRenderLoop')
+    points=[]
+    for name in native:
+        if name not in b['syms']:continue
+        at=B.W.location(b,name);pc=B.W.address(b,name)
+        points.append((name,pc,2,at-16,raw[at:at+8].hex()))
+    q,_,_=B.bindings(raw)
+    im=(B.R/'build/bub-initial-tier-1103-v87/private-image.bin').read_bytes()
+    for name in ('BbNativeUpdate','BbNativeDraw','BbPlayerStep','BbBubbleStep'):
+        pc=q['labels'][name]
+        points.append((name,pc,3,3*8192+(pc&8191),im[pc-0xa000:pc-0xa000+8].hex()))
+    # Include the actual current complete-header helper, not historical labels.
+    points.append(('CoCheckCode',0xaee2,2,65*8192+0xee2,raw[16+65*8192+0xee2:16+65*8192+0xeea].hex()))
+    declarations='local costPoints={'+','.join(
+        '{name="'+n+'",pc='+str(pc)+',kind='+str(kind)+',offset='+str(at)+',data="'+data+'"}'
+        for n,pc,kind,at,data in points)+'}\n'
+    declarations+='local costs={};local costPending={};local costReturns={}\n'
+    before='local function finish(ok,reason)'
+    assert text.count(before)==1
+    text=text.replace(before,declarations+before)
+    before='entered_Main=enteredMain,returned_Main_histogram=returns'
+    assert text.count(before)==1
+    text=text.replace(before,'inclusive_cycle_profiles=costs,inclusive_costs_include_ISR=true,'+before)
+    extra=r'''
+-- Every span is inclusive of nested routines and any hardware interrupts.
+-- The profile groups cannot be added; each independent function is a lens.
+local function costReturn(pc)
+ local s=emu.getState();local t=s['cpu.cycleCount'];local keep={}
+ for _,p in ipairs(costPending)do
+  if pc==p.ret and s['cpu.sp']==p.sp then
+   local row=costs[p.phase][p.name];local n=t-p.start
+   assert(n>=0,'Monotonic inclusive native cycle clock')
+   row.calls=row.calls+1;row.cycles=row.cycles+n;row.maximum=math.max(row.maximum,n)
+  else keep[#keep+1]=p end
+ end
+ costPending=keep
+end
+for _,point in ipairs(costPoints)do
+ local kind=point.kind==2 and emu.memType.nesPrgRom or emu.memType.nesWorkRam
+ if point.kind==2 then for k=1,#point.data,2 do assert(emu.read(point.offset+(k-1)//2,kind)==tonumber(point.data:sub(k,k+1),16),'Current cost-profile code')end end
+ emu.addMemoryCallback(guard(function()
+  if not game or not active()or(phase~='idle'and phase~='walk')or not mapped(point.pc,kind,point.offset)then return end
+  local s=emu.getState();local sp=s['cpu.sp'];local ret=(read(0x100+((sp+1)&255))+256*read(0x100+((sp+2)&255))+1)&65535
+  costs[phase]=costs[phase]or{};costs[phase][point.name]=costs[phase][point.name]or{calls=0,cycles=0,maximum=0}
+  costPending[#costPending+1]={name=point.name,phase=phase,ret=ret,sp=(sp+2)&255,start=s['cpu.cycleCount']}
+  if not costReturns[ret]then
+   costReturns[ret]=true
+   emu.addMemoryCallback(guard(function()costReturn(ret)end),emu.callbackType.exec,ret)
+  end
+ end),emu.callbackType.exec,point.pc)
+end
+'''
+    before='local function returned()'
+    assert text.count(before)==1
+    text=text.replace(before,extra+'\n'+before)
+    from check_ff_stdout_controller_source_1110 import LuaRuntime
+    LuaRuntime().compile(text)
+    return text
+
+
+def source_check(raw, identity=0, *, lag_cut=False, costs=False,
+                 controller_text=None, expected=None):
     """Same Lua after genuine CPU cold/menu; skip duplicate Lua title inputs."""
     from check_ff_stdout_controller_source_1110 import LuaRuntime
     m, startup=B.cold(raw,identity)
-    text=controller(raw,identity)
+    digest=sha256(raw).hexdigest()
+    if controller_text is None:
+        text=(cost_controller if costs else controller)(raw,identity)
+    else:
+        assert expected==digest and controller_text.count('"'+digest+'"')==1
+        text=controller_text
     marker='local route=coroutine.create(function()\n'
     lo=text.index(marker)+len(marker)
     hi=text.index(' for _,h in ipairs(hooks)do if h.kind==\'work\'',lo)
@@ -165,7 +237,8 @@ def source_check(raw, identity=0, *, lag_cut=False):
         return lua.table_from(dict(memType=2 if tag&128 else 1,address=(tag&127)*8192+(pc&8191)))
     def cpu_state():
         c=ctx['cpu']
-        return lua.table_from({f'cpu.{k}':getattr(c,k) if c else 0 for k in ('pc','sp','a','x','y')})
+        return lua.table_from({**{f'cpu.{k}':getattr(c,k) if c else 0 for k in ('pc','sp','a','x','y')},
+                               'cpu.cycleCount':c.processorCycles if c else 0})
     def set_input(pad,port):
         assert port==0
         m.controller_pad=sum(bit for name,bit in (('right',1),('left',2),('down',4),('up',8),
@@ -178,7 +251,7 @@ def source_check(raw, identity=0, *, lag_cut=False):
     api.addEventCallback=lambda fn,kind:events.setdefault(kind,fn)
     api.stop=lambda status:ctx.update(status=status)
     lua.globals().emu,lua.globals().print=api,emit
-    lua.globals().os.getenv=lambda name:B.PIN if name=='SMB_STDOUT_ROM_SHA' else None
+    lua.globals().os.getenv=lambda name:digest if name=='SMB_STDOUT_ROM_SHA' else None
     lua.execute(bound)
     Base=B.N.NesMPU
     class Observed(Base):
@@ -212,10 +285,10 @@ def source_check(raw, identity=0, *, lag_cut=False):
 if __name__=='__main__':
     import argparse
     p=argparse.ArgumentParser();p.add_argument('--cpu',action='store_true')
-    p.add_argument('--lag-cut',action='store_true');a=p.parse_args()
+    p.add_argument('--lag-cut',action='store_true');p.add_argument('--costs',action='store_true');a=p.parse_args()
     raw=B.ROM.read_bytes()
     if a.cpu:
-        print(json.dumps([source_check(raw,i,lag_cut=a.lag_cut) for i in range(2)]),flush=True)
+        print(json.dumps([source_check(raw,i,lag_cut=a.lag_cut,costs=a.costs) for i in range(2)]),flush=True)
         raise SystemExit(0)
     cases=[dict(name=('BUB','BOB')[i],bytes=len(t.encode()),SHA256=sha256(t.encode()).hexdigest())
            for i in range(2) for t in (controller(raw,i),)]

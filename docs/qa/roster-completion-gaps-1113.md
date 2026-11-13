@@ -160,6 +160,32 @@ sampling phase, so future comparisons must retain actual input/source counts.
 First natural Goomba is world352/Y184 as player reaches X128; both lives remain.
 No performance ROM has been produced or installed.
 
+The separate passive `cost_controller(raw, identity)` API leaves the final
+baseline controller bytes unchanged. Both its source streams pass the same
+138 Main/NMI scheduler calls, and root's actual Downloads cost probes preserve
+the baseline cadence, positions and source/return counts:
+
+- Bub Lua `a5b78804480605c41f56c9fcae3d189e1e949ec35da13ae3cbed9f7d98fc9c8d`,
+  receipt `16cbe30dd8340fb7ed616884b978f8eb26c18dc7f94e6b69156ebedbc7db8eea`.
+- Bob Lua `5d3267b7892058a2fa3ed0032590db4f3a4672f474e7172b84fba1481a8e3150`,
+  receipt `5d03c9b3b33d9d923943a7504b9b7c7dfd7b9621670f6c0a152d584a61ee306c`.
+
+Bub's idle gross inclusive totals/calls are Main 2,231,681/48 (46,493 cycles
+per Main), core 2,082,170/48, movement 483,805/48, private update 418,477/48,
+original player step 69,900/48, bubble step 104,464/48, side 256,108/192,
+draw 91,992/24, private draw 59,328/24, all metasprites 181,927/24, and owner
+authentication 477,394/648. These spans include nested routines and actual
+interrupt time; **do not sum them**. Normal/catch-up updates together produce
+only 24 draw calls per 48 source updates: the body renders at nominal 15Hz
+while its source advances at 30Hz in this particular empty window. This makes
+the scheduling threshold, not a percentage alone, the relevant next test.
+
+The instruction-model decomposition also attributes about 3,557 cycles/Main
+to PRG65 outside the earlier auth/selector buckets, especially the current
+`$AAF7..$AB72` generic SMC save/result-copy/restore envelope. It was not counted
+as original Bubble Bobble movement. No authentication cache or unsafe foreign
+dispatcher bypass was introduced to reduce this cost.
+
 Root also closes the two Bowser stage gaps on exact 7ef:
 SMB3 5,692 physical/3,391 Main/HP33, receipt
 `74ce9aa524b67939fc6ec77edda6139afd526fa6da230c2faf255cff78720b6b`;
