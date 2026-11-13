@@ -66,3 +66,15 @@ python -B tools/audit/run_bounded_build_v1.py --output build/steve-native-space-
 The completed run exited0 and generated zero files. No historical source tree
 was extracted. It does not claim a global proof that every possible unused
 instruction/data byte has been found, or any new Main/ISR/gameplay proof.
+
+An additional26-byte native interval is source-qualified on installed65ee:
+physical PRG8, CPU `BFE6..BFFF`, file half-open `11FF6..12010`.
+`src/megaman_rush.s:112` defines the final GUEST worker
+MegaManRushBusterSpawn atBFDE: `A90120CBA14CD6A1`. Its final JMPA1D6
+cannot fall through beyondBFE6. The linked symbol and current eight bytes
+agree, the26-byte suffix isFF, no direct bank8 JSR/JMP targets that suffix,
+and all224 actual Rogue raw-ROM page mappings exclude bank8. Bank8 SHA256:
+`6cd11962cbc95527cfcfd860e88e788007fa473e767e0b153ca3d9e090ce4ca0`.
+The updated zero-output bounded audit exits0 on exact Downloads65ee.
+This provides a second restore/status shim proposal for root's allocation;
+the Steve helper owns its ABI, transport and interrupt qualification.

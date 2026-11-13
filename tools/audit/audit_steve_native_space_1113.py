@@ -11,6 +11,8 @@ R = Path(__file__).resolve().parents[2]
 ROM = Path('C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes')
 TAIL = (5, 0x1fdf, 0x2000)
 BANK5_SHA = '8dae80bf93754db1ced3fb5e9e6a3589014ed7d65f4ca97edda24b76a4f3d1ec'
+TAIL8 = (8, 0x1fe6, 0x2000)
+BANK8_SHA = '6cd11962cbc95527cfcfd860e88e788007fa473e767e0b153ca3d9e090ce4ca0'
 TERMINAL = bytes.fromhex('2078bf90034c3ebbad02608d6a01a9908d6c01a9a28d6d01a98a4c5a01')
 
 
@@ -38,6 +40,18 @@ def audit(raw):
               for i in range(8190) if image[i] in (0x20, 0x4c)
               and 0xbfdf <= int.from_bytes(image[i+1:i+3], 'little') < 0xc000]
     assert not direct
+    bank8, lo8, hi8 = TAIL8
+    image8 = raw[16+8192*bank8:16+8192*(bank8+1)]
+    assert sha256(image8).hexdigest() == BANK8_SHA
+    assert image8[0x1fde:lo8] == bytes.fromhex('a90120cba14cd6a1')
+    assert image8[lo8:hi8] == b'\xff'*(hi8-lo8)
+    assert M.location(bundle, 'MegaManRushBusterSpawn') == 16+8192*bank8+0x1fde
+    assert M.address(bundle, 'MegaManRushBusterSpawn') == 0xbfde
+    rush = (R/'src/megaman_rush.s').read_text()
+    assert 'jsr MegaManWeapons::PowerType\n  jmp MegaManWeapons::Spawn\n.endproc' in rush
+    assert not [(i, int.from_bytes(image8[i+1:i+3], 'little'))
+        for i in range(8190) if image8[i] in (0x20, 0x4c)
+        and 0xbfe6 <= int.from_bytes(image8[i+1:i+3], 'little') < 0xc000]
     # Actual current Rogue page maps, rather than historical source table
     # locations, decide ownership of each complete 256-byte ROM data view.
     page_rows = []
@@ -49,7 +63,7 @@ def audit(raw):
             tag = raw[at+index] & 127
             start = (raw[high+index]-0xa0)*256
             assert 0 <= start <= 8192-256
-            assert tag != bank
+            assert tag not in (bank, bank8)
             page_rows.append((mode, index, tag, start))
     # The two largest apparent runs are still source-owned data. Replacing
     # them would alter complete Rogue page reads or valid body indices.
@@ -64,6 +78,10 @@ def audit(raw):
                     file_half_open=[16+8192*bank+lo, 16+8192*bank+hi], bytes=hi-lo,
                     bank_SHA256=BANK5_SHA, old_terminal_PC=0xbfc2,
                     old_terminal_bytes=TERMINAL.hex(), Rogue_page_rows_excluding_bank5=len(page_rows)),
+                additional_stub_proposal=dict(bank=bank8, CPU_half_open=[0xbfe6, 0xc000],
+                    file_half_open=[16+8192*bank8+lo8,16+8192*bank8+hi8], bytes=hi8-lo8,
+                    bank_SHA256=BANK8_SHA,old_terminal_PC=0xbfde,
+                    old_terminal_bytes=image8[0x1fde:lo8].hex(),Rogue_page_rows_excluding_bank8=len(page_rows)),
                 formal_grant=False, runtime_or_interrupt_qualification=False,
                 scope='Source-endpoint/current-byte/direct-target/Rogue-page-map audit. Root owns any new allocation; new injury entry ABI and Main/ISR/foreign controls remain required.',
                 output_files=0)
