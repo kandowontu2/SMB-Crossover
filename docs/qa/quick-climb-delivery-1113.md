@@ -61,11 +61,14 @@ input policy. No emulated position, actor, inventory or health writes occur.
 
 ## Delivery status
 
-Private candidate, finite gates and native positive/negative checks are
-complete. Downloads install/repeat and sole Current/Latest IPS refresh are
-the remaining delivery steps. `deliver_quick_climb_1113.py` performs direct
-replacement with memory-only rollback, no backup files, before/after patch
-guards, exact installed replay, IPS roundtrip and remote asset verification.
+Downloads was directly replaced with4641, with no backup file. Its actual
+Downloads launch repeats the exact strict963f00a2 controller and produces
+the same cd9be0d5 native receipt, including all four items and grounded1-2.
+Before/after automatic patch guards pass with no matching IPS/BPS/UPS;
+installed bytes equal the tested candidate. The final controller also passes
+an independent CPU replay in3659 logical updates; no cadence equality is
+claimed. Sole Current/Latest IPS refresh remains the final delivery step.
+`deliver_quick_climb_1113.py` verifies the IPS roundtrip and remote asset.
 
 Root retains one candidate and one controller in the shared two-file output.
 No screenshots, videos, dumps or receipt files were created. Build preflight

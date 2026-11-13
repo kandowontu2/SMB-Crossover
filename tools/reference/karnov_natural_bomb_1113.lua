@@ -17,6 +17,8 @@ local entryFirst,entryRecent={},{}
 local deathIngress=nil
 local bootsUsed=nil
 local bombProbe={heads={},shots={},frames={},minY=255}
+local bombJumpUntil=0
+local bombBrickStable=0
 local function r(n,i)return emu.read(assert(L[n],n)+(i or 0),emu.memType.nesDebug)end
 local function kr(a)return emu.read(2*8192+a,emu.memType.nesWorkRam)end
 local function wx()return r('Player_X_Position')+256*r('Player_PageLoc')end
@@ -121,7 +123,8 @@ local function control()
     if routePhase=='bomb-approach'then
      if not ground then return 0 end
      local clear=clearGroundEnemy(x,y);if clear then return clear end
-     if x<1097 then return 1 elseif x>1099 then return 2 end
+     local anchor=bombBrickStable>=8 and 1097 or 1081
+     if x<anchor then return 1 elseif x>anchor+2 then return 2 end
      to('bomb-release');return 0
     elseif routePhase=='bomb-release'then
      if routeAge>=3 then to('bomb-bump')end
@@ -132,11 +135,15 @@ local function control()
     -- broken by the existing source fireball/native block-effect bridge.
     if ground then
      local clear=clearGroundEnemy(x,y);if clear then return clear end
-     if x<1097 or x>1099 then to('bomb-approach');return 0 end
+     local anchor=bombBrickStable>=8 and 1097 or 1081
+     if x<anchor or x>anchor+2 then to('bomb-approach');return 0 end
      if r('PlayerFacingDir')~=1 then return 1 end
     end
     local pad=epoch%8<4 and 64 or 0
-    if ground and epoch-lastPulse>30 then lastPulse=epoch;pad=pad|128 end
+    -- Input may be polled more than once at the same logical epoch. Keep a
+    -- real held A window instead of consuming its edge in the first poll.
+    if ground and epoch-lastPulse>30 then lastPulse=epoch;bombJumpUntil=epoch+6 end
+    if epoch<bombJumpUntil then pad=pad|128 end
     return pad
    end
    return ordinary(x,y,ground)
@@ -250,6 +257,7 @@ emu.addEventCallback(function()
   if travelStall>240 then finish(false,'travel-stall');return end
   if routePhase=='bomb-bump'and routeAge>480 then finish(false,'fourth-brick-not-revealed');return end
   if #pickups==3 and routePhase:sub(1,5)=='bomb-'then
+   if tile(1104,144)==0 then bombBrickStable=bombBrickStable+1 else bombBrickStable=0 end
    bombProbe.minY=math.min(bombProbe.minY,r('Player_Y_Position'))
    if epoch%10==0 then
     local shots={};for i=0,24,3 do if kr(0x6e+i)&128~=0 then shots[#shots+1]={kr(0x6e+i),kr(0x6f+i),kr(0x70+i)}end end
