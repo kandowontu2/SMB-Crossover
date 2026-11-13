@@ -91,3 +91,19 @@ Player_Y_Speed, head-cell collision and low-nibble>=4 in PlayerBGCollision.
 Climbing beside the row is not itself evidence of a head collision. The next
 test must exercise an actual activation path rather than treating successful
 ledge traversal as a failed head-bump. No gameplay edits or captures.
+
+## B at the climbed edge
+
+The same controller with `--top-b` presses B during updates120..139 after
+the settled climb. It does not release an item: Prince drops from the edge,
+returns to ground Y176/X314, HP5/two lives, sword0. This is not evidence for
+an unarmed block attack. Receipt
+`21dbe685850e50ec73064b68b09afb59d6725f5306b0536f860e70cd1a9d1a6f`, script
+`cfcfb27de527dffea57e52888407917b51ef173a9e7894303bdd6571805aeb01`.
+The prior neutral supported position X307 is at the left edge, not centered
+over the powerup block. Future action tests must first move onto the row.
+
+Existing pickup source maps mushroom to a capped five-HP heal and flower to
+sword1/action91. Historical strike qualification explicitly seeds sword2;
+neither it nor the staged pickup tests establish natural acquisition or a
+usable unarmed activation path. Keep that gap explicit.

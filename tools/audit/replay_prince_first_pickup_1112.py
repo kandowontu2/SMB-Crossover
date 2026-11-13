@@ -16,6 +16,7 @@ def main():
     parser.add_argument('--face-right', action='store_true')
     parser.add_argument('--runout-x', type=int, default=400)
     parser.add_argument('--observe-updates', type=int, default=100)
+    parser.add_argument('--top-b', action='store_true')
     args = parser.parse_args()
     assert 1 <= args.hold_updates <= 90
     assert 324 <= args.runout_x <= 400
@@ -102,6 +103,10 @@ end
     tick = tick.replace('s.x<=375', 's.x<=%d' % (args.runout_x-25))
     tick = tick.replace('age<=100', 'age<=%d' % args.observe_updates)
     tick = tick.replace('age>100', 'age>%d' % args.observe_updates)
+    if args.top_b:
+        assert args.observe_updates >= 180
+        tick = tick.replace('if age>%d then pad=0 end' % args.hold_updates,
+                            'if age>%d then pad=0 end\n    if age>=120 and age<140 then pad=64 end' % args.hold_updates)
     source = source[:begin]+tick+source[end:]
     OUTPUT.mkdir(exist_ok=True)
     script = OUTPUT/'controller.lua'
