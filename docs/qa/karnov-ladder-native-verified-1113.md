@@ -104,4 +104,10 @@ matched receipt
 exactly. Installed bytes match the tested candidate. Automatic patch guards
 before and after installation found no matching IPS/BPS/UPS files.
 
-Current/Latest IPS publication remains pending this report's source push.
+GitHub Current is now Latest and has exactly one asset,
+`SMB-Crossover-Latest-WIP-MMC5.ips`, asset744062030. Downloading that asset
+reconstructed the installed Downloads ROM exactly. Published source commit:
+`c1aa33c34614a206939f1a9233e4fd2d91820722`. The publication used this report's
+pre-publication snapshot SHA
+`0810bdf899550becbb8c03bc538fe1ab05b500c60d2efbf690bc28de5dd2821d`.
+No private fixture, ROM binary, generated patch file or backup was published.
