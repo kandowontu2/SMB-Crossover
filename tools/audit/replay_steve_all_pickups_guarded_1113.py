@@ -15,7 +15,7 @@ import steve_armor_idle_1113 as Idle
 ORIGINAL = '1869b7a86f51e29fe423e27ef9916ecbafa249e9b0a32d3dfff7d211687a5e05'
 
 
-def controller(raw, *, defend=True):
+def controller(raw, *, defend=False):
     text = S.controller(raw)
     assert sha256(text.encode()).hexdigest() == ORIGINAL
     bundle = S.W.Symbols.bundle()
@@ -71,9 +71,18 @@ end),emu.callbackType.write,guardFields.NumberofLives)
            "  local expected=natural.oneupAwarded and 3 or 2\n"
            "  assert(read(guardFields.NumberofLives)==expected or (natural.index==2 and read(guardFields.NumberofLives)==3),'No life loss during natural item phases')")
     change('"runtime_authenticated":%s}',
-           '"runtime_authenticated":%s,"life_events":[%s],"injury_events":[%s],"defense_updates":%d}')
+           '"runtime_authenticated":%s,"life_events":[%s],"injury_events":[%s],"defense_updates":%d,"chased_actor":%s}')
     change('tostring(natural.authenticated)))',
-           'tostring(natural.authenticated),table.concat(natural.lifeEvents,","),table.concat(natural.injuryEvents,","),natural.defenseUpdates))')
+           'tostring(natural.authenticated),table.concat(natural.lifeEvents,","),table.concat(natural.injuryEvents,","),natural.defenseUpdates,natural.actorReport or "null"))')
+    change('''  return {flag=flag,state=read(pickupFields.Enemy_State+slot),
+    x=read(pickupFields.Enemy_X_Position+slot)+256*read(pickupFields.Enemy_PageLoc+slot),
+    y=read(pickupFields.Enemy_Y_Position+slot),tag=read(pickupFields.InvPickup+slot)}''',
+           '''  local actor={flag=flag,state=read(pickupFields.Enemy_State+slot),
+    x=read(pickupFields.Enemy_X_Position+slot)+256*read(pickupFields.Enemy_PageLoc+slot),
+    y=read(pickupFields.Enemy_Y_Position+slot),tag=read(pickupFields.InvPickup+slot)}
+  natural.actorReport=string.format('{"flag":%d,"state":%d,"x":%d,"y":%d,"tag":%d}',
+    actor.flag,actor.state,actor.x,actor.y,actor.tag)
+  return actor''')
     if defend:
         change('  local gap=actor.x-x()-8\n', '''  local nearest,delta=nil,nil
   for slot=0,5 do
@@ -92,13 +101,17 @@ end),emu.callbackType.write,guardFields.NumberofLives)
   end
   local gap=actor.x-x()-8
 ''')
+        # Ordinary defensive stops cost travel time. This is a controller
+        # horizon, not a change to item speed, hitboxes or collection criteria.
+        change("assert(age<180,'Native moving-item chase bound')",
+               "assert(age<600,'Native moving-item chase bound')")
     assert 'emu.write' not in text and 'emu.setState' not in text
     from check_ff_stdout_controller_source_1110 import LuaRuntime
     LuaRuntime().compile(text)
     return text
 
 
-def source_check(raw, *, defend=True):
+def source_check(raw, *, defend=False):
     text = controller(raw,defend=defend)
     image,info = Idle.proposal(Idle.reverse(raw))
     assert image == raw
@@ -111,7 +124,9 @@ def source_check(raw, *, defend=True):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--observe-only',action='store_true')
+    modes = parser.add_mutually_exclusive_group()
+    modes.add_argument('--observe-only',action='store_true',help='Observe the frozen controls (default).')
+    modes.add_argument('--defend',action='store_true',help='Experimental stationary defense; frozen negative, not a qualified replay.')
     args = parser.parse_args()
     raw = S.Native.Live.Art.D.HOST.read_bytes()
-    print(json.dumps(source_check(raw,defend=not args.observe_only),sort_keys=True),flush=True)
+    print(json.dumps(source_check(raw,defend=args.defend),sort_keys=True),flush=True)
