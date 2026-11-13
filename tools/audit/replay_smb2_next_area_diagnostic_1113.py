@@ -22,7 +22,9 @@ def controller(image, variant=4):
              'FrameCounter', 'ScrollLock', 'ChangeAreaTimer',
              'ScreenLeft_X_Pos', 'ScreenLeft_PageLoc', 'CurrentBank',
              'CurrentBankC', 'Player_State', 'Player_Y_HighPos',
-             'S2Health', 'S2MaxHealth', 'S2Ready', 'S2Variant')
+             'S2Health', 'S2MaxHealth', 'S2Ready', 'S2Variant',
+             'Player_SprAttrib', 'Player_X_Speed', 'Player_Y_Speed',
+             'Left_Right_Buttons', 'Up_Down_Buttons', 'SavedJoypadBits')
     fields, missing = {}, []
     for name in names:
         try:
@@ -63,6 +65,16 @@ emu.addMemoryCallback(guard(function()
  nextPhase.resident_jumps[tostring(nextPhase.resident_jump_count)]=phaseBankContext(read(phaseFields.CurrentBank))
  nextPhase.resident_jumps[tostring(nextPhase.resident_jump_count-16)]=nil
 end),emu.callbackType.exec,0x16b)
+emu.addMemoryCallback(guard(function(_,value)
+ if not game or r('WorldNumber')~=0 or r('LevelNumber')~=1 or r('GameEngineSubroutine')~=7 then return end
+ local old=read(phaseFields.Player_SprAttrib)
+ if old==value then return end
+ nextPhase.attribute_changes=nextPhase.attribute_changes or {};nextPhase.attribute_change_count=(nextPhase.attribute_change_count or 0)+1
+ local q=phaseBankContext(value);q.old=old;q.s=state()
+ nextPhase.first_attribute_change=nextPhase.first_attribute_change or q
+ nextPhase.attribute_changes[tostring(nextPhase.attribute_change_count)]=q
+ nextPhase.attribute_changes[tostring(nextPhase.attribute_change_count-16)]=nil
+end),emu.callbackType.write,phaseFields.Player_SprAttrib)
 emu.addEventCallback(guard(function()
  if not game or done or r('WorldNumber')~=0 or r('LevelNumber')~=1 then return end
  local s=state();local q={s=s,fields={},pad=pad,pending=#pending}
@@ -76,16 +88,18 @@ emu.addEventCallback(guard(function()
   q.fields.DisableScreenFlag or -1,q.fields.GamePauseStatus or -1,
   q.fields.NmiDisable or -1,s.area},':')
  if fingerprint~=phasePrevious then
-  phaseCount=phaseCount+1;assert(phaseCount<=64,'Bounded phase changes')
+  phaseCount=phaseCount+1
   nextPhase.changes[tostring(phaseCount)]=q;phasePrevious=fingerprint
+  nextPhase.changes[tostring(phaseCount-64)]=nil
  end
  if frames%100==0 then
   nextPhase.samples[tostring(frames)]=q
   for k,_ in pairs(nextPhase.samples)do if tonumber(k)<frames-700 then nextPhase.samples[k]=nil end end
  end
  nextPhase.last=q
+ if q.fields.OperMode_Task==3 and s.engine==7 then nextPhase.entrance_Main=nextPhase.entrance_Main or updates end
  if updates==phaseUpdates then phaseStill=phaseStill+1 else phaseStill=0;phaseUpdates=updates end
- if phaseStill>=600 then
+ if phaseStill>=600 or (nextPhase.entrance_Main and updates-nextPhase.entrance_Main>=400 and s.engine==7) then
   q.mapping={};q.stack={};q.pc_bytes={};q.cpu={}
   for _,at in ipairs({0x8000,0xa000,0xc000,0xe000,q.pc})do
    local mapped=emu.convertAddress(at)
@@ -97,7 +111,7 @@ emu.addEventCallback(guard(function()
   local png=emu.takeScreenshot()
   assert(type(png)=='string'and png:sub(1,8)=='\137PNG\r\n\26\n'and #png<=4*1024*1024,'One bounded in-memory phase PNG')
   nextPhase.image={frame=frames,bytes=#png};print('SMB_NATIVE_IMAGE '..phaseBase64(png))
-  finish(false,'passive-next-area-no-returned-Main600')
+  finish(false,phaseStill>=600 and 'passive-next-area-no-returned-Main600'or'passive-autoentrance-still-engine7-after400Main')
  end
 end),emu.eventType.endFrame)
 '''

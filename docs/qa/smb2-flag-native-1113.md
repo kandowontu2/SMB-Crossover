@@ -99,3 +99,55 @@ a healthy first Mushroom or call that documented behavior a new bug.
 The private flag proposal remains frozen while the newly reachable entrance
 halt is repaired. No local nightly replacement is claimed. GitHub releases
 must remain empty; no Current release or patch asset may be recreated.
+
+## Three mirrors remove the halt; sprite priority blocks the pipe
+
+Root independently rebuilt the existing canonical127 source body and verified
+the exact three old63-byte mirrors, both full inverses and all unowned bytes.
+The separately pinned all-mirror plus flag candidate is
+`2c62e1a0de1b732cfa57af59e71c0775396e067bf04aa101e78f644c3e4c9c4b`;
+all-mirror-only over7ef is
+`690482ef99abb5cc9c4e1cc1bcfecc81fce391722a60ff4bdb3c0f7aa1b87ac3`.
+Their proposal is not installed. The three source-owned mirrors are119/120
+(SMB2 sample banks) and125 (Castlevania sample bank); only their exact
+E45B..E49A regions change,180 actual bytes total. Other mirror debt and all
+sample/manager bytes remain unchanged under the narrow allocation.
+
+The frozen full controller changes only its ROM label to the new candidate:
+Lua `a6e3fefaadbec7398f11b60fc10475414db57fbf534047e26d5670444fea9276`.
+Actual native receipt
+`6006649b766039b0060ec4c1c16c844407cce06e83f10d8cd96433a19dce860d`
+proves the CPU halt is removed: Main continues returning to the7,000-update
+bound,7,819 physical frames. It remains in outdoor1-2/engine7 at239/176,
+health15/lives2; flag/castle/entrance are true, underground settled updates0.
+The complete exit assertion is unchanged and remains negative.
+
+An initial attribute observer096c0b1d/a65f5a58 reached its64-phase-change
+assertion before the pipe because live NmiDisable transitions now continue.
+That is a diagnostic cap failure, not another gameplay failure. Replacing
+the cap assertion with a ring of the64 latest changes retains bounded memory
+and leaves controls unchanged.
+
+Corrected diagnostic Lua:
+`5be4870a2f0d4eefff58ecbaa86d327f177a5dfae9795c961f3f5266e68efa85`.
+Actual native receipt:
+`12e9ce45243f78a14d52fff84420bff700aa1ff460c468e9949a7a2132918476`.
+It stops intentionally false after400 returning entrance Main at physical4286 /
+Main3466. There are72 real Player_SprAttrib transitions. At Main3217/frame4037,
+X147/Y176, native fixed126 PC9CFD/PRG1039613 sets0 to32. The same Main's
+source graphics writer B6A5/PRG972453 clears32 to0. That pair repeats through
+Main3252/X173; terminal ChangeAreaTimer160 never decrements and the player
+continues to239/176. This authenticates the graphics routine erasing the real
+native pipe-entry priority/latch bit. Source-owned priority preservation and
+the OAM consumer need repair; no such candidate is accepted yet.
+
+The reviewed in-memory PNG is2,766 bytes, SHA256
+`e4823eed71b80ebadbc12215d05ac2be6f74fdf5eea19367503f34f24a715987`.
+It shows Imajin beyond the pipe at the right edge, with the HUD correctly at
+the top. It is not a PNG file on disk.
+
+A proposed19-byte funding design from the older checked-in render source
+was rejected before allocation: the actual current Doki palette function is
+B7EF..B82D and has no old NativePaletteOffset table. Its actual source and
+preimages must be recovered before a priority proposal. The tentative design
+did not change any ROM, allocation or current palette behavior.
