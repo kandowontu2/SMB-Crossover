@@ -364,3 +364,48 @@ when waiting at fourth-board, groundedY176, and a real undefeated ground
 Goomba is18..24px away. It preserves all ROM/cookie/constructor guards and
 the frozen negative factory. Its native qualification is pending; no ROM
 or public helper placement has changed.
+
+## Exact e73 current gates and frozen native experiments
+
+The complete current gate command exited0, with zero generated files:
+`check_dkjr_retire_lease_1113.py --current --cold --headers --foreign
+--lifecycle --cold-interrupts --interrupts`, through the bounded runner.
+It directly binds e73, preserving every unrelated Prince/Karnov byte, and
+repeats22550-read cold verification, seven declared fault/retry cases,
+warm/three wrong-phase checks,224 header rejections,225 foreign callback
+pairs, five owner retirement/rebind fixtures,67 maskedIRQ/67 real cold lagNMI,
+and513IRQ/513lag runtime cuts including100 taken-erase points. Complete
+Main/WRAM/maps match; minimum runtimeISRSP130/deepest scoreSP153.
+
+Its genuinely played first-mushroom CPU route also passes on e73 directly:
+controller `137a7c373e27dcd9288c4cd4f6cf25e0f90b961a049e060610e68f267ae816f5`.
+Actual selected native item2 is prepared/born at epoch486, mature550,
+collected582, erased, and status1 resumes30 further updates with both lives.
+Root's separate strengthened physical first-pickup result uses that exact
+controller: receipt
+`62b5f897b6ac046aedd26d7729582b88ab00bf5784ae4fef29450b052d2da1e1`,
+1901physical frames/671updates. Details and scope are root-owned in
+`dkjr-retire-current-native-1113.md`. This remains first mushroom only.
+
+The board-guard factory is frozen to Lua
+`4302a3494ef9db39764d53d6cb8f1c4af8a4731207d9a7f5c836406b036ab08e`.
+Root's actual native result, receipt
+`94a127dbb2fca4d50091abec22a2f9cac5b29281805a05f8d92c596dc29954e0`,
+proves the fresh hop atMain2816 prevents the fourth-board Goomba injury;
+880 carries at2867, ascent2868, crossing3277, roof3309. The run later fails
+after waiting until6221 for the old fourth jump-down window: source injury
+atMain6295/X985/Y176, timer138. Actual944 carry contacts occur before that
+wait, so this is a separate retained controller negative, not a full pass.
+
+`fourth_contact_ride_controller(e73)` derives only from that frozen4302
+factory and transitions fourth-roof to the existing lower phase on actual
+`carried(d,down)` **and current source-grounded state**. The latter avoids
+promoting a transient cached native carry while the donor is still falling;
+the earlier CPU early-ride negative remains retained. Existing lower/exit
+height and direction checks stay intact. The exact new Lua is
+`9f943b1b45c6c829b732b3bc76dc9cf3496e5918fede7816d97d0fd53da93547`.
+All three frozen factories assert e73 and their exact output hashes; a
+read-only metadata check against root's retained candidate compiled all three
+as Lua with zero outputs. Contact-ride native/full-stage qualification is
+pending. No source motor, timer, helper placement, ROM or public delivery
+changed in these experiments.

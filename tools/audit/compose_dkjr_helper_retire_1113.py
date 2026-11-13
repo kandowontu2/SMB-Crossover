@@ -14,6 +14,8 @@ KARNOV_CURRENT='526ef1df172c3172fccbd35aa0471a9ff9a5a256a416acba8f7530d147a5b3f2
 PRINCE_CURRENT='7ef2de351d3a4ae60b3ada2eb1aa56b330873dc106ad43428ec6803bf420d4fc'
 PRINCE_PROPOSAL='e73b66263a8e150d3d21b801e5a55be1817f86d09639fc428ab809b2518842d9'
 TERRAIN_CONTROLLER='bd4bacd76d2584eccc1f745c6abd27c48ab39afe04764d6254438da0f4e11464'
+FOURTH_BOARD_CONTROLLER='4302a3494ef9db39764d53d6cb8f1c4af8a4731207d9a7f5c836406b036ab08e'
+FOURTH_CONTACT_CONTROLLER='9f943b1b45c6c829b732b3bc76dc9cf3496e5918fede7816d97d0fd53da93547'
 FIXTURE='2172ef3c3713c13bc8f5152771b88b105dfc3b0eadc3eda365e479b76c8b9e20'
 
 
@@ -439,7 +441,7 @@ def terrain_positive_timer_negative_controller(raw):
 def fourth_board_guard_controller(raw):
     """Frozen terrain policy plus one original stationary hop at fourth board."""
     text=terrain_positive_timer_negative_controller(raw)
-    return once(text," if phase=='board'and up then",''' if phase=='board'and up then
+    text=once(text," if phase=='board'and up then",''' if phase=='board'and up then
   if index==4 and grounded and y==176 and updates>=rearm then
    for _,actor in ipairs(approachActors())do
     local distance=math.abs(actor[3]-player)
@@ -449,6 +451,17 @@ def fourth_board_guard_controller(raw):
     end
    end
   end''')
+    assert sha256(text.encode()).hexdigest()==FOURTH_BOARD_CONTROLLER
+    return text
+
+
+def fourth_contact_ride_controller(raw):
+    """Board guard plus a genuine source-grounded fourth descent contact."""
+    text=fourth_board_guard_controller(raw)
+    text=once(text," if phase=='roof'and index==4 then",
+        " if phase=='roof'and index==4 and grounded and carried(d,down)then setPhase('lower',down)end\n if phase=='roof'and index==4 then")
+    assert sha256(text.encode()).hexdigest()==FOURTH_CONTACT_CONTROLLER
+    return text
 
 
 def proposal_current(raw):
