@@ -14,7 +14,7 @@ SOURCE=Late.SOURCE.with_name('karnov_ladder_early_1113.lua')
 LATE_CONTROLLER=Late.controller
 
 
-def controller(raw):
+def controller(raw,*,approach_x=None,carry_y=None):
     text=LATE_CONTROLLER(raw)
     start=text.index('-- Extension after the frozen four-pickup gameplay prefix.')
     end=text.index('local function control()',start)
@@ -24,7 +24,14 @@ def controller(raw):
     before='  local gap=fifthGapControl(x,y,ground);if gap then return gap end'
     assert body.count(before)==1
     body=body.replace(before,'  -- The early route earns Ladder before the optional late pit.')
-    text=text[:start]+body+SOURCE.read_text()+'\n'+text[end:]
+    source=SOURCE.read_text()
+    if approach_x is not None:
+        assert approach_x in(1720,1724,1728)
+        source=source.replace('local EARLY_APPROACH_X=1720',f'local EARLY_APPROACH_X={approach_x}')
+    if carry_y is not None:
+        assert carry_y in(64,80,96)
+        source=source.replace('local EARLY_CARRY_Y=80',f'local EARLY_CARRY_Y={carry_y}')
+    text=text[:start]+body+source+'\n'+text[end:]
     before=' if #pickups>=4 then return fifthControl(x,y,ground,item)end'
     assert text.count(before)==1
     text=text.replace(before,' local earlyHandled,earlyPad=earlyControl(x,y,ground,item);if earlyHandled then return earlyPad end\n'+before)
@@ -44,8 +51,29 @@ def controller(raw):
     return text
 
 
-def run(raw,**kwargs):
-    with patch.object(Late,'controller',controller):return Late.run(raw,**kwargs)
+def run(raw,*,approach_x=None,carry_y=None,**kwargs):
+    with patch.object(Late,'controller',lambda image:controller(image,approach_x=approach_x,carry_y=carry_y)):return Late.run(raw,**kwargs)
+
+
+def sweep_high(raw):
+    prefix,seed=run(raw,limit=3000,checkpoint_x=1680,checkpoint_pickups=2,return_model=True)
+    assert len(prefix['pickups'])==2 and prefix['source']['health']==0 and prefix['terminal']['x']==1680,prefix
+    rows=[]
+    for x in(1720,1724,1728):
+        for y in(64,80,96):
+            report,model=run(raw,approach_x=x,carry_y=y,input_model=Late.Native.N.fork(seed),
+                history=prefix['pickups'],limit=650,stop_on_native_head=True,return_model=True)
+            early=report['fifth']['early'];heads=[h for h in early['heads']if h['tile']==193 and h['native_pad']&128]
+            row=dict(approach_x=x,carry_y=y,updates=report['actual_Main_NMI_updates'],
+                head=heads[-1]if heads else None,terminal=report['terminal'],source=report['source'],
+                controller_error=report['controller_error'],early=early)
+            rows.append(row);print('KARNOV_EARLY_SWEEP '+json.dumps(row,separators=(',',':')),flush=True)
+            if heads:
+                return dict(passed=True,scope='Genuine two-item prefix-derived ordinary-controller head sweep; third collector and final full route pending',
+                    prefix_updates=prefix['actual_Main_NMI_updates'],trials=rows,native_claim=False,
+                    final_unbroken_replay_claim=False,runtime_field_grants_or_reseeds=0,output_files=0)
+    return dict(passed=False,prefix_updates=prefix['actual_Main_NMI_updates'],trials=rows,
+        final_unbroken_replay_claim=False,runtime_field_grants_or_reseeds=0,output_files=0)
 
 
 def serve(raw,limit):
@@ -72,7 +100,8 @@ def serve(raw,limit):
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--limit',type=int,default=11000)
     p.add_argument('--serve-suffix',action='store_true');p.add_argument('--require-pass',action='store_true')
+    p.add_argument('--sweep-high',action='store_true')
     args=p.parse_args();raw=Late.candidate()
-    result=serve(raw,args.limit)if args.serve_suffix else run(raw,limit=args.limit)
+    result=sweep_high(raw)if args.sweep_high else serve(raw,args.limit)if args.serve_suffix else run(raw,limit=args.limit)
     print(json.dumps(result,separators=(',',':')),flush=True)
     if args.require_pass:assert result.get('passed')is True,'Complete early stock item/Ladder route did not pass'

@@ -2,6 +2,7 @@
 
 import argparse
 from collections import defaultdict
+from functools import lru_cache
 from hashlib import sha256
 import json
 from multiprocessing.connection import Client, Listener
@@ -56,9 +57,16 @@ def census(raw):
     return dict(actual_ROM_stream_small_object_decode=out,decoded_empty_holes=holes,native_parser_route_validation_pending=True)
 
 
-def controller(raw):
+@lru_cache(maxsize=1)
+def four_controller(raw):
     assert sha256(raw).hexdigest()==PIN
     text=Four.controller(raw,wait_for_entry=True);assert sha256(text.encode()).hexdigest()==BASE
+    return text
+
+
+def controller(raw):
+    assert sha256(raw).hexdigest()==PIN
+    text=four_controller(raw)
     body,hooks=SOURCE.read_text().split('-- COUNTER_HOOKS\n')
     def replace(before,after):
         nonlocal text
@@ -105,7 +113,7 @@ def controller(raw):
     return result
 
 
-def run(raw,*,limit=1000,stop_on_stall=False,return_model=False,input_model=None,history=None,checkpoint_x=None,checkpoints=None,checkpoint_pickups=4):
+def run(raw,*,limit=1000,stop_on_stall=False,return_model=False,input_model=None,history=None,checkpoint_x=None,checkpoints=None,checkpoint_pickups=4,stop_on_native_head=False,stop_at_pickups=None):
     began=time.perf_counter();bundle=dict(Native.W.Symbols.bundle(),raw=raw)
     if input_model is None:opening,m=Native.C.cold(bundle,dict(name='KARNOV',slot=7,cycle=1,raw=34))
     else:opening,m=dict(genuine_prefix_derived_development_fork=True),input_model
@@ -177,6 +185,10 @@ def run(raw,*,limit=1000,stop_on_stall=False,return_model=False,input_model=None
                     name=f'auto-{mark}'
                     if name not in checkpoints and Native.Base.player(m)['x']>=mark:checkpoints[name]=Native.N.fork(m)
             if checkpoint_x is not None and len(context['milestones'])==checkpoint_pickups and Native.Base.player(m)['x']>=checkpoint_x and m.ram[2][0xc0]==0:break
+            if stop_at_pickups is not None and len(context['milestones'])>=stop_at_pickups:break
+            if stop_on_native_head:
+                early=lua.globals().KARNOV_FIFTH_CPU_STATE()['early']
+                if early is not None and any(h['tile']==193 and h['native_pad']&128 for _,h in early['heads'].items()):break
             if context['exit']is not None:break
     def plain(value):
         if hasattr(value,'items'):

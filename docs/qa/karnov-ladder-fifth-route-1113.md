@@ -124,3 +124,49 @@ to exact Prince7ef2de35, it uses the explicit authenticated
 `compose_prince_entrance_current_1113.reverse` to reconstruct526. Unknown ROM
 identities reject. This does not relax either the strict feature proposal or
 the readonly controller's526 input pin and is not a native7ef stock-five claim.
+
+## Completed finite early approach sweep
+
+`replay_karnov_ladder_early_1113.py --sweep-high` completed normally in one
+bounded process, with one genuine two-item prefix (2347 Main updates,
+player1680/176) followed by nine in-memory controller forks. It authenticated
+actual Downloads7ef through the exact inverse above and tested frozen526.
+
+| Adjacent native player X | Carry native Y values | Main updates per fork | Result |
+| --- | --- | --- | --- |
+| 1720 | 64, 80, 96 | 381 each | No native C1 head, no third item |
+| 1724 | 64, 80, 96 | 385 each | No native C1 head, no third item |
+| 1728 | 64, 80, 96 | 389 each | No native C1 head, no third item |
+
+All nine ended healthy, source damage0/lives2, original shot2, cycle0 and no
+equipment grant, at player1737/179 after the finite lower-block landing
+assertion. The aggregate remains a **negative**, not a full route pass.
+Native block-buffer observations confirm C1 at1744/80, C0 at1744/144 and
+clear adjacent columns1712/1728/1760/1776 at64..128. The traced helper was the
+existing native vertical actor in slot2; no fixed helper or ROM change was
+made. These exploratory CPU-only placements are not new native-qualified
+inventory entries.
+
+The trace passes through player1737/Y52 with native grounded0, then the side
+response moves him to1729 while the girder carries him down. The original
+selector23 at the end of those updates does not alone establish a support
+defect: the existing ground bridge reconciles the earlier native support
+before the next original source update, whereas BG collision precedes the
+later native platform carry. No runtime patch is justified by these traces.
+
+The incoming-A suspicion was checked against the retained owning source and
+its authenticated live bridge bytes. BFCB starts immediate far-target
+construction (`A9 78 8D 6C 01 ...`), so it overwrites entry A before any read.
+Its8B:B378 worker starts PHP/TYA/PHA then loads KrHeld. BFC5 stores its own
+caller-supplied A2 to C08B and jumps to KrPostTerrain; the caller supplies A2
+in movement's grounded setup before the later options/Ladder dispatcher.
+This supports retaining the public code; it is not a new interrupt/ABI gate.
+
+Both exploratory memory servers were bounded and retained zero files. A final
+400-update probe in the first early server was interrupted by its600-second
+lifetime and has **no result claim**. The later nine-case sweep above exited
+normally. No process or Mesen instance from another task was touched.
+
+Next useful ordinary-input probes are lower takeoff heights112/128 or an east
+approach. A real high-question head, mature third flower/Boots grant, later
+Bomb/Ladder, final uninterrupted run and root native replay remain pending.
