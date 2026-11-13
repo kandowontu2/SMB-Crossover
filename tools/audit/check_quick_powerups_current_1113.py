@@ -183,19 +183,62 @@ def original_jump_policy():
         scope='Original ground fresh-A and preguarded air-release leaves; no original live game, terrain or unlock claim.')
 
 
+def flag_scope(m):
+    """Inspect the real route's held-right pole stop, without repositioning."""
+    assert player(m)['x']==3152 and player(m)['y']==176 and player(m)['high']==1
+    start=player(m);queries=[];pending=[]
+    point=W.address(m.bundle,'QuickManWorldProbe')
+    def observe(memory,cpu):
+        if pending and (cpu.pc,cpu.sp)==pending[-1]['return']:
+            q=pending.pop();q.pop('return');q.update(A=cpu.a,material=N.get(m,'QuickManWork_00'))
+            queries.append(q)
+        if cpu.pc==point and memory.rawtags[1]==1:
+            pending.append(dict(x=N.get(m,'R0')+256*N.get(m,'R1'),
+                y=N.get(m,'QuickManWork_0A'),high=N.get(m,'QuickManWork_0B'),
+                **{'return':(m[0x100+((cpu.sp+1)&255)]+256*m[0x100+((cpu.sp+2)&255)]+1,(cpu.sp+2)&255)}))
+    for _ in range(3):m.controller_pad=1;Frames.frame(m,observe)
+    assert not pending
+    raw=m.bundle['raw'];table=raw[W.location(m.bundle,'BlockBufferAddr'):W.location(m.bundle,'BlockBufferAddr')+4]
+    attrs=raw[W.location(m.bundle,'MTileAttribute'):W.location(m.bundle,'MTileAttribute')+256]
+    def tile(x,y):
+        page=(x>>8)&1;base=table[page]+256*table[2+page]
+        a=base+((x&255)>>4)+(y&240)-32;v=m[a]
+        return dict(x=x,y=y,address=a,tile=v,flags=attrs[v])
+    probes=[]
+    for index in range(3,7):
+        q=L.clone(m);ret=N.invoke(q,'CrossoverSourceSideProbe',a=0,x=0,y=index)
+        probes.append(dict(index=index,returned=ret['A'],Y=ret['Y'],R4=N.get(q,'R4'),
+            R5=N.get(q,'R5'),R6=N.get(q,'R6'),R7=N.get(q,'R7')))
+    from py65.disassembler import Disassembler
+    from py65.devices.mpu6502 import MPU
+    flat=bytearray(65536);flat[0xa000:0xc000]=m.ram[1]
+    cpu=MPU(memory=flat);ds=Disassembler(cpu);pc=point;code=[]
+    # Raw1 is selected only for this read-only disassembly of its owned bytes.
+    for _ in range(35):
+        n,op=ds.instruction_at(pc);code.append(f'{pc:04X} {bytes(cpu.memory[pc:pc+n]).hex()} {op}');pc+=n
+    return dict(before=start,after=player(m),actual_Main_NMI_updates=3,source_queries=queries,
+        native_side_probes=probes,cells=[tile(x,y)for x in (3153,3167,3168,3176)for y in (187,196,205)],
+        mounted_source_world_disassembly=code,scope='Actual natural-route model, no position/actor/tile writes. Native probe calls use declared index fixtures in clones.')
+
+
 def controller(raw,mode='mushroom'):
     assert mode in ('mushroom','items','full')
     b=W.Symbols.bundle();b['raw']=raw;text=SOURCE.read_text()
     if mode=='mushroom':
         text=subprocess.check_output(['git','show','c8b464b9:tools/reference/quick_natural_powerups_1113.lua'],cwd=R).decode()
+    elif mode=='items':
+        text=subprocess.check_output(['git','show','0956e57d:tools/reference/quick_natural_powerups_1113.lua'],cwd=R).decode()
     names=set(re.findall(r"r\('([^']+)'",text))|set(re.findall(r'\bL\.(\w+)',text))
     labels={name:W.address(b,name)for name in sorted(names)}
     pre='local L={'+','.join(f'{name}={value}'for name,value in labels.items())+'}\n'
     pre+=f'local ROM_SHA="{sha256(raw).hexdigest()}"\nlocal MODE="{mode}"\n'
     pre+=f'local PICKUP_OFFSET={W.location(b,"HandlePowerUpCollision")-16}\nlocal HEAD_OFFSET={W.location(b,"NativeRarePlayerHeadCollisionCore")-16}\n'
+    if mode=='full':pre+='local STAGE_OFFSETS={'+','.join(f'{n}={W.location(b,n)-16}'for n in ('HandleClimbing','FlagpoleCollision'))+'}\n'
     result=pre+text
     if mode=='mushroom'and sha256(raw).hexdigest()==PIN:
         assert sha256(result.encode()).hexdigest()=='a8b617b0a44587bfbb8875c828e95c019a36a58fbeb036e33ecb07ed20355dd4'
+    elif mode=='items'and sha256(raw).hexdigest()==PIN:
+        assert sha256(result.encode()).hexdigest()=='a28640952287b1bf4d42c30c4ca988aede4be9e869bcec3b56b4dec4af63ba22'
     return result
 
 
@@ -241,6 +284,7 @@ def route(seed,raw,limit,mode):
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--cold-only',action='store_true')
     parser.add_argument('--jump-curves',action='store_true')
+    parser.add_argument('--flag-diagnostic',action='store_true')
     parser.add_argument('--route',choices=('mushroom','items','full'));parser.add_argument('--limit',type=int,default=1800)
     args=parser.parse_args()
     raw=C.ROM.read_bytes();opening,seed=cold(raw)
@@ -249,6 +293,10 @@ def main():
     if args.jump_curves:
         print('QUICK_ORIGINAL_JUMP_POLICY '+json.dumps(original_jump_policy(),separators=(',',':')),flush=True)
         print('QUICK_CURRENT_JUMPS '+json.dumps(jump_curves(seed),separators=(',',':')),flush=True);return
+    if args.flag_diagnostic:
+        result=route(seed,raw,2600,'full')
+        assert not result['passed']
+        print('QUICK_FLAG_SCOPE '+json.dumps(flag_scope(seed),separators=(',',':')),flush=True);return
     if args.route:
         result=route(seed,raw,args.limit,args.route)
         print('QUICK_CURRENT_NATURAL '+json.dumps(result,separators=(',',':')),flush=True)

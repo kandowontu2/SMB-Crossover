@@ -3,6 +3,7 @@ local frame,age,phase,game,done=0,0,'title',false,false
 if CPU_CONTROLLER_OPENING then frame=541;phase='game';game=true end
 local epoch,priorCounter=0,nil
 local pickups,births,recent,heads={},{},{},{}
+local stageEvents={}
 local pending,returns=nil,{}
 local jumpLeft,cooldown=0,0
 local wallRelease=nil
@@ -10,7 +11,7 @@ local lastX,stalled=nil,0
 local function r(n,i)return emu.read(assert(L[n],n)+(i or 0),emu.memType.nesDebug)end
 local function wx()return r('Player_X_Position')+256*r('Player_PageLoc')end
 local function actor(i)return {slot=i,flag=r('Enemy_Flag',i),id=r('Enemy_ID',i),kind=r('PowerUpType',i),state=r('Enemy_State',i),x=r('Enemy_X_Position',i)+256*r('Enemy_PageLoc',i),y=r('Enemy_Y_Position',i)}end
-local function state()return {frame=frame,epoch=epoch,x=wx(),y=r('Player_Y_Position'),dy=r('Player_Y_Speed'),state=r('Player_State'),source_state=r('QmField_002C'),source_held=r('QmField_0023'),source_edges=r('QmField_0027'),engine=r('GameEngineSubroutine'),world=r('WorldNumber'),level=r('LevelNumber'),lives=r('NumberofLives'),HP=r('QmField_06C0'),maxHP=r('QmField_0099'),status=r('PlayerStatus'),camera=r('ScreenLeft_X_Pos')+256*r('ScreenLeft_PageLoc')}end
+local function state()return {frame=frame,epoch=epoch,x=wx(),y=r('Player_Y_Position'),high=r('Player_Y_HighPos'),dy=r('Player_Y_Speed'),state=r('Player_State'),source_state=r('QmField_002C'),source_held=r('QmField_0023'),source_edges=r('QmField_0027'),engine=r('GameEngineSubroutine'),world=r('WorldNumber'),level=r('LevelNumber'),lives=r('NumberofLives'),HP=r('QmField_06C0'),maxHP=r('QmField_0099'),status=r('PlayerStatus'),camera=r('ScreenLeft_X_Pos')+256*r('ScreenLeft_PageLoc')}end
 local function encode(v)
  if type(v)=='table'then local a,n=true,0;for k in pairs(v)do if type(k)~='number'then a=false end;n=n+1 end;local out={}
   if a then for i=1,n do out[#out+1]=encode(v[i])end;return '['..table.concat(out,',')..']'end
@@ -19,7 +20,7 @@ local function encode(v)
 end
 local function finish(ok,why)
  if done then return end;done=true
- print('SMB_NATIVE_RECEIPT '..encode({passed=ok,reason=why,ROM_SHA256=ROM_SHA,controller_only=true,terminal=state(),pickups=pickups,births=births,recent=recent,head_effects=heads}))
+ print('SMB_NATIVE_RECEIPT '..encode({passed=ok,reason=why,ROM_SHA256=ROM_SHA,controller_only=true,terminal=state(),pickups=pickups,births=births,recent=recent,head_effects=heads,stage_events=stageEvents}))
  emu.stop(ok and 0 or 1)
 end
 local function mapped(pc,offset)local m=emu.convertAddress(pc);return m and m.memType==emu.memType.nesPrgRom and m.address==offset end
@@ -41,6 +42,14 @@ local function control()
   local target=item.x-8
   if item.kind==1 then return (x<item.x-1 and 1 or x>item.x+2 and 2 or 0)+jump()+b end
   return (x<target-1 and 1 or x>target+1 and 2 or 0)+b
+ end
+ if MODE=='full'and #pickups>=4 and x>=3080 then
+  -- Descend to the shaft instead of hopping above the ball at the final stair.
+  if x>3320 then finish(false,'flag-missed');return 0 end
+  if x<3156 then return 1+b end
+  if r('Player_Y_HighPos')~=1 or r('Player_Y_Position')<48 then return 0 end
+  if x<3170 then return 1 end
+  return 0
  end
  if #pickups==3 and x<1598 then
   -- Keep below the Star row: only jump for the first ground gap.
@@ -74,6 +83,15 @@ emu.addMemoryCallback(function()
  if not game or not mapped(L.NativeRarePlayerHeadCollisionCore,HEAD_OFFSET)then return end
  local c=emu.getState();heads[#heads+1]={frame=frame,epoch=epoch,tile=c['cpu.a'],x=wx(),y=r('Player_Y_Position'),dy=r('Player_Y_Speed'),fraction=r('R4')};if #heads>16 then table.remove(heads,1)end
 end,emu.callbackType.exec,L.NativeRarePlayerHeadCollisionCore)
+if MODE=='full'then
+ for name,pc in pairs({HandleClimbing=L.HandleClimbing,FlagpoleCollision=L.FlagpoleCollision})do
+  emu.addMemoryCallback(function()
+   if not game or not mapped(pc,STAGE_OFFSETS[name])then return end
+   local c=emu.getState();local q=state();q.event=name;q.A=c['cpu.a'];q.fraction=r('R4');q.row=r('R2')
+   stageEvents[#stageEvents+1]=q;if #stageEvents>24 then table.remove(stageEvents,1)end
+  end,emu.callbackType.exec,pc)
+ end
+end
 emu.addEventCallback(function()
  local pad=0
  if not game and age<4 then

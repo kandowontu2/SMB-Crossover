@@ -112,3 +112,34 @@ the unchanged25GB free-space floor; this audit has created zero generated
 files. All four early pipes and the first gap use authentic jumps, with no
 new helper placement. Full1-1, physical lag/cadence and native menu/start
 verification remain open.
+
+The full continuation then exposes a real host-adapter boundary to resolve.
+Blind auto-hop misses the flag above the visible shaft (controller
+4c2e1e3e112d3261381b7b2bb6dc7ed0f0a3252ace7366ceba4fdc3e40901c42,
+source0956e57d); no full-stage pass follows. Releasing A near the last stair
+and descending instead reaches X3152/Y176/high1, HP40/lives3, engine8, and
+holding right remains clamped there for600 updates. Actual mapped native
+HandleClimbing and FlagpoleCollision entries both have zero calls.
+
+`--flag-diagnostic` replays the real item/stage prefix to2600 updates, then
+observes three additional Main/NMI updates without repositioning. The source
+queries X3169/Y188 and204 return ordinary solid material1. At world3168/Y187,
+the actual rolling block buffer has flag shaft tile25hex, attributes07
+(solid+climb); the base atY196 is61hex/attributes45 and must stay solid.
+All four native side probe indices3..6 return0, because native right X is3167,
+one pixel before the shaft. Source/native X conversion remains exact.
+
+The mounted QuickManWorldProbe starts raw1:B165. Its original host source is
+`tools/audit/quickman_host_world_v1.py`: every native MTILE_SOLID bit0 becomes
+source ordinarysolid1. Consequently native climbables block the donor before
+the retained native side effect can see them. The narrow proposed repair is
+to map native climbable cells to source empty, retaining native BG/climb
+handling and all ordinary/base solid material behavior. AND#3/CMP#1/BEQ
+Material in place of AND#1/JMP Material needs one extra owned local byte and
+branch relocation. This is a source-backed proposal, not an implemented or
+native-qualified ROM change. Current owned packet/funding must be checked.
+
+The diagnostic prints the bounded source queries, native probe fixtures,
+actual rolling-buffer cells and mounted disassembly; no output file, source
+extraction or ROM copy is made. Its native side calls are declared index
+fixtures in clones, separate from the preceding natural-controller stage.
