@@ -132,3 +132,11 @@ using the actual native collector/controller/defeat entry points in the CPU
 model: Koopa box3 and Goomba box9, each facing. All completed parry, attack,
 one native defeat, sheathing and idle with HP5. These are placed-flower/enemy
 scenes, not a natural pickup route or a physical Mesen sword recording.
+
+### Installed nightly
+
+After the remaining sword gates passed, the Downloads nightly was replaced
+directly with combinedc5ce8c (no backup). The actual Downloads launch repeated
+the full1-1→1-2 replay with exactly the same60479ff4 receipt. Patch guards
+passed before and after installation; installed bytes match the tested
+candidate and the in-memory IPS reconstruction. Public IPS refresh is next.
