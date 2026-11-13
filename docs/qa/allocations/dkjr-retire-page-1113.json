@@ -1,0 +1,52 @@
+{
+  "owner": "DK Jr authenticated private helper retirement",
+  "status": "conditionally reserved for implementation and qualification; not native-ready",
+  "request": "docs/qa/dkjr-retire-resource-request-1113.md",
+  "extends": "docs/qa/allocations/dkjr-private-resources-1102-v20.json",
+  "reviewed_parent_ROM_SHA256": "62ba7f54117875ec018d6f85fb1c74408aa11f0fe0f6a85b8b4f601034a17639",
+  "reviewed_in_memory_fixture_SHA256": "2172ef3c3713c13bc8f5152771b88b105dfc3b0eadc3eda365e479b76c8b9e20",
+  "conditional_RAM": {
+    "bank": 2,
+    "CPU_start": "C900",
+    "CPU_end_inclusive": "CCFF",
+    "bytes": 1024,
+    "admission": "Selected owner40 plus both complete matching DK Jr ready headers; raw3 in A000 and raw2 in C000",
+    "lifetime": "Immutable after complete cold copy/readback. Invalidated ready headers end ownership; every genuine cold rebind recopies the full page.",
+    "source": "Existing physical CHR959, not a new CHR allocation",
+    "executable_spans": [
+      {"CPU_start":"CBE0","CPU_end_inclusive":"CC16","bytes":55,"storage_offset":736,"storage_capacity":64},
+      {"CPU_start":"CC60","CPU_end_inclusive":"CC79","bytes":26,"storage_offset":864,"storage_capacity":32}
+    ]
+  },
+  "owned_source_funding": {
+    "predicate": "AEEF..AF2C: original62 bytes compacted to42; helper table uses14 of remaining20",
+    "score": "B940..B9BD: original126 compacted to103; body tile alias uses22 of remaining23",
+    "body_and_BOX": "BC74..BD44 stays within its existing209 bytes; body gains1 and owned8-byte BOX moves BD3C toBD3D",
+    "cold": "D25E..D2D4 remains within existing119-byte worker/table ownership; new worker117",
+    "art": "Only existing duplicate pairs47/55 equal9 and49 equals41; all consumers require exact pixel or exclusion proof",
+    "unchanged_anchors": ["D1F0 constructor", "AF2D clock and its callers", "D180 fruit selector"]
+  },
+  "root_independent_review": {
+    "bounded_output_root": "build/metal-flower-native-1112",
+    "outputs_written": 0,
+    "owned_preimages_and_assembled_parts": true,
+    "exact_reviewed_fixture_reproduced": true,
+    "translated_indirect_sites": 23,
+    "C8_indexed_sites": 19,
+    "ordinary_RAM_byte_index_maximum": "C8FE",
+    "validated_list_maximum": "C8FF",
+    "new_runtime_services_do_not_write_page": true,
+    "all_other_effect_bytes_reproduced": 411,
+    "native_run": false
+  },
+  "conditions": [
+    "The reviewed full-page source/cold/header/fault/warm proofs and all body/effect/native/portrait art-consumer proofs remain required. This record grants no neighboring bytes.",
+    "Preserve the complete existing source, ABI, fixed anchors and helper visibility. Retirement requires full48-pixel visual span off-left, correct native actor ownership and no passenger, and uses native EraseEnemyObject.",
+    "Complete the same natural first-pickup and full1-1 route together, immutable-page runtime checks, both-header corruption, actual IRQ/lag-NMI cuts and foreign-owner exit/reentry before requesting root native verification.",
+    "Current nightly526 includes tested Karnov changes. Recover exact62 through its strict inverse; compose a new explicitly authenticated disjoint current API before delivery. Never silently drop the newer feature or relax frozen PINs.",
+    "Root retains the single Mesen queue and delivery. Native first pickup/full stage, Downloads-context repeat and matching sole Current/Latest IPS remain required. No private fixture is public by this reservation."
+  ],
+  "new_native_PRG_bytes": 0,
+  "new_physical_CHR_pages": 0,
+  "feature_enabled_or_delivered": false
+}
