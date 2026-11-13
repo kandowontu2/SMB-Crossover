@@ -16,6 +16,14 @@ The first four original pipe crossings also pass on this candidate. The
 current full-stage replay's first-pit failure is under investigation.
 See `thomas-flower-lift-1112.md` for exact ROM and replay hashes.
 
+A later ordinary-controller run on installed `318a0877` crosses that first
+pit and then collects the authored Star after the mushroom and flower.
+Both lives remain at frame4746. The successful input-poll timing is in
+`replay_thomas_star_1113.py`. Receipt
+`a69f4b97d08a557a0120452b1c3a092fb4d5b61038fe4cc2a1f2362311d93f47`
+qualifies this route segment. The complete current stage and natural1UP
+checks continue separately.
+
 ## November 12 current WWF route recheck
 
 On installed ROM `8fc57b8b4268a47f8a906af8b5813834bbf76ca7376d1d12767d510708da9582`,

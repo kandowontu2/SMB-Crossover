@@ -20,7 +20,7 @@ def press(m,key):
     M.invoke(m,'CrossoverMenuInput')
 
 
-def inventory(raw):
+def inventory(raw, *, historical=True):
     b=bundle(raw)
     seed=M.fresh(b)
     M.put(seed,CrossoverMenuState=2)
@@ -63,8 +63,9 @@ def inventory(raw):
     names={r['name'] for r in entries}
     absent=[key for key,aliases in MISSING.items() if not any(alias in name for alias in aliases for name in names)]
     locked=[r for r in entries if not r['confirm']]
-    assert len(entries)==94 and len(locked)==1 and 'PRINCE' in locked[0]['name'],(len(entries),locked)
-    assert set(absent)==set(MISSING)
+    if historical:
+        assert len(entries)==94 and len(locked)==1 and 'PRINCE' in locked[0]['name'],(len(entries),locked)
+        assert set(absent)==set(MISSING)
     return dict(slots=len(slots),displayed=len(entries),confirmable=len(entries)-len(locked),
                 requested_absent=absent,displayed_locked=locked,rows=entries)
 
