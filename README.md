@@ -132,14 +132,7 @@ Generated ROMs are excluded from this repository. The newer checkpoint source ha
 
 Requires **Python 3.10+** and **cc65**. Windows compiler tools are included. On other systems, install cc65 and put `cl65` on your PATH.
 
-From the repository root:
-
-```sh
-python tools/prepare_guest_audio.py
-python tools/build_mmc5_expanded.py
-```
-
-Open `build/smb-crossover-mmc5-expanded.nes` in an emulator with MMC5 support. A companion `.build.json` receipt records the ROM's SHA-256 hash.
+1) Figure it out
 
 The prepared build uses repository assets and does not require downloading original ROMs or research archives. Asset regeneration and research tools have additional dependencies; see the [architecture and provenance notes](docs/architecture.md).
 
