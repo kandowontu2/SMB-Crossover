@@ -74,3 +74,9 @@ Current zero-output runs: `--fixtures` passes all four native continuations;
 The source study uses`build/dkjr-powerups-current-1113`, one-file reservation,
 and leaves that output root empty. No source-level lift has been added to
 the production helper inventory.
+
+The subsequent private source bridge is documented in
+`dkjr-head-bridge-1113.md`. It retains the frozen negatives above, authenticates
+the known Steve62 successor by an explicit inverse, and qualifies a natural
+first mushroom through a dynamically selected native item slot. It does not
+claim delivery or replace the required full-stage/native regression.

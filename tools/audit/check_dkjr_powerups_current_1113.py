@@ -13,12 +13,26 @@ N,W,L=C.N,C.W,C.L
 R=Path(__file__).resolve().parents[2]
 PIN='4641ca4fb72699c0478e31b831d4c4ea0ffd2227be7f8446666092d2cc26e1d3'
 CURRENT='aa50112845d1cf70cae0924f03326647b3d2514f876c756d70b134ee44f971d1'
+STEVE_SUCCESSOR='62ba7f54117875ec018d6f85fb1c74408aa11f0fe0f6a85b8b4f601034a17639'
 ROW=dict(name='DONKEY KONG JR',slot=27,cycle=1,raw=40)
 PAGES=(817,833,847,856,867,881,882,883,959,960,961)
 CHR=16+128*8192
 COOKIE_AT=534485
 COOKIE=bytes.fromhex('a7280130b1118ac41a70e81c2eda030f')
 SOURCE=R/'tools/reference/dkjr_natural_powerups_1113.lua'
+
+
+def proof_parent(raw):
+    digest=sha256(raw).hexdigest()
+    if digest==STEVE_SUCCESSOR:
+        from steve_armor_idle_1113 import reverse,PARENT
+        assert PARENT==CURRENT
+        parent=reverse(raw,optimized=False)
+        assert sha256(parent).hexdigest()==CURRENT
+        return parent,dict(input_SHA256=digest,proof_parent_SHA256=CURRENT,
+            inverse='steve_armor_idle_1113.reverse(optimized=False)',ROM_written=False)
+    assert digest in(PIN,CURRENT)
+    return raw,dict(input_SHA256=digest,proof_parent_SHA256=digest,inverse=None,ROM_written=False)
 
 
 def cold(raw):
@@ -136,7 +150,7 @@ def fixtures(seed):
     return rows
 
 
-def helper_fixture(seed):
+def helper_fixture(seed,*,max_platform_slot=5,left=320,target_x=328,wait_maturity=False,followup_updates=0):
     """Seed one declared stock actor offscreen, then use normal controllers."""
     m=L.clone(seed);slot=None;setup=None;events=[];phase='approach';hold=0;rearm=0;released=0
     pickup=None;head_count=0;minimum=255;head_return=None;best_head=None;jump_tick=None;curve=[];solid_heads=[];source_writes=[]
@@ -176,35 +190,45 @@ def helper_fixture(seed):
             pickup=dict(tick=tick,player=state(m),actor=actor(cpu.x),owner=N.get(m,'InvPickupOwner',cpu.x),prepared=N.get(m,'InvPickup',cpu.x))
     for tick in range(1600):
         s=state(m);x,y=s['x'],s['y'];ground=s['source_state']==1 and s['state']==0
-        if slot is None and 256<=320-s['camera']<=287:
-            slot=next(i for i in range(5,-1,-1)if not N.get(m,'Enemy_Flag',i))
+        if slot is None and 256<=left-s['camera']<=287:
+            slot=next(i for i in range(max_platform_slot,-1,-1)if not N.get(m,'Enemy_Flag',i))
             prior=N.get(m,'ObjectOffset');N.put(m,ObjectOffset=slot)
-            for name,value in dict(Enemy_Flag=1,Enemy_ID=0x25,Enemy_PageLoc=1,Enemy_X_Position=64,
+            for name,value in dict(Enemy_Flag=1,Enemy_ID=0x25,Enemy_PageLoc=left>>8,Enemy_X_Position=left&255,
                 Enemy_Y_Position=192,Enemy_Y_HighPos=1).items():m[W.address(m.bundle,name)+slot]=value
             N.invoke(m,'InitEnemyObject',x=slot)
             m[0x47+slot]=128;m[0x646+slot]=5;N.put(m,ObjectOffset=prior)
-            setup=dict(tick=tick,player=s,actor=actor(slot),left=320,center=336,initial_top=192,
-                width=32,oscillator=128,box=5,relative=320-s['camera'])
-            assert setup['actor']['x']==320 and setup['actor']['y']==192
+            setup=dict(tick=tick,player=s,actor=actor(slot),left=left,center=left+16,initial_top=192,
+                width=32,oscillator=128,box=5,relative=left-s['camera'])
+            assert setup['actor']['x']==left and setup['actor']['y']==192
         item=next((actor(i)for i in range(6)if N.get(m,'Enemy_Flag',i)and N.get(m,'Enemy_ID',i)==46),None)
         ride=slot is not None and N.get(m,'Enemy_Flag',slot)and N.get(m,'Enemy_ID',slot)==0x25 and y+32==N.get(m,'Enemy_Y_Position',slot)and y<176 and s['source_state']==1
         if pickup:
             pad=0
             if s['status']==1 and s['engine']==8:
                 assert setup and head_count and not N.get(m,'Enemy_Flag',pickup['actor']['slot'])
+                timeline=[]
+                for follow in range(followup_updates):
+                    m.controller_pad=0;Frames.frame(m,observe)
+                    after=state(m)
+                    if follow<3 or follow==followup_updates-1:timeline.append(dict(update=follow,**after))
+                    if after['lives']<2 or after['source_state']==5 or after['engine']==11:
+                        return dict(passed=False,reason='post-pickup-life-lost',setup=setup,pickup=pickup,
+                            final=after,head_effects=head_count,followup=timeline)
+                s=state(m)
                 return dict(passed=True,setup=setup,pickup=pickup,final=s,head_effects=head_count,
-                    events=events,best_head=best_head,bump_curve=curve,minimum_SP=minimum,ROM_written=False,
+                    events=events,best_head=best_head,bump_curve=curve,minimum_SP=minimum,ROM_written=False,followup=timeline,
                     scope='Explicit stock actor fixture at its offscreen admission plane; no player/item/terrain/power grants. Not a production helper birth or natural-route qualification.')
         elif item:
-            phase='collect';target=item['x']-8;pad=1 if x<target-1 else 2 if x>target+1 else 0
-        elif x<328:
+            phase='collect';target=item['x'];pad=1 if x<target-1 else 2 if x>target+1 else 0
+            if wait_maturity and(not item['state']&128 or y<164):pad=0
+        elif x<target_x:
             phase='approach';pad=1
             near=any(N.get(m,'Enemy_Flag',i)==1 and N.get(m,'Enemy_ID',i)in(2,6)
                 and not N.get(m,'Enemy_State',i)&32 and N.get(m,'Enemy_Y_Position',i)>=172
                 and 8<=actor(i)['x']-x<=30 for i in range(6))
             if ground and tick>=rearm and near:hold=tick+8;rearm=tick+47
             if tick<hold:pad+=128
-        elif x>329:pad=2
+        elif x>target_x+1:pad=2
         else:
             if ride and phase!='rise'and phase!='bump':
                 phase='rise';released=0;hold=0;events.append(dict(event='board',tick=tick,player=s,actor=actor(slot)))
@@ -235,12 +259,12 @@ def helper_fixture(seed):
         head_effects=head_count,best_head=best_head,bump_curve=curve,solid_heads=solid_heads)
 
 
-def route(seed,raw,limit=1600):
+def route(seed,raw,limit=1600,*,controller_text=None,observe_extra=None,after_frame=None):
     # This derivative adds work-RAM reads required by DK's source state. All
     # RAM, ROM and input still use the actual established CPU/peripheral model.
     from check_ff_stdout_controller_source_1110 import LuaRuntime,DLL,DLL_SHA
     assert sha256(DLL.read_bytes()).hexdigest()==DLL_SHA
-    lua=LuaRuntime(unpack_returned_tuples=True);events={};callbacks=[]
+    lua=LuaRuntime(unpack_returned_tuples=True);events={};callbacks={}
     context=dict(cpu=None,exit=None,receipt=None)
     emu=lua.table();emu.memType=lua.table_from(dict(nesDebug=0,nesPrgRom=1,nesWorkRam=2))
     emu.eventType=lua.table_from(dict(inputPolled=0,endFrame=1));emu.callbackType=lua.table_from(dict(exec=0))
@@ -263,15 +287,19 @@ def route(seed,raw,limit=1600):
     emu.read,emu.convertAddress,emu.getState,emu.setInput=read,mapped,cpu_state,set_input
     emu.stop=lambda code:context.update(exit=code)
     emu.addEventCallback=lambda fn,kind:events.setdefault(kind,fn)
-    emu.addMemoryCallback=lambda fn,_kind,lo,hi=None:callbacks.append((lo,lo if hi is None else hi,fn))
+    def add_callback(fn,_kind,lo,hi=None):
+        for pc in range(lo,(lo if hi is None else hi)+1):callbacks.setdefault(pc,[]).append(fn)
+    emu.addMemoryCallback=add_callback
     lua.globals().emu=emu;lua.globals().CPU_CONTROLLER_OPENING=True;lua.globals().print=emit
-    text=controller(raw);lua.execute(text)
+    text=controller_text if controller_text is not None else controller(raw);lua.execute(text)
     def observe(_memory,c):
         context['cpu']=c
-        for lo,hi,fn in callbacks:
-            if lo<=c.pc<=hi:fn()
+        for fn in callbacks.get(c.pc,()):fn()
+        if observe_extra:observe_extra(_memory,c)
     for tick in range(limit):
-        events[0]();Frames.frame(seed,observe);events[1]()
+        events[0]();Frames.frame(seed,observe)
+        if after_frame:after_frame(seed)
+        events[1]()
         if context['exit']is not None:break
     return dict(passed=context['exit']==0,stopped=context['exit']is not None,logical_updates=tick+1,
         final=state(seed),controller_SHA256=sha256(text.encode()).hexdigest(),receipt=context['receipt'],
@@ -282,7 +310,8 @@ def main():
     ap=argparse.ArgumentParser();ap.add_argument('--jumps',action='store_true')
     ap.add_argument('--route',action='store_true');ap.add_argument('--fixtures',action='store_true')
     ap.add_argument('--helper-fixture',action='store_true');args=ap.parse_args()
-    raw=C.ROM.read_bytes();opening,m,source=cold(raw)
+    raw,input_info=proof_parent(C.ROM.read_bytes());opening,m,source=cold(raw)
+    print('DKJR_PROOF_INPUT '+json.dumps(input_info,separators=(',',':')),flush=True)
     print('DKJR_CURRENT_COLD '+json.dumps(dict(ROM_SHA256=sha256(raw).hexdigest(),
         opening=opening,source=source,final=state(m)),separators=(',',':')),flush=True)
     if args.jumps:print('DKJR_CURRENT_JUMPS '+json.dumps(jumps(m),separators=(',',':')),flush=True)
