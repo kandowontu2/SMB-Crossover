@@ -127,6 +127,36 @@ def full_stage_controller(candidate,info):
     return lua
 
 
+def jay_controller(candidate,info, *, mode='pickup'):
+    """Bind delivered Jay controls after strict shared-owner normalization."""
+    import compose_jay_head_bridge_1113 as Head
+    import compose_jay_pickup_helper_1113 as Helper
+    import compose_quick_climb_material_1113 as Quick
+    import replay_jay_pickup_helper_1113 as Replay
+    from check_ff_stdout_controller_source_1110 import LuaRuntime,DLL,DLL_SHA
+
+    assert Packet.Entry.digest(candidate) == PARENTS[
+        'aa50112845d1cf70cae0924f03326647b3d2514f876c756d70b134ee44f971d1']
+    assert mode in ('pickup','stage')
+    cookie = candidate[Packet.Entry.prg(94,0xb2ef):Packet.Entry.prg(94,0xb2ef)+16]
+    assert cookie == info['cookie'] and cookie[:4] == bytes.fromhex('aa10200c')
+    parent = Live.reverse(candidate)
+    base = Head.inverse(Helper.inverse(Quick.inverse(parent)))
+    assert Packet.Entry.digest(base) == Packet.QUALIFICATION_PARENT
+    head = Head.proposal(base)[0]
+    normalized = Helper.proposal(head)[0]
+    assert Quick.transform(normalized)[0] == parent
+    for page in (232,234,331,332):
+        assert Live.Art.page(candidate,page) == Live.Art.page(normalized,page),page
+    lua = Replay.controller(normalized) if mode == 'pickup' else Replay.stage_controller(normalized)
+    assert lua.count(Helper.COOKIE.hex()) == (1 if mode == 'pickup' else 2)
+    lua = lua.replace(Helper.COOKIE.hex(),cookie.hex())
+    assert 'emu.write' not in lua and 'emu.setState' not in lua
+    assert Packet.Entry.digest(DLL.read_bytes()) == DLL_SHA
+    LuaRuntime().compile(lua)
+    return lua
+
+
 if __name__ == '__main__':
     candidate,info = proposal(Live.Art.D.HOST.read_bytes())
     private,proof = fixture(candidate)

@@ -128,6 +128,14 @@ values,10 previous-record parity cases, six full-to-free retries and eight
 reset cases. These helper decision fixtures overlay only the already
 byte-verified helper body. The check makes no authored full-stage claim.
 
+`jay_controller(...,mode='pickup'|'stage')` derives its expected AA cookie
+from actual2aa, inverses and normalizes the exact delivered Head/Helper/Quick
+recipes, and requires physical Jay code-page equality. Both readonly bindings
+compile with retained Lua5.4. Pickup has hash
+`0d9549bd4fd5e26594297bcbb67d18a43c260bcc1140276378c116d8b04b2261`.
+Stage has hash
+`f06b9e44dd6865c4d66ec0b54059ce78c0a43d6b5bb4399809c7308245d0b8dd`.
+
 ## Explicit ownership
 
 Root grants are PRG5 BFDF–BFFF33bytes, PRG8 BFE6–BFFF26bytes, CHR8/10/709
@@ -183,9 +191,14 @@ retains the natural first-Goomba fight and six-pipe/three-gap/flag/castle
 checks, and holds neutral until grounded1-2 at Y176. It compiles with retained
 Lua5.4 and has hash
 `0295efe67ae7c86ea0874e4d945f057c5eb51cd60be391196c59534cd184564c`.
-Its actual physical full-stage result is pending with root.
+Root's unmodified2aa full-stage run passes6,453 physical frames,2,605 punch
+updates,2,781 movement projections and62 physical punch DMA cell matches.
+It crosses all six pipes, three gaps, flagpole and castle, then lands in
+grounded1-2 at X40/Y176 with health4 and both lives. Its receipt is
+`6c7068091a9f41dff4778d5c6bd0e8c94e1d8d7b0bbca0673f07cdef7fb6d1d4`.
 
-Root still must qualify unmodified full1-1 into grounded1-2, then exact
+Actual native armored combat/protection, foreign-profile regressions and
+empty-scene cadence comparison remain in progress before root's exact
 Downloads installation/release if approved. The private
 level fixture stays separate from the installed candidate. No helper platforms
 or authored public stage placements change in this patch.
@@ -194,3 +207,11 @@ One early zero-output sizing invocation ran directly. It generated no files
 and was immediately repeated through the bounded runner. A later startup raced
 Quick's replacement. Its development receipt correctly labels4641 and is
 separate from the explicit frozen/rebased proofs above.
+
+Root's empty-scene native cadence audit exposes a regression in private2aa.
+Parent walk36/36 and idle25/25 updates/physical frames become36/54 and25/36.
+Every physical frame retains input polling. A CPU attribution check measures
+about2,359 extra cycles per ordinary update. Main service costs about1,049
+cycles including the original token tick. Rejected Pose and Draw cost706
+and700 cycles each. An opt-in local rejection path is being qualified while
+the default2aa recipe and its completed evidence stay frozen.
