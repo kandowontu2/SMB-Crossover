@@ -138,8 +138,10 @@ The two file offsets are20956 for the15-byte object prefix and19023 for the
 single enemy terminator. Physical fixture qualification remains pending.
 The generated readonly Lua is8,377 bytes with SHA256
 `837350d4921f4670fdf3dfcadf39c482bfa0baba4595a596e8aa9061a95034d8`.
-Lua parser packages are absent in this Python environment. Its actual Mesen
-parse and runtime are pending with root's queue.
+The controller compiles with the existing retained Lua5.4 module after its
+DLL hash is checked. Unmodified ingress Lua has SHA256
+`01419d78bded0034aa09468a599d4c2d60a60332959e294533bc8ab7f05060b2`.
+Physical Mesen runtime qualification is pending with root's queue.
 
 Root still must qualify physical armor/DMA, unmodified candidate ingress and
 full1-1, then exact Downloads installation/release if approved. The private

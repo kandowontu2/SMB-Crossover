@@ -55,6 +55,8 @@ def fixture(candidate):
 
 
 def controller(candidate,info, *, mode='armor_fixture'):
+    from check_ff_stdout_controller_source_1110 import LuaRuntime,DLL,DLL_SHA
+    assert Packet.Entry.digest(DLL.read_bytes()) == DLL_SHA
     assert Packet.Entry.digest(candidate) == CANDIDATE
     assert mode in ('armor_fixture','ingress')
     bundle = Roster.W.Symbols.bundle()
@@ -71,6 +73,7 @@ def controller(candidate,info, *, mode='armor_fixture'):
     lua = lua.replace('STEVE_POINTS',','.join(map(str,POINTS)))
     lua = lua.replace('STEVE_WAVE_RENDER',str(info['runtime']['symbols']['ArmorWaveNativeRender']))
     assert 'emu.write' not in lua and 'emu.setState' not in lua
+    LuaRuntime().compile(lua)
     return lua
 
 
