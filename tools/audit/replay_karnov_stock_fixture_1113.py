@@ -11,14 +11,15 @@ from replay_karnov_bomb_1112 import R, controller
 
 
 OUTPUT = R/'build/metal-flower-native-1112'
-PIN = '0935e6c22725c008d88c3d249aae7c4c8a30cf11d87e221e2ffaef544cc088ed'
+PIN = '318a087735b4204c74274b4107efbc302bc15a674a7f6f9d3bed598cea90d08d'
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--contact', action='store_true')
+    parser.add_argument('--rom', type=Path, default=OUTPUT/'candidate.nes')
     args = parser.parse_args()
-    rom = OUTPUT/'candidate.nes'
+    rom = args.rom
     raw = rom.read_bytes()
     assert sha256(raw).hexdigest() == PIN
     text = controller(raw, 'fixture')
@@ -98,13 +99,15 @@ emu.addEventCallback=function(fn,...)return addEvent(guarded(fn),...)end
     receipt = receipts[0]
     assert sha256(rom.read_bytes()).hexdigest() == PIN
     assert sha256(script.read_bytes()).hexdigest() == script_pin
-    print(json.dumps(dict(passed=bool(receipt['passed']), fixture=True,
-                          script_SHA256=script_pin,
-                          receipt_SHA256=sha256(json.dumps(receipt, sort_keys=True).encode()).hexdigest(),
-                          receipt=receipt, other_processes_untouched=[p['ProcessId'] for p in other],
-                          stderr=result.stderr[-1500:])), flush=True)
+    report = dict(passed=bool(receipt['passed']), fixture=True,
+                  script_SHA256=script_pin,
+                  receipt_SHA256=sha256(json.dumps(receipt, sort_keys=True).encode()).hexdigest(),
+                  receipt=receipt, other_processes_untouched=[p['ProcessId'] for p in other],
+                  stderr=result.stderr[-1500:])
+    print(json.dumps(report), flush=True)
     assert result.returncode == 0 and receipt['passed']
     assert receipt['ROM_SHA256'] == PIN and receipt['fixture_offsets'] == [142, 143, 187]
+    return report
 
 
 if __name__ == '__main__':
