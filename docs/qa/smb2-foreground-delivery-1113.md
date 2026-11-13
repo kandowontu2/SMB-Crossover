@@ -1,8 +1,8 @@
 # SMB2 entrance and normal foreground qualification
 
-Current Downloads remains the verified Bub/Bob nightlyf88. Releases remain
-empty. The candidates described here are private until the delivery section
-records a verified replacement and actual Downloads launch.
+Current Downloads is the verified merged3684 nightly. It directly replaces
+f88 and retains the Bub/Bob improvements. Releases remain empty. The earlier
+private2448 evidence below stays attached to that tested candidate.
 
 ## Reversible merge
 
@@ -78,5 +78,26 @@ old7ef Lua67e3166d and f88 Luab5c66789 exactly; new merged Lua is
 `a75c8de347f0efb169b41285154061516e2adaabb6cb40b8eaae57fd2ee066ff`.
 This metadata check is not a fresh physical Mini pass.
 
-Guarded direct replacement, byte equality and actual Downloads visual
-launch are still pending. No installation is claimed yet.
+## Delivered and checked through Downloads
+
+`install_smb2_foreground_nightly_1113.py` directly replaced the sole Downloads
+ROM with exact3684. Its pre/post sidecar guards pass, the inverse equals the
+previousf88 bytes, and installed bytes equal the all-eight tested candidate.
+No backups, patches or release assets were created. Source through1d8dfe22
+was pushed before replacement.
+
+Root then launched the actual Downloads ROM with Mario's original controls
+and the two bounded visual observers. Lua:
+`69bd475c3e16831050f60ecc0f0a4523d6128627924f5b0e5318cf1435b66ba3`.
+Receipt:
+`2b5a35f492dd87b869cb4ac342732fb96547f5c76511fc8a9058bf8624d04a34`.
+This full run passes4484 physical/3597 Main, HP15/lives2,25 grounded1-2
+updates. Both explicit visual-state assertions pass: pipe attribute32 and
+normal grounded attribute0. The underground PNG retains the reviewed
+2010-byte SHA d2cea1da…; no images or other captures were written to disk.
+The other seven full native runs used the private candidate path with the
+same exact bytes; they were not all repeated after installation.
+
+Build inventory remains2,873,569,938 bytes and19,996 files, under the hard
+5GB/20,000-file limits. The complete roster/powerup goal remains unfinished;
+this delivery adds no new helper platforms and makes no global lag-free claim.

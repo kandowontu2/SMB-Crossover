@@ -14,6 +14,7 @@ NIGHTLY = Path('C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes')
 OUT = Path(__file__).resolve().parents[2] / 'build/metal-flower-native-1112'
 PARENT = '7ef2de351d3a4ae60b3ada2eb1aa56b330873dc106ad43428ec6803bf420d4fc'
 PUBLIC_BUB = 'f88cfe5aee15bb3921c691b7f06d905246be9ff88b9b43eea71c2405722724a7'
+PUBLIC_SMB2 = '3684f3d2a418a484befd80fca351d0dc5f9b472f6f067a0a7894994ea343679d'
 PINS = {
     'first-item': 'b784ed4ed57a051231424e1f603dda8b160a34b749d23138649ae7d463fe4a47',
     'first-pipe': '65af12f18021d30e47bd9f4022c01148bf295da76017f744acc38456345b90b8',
@@ -29,9 +30,13 @@ def main():
     p.add_argument('--reuse', action='store_true', help='Reuse the already composed exact14ae private file; no repeated parent build.')
     args = p.parse_args()
     public_now = check(NIGHTLY)['ROM_sha256']
-    assert public_now in (PARENT, PUBLIC_BUB)
+    assert public_now in (PARENT, PUBLIC_BUB, PUBLIC_SMB2)
     raw = NIGHTLY.read_bytes()
-    if public_now == PUBLIC_BUB:
+    if public_now == PUBLIC_SMB2:
+        import compose_smb2_foreground_current_1113 as Current
+        raw = Current.inverse(raw)
+        assert sha256(raw).hexdigest() == PUBLIC_BUB
+    if sha256(raw).hexdigest() == PUBLIC_BUB:
         import bub_native_noops_1113 as Bub
         raw = Bub.combined_reverse(raw)
         assert sha256(raw).hexdigest() == PARENT
