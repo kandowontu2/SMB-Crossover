@@ -15,9 +15,11 @@ def main():
     parser.add_argument('--hold-updates', type=int, default=8)
     parser.add_argument('--face-right', action='store_true')
     parser.add_argument('--runout-x', type=int, default=400)
+    parser.add_argument('--observe-updates', type=int, default=100)
     args = parser.parse_args()
     assert 1 <= args.hold_updates <= 90
     assert 324 <= args.runout_x <= 400
+    assert 100 <= args.observe_updates <= 400
     assert digest(NIGHTLY) == PIN
     source = PUBLISHED.read_text()
     source = source.replace('a726021676a00802119275ac7f48cce7', 'a72602f65bd78bf89874939486b6742f')
@@ -98,6 +100,8 @@ end
                         'if age>%d then pad=0 end' % args.hold_updates)
     tick = tick.replace('s.x>=400', 's.x>=%d' % args.runout_x)
     tick = tick.replace('s.x<=375', 's.x<=%d' % (args.runout_x-25))
+    tick = tick.replace('age<=100', 'age<=%d' % args.observe_updates)
+    tick = tick.replace('age>100', 'age>%d' % args.observe_updates)
     source = source[:begin]+tick+source[end:]
     OUTPUT.mkdir(exist_ok=True)
     script = OUTPUT/'controller.lua'

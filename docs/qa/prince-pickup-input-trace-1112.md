@@ -76,3 +76,18 @@ Receipt `1049972968656323fa66a6bc38743f20ebd23b36e6d9236185a564a1a18869cc`;
 script `11dee6f0f93d97d25625079df3a07d6d967322dcd6f4ee69d58a0c4a61ca266f`.
 Continue this controller to settled top support, then inspect the existing
 block activation paths without adding a non-original jump-height change.
+
+## Settled top support confirmed
+
+Extending that same controller with `--observe-updates 180` completes the
+climb: age112 returns action0/pose15; terminal X307/Y112, ground0, mode0,
+HP5/two lives at physical frame2014. Native support is the row at Y144.
+No item appears and sword remains0. Receipt
+`1a2eb712409343f829f1fd26f85d573f549f5e65932300b951a93679070684b1`, script
+`acddc1bd565d21d937fdf82867fc691da22f462a32ec8ef72f51e5a5bce53b48`.
+
+Source inspection: ordinary native head activation requires negative
+Player_Y_Speed, head-cell collision and low-nibble>=4 in PlayerBGCollision.
+Climbing beside the row is not itself evidence of a head collision. The next
+test must exercise an actual activation path rather than treating successful
+ledge traversal as a failed head-bump. No gameplay edits or captures.
