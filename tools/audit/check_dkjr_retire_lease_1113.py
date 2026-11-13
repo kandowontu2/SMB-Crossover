@@ -148,7 +148,7 @@ def cold_cases(seed,candidate,info):
         native_ready=False,scope='Actual current CoCold under declared read faults, no emulator qualification claim.')
 
 
-def route(seed,candidate,info,*,full=False,ride_fourth=False,fourth_window=False,ledge_wait=False,stationary_wait=False,early_stairs=False,roof_trace=False,contact_trace=False):
+def route(seed,candidate,info,*,full=False,ride_fourth=False,fourth_window=False,ledge_wait=False,stationary_wait=False,early_stairs=False,riser_retreat=False,landing_prep=False,roof_trace=False,contact_trace=False):
     m=L.clone(seed);page=bytes(m.ram[2][LO:HI]);counts=Counter();updates=0;trace=[];writers=[]
     previous=None;output=sys.stdout
     source=P.T.payload(candidate)[:8160]
@@ -191,16 +191,17 @@ def route(seed,candidate,info,*,full=False,ride_fourth=False,fourth_window=False
                 trace.append(row)
         if updates%1000==0:print('DKJR_RETIRE_ROUTE_PROGRESS '+json.dumps(dict(full=full,updates=updates,player=B.state(memory)),separators=(',',':')),flush=True)
     with redirect_stdout(CompactOutput()):result=B.route(m,candidate,12000 if full else 2000,
-        controller_text=P.controller(candidate,full=full,ride_fourth=ride_fourth,fourth_window=fourth_window,ledge_wait=ledge_wait,stationary_wait=stationary_wait,early_stairs=early_stairs),after_frame=after,
+        controller_text=P.controller(candidate,full=full,ride_fourth=ride_fourth,fourth_window=fourth_window,ledge_wait=ledge_wait,stationary_wait=stationary_wait,early_stairs=early_stairs,riser_retreat=riser_retreat,landing_prep=landing_prep),after_frame=after,
         observe_extra=observe if(roof_trace or contact_trace)else None)
     assert not counts['lease_writes']
     return dict(passed=result['passed'],logical_updates=result['logical_updates'],final=result['final'],
         controller_SHA256=result['controller_SHA256'],receipt=dict(
             canonical_SHA256=sha256(json.dumps(result['receipt'],sort_keys=True,separators=(',',':')).encode()).hexdigest(),
             passed=result['receipt']['passed'],reason=result['receipt']['reason'],terminal=result['receipt']['terminal'],
-            birth_lefts=sorted(result['receipt'].get('births',{})),carry_lefts=sorted(result['receipt'].get('carries',{}))),
+            birth_lefts=sorted(result['receipt'].get('births',{})),carry_lefts=sorted(result['receipt'].get('carries',{})),
+            late_events=[row for row in result['receipt'].get('events',[])if row['x']>=2080][-24:]),
         roof_trace=trace[:8]+trace[-24:]if len(trace)>32 else trace,source_state_writers=writers,immutable_page_runtime_writes=0,
-        full=full,ride_fourth=ride_fourth,fourth_window=fourth_window,ledge_wait=ledge_wait,stationary_wait=stationary_wait,early_stairs=early_stairs,physical_cadence_claim=False,native_ready=False)
+        full=full,ride_fourth=ride_fourth,fourth_window=fourth_window,ledge_wait=ledge_wait,stationary_wait=stationary_wait,early_stairs=early_stairs,riser_retreat=riser_retreat,landing_prep=landing_prep,physical_cadence_claim=False,native_ready=False)
 
 
 def header_guards(seed,info):
@@ -418,6 +419,8 @@ def main():
     ap.add_argument('--ledge-wait',action='store_true')
     ap.add_argument('--stationary-wait',action='store_true')
     ap.add_argument('--early-stairs',action='store_true')
+    ap.add_argument('--riser-retreat',action='store_true')
+    ap.add_argument('--landing-prep',action='store_true')
     ap.add_argument('--roof-trace',action='store_true');ap.add_argument('--contact-trace',action='store_true');args=ap.parse_args()
     raw=B.C.ROM.read_bytes();parent,input_info=P.proof_parent(raw)
     candidate,info=P.proposal_current(raw if args.current else parent)
@@ -436,7 +439,7 @@ def main():
     if args.interrupts:print('DKJR_RETIRE_LEASE_INTERRUPTS '+json.dumps(interrupts(parent,seed,candidate,info),separators=(',',':')),flush=True)
     if args.first or args.full:
         result=route(seed,candidate,info,full=args.full,ride_fourth=args.ride_fourth,
-            fourth_window=args.fourth_window,ledge_wait=args.ledge_wait,stationary_wait=args.stationary_wait,early_stairs=args.early_stairs,
+            fourth_window=args.fourth_window,ledge_wait=args.ledge_wait,stationary_wait=args.stationary_wait,early_stairs=args.early_stairs,riser_retreat=args.riser_retreat,landing_prep=args.landing_prep,
             roof_trace=args.roof_trace,contact_trace=args.contact_trace)
         print('DKJR_RETIRE_LEASE_ROUTE '+json.dumps(result,separators=(',',':')),flush=True)
         assert result['passed'],(result['receipt']['canonical_SHA256'],result['receipt']['reason'])

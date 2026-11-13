@@ -312,7 +312,7 @@ def retirement_fixture(parent):
         lease_granted=False,ROM_written=False,alias_probe_SHA256=alias_info['candidate_SHA256'])
 
 
-def controller(raw,*,full=False,ride_fourth=False,fourth_window=False,ledge_wait=False,stationary_wait=False,early_stairs=False):
+def controller(raw,*,full=False,ride_fourth=False,fourth_window=False,ledge_wait=False,stationary_wait=False,early_stairs=False,riser_retreat=False,landing_prep=False):
     """Same frozen controls; bind only the moved private BOX return label."""
     import replay_dkjr_first_pickup_1113 as Replay
     text=Replay.full_stage_controller(raw)if full else Replay.controller(raw)
@@ -364,6 +364,40 @@ def controller(raw,*,full=False,ride_fourth=False,fourth_window=False,ledge_wait
             'local lateSteps={{2118,176,true},{2134,160,true},')
         text=once(text,'{2351,176,true},{2366,160,true},',
             '{2342,176,true},{2358,160,true},')
+    if riser_retreat:
+        assert early_stairs
+        text=once(text,'local lateStep=1','local lateStep=1\nlocal dkRiserPrep')
+        text=once(text," if phase=='late-walk'then\n  right=true",''' if phase=='late-walk'then
+  if dkRiserPrep then
+   local elapsed=updates-dkRiserPrep.start
+   if riserTrace then
+    riserTrace.min_y=math.min(riserTrace.min_y,y)
+    riserTrace.max_x=math.max(riserTrace.max_x,player)
+    riserTrace.airborne=riserTrace.airborne or not grounded
+   end
+   if elapsed<12 then bits=2
+   elseif elapsed<16 then bits=0
+   elseif elapsed<24 then bits=129
+   elseif elapsed<56 then bits=1
+   else dkRiserPrep=nil end
+   if dkRiserPrep then return end
+  end
+  right=true''')
+        text=once(text,'  if ready and step[3] then\n   assert(riserAttempts', '''  if ready and step[3] and player>takeoff+6 then
+   dkRiserPrep={start=updates}
+   riserStart,riserAttempts=updates+16,riserAttempts+1
+   remember('late-retreat-jump-'..lateStep)
+   riserTrace=events[#events];riserTrace.min_y=y;riserTrace.max_x=player
+   bits=2;return
+  end
+  if ready and step[3] then
+   assert(riserAttempts''')
+    if landing_prep:
+        assert riser_retreat
+        text=once(text,'   if elapsed<12 then bits=2',
+            '   if elapsed>=24 and grounded and y==dkRiserPrep.target then dkRiserPrep=nil\n   elseif elapsed<12 then bits=2')
+        text=once(text,'   dkRiserPrep={start=updates}',
+            "   assert(riserAttempts<4,'Repeated late riser preparation '..lateStep)\n   dkRiserPrep={start=updates,target=step[2]-16}")
     return text
 
 

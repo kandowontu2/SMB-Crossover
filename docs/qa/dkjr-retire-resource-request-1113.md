@@ -286,3 +286,34 @@ all other route policies and ROM bytes remain unchanged. Its continuous
 full-stage CPU replay is in progress, not a pass. This option requires the
 qualified fourth-window/ledge/stationary-defense controls. Frozen failed
 controllers and all strict parent APIs remain available unchanged.
+
+The initial `early_stairs` full replay is retained as a negative: e73 Lua
+`b7d2218150c37bdb7df4bcdaccc09eca56e072b35e779de1487c5459f5a7e27c`,
+canonical CPU receipt
+`49fae665cf526615a24b082075ddf68a2245836136d3491060e4b94ae8f7a019`.
+Main7004/X2127/Y176 remains healthy/lives2/timer106, but readiness occurs after
+the new takeoff and the controller asserts `Missed late staircase takeoff`.
+Eight opening public vertical helpers, including880/944, were carried;
+there were no C9 runtime writes. Merely changing an earlier coordinate does
+not reproduce the successful actual-prefix retreat.
+
+The optional `riser_retreat=True` now performs exactly Left12/neutral4/
+Right+A8/Right32 when a grounded actor has passed the takeoff; then it resumes
+the retained driver. On e73 Lua
+`bd4bacd76d2584eccc1f745c6abd27c48ab39afe04764d6254438da0f4e11464`,
+all three gaps, both late staircases, all six pipes and all six final stairs
+pass. Every original public vertical helper is born and carried, including
+2576/2640/2832/3040; the original horizontal1408 gap assertions pass too.
+The PRIVATE336 helper also spawns. No C9 writes occur. This is still a
+**full-stage negative**: genuine timer expiration atMain9564/X3041/Y157,
+phase `final-lower`, timer0/expired1 causes the native injury path. Canonical
+CPU receipt
+`9b71eeb4e32fd68f6c5144bb82ecefe3723783fa71978fe3594144834623043c`.
+No flag, castle or 1-2 entry pass is claimed.
+
+The new optional `landing_prep=True` ends the fixed preparation when the
+actual grounded actor reaches the intended16px-higher surface after launch.
+It retains a four-attempt bound and changes only controller timing. The
+continuous full replay with this option is pending. The9564 negative remains
+reproducible with `landing_prep=False`. No donor motor, rectangle, helper
+position, native timer or ROM byte changed in any of these controller tests.
