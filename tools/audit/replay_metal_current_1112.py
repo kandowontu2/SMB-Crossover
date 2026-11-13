@@ -66,7 +66,7 @@ ORDINARY
     local kind=r('PowerUpType',slot)
     upgradeBirths[kind+1]=upgradeBirths[kind+1] or {kind=kind,x=r('Enemy_X_Position',slot)+256*r('Enemy_PageLoc',slot),frame=frame,mature=false}
     if r('Enemy_State',slot)>=128 then upgradeBirths[kind+1].mature=true end
-    if frame%20==0 and #pickupTrace<60 then pickupTrace[#pickupTrace+1]={frame=frame,phase=upgradePhase,playerX=worldx(),playerY=r('Player_Y_Position'),itemX=r('Enemy_X_Position',slot)+256*r('Enemy_PageLoc',slot),itemY=r('Enemy_Y_Position',slot),state=r('Enemy_State',slot),kind=kind} end
+    if frame%20==0 and #pickupTrace<60 then pickupTrace[#pickupTrace+1]={frame=frame,phase=upgradePhase,playerX=worldx(),playerY=r('Player_Y_Position'),itemX=r('Enemy_X_Position',slot)+256*r('Enemy_PageLoc',slot),itemY=r('Enemy_Y_Position',slot),state=r('Enemy_State',slot),kind=kind,counter=r('FrameCounter'),timer=r('TimerControl'),pause=r('GamePauseStatus'),input=r('SavedJoypadBits'),engine=r('GameEngineSubroutine'),epoch=emu.read(2*8192+0x801,emu.memType.nesWorkRam),sourceInput=emu.read(2*8192+0x53,emu.memType.nesWorkRam)} end
    end
   end
   for slot=2,3 do
@@ -166,7 +166,10 @@ end,emu.callbackType.write,0xc810)
     encoder = encoder[encoder.index('local function encode(value)'):encoder.index('local function finish(passed,reason)')]
     new = encoder + '''local function finish(reason)
  local passed=CONDITION
- local receipt={passed=passed,reason=reason,controller_only=true,frames=frame,
+ local cpu=emu.getState()
+ local stack={}
+ for i=1,16 do stack[i]=emu.read(0x100+((cpu['cpu.sp']+i)&255),emu.memType.nesDebug) end
+ local receipt={passed=passed,reason=reason,controller_only=true,frames=frame,cpu_pc=cpu['cpu.pc'],cpu_sp=cpu['cpu.sp'],cpu_a=cpu['cpu.a'],cpu_x=cpu['cpu.x'],cpu_y=cpu['cpu.y'],stack=stack,
   ROM_SHA256=os.getenv('SMB_STDOUT_ROM_SHA'),physical_frames=frame,
   world_x=worldx(),world=r('WorldNumber'),level=r('LevelNumber'),engine=r('GameEngineSubroutine'),
   spawned=spawned,matured=matured,collected=got,lives=r('NumberofLives'),initial_lives=initialLives,
