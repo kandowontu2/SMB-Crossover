@@ -134,10 +134,11 @@ The mounted QuickManWorldProbe starts raw1:B165. Its original host source is
 source ordinarysolid1. Consequently native climbables block the donor before
 the retained native side effect can see them. The narrow proposed repair is
 to map native climbable cells to source empty, retaining native BG/climb
-handling and all ordinary/base solid material behavior. AND#3/CMP#1/BEQ
-Material in place of AND#1/JMP Material needs one extra owned local byte and
-branch relocation. This is a source-backed proposal, not an implemented or
-native-qualified ROM change. Current owned packet/funding must be checked.
+handling and all ordinary/base solid material behavior. The private source
+implementation and complete CPU gates are recorded inquick-climb-material-1113.md.
+It preserves the native callback's complete register/flag contract, uses11
+bytes in the existing copied Quick code tail, and changes no allocation.
+It is not installed or fully native-qualified.
 
 The diagnostic prints the bounded source queries, native probe fixtures,
 actual rolling-buffer cells and mounted disassembly; no output file, source
