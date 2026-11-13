@@ -22,6 +22,7 @@ def controller(raw, mode):
     prefix = 'local L={' + ','.join(f'{name}={Native.N.address(bundle,name)}' for name in sorted(labels)) + '}\n'
     prefix += '''local headHits,headPending,headReturnHooks={},nil,{}
 local headCalls,headReturned,bumps=0,0,0
+local sourceContacts={}
 local function debugRead(a)return emu.read(a,emu.memType.nesDebug)end
 emu.addMemoryCallback(function()
  if debugRead(0x6002)~=35 then return end
@@ -48,6 +49,17 @@ end,emu.callbackType.exec,0xf113)
 emu.addMemoryCallback(function()
  if debugRead(0x6002)==35 then bumps=bumps+1 end
 end,emu.callbackType.exec,0x9ef5)
+emu.addMemoryCallback(function(_,value)
+ local map=emu.convertAddress(0xc810)
+ if value~=0xe0 or debugRead(0x6002)~=35 or not map or map.memType~=emu.memType.nesWorkRam or map.address~=2*8192+0x810 then return end
+ local function source(a)return emu.read(2*8192+a,emu.memType.nesWorkRam)end
+ local x=debugRead(0x75)+256*debugRead(0x5c)
+ if x>=330 and x<=350 and source(0x5b)<176 and #sourceContacts<30 then
+  sourceContacts[#sourceContacts+1]={x=x,y=debugRead(0xbd),dy=debugRead(0x8e),
+   queryX=source(0x59)+256*source(0x5a),queryY=source(0x5b),tile=source(0x811),
+   velocity=source(0x570),sourceY=source(0x4b0),pc=emu.getState()['cpu.pc']}
+ end
+end,emu.callbackType.write,0xc810)
 '''
     text, count = re.subn(r'local function shot\(n\).*?end\n', 'local function shot(n) end\n', text)
     assert count == 1
@@ -64,7 +76,7 @@ end,emu.callbackType.exec,0x9ef5)
   spawned=spawned,matured=matured,collected=got,lives=r('NumberofLives'),initial_lives=initialLives,
   status=r('PlayerStatus'),armor=emu.read(2*8192+0x5d0,emu.memType.nesWorkRam),
   weapon=emu.read(2*8192+0x718,emu.memType.nesWorkRam),output_files=0,
-  headHits=headHits,headCalls=headCalls,headReturned=headReturned,bumps=bumps}
+  headHits=headHits,headCalls=headCalls,headReturned=headReturned,bumps=bumps,sourceContacts=sourceContacts}
  print('SMB_NATIVE_RECEIPT '..encode(receipt))
  done=true;emu.stop(passed and 0 or 1)
 end
@@ -81,10 +93,16 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--rom', type=Path, default=Path('C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes'))
     parser.add_argument('--mode', choices=('armor','route'), default='armor')
+    parser.add_argument('--flower-candidate', action='store_true')
     args = parser.parse_args()
     output = R/'build/metal-flower-native-1112'
     output.mkdir(exist_ok=True)
     raw = args.rom.read_bytes()
+    if args.flower_candidate:
+        from compose_metal_flower_1112 import transform
+        raw, _ = transform(raw)
+        args.rom = output/'candidate.nes'
+        args.rom.write_bytes(raw)
     script = output/'controller.lua'
     script.write_text(controller(raw,args.mode),encoding='utf-8',newline='\n')
     result = run(script,args.rom,output/'capture',sha256(raw).hexdigest(),120)
