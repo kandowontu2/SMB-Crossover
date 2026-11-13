@@ -175,3 +175,24 @@ cannot be borrowed. The extended invisible engine7 drop is noninteractive;
 the user regains source control after actual support with full entrance
 health. Its appearance remains recorded for the later per-character
 cosmetic review. This checkpoint adds no unqualified code allocation.
+
+## Independent current menu comparison
+
+The exact root-owned7ef candidate was independently read from
+`build/metal-flower-native-1112/candidate.nes` and reversed through
+`compose_prince_entrance_current_1113.reverse` to exact parent526. Actual
+menu input, Select cycles, native portrait rendering and NMI ran through
+`check_menu_facing_1112.audit(include_images=True)` on both images. All101
+identity/facing/portrait/silhouette rows match, together with all101 portrait
+and101 silhouette RGBA images:350,404 pixel bytes compared exactly.
+
+The sorted-key JSON row digest is the established baseline
+`f58ec905102307ca87d9c302248fa7da9c44cd5550df154323e67024da245db7`
+using Python's default JSON separators. The source auditor hashes to
+`4e886d4259f4ba308c91d9779e052c3756a878bdfdc074551ed82494a576c671`.
+Independent comparison receipt:
+`c3e2d01241d330c1f7ed438be958091d7e8bb72bf4ec8ba3ec33015658dd0f3e`.
+The existing owned bounded root,600-second limit and one-file cap were used;
+the completed run wrote zero files and launched no emulator. This is exact
+menu/pixel parity in the CPU peripheral model, not a new physical raster or
+art-orientation review.
