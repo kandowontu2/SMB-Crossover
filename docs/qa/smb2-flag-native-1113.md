@@ -1,6 +1,7 @@
 # SMB2/Doki flag handoff: private native findings
 
-Downloads remains `7ef2de351d3a4ae60b3ada2eb1aa56b330873dc106ad43428ec6803bf420d4fc`.
+Current Downloads is `f88cfe5aee15bb3921c691b7f06d905246be9ff88b9b43eea71c2405722724a7`.
+The older7ef base and native receipts below are retained historical evidence.
 The private flag proposal is
 `0e9e9254927236bcc651e79da36a77924eea5481421858a05f869b15298412e1`.
 It is not installed or released. The source qualification is recorded separately
@@ -203,3 +204,20 @@ the old1408 count must not be reused. Source domain/constructor and actual
 PublishBody Y0/R3 lifetime gates are separate. Remaining caller/interrupt and
 foreground-lifetime work is still open; no complete eight-character or
 finished-visual-review claim is made.
+
+## Papa: intended charge controls pass actual Mesen
+
+The separate variant-profile factory retains the complete flag/castle/pipe
+and25 grounded1-2 assertions. It uses original Down60 charged jumps where
+required, with no new helpers or game bytes. All eight profile scripts were
+compiled and bound to exactdadb before the physical run.
+
+Papa's profile Lua
+`09092856114a8a74822324682efa4d1675e1e62d560cfbb734708255cc2f2227`
+passes actual Mesen with receipt
+`2d423f943acd6c47837068709abd2142583385e21adadaf90e11d511c580aa36`:
+5015 physical frames,3912 returned Main, HP31/lives2, no injuries, all1-1
+terrain and25 living grounded1-2 updates at40/176. Empty opening remains
+48 Main in48 physical frames with no skipped NMI. This qualifies the
+ordinary controls for the lowest-jump Doki variant; it does not resolve
+dadb's separate normal-foreground lifetime defect or install the candidate.

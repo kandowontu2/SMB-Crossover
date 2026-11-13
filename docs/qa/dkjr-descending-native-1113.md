@@ -62,3 +62,19 @@ This prefix does not demonstrate the second through fourth pipes, final
 pits, current Mini regression or a safe complete stage. The source route
 still investigates a pipe2 landing/jump transition and preserves its known
 negative controls. GitHub releases must stay empty.
+
+## Full-route physical follow-up
+
+The frozen private14ae candidate was tested with the new ordinary full-route
+controller `122f4984fcf4310ce19fb26e4a7a121c83c0fff08b62dbc85af6d95adfffee66`.
+Its source-model full pass is not a physical pass. Actual Mesen receipt
+`7a3db95fe7f3d0143b39aedd66b06ee1f0a4286e26ba988faede450e5100483c`
+is negative at physical5498/Main2087, X785/Y169, source injury5, lives2.
+The first two pipes were crossed at Main1158 and1668. On the third pipe,
+the controller reaches the roof at2031/X770/Y112 and leaves the lowering
+platform at2080/X783/Y163. Actual Goombas at798/184 and822/184 are present
+at injury. The native control route needs an ordinary enemy-avoidance step;
+this result does not establish a platform-contact defect. No candidate was
+installed, no lives/health/timer or actor state was seeded, and no capture
+files were produced. The controller and this negative remain reproducible
+through `run_dkjr_descending_native_1113.py --route full --reuse`.

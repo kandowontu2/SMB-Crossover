@@ -1,0 +1,37 @@
+{
+  "owner": "Private DK Jr platform sampler with direct foreign fast path",
+  "status": "conditionally reserved for implementation and qualification; not native-ready",
+  "request": "docs/qa/dkjr-direct-foreign-request-1113.md",
+  "extends": "docs/qa/allocations/dkjr-platform-contact-ryu-1113.json",
+  "frozen_private_parent_SHA256": "14ae6363cc7e4cbdb99fc147a5a401b2c3a5dd78d45b177389685fc85ec61ddf",
+  "original_private_parent_SHA256": "e73b66263a8e150d3d21b801e5a55be1817f86d09639fc428ab809b2518842d9",
+  "proposal_source_SHA256": "8b28b60a13dd7bfe46b62169c8c53cdbec5d5a613876982c3c56097ac875e568",
+  "resources": [
+    {"physical_PRG": 0, "CPU_start": "B963", "bytes": 87, "file_offset": 6515, "preimage_SHA256": "f5fbf1ec3bde9f2d8f0b67be6feb39c4d229e20768b155d76803fccae0d704e1", "proposed_SHA256": "e1cc48447fe81720e4c4d73fcbeab9b6946a1404b908df92fa7c8a2e18e6c07c"},
+    {"physical_PRG": 0, "CPU_start": "B43F", "bytes": 3, "file_offset": 5199, "preimage_SHA256": "10d333c342baefb577dfb6ebc3834110358a8a658deecfbab0f6d304aa619c95", "proposed_SHA256": "6f0fa6fe324386fa956b5d63834ed93fd7277a8b3a7d4ed652263f86c1845645"},
+    {"physical_PRG": 0, "CPU_start": "B707", "bytes": 11, "file_offset": 5911, "preimage_SHA256": "73bb91bd019a7ad2e39a4ac00f2fc190c3cddc7e800f9498885a2e3b81b80339", "proposed_SHA256": "d55ebd98ef94ee96606ec3cc9ce24a61753ce55544d02680fefc093152af68fc"},
+    {"physical_PRG": 58, "CPU_start": "BD5B", "bytes": 26, "file_offset": 482667, "preimage_SHA256": "c1e3963f009c99434bf58a5d6ea19fc298d464bc0f3796382a5f886cf3f24564", "proposed_SHA256": "49b5cd4d662a89d290a93c870ba61628ba8a8afcb2cda1cfccc12ef8d9f2417e"},
+    {"physical_PRG": 58, "CPU_start": "BDD5", "bytes": 26, "file_offset": 482789, "preimage_SHA256": "f8e115107dbe8b66f71c83df0ace0757db786044c340ebdcb963277a15ead534", "proposed_SHA256": "5c1162fc69e9acfda45ee9ae52e55752091e60371c192d328cf74f261e3abd23"}
+  ],
+  "packing": {"Ryu_bytes": 28, "native_ingress_bytes": 58, "native_ingress_CPU": "B97F", "policy_bytes": 9, "worker_bytes": [26, 25]},
+  "root_independent_measurement": {
+    "bounded_output_root": "build/metal-flower-native-1112",
+    "passed": true,
+    "outputs_written": 0,
+    "strict_current14_inverse_to_e73": true,
+    "isolated_Ryu_source_and_all_five_preimages_reproduced": true,
+    "full_successor_or_native_run": false
+  },
+  "conditions": [
+    "This separate successor must preserve frozen14ae APIs, bytes, inverse and historical native receipts. Use a new exact pin and strict reversible composition; do not install bare older-base candidates over public f88.",
+    "Only the five exact resources above are reserved. No neighboring ROM, persistent RAM, CHR, platform geometry, source motor, jump or fall thresholds are granted.",
+    "Retain the explicit ADC overflow guard, descending-only eligible IDs25..2A and complete footer restoration. Prove balance24, upward and all unsampled paths preserve the actual native caller contract, including any original footer writes.",
+    "Qualify all actor cases, actual caller A/P and I/D, complete foreign Main continuations, all emitted PCs, IRQ and genuine busy-NMI against the original ISR at identical cut states. No live audio or live stack masks or repairs.",
+    "Measure DK nested-call cost and foreign savings. First-item, ordinary full1-1 and paired current Mini timing are required before any delivery; root owns the single Mesen queue.",
+    "Use bounded stdout-only source work. No release, patch asset, private nightly installation or completion claim is authorized by this reservation. GitHub releases remain empty."
+  ],
+  "new_RAM_bytes": 0,
+  "new_CHR_bytes": 0,
+  "new_native_capacity_bytes": 0,
+  "delivered": false
+}

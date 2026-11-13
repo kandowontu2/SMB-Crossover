@@ -17,6 +17,8 @@ PUBLIC_BUB = 'f88cfe5aee15bb3921c691b7f06d905246be9ff88b9b43eea71c2405722724a7'
 PINS = {
     'first-item': 'b784ed4ed57a051231424e1f603dda8b160a34b749d23138649ae7d463fe4a47',
     'first-pipe': '65af12f18021d30e47bd9f4022c01148bf295da76017f744acc38456345b90b8',
+    'full': '122f4984fcf4310ce19fb26e4a7a121c83c0fff08b62dbc85af6d95adfffee66',
+    'full-enemy-guard': 'acf454572d604b049deebbb82300a07c6852c9712065d6d32f44932c6e38442f',
 }
 
 
@@ -44,6 +46,10 @@ def main():
         assert info['new_RAM_bytes'] == info['new_CHR_bytes'] == 0
     if args.route == 'first-item':
         text = C.controller(image)
+    elif args.route in ('full', 'full-enemy-guard'):
+        text = Replay.controller(image, descending_roof=(2,3), observe_prior=True,
+                                 early_ledge=True, native_gap_observer=True,
+                                 departure_enemy_guard=args.route=='full-enemy-guard')
     else:
         text = Replay.controller(image, pipes=(1,), stop_after_pipe=1)
     assert sha256(text.encode()).hexdigest() == PINS[args.route]

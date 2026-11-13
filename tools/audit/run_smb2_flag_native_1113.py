@@ -16,6 +16,8 @@ CANDIDATE='0e9e9254927236bcc651e79da36a77924eea5481421858a05f869b15298412e1'
 WITH_MIRRORS='2c62e1a0de1b732cfa57af59e71c0775396e067bf04aa101e78f644c3e4c9c4b'
 PUBLIC_BUB='f88cfe5aee15bb3921c691b7f06d905246be9ff88b9b43eea71c2405722724a7'
 WITH_PRIORITY='dadb9d80702148fe40b1a64d1cfff7ff2df65248b9c72e7c167d32e3589670be'
+WITH_FOREGROUND='2448c558298d9f1b6d178dcdc00e90db90ae7d85b95e37c0101130701aab261a'
+CURRENT_FOREGROUND='3684f3d2a418a484befd80fca351d0dc5f9b472f6f067a0a7894994ea343679d'
 NIGHTLY=Path('C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes')
 
 
@@ -27,11 +29,26 @@ def main():
     p.add_argument('--mirrors',action='store_true',help='Explicit flag plus three source-qualified fixed-bank mirrors; retains the old private proposal.')
     p.add_argument('--pipe-priority',action='store_true',help='Explicit separately pinned current-Doki priority successor; requires --mirrors.')
     p.add_argument('--visual',action='store_true',help='Two bounded in-memory natural-route PNGs; requires --pipe-priority.')
+    p.add_argument('--terrain-profiles',action='store_true',help='Use independently measured variant controls, including original Down60 charged jumps; requires --pipe-priority.')
+    p.add_argument('--foreground',action='store_true',help='Explicit separately pinned normal-play foreground successor; requires --pipe-priority.')
+    p.add_argument('--current-bub',action='store_true',help='Merge the exact foreground repair with delivered Bub/Bob optimizations; requires --foreground.')
+    p.add_argument('--downloads',action='store_true',help='Launch exact installed merged candidate in its actual Downloads context; requires --current-bub.')
     args=p.parse_args()
+    if args.terrain_profiles:
+        assert args.pipe_priority and not args.next_area_diagnostic and not args.visual
+    if args.foreground:
+        assert args.pipe_priority and not args.next_area_diagnostic
+    if args.current_bub:assert args.foreground
+    if args.downloads:assert args.current_bub
     public_now=check(NIGHTLY)['ROM_sha256']
-    assert public_now in(PARENT,PUBLIC_BUB)
-    raw=NIGHTLY.read_bytes()
-    if public_now==PUBLIC_BUB:
+    assert public_now in(PARENT,PUBLIC_BUB,CURRENT_FOREGROUND)
+    public_image=NIGHTLY.read_bytes()
+    if public_now==CURRENT_FOREGROUND:
+        import compose_smb2_foreground_current_1113 as Current
+        public_image=Current.inverse(public_image)
+        assert sha256(public_image).hexdigest()==PUBLIC_BUB
+    raw=public_image
+    if sha256(raw).hexdigest()==PUBLIC_BUB:
         import bub_native_noops_1113 as Bub
         raw=Bub.combined_reverse(raw)
         assert sha256(raw).hexdigest()==PARENT
@@ -55,6 +72,21 @@ def main():
         assert sha256(image).hexdigest()==WITH_PRIORITY
         assert Priority.inverse(image)==mirror_image and priority_info['changed_bytes']==132
         candidate=WITH_PRIORITY
+    priority_image=image
+    if args.foreground:
+        import compose_smb2_pipe_foreground_1113 as Foreground
+        image,foreground_info=Foreground.proposal(priority_image)
+        assert sha256(image).hexdigest()==WITH_FOREGROUND
+        assert Foreground.inverse(image)==priority_image and foreground_info['changed_bytes']==150
+        candidate=WITH_FOREGROUND
+    if args.current_bub:
+        import compose_smb2_foreground_current_1113 as Current
+        image,current_info=Current.proposal(public_image)
+        assert sha256(image).hexdigest()==CURRENT_FOREGROUND
+        assert Current.inverse(image)==public_image and current_info['changed_bytes']==516
+        candidate=CURRENT_FOREGROUND
+    if args.downloads:
+        assert public_now==candidate and NIGHTLY.read_bytes()==image
     variants=range(8)if args.variant=='all'else(int(args.variant),)
     if not args.metadata:
         OUT.mkdir(exist_ok=True)
@@ -69,23 +101,36 @@ def main():
             text=Diagnostic.controller(control_image,variant)
         if args.mirrors:
             assert text.count(CANDIDATE)==1
-            text=text.replace(CANDIDATE,candidate)
+            text=text.replace(CANDIDATE,WITH_PRIORITY if args.pipe_priority else candidate)
             Replay.Root.Base.LuaRuntime().compile(text)
         if args.pipe_priority and variant==4 and not args.next_area_diagnostic:
             assert sha256(text.encode()).hexdigest()=='f4b9ebfaee4cd75245ecd3cb0e38b5d4ab6c00127fc2a9f125270448a5ddf5cc'
         if args.visual:
             assert args.pipe_priority and not args.next_area_diagnostic
             import replay_smb2_priority_visual_1113 as Visual
-            text=Visual.controller(image,variant)
+            text=Visual.controller(priority_image,variant)
+        if args.terrain_profiles:
+            import replay_smb2_variants_stage_1113 as Terrain
+            text=Terrain.profile_controller(priority_image,variant,full=True)
+        if args.foreground:
+            assert text.count(WITH_PRIORITY)==1
+            text=text.replace(WITH_PRIORITY,WITH_FOREGROUND)
+            Replay.Root.Base.LuaRuntime().compile(text)
+        if args.current_bub:
+            assert text.count(WITH_FOREGROUND)==1
+            text=text.replace(WITH_FOREGROUND,CURRENT_FOREGROUND)
+            Replay.Root.Base.LuaRuntime().compile(text)
         summary=dict(ROM_SHA256=candidate,parent_SHA256=PARENT,current_Downloads_SHA256=public_now,
             identity=Replay.Root.NAMES[variant],variant=variant,
             script_SHA256=sha256(text.encode()).hexdigest(),
-            controls_unchanged_from_public_diagnostic=True,next_area_diagnostic=args.next_area_diagnostic,all_fixed_mirrors=args.mirrors,pipe_priority=args.pipe_priority,
-            private_only=True,installed=False,native_run=not args.metadata)
+            controls_unchanged_from_public_diagnostic=not args.terrain_profiles,terrain_profiles=args.terrain_profiles,normal_foreground=args.foreground,next_area_diagnostic=args.next_area_diagnostic,all_fixed_mirrors=args.mirrors,pipe_priority=args.pipe_priority,
+            current_Bub_preserved=args.current_bub,
+            private_only=not args.downloads,installed=args.downloads,native_run=not args.metadata)
         if not args.metadata:
             script=OUT/'controller.lua'
             script.write_text(text,encoding='utf-8',newline='\n')
-            q=run(script,OUT/'candidate.nes',OUT/'capture',candidate,240)
+            rom=NIGHTLY if args.downloads else OUT/'candidate.nes'
+            q=run(script,rom,OUT/'capture',candidate,240)
             receipt=q['receipt']
             compact={k:receipt.get(k)for k in('passed','reason','terminal','physical_frames',
                 'all_returned_Main','return_counts','idle','last_pit','injury_entries',
@@ -98,6 +143,9 @@ def main():
             assert q['passed'],'Private SMB2/Doki native full-stage qualification failed'
             if args.visual:
                 assert len(q['images'])==2 and set(receipt['image_tags'])=={'side_pipe','underground_grounded'}
+                if args.foreground:
+                    assert receipt['image_tags']['side_pipe']['attribute']&32
+                    assert receipt['image_tags']['underground_grounded']['attribute']==0
         else:print(json.dumps(summary,separators=(',',':')),flush=True)
     assert check(NIGHTLY)['ROM_sha256']==public_now
 
