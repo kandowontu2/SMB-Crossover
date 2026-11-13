@@ -43,3 +43,30 @@ platform remain distinct from the private new336 helper. Source-only terrain
 successes and timer-expiry negatives are retained by the owning helper in
 `dkjr-retire-resource-request-1113.md`; no private placement is promoted to the public
 helper inventory by this first-pickup test.
+
+## Exploratory full route on actual native timing
+
+Root subsequently runs the exact frozen terrain-positive/CPU-timer-negative
+controller `bd4bacd76d2584eccc1f745c6abd27c48ab39afe04764d6254438da0f4e11464`
+using `--full-frozen`. No source controls, game bytes or results are changed.
+This is useful because the real native catch-up caller is not reproduced by
+the CPU model's one-call-per-frame schedule; its result is not inferred from
+the earlier source timer failure.
+
+Actual native result is **negative**, receipt
+`8eb7ea9ab60f56e7679aadd080ccb064e1d59fd91c429a43b3a344f84255d350`.
+The first three pipes pass with both lives. Opening platforms336/416/480/560/
+624/688/752/880/944 all construct before entering the viewport. The fourth
+ascent880 platform is visible at relative255/frame5927; its descent944 is
+visible at relative255/frame6534. Thus this is not the old missing-platform
+capacity failure.
+
+At frame7152/Main2788, DK Jr. begins fourth-pipe boarding at X891/Y176.
+While waiting on the ground, a Goomba approaches. At frame7249/Main2835,
+the real injury path sees player891/176 and Goomba877/184 in slot4; the next
+frame records original source injury state5. Timer282 and both lives remain.
+The replay correctly stops on injury. This is a controller encounter failure,
+not a new proved runtime or helper-retirement defect, and no public delivery
+is made. A narrowly scoped fresh-A defense during that boarding wait is the
+next controller experiment. Earlier CPU terrain and timer results retain
+their separate recorded scope.
