@@ -56,7 +56,20 @@ separate review item, not a proved game defect or a fix delivered here.
 - Script: `f37ee607eb092a92842a9fb590751c31e9b450173c0ea6209d23851ec29373fe`
 - Plain-B contact trace: `3e17b75371097b859a58d5f0e4602b2d41b05751dc026f1ac09fc4fc38a528dd`
 
-Remaining WWF roles are pending on this exact nightly. This stage replay does
+Randy Savage passed with both lives: 11,249 physical frames, 4,387 active
+updates, 13 native defeats and 64 helper carries.
+
+- Receipt: `8ff221552b109d2e0b2e4d29ced14856b6d0b5072ce7d5c2b60ee933eec255e4`
+- Script: `11e8703b766614f1165c2c5e7d121a95830dd057d2389cf8b284c84d6f005480`
+
+Andre the Giant passed with both lives: 11,568 physical frames, 4,555 active
+updates, 13 native defeats and 65 helper carries.
+
+- Receipt: `852a4d29843b1ad3b8303b8c97e74d69d174d63029795f759c7ef284a417220e`
+- Script: `aa992ced24cdd2d90b75e9d332716b48e4311aed1830ebdf10342b79ebf41616`
+
+All six WWF identities now have a full-route pass on this exact nightly.
+This stage replay does
 not establish natural flower/Star/1UP collection, full original WWF gear,
 all-enemy defeat, visual review of every frame, or both difficulty modes.
 

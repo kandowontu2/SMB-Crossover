@@ -3,6 +3,18 @@
 The functional roster pass is not complete. This inventory separates source
 placements from actual route verification; it is not the final all-character list.
 
+## November 12 current WWF route recheck
+
+On installed ROM `8fc57b8b4268a47f8a906af8b5813834bbf76ca7376d1d12767d510708da9582`,
+Hulk Hogan, Ted DiBiase, Bam Bam Bigelow, Honky Tonk Man, Randy Savage and
+Andre the Giant each cleared non-shortcut 1-1 into active 1-2 with both lives.
+Each used the existing native horizontal platform at **1-1, initial left
+X1376, center X1400, initial top Y208, width48**. Native carry counts were
+70, 64, 62, 63, 64 and 65 respectively. No platform was added or relocated.
+Receipts and controller qualifications are in `roster-stage-regressions-1112.md`.
+This confirms the assisted crossing for all six on the current build; both
+difficulty modes and every powerup remain separate unfinished checks.
+
 Earlier shared-record inventory fixture SHA256:
 `128915e97e78891a585aa8f9fd904c166ca64dcd6dd1ee395fc68fd505c1e72c`.
 Earlier Jay route ROM SHA256:
