@@ -13,6 +13,64 @@ def controller(raw, mode):
                 else 'metal-reservation-1102-v42/route')
     original = R/'build'/relative/'controller.lua'
     text = original.read_text(encoding='utf-8')
+    if mode == 'upgrades':
+        text = text.replace('local route,ticks,initialLives=0,0,nil',
+            'local route,ticks,initialLives=0,0,nil\nlocal upgradePhase=0\nlocal upgradeBirths={}\nlocal upgradedShot=false')
+        start = text.index(" if phase=='play' then\n")
+        end = text.index(' emu.setInput(pad,0)',start)
+        ordinary = text[start+len(" if phase=='play' then\n"):end]
+        assert ordinary.endswith(' end\n')
+        ordinary = ordinary[:-len(' end\n')]
+        replacement = ''' if phase=='play' then
+  local x=worldx()
+  local function source(a)return emu.read(2*8192+a,emu.memType.nesWorkRam)end
+  if upgradePhase==0 and source(0x5d0)==128 then
+   upgradePhase=1;route=2;ticks=0
+  end
+  if upgradePhase==0 then
+   pad.b=true
+   if route==0 then pad.right=true;if x>=105 then route=1;ticks=0 end
+   elseif route==1 then pad.right=true;pad.a=ticks<35;if ticks>=50 then route=2 end
+   elseif route==2 then if x<336 then pad.right=true else route=3;ticks=0 end
+   elseif route==3 then pad.a=ticks<35;if ticks>=65 then route=4 end
+   elseif route==4 then pad.right=true end
+   ticks=ticks+1
+  elseif upgradePhase==1 then
+ORDINARY
+   if pipe>4 and x>=1210 and r('Player_State')==0 then upgradePhase=2;ticks=0 end
+  elseif upgradePhase==2 then
+   pad.b=true
+   if x<1250 then pad.right=true
+   elseif r('Player_State')==0 then upgradePhase=3;ticks=0 end
+  elseif upgradePhase==3 then
+   pad.b=true;pad.a=ticks<35;ticks=ticks+1
+   if ticks>=70 then upgradePhase=4;ticks=0 end
+  elseif upgradePhase==4 then
+   pad.b=true;pad.a=(ticks%100)<40;ticks=ticks+1
+   if source(0x718)==128 then upgradePhase=5;ticks=0 end
+  elseif upgradePhase==5 then
+   pad.b=true;ticks=ticks+1
+  end
+ end
+'''.replace('ORDINARY',ordinary)
+        text = text[:start]+replacement+text[end:]
+        # Inspect actual native item birth/maturity, and source upgraded shots.
+        marker=" elseif phase=='play' then\n"
+        assert text.count(marker)==1
+        text=text.replace(marker,marker+'''  for slot=0,5 do
+   if r('Enemy_Flag',slot)>0 and r('Enemy_ID',slot)==46 then
+    local kind=r('PowerUpType',slot)
+    upgradeBirths[kind+1]=upgradeBirths[kind+1] or {kind=kind,x=r('Enemy_X_Position',slot)+256*r('Enemy_PageLoc',slot),frame=frame,mature=false}
+    if r('Enemy_State',slot)>=128 then upgradeBirths[kind+1].mature=true end
+   end
+  end
+  for slot=2,3 do
+   if emu.read(2*8192+0x528+slot,emu.memType.nesWorkRam)==129 and emu.read(2*8192+0x510+slot,emu.memType.nesWorkRam)~=0 then upgradedShot=true end
+  end
+''')
+        old="if killed and r('WorldNumber')==0 and r('LevelNumber')==1 and r('GameEngineSubroutine')==8 and r('OperMode_Task')==3 then finish('entered-1-2')"
+        assert text.count(old)==1
+        text=text.replace(old,"if upgradePhase==5 and ticks>=40 then finish('earned-flower-shot')")
     if mode == 'armor':
         assert text.count(" if phase=='play' then\n") == 1
         text = text.replace(" if phase=='play' then\n", " if phase=='play' then\n  pad.b=true\n")
@@ -66,6 +124,8 @@ end,emu.callbackType.write,0xc810)
     old = text[text.index('local function finish(reason)'):text.index('emu.addEventCallback(function()',text.index('local function finish(reason)'))]
     condition = ('got and spawned and matured and r(\'NumberofLives\')==initialLives'
                  if mode == 'armor' else "killed and r('WorldNumber')==0 and r('LevelNumber')==1 and r('GameEngineSubroutine')==8 and r('NumberofLives')==initialLives")
+    if mode == 'upgrades':
+        condition = "upgradePhase==5 and upgradedShot and upgradeBirths[1] and upgradeBirths[1].mature and upgradeBirths[2] and upgradeBirths[2].mature and r('NumberofLives')==initialLives"
     encoder = (R/'tools/playthroughs/prince_original_first_pipe_stdout_1110.lua').read_text()
     encoder = encoder[encoder.index('local function encode(value)'):encoder.index('local function finish(passed,reason)')]
     new = encoder + '''local function finish(reason)
@@ -85,6 +145,9 @@ end
         if name not in labels:
             prefix += f'L.{name}={Native.N.address(bundle,name)}\n'
     text = text.replace(old,new)
+    if mode == 'upgrades':
+        text=text.replace(" print('SMB_NATIVE_RECEIPT '..encode(receipt))",
+            " receipt.upgradePhase=upgradePhase;receipt.upgradeBirths=upgradeBirths;receipt.upgradedShot=upgradedShot\n print('SMB_NATIVE_RECEIPT '..encode(receipt))")
     assert 'io.' not in text
     return prefix+text
 
@@ -92,7 +155,7 @@ end
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--rom', type=Path, default=Path('C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes'))
-    parser.add_argument('--mode', choices=('armor','route'), default='armor')
+    parser.add_argument('--mode', choices=('armor','route','upgrades'), default='armor')
     parser.add_argument('--flower-candidate', action='store_true')
     args = parser.parse_args()
     output = R/'build/metal-flower-native-1112'

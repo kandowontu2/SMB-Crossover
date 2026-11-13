@@ -49,3 +49,19 @@ The generated controllers were removed after retaining their receipts/hashes;
 their source generator is `tools/audit/replay_metal_current_1112.py`.
 Downloads and Current release remain cebb0ae6. Helper is implementing the head
 bridge in separate scoped files; root owns all subsequent Mesen runs.
+
+The root replay now has `--mode upgrades`: ordinary controller input approaches
+the first mushroom, crosses the four pipes, approaches the authored flower at
+X1248, and requires both mature item observations plus a real type81 source shot.
+On installed cebb it correctly stops at the existing first-item gap (phase0,
+no birth/armor/weapon, lives2). Receipt
+`c354c12ca29861861209534f773e4b79a6e39583ff008cb00d6f229ca53cff82`.
+Later controller phases are prepared but not yet reached or qualified.
+
+Refined source audit: the capture seam should be Ms_B798/current AD54, after
+the source contact/distance test has actually accepted the head hit. B856 is
+too early because FF36 can still reject. Preserve BA02/FF36 unchanged. The
+helper is resolving the actual public head dispatch before assigning a getter.
+Additional helpers are independently auditing Prince raised-hand reach and
+Steve's unfinished same-pattern robot armor transformation; neither has changed
+the nightly. Root's Mesen queue is free after the negative upgrade replay.
