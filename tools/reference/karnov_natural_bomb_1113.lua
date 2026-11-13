@@ -115,11 +115,22 @@ local function control()
     if not ground then return 0 end
     return routeAge%8<2 and 68 or 0 -- Original earned Boots: Down + fresh B.
    end
-   if routePhase=='bomb-bump'then
+   if routePhase:sub(1,5)=='bomb-'or x>=1040 then
+    if routePhase:sub(1,5)~='bomb-'then to('bomb-approach');jumpAge=0;release=0 end
+    if routePhase=='bomb-approach'then
+     if not ground then return 0 end
+     local clear=clearGroundEnemy(x,y);if clear then return clear end
+     if x<1097 then return 1 elseif x>1099 then return 2 end
+     to('bomb-release');return 0
+    elseif routePhase=='bomb-release'then
+     if routeAge>=3 then to('bomb-bump')end
+     return 0
+    end
+    -- GroundY176 and the authentic48px jump already reach the underside
+    -- at brick128..143. A lift here bypasses that head contact.
     if ground and epoch-lastPulse>30 then lastPulse=epoch;return 128 end
     return 0
    end
-   if x>=1040 then beginLift(1098,160,'bomb-bump');return 0 end
    return ordinary(x,y,ground)
   end
   if x<152 then if ground and enemyNear(x,88)then return 4+(epoch%12<6 and 64 or 0)end;return 1 end
@@ -215,6 +226,7 @@ emu.addEventCallback(function()
   local counter=r('FrameCounter');if previousCounter~=counter then previousCounter=counter;epoch=epoch+1;routeAge=routeAge+1 end
   if routePhase=='travel'and #pickups>=2 and r('GameEngineSubroutine')==8 then if wx()==lastTravelX then travelStall=travelStall+1 else travelStall=0;lastTravelX=wx()end else travelStall=0;lastTravelX=nil end
   if travelStall>240 then finish(false,'travel-stall');return end
+  if routePhase=='bomb-bump'and routeAge>480 then finish(false,'fourth-brick-not-revealed');return end
   for i=0,5 do local a=actor(i);if a.flag>0 and a.id==46 and a.kind<2 then
    local last=births[#births];if not last or last.slot~=i or last.collection~=#pickups then a.frame=frame;a.collection=#pickups;births[#births+1]=a end
    if a.state>=128 then births[#births].mature=true end

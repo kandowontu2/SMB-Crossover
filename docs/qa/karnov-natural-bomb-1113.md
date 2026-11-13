@@ -122,6 +122,18 @@ no additional ROM change is indicated. The next controller will approach the
 brick on the ground and use a fresh original jump before summoning its
 separate flower-collection lift.
 
+The second default0 diagnostic removes that lift and waits below the brick.
+Its actual native scriptdd3f491dd5bae9e49e443db7ef3e960ea11ea1797efb8f2cdc1b4e4116a0ae91
+reaches X1097/Y176, then takes a later ground-enemy hit before a fourth birth
+(source health192, both lives, frame12392/update6932). Receipt
+425ade54c67c983c8034baf804bcef641cb8012e3b6c0f42255e57aedd93ea50.
+CPU reproduces it. The observed block column has ordinary masonry52 at144
+directly below the desired powerup5A at128. Karnov's head policy deliberately
+keeps ordinary bricks intact. His already-integrated original fireballs use
+KrCombatBlock and a real native MmBlockAttack proxy to shatter masonry and
+activate powerup bricks. The next controller uses standing B pulses during
+the jump and continues clearing incoming enemies; no ROM defect is claimed.
+
 Fourth natural flower/Bomb acquisition and use remain pending. Ladder, Clapper,
 Glasses, Swimming Mask and Shield remain required integrations, along with the
 broader original equipment/audio and roster obligations.
