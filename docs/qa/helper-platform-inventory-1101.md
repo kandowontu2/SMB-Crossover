@@ -1,5 +1,15 @@
 # Helper platform inventory — functional pass in progress
 
+Post-Steve62ba qualification repeats Karnov's four natural pickups/use with
+the existing Up+Select actors: World1-1 **initial leftX1201/centerX1217/topY208**;
+World1-2 **leftX112/centerX128/topY208** and **leftX1127/centerX1143/topY208**,
+all width32. Current native receipt
+`5c88da1c593755d4684022c55686c5e7d5a212b273f17a11915f36bb893321c7`
+retains both lives/full health. Its141/143/446 support-flag observations are
+physical-frame observations, not distinct carry-routine entry counts.
+No helper placement changes in the Steve update; Prince's current natural
+sword route and Steve's full-stage/stock-pickup routes use no new helpers.
+
 The functional roster pass is not complete. This inventory separates source
 placements from actual route verification; it is not the final all-character list.
 

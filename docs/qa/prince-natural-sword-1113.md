@@ -1,5 +1,13 @@
 # Prince earns the sword on the current nightly
 
+After Steve delivery, actual Downloads62ba repeats this natural sword route
+with the same917390d9 controller,6,717physicalframes/2,898commits, HP4 and
+both lives. Current receipt SHA256:
+`b6a59bdf6c4ca623e7857cf26a4cb66de4b6dbc72acfcaad6e4df0ad408e393e`.
+The new source adapter explicitly reverses known62ba toaa501 before the
+frozen recipe-input normalization. Actual CPU/native execution still uses
+the requested current ROM. Before/after Downloads patch guards pass.
+
 Actual Mesen on Downloads
 `aa50112845d1cf70cae0924f03326647b3d2514f876c756d70b134ee44f971d1`
 passes the natural mushroom and flower route. The flower emerges from its

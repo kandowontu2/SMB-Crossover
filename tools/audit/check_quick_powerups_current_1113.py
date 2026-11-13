@@ -18,10 +18,18 @@ COOKIE=bytes.fromhex('a7092005e731d952bdb4b950826271bc')
 SOURCE=R/'tools/reference/quick_natural_powerups_1113.lua'
 INSTALLED='4641ca4fb72699c0478e31b831d4c4ea0ffd2227be7f8446666092d2cc26e1d3'
 JAY_INSTALLED='aa50112845d1cf70cae0924f03326647b3d2514f876c756d70b134ee44f971d1'
+STEVE_INSTALLED='62ba7f54117875ec018d6f85fb1c74408aa11f0fe0f6a85b8b4f601034a17639'
 
 
 def proof_parent(raw):
     digest=sha256(raw).hexdigest()
+    if digest==STEVE_INSTALLED:
+        from steve_armor_idle_1113 import reverse
+        parent=reverse(raw)
+        assert sha256(parent).hexdigest()==JAY_INSTALLED
+        frozen,info=proof_parent(parent)
+        return frozen,dict(info,input_SHA256=digest,intermediate_Steve_parent_SHA256=JAY_INSTALLED,
+            scope='Explicit Steve inverse to aa501, then '+info['scope'])
     if digest==PIN:return raw,dict(input_SHA256=digest,proof_parent_SHA256=PIN,inverse_applied=False)
     quick=raw
     if digest==JAY_INSTALLED:

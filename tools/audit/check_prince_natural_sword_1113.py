@@ -22,12 +22,18 @@ PIN = Replay.PIN
 CONTROLLER_PIN = '12f55c86840aa9750d0312c806f629b23e8cec5e8aa67483ffe77762934d3e66'
 QUICK = '4641ca4fb72699c0478e31b831d4c4ea0ffd2227be7f8446666092d2cc26e1d3'
 JAY = 'aa50112845d1cf70cae0924f03326647b3d2514f876c756d70b134ee44f971d1'
+STEVE = '62ba7f54117875ec018d6f85fb1c74408aa11f0fe0f6a85b8b4f601034a17639'
 
 
 def proof_parent(raw):
     """Recover the frozen recipe input without loosening its PIN or writing ROMs."""
     original = raw
     digest = sha256(raw).hexdigest()
+    if digest == STEVE:
+        from steve_armor_idle_1113 import reverse
+        raw = reverse(raw)
+        assert sha256(raw).hexdigest() == JAY
+        digest = JAY
     if digest == JAY:
         from deliver_jay_pickup_helper_1113 import inverse
         raw = inverse(raw)

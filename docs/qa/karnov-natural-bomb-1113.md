@@ -230,6 +230,18 @@ it proves natural acquisition/use/retirement, not a new enemy-damage case.
 Native prepared-enemy Bomb damage has its separate older fixture evidence.
 Star/1UP and remaining original equipment/audio still need qualification.
 
+## Post-Steve delivered62ba repeat
+
+Actual Downloads62ba passes the same complete four-item progression/use in
+12,756physicalframes/7,112updates, both lives/full source health. It retains
+the same three manual girders and complete Bomb retirement. Controller:
+`78fd7b91ed30e8b54ca1dcf3ac84ee278b1fa07a92f67d041d8c709c488a41af`.
+Receipt:
+`5c88da1c593755d4684022c55686c5e7d5a212b273f17a11915f36bb893321c7`.
+There are zero Bomb/enemy contacts in this route. Explicit Steve inverse
+authenticates62ba through exactaa501 before the established proof guards;
+actual native execution uses62ba. No game bytes or helper positions change.
+
 ## Delivered Jay composite authentication
 
 The audit now accepts only the exact delivered aa501 composite through the

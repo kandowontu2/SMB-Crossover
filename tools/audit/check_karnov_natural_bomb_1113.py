@@ -17,9 +17,16 @@ CURRENT = '65ee94ca9ac6e1b5ad44303d08f76ecbc175a88232c82ef8c32712edf150a643'
 SCENE = 'a3c5fa63872fbb3103ae57d9748fef233e8b2273e26d985aa4006b2492d81b8a'
 QUICK = '4641ca4fb72699c0478e31b831d4c4ea0ffd2227be7f8446666092d2cc26e1d3'
 JAY = 'aa50112845d1cf70cae0924f03326647b3d2514f876c756d70b134ee44f971d1'
+STEVE = '62ba7f54117875ec018d6f85fb1c74408aa11f0fe0f6a85b8b4f601034a17639'
 
 
 def authenticate(raw):
+    if sha256(raw).hexdigest()==STEVE:
+        from steve_armor_idle_1113 import reverse
+        parent=reverse(raw)
+        assert sha256(parent).hexdigest()==JAY
+        authenticate(parent)
+        return
     if sha256(raw).hexdigest()==JAY:
         import compose_jay_pickup_helper_1113 as helper
         from compose_quick_climb_material_1113 import inverse as quick_inverse
