@@ -123,3 +123,25 @@ Its logical-sole fallback remains careful-step-only. This is a concrete next
 investigation: trace the failing support call and its exact native tile and
 sole geometry before broadening admission. Do not claim a fixed bug or infer
 the tile solely from appearance. No ROM edits made.
+
+## Exact rejection and private candidate
+
+Current-ROM Mesen trace confirms at age125/action1/mode255 that D720 returns
+tile51, queryX320/queryY144, nativeY112/ground0, both source soles145. D739
+rejects solely because action is nonzero. Same tile/geometry passed at age121
+with action0. Receipt b7041664c30722134dc51df2881c750479cfaae5bcdd4a68915ec8dbdc933429.
+
+`--test-moving-support` rebuilds the authenticated Prince packet in a private
+candidate, replacing only D736..D73A's `LDA action / BNE Empty` with five NOPs.
+Earlier action0/1/42-mode admission, grounded/sole checks, actual native solid
+tile classification and empty-above checks remain. This also affects ordinary
+brick57 and questionC0, which require regression coverage before delivery.
+
+Actual Mesen replay now remains atop the row and ends X383/Y112, action0,
+HP5/two lives, versus original X335/Y176. Receipt
+e378a07972cc2b41a3204f03b4611a6e0998c6d1f98a3cf40f2cf32710034719.
+The pickup assertion still fails because no item was released. This is a
+successful movement observation, not a passing pickup or delivery gate.
+Candidate and Lua are the two bounded files in build/prince-first-pickup-1112.
+Next: negative support/interrupt/full-stage regressions and natural pickup;
+do not install this private candidate yet.

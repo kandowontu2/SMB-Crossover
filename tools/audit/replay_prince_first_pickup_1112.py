@@ -18,13 +18,30 @@ def main():
     parser.add_argument('--observe-updates', type=int, default=100)
     parser.add_argument('--top-b', action='store_true')
     parser.add_argument('--top-walk', action='store_true')
+    parser.add_argument('--test-moving-support', action='store_true')
     args = parser.parse_args()
     assert 1 <= args.hold_updates <= 90
     assert 324 <= args.runout_x <= 400
     assert 100 <= args.observe_updates <= 400
     assert digest(NIGHTLY) == PIN
+    rom, expected = NIGHTLY, PIN
+    cookie = 'a72602f65bd78bf89874939486b6742f'
+    if args.test_moving_support:
+        import prince_cold_packet_1111 as Packet
+        def mutate(runtime, metadata, state):
+            offset = 0xd736-0xc800
+            assert metadata[offset:offset+5] == bytes.fromhex('ad16c6d017')
+            metadata[offset:offset+5] = bytes([0xea])*5
+            return runtime, metadata, state
+        image, layout = Packet.rebuild(NIGHTLY.read_bytes(), mutate)
+        from hashlib import sha256
+        expected = sha256(image).hexdigest()
+        cookie = image[Packet.COOKIE:Packet.COOKIE+16].hex()
+        OUTPUT.mkdir(exist_ok=True)
+        rom = OUTPUT/'candidate.nes'
+        rom.write_bytes(image)
     source = PUBLISHED.read_text()
-    source = source.replace('a726021676a00802119275ac7f48cce7', 'a72602f65bd78bf89874939486b6742f')
+    source = source.replace('a726021676a00802119275ac7f48cce7', cookie)
     source = source.replace('emu.setInput({right=pad&1~=0,', 'emu.setInput({right=pad&1~=0,left=pad&2~=0,')
     begin, end = source.index('local function tick()'), source.index('local function frames(count)')
     tick = '''
@@ -32,6 +49,18 @@ local itemSeen=false
 local minimumY=255
 local jumpTrace={}
 local yWrites={}
+local supportTrace={}
+for _,pc in ipairs({0xd6d1,0xd6da,0xd6fb,0xd6fe,0xd720,0xd739,0xd752}) do
+  observe(pc,2,function()
+    local age=commits-changedAt
+    if progress=='pickup-jump' and age>=120 and age<=140 and #supportTrace<80 then
+      local cpu=emu.getState()
+      supportTrace[#supportTrace+1]={pc=pc,a=cpu['cpu.a'],p=cpu['cpu.ps'],
+        age=age,state=state(),oldFoot=source(0x86),delta=source(0x88),
+        queryX=source(0x1369,3)+256*source(0x136a,3),queryY=source(0x136b,3)}
+    end
+  end)
+end
 emu.addMemoryCallback(guarded(function(address,value)
   if progress=='pickup-jump' and mapped(0xc611,2) and #yWrites<160 then
     local cpu=emu.getState()
@@ -80,7 +109,7 @@ local function tick()
     end
     if age>8 then pad=0 end
     if age>100 then
-      late.pickup={spawned=itemSeen,minimumY=minimumY,sword=source(0x6ee),trace=jumpTrace,yWrites=yWrites}
+      late.pickup={spawned=itemSeen,minimumY=minimumY,sword=source(0x6ee),trace=jumpTrace,yWrites=yWrites,supportTrace=supportTrace}
       finish(itemSeen,'First authored powerup spawn probe')
     end
   end
@@ -116,11 +145,14 @@ end
     OUTPUT.mkdir(exist_ok=True)
     script = OUTPUT/'controller.lua'
     script.write_text(source, encoding='utf-8', newline='\n')
-    result = run(script,NIGHTLY,OUTPUT/'capture',PIN,60)
+    result = run(script,rom,OUTPUT/'capture',expected,60)
     pickup = result['receipt'].get('later_route', {}).get('pickup', {})
     trace = pickup.get('trace', [])
     pickup['trace'] = [s for i,s in enumerate(trace) if i == 0 or
         any(s[k] != trace[i-1][k] for k in ('rawY','origin','originHigh','delta','action'))]
+    if args.top_walk:
+        pickup.pop('trace', None)
+        pickup.pop('yWrites', None)
     print(json.dumps(dict(passed=result['passed'],receipt_SHA256=result['receipt_SHA256'],
                          script_SHA256=result['script_SHA256'],receipt=result['receipt'].get('later_route'),
                          reason=result['receipt']['reason'],terminal=result['receipt']['terminal'])),flush=True)
