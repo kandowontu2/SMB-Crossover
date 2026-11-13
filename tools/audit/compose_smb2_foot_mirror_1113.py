@@ -116,4 +116,4 @@ def all_mirrors_inverse(raw):
 
 
 if __name__=='__main__':
-    print(json.dumps(dict(**plan(Flag.Check.ROM.read_bytes()),proposal_only=True,outputs=0,Mesen_run=False)),flush=True)
+    print(json.dumps(dict(**plan(Flag.Check.load_input()),proposal_only=True,outputs=0,Mesen_run=False)),flush=True)

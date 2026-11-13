@@ -215,5 +215,5 @@ def vectors(raw):
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--matrix',action='store_true');p.add_argument('--foreign',action='store_true');p.add_argument('--vectors',action='store_true');args=p.parse_args()
-    raw=F.ROM.read_bytes();q=vectors(raw)if args.vectors else foreign(raw)if args.foreign else matrix(raw)if args.matrix else references(raw)
+    raw=F.load_input();q=vectors(raw)if args.vectors else foreign(raw)if args.foreign else matrix(raw)if args.matrix else references(raw)
     print(json.dumps(q,separators=(',',':')),flush=True)

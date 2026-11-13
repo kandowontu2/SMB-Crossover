@@ -14,6 +14,18 @@ R=Path(__file__).resolve().parents[2]
 SOURCE=R/'tools/reference/smb2_flag_handoff_1113.s'
 
 
+def load_input(path=ROM):
+    """CLI adapter only; strict proposal/controller/inverse PINs are unchanged."""
+    raw=Path(path).read_bytes();digest=sha256(raw).hexdigest()
+    if digest=='f88cfe5aee15bb3921c691b7f06d905246be9ff88b9b43eea71c2405722724a7':
+        source=R/'tools/audit/bub_native_noops_1113.py'
+        assert sha256(source.read_bytes()).hexdigest()=='6770cb6c8c9a0fe73eebd8c2c9b4c112ee55dc81def05c9aaf280b5a14e718e6'
+        import bub_native_noops_1113 as Bub
+        raw=Bub.combined_reverse(raw)
+    assert sha256(raw).hexdigest()==PIN
+    return raw
+
+
 def inspect(raw):
     assert sha256(raw).hexdigest()==PIN
     b=dict(W.Symbols.bundle(),raw=raw)
@@ -348,6 +360,6 @@ def vectors(raw):
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
     for name in('measure','cpu','controls','foreign','vectors'):p.add_argument('--'+name,action='store_true')
-    args=p.parse_args();raw=ROM.read_bytes()
+    args=p.parse_args();raw=load_input()
     q=vectors(raw)if args.vectors else foreign(raw)if args.foreign else controls(raw)if args.controls else cpu_matrix(raw)if args.cpu else measure(raw)if args.measure else inspect(raw)
     print(json.dumps(q,separators=(',',':')),flush=True)

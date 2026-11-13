@@ -50,6 +50,7 @@ def controller(raw,variant=4,mode='injured-mushroom'):
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--variant',type=int,choices=range(8),default=4)
     p.add_argument('--mode',choices=MODES,default=MODES[0]);args=p.parse_args()
-    text=controller(Root.Base.ROM.read_bytes(),args.variant,args.mode)
+    from check_smb2_flag_handoff_1113 import load_input
+    text=controller(load_input(),args.variant,args.mode)
     print(json.dumps(dict(ROM_SHA256=PIN,variant=args.variant,mode=args.mode,
         controller_SHA256=sha256(text.encode()).hexdigest(),Lua_compile=True,outputs=0,Mesen_run=False)),flush=True)

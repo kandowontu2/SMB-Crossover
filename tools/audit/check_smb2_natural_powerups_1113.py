@@ -172,6 +172,7 @@ if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--variant',type=int,choices=range(8),default=4)
     p.add_argument('--limit',type=int,default=900);p.add_argument('--injured',action='store_true');p.add_argument('--collect',action='store_true')
     p.add_argument('--controller',action='store_true');p.add_argument('--mode',choices=('injured-mushroom','healthy-flower-birth'),default='injured-mushroom');args=p.parse_args()
-    q=run_controller(Flag.ROM.read_bytes(),args.variant,args.mode,args.limit)if args.controller else first_birth(Flag.ROM.read_bytes(),args.variant,args.limit,injured=args.injured,collect=args.collect)
+    raw=Flag.load_input()
+    q=run_controller(raw,args.variant,args.mode,args.limit)if args.controller else first_birth(raw,args.variant,args.limit,injured=args.injured,collect=args.collect)
     print(json.dumps(q,separators=(',',':')),flush=True)
     assert q['passed'],'Ordinary first-question route must reach actual item birth'

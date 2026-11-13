@@ -61,4 +61,4 @@ def run(parent,limit=4300):
 
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--limit',type=int,default=4300);args=p.parse_args()
-    print(json.dumps(run(Source.Flag.ROM.read_bytes(),args.limit),separators=(',',':')),flush=True)
+    print(json.dumps(run(Source.Flag.load_input(),args.limit),separators=(',',':')),flush=True)

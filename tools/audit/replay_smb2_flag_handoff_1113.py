@@ -27,7 +27,7 @@ def controller(raw,variant=4):
 
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--variant',type=int,choices=range(8),default=4);args=p.parse_args()
-    image,_=C.proposal(C.Check.ROM.read_bytes());text=controller(image,args.variant)
+    image,_=C.proposal(C.Check.load_input());text=controller(image,args.variant)
     print(json.dumps(dict(ROM_SHA256=CANDIDATE,variant=args.variant,identity=Root.NAMES[args.variant],
         controller_SHA256=sha256(text.encode()).hexdigest(),base_control_SHA256=BASE,
         controls_unchanged=True,Lua_compile=True,outputs=0,Mesen_run=False)),flush=True)

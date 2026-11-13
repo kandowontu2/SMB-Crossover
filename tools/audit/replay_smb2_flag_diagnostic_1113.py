@@ -35,6 +35,7 @@ end),emu.eventType.endFrame)
 
 
 if __name__=='__main__':
-    raw=Root.Base.ROM.read_bytes();text=controller(raw)
+    from check_smb2_flag_handoff_1113 import load_input
+    raw=load_input();text=controller(raw)
     print(json.dumps(dict(ROM_SHA256=Root.PIN,base_SHA256=BASE,script_SHA256=sha256(text.encode()).hexdigest(),
         bytes=len(text),Lua_compile=True,input_changes=0,ROM_or_runtime_writes=0,outputs=0,Mesen_run=False)),flush=True)

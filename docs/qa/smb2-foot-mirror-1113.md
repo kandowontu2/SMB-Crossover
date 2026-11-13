@@ -113,3 +113,13 @@ A tentative19B table-compaction funding idea from that stale source was
 withdrawn before any patch/grant. Actual B7EF..B82D already has no such table;
 the next request must reproduce the exact Ready85 member and current bytes.
 No additional priority resource is granted by the mirror allocation.
+
+## Later CLI input adapter
+
+Root subsequently delivered tested Bub f88. `check_smb2_flag_handoff_1113.load_input`
+accepts that one exact known hash and authenticates
+`bub_native_noops_1113.py` SHA6770cb6c8c9a0fe73eebd8c2c9b4c112ee55dc81def05c9aaf280b5a14e718e6,
+then its `combined_reverse` reconstructs exact7ef in memory. CLI entry points
+use this typed adapter; all strict proposal/inverse/controller PINs and native
+Lua remain unchanged. A zero-output current-input roundtrip again gives2c62,
+Lua a6e3 and injured-Mushroom Lua36e5 exactly. No foreign ROM is silently rebased.

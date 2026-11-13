@@ -19,7 +19,7 @@ def controller(raw,variant=4):
 
 
 if __name__=='__main__':
-    parent=C.Flag.proposal(C.Flag.Check.ROM.read_bytes())[0]
+    parent=C.Flag.proposal(C.Flag.Check.load_input())[0]
     image,_=C.all_mirrors_proposal(parent);text=controller(image)
     print(json.dumps(dict(ROM_SHA256=sha256(image).hexdigest(),controller_SHA256=sha256(text.encode()).hexdigest(),
         ordinary_controls_and_exit_assertions_unchanged=True,outputs=0,Mesen_run=False)),flush=True)

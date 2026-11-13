@@ -86,6 +86,6 @@ def inverse(raw):
 
 
 if __name__=='__main__':
-    raw=Check.ROM.read_bytes();image,q=proposal(raw);assert inverse(image)==raw
+    raw=Check.load_input();image,q=proposal(raw);assert inverse(image)==raw
     q.pop('measured',None);q.pop('labels',None)
     print(json.dumps(dict(passed=True,**q,exact_inverse=True,outputs=0,Mesen_run=False)),flush=True)
