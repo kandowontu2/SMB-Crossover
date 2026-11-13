@@ -36,5 +36,8 @@ Downloads was replaced directly, with no backup. Full1-1 replay from that exact
 launch context passed with the identical receipt above. Installed bytes match
 the tested candidate and both automatic-sidecar checks pass.
 
-Pending: publish the sole Current IPS and verify its download.
+Published: Current is Latest, with sole IPS asset741831523 (2,099,510 bytes).
+Independent download reconstructed the exact installed ROM. Publication used
+source750778d7e472761f062d2c037273372cbfd40c00 and report SHA
+925bb1bee67ca242db0ae58e3839b4c2a05295507d70ebc1e54b90ec32cdc1c9.
 Natural Prince powerup collection remains unfinished and is not claimed here.
