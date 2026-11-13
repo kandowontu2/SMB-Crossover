@@ -67,6 +67,25 @@ Imajin at the ground and the status line at the bottom. Its 2,807 bytes have
 SHA256 `8ec0e9cb3e23f9b02bed8777a6e146f11bb9bab2eba5866d81bc2fec57cb3c41`.
 It stayed in memory, with zero PNGs on disk.
 
+The subsequent bounded bank-write/SMC observation preserves the same controls:
+Lua `bd3920452bdc9ef1dc78d393a8003a269d455bd8cb4813e3d72da7aadbb72ce1`,
+receipt `9052a1e7f269d1051fbea4732722171a23867fa3ba103880756a98452254ca4c`.
+It retains the last16 bank writes and resident jumps in memory. The final
+5115 write selects176 at resident PC0169, SP226, with stale targetB101 and
+argument25. The return chain identifies fixed126 `DoFootCheck` at9C0A
+callingE46A. The source agent's unbroken genuine-route CPU replay reproduces
+that bad mapping before the hardware halt.
+
+The authenticated source lead is a stale fixed-bank mirror: the Sonic shared
+feet change moved the foot entry fromE46D toE46A and retargeted callers, but
+only updated bank127's63-byte head/feet region. The live E-window bank120
+retains the old layout, whereE46A is a `JMP FarCallCommon` head-call tail.
+PlayerY176 is consequently consumed as the bank argument, with stale S2Head
+targetB101. This explains the actual bank48 mapping. Exact mirror preimages,
+source reproduction and a narrowly scoped synchronization are being reviewed;
+there is no new accepted candidate yet. `S2MainGame` dispatch itself was not
+shown to be faulty, and no source physics or bare-feet substitute is proposed.
+
 ## Powerup scope correction
 
 The retained October29 design explicitly gives the initially large/two-heart

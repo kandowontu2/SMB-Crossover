@@ -44,6 +44,25 @@ def controller(image, variant=4):
     text += '\nlocal phaseFields={' + ','.join(f'{k}={v}' for k, v in fields.items()) + '}\n'
     text += r'''
 local phasePrevious,phaseUpdates,phaseStill,phaseCount=nil,-1,0,0
+local function phaseBankContext(value)
+ local c=emu.getState();local q={frame=frames,updates=updates,pc=c['cpu.pc'],sp=c['cpu.sp'],a=c['cpu.a'],x=c['cpu.x'],y=c['cpu.y'],value=value,smc={},stack={}}
+ local mapped=emu.convertAddress(q.pc);q.mapped=mapped and {address=mapped.address,memType=mapped.memType}or'none'
+ for at=0x16a,0x179 do q.smc[tostring(at)]=read(at)end
+ for at=0x100+q.sp+1,0x1ff do q.stack[tostring(at)]=read(at)end
+ return q
+end
+emu.addMemoryCallback(guard(function(_,value)
+ if not game or r('WorldNumber')~=0 or r('LevelNumber')~=1 or r('GameEngineSubroutine')~=7 then return end
+ nextPhase.bank_writes=nextPhase.bank_writes or {};nextPhase.bank_write_count=(nextPhase.bank_write_count or 0)+1
+ nextPhase.bank_writes[tostring(nextPhase.bank_write_count)]=phaseBankContext(value)
+ nextPhase.bank_writes[tostring(nextPhase.bank_write_count-16)]=nil
+end),emu.callbackType.write,0x5115)
+emu.addMemoryCallback(guard(function()
+ if not game or r('WorldNumber')~=0 or r('LevelNumber')~=1 or r('GameEngineSubroutine')~=7 then return end
+ nextPhase.resident_jumps=nextPhase.resident_jumps or {};nextPhase.resident_jump_count=(nextPhase.resident_jump_count or 0)+1
+ nextPhase.resident_jumps[tostring(nextPhase.resident_jump_count)]=phaseBankContext(read(phaseFields.CurrentBank))
+ nextPhase.resident_jumps[tostring(nextPhase.resident_jump_count-16)]=nil
+end),emu.callbackType.exec,0x16b)
 emu.addEventCallback(guard(function()
  if not game or done or r('WorldNumber')~=0 or r('LevelNumber')~=1 then return end
  local s=state();local q={s=s,fields={},pad=pad,pending=#pending}
