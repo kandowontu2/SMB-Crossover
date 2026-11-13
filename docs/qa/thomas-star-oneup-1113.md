@@ -137,7 +137,37 @@ Both earlier upgrades complete their 60 hosted updates. The same run
 clears the first floor pit through normal polled input and finishes eight
 post-Star logical updates in active gameplay. This is the complete natural
 mushroom, flower and Star receipt. Full-stage continuation and natural 1UP
-collection remain open.
+collection were the next qualification steps.
+
+## Current full 1-1 continuation
+
+Root's exact installed 318a087 full-stage run passes at physical frame 8823,
+after 6115 Main updates. It earns the three natural items, completes both
+60-update hosted transformations, uses all six pipe helpers and the flower
+helper, then reaches active 1-2 at X40/Y48, status 2 and both lives.
+
+Receipt SHA256 is
+`081b1c56d079d2976086e4d841c54f3d177438d39cc35f581ad4d919778bb06c`.
+Controller SHA256 is
+`22a1ba43bb5b517c15b30843d4527cc3ba2f310c73fd8434daa8dfeda09b49c8`.
+The new generator is `tools/audit/replay_thomas_star_stage_1113.py`.
+
+The continuation reuses the qualified Star prefix, polls the first-pit
+takeoff input, then uses the retained native foot/step probes and two late
+platform carries. Its first draft accidentally extended the prefix's
+four-pipe threshold to six, which prevented the flower approach. The
+corrected generator uses an explicit four-pipe prefix. A subsequent strict
+stage assertion stopped on the ordinary level-1/engine-5 transition. The
+final generator waits with neutral input through that transition and
+requires active engine 8 in 1-2.
+
+All helpers used by this installed receipt belong to Thomas in stage 1-1.
+Each starts at top Y192, with width 32. Left/center pairs are 400/416,
+560/576, 688/704, 864/880, 1200/1216, 2560/2576 and 2816/2832.
+The full-stage controller observes both late births offscreen and both
+native carries/departures. This continuation adds no placement.
+
+Natural 1UP collection remains the outstanding item in this report.
 
 ## Hidden 1UP approach
 
