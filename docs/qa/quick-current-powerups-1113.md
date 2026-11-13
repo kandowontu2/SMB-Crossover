@@ -143,3 +143,19 @@ The diagnostic prints the bounded source queries, native probe fixtures,
 actual rolling-buffer cells and mounted disassembly; no output file, source
 extraction or ROM copy is made. Its native side calls are declared index
 fixtures in clones, separate from the preceding natural-controller stage.
+
+Root has now independently run the frozen scripts on actual Downloadsa3.
+Natural items PASS:2969 physical frames/1526 logical updates, genuine
+mushroom336, hidden1UP1024, ordinary mushroom1248, Star1616, all mature and
+erased by the real native collector, HP40/lives3. Controllera2864095 above;
+native receipt82bdd4532ed88725e0451af3cfaea2bd34b549a8d19e306f98d830a9de7fa950.
+No physical flower grant is claimed.
+
+The exact frozen full diagnostic2283a8e704a209b1bd9595a69eb87b3e4e956074682f312eb448c3fee051dcf5
+also reproduces the pole stop in native Mesen:5380 physical/3053 updates,
+X3152/Y176/high1, camera3040, HP40/lives3, no climbing/flag events, route-stall.
+Native receiptbfdf42c2de27794ad03d3bc684d748bbffd7d819f8dffba9e82b9998583575b7.
+APIcontroller(raw,'full') freezes sourcea7dc2ba8; native and CPU now agree on
+the remaining actual host-world mapping defect. These are root-supplied
+native receipts; this helper launched no emulator. Root's disk preflight now
+permits Mesen again. No fix, install or delivery has been claimed.
