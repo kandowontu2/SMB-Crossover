@@ -132,7 +132,10 @@ def run(script, rom, output, expected, timeout, variant=0, extra_env=None):
             assert png[:8] == b'\x89PNG\r\n\x1a\n'
             images.append(dict(base64=encoded, bytes=len(png), SHA256=sha256(png).hexdigest()))
     assert len(images) <= 4
-    assert len(receipts) == 1, ('Expected exactly one native receipt', process.returncode, stdout[-3000:], stderr[-3000:])
+    diagnostic_lines = [line[:512] for line in stdout.splitlines()
+        if re.search(r'lua|error|assert|script', line, flags=re.I)]
+    assert len(receipts) == 1, ('Expected exactly one native receipt', process.returncode,
+        diagnostic_lines[:12]+diagnostic_lines[-12:], stdout[-3000:], stderr[-3000:])
     receipt = receipts[0]
     assert receipt['ROM_SHA256'] == expected
     assert bool(receipt['passed']) == (process.returncode == 0), (process.returncode, receipt, stderr[-3000:])
