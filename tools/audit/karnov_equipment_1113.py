@@ -14,17 +14,27 @@ PACKET=Scene.PACKET
 SOURCE=Bomb.R/'tools/reference/karnov_equipment_1113.s'
 FROZEN_PARENT='aa50112845d1cf70cae0924f03326647b3d2514f876c756d70b134ee44f971d1'
 STEVE_CURRENT='62ba7f54117875ec018d6f85fb1c74408aa11f0fe0f6a85b8b4f601034a17639'
+PRINCE_CURRENT='209abc2fd6144d59720e54352ed6f9f7384e2fa9ede0fbb1fb37f9e02d385008'
 
 
 def digest(data):return sha256(data).hexdigest()
 
 
-def inputs():
-    raw=Bomb.NIGHTLY.read_bytes();donor=ROM.read_bytes()
+def frozen(raw):
+    """Explicit known-successor adapter; the implementation parent stays AA."""
+    if digest(raw)==PRINCE_CURRENT:
+        import prince_draw_cache_1113 as Prince
+        raw=Prince.reverse(raw)
+        assert digest(raw)==STEVE_CURRENT
     if digest(raw)==STEVE_CURRENT:
         import steve_armor_idle_1113 as Steve
         raw=Steve.reverse(raw)
     assert digest(raw)==FROZEN_PARENT,'Use explicit authenticated normalization to frozen aa501'
+    return raw
+
+
+def inputs():
+    raw=frozen(Bomb.NIGHTLY.read_bytes());donor=ROM.read_bytes()
     assert digest(donor)==EXPECTED
     previous=Scene.inverse(raw)
     assert Scene.transform(previous)[0]==raw
@@ -85,11 +95,16 @@ def footprint(raw):
         body=raw[Bomb.CHR+page*1024:Bomb.CHR+(page+count)*1024]
         sizes[role]=dict(carrier_bytes=len(body),packed_bytes=len(pack(body)),
             conservative_near_branches=counts.get(role,0),possible_relink_savings=3*counts.get(role,0))
+    actor=raw[Bomb.CHR+399*1024:Bomb.CHR+407*1024]
+    assert actor[0x1fc5:0x1fcb]==bytes.fromhex('8d8bc04cc4b2')
+    assert actor[0x1fcb:0x1fdd]==bytes.fromhex('a9788d6c01a9b38d6d01a98b205a014cf8db')
     return dict(current_owned=sizes,source_longbranch_examples=examples,
         explicitly_excluded_Bomb_loan_source_rows=excluded_loans,
         nonmatching_source_rows=len(mismatches),nonmatching_examples=mismatches[:8],
         kernel_end=Cpu.M.address(b,'KrKernelEnd'),hud_end=Cpu.M.address(b,'KrHudEnd'),
-        actor_unmodified_padding=((0xbfc5,0xbfcb),(0xbfdd,0xbfe0),(0xbff0,0xc000)),
+        live_native_platform_ground_bridge=(0xbfc5,0xbfcb),
+        live_native_platform_controls_and_options_bridge=(0xbfcb,0xbfdd),
+        actor_unmodified_padding=((0xbfdd,0xbfe0),(0xbff0,0xc000)),
         new_runtime_memory_granted=False,ROM_mutation=False)
 
 

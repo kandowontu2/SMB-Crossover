@@ -1,8 +1,8 @@
 # Karnov remaining equipment and Ladder plan, November13
 
-This is a source/space audit, an in-memory **refactor-only** trial and one
-standalone44-byte renderer component. Ladder remains disabled in every ROM.
-There is no equipment ROM candidate, emulator run or generated output. Root
+This includes a source/space audit, the qualified **refactor-only** trial and
+an in-memory private Ladder implementation. The public nightly is unchanged;
+there is no equipment ROM output file, emulator run or generated output. Root
 reserved624 relinked code bytes in commit389ff135 and the later556 code bytes,
 original object and32 glyph bytes in4c027e30. Frozen input is Quick+Jay
 `aa50112845d1cf70cae0924f03326647b3d2514f876c756d70b134ee44f971d1`.
@@ -16,7 +16,8 @@ upgrades, Star and1UP. The remaining original options are Ladder2, Clapper4,
 Glasses5, SwimmingMask6 and Shield8. Existing native controls expose owned
 Boots0/Bomb1/Boomerang3/Wings7 with Select and Down+freshB. The exact source
 pickup adapter already grants all item IDs through its earned cycle; Ladder's
-grant is present. Native selection/activation/lifecycle is missing.
+grant is present. The private source below adds selection/activation/lifecycle;
+native-emulator qualification and delivery remain pending.
 
 ## Original Ladder contract
 
@@ -83,8 +84,10 @@ The current conditional code leases remain:
 The physical combat padding is not an additional copied/runtime grant.
 Neighboring gaps and leases are not reserved. Current Bomb actively occupies
 the old Ladder/Clapper/Glasses/Mask/Shield-related loans. None is reclaimed.
-The actor's original KrKernelEnd isBFC5; its later native head shim occupies
-BFCB..BFDC. Measured explicit fill is not treated as free placement.
+The actor's original KrKernelEnd isBFC5. The current BFC5..BFCA code is the
+live native-platform grounded reconciliation (`STA C08B; JMP B2C4`), and
+BFCB..BFDC is the live18-byte native-platform control bridge to ROM8B:B378,
+then options DBF8. These are not head code or padding and stay unchanged.
 
 `--part footprint` authenticates actual source-annotated far-branch sequences
 and their current target words, explicitly excluding37 old source branches
@@ -132,7 +135,7 @@ stay exact. There is no Ladder entry, art or font mutation.
 
 This request is limited to **624 bytes in those two actor-owned tails**.
 The options' additional81-byte estimate remains unlinked and unrequested.
-Handwritten host AFBB onward, the head shim BFCB..BFDC and every existing
+Handwritten host AFBB onward, both native-platform bridges and every existing
 Bomb loan keep their original positions. Art/font changes and the complete
 native Ladder lifecycle require their own subsequent qualification.
 
@@ -192,7 +195,8 @@ The recipe reports retain `allocation_qualified=False`; the later formal
 reservation is the separate root-owned JSON in commit389ff135. The complete
 1178-byte source adapter and its additional556-byte code/32-byte art request
 are documented in [the follow-up request](karnov-equipment-extra-request-1113.md).
-It remains a measured source proposal with no feature ROM or installed change.
+The later implementation below uses only the two formal reservations. No
+installed change or native feature result is implied by the measurement.
 
 For comparison, current LZ packing gives actor5648/8192, options1738/2048,
 combat1229/2048. Compression alone does not grant runtime space. A compressed
@@ -224,7 +228,7 @@ native metatile quads. The existing HUD uses neither punctuation in its gear
 names/hint; complete other-text lifetime/font ownership checks remain needed.
 No palette or glyph bytes change in this audit.
 
-## Implementation gates before any candidate
+## Implementation sequence and remaining native gates
 
 1. Reproduce the current owning source in memory, then qualify the actor/
    options relink. Preserve anchored entries, current head/scene bridge,
@@ -259,3 +263,145 @@ entries, guards, vectors). Every section produces stdout only. Only exact
 needed packet members are read in memory; no historical trees are expanded.
 Root owns all Mesen, current reports/inventory and delivery. No new helper
 platform is involved.
+
+## Private native Ladder source checkpoint
+
+The frozen AA-only `compose_karnov_ladder_native_1113.proposal(raw)` now returns
+the private in-memory image
+`4b28ca9a309c66d429ae4e97109129aafcaca7a63cc5950c8cc367c21f5fd8b4`,
+cookie `a707011433dd33fe04fa506b32a7ab15`.
+`inverse(image)` reconstructs and authenticates exact AA, then requires the
+forward recipe to reproduce every incoming byte. Both strict APIs retain
+their AA-only whole-ROM pin. No ROM file is written or installed.
+
+Source `tools/reference/karnov_ladder_native_1113.s` SHA256 is
+`64d0fae1833f1c8028265397c0cd9e8768d83be7d05a6933d21d193b21406e8d`.
+The complete adapter is1179 bytes within1180 reserved, partitioned as492 at
+AA1A,131 at AF20,512 at CE00 and44 at CDD4. It consumes no additional state,
+actor slot, options tail or glyph. Source transport uses only the original
+27-byte Ladder object and exact donor32B BE/BF art in private2C/2D. Host BG
+palette2 maps pattern colors2/3 to21/0F; donor palette1 uses22/02. This is an
+explicit color adaptation, not exact donor color parity.
+
+The actual current movement sequence at B1FA calls the live BFCB platform/
+options bridge, SourceFrame, SourceWeapons and OptionsTick. The new worker
+preserves that exact ordinary sequence; it does not bypass either native
+platform bridge or the original E8-to0F Bomb clock. The scene jobs replace
+the donor stage/VRAM backends and retain source actor constants, growth1,
+bottom-Down retraction2, second-earned-Ladder rebuild0B and ownership return.
+The original16px/+8 climb snap is translated through the native camera;
+132352 standalone input/flag cases retain its actual continuation ABI.
+
+Completed CPU checks on exact4b28, with declared synthetic fixtures where
+applicable:
+
+- Actual expanded cold reads24088 PPU bytes, copies/read-verifies every new
+  CE00..CFFF byte, publishes both complete headers and zeros the original
+  object. Warm reuse reads0. All32 header-byte mutations and both prior
+  parent/relink identities reject. Five actual copy/readback faults, including
+  the final CFFF byte, reject without publishing either header. Changed code,
+  font, loader or unrelated bytes fail canonical inverse authentication.
+- Five explicitly prepared mature native actors earn mushroom, flower,
+  Boots, Bomb and Ladder through NrPrepare/HandlePowerUpCollision, with real
+  erasure and source progression. Actual NMI/UI/public movement grows eight
+  cells, climbs Up176→158, reaches original bottom-Down state2, restores all
+  cells and returns ownership/selection while retaining Boots/Bomb stock.
+  Ten more prepared flowers traverse the original full item cycle; actual0B
+  restores the old column and grows at a controller-moved new anchor. This is
+  earned in a directed fixture, not a natural five-pickup route.
+- Same-life actual InitScreen retires the object without writing stale cells
+  into a deliberately different scene, retaining stocks/cycle. Changed-life
+  InitScreen clears the original27 bytes and original gear. Actual Start
+  pauses a growing object for44 native debounce updates: object, motor, Bomb
+  clock and position remain frozen despite held Up, then growth resumes.
+- 13312 real callback cases cover every X/Y plus all256 flag values at
+  boundaries; exact X/Y/CVID/NZ, R0..R7, stack and maps hold. All256 native
+  metatiles execute first-cell admission:194 admitted,62 native solid/climb
+  rejected. All83 nonempty queue offsets leave object and existing queue
+  bytes untouched.
+- 768 saved-cell fixtures execute all256 actual native quads on pages0/1/255,
+  restore the exact owned cell/attribute and preserve neighbors. Aggregate
+  queue SHA256 `b21845c7fcaa442dfca07f60b9dbadbd460dc38fae7aed2f04a674bf45178e8a`.
+  Another180 valid count/bottom/camera fixtures execute full vertical NMI
+  redraws, all1..8 segment sizes, both nametables and each affected attribute
+  quadrant. Three fully offscreen cases queue nothing. Redraw maximum58B;
+  aggregate `acb4914cc255f6d42bdfc6c803f1732caf6337cdd7f387e96ae351f2e9320e20`.
+- A genuine menu/authored1-1 opening followed by prepared pickups executes109
+  complete Main/NMI updates through growth, an explicit camera crossing,
+  Up176→153, original Down/retract and ownership return. No source code byte
+  changes during execution. This is not a whole-stage or emulator proof.
+- A separate actual same-Main contention fixture uses controller-derived
+  motion and two explicitly added native cells: coin question at X128/Y144,
+  loose coin at X128/Y128. Camera redraw queues58B before real head collision;
+  native blanking reaches68, coin/score writes reach73 then82. A prepared
+  mature Star is collected in the later enemy loop. Native block replacement
+  and color rotation defer at82. An actual timer numeric request at82 changes
+  no queue byte and becomes pending32. Native buffer controller6 legitimately
+  preserves VRAM1 while consuming VRAM2; two later Main/NMI updates return to
+  controller0, consume the Ladder queue and flush the pending number. The
+  actual bottom Ladder glyph is then2C. This closes the demonstrated later
+  head/block/coin/HUD/color contention; it is not an exhaustive campaign state
+  enumeration. No transport timing patch was needed.
+- 1105 paired public updates preserve no-gear/Boots/Bomb/Boomerang/Wings data,
+  outputs, live stack and mapping.175 unseeded paired menu/Main updates retain
+  exact native/source/PPU behavior. All37 native ingress rows and11 foreign
+  HuFresh owners retain their ABI/write deltas/maps. Only authenticated changed
+  code and complete identities are omitted from data comparisons.
+- 1660 reached active-worker instruction/SP points each pass real IRQ and
+  lag-NMI restoration, minimum SP143. Actual cold executes390 lag-NMI and101
+  enabled-IRQ cuts, minimum SP177, including all12 copy-helper rows. The
+  existing ISR oracle recognized split `STA CurrentBankC; STA $5116`; the
+  loader actually uses the exact six-byte STX equivalent. The scoped oracle
+  changes only that opcode/register recognizer and still compares the real
+  ISR plus the interrupted instruction continuation, full RAM/live stack/maps.
+- Candidate HUD executes512 cursor/ownership cases plus all256 original C000
+  values for Ladder's blank stock/icon fields. The real LADDER name appears;
+  no HUD command emits private2C/2D. Five actual UI/CHR mode/task/engine
+  contexts and KrRetire restore native font0. These are explicit CPU contexts,
+  not visual or native-transition replay claims.
+
+Every section above runs with zero generated files through the same bounded
+root. The checker parts are `candidate-cold`, `lifecycle-basic`,
+`lifecycle-extended`, `restore-matrix`, `redraw-matrix`, `main-lifecycle`,
+`main-pressure`, `finite`, `guards`, `regressions`, `vectors`, `cold-vectors`,
+`candidate-font` and `pause`. The measurement/source-resource parts remain
+available separately. No native helper platform was added or relocated.
+
+Root must still independently review/repeat the new source, qualify an
+explicit composition over its exact current nightly, and run its sole native
+queue for earned activation, visible original art/palette adaptation,
+growth/climbing/retraction, transitions and existing Karnov/foreign routes.
+The ordinary fifth-item route is not qualified. Clapper, Glasses, Swimming
+Mask and Shield remain unimplemented native equipment. No public feature,
+Downloads delivery, IPS update or complete Karnov claim is made here.
+
+The separate `proposal_current(raw)` and `inverse_current(image)` APIs accept
+only known AA, public Steve62, or exact private Prince209 parents. Input
+normalization uses explicit Prince209→Steve62→AA inverse authentication;
+unknown images reject. Complete qualified source islands are authenticated
+and copied before the feature spans. An independent gate also constructs the
+entire strict AA→4b changed-byte delta and requires the current API output to
+equal that result byte-for-byte, with every other byte equal to its own
+parent. That independent delta contains4507 bytes. The full Karnov carriers,
+loader helper and font match strict4b.
+
+| Exact known parent | Private Ladder composition |
+| --- | --- |
+| AA `aa50112845d1cf70cae0924f03326647b3d2514f876c756d70b134ee44f971d1` | `4b28ca9a309c66d429ae4e97109129aafcaca7a63cc5950c8cc367c21f5fd8b4` |
+| Public62 `62ba7f54117875ec018d6f85fb1c74408aa11f0fe0f6a85b8b4f601034a17639` | `526ef1df172c3172fccbd35aa0471a9ff9a5a256a416acba8f7530d147a5b3f2` |
+| Private209 `209abc2fd6144d59720e54352ed6f9f7384e2fa9ede0fbb1fb37f9e02d385008` | `c5afaa7b9693655e283a8bdd6a21fc78041d91c4c6bc9f5c91943a045eb42359` |
+
+All three pass complete actual cold24088 and exact inverse. The current62
+composition526 additionally executes the109-update Main lifecycle and82B
+contended-Main fixture above. These are private CPU compositions; public62
+remains untouched. `--part composition` runs this qualification with zero
+outputs.
+
+Superseded private805a is invalid and must never be tested or delivered: the
+first rebase-only implementation copied post-refactor feature records but
+omitted the preceding source-island relink. Actual menu/Main caught this
+before native testing: a stale old-core jump entered AA9F in the new worker,
+changed C627 despite no activation and prevented movement. The corrected API
+copies the complete qualified link first; AA equality and the independent
+whole-byte delta guard prevent this ordering error. Strict4b never had the
+defect, and no invalid ROM file or public change was made.

@@ -1,4 +1,4 @@
-; Native transport for the original Karnov Ladder. Measurement source only.
+; Private native transport for the original Karnov Ladder; root grants1180B.
 ; Requires authenticated relink plus the separate art/state lifetime proofs.
 ; Original27-byte object lease, native compact transport:
 ; 624=count/camera column,625=world tile X low8,626=X high4|bottom Y row4,
@@ -34,7 +34,7 @@ KrLadderStep:
  cmp #11
  beq KrLadderJobEntry
  jsr KrLadderProbes
- jsr KrOptionsControls
+ jsr KrExistingControls
  jsr KrSourceFrame
  jsr KrSourceWeapons
  jsr KrOptionsTick
@@ -492,7 +492,7 @@ KrLadderWorldSnap:
  lda $c063
  rts
 
-; Additional transport below is measured at an ungranted coordinate only.
+; Additional transport uses only the separately authenticated C2 grant.
 .segment "LADDER_EXTRA"
 ; Two vertical pattern columns, then each distinct attribute group once.
 ; The exclusive empty84B queue holds at most38+20 bytes and a terminator.
