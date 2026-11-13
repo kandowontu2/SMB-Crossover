@@ -70,3 +70,49 @@ not a new proved runtime or helper-retirement defect, and no public delivery
 is made. A narrowly scoped fresh-A defense during that boarding wait is the
 next controller experiment. Earlier CPU terrain and timer results retain
 their separate recorded scope.
+
+The separate boarding-hop controller4302a349 then advances past that Goomba:
+fresh stationary A atMain2816, actual880-platform carry at2867, rise2868,
+cross3277 and fourth roof3309. Its native result is still **negative**:
+receipt `94a127dbb2fca4d50091abec22a2f9cac5b29281805a05f8d92c596dc29954e0`,
+frame14243/Main6295, original fall injury at X985/Y176 after jumping from
+the fourth roof. Both lives/timer138 remain. It waits untilMain6221 to
+jump, despite150 actual944 support observations fromMain3345 to5931. The
+next experiment uses the existing grounded source-supported contact with944
+to enter the ordinary descent phase. No ROM or platform position changes.
+
+That contact-ride experiment9f943b1b is also **negative**: receipt
+`07c1ac5f26bad59f4f3e9b2f78248bbdb6e32e78d1e91edc56b8b514e5285ce0`,
+frame8410/Main3381, X945/Y148/source injury5, both lives/timer260. The
+first944 support observation at3345 is real, but it does not persist.
+
+The separate read-only observer keeps9f943's controller decisions unchanged.
+Root narrows its window to3343..3351 to retain the actual contact and first
+lost-support updates without truncating the middle. Lua4612b3ae yields native
+receipt `693270bbf2f840a0cc20e77112d1f4497c5c823550364cead53a22a51f69e703`,
+90 rows/dropped0, full trace SHA256
+`1d9077ecf9cc0195e2371d366ea33413bd70c9001f3e6a3b1d8ac64c38a9ad11`.
+
+- At3345 the real native position routine changes playerY112 to106 for the
+  platform at138. Its completed source carry import changes sourceY127 to121.
+- The resulting source/player rectangle has bottom136; native player box is
+  `[90,121,107,136]`, control1. Helper box is `[96,138,128,151]`.
+- At3346 the compatibility bridge appends a support plane137..138. Original
+  source support still retains grounded state1.
+- At3347 the live helper has moved to139, native support flag is255, and the
+  player bottom is still136. Cached carry top138 remains. Original source
+  support then changes state1 to4; falling later exceeds its existing limit.
+
+Thus the native position and source import actually occur; the immediate
+support loss is not explained by the replay merely failing to request the
+descent phase. The native/source footer alignment and moving support cache
+need a causal compatibility audit. No position correction, jump/gravity
+change or game patch is justified solely by this trace.
+
+Direct currente73 source qualification now also passes all retained cold,
+fault/header/foreign/lifecycle and IRQ/lag-NMI gates (including513+513 runtime
+cuts and100 taken-retirement cuts). An independent menu audit compares all101
+rows and202 portrait/silhouette RGBA images against7ef:350404 bytes exact,
+digestf58ec905, receipt
+`8b40e7067344d7735becff2ddb5fc018f08584a8d2e5f14c97a76c53d0810016`.
+Those positives retain their scope; the private full-stage failure remains.

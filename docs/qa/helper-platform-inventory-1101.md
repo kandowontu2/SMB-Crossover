@@ -1,5 +1,24 @@
 # Helper platform inventory — functional pass in progress
 
+## November13 current Karnov high-question route
+
+Actual Downloads7ef now verifies Karnov's high1-1 flower as the third earned
+item, followed by the first underground flower as Bomb. The route uses only
+his existing player-requested Up+Select vertical actors, width32, initial
+topY208. In1-1 their initial left/center pairs are **1201/1217**, **1712/1728**
+and **1767/1783**; in1-2 the observed pair is **112/128**. All are world-pixel
+coordinates, not screen positions. These are manual requests, not newly
+authored fixed platforms. Affected alternate: **Karnov (Rygar, Select)**.
+
+Receipt `e5f68f573f94d28ddf93516ef22f95011926404a764b7dad5c9c956c5bc4fb57`
+retains both lives/full source health, actual high-question head and mature
+Boots/Bomb collectors. Its141/563/357/142 support observations are physical
+observations, not distinct carry-routine entry counts. The run later stalls
+at undergroundX353 before the fifth pickup, so it does not qualify the full
+five-item route or any additional helper there. See
+`karnov-five-current-native-1113.md`. Other earlier verified manual positions
+below retain their own scope.
+
 Post-Steve62ba qualification repeats Karnov's four natural pickups/use with
 the existing Up+Select actors: World1-1 **initial leftX1201/centerX1217/topY208**;
 World1-2 **leftX112/centerX128/topY208** and **leftX1127/centerX1143/topY208**,

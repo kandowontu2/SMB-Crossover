@@ -42,6 +42,32 @@ Scope remains one Easy/default non-shortcut route per identity, not every
 powerup, all difficulty modes, acoustic fidelity, every animation or zero lag.
 The general101-identity completion goal remains unfinished.
 
+### Both natural mushroom/flower routes also pass
+
+Root subsequently runs each frozen `replay_bowser_natural_powerups_1113`
+controller against actual Downloads through the same bounded queue.
+
+| Identity | Physical frames / all Main | Lua SHA256 | Receipt SHA256 |
+|---|---|---|---|
+| SMB3 Bowser | 2473 /1266 | `58d777bc44d5b7ff370ace86b20a76e57f69f6f70e11e0cc57940a263f4e4de1` | `f4150018d5e33cafb81742d56073df58322fa2651e996d59f8f20278331bed1d` |
+| SMB1 Bowser | 2897 /1617 | `d23ba56d64b6efacc3ba21463717df4764623bba3b10100073758f3cb5d2fb63` | `fea00aef1e959e421dff959332b8728a936645182cb3c72e22e2fb744a2f46e1` |
+
+Both reveal real question blocks336/1248 by original head contact, observe
+birth and maturity, and use the actual native collector on slot5. Mushroom
+and flower each erase, queueSFX32/popup6, grant tier0→1→2, run exactly60
+bank-qualified BwPowerupTick calls, then resume. Each run also completes60
+resumed gameplay updates after the second upgrade, retaining both lives.
+
+SMB3: mushroom actor409/184 at player397/176; flower1248/119 at1263/124,
+health33→34 on the flower. Terminal1352/176, health34. SMB1: mushroom407/184
+at395/176, health4→5; flower1248/119 at1260/117, health3→5. Terminal1319/129,
+health5. The second endpoint is still in a normal jump; this pickup route
+does not replace the separate grounded underground full-stage qualification.
+No helpers, captures, code or runtime writes occur. These are the current
+host's tier/health semantics, not a claim of a new donor-boss weapon.
+
+Native Star/1UP and every other powerup family remain separate coverage.
+
 ## Bub/Bob: native empty-scene baseline
 
 `profile_bub_empty_native_1113.py` authenticates the current private Bubble
@@ -94,3 +120,28 @@ The current source model attributes about45,507 cycles to an empty idle Main;
 shortcut would save less than4%, so it is not presented as a verified lag
 repair. Larger source-faithful changes remain under investigation. This
 baseline delivers no new ROM or IPS; the existing Latest asset is unchanged.
+
+The separate passive native cost probes also pass with unchanged phase
+positions, Main/source counts and physical cadence. Bub uses Luaa5b78804,
+receipt `16cbe30dd8340fb7ed616884b978f8eb26c18dc7f94e6b69156ebedbc7db8eea`;
+Bob uses Lua5d3267b7, receipt
+`5d03c9b3b33d9d923943a7504b9b7c7dfd7b9621670f6c0a152d584a61ee306c`.
+Their elapsed routine profiles include interrupts and nested calls; the
+buckets must not be summed. Bub's idle GameLoop totals2,231,681 cycles over48
+calls, about46,493 per call. Native source draw occurs24 times in the same96
+physical frames because catch-up omits drawing:15 source body-draw calls per
+nominal second, distinct from display refresh rate and from30 source updates.
+This remains a measured baseline, not an optimization result.
+
+The corrected private empty-loop candidatea77a71cf is then measured with
+strict new cookie/code authentication. Both identities pass the same basic
+windows, but idle remains48 Main/source in96 physical frames. Walking36
+updates takes71 rather than72 frames; positions, real first enemy and lives
+match. Bub receipt
+`4f2658e807bb2f5812cd854b5a02adc37e7f4afd416fd0acb2bf9814fbc3538b`;
+Bob receipt
+`9741a91bf2f08ac56d6ad2b4f7e32b3f1f7efa0bf6b76b70af7cec5bd4511040`.
+The modeled2,430-cycle saving does not deliver a material native cadence gain
+by itself. It remains private in a separate two-file/2.11MB component output;
+it is not installed, released or described as a lag fix. Broader release
+qualification is deferred while larger transport costs are investigated.
