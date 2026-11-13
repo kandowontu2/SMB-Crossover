@@ -138,7 +138,8 @@ handling and all ordinary/base solid material behavior. The private source
 implementation and complete CPU gates are recorded inquick-climb-material-1113.md.
 It preserves the native callback's complete register/flag contract, uses11
 bytes in the existing copied Quick code tail, and changes no allocation.
-It is not installed or fully native-qualified.
+At that checkpoint it was not installed or fully native-qualified; the final
+repair is now installed as recorded inquick-climb-material-1113.md.
 
 The diagnostic prints the bounded source queries, native probe fixtures,
 actual rolling-buffer cells and mounted disassembly; no output file, source
@@ -160,3 +161,12 @@ APIcontroller(raw,'full') freezes sourcea7dc2ba8; native and CPU now agree on
 the remaining actual host-world mapping defect. These are root-supplied
 native receipts; this helper launched no emulator. Root's disk preflight now
 permits Mesen again. No fix, install or delivery has been claimed.
+
+Final outcome: root installed4641 and published the soleCurrent/Latestce922
+IPS after same-control negative/positive testing and exact Downloads repeat.
+Quick clears1-1 with all four authored items and reaches grounded1-2,
+HP40/lives3. Seequick-climb-material-1113.md andquick-climb-delivery-1113.md
+for complete pins and verification scope. The CLIs derive frozena3 explicitly
+through the installed successor's checked inverse, preserving this audit's
+baseline and frozen-script expectations. Physical flower acquisition remains
+unclaimed under the existing no-growth policy. No helper placement changed.

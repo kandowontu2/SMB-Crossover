@@ -16,6 +16,18 @@ PIN='a3c5fa63872fbb3103ae57d9748fef233e8b2273e26d985aa4006b2492d81b8a'
 ROW=dict(name='QUICK MAN',slot=9,cycle=2,raw=9)
 COOKIE=bytes.fromhex('a7092005e731d952bdb4b950826271bc')
 SOURCE=R/'tools/reference/quick_natural_powerups_1113.lua'
+INSTALLED='4641ca4fb72699c0478e31b831d4c4ea0ffd2227be7f8446666092d2cc26e1d3'
+
+
+def proof_parent(raw):
+    digest=sha256(raw).hexdigest()
+    if digest==PIN:return raw,dict(input_SHA256=digest,proof_parent_SHA256=PIN,inverse_applied=False)
+    assert digest==INSTALLED
+    from compose_quick_climb_material_1113 import inverse,transform
+    parent=inverse(raw)
+    assert sha256(parent).hexdigest()==PIN and transform(parent)[0]==raw
+    return parent,dict(input_SHA256=digest,proof_parent_SHA256=PIN,inverse_applied=True,
+        scope='Explicit installed Quick inverse to frozen a3 proof input; no PIN replacement or ROM output.')
 
 
 def cold(raw):
@@ -291,7 +303,8 @@ def main():
     parser.add_argument('--flag-diagnostic',action='store_true')
     parser.add_argument('--route',choices=('mushroom','items','full'));parser.add_argument('--limit',type=int,default=1800)
     args=parser.parse_args()
-    raw=C.ROM.read_bytes();opening,seed=cold(raw)
+    raw,input_info=proof_parent(C.ROM.read_bytes());opening,seed=cold(raw)
+    print('QUICK_PROOF_INPUT '+json.dumps(input_info,separators=(',',':')),flush=True)
     print('QUICK_CURRENT_COLD '+json.dumps(dict(ROM_SHA256=sha256(raw).hexdigest(),opening=opening),separators=(',',':')),flush=True)
     if args.cold_only:return
     if args.jump_curves:

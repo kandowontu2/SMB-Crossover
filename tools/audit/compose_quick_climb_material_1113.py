@@ -71,5 +71,7 @@ def inverse(raw):
 
 if __name__=='__main__':
     raw=Path('C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes').read_bytes()
-    candidate,info=transform(raw);assert inverse(candidate)==raw
+    parent=inverse(raw)if raw[STREAM+HOOK-0xa000:STREAM+HOOK-0xa000+5]==code()['WORLD_HOOK']else raw
+    candidate,info=transform(parent);assert inverse(candidate)==parent
+    info['input_SHA256']=sha256(raw).hexdigest()
     print(json.dumps(info,separators=(',',':')))

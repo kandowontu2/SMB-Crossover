@@ -220,8 +220,9 @@ def gates(seed):
 
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--basic',action='store_true')
-    ap.add_argument('--route',action='store_true');args=ap.parse_args()
-    parent=Q.C.ROM.read_bytes();assert sha256(parent).hexdigest()==Q.PIN
+    ap.add_argument('--route',action='store_true');ap.add_argument('--profile',action='store_true');args=ap.parse_args()
+    parent,input_info=Q.proof_parent(Q.C.ROM.read_bytes())
+    print('QUICK_CLIMB_PROOF_INPUT '+json.dumps(input_info,separators=(',',':')),flush=True)
     candidate,info=T.transform(parent);assert T.inverse(candidate)==parent
     print('QUICK_CLIMB_COMPOSITION '+json.dumps(info,separators=(',',':')),flush=True)
     print('QUICK_CLIMB_MASK '+json.dumps(mask_matrix(),separators=(',',':')),flush=True)
@@ -236,6 +237,8 @@ def main():
         print('QUICK_CLIMB_COLD_FAULT '+json.dumps(reload(m,fault=True),separators=(',',':')),flush=True)
         print('QUICK_CLIMB_COLD_CUTS '+json.dumps(reload(m,cuts=True),separators=(',',':')),flush=True)
         print('QUICK_CLIMB_AUTH_GATES '+json.dumps(gates(m),separators=(',',':')),flush=True)
+    if args.profile:
+        print('QUICK_CLIMB_CURRENT_COST '+json.dumps(Q.profile(m),separators=(',',':')),flush=True)
     if args.route:
         from replay_quick_flag_jump_1113 import controller
         text=controller(candidate)

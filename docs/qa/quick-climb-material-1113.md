@@ -1,8 +1,8 @@
 # Quick native climbable material adapter
 
-Parent is actual Downloadsa3c5fa63872fbb3103ae57d9748fef233e8b2273e26d985aa4006b2492d81b8a.
-Private candidate4641ca4fb72699c0478e31b831d4c4ea0ffd2227be7f8446666092d2cc26e1d3
-is generated only in memory bycompose_quick_climb_material_1113.transform(raw).
+Frozen proof parent is former Downloadsa3c5fa63872fbb3103ae57d9748fef233e8b2273e26d985aa4006b2492d81b8a.
+Installed successor4641ca4fb72699c0478e31b831d4c4ea0ffd2227be7f8446666092d2cc26e1d3
+is reproduced in memory bycompose_quick_climb_material_1113.transform(parent).
 Inverse reconstructs the exact parent. This helper writes no ROM, build
 receipt, capture or extracted source tree; root owns native testing/delivery.
 
@@ -97,3 +97,29 @@ also passes the independent actualMain/NMI CPU replay in3659 logical updates,
 same grounded1-2 state/HP/lives and camera0, zero outputs. The source checker
 accepts--route for this exact script; it does not alter the previously frozen
 old flag-negative API. Native-vs-CPU cadence differences remain explicit.
+
+The final same-control baseline on unmodifieda3 remains negative: X3170/Y0/
+high1/lives3, no native flag/climb event. Controller4cf7a11ceb37fea8bc606e9792c19ff8d18e68eccb27dc9f4c216e88d6cbe8d4;
+receipt2a1931d01345ef5426ece4e5e438eb6c471a63597e92fca2aa1d159aef4fb89d.
+This distinguishes the material repair from a controller-only route change.
+
+Root directly installed4641 without a backup and repeated the exact963f
+script on its Downloads launch context: samecd9be0d5 receipt, grounded1-2,
+four natural items, HP40/lives3. Before/after automatic-patch guards pass.
+Current/Latest soleIPS isce922a8793496839efea21d2a9e15c2a3849df59415537fc910a60b6450f8225,
+asset742970175; root's independent downloaded patch reconstructs exact
+Downloads. Delivery details are inquick-climb-delivery-1113.md. This helper
+performed no emulator launch, ROM install, file cleanup or release mutation.
+
+The CLIs explicitly authenticate installed4641, invert it to the frozena3
+proof input and recompose the exact tested4641. Existing parent PIN and
+frozen negative/items bindings are retained. Default source/finite checks
+and--basic repeat after installation; no silent expected-hash replacement
+occurs. All producers still use the same zero-output bounded root.
+
+Post-fix idle/walking cost uses declared six-flag enemy-free clones. Idle64
+updates: meanGameLoop29428.81cycles/max30292. Walking64 updates has18 empty
+samples: mean29984.94/max32183. Source/nativeX mismatches0, maxcamera-relative
+112, minSP204. Compared with the matching pre-fix fixture, mean increases
+about173/175 cycles from the transparent-cell predicate. These are logical
+CPU results only; no physical lag/cadence equivalence or60Hz claim is made.
