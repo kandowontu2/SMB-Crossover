@@ -19,10 +19,13 @@ def main():
     parser.add_argument('--top-b', action='store_true')
     parser.add_argument('--top-walk', action='store_true')
     parser.add_argument('--reach-candidate', action='store_true')
+    parser.add_argument('--sword-candidate', action='store_true')
     parser.add_argument('--collect', action='store_true')
     parser.add_argument('--flower', action='store_true')
     parser.add_argument('--descent',type=int,choices=(0,4,5,68),default=0)
     args = parser.parse_args()
+    if args.sword_candidate:
+        args.reach_candidate=True
     if args.flower:
         args.collect=True
     assert 1 <= args.hold_updates <= 90
@@ -36,24 +39,36 @@ def main():
     if args.reach_candidate:
         from prince_pickup_reach_1112 import transform
         image, _, layout = transform(image)
+        if args.sword_candidate:
+            from prince_sword_box_1112 import transform as sword_transform
+            image, _, layout=sword_transform(image)
         OUTPUT.mkdir(exist_ok=True)
         rom = OUTPUT/'candidate.nes'
         rom.write_bytes(image)
-        expected = layout['memory_SHA256']
+        expected = digest(rom)
     cookie = image[Packet.COOKIE:Packet.COOKIE+16].hex()
     source = PUBLISHED.read_text()
     source = source.replace('a726021676a00802119275ac7f48cce7', cookie)
     source = source.replace('emu.setInput({right=pad&1~=0,', 'emu.setInput({right=pad&1~=0,left=pad&2~=0,')
     if args.flower:
         import replay_prince_native_flag_1111 as Full
-        source=Full.controller(cookie,0xd74b,3115,True)
+        # Sword metadata compaction moves the native support publication by
+        # five bytes; observe the actual STA rather than its former address.
+        source=Full.controller(cookie,0xd746 if args.sword_candidate else 0xd74b,3115,True)
         if args.descent:
+            source=source.replace('walkers[1].direction==2 and walkers[2].direction==2\n      and walkers[1].x<=848 and walkers[2].x<=848', 'walkers[1].direction==1 and walkers[2].direction==1\n      and walkers[1].x>=850 and walkers[2].x>=850')
             source=source.replace("switch('third-standing-jump',129,walkers)",f"switch('third-descent',{args.descent},walkers)")
             source=source.replace("  elseif progress=='third-standing-jump' and s.action==3 then", """  elseif progress=='third-descent' then
     late.descent=late.descent or {}
     if commits%5==0 and #late.descent<40 then late.descent[#late.descent+1]=s end
-    if s.y>=174 and s.y<=178 and support(s) then switch('fourth-recovery',1)
+    if s.y>=174 and s.y<=178 and support(s) then switch('fourth-descent-run',1)
     elseif commits-changedAt>150 then finish(false,'Bounded original descent probe');return end
+  elseif progress=='fourth-descent-run' and s.action==1 and s.mode==1 and s.lock==0 then
+    switch('fourth-descent-evade',129)
+  elseif progress=='fourth-descent-evade' then
+    if s.action==4 then switch('fourth-descent-air',1) end
+  elseif progress=='fourth-descent-air' and s.y>=174 and s.y<=178 and support(s) then
+    switch('fourth-recovery',1)
   elseif progress=='third-standing-jump' and s.action==3 then""")
     begin, end = source.index('local function tick()'), source.index('local function frames(count)')
     original_tick=source[begin:end].replace('local function tick()', 'local function routeTick()',1)
