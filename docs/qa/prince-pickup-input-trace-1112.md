@@ -23,3 +23,18 @@ updates, including camera-boundary clipping. Establish whether this is a native
 vertical publication error, source terrain response, or incorrect approach
 before changing gameplay. These results do not prove a missing block-bump call.
 Prince's earlier full1-1 clear remains separate evidence. No ROM changes made.
+
+## Source-coordinate follow-up
+
+Physical write callbacks narrow the A-button case: C611 receives only two writes
+during the entire attempt, 128→122 at PC $A251 (phase145/pose24), then122→128
+at PC $A25C (phase149/pose25). Origin stays77/high0 throughout. Thus the trace
+does not show a large source jump being erased by a repeated host Y write.
+Investigate original action3 pose commands/projection before changing floor
+clamping. The current callback watches CPU C611 only when mapped to RAM2;
+it is not proof against writes through another alias.
+
+Receipt `3a967dcf6a500b533749476677db82b0cbb756f367d6cc4dd2293a420894d4d3`;
+script `051560564983fb76f52fb3820710b37d0eb84f2559c81937310211c07b73ebbf`.
+All100 update samples are retained in the in-memory receipt; stdout displays
+only changes in source Y, origin, projection delta or action. No captures added.

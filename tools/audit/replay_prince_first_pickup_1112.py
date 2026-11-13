@@ -22,6 +22,14 @@ def main():
 local itemSeen=false
 local minimumY=255
 local jumpTrace={}
+local yWrites={}
+emu.addMemoryCallback(guarded(function(address,value)
+  if progress=='pickup-jump' and mapped(0xc611,2) and #yWrites<160 then
+    local cpu=emu.getState()
+    yWrites[#yWrites+1]={pc=cpu['cpu.pc'],value=value,old=source(0x611),
+      phase=source(0xa6),pose=source(0x617),action=source(0x616)}
+  end
+end),emu.callbackType.write,0xc611)
 local function tick()
   if commits==lastCommit then return end
   lastCommit=commits
@@ -55,10 +63,15 @@ local function tick()
   elseif progress=='pickup-settle' and s.action==0 and s.ground==0 and s.pose==15 and s.mode==0 and s.lock==0 then
     switch('pickup-jump',8)
   elseif progress=='pickup-jump' then
-    if age<=30 or age%10==0 then jumpTrace[#jumpTrace+1]=s end
+    if age<=100 then
+      jumpTrace[#jumpTrace+1]={age=age,x=s.x,y=s.y,action=s.action,pose=s.pose,
+        phase=s.phase,foot=s.foot,rawY=source(0x611),lastY=source(0x8b),
+        delta=source(0x88),origin=source(0x89),originHigh=source(0x8a),
+        surface=source(0x7f)+256*source(0x80)}
+    end
     if age>8 then pad=0 end
     if age>100 then
-      late.pickup={spawned=itemSeen,minimumY=minimumY,sword=source(0x6ee),trace=jumpTrace}
+      late.pickup={spawned=itemSeen,minimumY=minimumY,sword=source(0x6ee),trace=jumpTrace,yWrites=yWrites}
       finish(itemSeen,'First authored powerup spawn probe')
     end
   end
@@ -73,6 +86,10 @@ end
     script = OUTPUT/'controller.lua'
     script.write_text(source, encoding='utf-8', newline='\n')
     result = run(script,NIGHTLY,OUTPUT/'capture',PIN,60)
+    pickup = result['receipt'].get('later_route', {}).get('pickup', {})
+    trace = pickup.get('trace', [])
+    pickup['trace'] = [s for i,s in enumerate(trace) if i == 0 or
+        any(s[k] != trace[i-1][k] for k in ('rawY','origin','originHigh','delta','action'))]
     print(json.dumps(dict(passed=result['passed'],receipt_SHA256=result['receipt_SHA256'],
                          script_SHA256=result['script_SHA256'],receipt=result['receipt'].get('later_route'),
                          reason=result['receipt']['reason'],terminal=result['receipt']['terminal'])),flush=True)
