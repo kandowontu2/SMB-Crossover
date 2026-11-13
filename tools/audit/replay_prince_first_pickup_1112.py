@@ -5,7 +5,7 @@ from pathlib import Path
 from replay_prince_koopa_1111 import PUBLISHED, NIGHTLY, R
 from run_stdout_mesen_1110 import run, digest
 
-PIN = '464c8f1af0401ba7d5393e331833af5bdd68882c536dfc3c77534b71508213c0'
+PIN = 'cebb0ae64b4e6cc92e473a239cb8fd4011d54cfd5e6814013a3afbd2de2bf7d7'
 OUTPUT = R/'build/prince-first-pickup-1112'
 
 
@@ -18,28 +18,16 @@ def main():
     parser.add_argument('--observe-updates', type=int, default=100)
     parser.add_argument('--top-b', action='store_true')
     parser.add_argument('--top-walk', action='store_true')
-    parser.add_argument('--test-moving-support', action='store_true')
     args = parser.parse_args()
     assert 1 <= args.hold_updates <= 90
     assert 324 <= args.runout_x <= 400
     assert 100 <= args.observe_updates <= 400
     assert digest(NIGHTLY) == PIN
     rom, expected = NIGHTLY, PIN
-    cookie = 'a72602f65bd78bf89874939486b6742f'
-    if args.test_moving_support:
-        import prince_cold_packet_1111 as Packet
-        def mutate(runtime, metadata, state):
-            offset = 0xd736-0xc800
-            assert metadata[offset:offset+5] == bytes.fromhex('ad16c6d017')
-            metadata[offset:offset+5] = bytes([0xea])*5
-            return runtime, metadata, state
-        image, layout = Packet.rebuild(NIGHTLY.read_bytes(), mutate)
-        from hashlib import sha256
-        expected = sha256(image).hexdigest()
-        cookie = image[Packet.COOKIE:Packet.COOKIE+16].hex()
-        OUTPUT.mkdir(exist_ok=True)
-        rom = OUTPUT/'candidate.nes'
-        rom.write_bytes(image)
+    import prince_cold_packet_1111 as Packet
+    image = NIGHTLY.read_bytes()
+    Packet.extract(image)  # Authenticate the complete current cold packet.
+    cookie = image[Packet.COOKIE:Packet.COOKIE+16].hex()
     source = PUBLISHED.read_text()
     source = source.replace('a726021676a00802119275ac7f48cce7', cookie)
     source = source.replace('emu.setInput({right=pad&1~=0,', 'emu.setInput({right=pad&1~=0,left=pad&2~=0,')
@@ -50,6 +38,46 @@ local minimumY=255
 local jumpTrace={}
 local yWrites={}
 local supportTrace={}
+local headTrace={}
+local headCalls=0
+local headReturns={}
+local headHits={}
+local returnedHeads=0
+local headLayouts={}
+local pendingHead=nil
+emu.addMemoryCallback(guarded(function()
+  if read(0x6002)==38 and progress:sub(1,7)=='pickup-' then
+    local s=state()
+    if s.x>=230 and s.x<=400 then
+      headCalls=headCalls+1
+      local cpu=emu.getState()
+      local sp=cpu['cpu.sp']
+      local index=read(0x106)
+      local layout=string.format('%d/%d/%d',read(0x759),index,read(0xe194+index))
+      headLayouts[layout]=(headLayouts[layout] or 0)+1
+      local ret=read(0x100+((sp+1)&255))+256*read(0x100+((sp+2)&255))+1
+      pendingHead={x=s.x,y=s.y,dy=read(0x8e),action=s.action,pose=s.pose,phase=progress}
+      if not headReturns[ret] then
+        headReturns[ret]=true
+        emu.addMemoryCallback(guarded(function()
+          if pendingHead and read(0x6002)==38 then
+            local row=pendingHead
+            pendingHead=nil
+            returnedHeads=returnedHeads+1
+            row.tile=emu.getState()['cpu.a']
+            row.lowY=read(7)
+            if row.tile~=0 and #headHits<30 then headHits[#headHits+1]=row end
+          end
+        end),emu.callbackType.exec,ret)
+      end
+      local last=headTrace[#headTrace]
+      local dy=read(0x8e)
+      if #headTrace<100 and (not last or last.y~=s.y or last.dy~=dy or last.action~=s.action) then
+        headTrace[#headTrace+1]={x=s.x,y=s.y,dy=dy,action=s.action,pose=s.pose,phase=progress}
+      end
+    end
+  end
+end),emu.callbackType.exec,0xf113)
 for _,pc in ipairs({0xd6d1,0xd6da,0xd6fb,0xd6fe,0xd720,0xd739,0xd752}) do
   observe(pc,2,function()
     local age=commits-changedAt
@@ -109,7 +137,7 @@ local function tick()
     end
     if age>8 then pad=0 end
     if age>100 then
-      late.pickup={spawned=itemSeen,minimumY=minimumY,sword=source(0x6ee),trace=jumpTrace,yWrites=yWrites,supportTrace=supportTrace}
+      late.pickup={spawned=itemSeen,minimumY=minimumY,sword=source(0x6ee),trace=jumpTrace,yWrites=yWrites,supportTrace=supportTrace,headCalls=headCalls,headTrace=headTrace,headHits=headHits,returnedHeads=returnedHeads,headLayouts=headLayouts}
       finish(itemSeen,'First authored powerup spawn probe')
     end
   end
@@ -153,6 +181,8 @@ end
     if args.top_walk:
         pickup.pop('trace', None)
         pickup.pop('yWrites', None)
+        pickup.pop('supportTrace', None)
+        pickup['headTrace'] = [s for s in pickup.get('headTrace', []) if s['dy'] >= 128]
     print(json.dumps(dict(passed=result['passed'],receipt_SHA256=result['receipt_SHA256'],
                          script_SHA256=result['script_SHA256'],receipt=result['receipt'].get('later_route'),
                          reason=result['receipt']['reason'],terminal=result['receipt']['terminal'])),flush=True)
