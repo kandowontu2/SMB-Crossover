@@ -1,0 +1,44 @@
+{
+  "status": "reserved_for_Steve_armor_integration",
+  "reviewed_ROM_SHA256": "318a087735b4204c74274b4107efbc302bc15a674a7f6f9d3bed598cea90d08d",
+  "physical_CHR_pages": [8, 10, 709],
+  "page_size_bytes": 1024,
+  "old_pages_8_and_10_SHA256": "efccdef7770977105d4a8cad48965ebeb8eeda25d27a37e4624795601373e5ba",
+  "old_page_709_SHA256": "97e3a6ec0f27c69d4aae989eedd0cdff6a405a8ae7fdfed8fe7932aad7324974",
+  "required_native_alias_rebind": {
+    "logical_0x70": 2,
+    "logical_0x78": 2
+  },
+  "alias_evidence": {
+    "pages_8_and_10_equal_page_2": true,
+    "page_709_equals_page_13": true,
+    "compiled_reader_and_private_writer_checks": "steve_armor_art_1112.aliases",
+    "actual_native_publisher_calls": 44,
+    "hardware_windows_compared": 528
+  },
+  "family_ownership_narrowing": {
+    "former_broad_claim": "Mike body and weapons, pages708 through711",
+    "body_pages": [216, 220, 708],
+    "weapon_pages": [710, 711],
+    "compiled_body_calls": 168,
+    "body_inputs": "four selector groups, seven poses, both facings, ground/air/climb states",
+    "static_bindings": "fixed source body page708 and weapon publications710/711 checked in steve_armor_art_1112.mike_body_domain",
+    "page_709": "reserved for Steve armor under the existing family owner"
+  },
+  "original_armor_art": {
+    "ordinary_pose_records": 19,
+    "source_cell_comparisons": 216,
+    "unique_cells": 86,
+    "cells_by_page": [31, 24, 32],
+    "page_10_spare_cells": 8,
+    "spare_cell_purpose": "existing CHR307 recovery cells with exact selector rebinding"
+  },
+  "integration_requirements": [
+    "Authenticate the current old pages and native map preimages before composing.",
+    "Retain existing Mike, Jay and Steve body, weapon and recovery pixels through their valid callers.",
+    "Bind new armor pose selection and cold source transport before runtime admission.",
+    "Verify foreign-owner overwrite and reload, interrupts, and real gameplay before delivery."
+  ],
+  "checker": "tools/audit/steve_armor_art_1112.py",
+  "root_review": "Bounded zero-output checker passed on the reviewed ROM. No atlas is installed by this allocation."
+}
