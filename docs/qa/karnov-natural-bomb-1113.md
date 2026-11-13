@@ -195,3 +195,38 @@ nightly4641 delivery, the audit explicitly authenticates that image through
 Karnov ownership checks. This does not claim a repeated native4th-item test
 on4641. No captures or extra build files were produced.
 
+# Natural Bomb acquisition and use verified on4641
+
+Current Downloads4641 now passes a complete controller-only sequence:
+natural mushroom→double shot, flower→triple shot,1-2 flower→Boots, next
+flower→Bomb. The original Boots are activated and consumed. The fourth
+flower emerges, matures at1104/Y103, and is collected at nativeX1116/Y90,
+granting cycle2/owned2/stock1/option1. Down+B consumes the stock, the armed
+and explosion phases are observed, and the bomb retires to0 normally.
+Terminal12756physical/7112updates: full source health0, both lives, shot2,
+cycle2, stock0, bomb0. No game bytes changed.
+
+Frozen controller SHA256:
+`dc93477b7397473a57af3660b1bd6bc993541da645bced10b50b4c6f061f3bcf`
+
+Actual Downloads Mesen receipt SHA256:
+`edfa6bfe7aa2f1c2d9ccc7b56f60bfc5558ab42a88ab82b499819efcbf48f141`
+
+The new fourth-flower approach is based on a read-only actual native terrain
+probe, receipt `d353722063dea877262879282c7b9ce33f4e8ab5b1da8a0cc2bc187cb52baaa9`,
+controller `94fa3b0c0247745c8aca83f6674c86a21da8cddf8c5b2bba936ecce33a19523d`.
+At camera986, west column1072 has masonry80..144, while1136 is clear.
+Approaching with the existing summoned vertical girder from the east avoids
+that masonry. Its actual1-2 placement is **left1127/center1143/initialtop208,
+width32**. The two earlier manual girders remain1-1 at1201/1217/208 and
+1-2 at112/128/208. Inventory records them as controller-created actors.
+
+The previous east-approach run had already collected the Bomb and reached
+explosion130 but was falsely stopped by the ordinary240-frame travel-stall
+observer while waiting stationary. That observer now applies only before
+the fourth pickup. Receipt22325f46 remains a negative observer result, not
+a frozen Bomb. The successful run has zero native bomb/enemy contacts;
+it proves natural acquisition/use/retirement, not a new enemy-damage case.
+Native prepared-enemy Bomb damage has its separate older fixture evidence.
+Star/1UP and remaining original equipment/audio still need qualification.
+

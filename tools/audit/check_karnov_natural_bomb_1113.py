@@ -88,7 +88,7 @@ def progression(seed):
                 four_pickup_sequence=rows, same_life_scene_retained_cycle_and_gear=True)
 
 
-def controller(raw, stop_after=0):
+def controller(raw, stop_after=0, *, probe_terrain=False):
     bundle = W.Symbols.bundle()
     bundle['raw'] = raw
     import re
@@ -101,6 +101,29 @@ def controller(raw, stop_after=0):
     elif stop_after==3:
         source_text=subprocess.check_output(['git','show',
             'f19ecfb5:tools/reference/karnov_natural_bomb_1113.lua'],cwd=R).decode()
+    if probe_terrain:
+        assert stop_after==0
+        before='local function finish(ok,reason)'
+        assert source_text.count(before)==1
+        source_text=source_text.replace(before,'''local function fourthGeometry()
+ local out={}
+ for x=1040,1216,16 do
+  local row={x=x,tiles={}}
+  for y=80,208,16 do
+   local at=L.Block_Buffer_1+((x//256)%2)*208+((y-32)//16)*16+(x%256)//16
+   row.tiles[#row.tiles+1]={y,emu.read(at,emu.memType.nesDebug)}
+  end
+  out[#out+1]=row
+ end
+ return {camera=r('ScreenLeft_X_Pos')+256*r('ScreenLeft_PageLoc'),rows=out}
+end
+'''+before)
+        before='fourth_probe=bombProbe,recent=trace'
+        assert source_text.count(before)==1
+        source_text=source_text.replace(before,'fourth_probe=bombProbe,fourth_geometry=fourthGeometry(),recent=trace')
+        before="  if STOP_AFTER and #pickups>=STOP_AFTER then"
+        assert source_text.count(before)==1
+        source_text=source_text.replace(before,"  if #births>=4 and births[4].mature then finish(false,'fourth-mature-terrain-probe');return end\n"+before)
     names = set(re.findall(r"r\('([^']+)'", source_text))
     names.update(re.findall(r'\bL\.(\w+)',source_text))
     names.update(('Block_Buffer_1', 'HandlePowerUpCollision', 'HandleEnemyFBallCol'))

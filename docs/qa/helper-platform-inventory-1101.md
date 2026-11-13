@@ -662,3 +662,46 @@ controller `57763e630aeae8ea0a0792646dd200bec841410b72942b1d1cde89af96754f35`.
 This repairs scene motor construction and adds no helper placement or control.
 Later natural Bomb acquisition remains in progress. See
 `docs/qa/karnov-natural-bomb-1113.md`.
+
+### November 13: Karnov fourth flower and Bomb, east-side summon
+
+On Downloads4641, **Karnov (Rygar, Select once)** completes the four natural
+pickup sequence and uses/retires the Bomb with full health and both lives.
+The fourth flower in1-2 is reached from the clear east channel using the
+existing **Up+Select** native25 girder. No authored placement or manager
+changed. Actual manual placements in this successful route are:
+
+| Stage | World left X | Center X | Initial top Y | Width |
+|---|---:|---:|---:|---:|
+|1-1, first flower|1201|1217|208|32|
+|1-2, first flower|112|128|208|32|
+|1-2, fourth-upgrade flower, east approach|1127|1143|208|32|
+
+The third girder is created at physical frame12238. Its446 support-flag
+observations are per-physical-frame readings, including possible repeated
+lag frames; they are not446 distinct movement/carry calls. The actual route
+boards/rises, jumps left and collects the mature flower atX1116/Y90.
+Controllerdc93477b7397473a57af3660b1bd6bc993541da645bced10b50b4c6f061f3bcf;
+receipt edfa6bfe7aa2f1c2d9ccc7b56f60bfc5558ab42a88ab82b499819efcbf48f141.
+
+### November 13: Jay first-pickup platform, native crossing verified
+
+**Jay McCray (Mike Jones, Select once)** adds one existing native25 vertical
+platform in1-1. Width32 for all three fixed records:
+
+|Purpose|World left X|Center X|Initial top Y|
+|---|---:|---:|---:|
+|First pickup, new|384|400|192|
+|Third pipe, retained|688|704|192|
+|Fourth pipe, retained|880|896|192|
+
+On combined privateaa501, the new actor is born at camera98/relative286,
+outside the viewport, at physical frame573. Jay boards atX414/Y165 with
+platform top197, rides and freshly jumps left atX414/Y131/top163. The mature
+authored health pickup is collected atX348/Y112, HP6→8/max3→4, both lives.
+Native receiptabe9281690573229b2b45fec8ca414c7fbbc9f823ce1b545b86344e23f73b0ca;
+controller15f10a41e774053c56ef569aaf22e13e585eaa0fd8b33a893bfc37e8186cf97d.
+The separate full1-1→grounded1-2/native-machine-gun regression also passes:
+receipt4e1140c6872cc1e91b7cbb0055a4938d614f51ed1ebc8d4f2d4fb3d2a089b9da.
+No jump-physics or existing-helper coordinates changed. Delivery status is
+recorded in `jay-pickup-helper-delivery-1113.md`.

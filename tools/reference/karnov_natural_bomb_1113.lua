@@ -105,11 +105,16 @@ local function control()
  if item then
   if ground then local clear=clearGroundEnemy(x,y);if clear then return clear end end
   if item.kind==0 then local target=math.min(item.x-8,414);return x<target-1 and 1 or x>target+1 and 2 or 0 end
-  if routePhase~='flower-hop'then beginLift(item.y<100 and 1720 or item.x-40,item.y<100 and 80 or 128,'flower-hop');return 0 end
+  -- The fourth underground flower has masonry on its west side. The
+  -- observed east channel at1136 is clear; approach from that side.
+  local east=#pickups==3 and r('LevelNumber')==1 and r('AreaType')==2
+  local approach=east and item.x+32 or(item.y<100 and 1720 or item.x-40)
+  if routePhase~='flower-hop'then beginLift(approach,item.y<100 and 80 or 128,'flower-hop');return 0 end
   if routePhase=='flower-hop'then
    hopPeak=math.min(hopPeak,y)
-   if routeAge>100 then beginLift(item.y<100 and 1720 or item.x-40,item.y<100 and 80 or 128,'flower-hop');return 0 end
-   return (x<item.x+2 and 1 or 0)+(routeAge<36 and 128 or 0)
+   if routeAge>100 then beginLift(approach,item.y<100 and 80 or 128,'flower-hop');return 0 end
+   local steer=east and(x>item.x+2 and 2 or 0)or(x<item.x+2 and 1 or 0)
+   return steer+(routeAge<36 and 128 or 0)
   end
  end
  if r('LevelNumber')==1 and r('AreaType')==2 then
@@ -253,7 +258,7 @@ emu.addEventCallback(function()
   if r('NumberofLives')~=lives or r('GameEngineSubroutine')==11 then finish(false,'life-lost');return end
   if kr(0x68)&128~=0 then finish(false,'health-depleted-before-four-pickup-sequence');return end
   local counter=r('FrameCounter');if previousCounter~=counter then previousCounter=counter;epoch=epoch+1;routeAge=routeAge+1 end
-  if routePhase=='travel'and #pickups>=2 and r('GameEngineSubroutine')==8 then if wx()==lastTravelX then travelStall=travelStall+1 else travelStall=0;lastTravelX=wx()end else travelStall=0;lastTravelX=nil end
+  if routePhase=='travel'and #pickups>=2 and #pickups<4 and r('GameEngineSubroutine')==8 then if wx()==lastTravelX then travelStall=travelStall+1 else travelStall=0;lastTravelX=wx()end else travelStall=0;lastTravelX=nil end
   if travelStall>240 then finish(false,'travel-stall');return end
   if routePhase=='bomb-bump'and routeAge>480 then finish(false,'fourth-brick-not-revealed');return end
   if #pickups==3 and routePhase:sub(1,5)=='bomb-'then
