@@ -66,8 +66,9 @@ def unsampled(seed,parent,candidate):
         scope='ID24 and every tested upward ID25/28 clipping/timer path. No invented callback writer or native field repair.')
 
 
-def full(seed,candidate):
-    m=Q.mounted(seed,candidate);text=T.controller(candidate,full=True,departure_enemy_guard=True)
+def full(seed,candidate,*,approach_enemy_guard=False):
+    m=Q.mounted(seed,candidate);text=T.controller(candidate,full=True,departure_enemy_guard=True,
+        approach_enemy_guard=approach_enemy_guard)
     with redirect_stdout(io.StringIO()):
         result=P.B.route(m,candidate,12000,controller_text=text)
     receipt=result.get('receipt')or{}
@@ -76,6 +77,7 @@ def full(seed,candidate):
         receipt_SHA256=sha256(json.dumps(receipt,sort_keys=True,separators=(',',':')).encode()).hexdigest(),
         crossings=receipt.get('crossings'),last_events=receipt.get('events',[])[-16:],
         birth_lefts=sorted(receipt.get('births',{})),native_gap=receipt.get('gap'),outputs_written=0)
+    row['approach_enemy_guard']=approach_enemy_guard
     assert result['passed'],row
     return row
 
@@ -141,6 +143,7 @@ def main():
     ap=argparse.ArgumentParser(description=__doc__)
     for name in('structure','incoming','components','native-ids','foreign','cost','nested-cost','unsampled','caller','first','full'):
         ap.add_argument('--'+name,action='store_true')
+    ap.add_argument('--approach-enemy-guard',action='store_true')
     a=ap.parse_args();Q.T=T;D.T=T;Q.entry=entry
     parent,candidate=T.load_inputs();e73=T.Old.reverse(parent)
     assert T.reverse(candidate)==parent and T.transform(parent)[0]==candidate
@@ -158,7 +161,7 @@ def main():
         ('COST',a.cost,lambda:dict(versus_e73=Q.cost(seed,e73,candidate),versus_14ae=Q.cost(seed,parent,candidate))),
         ('NESTED_COST',a.nested_cost,lambda:nested_cost(seed,parent,candidate)),
         ('FIRST',a.first,lambda:Q.route(seed,candidate)),
-        ('FULL',a.full,lambda:full(seed,candidate))):
+        ('FULL',a.full,lambda:full(seed,candidate,approach_enemy_guard=a.approach_enemy_guard))):
         if on:print('DKJR_DIRECT_'+name+' '+json.dumps(fn(),separators=(',',':')),flush=True)
     print('DKJR_DIRECT_SCOPE '+json.dumps(dict(candidate_SHA256=T.PIN,outputs_written=0,
         physical_cadence_claim=False,native_ready=False),separators=(',',':')),flush=True)

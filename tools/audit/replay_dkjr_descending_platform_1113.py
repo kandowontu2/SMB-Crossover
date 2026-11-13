@@ -10,7 +10,7 @@ import check_dkjr_descending_platform_1113 as D
 T,Q,P,H=D.T,D.Q,D.P,D.H
 
 
-def controller(raw,*,pipes=(1,),stop_after_pipe=None,early_roof=(),settled_source=False,observe_prior=False,cap_roof=False,descending_roof=(),early_ledge=False,native_gap_observer=False,departure_enemy_guard=False):
+def controller(raw,*,pipes=(1,),stop_after_pipe=None,early_roof=(),settled_source=False,observe_prior=False,cap_roof=False,descending_roof=(),early_ledge=False,native_gap_observer=False,departure_enemy_guard=False,approach_enemy_guard=False):
     assert pipes and all(i in(1,2,3,4)for i in pipes)and len(set(pipes))==len(pipes)
     assert all(i in(2,3)and i in pipes for i in early_roof)
     text=T.controller(raw,full=True)
@@ -61,6 +61,17 @@ def controller(raw,*,pipes=(1,),stop_after_pipe=None,early_roof=(),settled_sourc
    hold=updates+8;rearm=updates+47;remember('third-departure-enemy-hop',down)
   end
   right=true''')
+    if approach_enemy_guard:
+        text=P.once(text," if phase=='approach'then\n  right=true",''' if phase=='approach'then
+  right=true
+  if index==4 and ram(2,0x6b)==1 and ram(2,0x6c)==1 and y==176 and updates>=rearm then
+   for _,actor in ipairs(approachActors())do
+    local distance=math.abs(actor[3]-player)
+    if (actor[2]==2 or actor[2]==6)and actor[4]>=172 and actor[5]&32==0 and distance>=18 and distance<=30 then
+     hold=updates+8;rearm=updates+47;remember('fourth-approach-enemy-hop',up);break
+    end
+   end
+  end''')
     if native_gap_observer:
         assert raw[16+71*8192+0xc18:16+71*8192+0xc1a]==bytes.fromhex('85bd')
         marker="emu.addMemoryCallback(guarded('original gap landing',function()"
@@ -128,6 +139,7 @@ def main():
     ap.add_argument('--early-ledge',action='store_true')
     ap.add_argument('--native-gap-observer',action='store_true')
     ap.add_argument('--departure-enemy-guard',action='store_true')
+    ap.add_argument('--approach-enemy-guard',action='store_true')
     ap.add_argument('--max-updates',type=int,default=12000)
     a=ap.parse_args();Q.T=T
     parent,candidate=T.load_inputs(reuse_private=a.reuse_private)
@@ -136,7 +148,8 @@ def main():
         early_roof=tuple(int(i)for i in a.early_roof.split(',')if i),
         settled_source=a.settled_source,observe_prior=a.observe_prior,cap_roof=a.cap_roof,
         descending_roof=tuple(int(i)for i in a.descending_roof.split(',')if i),early_ledge=a.early_ledge,
-        native_gap_observer=a.native_gap_observer,departure_enemy_guard=a.departure_enemy_guard)
+        native_gap_observer=a.native_gap_observer,departure_enemy_guard=a.departure_enemy_guard,
+        approach_enemy_guard=a.approach_enemy_guard)
     m=Q.mounted(seed,candidate)
     with redirect_stdout(io.StringIO()):result=P.B.route(m,candidate,a.max_updates,controller_text=text)
     r=result.get('receipt',{})
@@ -147,6 +160,7 @@ def main():
         early_ledge=a.early_ledge,
         native_gap_observer=a.native_gap_observer,
         departure_enemy_guard=a.departure_enemy_guard,
+        approach_enemy_guard=a.approach_enemy_guard,
         passed=result['passed'],logical_updates=result['logical_updates'],final=result['final'],
         reason=r.get('reason'),crossings=r.get('crossings'),events=r.get('events'),
         births=r.get('births'),carries=r.get('carries'),injury=r.get('injury'),

@@ -83,7 +83,8 @@ def load_inputs():
     raw=load_parent();return raw,transform(raw)[0]
 
 
-def controller(raw,*,full=False,departure_enemy_guard=False):
+def controller(raw,*,full=False,departure_enemy_guard=False,approach_enemy_guard=False):
+    assert not approach_enemy_guard or(full and departure_enemy_guard)
     parent=reverse(raw)
     if full:
         import replay_dkjr_descending_platform_1113 as R
@@ -91,8 +92,9 @@ def controller(raw,*,full=False,departure_enemy_guard=False):
         # successor. The frozen14 control factory must still use its own ABI.
         with patch.object(R,'T',Old):
             text=R.controller(parent,descending_roof=(2,3),observe_prior=True,early_ledge=True,
-                native_gap_observer=True,departure_enemy_guard=departure_enemy_guard)
-        expected='acf454572d604b049deebbb82300a07c6852c9712065d6d32f44932c6e38442f'if departure_enemy_guard else'122f4984fcf4310ce19fb26e4a7a121c83c0fff08b62dbc85af6d95adfffee66'
+                native_gap_observer=True,departure_enemy_guard=departure_enemy_guard,
+                approach_enemy_guard=approach_enemy_guard)
+        expected='36307f8ca293bf558377591a05939ed74d4b5a8cc42152a38cdce1c998cf0fbc'if approach_enemy_guard else'acf454572d604b049deebbb82300a07c6852c9712065d6d32f44932c6e38442f'if departure_enemy_guard else'122f4984fcf4310ce19fb26e4a7a121c83c0fff08b62dbc85af6d95adfffee66'
         assert sha256(text.encode()).hexdigest()==expected
         text=P.once(text,"mapped(0xb98a,'nesPrgRom',0x198a)","mapped(0xb97f,'nesPrgRom',0x197f)")
         text=P.once(text,'end),emu.callbackType.exec,0xb98a)','end),emu.callbackType.exec,0xb97f)')

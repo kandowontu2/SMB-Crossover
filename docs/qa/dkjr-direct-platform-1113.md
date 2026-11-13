@@ -88,6 +88,13 @@ native erase/engine9→8/status1/both lives. Private336 is really constructed
 offscreen at relative287, slot5; item2 is selected dynamically by the unchanged
 native allocator. This is a source-model result, not Mesen or physical timing.
 
+Root subsequently supplies actual private769 Mesen first-Mushroom PASS:
+1915 physical/671 source epochs, Lua5ef1c795 above, receipt
+`7c7b87185555b5aa1d4c74e1e10b74e7246819f609fc7f592bd9e8c73a74ff2d`.
+Real C1→C4/birth545/mature609/collector641, erase/status1/both lives and30
+resumed updates all pass. This is exact769 native item evidence; it does not
+promote the private helper or qualify full1-1/local delivery.
+
 ## Measured costs and remaining gates
 
 Foreign directed fast owner>=11/timer0 saves131 cycles/platform versus14ae,
@@ -104,7 +111,14 @@ balance calls add4; timer-only figures differ because the old generic path
 also traversed native transport. These are source CPU cycles, not NES lag or
 physical update-rate measurements. Root owns the paired current Mini check.
 
-At this checkpoint the full769 source route (session61672) is pending. Its
+The uninterrupted full769 source route (session61672) passes8926 logical
+updates, real flag/castle then active1-2 at40/48/engine8/source4/both lives.
+Lua `84161feb7c7d4c6f6eb938e85a0fb2d82aef0600a9132d9946f148f85f1dcec6`,
+receipt digest `a86636dfc7c90148808ab3ecee5470781998556bfb1415dc01b9dcddbf23f6c6`.
+All4 early pipes, the native horizontal gap actor, both later staircases,
+the final6 steps and all13 vertical births are asserted. These13 are the
+private336 proposal plus12 public vertical helpers; horizontal1408 is separate.
+The real timer is65 at the flag hop; no clock or physics seed is used. Its
 first attempt24058 failed before gameplay because a reusable checker's D.T
 alias was picked up by the lazily imported frozen control factory. The adapter
 now explicitly binds the frozen14 ABI while generating and verifies its exact
@@ -113,7 +127,34 @@ harness error. Root's14ae/122f native third-departure Goomba negative remains
 retained in `dkjr-descending-platform-1113.md`; acf source route separately
 passes8926 logical updates with the same full source receipt as122f.
 
-Full source completion, actual candidate first/full, paired Mini timing and
+Root's14ae/acf native run is separately retained negative, receipt
+`d2a4d3848675e4271fd234d5a1894c3f4801620ebf8c67b20debe7a365d1d140`.
+The third guard works: actual freshA Main2081 at783/164; third pipe clears
+2177 at841/176. A later Goomba injures at Main2288/physical5986 while waiting
+at851/176 for fourth entry. Real Goomba837/184 is behind the player, outside
+the old front-only nearEnemy helper; both needed lifts exist. No support
+failure or physics change is inferred. A separately optional approach4 guard
+uses current/prior1/1, nativeY176, original A8/rearm47 and live ID2/6 ground
+enemies at absolute distance18..30 on either side. Its native coverage and
+new uninterrupted source qualification remain pending. Old acf/841 stay frozen.
+The new explicit14 controller SHA is
+`36307f8ca293bf558377591a05939ed74d4b5a8cc42152a38cdce1c998cf0fbc`.
+On769 use `controller(raw769, full=True, departure_enemy_guard=True,
+approach_enemy_guard=True)`, Lua
+`6c6aac8a3d0fdfe334beebcf62b4514014e45d9e044f43926b3ee38e261c8d73`;
+source session29300 is active. Only ordinary controller choices and new
+read-only events differ; no ROM, source/current/prior state or assertions change.
+
+`tools/audit/replay_mini_dkjr_direct_1113.py` is a strict read-only factory:
+reverse769→exact14, call root's frozen Mini descending controller (c0e8),
+verify the5120-byte Mini carrier unchanged, replace only the one ROM identity,
+and compile. Session3068 returns32600-byte Lua
+`ca91879ddf7745d10d1fb7b9199a6bfd7d1f5bd7ace490070c19fc8afdea3e8d`.
+Every call requires the exact frozen c0e8 input hash, making the output binding
+deterministic. The factory launches no emulator and writes no output. Root
+owns the paired physical timing comparison; no new lag result is inferred.
+
+Actual candidate first/full, paired Mini timing and
 foreign openings remain required before local delivery. The active1-2 source
 endpoint is still falling40/48, not25 living grounded updates. No native-ready
 or whole-roster completion claim is made.
