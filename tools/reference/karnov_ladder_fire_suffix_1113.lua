@@ -1,19 +1,24 @@
 -- Ordinary controls after the genuinely used Bomb; no game-state writes.
 local normalFire={phase='await-retired-bomb',contacts={},rejections={},aims={}}
 stockFifth.normal_fire=normalFire
-local function fireReject(reason,a,x,y)
+local function fireReject(reason,a,x,y,block)
  normalFire.rejections[reason]=(normalFire.rejections[reason]or 0)+1
- normalFire.last_rejected={reason=reason,actor=a,s=state()}
+ normalFire.last_rejected={reason=reason,actor=a,s=state(),block=block}
 end
 local function openLowShot(x,y,a)
  if a.x<=x+20 then return false,'behind-or-too-close'end
  if a.x-x>=100 then return false,'range'end
- -- Require the entire native crouch-height corridor to be free. This is a
- -- conservative controller decision, not a projectile collision override.
+ -- Preserve the owning KrCombatBlock predicate: shots may activate native
+ -- bumpable tiles and break51 / non-terrain52. Hard solids still block aim.
  for xx=((x+16)//8)*8,a.x,8 do
   for yy=y+8,y+24,8 do
-   if emu.read(MTILE_ATTRIBUTES_OFFSET+tile(xx,yy),emu.memType.nesPrgRom)&1~=0 then
-    return false,'masonry'
+   local t=tile(xx,yy)
+   if emu.read(MTILE_ATTRIBUTES_OFFSET+t,emu.memType.nesPrgRom)&1~=0 then
+    local cell=((xx//256)%2)*208+((yy-32)//16)*16+(xx%256)//16
+    local terrain=emu.read(FIRE_TERRAIN_BASE+cell,emu.memType.nesDebug)
+    local attackable=t==81 or(t==82 and terrain==0)or t==192 or t==193 or(t>=85 and t<=94)
+    if not attackable then return false,'masonry',{tile=t,terrain=terrain,x=xx,y=yy}end
+    normalFire.breakable_corridor=normalFire.breakable_corridor or{tile=t,terrain=terrain,x=xx,y=yy,s=state()}
    end
   end
  end
@@ -22,9 +27,9 @@ end
 local function frontGoomba(x,y,d)
  for i=0,5 do local a=actor(i)
   if a.flag>0 and a.flag<128 and a.id==6 and a.state&32==0 and math.abs(a.y-y)<24 and math.abs(a.x-x)<d then
-   local ok,why=openLowShot(x,y,a)
+   local ok,why,block=openLowShot(x,y,a)
    if ok then return a end
-   fireReject(why,a,x,y)
+   fireReject(why,a,x,y,block)
   end
  end
 end
@@ -40,7 +45,8 @@ fifthClearEnemy=function(x,y)
  -- Source crouch fire is the original low shot; standing fire passes over
  -- low Goombas. Face once, then hold distance instead of chasing the actor.
  if r('PlayerFacingDir')~=1 then return 1 end
- return 4+(frame%12<6 and 64 or 0)
+ normalFire.source_clock=kr(0xe8)
+ return 4+(normalFire.source_clock%12<6 and 64 or 0)
 end
 local originalFifthNear=fifthEnemyNear
 fifthEnemyNear=function(x,d)

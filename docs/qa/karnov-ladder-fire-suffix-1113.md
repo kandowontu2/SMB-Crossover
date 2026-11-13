@@ -38,5 +38,22 @@ and native bumpable tiles. That conservative control policy needs correction;
 there is no proposed projectile or collision-code repair. This source version
 is checkpointed as a negative, not native-ready.
 
+The corrected predicate/controller
+`1757c338caeda188c2c4447cb1d5c4bfbd5bd0f38c7d55926a70dc04f0c59540`
+also remains a negative: full uninterrupted9615 Main /365.11seconds, full
+health/two lives, four real items, normal FIRE and353 crossed, ending865/167.
+Its actual blocker trace recorded native82 / terrain0 at864, then temporary
+tile35 after one original shot activated that brick. The original combat
+routine passes35/38/C2/C3/5F/60. The controller must keep these transparent
+and explicitly clear breakable foreground with original B, even when no live
+Goomba remains to incidentally trigger shooting. No new collision exception
+or game-code repair is warranted.
+
+A genuine four-item-prefix-derived development fork, labelled as such,
+selectedFIRE but stopped at353 against hard97. Its recreated control metadata
+did not preserve the original lift departure, so it was not used to claim a
+new full-route defect. The retained listener was closed cleanly. The next
+development checkpoint will be after the actual ledge crossing near800.
+
 Actual source qualification is pending. There are no ROM/state writes, new
 helper allocations or generated output roots; root owns Mesen qualification.

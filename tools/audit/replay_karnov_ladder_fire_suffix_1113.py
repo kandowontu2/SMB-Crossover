@@ -2,6 +2,7 @@
 import argparse
 from hashlib import sha256
 import json
+from multiprocessing.connection import Listener
 from unittest.mock import patch
 
 import replay_karnov_ladder_early_1113 as Frozen
@@ -16,6 +17,7 @@ def controller(raw):
     text=Frozen.current_controller(raw);assert sha256(text.encode()).hexdigest()==BASE
     b=dict(Frozen.Late.Native.W.Symbols.bundle(),raw=raw)
     prefix='local FIRE_CONTACT_OFFSET='+str(Frozen.Late.Native.W.location(b,'HandleEnemyFBallCol')-16)+'\n'
+    prefix+='local FIRE_TERRAIN_BASE='+str(Frozen.Late.Native.W.address(b,'MmSolidTerrain'))+'\n'
     point='local function mapped(pc,physical)';assert text.count(point)==1
     text=text.replace(point,SOURCE.read_text()+'\n'+point)
     point='native_blast_contacts=blastCalls,fifth=stockFifth';assert text.count(point)==1
@@ -36,11 +38,38 @@ def cpu(raw,limit=12000):
     return q
 
 
+def development(raw):
+    """One genuine prefix, then ordinary-input forks; never a full proof."""
+    with patch.object(Frozen.Late,'controller',controller):
+        prefix,seed=Frozen.Late.run(raw,limit=7000,stop_at_pickups=4,return_model=True)
+    assert len(prefix['pickups'])==4 and prefix['source']['health']==0,prefix
+    models={'seed':seed}
+    def probe(model,limit):
+        with patch.object(Frozen.Late,'controller',controller):
+            return Frozen.Late.run(raw,input_model=Frozen.Late.Native.N.fork(model),history=prefix['pickups'],
+                limit=limit,return_model=True)
+    q,model=probe(seed,3000);models['first']=model
+    print('KARNOV_FIRE_SUFFIX_DEVELOPMENT '+json.dumps(dict(prefix_Main=prefix['actual_Main_NMI_updates'],
+        genuine_prefix_derived_fork=True,final_unbroken_claim=False,result=q),separators=(',',':')),flush=True)
+    if q['passed']:return
+    with Listener(('127.0.0.1',0),authkey=b'karnov-fire-suffix-1113')as listener:
+        print('KARNOV_FIRE_SUFFIX_MEMORY_READY '+json.dumps(dict(port=listener.address[1],models=list(models))),flush=True)
+        while True:
+            with listener.accept()as connection:
+                command=connection.recv()
+                if command['op']=='close':connection.send(dict(closed=True));break
+                assert command['op']=='suffix'and command.get('from','seed')in models
+                assert len(models)<6
+                q,m=probe(models[command.get('from','seed')],min(command.get('limit',1800),3000))
+                models[command['name']]=m;connection.send(q)
+
+
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--cpu',action='store_true')
-    p.add_argument('--limit',type=int,default=12000);args=p.parse_args()
+    p.add_argument('--limit',type=int,default=12000);p.add_argument('--develop',action='store_true');args=p.parse_args()
     raw=Frozen.Late.Feature.Owner.NIGHTLY.read_bytes()
-    if args.cpu:
+    if args.develop:development(raw)
+    elif args.cpu:
         q=cpu(raw,args.limit);print(json.dumps(q,separators=(',',':')),flush=True);assert q['passed']
     else:
         text=controller(raw);print(json.dumps(dict(ROM_SHA256=PIN,base_SHA256=BASE,
