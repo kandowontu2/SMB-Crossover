@@ -31,8 +31,10 @@ position and the original final donor VY0 response.
 
 Only valid source queries, AreaType1/2/3, no bounce timer or guest hurt, and
 native attributes `(attributes & 7)==1` may invoke the head effect. The actual
-source query already excludes coin tiles `$C2/$C3`. Ground, pipes, used blocks,
-climbables and other bumped tiles keep their ordinary ceiling response.
+source query already excludes coin tiles `$C2/$C3`. Hard ground `$61`, pipes,
+used blocks, climbables and other bumped tiles keep their ordinary ceiling
+response. SOLID-only cracked rock `$54` is admitted by the native SMB policy,
+as are ordinary breakable bricks. It is not part of the hard-ground exclusion.
 
 ## Exact allocation and composition
 
@@ -103,10 +105,45 @@ with Python `-B`; no generated file or ROM was written.
   logical inputs of that real CPU route. It compiles as Lua5.4. SHA256:
   `8e72af806023c5aed04368a39b2e8112c0c48690b47853d600fdce41a5e178b0`.
 
+The follow-up `check_jay_block_lifecycle_1113.py` runs explicit terrain fixtures
+through actual native Main until block states/replacement flags retire, then
+retains the result for8 updates. For `$54` (attributes `$41`), Jay's starting
+tier1/max3, mushroom-upgraded tier1/max4, and flower tiers2/3 all match the
+unchanged native head oracle: block state `$12`, temporary tile `$23`, queued
+replacement0, then permanent tile0 and retired debris in60 total updates,
+including the final8 stable updates. This is
+the existing raw16 Mike-family large-head policy in `CrossoverSmallHeadCold`,
+which does not inspect JnOwnedTier. Native small-Mario and big-Mario references
+also distinguish bump/restore54 (22 total updates) from shatter/remove54
+(60 total updates), each including8 stable updates. Hard ground `$61`
+(attributes `$45`, including BUMP) is excluded at every tested tier and remains
+unchanged. These are declared on-screen terrain fixtures, not natural earned
+rock-placement or all-stage terrain claims. No tile exception was added.
+
+Separate actual-menu CPU stage continuation also passes all four early pipes,
+both unchanged native helpers, all three gaps, flag and castle into grounded
+active1-2 X40/Y176, health6/lives2, stock/ammo63 and the earned machine-gun
+mask3. The retained late CPU route's2400-update window initially ended in the
+ordinary engine7 entrance;361 neutral updates complete the entrance. This is
+separate from the natural first-pickup route. Existing native `$25` helpers
+remain in1-1 at **left688/center704** and **left880/center896**, each width32
+and initial top192; no placement or control changes.
+
+`replay_jay_stage_current_1113.controller(image)` authenticates the retained
+`e40a2a03ce87a0d28d5a2527d6c6613ba20395153b44101d250e6cf335a6d200`
+full-stage/machine-gun controller and changes only its cookie/variant/flag
+bindings. Generated Lua SHA256:
+`64e1303f28dacc3fef18cf8ea57b94dd1b86d2ad60d7ac630900bd12b52987ae`.
+It compiles and needs no extra environment beyond the normal ROM SHA. This
+native controller has not run on9349; its CPU stage policy is a separate
+retained fixture, not the331-input Lua parity claim above.
+
 Run all finite gates without outputs:
 
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/jay-head-bridge-1113 --max-files 1 --timeout 180 -- python -B tools/audit/check_jay_head_bridge_1113.py --section all
+python -B tools/audit/run_bounded_build_v1.py --output build/jay-head-bridge-1113 --max-files 1 --timeout 180 -- python -B tools/audit/check_jay_block_lifecycle_1113.py
+python -B tools/audit/run_bounded_build_v1.py --output build/jay-head-bridge-1113 --max-files 1 --timeout 180 -- python -B tools/audit/replay_jay_stage_current_1113.py --cpu-route
 ```
 
 Root's existing two-file native slot may receive the in-memory image and
