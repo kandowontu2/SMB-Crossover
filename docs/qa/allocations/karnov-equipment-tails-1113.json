@@ -1,0 +1,35 @@
+{
+  "owner": "Karnov equipment adapter",
+  "status": "reserved after qualified owning-source relink",
+  "source_commit": "137e7f5b",
+  "qualified_parent_ROM_SHA256": "aa50112845d1cf70cae0924f03326647b3d2514f876c756d70b134ee44f971d1",
+  "qualified_refactor_ROM_SHA256": "13816e9ff6ecb4d4e10d6f1fa2f9be28c683c52e570a8abb29a9f5e944457c2c",
+  "original_source_SHA256": "de34c6db8c92a61b59eaf0ef66c5d96ef309e525cf64cd33a6ee0f411611ab10",
+  "compact_source_SHA256": "59e57a8503d42834fc88a12f8755650c177ffe2f1192c5a60a4efd6a05043592",
+  "actor_carrier": {"first_CHR_page": 399, "pages": 8, "file_offset": 1457168, "runtime_bank": 3, "runtime_origin": "A000"},
+  "regions": [
+    {"start": "AA1A", "end_inclusive": "AC05", "bytes": 492, "file_offset": 1459754,
+     "required_fill": "EA", "preimage_SHA256": "82c3688d9c1bb2966e58628b395b8a6224f9e33fa9222592c7445e9ed8a7d15b"},
+    {"start": "AF20", "end_inclusive": "AFA3", "bytes": 132, "file_offset": 1461040,
+     "required_fill": "EA", "preimage_SHA256": "24f86377cacfdc535d4fa150675e941f13964dc61f71464309d56b0eac69db97"}
+  ],
+  "total_bytes": 624,
+  "fixed_external_entries": ["A087", "AC06", "AFA4"],
+  "conditions": [
+    "Reproduce and authenticate the owning-source relink before placing code. These ranges are active code in the unrelinked parent and may never be patched there directly.",
+    "Preserve all37 native service slots, anchored entries, head/scene bridges and current Boots/Bomb behavior. Keep exact preimages and inverse closure.",
+    "A future rebase must explicitly prove the same actor layout, tail preimages, ownership and all changed bindings; whole-ROM hash differences alone do not grant another layout.",
+    "Use actual original Ladder dispatcher states:1 grows,2 restores/retracts,0B restores/rebuilds. Prove earned activation, growth, climbing, restoration and ownership return.",
+    "Art/font cells, additional runtime state, options-tail estimates and neighboring gaps are not granted by this reservation.",
+    "Qualify state writers, viewport/queue/attribute bounds, ABI, cold/readback, foreign owners and interrupts before native review. Physical gameplay and Downloads/release qualification remain required."
+  ],
+  "root_independent_checks": {
+    "exact_trial_and_inverse": true,
+    "both_entire_tails_equal_EA": true,
+    "actual_parent_and_trial_cold_PPU_reads": 23064,
+    "complete_trial_headers": "a707011323896dcc489c8b64173f25aa",
+    "warm_extra_reads": 0,
+    "outputs": 0
+  },
+  "feature_enabled_or_delivered": false
+}
