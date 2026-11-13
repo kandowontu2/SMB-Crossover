@@ -21,7 +21,7 @@ DeathBody:
     sta $03
     lda #>DeathRecords
     sta $04
-    jmp DeathBuild
+    bne DeathBuild              ; Records are in the nonzero $AB-$AE window.
 DeathRetainedBody:
     jsr FindPose
     bcc DeathHidden

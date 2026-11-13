@@ -12,4 +12,9 @@ DeathClearLaserTypes:
     sta SteveLaserShotType,x
     dex
     bpl DeathClearLaserTypes
+    ldx #7
+DeathClearLaserDrawTags:
+    sta SteveLaserDrawTags,x
+    dex
+    bpl DeathClearLaserDrawTags
     rts

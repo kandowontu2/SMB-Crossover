@@ -96,17 +96,21 @@ def main():
             cpu.memory[start:start+len(code)] = code
     arrays = [fields['SteveBotShotType'], fields['SteveBotShotTimer'], fields['SteveBotShotPower']]
     arrays += list(range(fields['SteveLaserShotType'], fields['SteveLaserShotType']+11))
+    arrays += list(range(fields['SteveLaserDrawTags'], fields['SteveLaserDrawTags']+8))
+    protected = fields['SteveLaserDrawTags']+8
+    cpu.memory[protected:protected+10] = [0x5a]*10
     for address in arrays:
         cpu.memory[address] = 0x95
     cpu.memory[0x92:0x94] = (0xf0, 0xff)
     cpu.pc, cpu.sp = linked['symbols']['SteveDeathClearShots'], 0xf0
     cpu.stPushWord(0x4fff)
-    for _ in range(100):
+    for _ in range(150):
         if cpu.pc == 0x5000:
             break
         cpu.step()
     assert cpu.pc == 0x5000 and cpu.sp == 0xf0
     assert all(cpu.memory[address] == 0 for address in arrays)
+    assert cpu.memory[protected:protected+10] == [0x5a]*10
     assert cpu.memory[0x92:0x94] == [0xf0, 0xff]
     print(json.dumps(dict(row_used=end-0xab00, row_remaining=0xaf00-end,
                           segment_bytes={name:len(code) for name,code in linked['images'].items()},

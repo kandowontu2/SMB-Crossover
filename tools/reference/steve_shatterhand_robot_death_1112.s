@@ -106,8 +106,8 @@ SteveRobotDeathAnimate:
 RobotDeathAnimReady:
     lda SteveLiftBotDelay
     beq RobotDeathAnimRead
-    cmp #$ff
-    beq RobotDeathAnimDone
+    ; Delay is 0..3 or the terminal $FF marker.
+    bmi RobotDeathAnimDone
     dec SteveLiftBotDelay
     bne RobotDeathAnimDone
 RobotDeathAnimRead:
@@ -123,7 +123,7 @@ RobotDeathRowReady:
     sta SteveLiftBotDelay
     txa
     asl a
-    clc
+    ; X is 0..3, so ASL already clears carry.
     adc #$dc
     sta SteveBotPose
     lda #1

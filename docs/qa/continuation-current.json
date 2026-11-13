@@ -1,4 +1,9 @@
 {
+  "Steve_laser_death_cleanup_1112": {
+    "fix": "Confirmed clear-shot leaf left all eight laser draw tags intact (bounded10836 failed added assertion). Added exact8-tag loop, protecting adjacent DrawSlot/Meta. Recovered4bytes with valid delay0..3/FF BMI test, ASL carry guarantee forstep0..3, and nonzero-record-page branch. Active row now1024/1024.",
+    "proof": "Bounded8913 passed type/tag clears plus10adjacentcanarybytes and92/93delta preservation. Bounded4933 original donor comparison passed3584damage606fatal and full death sequences; live worker240B SHA394d9db8e2eb7c64198f8fb7dbeba9e6558127dbbd481119889da88889220509. Bounded23707 active runtime passed8Alpha/Laser fatal/survive polaritycases,45updates28draws. Candidate464c8f1af0401ba7d5393e331833af5bdd68882c536dfc3c77534b71508213c0. Allzerooutputfiles.",
+    "remaining": "No live process. Nightly80e6 unchanged. Audio routing,active projectile lifecycle/controller scenes,cold/interrupt checks on final layout and Mesen remain; full roster goal incomplete."
+  },
   "Steve_pose_pointer_interrupt_1112": {
     "active_runtime": "Bounded39378 exited0 after pointer fix. Active candidate b3f1ae80482e2cdb0ccc874722177941e696a76d2960f29ec156992e093fbe85;1020Brow. Eight real CompanionTick/nativeDraw cases: Alpha/Laser HP1/16 normal/inverted;fatal45updates28draws,terminalhidden,next-frame retirement;survive2HP damage. Zero outputfiles. No root process remains.",
     "new_cleanup_audit": "Source audit: SteveDeathClearShots zeros11 LaserShotType entries but not8 LaserDrawTags. LaserDrawShots tests DrawTags, not ShotType. Timer1->0 clears types after LaserTick builds tags, so possible one-update stale projectile. Need runtime reproduction and safe compact clearing; tags followed by DrawSlot and permanent9B Meta, so do NOT blindly clear11 bytes starting at tags. Main row has4Bfree;8-tag clearing loop needs8B or equivalent funding.",
