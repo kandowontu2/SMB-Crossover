@@ -95,3 +95,20 @@ bump it from below, so the complete items run remains negative. This is a
 controller approach issue, not a demonstrated source defect. All results
 here remain CPU Main/NMI/controller evidence; native cadence and full1-1
 are open. No new game bytes, helpers, ROM copies or generated outputs exist.
+
+The under-row correction passes the natural items CPU route in1557 logical
+Main/NMI updates. Only controller input changes: walk below the Star row and
+reserve the long jump for the first pit. Genuine authored births are336/Y135
+kind0,1024/Y119 kind3,1248/Y136 kind0,1616/Y135 kind2. All four mature before
+the actual mapped native collector and are erased there. The Star actor is
+1687/Y165 at player1677/Y176, epoch1556. Final HP40/max40, status0, lives3,
+camera1565. This is not a natural physical flower: the second ordinary block
+correctly follows Quick's unchanged health-refill/no-growth policy.
+
+Passing items controller SHA256:
+`a28640952287b1bf4d42c30c4ca988aede4be9e869bcec3b56b4dec4af63ba22`.
+No native Mesen pass is implied. Root's capture guard remains blocked below
+the unchanged25GB free-space floor; this audit has created zero generated
+files. All four early pipes and the first gap use authentic jumps, with no
+new helper placement. Full1-1, physical lag/cadence and native menu/start
+verification remain open.

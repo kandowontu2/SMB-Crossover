@@ -42,6 +42,12 @@ local function control()
   if item.kind==1 then return (x<item.x-1 and 1 or x>item.x+2 and 2 or 0)+jump()+b end
   return (x<target-1 and 1 or x>target+1 and 2 or 0)+b
  end
+ if #pickups==3 and x<1598 then
+  -- Keep below the Star row: only jump for the first ground gap.
+  if x<1350 then return 1+b end
+  if x<1428 then return 1+jump()+b end
+  return 1+b
+ end
  local target=#pickups==0 and 328 or #pickups==1 and 1020 or #pickups==2 and 1240 or #pickups==3 and 1608 or nil
  if target and x>=target-8 then
   if x>target+2 then return 2+b elseif x<target-2 then return 1+b end
