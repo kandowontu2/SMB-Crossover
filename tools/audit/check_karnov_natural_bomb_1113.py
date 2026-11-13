@@ -3,6 +3,7 @@ import argparse
 from hashlib import sha256
 import json
 from pathlib import Path
+import subprocess
 
 import check_thomas_powerups_current_1112 as Base
 import check_karnov_bomb_1112 as Bomb
@@ -77,7 +78,13 @@ def controller(raw, stop_after=0):
     bundle = W.Symbols.bundle()
     bundle['raw'] = raw
     import re
-    names = set(re.findall(r"r\('([^']+)'", SOURCE.read_text()))
+    source_text=SOURCE.read_text()
+    if stop_after==2:
+        # Keep root's exact qualified two-pickup replay reproducible while
+        # later-only route work continues in the current source file.
+        source_text=subprocess.check_output(['git','show',
+            '66e595f3:tools/reference/karnov_natural_bomb_1113.lua'],cwd=R).decode()
+    names = set(re.findall(r"r\('([^']+)'", source_text))
     names.update(('Block_Buffer_1', 'HandlePowerUpCollision', 'HandleEnemyFBallCol'))
     labels = {name: W.address(bundle, name) for name in sorted(names)}
     contact = old_controller(raw, 'fixture')
@@ -88,7 +95,10 @@ def controller(raw, stop_after=0):
     at=16+64*8192+0x1ffc
     assert raw[at:at+3] == bytes.fromhex('e88a60')
     pre += f'local MANUAL_CREATED=0xbffc\nlocal MANUAL_OFFSET={at-16}\n'
-    return pre+SOURCE.read_text()
+    result=pre+source_text
+    if stop_after==2 and sha256(raw).hexdigest()==CURRENT:
+        assert sha256(result.encode()).hexdigest()=='88ccc41014cea57d2e95e48833f27291f7bf566356481362c4cbbe08b6f0eba4'
+    return result
 
 
 def route(seed, raw, limit, stop_after):
@@ -139,9 +149,14 @@ def route(seed, raw, limit, stop_after):
         Frames.frame(seed,observe)
         events[1]()
         if state['stopped']:break
+    x=Base.player(seed)['x']//16*16
+    block=W.address(seed.bundle,'Block_Buffer_1')
+    nearby={xx:{yy:seed[block+((xx//256)%2)*208+((yy-32)//16)*16+(xx%256)//16]
+                for yy in range(64,225,16)} for xx in range(x-32,x+81,16)}
     return dict(passed=state['exit_code']==0, stopped=state['stopped'],updates=i+1,
                 final=Base.player(seed),source=dict(shot=seed.ram[2][0x65],health=seed.ram[2][0x68],
-                cycle=seed.ram[2][0x860],bomb=seed.ram[2][0xbb]),controller_SHA256=sha256(text.encode()).hexdigest())
+                cycle=seed.ram[2][0x860],bomb=seed.ram[2][0xbb]),nearby_tiles=nearby if state['exit_code']!=0 else {},
+                controller_SHA256=sha256(text.encode()).hexdigest())
 
 
 def main():

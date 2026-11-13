@@ -625,5 +625,14 @@ left872/center888/top208, width32, in1-1.
 Root's native two-pickup receipt is
 `55c1f5d3b097377b190f836cb213ed7f31a0736dbdc9ec5d3054638dd6f45a23`;
 controller `88ccc41014cea57d2e95e48833f27291f7bf566356481362c4cbbe08b6f0eba4`.
-Later natural Boots/Bomb acquisition remains in progress. See
-`docs/qa/karnov-natural-bomb-1113.md`; no ROM bytes or helper controls changed.
+The private scene-motor candidate `a3c5fa63` also verifies Karnov's existing
+manual vertical helper in **1-2: left112, center128, initial top208, width32**,
+slot0, createdframe9529,143 native carries. The controller clears1-1 with the
+same1-1 manual/helper positions, survives the normal1-2 drop, and naturally
+collects the authored flower atX160/Y119 to earn original Boots, ending with
+shot2/health0/lives2. Receipt
+`4d0e7e4ffbf11b56b4aad0f18d87da629804d00f7993de9499687a8fe96b90e0`;
+controller `57763e630aeae8ea0a0792646dd200bec841410b72942b1d1cde89af96754f35`.
+This repairs scene motor construction and adds no helper placement or control.
+Later natural Bomb acquisition remains in progress. See
+`docs/qa/karnov-natural-bomb-1113.md`.

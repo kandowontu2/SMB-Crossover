@@ -11,6 +11,10 @@ local returnHooks={}
 local hopPeak,hopStart=255,nil
 local liftX,liftY,liftNext=nil,nil,nil
 local helpers={}
+local lastTravelX,travelStall=nil,0
+local undergroundReady,entryTrace=false,0
+local entryFirst,entryRecent={},{}
+local deathIngress=nil
 local function r(n,i)return emu.read(assert(L[n],n)+(i or 0),emu.memType.nesDebug)end
 local function kr(a)return emu.read(2*8192+a,emu.memType.nesWorkRam)end
 local function wx()return r('Player_X_Position')+256*r('Player_PageLoc')end
@@ -24,7 +28,7 @@ local function encode(v)
 end
 local function finish(ok,reason)
  if done then return end;done=true
- print('SMB_NATIVE_RECEIPT '..encode({passed=ok,ROM_SHA256=ROM_SHA,reason=reason,controller_only=true,frames=frame,updates=epoch,pickups=pickups,births=births,scenes=scenes,manual_helpers=helpers,recent=trace,terminal=state(),armed=armed,blast_seen=blastSeen,native_blast_contacts=blastCalls}))
+ print('SMB_NATIVE_RECEIPT '..encode({passed=ok,ROM_SHA256=ROM_SHA,reason=reason,controller_only=true,frames=frame,updates=epoch,pickups=pickups,births=births,scenes=scenes,manual_helpers=helpers,recent=trace,underground_entry_first=entryFirst,underground_entry_recent=entryRecent,death_ingress=deathIngress,terminal=state(),armed=armed,blast_seen=blastSeen,native_blast_contacts=blastCalls}))
  emu.stop(ok and 0 or 1)
 end
 local function to(p)
@@ -63,11 +67,19 @@ local function ordinary(x,y,ground)
   if y>108 then pad=x<700 and 1 or 0;jumpAge=0;release=0 else pad=129 end
  end
  if ground and enemyNear(x,100)then pad=4+(epoch%12<6 and 64 or 0);jumpAge=0;release=8 end
- if x>=2422 and x<2440 and not ground and y<=112 then pad=pad&~1 end
+ if x>=2422 and x<2440 and not ground and y>96 and y<=112 then pad=pad&~1 end
  return pad
 end
 local function control()
  local x,y,ground=wx(),r('Player_Y_Position'),r('Player_State')==0
+ -- Let the authored 1-2 falling entrance finish before supplying any
+ -- fresh jump or horizontal movement. Engine8 alone starts above ground.
+ if r('LevelNumber')==1 and r('AreaType')==2 and not undergroundReady then
+  if ground and y>=160 and r('Player_Y_HighPos')==1 then
+   undergroundReady=true;jumpAge=0;release=8;to('travel')
+  end
+  return 0
+ end
  local item=nil;for i=0,5 do local a=actor(i);if a.flag>0 and a.id==46 and a.kind<2 then item=a;break end end
  if routePhase:sub(1,5)=='lift-'then
   if ground then local clear=clearGroundEnemy(x,y);if clear then return clear end end
@@ -96,7 +108,15 @@ local function control()
    return (x<item.x+2 and 1 or 0)+(routeAge<36 and 128 or 0)
   end
  end
- if r('LevelNumber')==1 and r('AreaType')==0 then
+ if r('LevelNumber')==1 and r('AreaType')==2 then
+  if #pickups==3 then
+   if routePhase=='bomb-bump'then
+    if ground and epoch-lastPulse>30 then lastPulse=epoch;return 128 end
+    return 0
+   end
+   if x>=1040 then beginLift(1098,160,'bomb-bump');return 0 end
+   return ordinary(x,y,ground)
+  end
   if x<152 then if ground and enemyNear(x,88)then return 4+(epoch%12<6 and 64 or 0)end;return 1 end
   if ground and epoch-lastPulse>30 then lastPulse=epoch;return 128 end
   return 0
@@ -116,11 +136,18 @@ local function control()
   if ground and epoch-lastPulse>30 then lastPulse=epoch;return 128 end
   return 0
  end
- if #pickups==2 and x>=1640 then
-  if routePhase~='third-bump'then beginLift(1720,112,'third-bump');return 0 end
-  if x<1738 then return 1 end
-  if ground and epoch-lastPulse>30 then lastPulse=epoch;return 128 end
-  return 0
+ if r('LevelNumber')==0 and #pickups>=2 and (routePhase:sub(1,4)=='gap-'or x>=2420 and x<2480)then
+  if routePhase:sub(1,4)~='gap-'then to('gap-setup')end
+  if routePhase=='gap-setup'then
+   if x<2433 then return 1 end
+   if ground then to('gap-release')end
+   return 0
+  elseif routePhase=='gap-release'then
+   if routeAge>=3 then to('gap-jump')end
+   return 0
+  end
+  if x>=2480 and ground then to('travel');return 1 end
+  return 1+(routeAge<36 and 128 or 0)
  end
  return ordinary(x,y,ground)
 end
@@ -158,6 +185,12 @@ emu.addMemoryCallback(function()
  local i=emu.getState()['cpu.x'];if i>5 then return end;local a=actor(i)
  if a.flag==1 and a.id==37 and a.state==65 then helpers[#helpers+1]={frame=frame,world=r('WorldNumber')+1,stage=r('LevelNumber')+1,slot=i,left=a.x,center=a.x+16,initial_top=a.y,width=32,carries=0};print('KARNOV_MANUAL_HELPER '..encode(helpers[#helpers]))end
 end,emu.callbackType.exec,MANUAL_CREATED)
+if emu.callbackType.write then emu.addMemoryCallback(function(address,value)
+ if value~=11 or not game then return end
+ local cpu=emu.getState();local stack={};for i=1,16 do stack[i]=emu.read(0x100+((cpu['cpu.sp']+i)&255),emu.memType.nesDebug)end
+ local regs={};for _,k in ipairs({'pc','sp','a','x','y'})do regs[k]=cpu['cpu.'..k]end
+ deathIngress={address=address,value=value,cpu=regs,bank=r('CurrentBank'),bankC=r('CurrentBankC'),stack=stack,s=state(),high=r('Player_Y_HighPos'),dy=r('Player_Y_Speed'),pad=r('SavedJoypadBits'),source={kr(0x62),kr(0x63),kr(0x64),kr(0x65),kr(0x66),kr(0x67),kr(0x68)}}
+end,emu.callbackType.write,L.GameEngineSubroutine)end
 emu.addEventCallback(function()
  local pad=0
  if not game and age<4 then if phase=='open'or phase=='start'then pad=16 elseif phase=='left'then pad=2 elseif phase=='select'then pad=32 end end
@@ -175,11 +208,19 @@ emu.addEventCallback(function()
   if r('NumberofLives')~=lives or r('GameEngineSubroutine')==11 then finish(false,'life-lost');return end
   if kr(0x68)&128~=0 then finish(false,'health-depleted-before-four-pickup-sequence');return end
   local counter=r('FrameCounter');if previousCounter~=counter then previousCounter=counter;epoch=epoch+1;routeAge=routeAge+1 end
+  if routePhase=='travel'and #pickups>=2 and r('GameEngineSubroutine')==8 then if wx()==lastTravelX then travelStall=travelStall+1 else travelStall=0;lastTravelX=wx()end else travelStall=0;lastTravelX=nil end
+  if travelStall>240 then finish(false,'travel-stall');return end
   for i=0,5 do local a=actor(i);if a.flag>0 and a.id==46 and a.kind<2 then
    local last=births[#births];if not last or last.slot~=i or last.collection~=#pickups then a.frame=frame;a.collection=#pickups;births[#births+1]=a end
    if a.state>=128 then births[#births].mature=true end
   end end
   local scene=r('LevelNumber')*256+r('AreaAddrsLOffset');if #scenes==0 or scenes[#scenes].key~=scene then scenes[#scenes+1]={key=scene,state=state()}end
+  if r('LevelNumber')==1 and r('AreaType')==2 and entryTrace<90 then
+   entryTrace=entryTrace+1
+   local q={s=state(),high=r('Player_Y_HighPos'),dy=r('Player_Y_Speed'),pad=r('SavedJoypadBits'),source={kr(0x62),kr(0x63),kr(0x64),kr(0x65),kr(0x66),kr(0x67),kr(0x68)},ready=undergroundReady}
+   if #entryFirst<8 then entryFirst[#entryFirst+1]=q else entryRecent[#entryRecent+1]=q;if #entryRecent>16 then table.remove(entryRecent,1)end end
+   print('KARNOV_UNDERGROUND_ENTRY '..encode(q))
+  end
   for _,h in ipairs(helpers)do if h.world==r('WorldNumber')+1 and h.stage==r('LevelNumber')+1 and r('Enemy_Flag',h.slot)==1 and r('Enemy_ID',h.slot)==37 and r('Enemy_State',h.slot)==65 and r('Enemy_X_Position',h.slot)+256*r('Enemy_PageLoc',h.slot)==h.left and r('PlatformCollisionFlag',h.slot)==h.slot then h.carries=h.carries+1 end end
   if kr(0xc0)==128 then armed=true end;if kr(0xc0)>=129 then blastSeen=true end
   if STOP_AFTER and #pickups>=STOP_AFTER then finish(true,'requested-natural-pickups');return end
