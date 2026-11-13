@@ -119,3 +119,10 @@ helpers, captures or state writes. TerminalHP5 is the next-stage reset;
 this is not a no-injury claim or proof of sword combat. Existing external
 Mesen sessions were left untouched. The combined candidate is retained only
 at `build/prince-first-pickup-1112/candidate.nes` pending remaining gates.
+
+Prepared delivery recipe: `tools/audit/deliver_prince_menu_1112.py`, using
+`compose_prince_menu_1112.py`. Root verified exact forward/reverse composition,
+matching native controller bytes and in-memory IPS reconstruction. Proposed
+IPS SHA256 `fd0c11b7745c1a3e4f62d46272b0540316d5ab2861667bd65749050f131357a4`,
+2,099,506 bytes. Installation and release publication have not been run;
+the pending sword regression gates remain mandatory before either action.

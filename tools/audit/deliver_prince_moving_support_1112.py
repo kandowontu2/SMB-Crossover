@@ -16,6 +16,7 @@ PIN = '6d0346164b7099f8e75cdbe22a9e9f1fd5f4f673116fd1dcb48a3cee620734c2'
 PATCH_PIN = 'e2662c8439e226fa5fd3a2684427c97affb3f3a3be6ef3dc1d80f7d4acec897d'
 RECEIPT = 'a3c15de76676ba9ebdf3ffdbc84049ef953b70d14015285e31e05251c0fd773c'
 SCRIPT_PIN = 'a115265b9c2a3cc12fbf792a3460e01c5ce67264e2829dc901dfe5ee37ce33d0'
+SUPPORT_PUBLICATION = 0xd74b
 NIGHTLY = Path('C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes')
 OUTPUT = Packet.R/'build/prince-first-pickup-1112'
 CANDIDATE = OUTPUT/'candidate.nes'
@@ -52,7 +53,7 @@ def install():
     assert digest(ips) == PATCH_PIN
     assert apply_ips(base, ips)[0] == image
     script = OUTPUT/'controller.lua'
-    script.write_text(Replay.controller(layout['cookie'], 0xd74b, 3115, True),
+    script.write_text(Replay.controller(layout['cookie'], SUPPORT_PUBLICATION, 3115, True),
                       encoding='utf-8', newline='\n')
     assert digest(script.read_bytes()) == SCRIPT_PIN
     try:
