@@ -254,7 +254,7 @@ def lifetimes(parent, candidate):
     return dict(counts)
 
 
-def interrupts(candidate, layout):
+def interrupts(candidate):
     native = M.NesMPU
     points, counts = set(), Counter()
     minimum = 255
@@ -327,7 +327,7 @@ def main():
         cases = ((2, 0x16e5, 0xc9), (2, 0xd79, 0xb5), (3, 0x1184, 0x20))
         print('KARNOV_BOMB_READBACK ' + json.dumps([cold(changed, bytes.fromhex(layout['cookie']),
             readback=case) for case in cases], separators=(',', ':')), flush=True)
-        print('KARNOV_BOMB_INTERRUPTS ' + json.dumps(interrupts(candidate, layout), separators=(',', ':')), flush=True)
+        print('KARNOV_BOMB_INTERRUPTS ' + json.dumps(interrupts(candidate), separators=(',', ':')), flush=True)
 
 
 if __name__ == '__main__':

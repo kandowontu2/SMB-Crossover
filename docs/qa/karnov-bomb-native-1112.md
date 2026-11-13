@@ -26,6 +26,9 @@ projectile window. The HUD uses original icon84/85/94/95 with the existing
 plane swap and prints original BCD stock. Four HUD icon tiles replace the
 previous plus glyph and three unused cells. The flashing control text shows
 `DOWN B` with a space, keeping letter and digit cells intact.
+The explosion packet extends into C839/C83A. The two health routines that
+use those bytes assign them before each read and consume them before returning.
+The routines execute outside the foreground Draw call.
 
 The options carrier stays D600..DDFF. The source packet contains the dormant
 Ladder activation D6E5..D786, Clapper/Glasses/Mask D7EF..D8B1, Shield
