@@ -8,7 +8,7 @@ import check_prince_brick_support_1111 as Native
 from run_stdout_mesen_1110 import run, R
 
 
-def controller(raw, mode):
+def controller(raw, mode, head_trace=False):
     relative = ('metal-storm-natural-armor-1101-v26/native' if mode == 'armor'
                 else 'metal-reservation-1102-v42/route')
     original = R/'build'/relative/'controller.lua'
@@ -179,6 +179,31 @@ end
     if mode == 'upgrades':
         text=text.replace(" print('SMB_NATIVE_RECEIPT '..encode(receipt))",
             " receipt.upgradePhase=upgradePhase;receipt.upgradeBirths=upgradeBirths;receipt.upgradedShot=upgradedShot\n print('SMB_NATIVE_RECEIPT '..encode(receipt))")
+    if head_trace:
+        prefix += '''local headBridge={}
+local function bridgeEvent(label,value)
+ local x=debugRead(0x75)+256*debugRead(0x5c)
+ if debugRead(0x6002)~=35 or x<330 or x>350 or debugRead(0xbd)>170 or #headBridge>=100 then return end
+ local cpu=emu.getState()
+ local packet={}
+ for i=0,6 do packet[i+1]=emu.read(2*8192+0x880+i,emu.memType.nesWorkRam) end
+ headBridge[#headBridge+1]={label=label,value=value,pc=cpu['cpu.pc'],a=cpu['cpu.a'],ix=cpu['cpu.x'],iy=cpu['cpu.y'],p=cpu['cpu.ps'],x=x,y=debugRead(0xbd),epoch=debugRead(L.FrameCounter),packet=packet}
+end
+for _,entry in ipairs({{0xad54,3},{0xbfc0,3},{0xdcd9,2},{0xd8af,2},{0xb5b2,3}}) do
+ local pc,bank=entry[1],entry[2]
+ emu.addMemoryCallback(function()
+  local map=emu.convertAddress(pc)
+  if map and map.memType==emu.memType.nesWorkRam and map.address==bank*8192+(pc&8191) then bridgeEvent(string.format('%04X',pc)) end
+ end,emu.callbackType.exec,pc)
+end
+emu.addMemoryCallback(function(_,value)
+ local map=emu.convertAddress(0xc880)
+ if map and map.memType==emu.memType.nesWorkRam and map.address==2*8192+0x880 then bridgeEvent('packet-write',value) end
+end,emu.callbackType.write,0xc880)
+'''
+        prefix += f'L.FrameCounter={Native.N.address(bundle,"FrameCounter")}\n'
+        text = text.replace(" print('SMB_NATIVE_RECEIPT '..encode(receipt))",
+                            " receipt.headBridge=headBridge\n print('SMB_NATIVE_RECEIPT '..encode(receipt))")
     assert 'io.' not in text
     return prefix+text
 
@@ -188,6 +213,7 @@ def main():
     parser.add_argument('--rom', type=Path, default=Path('C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes'))
     parser.add_argument('--mode', choices=('armor','route','upgrades'), default='armor')
     parser.add_argument('--flower-candidate', action='store_true')
+    parser.add_argument('--head-trace', action='store_true')
     args = parser.parse_args()
     output = R/'build/metal-flower-native-1112'
     output.mkdir(exist_ok=True)
@@ -198,7 +224,7 @@ def main():
         args.rom = output/'candidate.nes'
         args.rom.write_bytes(raw)
     script = output/'controller.lua'
-    script.write_text(controller(raw,args.mode),encoding='utf-8',newline='\n')
+    script.write_text(controller(raw,args.mode,args.head_trace),encoding='utf-8',newline='\n')
     result = run(script,args.rom,output/'capture',sha256(raw).hexdigest(),120)
     print(json.dumps({k:result[k] for k in ('passed','receipt','receipt_SHA256','script_SHA256')}),flush=True)
     assert result['passed']
