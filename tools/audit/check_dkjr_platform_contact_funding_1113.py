@@ -57,12 +57,19 @@ def sources(raw):
                 needle=bytes((op,target&255,target>>8))
                 calls += [(0xa000+i,target,op)for i in range(len(bank)-2)if bank[i:i+3]==needle]
         assert not calls,(name,calls)
+        prg=raw[16:16+1048576]
+        for target in range(tail,end):
+            assert bytes((target&255,target>>8,0xba))not in prg,(name,'native flagged target tuple',target)
+            far=(bytes((0xa9,target&255))+bytes.fromhex('8d6c01')+
+                 bytes((0xa9,target>>8))+bytes.fromhex('8d6d01a9ba'))
+            assert far not in prg,(name,'standard native farcall',target)
         rows.append(dict(name=name,physical_PRG=58,CPU_half_open=[pc,end],
             exact_source_original_bytes=len(full),exact_current_live_bytes=len(current),
             available_tail_half_open=[tail,end],available_tail_bytes=end-tail,
             tail_file_offset=at(58,tail),tail_preimage_hex=preimage[len(current):].hex(),
             current_full_extent_SHA256=sha256(preimage).hexdigest(),
-            all_same_bank_direct_JSR_JMP_targets_exclude_tail=True))
+            all_same_bank_direct_JSR_JMP_targets_exclude_tail=True,
+            all_PRG_standard_native_farcall_and_flagged_tuple_targets_exclude_tail=True))
     # Assemble both segments after removing only their explicit fill directives.
     source=(R/'tools/reference/native_platform_collision_dispatch_1110_v1.s').read_text()
     source='\n'.join(line for line in source.splitlines()if not line.strip().startswith('.res'))

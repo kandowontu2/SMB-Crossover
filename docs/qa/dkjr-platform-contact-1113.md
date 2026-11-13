@@ -65,7 +65,9 @@ padding rather than a fill-byte search.
 Both26B tails are exact EA. The full current Prepare/Finish extent hashes are
 5048fd8659da18b196c2e7ed92885fd07e8b19a5b76e84e46d9f27dbf308e50c and
 9e8c4c4f3797d8ac5e106ee3b2b51610f6eec7e5d1a5b10cd03ff40708349df6.
-All same-bank direct JSR/JMP target bytes exclude both tails. The old source
+All same-bank direct JSR/JMP target bytes exclude both tails, as do standard
+native farcall instruction sequences and flagged low/high/bank target tuples
+across the complete current PRG payload. The old source
 leaves contain no indirect control target into them. The sole native dispatch
 caller remains PRG0 B43F in RunLargePlatform. Complete native preimages and
 source hashes are printed by the funding audit; it exits0 with zero outputs.
@@ -83,5 +85,9 @@ and both BF wrapper procedures remain unchanged.
 Root lease review, global callers/readers, actual transport/AXY/SP/SMC,
 foreign complete-Main parity, all-footer clipping, IRQ/lag, natural first
 pickup and full-stage qualification remain required before native readiness.
+This fit sends foreign fast platform paths through an additional native
+farcall pair; its actual cycle cost must be measured before adoption.
+Preserving the old direct fast jump instead needs7 more qualified PRG0 bytes
+than the current55B dispatch/policy ownership. No such span is assumed.
 No resource is granted or ROM patched by these source fit checks. All old
 frozen controllers and observer outputs remain unchanged.
