@@ -20,6 +20,26 @@ import check_thomas_powerups_current_1112 as Base
 N, W, Frames = Base.N, Base.W, Base.Frames
 PIN = Replay.PIN
 CONTROLLER_PIN = '12f55c86840aa9750d0312c806f629b23e8cec5e8aa67483ffe77762934d3e66'
+QUICK = '4641ca4fb72699c0478e31b831d4c4ea0ffd2227be7f8446666092d2cc26e1d3'
+JAY = 'aa50112845d1cf70cae0924f03326647b3d2514f876c756d70b134ee44f971d1'
+
+
+def proof_parent(raw):
+    """Recover the frozen recipe input without loosening its PIN or writing ROMs."""
+    original = raw
+    digest = sha256(raw).hexdigest()
+    if digest == JAY:
+        from deliver_jay_pickup_helper_1113 import inverse
+        raw = inverse(raw)
+        assert sha256(raw).hexdigest() == QUICK
+    if sha256(raw).hexdigest() == QUICK:
+        from compose_quick_climb_material_1113 import inverse
+        raw = inverse(raw)
+    assert sha256(raw).hexdigest() == PIN
+    assert Replay.Packet.extract(raw) == Replay.Packet.extract(original)
+    offset = Replay.Packet.COOKIE
+    assert raw[offset:offset+16] == original[offset:offset+16]
+    return raw
 
 
 class MemoryPath:
@@ -40,7 +60,7 @@ class MemoryPath:
         return self.files[self.name]
 
 
-def controller():
+def controller(raw=None):
     """Use the native recipe itself; divert its writes and launch to memory."""
     class Ready(Exception):
         pass
@@ -48,7 +68,21 @@ def controller():
     def take(script, *_args, **_kwargs):
         texts.append(script.read_text())
         raise Ready()
+    frozen = proof_parent(Base.C.ROM.read_bytes() if raw is None else raw)
+    class RecipeROM:
+        """Pure recipe input; never presented as a physical Downloads launch."""
+        def read_bytes(self):
+            return frozen
+    recipe = RecipeROM()
+    def recipe_check(path):
+        assert path is recipe and sha256(path.read_bytes()).hexdigest() == PIN
+        return dict(ROM_sha256=PIN)
+    def recipe_digest(path):
+        return recipe_check(path)['ROM_sha256']
     with patch.object(Replay, 'OUTPUT', MemoryPath()), patch.object(Replay, 'run', take), \
+            patch.object(Replay.Old, 'NIGHTLY', recipe), \
+            patch.object(Replay, 'check', recipe_check), \
+            patch.object(Replay.Old, 'digest', recipe_digest), \
             patch.object(sys, 'argv', ['prince-current', '--collect-sword']):
         try:
             Replay.main()
@@ -60,8 +94,33 @@ def controller():
     return text
 
 
+def recovery_controller(raw):
+    """Continue the natural flower route with the measured original controls."""
+    from check_ff_stdout_controller_source_1110 import LuaRuntime,DLL,DLL_SHA
+    text=controller(raw)
+    changes=(
+        ("late.flower.climb=s;switch('flower-climb',8)",
+         "late.flower.climb=s;switch('flower-climb',0)"),
+        ("      elseif progress=='flower-climb'then\n        if s.action==10 then pad=0 end",
+         "      elseif progress=='flower-climb'then\n        pad=age<8 and 0 or age<10 and 1 or age<70 and 0 or 8"),
+        ("elseif age>=125 then error('Bounded original flower ledge climb')end",
+         "elseif age>=420 then error('Bounded original flower ledge climb')end"),
+        ("assert(age<180,'Bounded original flower collection phase')",
+         "assert(age<(progress=='flower-climb' and 420 or 180),'Bounded original flower collection phase')"),
+        ("late.flower.boarded=s;switch('flower-walk',s.x>1248 and 2 or 1)",
+         "late.flower.boarded=s;switch('flower-walk',s.x>1248 and 2 or 1);return"),
+    )
+    for before,after in changes:
+        assert text.count(before)==1,before
+        text=text.replace(before,after)
+    assert sha256(DLL.read_bytes()).hexdigest()==DLL_SHA
+    assert 'emu.write' not in text and 'emu.setState' not in text
+    LuaRuntime().compile(text)
+    return text
+
+
 def cold(raw):
-    assert sha256(raw).hexdigest() == PIN
+    proof_parent(raw)
     Replay.Packet.extract(raw)
     bundle = dict(W.Symbols.bundle(), raw=raw)
     previous = N.Bus
@@ -103,11 +162,16 @@ def cold(raw):
     return model, dict(actual_menu=True, parser_updates=epoch, x=40, health=5, lives=2)
 
 
-def route(model, raw, limit):
+def route(model, raw, limit, *, climb_mask=8):
     from check_ff_stdout_controller_source_1110 import LuaRuntime, DLL, DLL_SHA
     assert sha256(DLL.read_bytes()).hexdigest() == DLL_SHA
     lua = LuaRuntime(unpack_returned_tuples=True)
-    text = controller()
+    text = controller(raw)
+    assert climb_mask in (8, 9, 136)
+    if climb_mask != 8:
+        before = "switch('flower-climb',8)"
+        assert text.count(before) == 1
+        text = text.replace(before, f"switch('flower-climb',{climb_mask})")
     begin = 'local route=coroutine.create(function()\n'
     end = '  initial=state()\n'
     lo, hi = text.index(begin)+len(begin), text.index(end, text.index(begin))
@@ -154,7 +218,7 @@ def route(model, raw, limit):
     emu.addMemoryCallback = add_memory
     emu.stop = lambda code: context.update(exit=code)
     lua.globals().emu, lua.globals().print = emu, emit
-    lua.globals().os.getenv = lambda name: PIN if name == 'SMB_STDOUT_ROM_SHA' else '3' if name == 'SMB_TEST_VARIANT' else None
+    lua.globals().os.getenv = lambda name: sha256(raw).hexdigest() if name == 'SMB_STDOUT_ROM_SHA' else '3' if name == 'SMB_TEST_VARIANT' else None
     lua.execute(bound)
     ParentBus, ParentMPU = type(model), N.NesMPU
     class ObservedBus(ParentBus):
@@ -177,10 +241,12 @@ def route(model, raw, limit):
             events[1]()
             if context['exit'] is not None:
                 break
+    model.__class__ = ParentBus
     receipt = context['receipt'] or {}
     later = receipt.get('later_route', {})
     return dict(passed=context['exit']==0, stopped=context['exit'] is not None,
-        logical_updates=tick+1, controller_SHA256=CONTROLLER_PIN,
+        logical_updates=tick+1, controller_SHA256=sha256(text.encode()).hexdigest(),
+        frozen_controller_SHA256=CONTROLLER_PIN,climb_mask=climb_mask,
         CPU_binding_SHA256=sha256(bound.encode()).hexdigest(),
         phase=receipt.get('phase'), reason=receipt.get('reason'),
         terminal=receipt.get('terminal'), injuries=receipt.get('injuries'),
@@ -193,12 +259,19 @@ def route(model, raw, limit):
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--limit', type=int, default=4500)
+    p.add_argument('--climb-mask',type=int,choices=(8,9,136),default=8)
+    p.add_argument('--verbose',action='store_true')
     args = p.parse_args()
     raw = Base.C.ROM.read_bytes()
     model, opening = cold(raw)
-    print(json.dumps(dict(opening=opening, ROM_SHA256=PIN)), flush=True)
-    result = route(model, raw, args.limit)
-    print(json.dumps(result), flush=True)
+    print(json.dumps(dict(opening=opening, ROM_SHA256=sha256(raw).hexdigest())), flush=True)
+    result = route(model, raw, args.limit,climb_mask=args.climb_mask)
+    report = dict(result)
+    if not args.verbose:
+        report['flower'] = {k:v for k,v in (report.get('flower') or {}).items() if k!='trace'}
+        report['events'] = len(report.get('events') or [])
+        report['sword_trace'] = (report.get('sword_trace') or [])[-4:]
+    print(json.dumps(report), flush=True)
     assert result['passed'], (result['phase'], result['reason'])
 
 
