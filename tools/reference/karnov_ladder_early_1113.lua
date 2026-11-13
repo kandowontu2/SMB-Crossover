@@ -1,7 +1,7 @@
 -- Separate stock route: all three authored 1-1 ordinary blocks, then 1-2/160
 -- and 1-2/1104. Existing native manual girders; no game-memory writes.
 local EARLY_APPROACH_X=1720
-local EARLY_CARRY_Y=80
+local EARLY_CARRY_Y=128
 local early={stage='approach',start=0,heads={},motion={}}
 stockFifth.early=early
 local function earlyTo(name)early.stage=name;early.start=stockFifth.main;routePhase='early-high-'..name;routeAge=0;early.last=state()end

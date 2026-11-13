@@ -30,11 +30,14 @@ def controller(raw,*,approach_x=None,carry_y=None):
         source=source.replace('local EARLY_APPROACH_X=1720',f'local EARLY_APPROACH_X={approach_x}')
     if carry_y is not None:
         assert carry_y in(64,80,96,112,128)
-        source=source.replace('local EARLY_CARRY_Y=80',f'local EARLY_CARRY_Y={carry_y}')
+        source=source.replace('local EARLY_CARRY_Y=128',f'local EARLY_CARRY_Y={carry_y}')
     text=text[:start]+body+source+'\n'+text[end:]
     before=' if #pickups>=4 then return fifthControl(x,y,ground,item)end'
     assert text.count(before)==1
     text=text.replace(before,' local earlyHandled,earlyPad=earlyControl(x,y,ground,item);if earlyHandled then return earlyPad end\n'+before)
+    before="local east=#pickups==3 and r('LevelNumber')==1 and r('AreaType')==2"
+    assert text.count(before)==1
+    text=text.replace(before,"local east=(#pickups==2 and r('LevelNumber')==0 and item.x==1744)or(#pickups==3 and r('LevelNumber')==1 and r('AreaType')==2 and item.x==1104)")
     before='q.after=state()\n   if #pickups==4 then'
     assert text.count(before)==1
     text=text.replace(before,'''q.after=state()
@@ -46,6 +49,15 @@ def controller(raw,*,approach_x=None,carry_y=None):
     assert(realHead,'Authored high question came from real fresh-jump native head')
    end
    if #pickups==4 then''')
+    before='   if #pickups==4 then\n    q.native='
+    assert text.count(before)==1
+    text=text.replace(before,'''   if #pickups==3 and q.item.x==160 then
+    q.native={sound=r('Square2SoundQueue'),popup=r('FloateyNum_Control',q.item.slot),inventory=r('InvPickup',q.item.slot)}
+    assert(q.native.sound&32~=0 and q.native.popup==6 and q.native.inventory==0,'Fourth native sound/popup/erasure')
+    assert(q.after.cycle==2 and q.after.stock==1 and q.after.owned&2~=0 and q.after.option==1,'First cave flower earns original Bomb')
+   end
+   if #pickups==4 then
+    q.native=''')
     Late.LuaRuntime().compile(text)
     assert all(word not in text for word in('emu.write','io.open','loadState','saveState','takeScreenshot'))
     return text
@@ -76,12 +88,16 @@ def sweep_high(raw,*,lower=False):
         final_unbroken_replay_claim=False,runtime_field_grants_or_reseeds=0,output_files=0)
 
 
-def serve(raw,limit):
-    prefix,seed=run(raw,limit=limit,checkpoint_x=1680,checkpoint_pickups=2,return_model=True)
-    assert len(prefix['pickups'])==2 and prefix['source']['health']==0 and prefix['terminal']['x']==1680,prefix
+def serve(raw,limit,*,from_head=False):
+    prefix,seed=run(raw,limit=limit,stop_on_native_head=True,return_model=True)if from_head else run(raw,limit=limit,checkpoint_x=1680,checkpoint_pickups=2,return_model=True)
+    assert len(prefix['pickups'])==2 and prefix['source']['health']==0,prefix
+    head_history=prefix['fifth']['early']['heads']if from_head else None
+    if from_head:assert head_history and any(h['tile']==193 and h['native_pad']&128 for h in head_history)
+    else:assert prefix['terminal']['x']==1680
     models={'seed':seed};histories={'seed':prefix['pickups']};rows=[]
+    observers={'seed':head_history}
     with Listener(('127.0.0.1',0),authkey=b'karnov-fifth-1113')as listener:
-        print('KARNOV_EARLY_MEMORY_READY '+json.dumps(dict(port=listener.address[1],prefix_Main=prefix['actual_Main_NMI_updates'],player=prefix['terminal'],actors=prefix['actors'])),flush=True)
+        print('KARNOV_EARLY_MEMORY_READY '+json.dumps(dict(port=listener.address[1],prefix_Main=prefix['actual_Main_NMI_updates'],player=prefix['terminal'],actors=prefix['actors'],actual_head_history=head_history,manual_helpers=prefix['manual_helpers'])),flush=True)
         while True:
             with listener.accept()as connection:
                 command=connection.recv()
@@ -90,8 +106,10 @@ def serve(raw,limit):
                 name=command.get('name','one');assert name in('one','two','three')
                 previous=command.get('from','seed')
                 report,model=run(raw,limit=min(command.get('frames',2500),3000),
-                    input_model=Late.Native.N.fork(models[previous]),history=histories[previous],return_model=True)
+                    input_model=Late.Native.N.fork(models[previous]),history=histories[previous],
+                    observer_early_heads=observers[previous],stop_at_pickups=command.get('stop_after'),return_model=True)
                 models[name]=model;histories[name]=report['pickups'];rows.append(dict(name=name,passed=report['passed'],updates=report['actual_Main_NMI_updates'],terminal=report['terminal']))
+                observers[name]=report['fifth']['early']['heads']
                 connection.send(report)
     return dict(genuine_prefix_Main=prefix['actual_Main_NMI_updates'],development_forks=rows,
         final_unbroken_replay_claim=False,runtime_field_grants_or_reseeds=0,output_files=0)
@@ -102,7 +120,8 @@ if __name__=='__main__':
     p.add_argument('--serve-suffix',action='store_true');p.add_argument('--require-pass',action='store_true')
     p.add_argument('--sweep-high',action='store_true')
     p.add_argument('--sweep-lower',action='store_true')
+    p.add_argument('--serve-head',action='store_true')
     args=p.parse_args();raw=Late.candidate()
-    result=sweep_high(raw,lower=args.sweep_lower)if args.sweep_high or args.sweep_lower else serve(raw,args.limit)if args.serve_suffix else run(raw,limit=args.limit)
+    result=sweep_high(raw,lower=args.sweep_lower)if args.sweep_high or args.sweep_lower else serve(raw,args.limit,from_head=args.serve_head)if args.serve_suffix or args.serve_head else run(raw,limit=args.limit)
     print(json.dumps(result,separators=(',',':')),flush=True)
     if args.require_pass:assert result.get('passed')is True,'Complete early stock item/Ladder route did not pass'

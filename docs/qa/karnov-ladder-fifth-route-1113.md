@@ -198,3 +198,92 @@ The apparent end-frame source/native support difference did not prevent the
 original fresh jump; there is no demonstrated runtime defect and no runtime
 patch. Next, keep the measured1720/128 head approach, retain its earned model
 in memory and test the existing east-side1776/Y80 girder/flower collector.
+
+## Earned high flower / Boots component
+
+The next actual CPU run used the measured1720/128 controls as its default.
+Without a VM/history restart it reached the C1 head at Main2512, player1737/87,
+and a genuine native flower in slot5, kind1/state1 at1744/72. The head callback
+again saw native A128/VYFF/state1, full source health0 and two lives.
+
+A fork of that earned head state then ran the existing generic east-side
+flower route1776/Y80. After387 ordinary-input updates, the real mature flower
+kind1/state128 at1744/55 was collected at player1756/43. The exact native
+collector return erased the actor/preparation inventory, queued sound32 and
+popup6, kept shot2, and changed cycle0 to1, selectedFF to0, owned0 to1 and
+Boots stock0 to1. Health0/lives2 remained. Only the genuine observer head
+history and controller pickup history were copied into the fork's Lua VM;
+no cartridge/source gameplay field was changed. The runner's top-level
+`passed=false` there means it stopped at the requested third collector; it
+is not a complete route assertion or a third-collector failure.
+
+Actual native constructor/carry callbacks in these CPU components observed:
+
+| Character / alternate | Stage | Control | Initial left | Center | Initial top | Width | Observed carries |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Karnov, Rygar Select alternate / raw34 | 1-1 | Up+Select, retained first-flower helper | 1201 | 1217 | 208 | 32 | 71 through head checkpoint |
+| Karnov, Rygar Select alternate / raw34 | 1-1 | Up+Select, high-question head helper | 1712 | 1728 | 208 | 32 | 71 through head checkpoint |
+| Karnov, Rygar Select alternate / raw34 | 1-1 | Up+Select, high-flower east helper | 1767 | 1783 | 208 | 32 | 105 through third collector |
+
+These are dynamic existing user controls, not new authored stage placements.
+The last two are CPU-qualified components; root's native replay and shared
+inventory update remain pending. Other characters/alternates are untouched.
+
+A further3000 ordinary-input updates from the earned third-collector state
+cleared1-1 and reached healthy1-2 entry40/171, state2/engine8, shot2/cycle1,
+damage0/lives2. Boots stock and owned were already0; this receipt does not
+prove a reset bug or regrant. Later Down+B ground combat can legitimately
+activate equipped Boots, so the next uninterrupted report exposes the actual
+first activation record. That memory server subsequently reached its600s
+owned lifetime. No state dump/output files were retained.
+
+The next single uninterrupted attempt uses the measured head and high-flower
+collector, preserves the original west120 approach for the first cave flower
+at160, then targets1104 for the fifth item. It adds strict fourth native
+sound/popup/erasure/Bomb progression checks and requires the complete Ladder
+PPU lifecycle before a full pass. Fourth/fifth/full/native results are still
+pending at this source checkpoint.
+
+## Uninterrupted four-item prefix and post-four negative
+
+The next uninterrupted generated-controller CPU run reached all four actual
+collectors, with strict native effects and original progression checks:
+
+| Item | Actual actor | Collector epoch | Player | Original result |
+| --- | --- | --- | --- | --- |
+| 1 | mushroom413/164, stateC0 | 442 | 402/176 | shot0 to1 |
+| 2 | flower1248/119, state80 | 1786 | 1250/97 | shot1 to2 |
+| 3 | flower1744/55, state80 | 2898 | 1756/43 | cycle1, Boots stock1, owned1, selected0 |
+| 4 | flower160/119, state80 | 6277 | 162/97 | cycle2, Bomb stock1, owned2, selected1 |
+
+The generated Lua SHA-256 was
+`590993853b33e7dc94484750e8e37fbad2eeaca73f9766adb8853f38c4135a14`.
+Third and fourth returns had native sound32/popup6, erased inventory0 and
+actual erased actor flags. Health0/lives2 remained throughout. The fourth
+was subsequently armed, blasted and retired by ordinary Down+B input.
+
+Boots were genuinely activated during later1-1 ground combat at epoch3145,
+player1866/176, with stock0/owned0 and the source active bit set. They expired
+before1-2. This directly explains the earlier empty Boots receipt; it does
+not show a scene-reset defect and no equipment was restored by the test.
+
+The full route then stalled at player530/144 on terrain, while the remaining
+Goomba was behind him at464/184. The new suffix's generic abs(dY)<48 test kept
+crouch-firing40 pixels above the enemy's lane. It had moved the enemy return
+ahead of its local finite guard, so the outer14,000-update source ceiling
+ended the run and `--require-pass` correctly failed. Terminal health0/lives2,
+shot2/cycle2, empty used Boots/Bomb and no fifth item. This is a controller
+targeting/bound-ordering negative, with no demonstrated runtime defect.
+
+The uninterrupted run's actual manual helper births/carries were:
+
+| Stage | Initial left | Center | Initial top | Width | Actual carries |
+| --- | --- | --- | --- | --- | --- |
+| 1-1 | 1201 | 1217 | 208 | 32 | 71 |
+| 1-1 | 1712 | 1728 | 208 | 32 | 296 |
+| 1-1 | 1767 | 1783 | 208 | 32 | 203 |
+| 1-2 | 113 | 129 | 208 | 32 | 71 |
+
+All are Karnov/raw34 existing Up+Select vertical actors. The different1-2
+left113 here is the actual constructor observation, distinct from the older
+four-item route's left112. No authored placements changed.

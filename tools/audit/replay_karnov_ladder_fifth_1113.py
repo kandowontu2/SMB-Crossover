@@ -113,7 +113,7 @@ def controller(raw):
     return result
 
 
-def run(raw,*,limit=1000,stop_on_stall=False,return_model=False,input_model=None,history=None,checkpoint_x=None,checkpoints=None,checkpoint_pickups=4,stop_on_native_head=False,stop_at_pickups=None):
+def run(raw,*,limit=1000,stop_on_stall=False,return_model=False,input_model=None,history=None,checkpoint_x=None,checkpoints=None,checkpoint_pickups=4,stop_on_native_head=False,stop_at_pickups=None,observer_early_heads=None):
     began=time.perf_counter();bundle=dict(Native.W.Symbols.bundle(),raw=raw)
     if input_model is None:opening,m=Native.C.cold(bundle,dict(name='KARNOV',slot=7,cycle=1,raw=34))
     else:opening,m=dict(genuine_prefix_derived_development_fork=True),input_model
@@ -157,7 +157,11 @@ def run(raw,*,limit=1000,stop_on_stall=False,return_model=False,input_model=None
         active=m.ram[2][0xc0]
         underground=Native.N.get(m,'LevelNumber')==1 and Native.N.get(m,'AreaType')==2 and(Native.Base.player(m)['x']>48 or Native.Base.player(m)['state']==0 and Native.Base.player(m)['y']>=160)
         suffix='\npickups=CPU_FIFTH_HISTORY;armed='+str(retired or active>=128).lower()+';blastSeen='+str(retired or active>=129).lower()+';undergroundReady='+str(underground).lower()+';routePhase="travel"\n'
-    lua.execute(text+suffix+'\nKARNOV_FIFTH_CPU_STATE=function()return stockFifth end\n');parent=Native.N.NesMPU
+    if observer_early_heads:
+        assert history and all(h['tile']==193 and h['native_pad']&128 for h in observer_early_heads)
+        lua.globals().CPU_EARLY_HEAD_HISTORY=to_lua(observer_early_heads)
+        suffix+='\nearly.heads=CPU_EARLY_HEAD_HISTORY\n'
+    lua.execute(text+suffix+'\nKARNOV_FIFTH_CPU_STATE=function()return stockFifth end\nKARNOV_FIFTH_CPU_HELPERS=function()return helpers end\nKARNOV_FIFTH_CPU_BOOTS=function()return bootsUsed end\n');parent=Native.N.NesMPU
     class Observed(parent):
         def step(self):
             context['cpu']=self
@@ -203,6 +207,8 @@ def run(raw,*,limit=1000,stop_on_stall=False,return_model=False,input_model=None
             cycle=m.ram[2][0x860],selected=m.ram[2][0x8e],owned=m.ram[2][0x8f],
             boots=m.ram[2][0xbd],bomb=m.ram[2][0xbb],scene=m.ram[2][0x5e]),
         fifth=plain(lua.globals().KARNOV_FIFTH_CPU_STATE()),terminal_pad=m.controller_pad,
+        manual_helpers=plain(lua.globals().KARNOV_FIFTH_CPU_HELPERS()),
+        boots_activation=plain(lua.globals().KARNOV_FIFTH_CPU_BOOTS()),
         actors=[Native.Base.actor(m,i)for i in range(6)],
         geometry=[dict(left=x,rows={y:m[Native.W.address(m.bundle,'Block_Buffer_1')+((x//256)%2)*208+((y-32)//16)*16+(x%256)//16]for y in range(112,224,16)})for x in range(max(0,Native.Base.player(m)['x']//16*16-64),Native.Base.player(m)['x']//16*16+193,16)],
         controller_SHA256=sha256(text.encode()).hexdigest(),ROM_SHA256=PIN,
