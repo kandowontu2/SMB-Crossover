@@ -24,6 +24,16 @@ Both lives remain at frame4746. The successful input-poll timing is in
 qualifies this route segment. The complete current stage and natural1UP
 checks continue separately.
 
+The complete run on the same installed `318a0877` subsequently passes at
+frame8823, entering active1-2 at X40/Y48 with status2 and both lives. It
+collects the mushroom, flower and Star and boards all six original pipe
+lifts plus the flower lift. The two late lifts at left X2560 and X2816,
+centers X2576 and X2832, initial top Y192, each construct at relative287
+before the viewport. Their native contacts and departures are recorded.
+Receipt `081b1c56d079d2976086e4d841c54f3d177438d39cc35f581ad4d919778bb06c`
+uses script `22a1ba43bb5b517c15b30843d4527cc3ba2f310c73fd8434daa8dfeda09b49c8`.
+Natural1UP access remains a separate private eighth-platform candidate.
+
 ## November 12 current WWF route recheck
 
 On installed ROM `8fc57b8b4268a47f8a906af8b5813834bbf76ca7376d1d12767d510708da9582`,
