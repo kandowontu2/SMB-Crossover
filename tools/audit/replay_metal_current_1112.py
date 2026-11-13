@@ -46,8 +46,12 @@ ORDINARY
    pad.b=true;pad.a=ticks<35;ticks=ticks+1
    if ticks>=70 then upgradePhase=4;ticks=0 end
   elseif upgradePhase==4 then
-   pad.b=true;pad.a=(ticks%100)<40;ticks=ticks+1
-   if source(0x718)==128 then upgradePhase=5;ticks=0 end
+   pad.b=true;pad.left=x>1180
+   if x<=1180 and r('Player_State')==0 then upgradePhase=6;ticks=0 end
+  elseif upgradePhase==6 then
+   pad.b=true;pad.right=x<1252;pad.a=ticks<40;ticks=ticks+1
+   if source(0x718)==128 then upgradePhase=5;ticks=0
+   elseif ticks>=120 then upgradePhase=4;ticks=0 end
   elseif upgradePhase==5 then
    pad.b=true;ticks=ticks+1
   end
