@@ -20,6 +20,15 @@ Native full1-1/1-2/three-item receipt:
 `4d0e7e4ffbf11b56b4aad0f18d87da629804d00f7993de9499687a8fe96b90e0`.
 See `karnov-scene-delivery-1113.md` for exact verification scope.
 
+A later fourth-pickup diagnostic also summons the same manual actor in
+1-2 at **left X1089, center X1105, initial top Y208, width32**. This is an
+unsuccessful setup: it carries Karnov above the target powerup brick and
+the controller stalls at X1151/Y48 without releasing the item. Receipt
+`a2d7c0656d7b98ffe70562d89ac5426e228e45fd787d6e0bfd14355ccb3fcbc9`
+records both lives/full health and1533 carry updates, not an assisted
+pickup pass. The replacement controller is testing a fresh ground jump;
+this failed manual location is not a new fixed placement or recommendation.
+
 ## November 13 Thomas hidden 1UP access
 
 Thomas now has eight native vertical lifts in World 1-1, all actor `$25`,
