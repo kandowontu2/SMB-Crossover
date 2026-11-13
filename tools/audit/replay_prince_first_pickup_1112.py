@@ -46,7 +46,6 @@ def main():
     if args.flower:
         import replay_prince_native_flag_1111 as Full
         source=Full.controller(cookie,0xd74b,3115,True)
-        source=source.replace('walkers[1].x<=848 and walkers[2].x<=848', 'walkers[1].x<=800 and walkers[2].x<=800')
     begin, end = source.index('local function tick()'), source.index('local function frames(count)')
     original_tick=source[begin:end].replace('local function tick()', 'local function routeTick()',1)
     tick = '''
@@ -214,6 +213,18 @@ end
         begin,end=source.index('local function tick()'),source.index('local function frames(count)')
         original_tick=source[begin:end].replace('local function tick()', 'local function routeTick()',1)
         tick=tick.replace('local itemSeen=false','local collected=false\nlocal flowerSeen=false\nlocal flowerTrace={}\nlocal itemSeen=false')
+        tick=tick.replace('local itemSeen=false', '''local itemSeen=false
+late.hpWrites={}
+emu.addMemoryCallback(guarded(function(address,value)
+  if read(0x6002)==38 and read(0x0f)==8 and value<source(0x6cf) and #late.hpWrites<12 then
+    local cpu=emu.getState()
+    local sp=cpu['cpu.sp']
+    local stack={}
+    for i=1,12 do stack[i]=read(0x100+((sp+i)&255)) end
+    late.hpWrites[#late.hpWrites+1]={pc=cpu['cpu.pc'],value=value,old=source(0x6cf),state=state(),stack=stack,fall=source(0x6c6)}
+  end
+end),emu.callbackType.write,0xc6cf)
+''',1)
         tick=tick.replace('local function tick()\n', '''local function tick()
   if collected then
     if progress:sub(1,7)~='flower-' then routeTick();return end
@@ -258,7 +269,8 @@ end
         route=result['receipt'].get('later_route',{})
         flower=route.get('flower',{})
         flower['trace']=[{'x':r['state']['x'],'y':r['state']['y'],'action':r['state']['action'],'pose':r['state']['pose'],'itemFlag':r['itemFlag'],'kind':r['kind']} for r in flower.get('trace',[])]
-        route.clear();route['flower']=flower
+        hp_writes=route.get('hpWrites',[])
+        route.clear();route['flower']=flower;route['hpWrites']=hp_writes
     print(json.dumps(dict(passed=result['passed'],receipt_SHA256=result['receipt_SHA256'],
                          script_SHA256=result['script_SHA256'],receipt=result['receipt'].get('later_route'),
                          injuries=result['receipt'].get('injuries'),

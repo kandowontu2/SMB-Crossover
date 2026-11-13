@@ -73,3 +73,12 @@ after exact hash checks to free file slots. Their source transforms reconstruct
 them; do not assume the old build paths remain populated. Downloads stayscebb.
 The Prince helper is separately checking whether source opponent import's
 box3-only admission prevents real Goomba box9 from triggering sword draw.
+
+Further route diagnosis confirms original fall damage: live HP write at A291,
+frame4251/X844/Y176, action20/pose106, fall counterC6C6=3, HP5→4 and returnA2C7.
+Receipt `71144165f1c7d1e0662fc7160ec3afe7354c192661345159cda5a4660614b629`.
+The trace also captured two cold-initialization writes; the observer is now
+restricted to active engine8. Changing walker timing to800 still incurred the
+same fall loss and later died; simply walking off instead encountered a Goomba
+at X804. Both experiments were controller changes only and are reverted.
+The natural sword route needs a safe original descent, not a fall-damage bypass.
