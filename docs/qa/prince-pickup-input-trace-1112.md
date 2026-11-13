@@ -191,3 +191,19 @@ natural pickup or default-status claim. Existing Prince pickup source heals
 mushrooms without a PlayerStatus store. Next exercise its actual linked mature
 pickup and re-reveal to determine whether a progression bridge is missing.
 No gameplay edit in this diagnostic.
+
+## Mature pickup confirms the progression gap
+
+Expanded CPU test invokes genuine HuFullBox and PowerUpObjHandler for an
+explicitly staged mature mushroom overlapping Prince (HP4/status0). It heals
+HP4→5 and erases the item, but PlayerStatus remains0. A subsequent genuine
+PwrUpJmp reveals type0 again. This confirms a missing progression update in
+the current linked path; it does not prove natural head/block activation.
+Initial test fixture omitted ScreenRight_X_Pos255 and therefore clipped the
+item's bounding box toFFFFFFFF. Correcting the viewport made the real native
+collision/collector execute; no pickup result was injected.
+
+Next implement a bounded progression bridge after accepted mushroom collection,
+preserving the capped health heal and requiring a separately collected flower
+for the original sword effect. Locate the actual current cold-loaded collector;
+historical C7B5 and staging-C65F assumptions are stale for this packet.
