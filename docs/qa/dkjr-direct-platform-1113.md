@@ -145,6 +145,13 @@ approach_enemy_guard=True)`, Lua
 source session29300 is active. Only ordinary controller choices and new
 read-only events differ; no ROM, source/current/prior state or assertions change.
 
+Session29300 is now terminal **PASS**:8926 logical updates, same4 early pipe
+crossings1096/1649/2042/2953, all later terrain/native flag/castle, active1-2
+40/48/source4/engine8/both lives. Exact6c6 Lua above, receipt digest
+`a342bc5e3c6f699ace2994a92389c0a696276a71282e9e23fe31c8e2e832bc13`.
+The behind-player threat in root's actual native cadence remains separately
+pending physical coverage; this source success does not retag d2a4 as a pass.
+
 `tools/audit/replay_mini_dkjr_direct_1113.py` is a strict read-only factory:
 reverse769→exact14, call root's frozen Mini descending controller (c0e8),
 verify the5120-byte Mini carrier unchanged, replace only the one ROM identity,
@@ -154,7 +161,19 @@ Every call requires the exact frozen c0e8 input hash, making the output binding
 deterministic. The factory launches no emulator and writes no output. Root
 owns the paired physical timing comparison; no new lag result is inferred.
 
-Actual candidate first/full, paired Mini timing and
+Root's actual current3684 Mini baseline91744 passes5279 physical/3495 Main/
+source,3493 eligible/count/input frames, one skipped frame2838 and catch-up2839,
+all3 lifts/all7 obstacles/both lives. Lua
+`a75c8de347f0efb169b41285154061516e2adaabb6cb40b8eaae57fd2ee066ff`, receipt
+`41f0b69116b6341dac3ddfd9b1d30f0b3c965546069ec4e19db50a2ee021eb18`.
+Private769 on exact ca9187 Lua passes root61164 with **exactly the same**
+5279/3495/3493 cadence, one miss2838/catch-up2839 and all helper/terrain/life
+assertions; receipt
+`9b5a494bf7e4c863ca42005a055719082bd889791a44e2b23154c24e84739815`.
+This removes14ae's three additional misses on this route and restores the
+measured current baseline. It is not zero lag or a global performance claim.
+
+Actual candidate first and paired Mini timing now pass. Native full6c6 and
 foreign openings remain required before local delivery. The active1-2 source
 endpoint is still falling40/48, not25 living grounded updates. No native-ready
 or whole-roster completion claim is made.
