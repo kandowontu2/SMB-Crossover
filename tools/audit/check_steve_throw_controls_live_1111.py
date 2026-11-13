@@ -25,7 +25,9 @@ def address(pc):
     raise AssertionError(hex(pc))
 
 
-def proposal(raw, *, graphics=False, flight_storage=False, flight_active=False, combat_storage=False):
+def proposal(raw, *, graphics=False, flight_storage=False, flight_active=False, combat_storage=False, combat_active=False):
+    if combat_active:
+        combat_storage = True
     if combat_storage:
         graphics = flight_storage = flight_active = True
     base, info = Pose.proposal(raw)
@@ -47,7 +49,7 @@ def proposal(raw, *, graphics=False, flight_storage=False, flight_active=False, 
         if combat_storage:
             import link_steve_throw_combat_1112 as Combat
 
-            flight_link, _, _ = Combat.link(link_info)
+            flight_link, _, _ = Combat.link(link_info, active=combat_active)
         else:
             flight_link, _ = Flight.link(link_info)
         fields['SteveThrowReset'] = flight_link['symbols']['SteveThrowReset']
@@ -65,6 +67,9 @@ def proposal(raw, *, graphics=False, flight_storage=False, flight_active=False, 
     bridge = (images['THROW_PLAYER_TICK'] + images['THROW_CONTROL'].ljust(54, b'\xea') +
               images['THROW_TABLE'].ljust(96, b'\xea'))
     assert len(bridge) == 224
+    if combat_active:
+        assert bridge[116:127] == b'\xea'*11
+        bridge = bridge[:116]+flight_link['images']['DEATH_LASER_GATE']+bridge[127:]
     edits, resident_edits = [], []
 
     def edit(pc, old, new):
@@ -75,8 +80,16 @@ def proposal(raw, *, graphics=False, flight_storage=False, flight_active=False, 
 
     old_table = bytes(int(part.strip()) for line in Player.Lift.animation_tables(donor).strip().splitlines()
                       for part in line.partition('.byte ')[2].split(','))
-    edit(table, old_table, images['THROW_PLAYER_BEGIN'].ljust(64, b'\xea'))
-    edit(0xde92, b'\xea'*46, images['THROW_ENTRY'].ljust(46, b'\xea'))
+    begin = images['THROW_PLAYER_BEGIN'].ljust(64, b'\xea')
+    if combat_active:
+        assert begin[58:] == b'\xea'*6
+        begin = begin[:58]+flight_link['images']['DEATH_LASER_NORMAL']
+    edit(table, old_table, begin)
+    entry = images['THROW_ENTRY'].ljust(46, b'\xea')
+    if combat_active:
+        assert len(images['THROW_ENTRY']) == 31 and len(flight_link['images']['DEATH_EARLY']) == 14
+        entry = entry[:31]+flight_link['images']['DEATH_EARLY']+entry[45:]
+    edit(0xde92, b'\xea'*46, entry)
     # These four absolute indexed operands are inside the original decoder.
     start, end = shared['PlayLiftPlayer'], table
     decoder = raw[address(start):address(end)]
@@ -119,7 +132,16 @@ def proposal(raw, *, graphics=False, flight_storage=False, flight_active=False, 
         start, end = shared['SteveCompanionTick'], shared['FirstBotActive']
         region = bytes(raw[address(pc)] for pc in range(start, end))
         assert region.count(needle) == 1
-        edit(start+region.index(needle), needle, jsr('SteveThrowGrant'))
+        replacement = (b'\x4c'+flight_link['symbols']['SteveDeathEarly'].to_bytes(2, 'little')
+                       if combat_active else jsr('SteveThrowGrant'))
+        edit(start+region.index(needle), needle, replacement)
+        if combat_active:
+            start, end = shared['SteveLaserTick'], shared['LaserSaveOrbit']
+            region = bytes(raw[address(pc)] for pc in range(start, end))
+            needle = b'\x20'+shared['SteveLaserBotPose'].to_bytes(2, 'little')
+            assert region.count(needle) == 1
+            edit(start+region.index(needle), needle,
+                 b'\x4c'+flight_link['symbols']['SteveDeathLaserGate'].to_bytes(2, 'little'))
     data, tail, pose_info = core['images']['THROW_DATA'], b'', {}
     extension, funding_edit = None, None
     if flight_storage:
@@ -135,7 +157,7 @@ def proposal(raw, *, graphics=False, flight_storage=False, flight_active=False, 
             flight, _ = Flight.link(info | dict(throw_control_fields=fields, throw_core_link=core))
         payload = flight['images']['THROW_FLIGHT']
         if combat_storage:
-            payload = b''.join(flight['images'][name] for name, _ in Combat.PARTS)
+            payload = b''.join(flight['images'][name] for name in flight['combat_segments'])
         extension = dict(page=304, origin=0xab00, payload=payload)
         pose_info.update(throw_combat_storage=combat_storage, throw_extension_used=len(payload))
         pose_info.update(throw_flight_link=flight, throw_flight_active=flight_active)
@@ -151,6 +173,9 @@ def proposal(raw, *, graphics=False, flight_storage=False, flight_active=False, 
                       worker[draw_at+3:])
         art = Render.Art.plan(recover_parent(raw), donor, pose_worker=worker)
         data += Render.records(art)
+        if combat_active:
+            assert len(data)+0xcd88 == 0xcdf6
+            data += flight_link['images']['DEATH_ALPHA']
         tail = renderer['images']['THROW_POSE_CHR']
         assert len(core['images']['THROW'])+(37 if flight_storage else 36)+0xd800 == renderer['symbols']['SteveThrowPoseChr']
         renderedits = Render.rom_edits(raw, info, worker, renderer)
@@ -168,7 +193,7 @@ def proposal(raw, *, graphics=False, flight_storage=False, flight_active=False, 
     candidate, result = Carrier.mount(raw, info, core['images']['THROW'], data,
                                       pose=True, bridge=bridge, extra_edits=edits, bridge_tail=tail,
                                       extension=extension, funding_edit=funding_edit)
-    return candidate, result | dict(throw_control_link=linked, throw_control_fields=fields,
+    return candidate, result | dict(throw_combat_active=combat_active, throw_control_link=linked, throw_control_fields=fields,
                                     throw_control_parent=info, throw_core_link=core,
                                     throw_control_edits=resident_edits) | pose_info
 
@@ -311,11 +336,12 @@ def main():
     parser.add_argument('--flight', action='store_true')
     parser.add_argument('--combat-storage', action='store_true',
                         help='Load combat leaves with live flight; contact dispatch remains unwired.')
+    parser.add_argument('--combat', action='store_true')
     args = parser.parse_args()
     raw = Live.DONOR.HOST.read_bytes()
     candidate, info = proposal(raw, graphics=args.graphics or args.flight_storage or args.flight,
                                flight_storage=args.flight_storage or args.flight, flight_active=args.flight,
-                               combat_storage=args.combat_storage)
+                               combat_storage=args.combat_storage, combat_active=args.combat)
     if args.cold_only:
         proof = Carrier.cold_controls(raw, info['throw_control_parent'], candidate, info,
                                       info['pose_worker'], info['throw_core_link'], info['throw_control_fields'],

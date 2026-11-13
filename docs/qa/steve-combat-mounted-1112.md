@@ -202,3 +202,35 @@ negative at those entries. Validate every preimage and actual assembled size.
 Keep projectiles alive until the original death timer expiry and preserve the
 death-frame marker through terminal actor zero. Audio and native playthrough
 validation remain pending. Neither test generated output files or captures.
+
+## Contact and fatal update hooks connected
+
+`--combat` now enables the scan inside the real orbit update and installs
+the early grant/fatal dispatcher, Alpha projectile/death tail, and Laser
+pose gate. `--combat-storage` remains the non-dispatch variant. The primary
+row occupies 1,020 bytes. Dispatch occupies the verified padding at DEB1,
+CDF6, C9F4, and the final six bytes of the 64-byte player-begin area.
+The early dispatcher is merged into the existing 46-byte entry replacement,
+avoiding overlapping patch records. Destruction keeps the C0 frame marker
+through terminal actor zero; the following ordinary update clears it and
+retires LaserActive. Surviving receipts clear back to actor 1/3 each update.
+
+Candidate SHA256:
+`be4b9a11c633fa5b064061e8b295402752967c928add5b01048518b798c29aa5`.
+
+- Cold session 78890 passed 78 cuts, eleven faults, 704 declared resident edit
+  bytes, and foreign-owner overwrite/restore.
+- Runtime session 73802 passed eight Alpha/Laser × fatal/surviving × gravity
+  cases through actual companion update and native OAM draw. Fatal cases
+  took 45 updates and 28 visible draws, including a hidden terminal frame
+  and clean next-update retirement. Surviving cases dealt two enemy HP,
+  retained the correct actor ID, and advanced robot cooldown age.
+- Controller session 80919 passed all six launch/recovery/outbound/hidden/
+  homing/reattachment cases and 102 recovery DMA checks with combat enabled.
+
+The runtime test constructs the overlapping enemy and thrown-robot state
+after the earned-robot route; it is not a controller-only battle replay.
+Audio mapping, active-projectile expiry cases, interruption of the newly
+connected dispatch/draw paths, scene transitions, and Mesen validation remain
+before delivery. All runs ended and generated zero files/captures. Downloads
+and Current release remain unchanged.

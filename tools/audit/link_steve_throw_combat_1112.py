@@ -23,7 +23,7 @@ PARTS = (
 )
 
 
-def link(info):
+def link(info, *, active=False):
     fields = info['throw_control_fields'] | info['throw_core_link']['symbols'] | info['laser_fields']
     _, renderer = Render.link(info.get('throw_control_parent', info), chr_origin=0xda72)
     fields.update(renderer['symbols'])
@@ -34,18 +34,45 @@ def link(info):
     fields.update(SteveThrowFrame=0xc978, SteveDeathDraw=0xc979,
                   SteveDeathPolarity=fields['SteveBotRoomPolarity'], SteveBotHP=fields['SteveRobotArrival'],
                   ThrowPoint=3, ThrowLow=7, ThrowHigh=11, ThrowDelta=0x90, ThrowExtent=0x92)
+    parts = PARTS
+    islands = {}
+    if active:
+        raw = Live.DONOR.HOST.read_bytes()
+        start, end = fields['SteveCompanionTick'], fields['FirstBotActive']
+        region = bytes(raw[Controls.address(pc)] for pc in range(start, end))
+        token_call = b'\x20'+fields['SteveTokenTick'].to_bytes(2, 'little')
+        assert region.count(token_call) == 1
+        fields['SteveDeathContinueTick'] = start+region.index(token_call)+3
+        fields['SteveDeathContinueLaser'] = fields['LaserSaveOrbit']-2
+        assert bytes(raw[Controls.address(pc)] for pc in range(fields['SteveDeathContinueLaser'], fields['LaserSaveOrbit'])) == bytes.fromhex('a201')
+        parts += (('DEATH_HEAD', 'steve_robot_death_dispatch_1112.s'),)
+        islands = {'DEATH_EARLY': (0xdeb1, 15), 'DEATH_ALPHA': (0xcdf6, 10),
+                   'DEATH_LASER_GATE': (0xc9f4, 12),
+                   'DEATH_LASER_NORMAL': (fields['LiftSequenceOffsets']+58, 6)}
     source = Live.bindings(fields)+'\n'.join(Death.source(fields) if segment == 'ROBOT_DEATH'
                                            else DeathArt.records_source(Live.DONOR.DONOR.read_bytes()) if segment == 'DEATH_RECORDS'
                                            else (H.ROOT/'tools/reference'/name).read_text()
-                                           for segment, name in PARTS)
+                                           for segment, name in parts)
+    if active:
+        needle = 'SteveThrowOrbit:\n'
+        assert source.count(needle) == 1
+        source = source.replace(needle, needle+'''    jsr SteveThrowScan
+    lda SteveBotActor
+    cmp #$ff
+    bne ThrowSurvivingUpdate
+    lda #$c0
+    sta SteveThrowFrame
+    jmp SteveRobotDeathTick
+ThrowSurvivingUpdate:
+''')
     # First pass obtains exact instruction lengths; second packs all leaves
     # into the authenticated 1KiB row, without changing zero-page selection.
-    layout = {name: (0xa000+index*0x200, 512) for index, (name, _) in enumerate(PARTS)}
+    layout = {name: (0xa000+index*0x200, 512) for index, (name, _) in enumerate(parts)} | islands
     layout['THROW_EMISSION'] = (0xd777, 9)
     first = H.assemble(source, layout)
     cursor = 0xab00
     packed = {}
-    for name, _ in PARTS:
+    for name, _ in parts:
         size = len(first['images'][name])
         packed[name] = cursor, size
         cursor += size
@@ -53,7 +80,9 @@ def link(info):
     record_start, record_size = packed['DEATH_RECORDS']
     assert record_start >> 8 == (record_start+record_size-1) >> 8
     packed['THROW_EMISSION'] = (0xd777, 9)
+    packed.update(islands)
     result = H.assemble(source, packed)
+    result['combat_segments'] = [name for name, _ in parts]
     return result, fields, cursor
 
 
