@@ -55,3 +55,24 @@ those failed the execution bound and were harness failures, not game failures.
 The corrected call explicitly supplies X0, matching the original slot0 ABI.
 No output files were generated. Next investigate reachable block interaction
 with intended climb/reach controls rather than retuning authentic action3.
+
+## Correct approach reaches the block row
+
+The controller now supports bounded runout position, an explicit turn followed
+by idle before a fresh Up press, and a configurable hold. Up+Right directly
+from the left-facing idle merely turns and runs; it is not the climb recipe.
+Turning first at the old position gives X342, too far beneath the row, and
+action14 still fails to climb (receipt e0f339bc8e6b533d65cf40b4fa8e494c2bea07fe8d8a6f957a07a8952f7daebd).
+
+With `--runout-x 360 --face-right --jump-mask 8 --hold-updates 80`, the real
+controller settles X303. Up admits action8, then action10 at age52, with actual
+surface144. Projection becomes negative during the climb; native Y reaches113
+at age94. HP5/two lives remain intact. This confirms the projection handles
+large upward movement in the actual native scene. No item spawns during this
+100-update observation, and the final pose146 is still climbing; that is not
+a completed pickup or completed climb assertion.
+
+Receipt `1049972968656323fa66a6bc38743f20ebd23b36e6d9236185a564a1a18869cc`;
+script `11dee6f0f93d97d25625079df3a07d6d967322dcd6f4ee69d58a0c4a61ca266f`.
+Continue this controller to settled top support, then inspect the existing
+block activation paths without adding a non-original jump-height change.

@@ -11,8 +11,13 @@ OUTPUT = R/'build/prince-first-pickup-1112'
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--jump-mask', type=int, choices=(8, 128, 136), default=8)
+    parser.add_argument('--jump-mask', type=int, choices=(8, 9, 128, 136), default=8)
+    parser.add_argument('--hold-updates', type=int, default=8)
+    parser.add_argument('--face-right', action='store_true')
+    parser.add_argument('--runout-x', type=int, default=400)
     args = parser.parse_args()
+    assert 1 <= args.hold_updates <= 90
+    assert 324 <= args.runout_x <= 400
     assert digest(NIGHTLY) == PIN
     source = PUBLISHED.read_text()
     source = source.replace('a726021676a00802119275ac7f48cce7', 'a72602f65bd78bf89874939486b6742f')
@@ -81,6 +86,18 @@ end
 '''
     tick = tick.replace("switch('pickup-jump',8)",
                         "switch('pickup-jump',%d)" % args.jump_mask)
+    if args.face_right:
+        marker = "    switch('pickup-jump',%d)" % args.jump_mask
+        tick = tick.replace(marker, """    switch('pickup-turn',1)
+  elseif progress=='pickup-turn' then
+    if s.facing==255 then pad=0 end
+    if age>4 and s.facing==255 and s.action==0 and s.mode==0 and s.pose==15 and s.lock==0 then
+      switch('pickup-jump',%d)
+    end""" % args.jump_mask)
+    tick = tick.replace('if age>8 then pad=0 end',
+                        'if age>%d then pad=0 end' % args.hold_updates)
+    tick = tick.replace('s.x>=400', 's.x>=%d' % args.runout_x)
+    tick = tick.replace('s.x<=375', 's.x<=%d' % (args.runout_x-25))
     source = source[:begin]+tick+source[end:]
     OUTPUT.mkdir(exist_ok=True)
     script = OUTPUT/'controller.lua'
