@@ -118,6 +118,16 @@ updates compare player state. The observer checks raw1 writes against complete
 identities and verifies the whole executable at every authenticated Steve
 raw1 entry. Each transition into Steve observes184 authenticated entries.
 
+The delivered Jay head/helper behavior also passes on actual2aa Jay cold
+output. Physical232,234,331,332 equal aa50 byte for byte, and loaded head and
+247-byte helper code match their authoritative recipes. The supplied-model
+QueryVertical test passes1,048 cases,1,848 real queries and80 native head
+effects. All63 reached instruction cuts pass IRQ and lag NMI with minimum
+SP184. Existing helper fixtures pass960 spawn/decline cases, all256 status
+values,10 previous-record parity cases, six full-to-free retries and eight
+reset cases. These helper decision fixtures overlay only the already
+byte-verified helper body. The check makes no authored full-stage claim.
+
 ## Explicit ownership
 
 Root grants are PRG5 BFDF–BFFF33bytes, PRG8 BFE6–BFFF26bytes, CHR8/10/709
