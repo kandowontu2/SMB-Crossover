@@ -16,6 +16,7 @@ local undergroundReady,entryTrace=false,0
 local entryFirst,entryRecent={},{}
 local deathIngress=nil
 local bootsUsed=nil
+local bombProbe={heads={},shots={},frames={},minY=255}
 local function r(n,i)return emu.read(assert(L[n],n)+(i or 0),emu.memType.nesDebug)end
 local function kr(a)return emu.read(2*8192+a,emu.memType.nesWorkRam)end
 local function wx()return r('Player_X_Position')+256*r('Player_PageLoc')end
@@ -29,7 +30,7 @@ local function encode(v)
 end
 local function finish(ok,reason)
  if done then return end;done=true
- print('SMB_NATIVE_RECEIPT '..encode({passed=ok,ROM_SHA256=ROM_SHA,reason=reason,controller_only=true,frames=frame,updates=epoch,pickups=pickups,births=births,scenes=scenes,manual_helpers=helpers,boots_activation=bootsUsed,recent=trace,underground_entry_first=entryFirst,underground_entry_recent=entryRecent,death_ingress=deathIngress,terminal=state(),armed=armed,blast_seen=blastSeen,native_blast_contacts=blastCalls}))
+ print('SMB_NATIVE_RECEIPT '..encode({passed=ok,ROM_SHA256=ROM_SHA,reason=reason,controller_only=true,frames=frame,updates=epoch,pickups=pickups,births=births,scenes=scenes,manual_helpers=helpers,boots_activation=bootsUsed,fourth_probe=bombProbe,recent=trace,underground_entry_first=entryFirst,underground_entry_recent=entryRecent,death_ingress=deathIngress,terminal=state(),armed=armed,blast_seen=blastSeen,native_blast_contacts=blastCalls}))
  emu.stop(ok and 0 or 1)
 end
 local function to(p)
@@ -178,6 +179,20 @@ local function mapped(pc,physical)
  local map=emu.convertAddress(pc)
  return map and map.memType==emu.memType.nesPrgRom and map.address==physical
 end
+local function probe(name,q,limit)
+ local rows=bombProbe[name];rows[#rows+1]=q;if #rows>limit then table.remove(rows,1)end
+end
+emu.addMemoryCallback(function()
+ if not game or #pickups~=3 or r('LevelNumber')~=1 or r('CurrentBankC')~=2 then return end
+ local x=kr(0x850)+256*kr(0x851);if x<1024 or x>1184 then return end
+ local yy=kr(0x853)
+ probe('shots',{frame,epoch,x,yy,tile(x+4,yy+4),kr(0x84f),kr(0x62),kr(0x66),r('SavedJoypadBits')},24)
+end,emu.callbackType.exec,L.KrCombatBlock)
+emu.addMemoryCallback(function()
+ if not game or #pickups~=3 or r('LevelNumber')~=1 or not mapped(L.NativeRarePlayerHeadCollisionCore,HEAD_OFFSET)then return end
+ local cpu=emu.getState()
+ probe('heads',{frame,epoch,cpu['cpu.a'],wx(),r('Player_Y_Position'),r('Player_Y_Speed'),r('R4'),r('MmBlockAttack')},16)
+end,emu.callbackType.exec,L.NativeRarePlayerHeadCollisionCore)
 emu.addMemoryCallback(function()
  if not game or not mapped(L.HandlePowerUpCollision,PICKUP_OFFSET)then return end
  local cpu=emu.getState();local i=cpu['cpu.x'];if i>5 then return end;local a=actor(i)
@@ -234,6 +249,13 @@ emu.addEventCallback(function()
   if routePhase=='travel'and #pickups>=2 and r('GameEngineSubroutine')==8 then if wx()==lastTravelX then travelStall=travelStall+1 else travelStall=0;lastTravelX=wx()end else travelStall=0;lastTravelX=nil end
   if travelStall>240 then finish(false,'travel-stall');return end
   if routePhase=='bomb-bump'and routeAge>480 then finish(false,'fourth-brick-not-revealed');return end
+  if #pickups==3 and routePhase:sub(1,5)=='bomb-'then
+   bombProbe.minY=math.min(bombProbe.minY,r('Player_Y_Position'))
+   if epoch%10==0 then
+    local shots={};for i=0,24,3 do if kr(0x6e+i)&128~=0 then shots[#shots+1]={kr(0x6e+i),kr(0x6f+i),kr(0x70+i)}end end
+    probe('frames',{frame,epoch,wx(),r('Player_Y_Position'),r('Player_Y_Speed'),r('SavedJoypadBits'),kr(0x62),kr(0x66),kr(0x6a),kr(0x6b),r('PlayerFacingDir'),tile(1104,144),tile(1104,128),shots},32)
+   end
+  end
   for i=0,5 do local a=actor(i);if a.flag>0 and a.id==46 and a.kind<2 then
    local last=births[#births];if not last or last.slot~=i or last.collection~=#pickups then a.frame=frame;a.collection=#pickups;births[#births+1]=a end
    if a.state>=128 then births[#births].mature=true end

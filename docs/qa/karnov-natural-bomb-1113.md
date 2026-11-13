@@ -144,6 +144,19 @@ by adjacent masonry. CPU/native timing equivalence is therefore not claimed.
 The next replay adds read-only source projectile/block and native head traces
 before further control changes.
 
+The read-only follow-up controller is prepared, with unchanged controls and
+script `6b90a9c2d516680b5520f42aaa06fa837de6c47290fdf17e3bf2f5cf903dc236`.
+Its final receipt retains bounded native/source frame samples, actual C2
+KrCombatBlock CAF0 projectile contacts and mapped native head-core BE97 calls.
+Samples include actual shot worldX/Y, queried tile, source selector/jump timer,
+native input/facing/DY/R4, lower/upper target cells, active projectile records
+and minimum jumpY. Root has not run this follow-up: its native capture guard
+currently rejects new runs because C: free space is below the existing25GB
+floor. The published nightly and qualified three-pickup replay remain intact.
+No source/game defect beyond the delivered scene reset is asserted from the
+CPU/native fourth-pickup divergence. No CPU process or generated output remains
+active for this source task.
+
 Fourth natural flower/Bomb acquisition and use remain pending. Ladder, Clapper,
 Glasses, Swimming Mask and Shield remain required integrations, along with the
 broader original equipment/audio and roster obligations.

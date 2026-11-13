@@ -95,6 +95,7 @@ def controller(raw, stop_after=0):
         source_text=subprocess.check_output(['git','show',
             'f19ecfb5:tools/reference/karnov_natural_bomb_1113.lua'],cwd=R).decode()
     names = set(re.findall(r"r\('([^']+)'", source_text))
+    names.update(re.findall(r'\bL\.(\w+)',source_text))
     names.update(('Block_Buffer_1', 'HandlePowerUpCollision', 'HandleEnemyFBallCol'))
     labels = {name: W.address(bundle, name) for name in sorted(names)}
     contact = old_controller(raw, 'fixture')
@@ -105,6 +106,8 @@ def controller(raw, stop_after=0):
     at=16+64*8192+0x1ffc
     assert raw[at:at+3] == bytes.fromhex('e88a60')
     pre += f'local MANUAL_CREATED=0xbffc\nlocal MANUAL_OFFSET={at-16}\n'
+    if 'HEAD_OFFSET' in source_text:
+        pre += f'local HEAD_OFFSET={W.location(bundle,"NativeRarePlayerHeadCollisionCore")-16}\n'
     result=pre+source_text
     if stop_after==2 and sha256(raw).hexdigest()==CURRENT:
         assert sha256(result.encode()).hexdigest()=='88ccc41014cea57d2e95e48833f27291f7bf566356481362c4cbbe08b6f0eba4'
