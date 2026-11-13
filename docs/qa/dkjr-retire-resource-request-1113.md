@@ -186,7 +186,8 @@ coordinates are fixture inputs; they are not an extra natural route claim.
 The generic inherited ISR assertion failed immediate map equality at two
 FarCallCommon windows,0166/0175: shadow CurrentBank changes immediately before
 unbanked STA5115. The strictly guarded exception checks the exact6-byte
-`STA CurrentBank; STA $5115` preimage, A==shadow, prior physical-map phase and
+`STA CurrentBank; STA $5115` preimage`8d45018d1551` (CurrentBank0145),
+A==shadow, prior physical-map phase and
 saved stack/NextBank value; all CPU registers/SP, WRAM, scratch and SMC remain
 equal. Only the expected physicalA map may advance early when lagNMI restores
 the shadow. No map is repaired. A post-ISR clone executes the pending real
@@ -223,3 +224,42 @@ guard; canonical receipt
 The next controls-only test identifies the falling ledge Goomba earlier,
 before an ordinary approach jump locks its original horizontal motion. ROM
 bytes remain unchanged. Full-stage/native readiness remains open.
+
+## Known Prince successor and current route scope
+
+`proof_parent` now additionally accepts only exact delivered Prince/Karnov
+`7ef2de351d3a4ae60b3ada2eb1aa56b330873dc106ad43428ec6803bf420d4fc`.
+It verifies `compose_prince_entrance_current_1113.reverse` returns exact526,
+then the existing Karnov inverse returns frozen62. No prior DK API/PIN was
+relaxed. `proposal_current(7ef)` produces private
+`e73b66263a8e150d3d21b801e5a55be1817f86d09639fc428ab809b2518842d9`:
+the same708 owned edits/cookie as2172/f301, with every Prince, Karnov and other
+byte retained. Strict inverse returns exact7ef; zero generated files.
+
+The earlier ledge-wait controller `ec767badb16070075a85eafbcbb660c3da5acb429c9b181248fbb6002d8cea0e`
+fails atMain5012/X1168/Y176: native ground Goomba1181/Y184 contacts DK while
+the controller watches a second, higher Goomba1239/Y120. Original damage
+entry A2DA writes source state5. Canonical CPU receipt
+`fd0e8eda39da5ca0c3e7a18235e6f46f67dd0de56e387ff722d1f5321682821c`.
+This is a retained controller negative, not grounds for changing damage.
+
+`check_dkjr_route_branches_1113.py` clones a complete, genuinely played
+Main4990 prefix (no RAM/enemy/inventory seeds). Twelve controller-only
+branches show a stationary fresh A defeats the approaching ground Goomba;
+four neutral-delay choices retain source health/both lives. The optional
+`stationary_wait=True` controller uses this defense before the higher ledge
+Goomba. On f301 its Lua hash is
+`e756d0a391ae9b65ef06423de43e952040b739e5f93fb2bcaddfa29d396e5316`.
+It passes all opening pipes and both intervening gaps, then remains healthy
+atMain7166/X2126/Y176 on the retained controller assertion
+`No height gained on late riser 1`; canonical CPU receipt
+`0eb1a00af415197122e17973535a32b6adeddf0ae6dfcb8c31234b3a05e37a7a`.
+The C9 runtime page remains immutable. This is **not a full-stage pass**.
+
+The same diagnostic tool's `--riser` clones actual Main7000 atX2127/Y176.
+Twelve fresh-A/hold/direction branches show no height gain and no injury.
+`--riser --retreat` is the next controller/terrain diagnosis, not a qualified
+route. No original jump/body physics, helper positions, retirement predicate
+or ROM bytes have changed during these controller investigations. The extra
+336 helper remains PRIVATE; the delivered thirteen-helper policy remains
+authoritative. Native qualification of the retirement candidate is pending.

@@ -101,9 +101,11 @@ def cold_cases(seed,candidate,info):
                 return value
         m.__class__=Reads;m.read_fault=fault;m.fault_reads=0;m.page_reads=Counter()
         W.clear_logs(m);before=m.ppu_reads;result=N.invoke(m,'CoCold',p=0x21)
+        cold_reads=m.ppu_reads-before
         assert bool(result['P']&1)==(fault is None)
         assert not m.blocked
         if fault is None:
+            assert cold_reads==22550,cold_reads
             assert bytes(m.ram[2][LO:HI])==payload[8192:9216]
             assert bytes(m.ram[2][:LO])==bytes(LO)
             assert bytes(m.ram[3][:0x1fe0])==payload[:0x1fe0]
@@ -131,7 +133,7 @@ def cold_cases(seed,candidate,info):
             assert again['P']&1 and bytes(m.ram[2][LO:HI])==payload[8192:9216]
             assert all(bytes(m.ram[b][0x1fe0:0x1ff0])==cookie for b in(2,3))
         rows.append(dict(fault=fault,accepted=bool(result['P']&1),fault_reads=m.fault_reads,
-            complete_new_page_verify=fault is None,minimum_SP=result['minimum_SP']))
+            complete_new_page_verify=fault is None,PPU_reads=cold_reads,minimum_SP=result['minimum_SP']))
     wrong=0
     for mask,disabled,lag in((24,1,255),(0,0,255),(0,1,0)):
         m=manager(seed);m.ram[2][0x1fe0]=m.ram[3][0x1fe0]=0
@@ -146,7 +148,7 @@ def cold_cases(seed,candidate,info):
         native_ready=False,scope='Actual current CoCold under declared read faults, no emulator qualification claim.')
 
 
-def route(seed,candidate,info,*,full=False,ride_fourth=False,fourth_window=False,ledge_wait=False,roof_trace=False):
+def route(seed,candidate,info,*,full=False,ride_fourth=False,fourth_window=False,ledge_wait=False,stationary_wait=False,roof_trace=False,contact_trace=False):
     m=L.clone(seed);page=bytes(m.ram[2][LO:HI]);counts=Counter();updates=0;trace=[];writers=[]
     previous=None;output=sys.stdout
     source=P.T.payload(candidate)[:8160]
@@ -163,8 +165,9 @@ def route(seed,candidate,info,*,full=False,ride_fourth=False,fourth_window=False
             else:output.write(value)
         def flush(self):output.flush()
     def observe(memory,cpu):
-        if not roof_trace or updates<4200 or cpu.pc not in state_writes or memory.rawtags[1]!=3:return
-        if 930<=B.state(memory)['x']<=1000:
+        if not(roof_trace or contact_trace)or updates<4200 or cpu.pc not in state_writes or memory.rawtags[1]!=3:return
+        player=B.state(memory)['x']
+        if (roof_trace and 930<=player<=1000)or(contact_trace and 1140<=player<=1290):
             if len(writers)>=64:del writers[16]
             writers.append(dict(update=updates,pc=cpu.pc,value=cpu.a,SP=cpu.sp,
                 previous=memory.ram[2][0x6b],fall_start=memory.ram[2][0x76],source_body_y=memory.ram[2][0x210],
@@ -177,7 +180,8 @@ def route(seed,candidate,info,*,full=False,ride_fourth=False,fourth_window=False
         for bank,off,value in memory.ram_writes:
             if bank==2 and LO<=off<HI:counts['lease_writes']+=1
         assert bytes(memory.ram[2][LO:HI])==page
-        if roof_trace and 930<=B.state(memory)['x']<=1000:
+        player=B.state(memory)['x']
+        if (roof_trace and 930<=player<=1000)or(contact_trace and 1140<=player<=1290):
             row=dict(update=updates,**B.state(memory),fall_start=memory.ram[2][0x76],
                 actors=[dict(slot=i,id=N.get(memory,'Enemy_ID',i),state=N.get(memory,'Enemy_State',i),
                     x=N.get(memory,'Enemy_X_Position',i)+256*N.get(memory,'Enemy_PageLoc',i),y=N.get(memory,'Enemy_Y_Position',i),
@@ -187,8 +191,8 @@ def route(seed,candidate,info,*,full=False,ride_fourth=False,fourth_window=False
                 trace.append(row)
         if updates%1000==0:print('DKJR_RETIRE_ROUTE_PROGRESS '+json.dumps(dict(full=full,updates=updates,player=B.state(memory)),separators=(',',':')),flush=True)
     with redirect_stdout(CompactOutput()):result=B.route(m,candidate,12000 if full else 2000,
-        controller_text=P.controller(candidate,full=full,ride_fourth=ride_fourth,fourth_window=fourth_window,ledge_wait=ledge_wait),after_frame=after,
-        observe_extra=observe if roof_trace else None)
+        controller_text=P.controller(candidate,full=full,ride_fourth=ride_fourth,fourth_window=fourth_window,ledge_wait=ledge_wait,stationary_wait=stationary_wait),after_frame=after,
+        observe_extra=observe if(roof_trace or contact_trace)else None)
     assert not counts['lease_writes']
     return dict(passed=result['passed'],logical_updates=result['logical_updates'],final=result['final'],
         controller_SHA256=result['controller_SHA256'],receipt=dict(
@@ -196,7 +200,7 @@ def route(seed,candidate,info,*,full=False,ride_fourth=False,fourth_window=False
             passed=result['receipt']['passed'],reason=result['receipt']['reason'],terminal=result['receipt']['terminal'],
             birth_lefts=sorted(result['receipt'].get('births',{})),carry_lefts=sorted(result['receipt'].get('carries',{}))),
         roof_trace=trace[:8]+trace[-24:]if len(trace)>32 else trace,source_state_writers=writers,immutable_page_runtime_writes=0,
-        full=full,ride_fourth=ride_fourth,fourth_window=fourth_window,ledge_wait=ledge_wait,physical_cadence_claim=False,native_ready=False)
+        full=full,ride_fourth=ride_fourth,fourth_window=fourth_window,ledge_wait=ledge_wait,stationary_wait=stationary_wait,physical_cadence_claim=False,native_ready=False)
 
 
 def header_guards(seed,info):
@@ -412,7 +416,8 @@ def main():
     ap.add_argument('--cold-interrupts',action='store_true')
     ap.add_argument('--ride-fourth',action='store_true');ap.add_argument('--fourth-window',action='store_true')
     ap.add_argument('--ledge-wait',action='store_true')
-    ap.add_argument('--roof-trace',action='store_true');args=ap.parse_args()
+    ap.add_argument('--stationary-wait',action='store_true')
+    ap.add_argument('--roof-trace',action='store_true');ap.add_argument('--contact-trace',action='store_true');args=ap.parse_args()
     raw=B.C.ROM.read_bytes();parent,input_info=P.proof_parent(raw)
     candidate,info=P.proposal_current(raw if args.current else parent)
     assert P.inverse_current(candidate)==(raw if args.current else parent)
@@ -430,7 +435,8 @@ def main():
     if args.interrupts:print('DKJR_RETIRE_LEASE_INTERRUPTS '+json.dumps(interrupts(parent,seed,candidate,info),separators=(',',':')),flush=True)
     if args.first or args.full:
         result=route(seed,candidate,info,full=args.full,ride_fourth=args.ride_fourth,
-            fourth_window=args.fourth_window,ledge_wait=args.ledge_wait,roof_trace=args.roof_trace)
+            fourth_window=args.fourth_window,ledge_wait=args.ledge_wait,stationary_wait=args.stationary_wait,
+            roof_trace=args.roof_trace,contact_trace=args.contact_trace)
         print('DKJR_RETIRE_LEASE_ROUTE '+json.dumps(result,separators=(',',':')),flush=True)
         assert result['passed'],(result['receipt']['canonical_SHA256'],result['receipt']['reason'])
 

@@ -11,13 +11,24 @@ LAYOUT=B.R/'tools/reference/dkjr_retire_layout_1113.s'
 FUNDING=B.R/'tools/reference/dkjr_helper_retire_funding_1113.s'
 GRANT=B.R/'docs/qa/allocations/dkjr-retire-page-1113.json'
 KARNOV_CURRENT='526ef1df172c3172fccbd35aa0471a9ff9a5a256a416acba8f7530d147a5b3f2'
+PRINCE_CURRENT='7ef2de351d3a4ae60b3ada2eb1aa56b330873dc106ad43428ec6803bf420d4fc'
 FIXTURE='2172ef3c3713c13bc8f5152771b88b105dfc3b0eadc3eda365e479b76c8b9e20'
 
 
-@lru_cache(maxsize=2)
+@lru_cache(maxsize=3)
 def proof_parent(raw):
     """Explicit frozen62 normalization; older/future inputs are not inferred."""
     digest=sha256(raw).hexdigest()
+    if digest==PRINCE_CURRENT:
+        import compose_prince_entrance_current_1113 as Prince
+        assert Prince.PIN==PRINCE_CURRENT and Prince.PARENT==KARNOV_CURRENT
+        karnov=Prince.reverse(raw)
+        assert sha256(karnov).hexdigest()==KARNOV_CURRENT
+        parent,_=proof_parent(karnov)
+        return parent,dict(input_SHA256=digest,proof_parent_SHA256=B.STEVE_SUCCESSOR,
+            inverse=['compose_prince_entrance_current_1113.reverse',
+                'compose_karnov_ladder_native_1113.inverse_current'],
+            intermediate_SHA256=KARNOV_CURRENT,ROM_written=False)
     if digest==KARNOV_CURRENT:
         from compose_karnov_ladder_native_1113 import inverse_current
         parent=inverse_current(raw)
@@ -301,7 +312,7 @@ def retirement_fixture(parent):
         lease_granted=False,ROM_written=False,alias_probe_SHA256=alias_info['candidate_SHA256'])
 
 
-def controller(raw,*,full=False,ride_fourth=False,fourth_window=False,ledge_wait=False):
+def controller(raw,*,full=False,ride_fourth=False,fourth_window=False,ledge_wait=False,stationary_wait=False):
     """Same frozen controls; bind only the moved private BOX return label."""
     import replay_dkjr_first_pickup_1113 as Replay
     text=Replay.full_stage_controller(raw)if full else Replay.controller(raw)
@@ -334,11 +345,24 @@ def controller(raw,*,full=False,ride_fourth=False,fourth_window=False,ledge_wait
    end
   end
   if right and grounded''')
+    if stationary_wait:
+        assert ledge_wait
+        text=once(text," if phase=='wait-ledge-goomba'then\n  local slot=ledgeGoomba.slot",''' if phase=='wait-ledge-goomba'then
+  if grounded and y==176 and updates>=rearm then
+   for _,actor in ipairs(approachActors())do
+    local dx=actor[3]-player
+    if (actor[2]==2 or actor[2]==6)and actor[5]&32==0 and actor[4]>=172 and dx>=18 and dx<=24 then
+     hold=updates+8;rearm=updates+47;remember('stationary-Goomba-hop');break
+    end
+   end
+  end
+  local slot=ledgeGoomba.slot''')
+        text=once(text,'updates-ledgeGoomba.started<110','updates-ledgeGoomba.started<160')
     return text
 
 
 def proposal_current(raw):
-    """Granted page, exact known62/526 byte-disjoint in-memory composition."""
+    """Granted page, exact known62/526/7ef byte-disjoint composition."""
     parent,input_info=proof_parent(raw);grant=json.loads(GRANT.read_text())
     assert grant['reviewed_parent_ROM_SHA256']==B.STEVE_SUCCESSOR
     assert grant['reviewed_in_memory_fixture_SHA256']==FIXTURE
