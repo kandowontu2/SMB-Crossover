@@ -29,3 +29,24 @@ instruction oracle, not a host placement, full animation, interrupt, physical
 gameplay or delivery claim. The12-byte save still needs a qualified source
 location, correct once-before-animation scheduling, complete identities and
 full lifecycle/native verification.
+
+## Independent check of the private split implementation
+
+The same checker with `--split-candidate` independently composes private
+`209abc2fd6144d59720e54352ed6f9f7384e2fa9ede0fbb1fb37f9e02d385008`
+from public62 and reverses it exactly. Only the declared24-byte decoded
+runtime envelopes change; both other decoded streams and all decoded lengths
+remain exact. The packed runtime uses6441/6528 staging bytes, leaving87;
+aggregate packet spare is702 bytes. No ROM file is written.
+
+All65536 source words pass through the actual proposed phase0 instruction
+sequence B396→A4C4→A970→AC3F, stopping at the original AdvanceActor entry.
+Seven instructions perform the save. Cached word and A/P match the donor
+save, X/Y remain exact, and the original pending JSR stack/return address
+(SP222, returnB398) is retained. The ordinary A4C1 material path instead
+jumps directly to A4CD, preserving all state and A/X/Y/P/SP for all256 incoming
+flag patterns. A96D's terminal jump and the public A979 RTS remain unchanged.
+
+These are declared flat reference-machine fixtures using the actual candidate
+instructions. Main scheduling, cold authentication, full sword combat,
+interrupts, native gameplay and installation remain separate gates.

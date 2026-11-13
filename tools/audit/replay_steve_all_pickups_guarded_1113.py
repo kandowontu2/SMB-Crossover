@@ -15,7 +15,8 @@ import steve_armor_idle_1113 as Idle
 ORIGINAL = '1869b7a86f51e29fe423e27ef9916ecbafa249e9b0a32d3dfff7d211687a5e05'
 
 
-def controller(raw, *, defend=False):
+def controller(raw, *, defend=False, clear_path=False):
+    assert not(defend and clear_path)
     text = S.controller(raw)
     assert sha256(text.encode()).hexdigest() == ORIGINAL
     bundle = S.W.Symbols.bundle()
@@ -105,20 +106,76 @@ end),emu.callbackType.write,guardFields.NumberofLives)
         # horizon, not a change to item speed, hitboxes or collection criteria.
         change("assert(age<180,'Native moving-item chase bound')",
                "assert(age<600,'Native moving-item chase bound')")
+    if clear_path:
+        change('defenseUpdates=0}', 'defenseUpdates=0,pathCombat={}}')
+        change('"chased_actor":%s}', '"chased_actor":%s,"path_combat":[%s]}')
+        change('natural.actorReport or "null"))',
+               'natural.actorReport or "null",table.concat(natural.pathCombat,",")))')
+        change('local function naturalTick()', '''
+-- Clear approaching ground enemies before releasing the moving Star. The
+-- earlier stationary-defense experiment waited until the Star was escaping.
+-- These are ordinary neutral/fresh-B inputs, not changes to NPC or shot data.
+local function clearStarPath()
+  if natural.index~=4 then return false end
+  local combat=natural.pathGuard
+  if not combat then
+    if x()<1430 or x()>=natural.target or read(0xbd)~=176 or read(0x1e)~=0 then return false end
+    local nearest=73
+    for slot=0,5 do
+      local flag,id=read(pickupFields.Enemy_Flag+slot),read(pickupFields.Enemy_ID+slot)
+      local dx=read(pickupFields.Enemy_X_Position+slot)+256*read(pickupFields.Enemy_PageLoc+slot)-x()
+      if flag>0 and flag<128 and id<12 and read(pickupFields.Enemy_State+slot)&32==0
+        and read(guardFields.Enemy_Y_HighPos+slot)==1 and dx>0 and dx<nearest
+        and math.abs(read(pickupFields.Enemy_Y_Position+slot)-read(0xbd))<=16 then
+        nearest=dx
+        combat={slot=slot,id=id,start=projections,initialX=x(),strike=nil}
+      end
+    end
+    if not combat then return false end
+    natural.pathGuard=combat
+    pad=0
+  end
+  local slot=combat.slot
+  local flag,state=read(pickupFields.Enemy_Flag+slot),read(pickupFields.Enemy_State+slot)
+  assert(flag>0 and read(pickupFields.Enemy_ID+slot)==combat.id,'Tracked path enemy retained until native defeat')
+  if state&32~=0 then
+    assert(read(pickupFields.FloateyNum_Control+slot)>0,'Path punch native defeat and score')
+    natural.pathCombat[#natural.pathCombat+1]=string.format(
+      '{"slot":%d,"id":%d,"start":%d,"defeat":%d,"player_x":%d,"enemy_x":%d,"health":%d,"lives":%d}',
+      slot,combat.id,combat.start,projections,x(),
+      read(pickupFields.Enemy_X_Position+slot)+256*read(pickupFields.Enemy_PageLoc+slot),
+      read(0x5f30),read(guardFields.NumberofLives))
+    natural.pathGuard=nil
+    beginFull()
+    return true
+  end
+  assert(projections-combat.start<220,'Ordinary path-punch encounter bound')
+  local gap=read(pickupFields.Enemy_X_Position+slot)+256*read(pickupFields.Enemy_PageLoc+slot)-x()
+  if projections-combat.start<6 or gap>32 then pad=0
+  else
+    if not combat.strike then combat.strike=projections end
+    pad=(projections-combat.strike)%20<10 and 64 or 0
+  end
+  return true
+end
+
+local function naturalTick()''')
+        change("  elseif phase=='natural-traverse'then\n",
+               "  elseif phase=='natural-traverse'then\n    if clearStarPath()then return end\n")
     assert 'emu.write' not in text and 'emu.setState' not in text
     from check_ff_stdout_controller_source_1110 import LuaRuntime
     LuaRuntime().compile(text)
     return text
 
 
-def source_check(raw, *, defend=False):
-    text = controller(raw,defend=defend)
+def source_check(raw, *, defend=False, clear_path=False):
+    text = controller(raw,defend=defend,clear_path=clear_path)
     image,info = Idle.proposal(Idle.reverse(raw))
     assert image == raw
     with patch.object(S.Natural,'controller',lambda _raw,_info:text):
         result = S.Natural.controller_cpu(image,info,limit=3000)
     result.update(original_controller_SHA256=ORIGINAL,defensive_controls=defend,
-                  ROM_changes=0,state_seeds=0)
+                  clear_path_controls=clear_path,ROM_changes=0,state_seeds=0)
     return result
 
 
@@ -127,6 +184,7 @@ if __name__ == '__main__':
     modes = parser.add_mutually_exclusive_group()
     modes.add_argument('--observe-only',action='store_true',help='Observe the frozen controls (default).')
     modes.add_argument('--defend',action='store_true',help='Experimental stationary defense; frozen negative, not a qualified replay.')
+    modes.add_argument('--clear-star-path',action='store_true',help='Use ordinary punches before releasing the Star.')
     args = parser.parse_args()
     raw = S.Native.Live.Art.D.HOST.read_bytes()
-    print(json.dumps(source_check(raw,defend=args.defend),sort_keys=True),flush=True)
+    print(json.dumps(source_check(raw,defend=args.defend,clear_path=args.clear_star_path),sort_keys=True),flush=True)

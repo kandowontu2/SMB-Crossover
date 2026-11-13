@@ -47,3 +47,27 @@ the actual life/death sequence before choosing controls or considering a game
 repair. The existing25GB free-space guard currently prevents that run; the
 guard was not reduced. Previous public62 native full1-1 and two-Alpha checks
 remain valid in their recorded scope.
+
+## Physical observation after disk space was freed
+
+The actual Downloads12a observation-only replay now establishes the failure:
+Steve dies before collecting the Star. At3795 physical frames/1934 projections,
+the guard catches the life decrement before it is mistaken for item erasure.
+There are real injuries at X1212 during the second Alpha approach and X1520
+during traversal; KillPlayer then runs at X1618/HP0 against a grounded Koopa
+while the mature Star is still alive at X1637/Y81. All three previous native
+collections remain verified. The actual RMW bus trace includes old/new writes
+2/3 for INC and3/2 for DEC; these are not extra life grants. Receipt SHA256
+`15b9dde8fda5003776fb896e7074dc2c0c02b3d6bb36129c1780f69bbdcc1e51`.
+No Star implementation defect is demonstrated by this run.
+
+A controls-only `--clear-star-path` experiment punches the two approach
+Goombas before releasing the Star. Both native defeats and scores occur at
+projections1790/1838,HP4/lives3. It still fails: Koopa contact at X1619 and
+later Goomba contact at X1771 exhaust health before the ground chase can
+collect the Star. The Star remains active at X1789/Y149. Lua SHA256
+`cb16d9c4f9b0bcfacdecde6a3a813ed173d1e9a7152fb496eaf354ecda5b4609`,
+receipt`2bb01dcdddf37db3be50e364c42edfd73ab1b32940d249ef34d20f53c88ea0b7`.
+This is retained as a failed controller experiment, not a ROM change or a
+powerup pass. Both runs retained the shared emulator queue and capture
+watchdog and wrote zero capture files.

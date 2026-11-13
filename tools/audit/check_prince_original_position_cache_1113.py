@@ -1,5 +1,6 @@
 """Independent donor save/restore oracle; no host game-state or ROM writes."""
 from hashlib import sha256
+import argparse
 import json
 from pathlib import Path
 import sys
@@ -65,5 +66,60 @@ def check():
         scope='Four actual donor save instructions and four actual donor restore instructions in a flat CPU oracle. This qualifies the proposed12-byte relocated save semantics, not placement, Main scheduling, interrupts or gameplay.')
 
 
+def split_check():
+    import prince_draw_cache_1113 as Fix
+    parent=(R.parent.parent.parent/'Downloads/SMB-Crossover-Latest-WIP-MMC5.nes').read_bytes()
+    assert sha256(parent).hexdigest()==Fix.PARENT
+    candidate,info=Fix.proposal(parent)
+    assert sha256(candidate).hexdigest()=='209abc2fd6144d59720e54352ed6f9f7384e2fa9ede0fbb1fb37f9e02d385008'
+    assert Fix.reverse(candidate)==parent
+    _,before,_=Fix.Packet.extract(parent)
+    _,after,_=Fix.Packet.extract(candidate)
+    assert tuple(map(len,before))==tuple(map(len,after))
+    assert before[1:]==after[1:]
+    allowed={pc-0xa000+i for pc,old,new in Fix.EDITS for i in range(len(old))}
+    assert len(allowed)==24
+    assert all(a==b or i in allowed for i,(a,b) in enumerate(zip(before[0],after[0])))
+    memory=bytearray(65536)
+    memory[0xa000:0xa000+len(after[0])]=after[0]
+    cpu=NesMPU(memory=memory,pc=0xb396)
+    maximum_steps=0
+    for value in range(65536):
+        lo,hi=value&255,value>>8
+        flags=(lo^hi)&255
+        memory[0xc60f:0xc611]=value.to_bytes(2,'little')
+        memory[0xc4db:0xc4dd]=(value^65535).to_bytes(2,'little')
+        cpu.a,cpu.x,cpu.y,cpu.p,cpu.sp,cpu.pc=85,lo,hi,flags,224,0xb396
+        for steps in range(12):
+            if cpu.pc==0xac3f:break
+            cpu.step()
+        else:raise AssertionError(('Split cache did not reach original AdvanceActor',value,hex(cpu.pc)))
+        maximum_steps=max(maximum_steps,steps)
+        assert memory[0xc4db:0xc4dd]==value.to_bytes(2,'little')
+        expected_flags=(flags&~130)|(128 if hi&128 else 0)|(2 if hi==0 else 0)
+        assert (cpu.a,cpu.x,cpu.y,cpu.p,cpu.sp)==(hi,lo,hi,expected_flags,222)
+        assert memory[0x1df:0x1e1]==bytes.fromhex('98b3')
+    ordinary=0
+    for flags in range(256):
+        state=bytes(memory[0xc000:0xc800])
+        cpu.a,cpu.x,cpu.y,cpu.p,cpu.sp,cpu.pc=85,71,109,flags,224,0xa4c1
+        cpu.step()
+        assert (cpu.pc,cpu.a,cpu.x,cpu.y,cpu.p,cpu.sp)==(0xa4cd,85,71,109,flags,224)
+        assert bytes(memory[0xc000:0xc800])==state
+        ordinary+=1
+    return dict(passed=True,parent_SHA256=sha256(parent).hexdigest(),
+        candidate_SHA256=sha256(candidate).hexdigest(),exact_inverse=True,
+        decoded_runtime_edit_envelope=24,other_decoded_streams_exact=True,
+        all_16bit_split_entry_cases=65536,maximum_split_instructions=maximum_steps,
+        phase0_JSR_return_address_and_stack_retained=True,
+        ordinary_material_bypass_flag_cases=ordinary,ordinary_bypass_state_exact=True,
+        packed_runtime_bytes=info['packed_bytes'][0],staging_spare=6528-info['packed_bytes'][0],
+        aggregate_packed_spare=info['spare'],ROM_files_written=0,host_gameplay_state_writes=0,
+        Mesen_run=False,scope='Actual proposed decoded instructions in declared flat reference CPU fixtures, stopping at original AdvanceActor. Not a full Main, cold, interrupt or physical gameplay qualification.')
+
+
 if __name__=='__main__':
-    print(json.dumps(check(),sort_keys=True),flush=True)
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--split-candidate',action='store_true')
+    args=parser.parse_args()
+    print(json.dumps(split_check() if args.split_candidate else check(),sort_keys=True),flush=True)
