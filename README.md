@@ -136,26 +136,6 @@ Requires **Python 3.10+** and **cc65**. Windows compiler tools are included. On 
 
 The prepared build uses repository assets and does not require downloading original ROMs or research archives. Asset regeneration and research tools have additional dependencies; see the [architecture and provenance notes](docs/architecture.md).
 
-<details>
-<summary>Compiler overrides and other targets</summary>
-
-Use a different compiler:
-
-```sh
-python tools/build_mmc5_expanded.py --compiler /path/to/cl65
-```
-
-Build the smaller standard targets after audio preparation:
-
-```sh
-python tools/build_mmc5_expanded.py --flag-off mmc3 --output build/smb-crossover-mmc3.nes
-python tools/build_mmc5_expanded.py --flag-off mmc5 --output build/smb-crossover-mmc5.nes
-```
-
-The experimental oversized builder is `tools/build_mmc3_oversized.py`. It requires a freshly built expanded MMC5 ROM as its graphics reference.
-
-</details>
-
 ## Controls
 
 | Action | Controls |
