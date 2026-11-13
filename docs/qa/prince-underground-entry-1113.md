@@ -127,3 +127,33 @@ That separate combined build includes the current Karnov update and cache209;
 it is not a physical test of bare309, an earned-sword whole-stage route, or
 a delivery claim. Root's combat and foreign physical regressions remain
 separate gates.
+
+## Render diagnosis after the functional gate
+
+The read-only actual-cold directed probe
+`check_prince_entry_render_1113.py` confirms zero player-body emission while
+source pose0/epoch0 is retained during the native drop. It does not seed
+those source fields, health or actor state. At directed native Y96 and160,
+the actual graphics handler clears ObjectMetasprite; the current private
+GraphicsCheck points SmPosePtr at the zero header SmPose6B05. PpHostDraw
+returns C0 with unchanged OAM, and the native zero-header emitter also emits
+nothing. The current pointer differs from the historical06E1 recipe; the
+probe authenticates the actual runtime instead. Receipt:
+`23d0cecc90a3f5e77198fdbe197c681c395122d672bdfe8c778fd5594af741a4`.
+
+Root's separate actual7ef shots at engine7 Y99/Y163 confirm the invisible
+drop, receipt
+`252f9d60df0be361de719f91dff44bbf724798f6679fa9c022f3681f597991dd`.
+A settled phase4/pose15 snapshot emits five Prince OAM cells but its body
+region is black. That is a second unresolved visual issue; root is checking
+later palette/CHR data before selecting a repair. Neither309 nor7ef is
+called visually qualified or ready for delivery.
+
+There is an exact original fall-art witness for a later render-only fix:
+root's public62 cause trace sees action7/pose106 while the native drop passes
+Y96 and160. Current pose106 is a five-part original8x16 packet with source
+projection delta5. A faithful native projection would use horizontal anchor
+native world X minus screen-left plus8, and vertical anchor native Y+27.
+This does not justify priming C617, advancing source physics, or modifying
+health/fall counters. No render repair has been implemented in this
+checkpoint, and the frozen309/7ef image bytes remain unchanged.
