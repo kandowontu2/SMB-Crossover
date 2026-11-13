@@ -15,7 +15,7 @@ def controller(raw, mode, head_trace=False):
     text = original.read_text(encoding='utf-8')
     if mode == 'upgrades':
         text = text.replace('local route,ticks,initialLives=0,0,nil',
-            'local route,ticks,initialLives=0,0,nil\nlocal upgradePhase=0\nlocal upgradeBirths={}\nlocal upgradedShot=false')
+            'local route,ticks,initialLives=0,0,nil\nlocal upgradePhase=0\nlocal upgradeBirths={}\nlocal upgradedShot=false\nlocal pickupTrace={}')
         start = text.index(" if phase=='play' then\n")
         end = text.index(' emu.setInput(pad,0)',start)
         ordinary = text[start+len(" if phase=='play' then\n"):end]
@@ -62,6 +62,7 @@ ORDINARY
     local kind=r('PowerUpType',slot)
     upgradeBirths[kind+1]=upgradeBirths[kind+1] or {kind=kind,x=r('Enemy_X_Position',slot)+256*r('Enemy_PageLoc',slot),frame=frame,mature=false}
     if r('Enemy_State',slot)>=128 then upgradeBirths[kind+1].mature=true end
+    if frame%20==0 and #pickupTrace<60 then pickupTrace[#pickupTrace+1]={frame=frame,phase=upgradePhase,playerX=worldx(),playerY=r('Player_Y_Position'),itemX=r('Enemy_X_Position',slot)+256*r('Enemy_PageLoc',slot),itemY=r('Enemy_Y_Position',slot),state=r('Enemy_State',slot),kind=kind} end
    end
   end
   for slot=2,3 do
@@ -178,8 +179,30 @@ end
     text = text.replace(old,new)
     if mode == 'upgrades':
         text=text.replace(" print('SMB_NATIVE_RECEIPT '..encode(receipt))",
-            " receipt.upgradePhase=upgradePhase;receipt.upgradeBirths=upgradeBirths;receipt.upgradedShot=upgradedShot\n print('SMB_NATIVE_RECEIPT '..encode(receipt))")
+            " receipt.upgradePhase=upgradePhase;receipt.upgradeBirths=upgradeBirths;receipt.upgradedShot=upgradedShot;receipt.pickupTrace=pickupTrace\n print('SMB_NATIVE_RECEIPT '..encode(receipt))")
     if head_trace:
+        entries=[]
+        for name in ('NrPickupCollision','PlayerEnemyCollision','PlayerCollisionCore'):
+            entries.append('{"'+name+'",'+str(Native.N.address(bundle,name))+','+str(Native.N.location(bundle,name)-16)+'}')
+        prefix += '''local pickupCalls={}
+local function pickupCall(label)
+ local ix=5
+ local px=debugRead(0x75)+256*debugRead(0x5c)
+ local ex=debugRead(L.Enemy_X_Position+ix)+256*debugRead(L.Enemy_PageLoc+ix)
+ if debugRead(0x6002)~=35 or debugRead(L.Enemy_ID+ix)~=46 or debugRead(L.Enemy_State+ix)<128 or math.abs(px-ex)>12 or debugRead(L.Enemy_Y_Position+ix)<180 or #pickupCalls>=24 then return end
+ local cpu=emu.getState()
+ local boxes={}
+ for i=0,3 do boxes[i+1]=debugRead(0x658+i);boxes[i+5]=debugRead(0x658+24+i) end
+ pickupCalls[#pickupCalls+1]={label=label,x=px,itemX=ex,y=debugRead(0xbd),a=cpu['cpu.a'],ix=cpu['cpu.x'],iy=cpu['cpu.y'],p=cpu['cpu.ps'],offscreen=debugRead(0x5a8+ix),playerBox=debugRead(0x645),boxes=boxes}
+end
+for _,entry in ipairs({ENTRIES}) do
+ local name,pc,offset=entry[1],entry[2],entry[3]
+ emu.addMemoryCallback(function()
+  local map=emu.convertAddress(pc)
+  if map and map.memType==emu.memType.nesPrgRom and map.address==offset then pickupCall(name) end
+ end,emu.callbackType.exec,pc)
+end
+'''.replace('ENTRIES',','.join(entries))
         prefix += '''local headBridge={}
 local function bridgeEvent(label,value)
  local x=debugRead(0x75)+256*debugRead(0x5c)
@@ -204,7 +227,7 @@ end,emu.callbackType.write,0xc880)
 '''
         prefix += f'L.FrameCounter={Native.N.address(bundle,"FrameCounter")}\n'
         text = text.replace(" print('SMB_NATIVE_RECEIPT '..encode(receipt))",
-                            " receipt.headBridge=headBridge\n print('SMB_NATIVE_RECEIPT '..encode(receipt))")
+                            " receipt.headBridge=headBridge;receipt.pickupCalls=pickupCalls\n print('SMB_NATIVE_RECEIPT '..encode(receipt))")
     assert 'io.' not in text
     return prefix+text
 
