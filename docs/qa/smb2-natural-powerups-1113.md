@@ -83,8 +83,14 @@ Root independently ran actual Downloads7ef with frozen controllers:
 
 Native Imajin: injury177, actual C1 head257 at329/150, kind0 birth258 at336/135,
 mature406/184 collector443 atplayer396/176, source HP47/max1, native erasure,
-sound32/popup6 and60 resumed updates. Native remaining identities are pending
-root's separate serial run at this checkpoint. No new helper platform exists.
+sound32/popup6 and60 resumed updates. Root's subsequent serial run4811 passed
+all remaining identities on actual Downloads7ef. All8 native physical/all-Main
+counts are Mario874/534, Luigi904/541, Toad899/537, Peach920/537, Imajin906/503,
+Lina916/508, Papa951/522 and Mama954/526. Actual pickup Main indices are
+474/481/477/477 for USA0..3 and443/448/462/466 for Doki4..7. Each confirms real
+injury, C1, mature kind0, HP47/max1, erase/sound32/popup6, both lives and60 resumed
+updates. Root retains the aggregate native receipt/hashes separately. No new
+helper platform exists.
 
 Reproduce CPU decisions without outputs:
 
