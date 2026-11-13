@@ -1,0 +1,72 @@
+{
+  "owner": "DK Jr native descending-platform footer sampling",
+  "status": "conditionally reserved for private implementation and qualification; not native-ready",
+  "request": "docs/qa/dkjr-platform-contact-1113.md",
+  "extends": "docs/qa/allocations/dkjr-retire-page-1113.json",
+  "reviewed_public_ROM_SHA256": "7ef2de351d3a4ae60b3ada2eb1aa56b330873dc106ad43428ec6803bf420d4fc",
+  "reviewed_private_ROM_SHA256": "e73b66263a8e150d3d21b801e5a55be1817f86d09639fc428ab809b2518842d9",
+  "native_resources": [
+    {
+      "name": "NATIVE",
+      "physical_PRG": 0,
+      "CPU_start": "B98E",
+      "CPU_end_inclusive": "B9B9",
+      "bytes": 44,
+      "file_offset": 6558,
+      "preimage_hex": "8d6a01082007b79006d004284c53b428a95c20abb92053b48d6a01a9838d6c01a9bf8d6d01a9ba4c5a01eaea"
+    },
+    {
+      "name": "RESTORE",
+      "physical_PRG": 0,
+      "CPU_start": "B707",
+      "CPU_end_inclusive": "B711",
+      "bytes": 11,
+      "file_offset": 5911,
+      "preimage_hex": "ad0260c90bad4a0760eaea"
+    },
+    {
+      "name": "GENERIC_A",
+      "physical_PRG": 58,
+      "CPU_start": "BD5B",
+      "CPU_end_inclusive": "BD74",
+      "bytes": 26,
+      "file_offset": 482667,
+      "preimage_hex": "eaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaea",
+      "source_funding": "Z2LegacyPlatformPrepare original 125-byte source extent; exact current live prefix 99 bytes. Explicit source compaction pads back to the original extent."
+    },
+    {
+      "name": "GENERIC_B",
+      "physical_PRG": 58,
+      "CPU_start": "BDD5",
+      "CPU_end_inclusive": "BDEE",
+      "bytes": 26,
+      "file_offset": 482789,
+      "preimage_hex": "eaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaea",
+      "source_funding": "Z2LegacyPlatformFinish original 122-byte source extent; exact current live prefix 96 bytes. Explicit source compaction pads back to the original extent."
+    }
+  ],
+  "root_independent_review": {
+    "bounded_output_root": "build/metal-flower-native-1112",
+    "outputs_written": 0,
+    "funding_auditor_SHA256": "f3b12b3f13b9d3dd62d6bbc2bd868d7b0ad9c6da95968c6f7241a78788997e20",
+    "proposed_assembly_SHA256": "4093022cb9cd8573f0cf01ed39cab7851e3b645f61d8ba7b0753cf8769525b5e",
+    "exact_preimages_equal_on_public_and_private": true,
+    "old_source_and_current_compaction_reproduced": true,
+    "same_bank_direct_targets_and_standard_native_farcall_tuple_census": true,
+    "proposed_fits": {"NATIVE": 42, "RESTORE": 8, "GENERIC_A": 21, "GENERIC_B": 24},
+    "sole_native_dispatch_caller": "PRG0 B43F in RunLargePlatform",
+    "actual_native_candidate_run": false
+  },
+  "conditions": [
+    "Only the four named spans are reserved. No neighboring padding, RAM, CHR, donor code, source motor, body rectangle, helper placement, fall threshold or cache may be changed by this grant.",
+    "Keep the existing Prepare/Finish live prefixes and BF5C/BF83 wrappers byte-exact. Preserve exact other public bytes and compose explicitly over e73 with strict inverse reconstruction of both e73 and public7ef.",
+    "Qualify incoming LargePlatformCollision A/P liveness as well as the actual caller suffix. Verify all-footer clipping, hidden/offscreen bodies, original jump exits, descending contact, genuine gaps and high-fall injury.",
+    "Prove actual foreign complete-Main observable equivalence, exact returned X/Y/SP and mapping/SMC/VRAM/CHR restoration. Any stack or scratch exclusions require explicit reader-before-write liveness proof; broad masks are not accepted.",
+    "Measure the extra foreign fast-path farcall cost before adoption. Mini Mario must retain his previously verified zero-lag ordinary1-1 behavior. Check relevant Ryu/ZeldaII/FF/Jay/Thomas platform paths and refine the layout if foreign performance regresses materially. No unqualified extra native bytes are implied.",
+    "Cut IRQ and actual rendered busy NMI at every new instruction and hook, including nested bank transport and the saved footer on the hardware stack; exercise genuine complete Main resumption.",
+    "Root retains the single Mesen queue. Natural first mushroom and full1-1 must pass together, followed by actual Downloads-context verification and an independently reconstructed sole Current/Latest IPS, before delivery. This reservation does not publish or enable a private candidate."
+  ],
+  "new_RAM_bytes": 0,
+  "new_CHR_bytes": 0,
+  "feature_enabled_or_delivered": false
+}
