@@ -206,7 +206,7 @@ on it at X1393 and reaches the far side at X1425/Y176.
 PRIVATE / UNRELEASED November13 DK Jr. first-pickup proposal: the public
 thirteen placements above remain authoritative. This additional helper has
 passed the first mushroom route; the full-stage successor remains under
-qualification. It is not installed in current publicf88 (whose DK bytes retain the
+qualification. It is not installed in current public3684 (whose DK bytes retain the
 thirteen public placements from62).
 
 | Character/alternate | Stage | World left X | Center X | Initial top Y | Collision width | Visual width | Status |
@@ -233,6 +233,10 @@ pending; this does not promote336 to a public placement.
 
 The [SMB2 preview update](smb2-menu-tier-isolation-1110.md) changes menu
 power state and uses no new helper platforms.
+The delivered November13 `3684` nightly additionally verifies full1-1 for all
+eight SMB2/Doki variants—Mario, Luigi, Toad, Peach, Imajin, Lina, Papa and Mama—
+with **zero helper actors**. No helper coordinates, placements or spawn rules
+are added for these variants. [Exact native delivery scope](smb2-foreground-delivery-1113.md).
 Prince of Persia (Excitebike Select 1) clears four authored pipes and the first
 two gaps in 1-1 with his original jump and climb. This route uses zero helper
 platforms. [Prince delivery](prince-native-pipe-gap-delivery-1110.md)

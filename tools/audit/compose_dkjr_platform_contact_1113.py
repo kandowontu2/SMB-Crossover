@@ -14,11 +14,18 @@ PRE_BALANCE_PROPOSAL='a34528084135c5dcddd348265ea45e556400d8ae37979d16f78c777130
 PIN='b420e2bee469be38250b24b9925b94e1b56935247f0636384a4fb0c1a49ca45b'
 ENTRY=0xb98e
 BUB_CURRENT='f88cfe5aee15bb3921c691b7f06d905246be9ff88b9b43eea71c2405722724a7'
+SMB2_CURRENT='3684f3d2a418a484befd80fca351d0dc5f9b472f6f067a0a7894994ea343679d'
 
 
 def normalize_public(raw):
-    """Explicit known Bub successor normalization; frozen proof pin stays7ef."""
+    """Explicit known local successors only; frozen proof pin stays7ef."""
     digest=sha256(raw).hexdigest()
+    if digest==SMB2_CURRENT:
+        import compose_smb2_foreground_current_1113 as S
+        assert S.CANDIDATE==SMB2_CURRENT and S.PIN==BUB_CURRENT
+        raw=S.inverse(raw)
+        assert sha256(raw).hexdigest()==BUB_CURRENT
+        digest=BUB_CURRENT
     if digest==BUB_CURRENT:
         import bub_native_noops_1113 as U
         assert U.B.PIN==P.PRINCE_CURRENT

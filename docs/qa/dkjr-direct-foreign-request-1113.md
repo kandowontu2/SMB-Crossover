@@ -1,7 +1,9 @@
 # Private DK Jr foreign fast-path packing request
 
 This is a source/funding proposal, **not an enabled candidate or allocation**.
-Current local Downloads is Bub/Bob `f88cfe5aee15bb3921c691b7f06d905246be9ff88b9b43eea71c2405722724a7`.
+At request time local Downloads was Bub/Bob `f88cfe5aee15bb3921c691b7f06d905246be9ff88b9b43eea71c2405722724a7`.
+Root later installed3684 with the same unchanged public DK bytes; the current
+successor and typed loader scope are in `dkjr-direct-platform-1113.md`.
 Private DK `14ae6363cc7e4cbdb99fc147a5a401b2c3a5dd78d45b177389685fc85ec61ddf`
 and its b784 first-item, 65af first-pipe and root Mini c0e8 controls remain frozen.
 GitHub releases remain empty. No ROM or build file is produced by this study.
