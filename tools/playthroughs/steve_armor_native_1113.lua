@@ -3,6 +3,7 @@ local F={STEVE_FIELDS}
 local cookie=STEVE_COOKIE
 local mode=STEVE_MODE
 local points={STEVE_POINTS}
+local waveCounts={STEVE_WAVE_COUNTS}
 local rom=assert(os.getenv('SMB_STDOUT_ROM_SHA'))
 local frame,pad,updates,last=0,0,0,-1
 local done=false
@@ -64,7 +65,7 @@ observe(STEVE_WAVE_RENDER,2,function()
   local px=read(0x5c88)+256*read(0x5c89)-field('ScreenLeft_X_Pos')-256*field('ScreenLeft_PageLoc')
   local py=read(0x5c8a)
   local count=work(2,0xc8e0)
-  assert(count==8 or count==16,'Original armor wave record')
+  assert(waveCounts[count],'Original armor wave record')
   expected={}
   for at=1,count,4 do
     local tile,attr,dy,dx=work(2,0xc8e0+at),work(2,0xc8e1+at),work(2,0xc8e2+at),work(2,0xc8e3+at)

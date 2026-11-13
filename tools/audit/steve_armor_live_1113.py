@@ -244,7 +244,9 @@ def reverse(image):
     """Restore the exact authenticated parent while retaining unrelated edits."""
     parent = bytearray(image)
     parent_cookie = image[Entry.CHR+371*1024+64:Entry.CHR+371*1024+80]
-    assert parent_cookie[:3] == bytes.fromhex('a81020') and parent_cookie[3] in (10,11)
+    assert parent_cookie[:3] == bytes.fromhex('a81020') and parent_cookie[3] in (10,11,12)
+    if parent_cookie[3] == 12:
+        assert parent_cookie == bytes.fromhex('a810200c4dbf5b49c59d4e142de148bf')
     for page, row in zip(Packet.PAGES, Packet.Preimage.original_rows(), strict=True):
         at = Entry.CHR+page*1024
         parent[at:at+1024] = row

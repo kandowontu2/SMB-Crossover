@@ -37,7 +37,9 @@ def qualification_parent(*, before_quick=False):
 
 def parent_cookie(raw):
     cookie = raw[Entry.prg(94,0xb2ef):Entry.prg(94,0xb2ef)+16]
-    assert cookie[:3] == bytes.fromhex('a81020') and cookie[3] in (10,11)
+    assert cookie[:3] == bytes.fromhex('a81020') and cookie[3] in (10,11,12)
+    if cookie[3] == 12:
+        assert cookie == bytes.fromhex('a810200c4dbf5b49c59d4e142de148bf')
     assert raw[Entry.prg(65,0xa727):Entry.prg(65,0xa727)+16] == cookie
     return cookie
 

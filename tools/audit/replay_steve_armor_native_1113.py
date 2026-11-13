@@ -9,20 +9,25 @@ import steve_armor_packet_1113 as Packet
 
 PARENT = '4641ca4fb72699c0478e31b831d4c4ea0ffd2227be7f8446666092d2cc26e1d3'
 CANDIDATE = 'f9d58305a3e2d820eb38df41c01649af335c41981e32393b0ac9b042802316ae'
+PARENTS = {
+    PARENT:CANDIDATE,
+    'aa50112845d1cf70cae0924f03326647b3d2514f876c756d70b134ee44f971d1':
+        '2aa5096391ddc303c4dc346293db1b628ddee36222fb3a7eaa20649c003b6cea',
+}
 POINTS = (80,192,304,416,528,640)
 SCRIPT = Packet.Entry.ROOT/'tools/playthroughs/steve_armor_native_1113.lua'
 
 
 def proposal(raw):
-    assert Packet.Entry.digest(raw) == PARENT
+    expected = PARENTS[Packet.Entry.digest(raw)]
     candidate,info = Live.proposal(raw)
-    assert Packet.Entry.digest(candidate) == CANDIDATE
+    assert Packet.Entry.digest(candidate) == expected
     return candidate,info
 
 
 def fixture(candidate):
     """Replace only 1-1 level/enemy data for a declared private test ROM."""
-    assert Packet.Entry.digest(candidate) == CANDIDATE
+    assert Packet.Entry.digest(candidate) in PARENTS.values()
     bundle = Roster.W.Symbols.bundle()
     bundle['raw'] = candidate
     level = Roster.W.location(bundle,'L_GroundArea6')
@@ -57,7 +62,7 @@ def fixture(candidate):
 def controller(candidate,info, *, mode='armor_fixture'):
     from check_ff_stdout_controller_source_1110 import LuaRuntime,DLL,DLL_SHA
     assert Packet.Entry.digest(DLL.read_bytes()) == DLL_SHA
-    assert Packet.Entry.digest(candidate) == CANDIDATE
+    assert Packet.Entry.digest(candidate) in PARENTS.values()
     assert mode in ('armor_fixture','ingress')
     bundle = Roster.W.Symbols.bundle()
     bundle['raw'] = candidate
@@ -71,6 +76,8 @@ def controller(candidate,info, *, mode='armor_fixture'):
     lua = lua.replace('STEVE_COOKIE',json.dumps(info['cookie'].hex()))
     lua = lua.replace('STEVE_MODE',json.dumps(mode))
     lua = lua.replace('STEVE_POINTS',','.join(map(str,POINTS)))
+    counts = sorted({record[0] for pair in info['wave_records'].values() for record in pair})
+    lua = lua.replace('STEVE_WAVE_COUNTS',','.join(f'[{count}]=true' for count in counts))
     lua = lua.replace('STEVE_WAVE_RENDER',str(info['runtime']['symbols']['ArmorWaveNativeRender']))
     assert 'emu.write' not in lua and 'emu.setState' not in lua
     LuaRuntime().compile(lua)

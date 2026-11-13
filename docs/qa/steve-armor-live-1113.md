@@ -25,6 +25,17 @@ instructions with all loaded blocks checked. Both images contain the same
 1,912-byte raw1 runtime and8,721-byte compressed packet, with386 bytes spare.
 Earlier b394,34cf and development-order candidates are superseded.
 
+The explicitly qualified Jay0C rebase uses installed parent
+`aa50112845d1cf70cae0924f03326647b3d2514f876c756d70b134ee44f971d1`
+and produces
+`2aa5096391ddc303c4dc346293db1b628ddee36222fb3a7eaa20649c003b6cea`.
+It accepts only the exact known0C parent cookie and publishes
+`aa10200c56587bd07a9595aca222f1f9`. Exact inverse,112 core cuts,245 wave cuts,
+all eight owner transitions and the full six-token/controller/clock check
+repeat successfully. Cold takes2,379,097 instructions. Runtime/packet/spare
+remain1,912/8,721/386 bytes. The known composition order is Head,Helper,Quick,
+then Armor. The four physical Jay pages remain byte-identical to this parent.
+
 ## Cold load and admission
 
 The packet retains the existing reproducible bit-dictionary codec. Its
@@ -136,12 +147,14 @@ Its private ROM hash is
 `b5ab8bbb3561d11703d22d11f9733ba09ab52d959da752dcedf2b2de588a8704`.
 The two file offsets are20956 for the15-byte object prefix and19023 for the
 single enemy terminator. Physical fixture qualification remains pending.
-The generated readonly Lua is8,377 bytes with SHA256
-`837350d4921f4670fdf3dfcadf39c482bfa0baba4595a596e8aa9061a95034d8`.
-The controller compiles with the existing retained Lua5.4 module after its
-DLL hash is checked. Unmodified ingress Lua has SHA256
-`01419d78bded0034aa09468a599d4c2d60a60332959e294533bc8ab7f05060b2`.
-Physical Mesen runtime qualification is pending with root's queue.
+The same controller/parser gate passes rebased2aa after1,593 updates. Its
+private fixture hash is
+`c75bc9153cf7060fb9a8ce9fadb323d3293e635591dddf2f87b947449f8de301`.
+The readonly armor controller hash is
+`f6d1f69b12e40878abfcce234c30cfde4262e6a9e5df589ed48bb10ae51958f3`.
+Wave record counts come from source metadata. Both controller modes compile
+with the existing retained Lua5.4 module after its DLL hash is checked.
+Physical Mesen runtime qualification remains pending with root's queue.
 
 Root still must qualify physical armor/DMA, unmodified candidate ingress and
 full1-1, then exact Downloads installation/release if approved. The private
