@@ -61,6 +61,12 @@ All private native checks and the six-binding/IPS metadata check pass.
 `deliver_steve_armor_native_1113.py` directly replaced Downloads without a
 backup and repeated all six unmodified-ROM receipts above exactly. Installed
 bytes equal tested62ba; sidecar-patch guards pass before/after. The sole
-Current/Latest publication is the remaining delivery step at this snapshot.
+Current/Latest publication completed: sole asset743426221 contains the exact
+e45931e9 IPS and an independent download reconstructs Downloads62ba exactly.
+Current is Latest. Published source commit:
+`248b48c77ecc84bfb82d7f05108a0f1bd41ccae4`.
+Published report snapshot SHA256:
+`e076f6eefc49ae4c125156077a004f746518741911212f35d46393b16e74f852`.
+The final automatic sidecar-patch guard passes with no matching files.
 Full roster, original ability, audio, visual and difficulty review continues;
 these character-specific checks do not establish overall goal completion.
