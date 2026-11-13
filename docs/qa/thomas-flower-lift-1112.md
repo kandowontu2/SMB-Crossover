@@ -77,6 +77,31 @@ the installed parent. Variant 1 verifies collection and resumed movement on
 the candidate, including the mapped constructor, offscreen birth, carry and
 departure. Run the checker or native runner through the shared bounded wrapper.
 
+The final Mesen replay also observes the actual offscreen constructor at
+frame 2898. The new platform occupies slot4 at left X1200, center X1216,
+initial top Y192. Camera left is X913 and right is X1168, so the platform's
+left edge starts 287 pixels from camera left. The subsequent board,
+departure, natural flower and resumed movement pass at frame3825.
+Receipt `10f9baba323255715dc2701722578a99da16498f418decf148d78ae9784af96c`
+uses script `cde6a22ba2d5144d82964e095f77db18dbf66a79b03eca3d810507f6b7f5c2cf`.
+
+The separate current whole-stage replay crosses the first four existing
+pipe lifts and then fails at the first floor pit. One Up timing rises at
+X1372 and reaches X1418 before death. A later timing is consumed at X1374
+while already falling. The original jump and ground support need further
+route investigation. The latest failed stage receipt is
+`bb801f5df9e929af65acc1d9a52ebc82195ee8fafab38b8744339d29c2ab31ad`.
+The early retained replay also required an update to its historical Main
+return observer before it could count actual current gameplay updates.
+The full current stage clear and natural Star/1UP remain open.
+
+The candidate was installed directly over the Downloads nightly with zero
+backups. The final constructor, collection, recovery and movement replay
+repeated from that exact launch path with identical receipt. Patch guards
+passed before and after installation. IPS reconstruction equals the tested
+installed ROM. The IPS SHA256 is
+`a828d2f721306368fed92a3f9146f7a6529e0cc4a5e562548a72e054ee42c32d`.
+
 ```text
 python -B tools/audit/run_bounded_build_v1.py --output build/thomas-flower-lift-1112 --max-files 1 --timeout 360 -- python -B tools/audit/compose_thomas_flower_lift_1112.py --route
 python -B tools/audit/run_bounded_build_v1.py --output build/thomas-powerups-cpu-1112 --max-files 1 --timeout 180 -- python -B tools/audit/check_thomas_powerups_current_1112.py --part pickups

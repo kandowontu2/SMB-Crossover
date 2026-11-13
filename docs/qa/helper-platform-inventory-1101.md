@@ -3,6 +3,19 @@
 The functional roster pass is not complete. This inventory separates source
 placements from actual route verification; it is not the final all-character list.
 
+## November 13 Thomas flower access
+
+Thomas receives a seventh native vertical platform in World 1-1 at the
+authored flower approach. Its **initial left edge is X1200, center X1216,
+initial top Y192, width32**, actor `$25`. The existing manager constructs it
+offscreen using the 256..287-pixel camera window and available native slots.
+Mesen observed birth in slot4 at camera left X913, relative left287, followed
+by boarding at player X1214/Y158, departure at X1216/Y96 and natural flower
+collection at X1261/Y112. Both powerup transactions and resumed movement pass.
+The first four original pipe crossings also pass on this candidate. The
+current full-stage replay's first-pit failure is under investigation.
+See `thomas-flower-lift-1112.md` for exact ROM and replay hashes.
+
 ## November 12 current WWF route recheck
 
 On installed ROM `8fc57b8b4268a47f8a906af8b5813834bbf76ca7376d1d12767d510708da9582`,
