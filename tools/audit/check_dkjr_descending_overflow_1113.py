@@ -10,7 +10,7 @@ P,H,N,W,L,T,C=Q.P,Q.H,Q.N,Q.W,Q.L,Q.T,Q.C
 
 
 def main():
-    parent=(P.B.R/'build/metal-flower-native-1112/candidate.nes').read_bytes()
+    parent=T.load_parent()
     assert sha256(parent).hexdigest()==T.PARENT
     _,seed=H.cold(parent,parent[P.B.COOKIE_AT:P.B.COOKIE_AT+16])
     source=T.F.SOURCE.read_text()

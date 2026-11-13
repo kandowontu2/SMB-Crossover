@@ -121,7 +121,8 @@ end),emu.callbackType.exec,0x{pc:x})
 
 
 if __name__=='__main__':
-    raw=(P.B.R/'build/metal-flower-native-1112/candidate.nes').read_bytes()
+    from compose_dkjr_platform_contact_1113 import load_parent
+    raw=load_parent()
     from check_ff_stdout_controller_source_1110 import LuaRuntime
     text=controller(raw);LuaRuntime().compile(text)
     print(json.dumps(dict(passed=True,ROM_SHA256=P.PRINCE_PROPOSAL,

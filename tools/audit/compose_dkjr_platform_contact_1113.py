@@ -1,6 +1,7 @@
 """Strict, memory-only native contact successor of the private e73 proposal."""
 from hashlib import sha256
 import json
+from pathlib import Path
 
 import compose_dkjr_helper_retire_1113 as P
 import check_dkjr_platform_contact_funding_1113 as F
@@ -11,6 +12,16 @@ PARENT=P.PRINCE_PROPOSAL
 UNCONDITIONAL_NEGATIVE='521df90eac82d3102d816a65c3780ca331c32403ac383313bdae67497f1ab20f'
 PRE_BALANCE_PROPOSAL='a34528084135c5dcddd348265ea45e556400d8ae37979d16f78c777130562e90'
 PIN='b420e2bee469be38250b24b9925b94e1b56935247f0636384a4fb0c1a49ca45b'
+ENTRY=0xb98e
+
+
+def load_parent():
+    """Reconstruct strict e73 from actual known public7ef, without a ROM copy."""
+    raw=Path('C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes').read_bytes()
+    assert sha256(raw).hexdigest()==P.PRINCE_CURRENT
+    parent,_=P.proposal_current(raw)
+    assert sha256(parent).hexdigest()==PARENT
+    return parent
 
 
 def parts():
@@ -82,7 +93,7 @@ def controller(raw,*,full=False):
 
 
 if __name__=='__main__':
-    raw=(R/'build/metal-flower-native-1112/candidate.nes').read_bytes()
+    raw=load_parent()
     candidate,info=transform(raw)
     assert reverse(candidate)==raw
     print('DKJR_PLATFORM_CONTACT_COMPOSE '+json.dumps(info,separators=(',',':')),flush=True)

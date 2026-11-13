@@ -15,6 +15,14 @@ import check_roster_powerup_continuation_1110 as Frames
 P,H,N,W,L=C.P,C.H,C.N,C.W,C.L
 
 
+def entry(raw):
+    at=16+0x143f
+    assert raw[at]==0x20
+    target=raw[at+1]|raw[at+2]<<8
+    assert target in(0xb98e,T.ENTRY)
+    return target
+
+
 def mounted(seed,raw):
     m=L.clone(seed);m.bundle=dict(seed.bundle,raw=raw)
     return m
@@ -48,7 +56,7 @@ def cost(seed,parent,candidate):
             m=C.setup(mounted(seed,raw))
             N.put(m,SelectedCharacter=owner,TimerControl=timer,ObjectOffset=C.SLOT,
                 Z2Variant=int(owner==4),RyuSourceBodyProfile=25)
-            r=direct(m,0xb98e)
+            r=direct(m,entry(raw))
             pair.append((m,r))
         a,b=[r for _,r in pair]
         if owner!=40:
@@ -66,9 +74,10 @@ def incoming(seed):
         if scene=='distant':C.field(base,'Enemy_X_Position',200)
         if scene=='hidden':N.put(base,Player_Y_HighPos=2,Player_OffscreenBits=255)
         pair=[]
-        for a,flags in product((0,1,40,255),range(16)):
-            p=0x30|(flags&3)|((flags&4)<<4)|((flags&8)<<4)
+        for a,flags,id_flags in product((0,1,40,255),range(16),(0,4,8,12)):
+            p=0x30|(flags&3)|((flags&4)<<4)|((flags&8)<<4)|id_flags
             m=L.clone(base);result=direct(m,0xb453,a=a,x=slot,p=p)
+            assert result['P']&12==id_flags,(slot,timer,scene,a,hex(p),'incoming I/D')
             value=(observables(m),tuple(result[k]for k in('X','Y','SP')))
             if pair:assert value==pair[0],(slot,timer,scene,a,hex(p))
             else:pair.append(value)
@@ -87,7 +96,7 @@ def compiled_contact(m,delta,_unused):
             if self.pc==0xac29 and self.memory.rawtags[1]==199:count+=1
             return Base.step(self)
     with patch.object(N,'NesMPU',Probe):
-        direct(m,0xb98e,x=C.SLOT,a=0,y=0)
+        direct(m,T.ENTRY,x=C.SLOT,a=0,y=0)
         flag=N.get(m,'PlatformCollisionFlag',C.SLOT)
         C.field(m,'Enemy_Y_Position',N.get(m,'Enemy_Y_Position',C.SLOT)+delta)
         if flag<128 and not count:N.invoke(m,'PositionPlayerOnVPlat',a=0,x=C.SLOT,y=0)
@@ -137,7 +146,7 @@ def native_ids(seed,parent,candidate):
         outcomes=[]
         for raw in(parent,candidate):
             m=mounted(base,raw);m[0x16a]=85
-            direct(m,0xb98e,x=slot)
+            direct(m,entry(raw),x=slot)
             assert m[0x65b]==footer
             outcomes.append((N.get(m,'PlatformCollisionFlag',slot),bytes(m[0x200:0x800]),
                 tuple(bytes(r)for r in m.ram),tuple(m.rawtags)))
@@ -150,6 +159,15 @@ def native_ids(seed,parent,candidate):
             assert gap in(1,2)and dy==0 and state<128,(slot,kind,state,gap,side,dy)
             new_contacts+=1
         cases+=1
+    balance=balance_pairs(seed,parent,candidate)
+    return dict(actual_ID25_to2A_state_gap_side_jump_cases=cases,existing_contacts_preserved=existing_contacts,
+        added_only_1_or2_pixel_downward_gap_contacts=new_contacts,
+        actual_bbox_top_versus_EnemyY_cases=len(box_rows),paired_ID24_original_behavior_cases=balance,
+        no_native_player_or_source_physics_geometry_change=True,
+        scope='Directed native contact/actor fixtures. Complete-Main/SMC effects are checked separately.')
+
+
+def balance_pairs(seed,parent,candidate):
     balance=0
     for slot,child,parent_top,child_top in product((0,3,5),range(6),(128,137,150),(128,137,150)):
         if slot==child:continue
@@ -165,15 +183,11 @@ def native_ids(seed,parent,candidate):
         N.put(base,ObjectOffset=slot)
         pair=[]
         for raw in(parent,candidate):
-            m=mounted(base,raw);m[0x16a]=85;r=direct(m,0xb98e,x=slot)
+            m=mounted(base,raw);m[0x16a]=85;r=direct(m,entry(raw),x=slot)
             pair.append((bytes(m[0x200:0x800]),tuple(bytes(q)for q in m.ram),tuple(m.rawtags),r['X'],r['Y'],r['SP']))
         assert pair[0]==pair[1],(slot,child,parent_top,child_top)
         balance+=1
-    return dict(actual_ID25_to2A_state_gap_side_jump_cases=cases,existing_contacts_preserved=existing_contacts,
-        added_only_1_or2_pixel_downward_gap_contacts=new_contacts,
-        actual_bbox_top_versus_EnemyY_cases=len(box_rows),paired_ID24_original_behavior_cases=balance,
-        no_native_player_or_source_physics_geometry_change=True,
-        scope='Directed native contact/actor fixtures. Complete-Main/SMC effects are checked separately.')
+    return balance
 
 
 def route(seed,candidate,full=False):
@@ -232,7 +246,7 @@ def foreign(parent,candidate):
         for age in range(16):
             for index,m in enumerate(models):
                 def observe(memory,cpu):
-                    if cpu.pc==0xb98e and memory.rawtags[1]==128:counts[index]+=1
+                    if cpu.pc==(T.ENTRY if index else 0xb98e)and memory.rawtags[1]==128:counts[index]+=1
                 m.contact_written=set();m.contact_reads=0
                 costs[index].append(frame(m,0 if age<8 else 1,observe))
                 reads[index]+=m.contact_reads
@@ -242,6 +256,8 @@ def foreign(parent,candidate):
             assert diffs==stack,(name,age,'native nonstack differences',
                 [(hex(at),left[at],right[at])for at in sorted(diffs-stack)][:20])
             assert tuple(bytes(r)for r in left.ram)==tuple(bytes(r)for r in right.ram),(name,age,'WRAM')
+            assert left.contact_frame_registers==right.contact_frame_registers,(name,age,'Main returned AXYP/SP')
+            assert bytes(left[0x5c00:0x8000])==bytes(right[0x5c00:0x8000]),(name,age,'SRAM')
             assert tuple(left.rawtags)==tuple(right.rawtags)
             assert bytes(left.vram)==bytes(right.vram)and tuple(left.chr_latches)==tuple(right.chr_latches)
             for index,m in enumerate(models):
@@ -261,7 +277,7 @@ def main():
     ap=argparse.ArgumentParser(description=__doc__)
     for option in('cost','incoming','components','foreign','native-ids','first','full'):ap.add_argument('--'+option,action='store_true')
     args=ap.parse_args()
-    parent=(P.B.R/'build/metal-flower-native-1112/candidate.nes').read_bytes()
+    parent=T.load_parent()
     assert sha256(parent).hexdigest()==T.PARENT
     candidate,info=T.transform(parent)
     assert T.reverse(candidate)==parent

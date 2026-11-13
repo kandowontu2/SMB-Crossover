@@ -135,7 +135,7 @@ def main():
     ap=argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--mains-only',action='store_true')
     args=ap.parse_args()
-    parent=(P.B.R/'build/metal-flower-native-1112/candidate.nes').read_bytes()
+    parent=T.load_parent()
     assert sha256(parent).hexdigest()==T.PARENT
     fixture,info=parts(parent)
     if not args.mains_only:

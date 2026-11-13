@@ -27,6 +27,21 @@ def bind_rom(m,raw):
         if tag&128:m.raw_page(window,tag)
 
 
+def declared_admission(m,c,origin):
+    if origin!='RYU HAYABUSA authored'or c.pc!=0xb963 or m.rawtags[1]!=128:return
+    # Explicit admission metadata at an actual Main callback. Apply the same
+    # declared input to collection, uninterrupted and interrupted continuations.
+    N.put(m,WorldNumber=0,LevelNumber=3,AreaType=3,SecondaryHardMode=0,
+        GuestHurtTicks=0,RgCrouch=0,RgAttack=0,XgWall=0,RyPlatformSlot=0,
+        Player_State=1,RyWallSupported=1,RyWallOldHeight=25,RyWallWasGround=1,
+        RyWallOldY=(N.get(m,'Enemy_Y_Position',c.x)+1)&255,
+        RyWallOldX=N.get(m,'Player_X_Position'),RyWallOldPage=N.get(m,'Player_PageLoc'))
+
+
+def observed_data(at):
+    return at<0x100 or 0x200<=at<0x800 or 0x5c00<=at<0x8000
+
+
 def matched_isr(state,cpu,parent,kind,changed):
     """Compare the real candidate ISR with the real original ISR at RTI.
 
@@ -41,11 +56,11 @@ def matched_isr(state,cpu,parent,kind,changed):
         class Bus(Base):
             def __getitem__(self,at):
                 value=super().__getitem__(at)
-                if isinstance(at,int)and 0x5c00<=at<0x8000 and self.isr_cpu is not None:
+                if isinstance(at,int)and observed_data(at)and self.isr_cpu is not None:
                     events.append(('R',self.isr_cpu.pc,at,value))
                 return value
             def __setitem__(self,at,value):
-                if isinstance(at,int)and 0x5c00<=at<0x8000 and self.isr_cpu is not None:
+                if isinstance(at,int)and observed_data(at)and self.isr_cpu is not None:
                     events.append(('W',self.isr_cpu.pc,at,value&255))
                 return super().__setitem__(at,value)
         m.__class__=Bus;m.isr_cpu=None
@@ -71,19 +86,22 @@ def matched_isr(state,cpu,parent,kind,changed):
 
 
 def main():
-    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--debug-mini',action='store_true');args=ap.parse_args()
-    parent=(P.B.R/'build/metal-flower-native-1112/candidate.nes').read_bytes()
+    ap=argparse.ArgumentParser(description=__doc__)
+    ap.add_argument('--debug-mini',action='store_true');ap.add_argument('--debug-ryu',action='store_true')
+    args=ap.parse_args();diagnostic=args.debug_mini or args.debug_ryu
+    parent=T.load_parent()
     candidate,_=T.transform(parent);linked,_=T.parts()
     changed={(((i-16)//8192)|128,(i-16)&8191)
         for i,(a,b)in enumerate(zip(parent,candidate))if a!=b}
-    emitted={(128 if item['segment']in('NATIVE','RESTORE')else 186,item['pc'])for item in linked['instructions']}
+    emitted={(128 if item['segment']in('RYU','NATIVE','RESTORE')else 186,item['pc'])for item in linked['instructions']}
     samples={};expected={};ends={};keys=set();active=None;last=None;origin='first'
     def watch(m,c):
         nonlocal active,last
         last=c
         if active==(c.pc,c.sp):active=None
         tag=m.rawtags[(c.pc-0x8000)//8192]if c.pc>=0x8000 else-1
-        if(tag,c.pc)==(128,0xb98e):
+        declared_admission(m,c,origin)
+        if(tag,c.pc)==(128,T.ENTRY):
             active=(m[0x100+((c.sp+1)&255)]+256*m[0x100+((c.sp+2)&255)]+1,(c.sp+2)&255)
         own=(tag,c.pc)in emitted or(tag==128 and c.pc==0xb43f)
         transport=active is not None and 0x15a<=c.pc<0x17b
@@ -101,28 +119,33 @@ def main():
     m=Q.mounted(seed,candidate)
     text=P.once(T.controller(candidate),' if game then\n',
         " if game then\n  if epoch>=490 then finish(true,'native-contact-vector-prefix');return end\n")
-    if args.debug_mini:prefix=dict(passed=True,logical_updates=0)
+    if diagnostic:prefix=dict(passed=True,logical_updates=0)
     else:
         with redirect_stdout(io.StringIO()):prefix=P.B.route(m,candidate,800,controller_text=text,
             observe_extra=watch,after_frame=after)
         assert prefix['passed']
     inventory=Q.Roster.Starts.C.inventory(parent)['rows']
-    for name in(('MINI MARIO',)if args.debug_mini else('MINI MARIO','RYU HAYABUSA','ZELDA II LINK')):
-        origin=name;row=next(r for r in inventory if r['name']==name)
+    targets=(('RYU HAYABUSA','authored'),)if args.debug_ryu else(('MINI MARIO','ordinary'),)if args.debug_mini else(
+        ('MINI MARIO','ordinary'),('RYU HAYABUSA','ordinary'),
+        ('RYU HAYABUSA','authored'),('ZELDA II LINK','ordinary'))
+    for name,scene in targets:
+        origin=name+' '+scene;row=next(r for r in inventory if r['name']==name)
         b=W.Symbols.bundle();b['raw']=candidate
         _,m=Q.Roster.cold(b,row)
         for slot in range(6):N.invoke(m,'EraseEnemyObject',x=slot)
         slot=3
-        for field,value in dict(Enemy_ID=37,Enemy_Flag=1,Enemy_State=0,
+        if name=='RYU HAYABUSA':
+            N.put(m,WorldNumber=0,LevelNumber=3 if scene=='authored'else 0,AreaType=3,SecondaryHardMode=0)
+        for field,value in dict(Enemy_ID=40 if name=='RYU HAYABUSA'else 37,Enemy_Flag=1,Enemy_State=0,
             Enemy_X_Position=N.get(m,'Player_X_Position'),Enemy_PageLoc=N.get(m,'Player_PageLoc'),
-            Enemy_Y_Position=(N.get(m,'Player_Y_Position')+32)&255,Enemy_Y_HighPos=1).items():
+            Enemy_Y_Position=160 if name=='RYU HAYABUSA'else(N.get(m,'Player_Y_Position')+32)&255,Enemy_Y_HighPos=1).items():
             m[W.address(m.bundle,field)+slot]=value
         N.invoke(m,'InitEnemyObject',x=slot)
         m[W.address(m.bundle,'Enemy_BoundBoxCtrl')+slot]=5
-        for age in range(4):
-            Q.frame(m,0,watch);after(m)
+        for age in range(32 if name=='RYU HAYABUSA'else 4):
+            Q.frame(m,128 if name=='RYU HAYABUSA'and age<12 else 0,watch);after(m)
     reached={(tag,pc)for _,tag,pc,_ in samples}
-    if not args.debug_mini:assert emitted<=reached,('Unreached emitted instructions',sorted(emitted-reached))
+    if not diagnostic:assert emitted<=reached,('Unreached emitted instructions',sorted(emitted-reached))
     print('DKJR_PLATFORM_VECTOR_SAMPLES '+json.dumps(dict(candidate_SHA256=T.PIN,
         emitted_instructions=len(emitted),Main_cut_points=len(samples),
         actual_unchanged_prefix_updates=prefix['logical_updates']),separators=(',',':')),flush=True)
@@ -136,10 +159,11 @@ def main():
             q,c,mate,d,low,window,traced=matched_isr(state,cpu,parent,kind,changed)
             minimum=min(minimum,low);pending+=int(window)
             assert bytes(q[0x101+c.sp:0x200])==live,(token,kind,'live stack/footer changed by ISR')
-            isr_sram={at for at in range(0x5c00,0x8000)if state[at]!=q[at]}
-            isr_values={at:q[at]for at in isr_sram}
+            data_addresses=(*range(0x100),*range(0x200,0x800),*range(0x5c00,0x8000))
+            isr_changes={at for at in data_addresses if state[at]!=q[at]}
+            isr_values={at:q[at]for at in isr_changes}
             isr_writes={at for op,_,at,_ in traced if op=='W'}
-            assert isr_sram<=isr_writes,(token,kind,'untraced original ISR SRAM change')
+            assert isr_changes<=isr_writes,(token,kind,'untraced original ISR data change')
             foreground=[];Bus=type(q)
             class Foreground(Bus):
                 def __getitem__(self,at):
@@ -151,24 +175,36 @@ def main():
                     if isinstance(at,int)and at in self.foreground_audio and self.foreground_active:
                         foreground.append(('W',self.foreground_pc,at,value&255))
                     return super().__setitem__(at,value)
-            q.__class__=Foreground;q.foreground_audio=isr_sram;q.foreground_active=False
-            def watch_foreground(m,cpu):m.foreground_active=True;m.foreground_pc=cpu.pc
+            q.__class__=Foreground;q.foreground_audio=isr_changes;q.foreground_active=False
+            def watch_foreground(m,cpu):
+                declared_admission(m,cpu,token[0]);m.foreground_active=True;m.foreground_pc=cpu.pc
             stop=(W.address(q.bundle,'IdleLoop')+12,252)
             L.finish(q,c,stop,observe=watch_foreground);q.foreground_active=False
-            L.finish(mate,d,stop)
+            L.finish(mate,d,stop,observe=lambda m,c:declared_admission(m,c,token[0]))
             assert result(q,c)==result(mate,d),(token,kind,'complete Main versus matched original ISR')
             actual=result(q,c);original=expected[token]
-            assert actual[:5]==original[:5]and actual[6:]==original[6:],(token,kind,'complete Main nonaudio game/SMC/maps/registers')
+            assert actual[:2]==original[:2]and actual[3]==original[3]and actual[6:]==original[6:],(token,kind,'complete Main WRAM/SMC/maps/graphics/registers')
             # Retain exact comparison of every live audio stack byte against
             # the original-ISR oracle. An extra genuine busy NMI can advance
             # a live macro pointer, so no-extra-NMI SRAM is a separate oracle.
             baseline,_=ends[token]
-            different={0x5c00+i for i,(a,b)in enumerate(zip(original[5],actual[5]))if a!=b}
+            different={at for at in data_addresses if q[at]!=baseline[at]}
             accessed={at for _,_,at,_ in foreground}
-            assert different<=isr_sram and not different&accessed,(token,kind,'foreground consumes extra-ISR audio change',different,foreground)
+            assert different<=isr_changes and not different&accessed,(token,kind,'foreground consumes extra-ISR audio change',different,foreground)
             stacklo=W.address(q.bundle,'XgAudioStackLo');stackend=W.address(q.bundle,'XgAudioStackBank')+32
+            decoder=range(W.address(q.bundle,'XgAudioPtr'),W.address(q.bundle,'XgAudioZeroPageEnd'))
+            apu=range(W.address(q.bundle,'XgMusicApu'),stackend)
+            history=range(W.address(q.bundle,'XgLzHistory'),W.address(q.bundle,'XgLzHistory')+2048)
+            # Exact contiguous .res declarations in src/guest_audio.s,
+            # ending before the following owner's allocation.
+            guest_apu=range(W.address(q.bundle,'GuestNativeApu'),W.address(q.bundle,'GuestSweepTicks')+1)
+            # Exact shared native driver RAM/ZP-save declarations in
+            # src/roster_audio.s. Their conditional aliases are not new owners.
+            roster_audio=range(W.address(q.bundle,'RgAudioRam'),W.address(q.bundle,'GuestNativeApu'))
+            sound_counter=W.address(q.bundle,'Squ1_SfxLenCounter')
+            unknown={at for at in different if at not in decoder and at not in apu and at not in history and at not in guest_apu and at not in roster_audio and at!=sound_counter}
+            assert not unknown,(token,kind,'unclassified ISR results',sorted(hex(at)for at in unknown))
             for at in different:
-                assert stacklo<=at<stackend,(token,kind,'unclassified ISR result',hex(at))
                 assert q[at]==isr_values[at]and baseline[at]==state[at]
                 audio_differences[hex(at)]+=1
             baseline,_=L.clone(*ends[token])
@@ -186,7 +222,8 @@ def main():
                         if isinstance(at,int):self.vector_written.add(at)
                         return super().__setitem__(at,value)
                 model.__class__=Tracked;model.vector_discarded=differences;model.vector_written=set()
-            Q.frame(q,0);Q.frame(baseline,0);Q.frame(mate,0)
+            observer=lambda m,c:declared_admission(m,c,token[0])
+            Q.frame(q,0,observer);Q.frame(baseline,0,observer);Q.frame(mate,0,observer)
             # Foreground return registers are already compared above; this
             # additional complete Main checks data and discarded-stack liveness.
             assert result(q,c)[:-1]==result(mate,d)[:-1],(token,kind,'next Main versus matched original ISR')
@@ -197,7 +234,8 @@ def main():
     print('DKJR_PLATFORM_VECTORS '+json.dumps(dict(passed=True,candidate_SHA256=T.PIN,
         checker_SHA256=sha256(Path(__file__).read_bytes()).hexdigest(),cuts=dict(counts),
         emitted_instructions=len(emitted),cut_points=len(samples),minimum_ISR_SP=minimum,
-        diagnostic_Mini_only=args.debug_mini,all_emitted_PCs_reached=emitted<=reached,
+        diagnostic_Mini_only=args.debug_mini,diagnostic_Ryu_only=args.debug_ryu,all_emitted_PCs_reached=emitted<=reached,
+        declared_Ryu_source_admission_fixture=not args.debug_mini,
         exact_unbanked_pending_mapper_windows=pending,dead_stack_differences_reader_after_writer=stack_differences,
         matched_original_ISR_audio_stack_progress=dict(audio_differences),
         complete_live_audio_SRAM_equal_to_original_ISR_oracle=True,

@@ -24,7 +24,7 @@ def state(m):
 
 
 def main():
-    parent=(P.B.R/'build/metal-flower-native-1112/candidate.nes').read_bytes()
+    parent=T.load_parent()
     candidate,_=T.transform(parent)
     _,seed=H.cold(parent,parent[P.B.COOKIE_AT:P.B.COOKIE_AT+16])
     m=Q.mounted(seed,candidate);text=T.controller(candidate)

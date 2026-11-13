@@ -59,7 +59,7 @@ def head(seed,candidate,center):
 
 def main():
     ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--motion-only',action='store_true');args=ap.parse_args()
-    parent=(P.B.R/'build/metal-flower-native-1112/candidate.nes').read_bytes()
+    parent=T.load_parent()
     candidate,_=T.transform(parent)
     _,seed=H.cold(parent,parent[P.B.COOKIE_AT:P.B.COOKIE_AT+16])
     print('DKJR_FIRST_NATIVE_BOUNDS '+json.dumps(dict(candidate_SHA256=T.PIN,rows=motion(seed)),separators=(',',':')),flush=True)

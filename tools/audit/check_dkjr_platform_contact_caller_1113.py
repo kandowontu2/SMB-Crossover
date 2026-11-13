@@ -36,7 +36,8 @@ def digest(m,result):
 
 
 def main():
-    raw=(P.B.R/'build/metal-flower-native-1112/candidate.nes').read_bytes()
+    from compose_dkjr_platform_contact_1113 import load_parent
+    raw=load_parent()
     assert sha256(raw).hexdigest()==P.PRINCE_PROPOSAL
     _,seed=H.cold(raw,raw[P.B.COOKIE_AT:P.B.COOKIE_AT+16])
     cases=0

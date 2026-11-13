@@ -135,7 +135,8 @@ def negatives(seed):
 
 def main():
     global SLOT
-    raw=(B.R/'build/metal-flower-native-1112/candidate.nes').read_bytes()
+    from compose_dkjr_platform_contact_1113 import load_parent
+    raw=load_parent()
     assert sha256(raw).hexdigest()==P.PRINCE_PROPOSAL
     assert H.T.girder_images()[0]['symbols']['DkRefreshPlatform']==0xb624
     donor=Path('C:/NES/Donkey Kong Jr. (World) (Rev 1).nes').read_bytes()

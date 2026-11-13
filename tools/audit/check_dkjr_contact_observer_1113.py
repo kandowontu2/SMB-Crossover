@@ -14,7 +14,8 @@ def snapshot(m):
 
 
 def main():
-    raw=(P.B.R/'build/metal-flower-native-1112/candidate.nes').read_bytes()
+    from compose_dkjr_platform_contact_1113 import load_parent
+    raw=load_parent()
     assert sha256(raw).hexdigest()==P.PRINCE_PROPOSAL
     observed=O.controller(raw)
     assert sha256(observed.encode()).hexdigest()=='d46b3350c2a23dcc9c2ec5dc4323411c9cc4e114305c995b4e8ec2702067d13b'

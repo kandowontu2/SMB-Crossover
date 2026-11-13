@@ -13,7 +13,8 @@ def main():
     assert sha256((P.B.R/'tools/audit/check_menu_facing_1112.py').read_bytes()).hexdigest()==AUDITOR_SHA
     parent=P.B.C.ROM.read_bytes()
     assert sha256(parent).hexdigest()==P.PRINCE_CURRENT
-    candidate=(P.B.R/'build/metal-flower-native-1112/candidate.nes').read_bytes()
+    from compose_dkjr_platform_contact_1113 import load_parent
+    candidate=load_parent()
     assert sha256(candidate).hexdigest()==P.PRINCE_PROPOSAL
     assert P.inverse_current(candidate)==parent
     compared=[]
