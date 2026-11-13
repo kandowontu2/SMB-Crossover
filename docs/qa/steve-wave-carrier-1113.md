@@ -16,10 +16,40 @@ The old finite-domain ledger broadly labels739 as Excitebike body, although the
 actual source emitter uses only736..738. No other one of its88 finite domains,
 or inherited private writer chunk, lists739. Current legacy map and compiled
 special readers also exclude739; current allocationJSONs contain no page739
-reservation. The legacy ledger has ten changed/retired table locations on the
-current ROM; this proposal does not misrepresent a complete54-table rebinding
-of that historical ledger. Root must retain its current other-owner exclusions
-when granting739. The new alias test closes the actual Excitebike consumer.
+reservation. The updated audit rebinds all54 historical table records:44 remain
+exact and the ten changed/retired locations have the following current routes.
+The new alias test closes the actual Excitebike consumer.
+
+| Old table name | Actual current reader / data | Resulting physical pages |
+| --- | --- | --- |
+| ProtoPoseChrLo | Compiled ProtoSetPose A133 reads relocated PRG94 D264, all27 bytes equal original |256..275|
+| ProtoPoseChrHi | Retired high table; no old indexed read in current PRG66, upper1 retained |256..275|
+| SunnyChrLow | Compiled SunnySetPose B50C reads relocated PRG94 D18C, all35 bytes equal original |724..727|
+| Z2PoseChrLo | Sole bounded27-pose reader PRG69 A4CF/C2AA; exact fairy aliases and upper1 |308..320|
+| RlPoolChrLo | Actual RlPublish PRG79 B03D, six finite pools |21,364,366,367,368,370,372,374,376,378|
+| RlPoolChrHi | Retired high-byte meaning; now window7 low bytes, constant upper1 or blank21 |same Roll domain|
+| M3Form2ChrLo | Retired array; all7 pointers select Form0 plus typed offsets |524..543|
+| M3Form3ChrLo | Same actual clamped0..6 form reader |524..543|
+| M3Form4ChrLo | Same actual clamped0..6 form reader |524..543|
+| M3Form6ChrLo | Same actual clamped0..6 form reader |524..543|
+
+The actual M3 caller/helper instruction sequences occur exactly once, all7
+low/high pointers equal Form0, its81 low values are24..27, and the exact offsets
+are0/4/4/F4/0/F8/FC. Each replacement domain excludes739. Eighteen actual Roll
+publications from all six pools demonstrate its new table meanings and blank
+aliases. These checks use actual current reader operands and tables rather
+than treating stale labels at overwritten code sites as live art tables.
+Actual ProtoPublishBody27 and SunnyDraw35 native calls independently confirm
+their respective constant upper1/upper2 domains.
+
+All15 inherited private writer scopes are rebound:13 complete page records
+are exact; the two changed FF pages898/900 match the existing source-derived
+current FF8KiB image exactly. Both37-entry native gateway sets and record bank93
+also match. The existing complete reachable FF writer proof checks4 direct
+CHR/MMIO and2 indirect writer sites unchanged, along with all body/mux/pickup
+ranges. It walks2731 original and2791 revised instructions with no hidden
+indirect control target. Only the obsolete historical table subcheck is replaced
+by the explicit54-table rebind above; no source graph is restored or extracted.
 
 ExHostGraphics still publishes736..739. Rebinding its fourth window to existing
 canonical blank21 preserves every possible pixel in that whole window, even
@@ -51,6 +81,10 @@ Bounded zero-output CPU qualification exits0 on exact installeda3c5fa63:
 - Actual public HuDraw keeps OAM and AXYP identical.
 - Eight IRQ and eight lag-NMI cuts through the new loop preserve execution and
   mapper state, minimumSP168.
+- Four cold copy/verify points at the first/last new-loop bytes, through the
+  actual menu constructor, preserve the PPU reader and pending source state
+  under genuine lagNMI, minimumSP185. All four have IRQ masked by the existing
+  cold loader's SEI; no impossible masked IRQ injection is claimed.
 - Exact inverse restores all bytes; no output files are generated.
 
 ```
