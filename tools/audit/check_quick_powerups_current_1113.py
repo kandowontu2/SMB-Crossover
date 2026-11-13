@@ -17,17 +17,24 @@ ROW=dict(name='QUICK MAN',slot=9,cycle=2,raw=9)
 COOKIE=bytes.fromhex('a7092005e731d952bdb4b950826271bc')
 SOURCE=R/'tools/reference/quick_natural_powerups_1113.lua'
 INSTALLED='4641ca4fb72699c0478e31b831d4c4ea0ffd2227be7f8446666092d2cc26e1d3'
+JAY_INSTALLED='aa50112845d1cf70cae0924f03326647b3d2514f876c756d70b134ee44f971d1'
 
 
 def proof_parent(raw):
     digest=sha256(raw).hexdigest()
     if digest==PIN:return raw,dict(input_SHA256=digest,proof_parent_SHA256=PIN,inverse_applied=False)
-    assert digest==INSTALLED
+    quick=raw
+    if digest==JAY_INSTALLED:
+        from deliver_jay_pickup_helper_1113 import inverse as jay_inverse,PIN as jay_pin
+        assert jay_pin==JAY_INSTALLED
+        quick=jay_inverse(raw);assert sha256(quick).hexdigest()==INSTALLED
+    else:assert digest==INSTALLED
     from compose_quick_climb_material_1113 import inverse,transform
-    parent=inverse(raw)
-    assert sha256(parent).hexdigest()==PIN and transform(parent)[0]==raw
+    parent=inverse(quick)
+    assert sha256(parent).hexdigest()==PIN and transform(parent)[0]==quick
     return parent,dict(input_SHA256=digest,proof_parent_SHA256=PIN,inverse_applied=True,
-        scope='Explicit installed Quick inverse to frozen a3 proof input; no PIN replacement or ROM output.')
+        intermediate_Quick_SHA256=sha256(quick).hexdigest(),
+        scope='Explicit Jay inverse when present, then Quick inverse to frozen a3 proof input; no PIN replacement or ROM output.')
 
 
 def cold(raw):

@@ -170,3 +170,16 @@ for complete pins and verification scope. The CLIs derive frozena3 explicitly
 through the installed successor's checked inverse, preserving this audit's
 baseline and frozen-script expectations. Physical flower acquisition remains
 unclaimed under the existing no-growth policy. No helper placement changed.
+
+The later Jay/Quick installed composite is
+`aa50112845d1cf70cae0924f03326647b3d2514f876c756d70b134ee44f971d1`.
+The read-only CLI explicitly applies the authenticated Jay inverse to recover
+exact4641, then the Quick inverse and forward roundtrip to recover frozena3.
+Its frozen parent PIN and scripts remain unchanged. The bounded zero-output
+`--cold-only` run passed this chain and the real Quick menu/constructor/opening.
+Root separately repeated the full native Quick route on exactaa501:5693
+physical frames, all four items, grounded1-2, HP40/lives3; controller
+`7711ef407ad23be3b432c586bec52dac0d801e1c43c3121a7c5bb269297bf052`,
+receipt`50d2332176f026d924ce91d26851b18ff220dff37cbbd8e494e928b428c8666e`.
+The current soleIPS is nowa5ecdd50c6e186415f9b4e3c75f53bcef7cf69df3012f02e6466a7e7413e33a1;
+the precedingce922 delivery remains the Quick-only historical checkpoint.
