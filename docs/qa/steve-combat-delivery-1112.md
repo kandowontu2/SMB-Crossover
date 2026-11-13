@@ -38,4 +38,8 @@ because script line endings differed, then the exact CRLF encoding was restored.
 
 The delivery recipe embeds a compact reverse patch to recover the exact prior
 80e6 image in memory. Forward IPS reconstruction equals the installed ROM.
-Current release publication is the remaining delivery step.
+Current was marked Latest and its sole IPS replaced (asset 741705154).
+An independent download reconstructed the exact Downloads ROM. Publication
+source was `fd61a1218b537affab028524293571bd814a44ab`; publication-time report
+SHA256 was `ca1bfba712ee38f02048dcf041dca2ee9671d64fdffd52f82cc361af731539a5`.
+Bounded publisher 73415 exited successfully without generated patch files.
