@@ -17,8 +17,10 @@ def actors(m):
 
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--riser',action='store_true')
-    ap.add_argument('--retreat',action='store_true');args=ap.parse_args()
-    assert not args.retreat or args.riser
+    ap.add_argument('--retreat',action='store_true')
+    ap.add_argument('--running-jump',action='store_true');args=ap.parse_args()
+    assert not(args.retreat or args.running_jump)or args.riser
+    assert not(args.retreat and args.running_jump)
     raw=B.C.ROM.read_bytes();candidate,info=P.proposal_current(raw)
     _,seed=H.cold(candidate,bytes.fromhex(info['cookie']))
     prefix=P.controller(candidate,full=True,fourth_window=True,ledge_wait=True,stationary_wait=args.riser)
@@ -46,6 +48,23 @@ def main():
             terrain.append(dict(x=x,tiles={y:branch[base+((y-32)&240)+((x>>4)&15)]for y in range(128,209,16)}))
         print('DKJR_BRANCH_TERRAIN '+json.dumps(dict(rows=terrain,source_fields={hex(i):branch.ram[2][i]for i in(0x54,0x6b,0x6c,0x6d,0x76,0x7e)},source_rect=list(branch.ram[2][0x3e:0x46])),separators=(',',':')),flush=True)
     rows=[]
+    if args.running_jump:
+        for back in(12,16,20,24,28):
+            m=L.clone(branch);injury=None;lowest=255;samples=[];tick=0
+            for pad,duration in((2,back),(0,4),(129,8),(1,80)):
+                for _ in range(duration):
+                    m.controller_pad=pad;B.Frames.frame(m);s=B.state(m);lowest=min(lowest,s['y'])
+                    if s['source_state']==5 and injury is None:injury=tick
+                    if tick%4==0:samples.append((tick,s['x'],s['y'],s['source_state']))
+                    tick+=1
+            row=dict(left_retreat_updates=back,injury_tick=injury,minimum_player_y=lowest,
+                final=B.state(m),samples=samples)
+            rows.append(row)
+            print('DKJR_RUNNING_JUMP_BRANCH '+json.dumps(row,separators=(',',':')),flush=True)
+        print('DKJR_RUNNING_JUMP_SUMMARY '+json.dumps(dict(branches=len(rows),output_files=0,
+            standing_on_first_stair=sum(row['final']['y']==160 and row['final']['source_state']==1 for row in rows),
+            inventory_enemy_and_game_state_unmodified=True,physical_cadence_claim=False),separators=(',',':')),flush=True)
+        return
     if args.retreat:
         for back in(32,40,48):
             for turn in(12,16,20,24):

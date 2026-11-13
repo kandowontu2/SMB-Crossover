@@ -263,3 +263,26 @@ route. No original jump/body physics, helper positions, retirement predicate
 or ROM bytes have changed during these controller investigations. The extra
 336 helper remains PRIVATE; the delivered thirteen-helper policy remains
 authoritative. Native qualification of the retirement candidate is pending.
+
+The next two actual-prefix cohorts on e73 completed with zero output files:
+
+- `--riser --retreat`: twelve stationary-A branches regain the original15px
+  jump (minimum nativeY161), no injury. Subsequent Right input takes effect
+  only after landing. The retained `DkjrNativeSourcePhase` explicitly skips
+  CE6C input for source states3/4; airborne direction is latched. No midair
+  steering change is proposed.
+- `--riser --running-jump`: all five branches retreat Left12/16/20/24/28
+  updates, neutral4, then Right+A8 and Right80. Every branch lands on the
+  genuine first stair atY160/source1, lives2, no injury. Actual takeoffs span
+  X2110..2120. The replayed Main7000 body's world rectangleX2127..2144,
+  Y191..206 already touches the actual first stair cellX2144/Y192; the
+  original takeoffX2127 is too late in this CPU cadence. These are genuine
+  controller-only branches of the played prefix, not physical NES proofs.
+
+The optional `early_stairs=True` controller now uses first two takeoffs
+2118/2134 and matching second staircase2342/2358. Existing third/fourth
+takeoffs2150/2166 and2374/2390 retain the same26px approach to their cells;
+all other route policies and ROM bytes remain unchanged. Its continuous
+full-stage CPU replay is in progress, not a pass. This option requires the
+qualified fourth-window/ledge/stationary-defense controls. Frozen failed
+controllers and all strict parent APIs remain available unchanged.

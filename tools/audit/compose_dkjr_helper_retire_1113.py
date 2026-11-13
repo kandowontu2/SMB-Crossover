@@ -312,7 +312,7 @@ def retirement_fixture(parent):
         lease_granted=False,ROM_written=False,alias_probe_SHA256=alias_info['candidate_SHA256'])
 
 
-def controller(raw,*,full=False,ride_fourth=False,fourth_window=False,ledge_wait=False,stationary_wait=False):
+def controller(raw,*,full=False,ride_fourth=False,fourth_window=False,ledge_wait=False,stationary_wait=False,early_stairs=False):
     """Same frozen controls; bind only the moved private BOX return label."""
     import replay_dkjr_first_pickup_1113 as Replay
     text=Replay.full_stage_controller(raw)if full else Replay.controller(raw)
@@ -358,6 +358,12 @@ def controller(raw,*,full=False,ride_fourth=False,fourth_window=False,ledge_wait
   end
   local slot=ledgeGoomba.slot''')
         text=once(text,'updates-ledgeGoomba.started<110','updates-ledgeGoomba.started<160')
+    if early_stairs:
+        assert full and stationary_wait
+        text=once(text,'local lateSteps={{2127,176,true},{2142,160,true},',
+            'local lateSteps={{2118,176,true},{2134,160,true},')
+        text=once(text,'{2351,176,true},{2366,160,true},',
+            '{2342,176,true},{2358,160,true},')
     return text
 
 
