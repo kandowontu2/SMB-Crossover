@@ -15,9 +15,16 @@ SOURCE = R/'tools/reference/karnov_natural_bomb_1113.lua'
 PIN = '318a087735b4204c74274b4107efbc302bc15a674a7f6f9d3bed598cea90d08d'
 CURRENT = '65ee94ca9ac6e1b5ad44303d08f76ecbc175a88232c82ef8c32712edf150a643'
 SCENE = 'a3c5fa63872fbb3103ae57d9748fef233e8b2273e26d985aa4006b2492d81b8a'
+QUICK = '4641ca4fb72699c0478e31b831d4c4ea0ffd2227be7f8446666092d2cc26e1d3'
 
 
 def authenticate(raw):
+    if sha256(raw).hexdigest()==QUICK:
+        from compose_quick_climb_material_1113 import inverse as quick_inverse
+        parent=quick_inverse(raw)
+        assert sha256(parent).hexdigest()==SCENE
+        authenticate(parent)
+        return
     if sha256(raw).hexdigest()==SCENE:
         from compose_karnov_scene_motor_1113 import inverse as motor_inverse
         parent=motor_inverse(raw)

@@ -160,3 +160,38 @@ active for this source task.
 Fourth natural flower/Bomb acquisition and use remain pending. Ladder, Clapper,
 Glasses, Swimming Mask and Shield remain required integrations, along with the
 broader original equipment/audio and roster obligations.
+# November 13 native fourth-block follow-up
+
+The prepared6b90 trace was subsequently run on installed parenta3. It ends
+at the fourth-block bound, full health/both lives, with minY176: no jump is
+ever admitted. Receipt
+`414ac792099408aa81dfaba93f0f009af2f4406093e372a43370290df5928a3c`.
+The input callback could be polled repeatedly in one logical epoch: setting
+lastPulse in the first poll consumed the intended one-poll A press. This is
+a replay defect, not a new ROM movement defect.
+
+Holding A for six logical updates corrects admission. At the original
+X1097, the small head now bumps the masonry atY144 and stops at nativeY151;
+the upward fireball passes the target column too late. Held-A controller
+`cb1a3c342be6522fd3def1363c0d314822a25254c07860b674e6c79a45738524`,
+receipt `64b745a0ca2b32ec9cb2e911aec45c8fcac168e1cefcba20426cee17e7f8554d`.
+
+Firing from16 pixels farther left, X1081, puts the original upper fireball
+through the lower brick at1104/Y144. Its permanent tile becomes0, then a
+new under-block jump atX1103/Y134 hits native5A and reveals the fourth
+flower. Controller
+`b054d7540053f288f01d012299b29e646e08255aa98cc9220da1a5f613019481`,
+receipt `a1da4978e0ec913305b7e00e791f35b0e54c7526a6856ccdf914b092b851ac62`.
+The generic flower-lift setup remains unsuccessful: physical bound24001,
+X1103/Y176, full health/both lives, three collected items, Bomb not earned.
+Minimum observedY134. No new fixed helper or gameplay byte changed. The
+next step is to inspect the actual fourth-flower/lift terrain and camera,
+rather than claim acquisition from the head-reveal proof.
+
+Frozen stop-after2/3 recipes still reproduce their original controllers;
+the existing qualified3-pickup controller remains57763. After the Quick-only
+nightly4641 delivery, the audit explicitly authenticates that image through
+`compose_quick_climb_material_1113.inverse` to exacta3 before its established
+Karnov ownership checks. This does not claim a repeated native4th-item test
+on4641. No captures or extra build files were produced.
+

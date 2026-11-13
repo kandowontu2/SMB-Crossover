@@ -67,8 +67,13 @@ the same cd9be0d5 native receipt, including all four items and grounded1-2.
 Before/after automatic patch guards pass with no matching IPS/BPS/UPS;
 installed bytes equal the tested candidate. The final controller also passes
 an independent CPU replay in3659 logical updates; no cadence equality is
-claimed. Sole Current/Latest IPS refresh remains the final delivery step.
-`deliver_quick_climb_1113.py` verifies the IPS roundtrip and remote asset.
+claimed. The sole Current/Latest IPS was then replaced and independently
+downloaded: asset742970175, SHAce922a87 above, exact reconstruction equals
+Downloads. Current is marked Latest; automatic patch guards pass afterward.
+Published source commit:5246973366794c00e324d7db5b97a903d6c53643.
+Published report snapshot SHA256:
+41ca51dc2b5e5eedec32252e2748484e750367bdfb419917920e69b928ced14c.
+`deliver_quick_climb_1113.py` performs those remote and roundtrip checks.
 
 Root retains one candidate and one controller in the shared two-file output.
 No screenshots, videos, dumps or receipt files were created. Build preflight
