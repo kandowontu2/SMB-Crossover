@@ -230,3 +230,14 @@ it proves natural acquisition/use/retirement, not a new enemy-damage case.
 Native prepared-enemy Bomb damage has its separate older fixture evidence.
 Star/1UP and remaining original equipment/audio still need qualification.
 
+## Delivered Jay composite authentication
+
+The audit now accepts only the exact delivered aa501 composite through the
+declared Quick, Jay-helper and Jay-head inverses, recovering the established
+a3 proof input before the existing ownership checks. The current controller
+compiles with retained Lua and has SHA256
+`3ba0b9546b3aab4026bc83e533f2c5999f72a7b90322979d333bfd0f7d15b032`.
+The previous4641 controller remains exactly dc93477b above. This is source
+authentication and controller continuity, without a repeated native four-item
+run on aa501 or a gameplay patch.
+

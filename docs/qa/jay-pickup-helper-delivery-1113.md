@@ -74,6 +74,12 @@ Downloads was directly replaced withaa501, without a backup. All three
 installed runs repeat their exact private receipts above. Installed bytes
 equal the tested candidate; before/after automatic patch guards pass with
 no same-name patch files. Exact IPS reconstruction passes. The remaining
-delivery step is the sole Current/Latest asset refresh. The delivery recipe
-is `deliver_jay_pickup_helper_1113.py`; no capture files were created.
+delivery step was the sole Current/Latest asset refresh, now also complete.
+Asset743075827 contains the exacta5ec IPS and was independently downloaded;
+its reconstruction equals Downloadsaa501 byte for byte. Current is Latest.
+Published source:eef8ab51fc5b448921a96ae2bc2b7e165df0d10c; published report
+snapshot SHA256:cc1ba00269bd028fee0e08ecf8d122bcce62e1ac6256fb304775b6ebc374b60e.
+The delivery recipe is `deliver_jay_pickup_helper_1113.py`; no capture files
+were created. The disposable candidate path may subsequently hold a separately
+labelled private Steve test; Downloads and the release remain authoritative.
 Steve armor remains private; broader roster/powerup/audio review continues.
