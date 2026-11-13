@@ -162,6 +162,16 @@ end
 local function naturalTick()''')
         change("  elseif phase=='natural-traverse'then\n",
                "  elseif phase=='natural-traverse'then\n    if clearStarPath()then return end\n")
+        change('''  local gap=actor.x-x()-8
+  if gap>4 then return 1 end
+  if gap< -4 then return 2 end
+  return 0''','''  local gap=actor.x-x()-8
+  local direction=gap>4 and 1 or gap< -4 and 2 or 0
+  if not natural.starJumpStart and read(0xbd)==176 and read(0x1e)==0 and read(0x5c92)==0 then
+    natural.starJumpStart=projections
+  end
+  local jump=natural.starJumpStart and projections-natural.starJumpStart<9 and 128 or 0
+  return direction|jump''')
     assert 'emu.write' not in text and 'emu.setState' not in text
     from check_ff_stdout_controller_source_1110 import LuaRuntime
     LuaRuntime().compile(text)
@@ -184,7 +194,7 @@ if __name__ == '__main__':
     modes = parser.add_mutually_exclusive_group()
     modes.add_argument('--observe-only',action='store_true',help='Observe the frozen controls (default).')
     modes.add_argument('--defend',action='store_true',help='Experimental stationary defense; frozen negative, not a qualified replay.')
-    modes.add_argument('--clear-star-path',action='store_true',help='Use ordinary punches before releasing the Star.')
+    modes.add_argument('--clear-star-path',action='store_true',help='Punch approach enemies and jump toward the emerging Star.')
     args = parser.parse_args()
     raw = S.Native.Live.Art.D.HOST.read_bytes()
     print(json.dumps(source_check(raw,defend=args.defend,clear_path=args.clear_star_path),sort_keys=True),flush=True)

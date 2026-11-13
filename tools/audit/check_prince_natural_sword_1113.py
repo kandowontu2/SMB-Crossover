@@ -168,11 +168,12 @@ def cold(raw):
     return model, dict(actual_menu=True, parser_updates=epoch, x=40, health=5, lives=2)
 
 
-def route(model, raw, limit, *, climb_mask=8):
+def route(model, raw, limit, *, climb_mask=8, recover=False):
     from check_ff_stdout_controller_source_1110 import LuaRuntime, DLL, DLL_SHA
     assert sha256(DLL.read_bytes()).hexdigest() == DLL_SHA
     lua = LuaRuntime(unpack_returned_tuples=True)
-    text = controller(raw)
+    assert not recover or climb_mask==8
+    text = recovery_controller(raw) if recover else controller(raw)
     assert climb_mask in (8, 9, 136)
     if climb_mask != 8:
         before = "switch('flower-climb',8)"
@@ -266,12 +267,13 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--limit', type=int, default=4500)
     p.add_argument('--climb-mask',type=int,choices=(8,9,136),default=8)
+    p.add_argument('--recover',action='store_true')
     p.add_argument('--verbose',action='store_true')
     args = p.parse_args()
     raw = Base.C.ROM.read_bytes()
     model, opening = cold(raw)
     print(json.dumps(dict(opening=opening, ROM_SHA256=sha256(raw).hexdigest())), flush=True)
-    result = route(model, raw, args.limit,climb_mask=args.climb_mask)
+    result = route(model, raw, args.limit,climb_mask=args.climb_mask,recover=args.recover)
     report = dict(result)
     if not args.verbose:
         report['flower'] = {k:v for k,v in (report.get('flower') or {}).items() if k!='trace'}

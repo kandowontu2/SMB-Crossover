@@ -71,3 +71,9 @@ receipt`2bb01dcdddf37db3be50e364c42edfd73ab1b32940d249ef34d20f53c88ea0b7`.
 This is retained as a failed controller experiment, not a ROM change or a
 powerup pass. Both runs retained the shared emulator queue and capture
 watchdog and wrote zero capture files.
+
+Two later normal-A jump attempts, Lua8be319eb and1d585c40, produce exactly the
+same2bb01dcd native failure receipt as the approach-punch experiment. They do
+not establish a successful jump or Star pickup and remain experimental. The
+current `--clear-star-path` option retains the last failed attempt for further
+diagnosis. The default observation-only12a controller remains unchanged.
