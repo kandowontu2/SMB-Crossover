@@ -90,3 +90,32 @@ HP through the unarmed defender, with successive returns AB5C/5F/62/65/68.
 Receipt `419539227df5df1013e742770aa97b33b52a2e50b417d676ef7f9f6e7df33b9f`.
 This distinguishes a safe-height descent from a safe enemy-crossing route;
 the latter remains unresolved. The optional descent replay retains both probes.
+
+### Sword candidate regression
+
+The composed reach/sword candidate
+`a0dc025be05d1a9e697bb47f1affaea9d33f70be3d7fbee240b520e433f12327`
+passed a fresh controller-only Mesen first-mushroom collection at frame2160,
+X417/Y176, HP5 and both lives. Receipt:
+`50413ea06514f78e09061467af402e33273140882822120995cfeb72bdb31b4c`;
+controller SHA256:
+`e823ac3e7f8c12250641f45cc19c135b9e66259aa0c6420907459b8c81787f9a`.
+No captures or emulated-state writes were used. This proves pickup regression
+only, not a naturally earned sword demonstration or the full-stage route.
+
+Root also independently composed the menu-facing patch over that candidate:
+`c5ce8c1557f6eb27c97f1fb1b0404c7854f59feb18717f27171d7dcb890efbbd`.
+All445 menu edit bytes matched their exact preimages; reversing sword and
+reach recovered the installedcebb parent exactly. This check wrote no ROM.
+The sword support publication observer must useD746, not the previousD74B.
+Neither private candidate has been installed in Downloads or published.
+
+The combinedc5ce8c candidate then passed the actual controller-only full1-1
+route and entered active underground1-2 at frame16379 with both lives.
+Receipt `60479ff4e2bda39d132807db13310ba272cf68d5eebbb6f98a21ddd75d21491f`;
+controller `018f23db7dd7a1482c10f861db2f3c3ad546417cbdc189e56e0c1c98bdefd65e`.
+The route used theD746 observer, brake3115 and adaptive retreat. No added
+helpers, captures or state writes. TerminalHP5 is the next-stage reset;
+this is not a no-injury claim or proof of sword combat. Existing external
+Mesen sessions were left untouched. The combined candidate is retained only
+at `build/prince-first-pickup-1112/candidate.nes` pending remaining gates.
