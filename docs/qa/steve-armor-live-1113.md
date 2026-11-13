@@ -1,6 +1,6 @@
 # Steve armor live integration
 
-The full armor component remains private pending Mesen qualification. Root
+The full armor component remains private while final native gates continue. Root
 owns the emulator queue, installation and release. All helper tests use the
 bounded runner with `build/steve-armor-transport-1112`, one allowed new file
 and zero files actually generated. No helper ROM or captures are retained.
@@ -35,6 +35,107 @@ all eight owner transitions and the full six-token/controller/clock check
 repeat successfully. Cold takes2,379,097 instructions. Runtime/packet/spare
 remain1,912/8,721/386 bytes. The known composition order is Head,Helper,Quick,
 then Armor. The four physical Jay pages remain byte-identical to this parent.
+
+## Current fast candidate
+
+`steve_armor_idle_1113.proposal(aa501)` now defaults to the exact private image
+`62ba7f54117875ec018d6f85fb1c74408aa11f0fe0f6a85b8b4f601034a17639`.
+Its inverse reconstructs exactaa501. The default
+`replay_steve_armor_native_1113.proposal` retains the frozen2aa recipe.
+The current cookie is `aa10200c3c8114b6f52cd1db4b8564a0`.
+
+Thirteen added bridge bytes skip the authenticated raw1 pose service when
+upgrade state and armor timer are both zero, and skip the wave draw service
+when native hit life is zero. Main still executes its original tick,
+HurtAge, native-status mirror and cleanup effects. The bridge occupies
+136/136 bytes, raw1 runtime1,912/2,048, gate60/60 and recovery35/37.
+The reproducible codec and block ordering produce prefix941 plus packed8,839
+bytes, totaling9,780/10,048 with268 spare. Cold takes2,398,039 instructions.
+Corrupt raw1's final marker byte and full recovery reads31,918 PPU bytes.
+
+The exact62ba core suite passes112 cold/injury cuts, five readback faults and
+clean recoveries,38 original poses,15 mounted injury cases, all three owner
+header rejections, warm admission and exact inverse. The moving-wave suite
+passes247 IRQ/lag-NMI cuts, both15-update motion directions, page crossings,
+six hardware sprite cases, native terrain handlers, prepared-token flips and
+two placed Goomba defeats per direction. These direct actor cases retain
+their explicit fixture scope.
+
+All eight actual menu/cache transitions Quick,Jay,Mike,Excitebike↔Steve pass
+on62ba, including fresh-owner code parity and ten ordinary followup updates.
+Each Steve transition reaches62 authenticated raw1 entries after the inactive
+pose/draw calls are removed. The six prepared-token ordinary-Main gate also
+passes full original entry, moving waves,119 clock events, natural expiry
+and exit, retaining health6/lives2 and robot1.
+
+`check_steve_armor_idle_1113.py` additionally compares32 complete native
+JnSetPose/JnDraw cases against2aa across engine7/8, both facings, special-pose
+selection and player states. Complete AXYP/SP, zero page, native body, OAM,
+pose, upgrade state, mapper and CHR results match. All29 reached bridge
+instruction cuts pass both IRQ and lag NMI with minimum SP165.
+
+The actual62ba Jay cold/opening repeat also passes. Physical232,234,331,332
+and the mounted head/helper code remain exact. Supplied-model tests pass
+1,048 genuine QueryVertical cases,1,848 queries,80 native effects,63 IRQ
+and63 lag-NMI cuts with minimum SP184,960 helper decisions,256 status values,
+ten existing-record pairs, six retry cases and eight resets.
+
+All six readonly bindings compile against exact62ba after authenticating the
+root's retained candidate bytes and its exact inverse. Jay bindings derive
+the expected cookie from the actual shared role and normalize all delivered
+Head/Helper/Quick code before binding controls.
+
+| Pure API and mode | Lua SHA256 |
+| --- | --- |
+| `Native.controller`, ingress | `caece93527f82e53be0f865d08e8b9768a9fb20b35e55c03919af197b120caac` |
+| `Native.controller`, full_stage | `3c477bf925743d320a3e51e008f582708297a2b78f0ad19be5112bde6ba8144d` |
+| `Native.controller`, armor_fixture | `78c84d57586d7a8d27b88b0f1e0cf012a60189c9e081ef8086681836bd101c9c` |
+| `Native.jay_controller`, pickup | `b198a94852e46c85922cc065ce39a0349298aaccd42f34f8da272d7363d8e11c` |
+| `Native.jay_controller`, stage | `9189a9408ea6f52778a2dc53f6206e632ec4534b9d9e4057d91b08fb3ec34e29` |
+| `Combat.controller` | `81c9abab8969d68f07d858b2ce5ad25e202380894db85b627663d8e450bf0849` |
+
+Here `Native` is `replay_steve_armor_native_1113` and `Combat` is
+`replay_steve_armor_combat_1113`. Both receive the exact image and metadata
+from `steve_armor_idle_1113.proposal(aa501)`. Root chooses the declared private
+fixture through `Combat.fixture(candidate)` for the combat binding.
+
+The source CPU empty-scene profile drops from33,962.96 to32,553.96 cycles
+per idle update and from34,038.8125 to32,629.8125 while walking. Parent costs
+are31,603.72 and31,679.4375. Root's exact62ba physical check measures36
+walking updates in37 physical frames and25 idle updates in25 physical
+frames. All62 physical frames poll input, retaining health6/lives2 at
+X85/Y176. Its Lua hash is
+`604f3c3b2a4822380af815ce0e65a517bebbe3cc8a8c569377eb6d2147417e19`
+and receipt is
+`aaa90ccb8083e7e6fe07d220d8fe2e3c229642771e6b6221b05446c380e4b05b`.
+This gate addresses the measured large empty-scene cadence regression.
+The short walking window still includes one extra physical frame.
+
+## Separate current combat fixture
+
+`replay_steve_armor_combat_1113.fixture(62ba)` produces private fixture
+`7b82c7c3c52b0d8bba2f304501e5d3e58999e5f77bfaaf0780f844f3a52c6274`.
+It changes only15 initial level bytes at20956 and seven enemy-stream bytes
+at19023. Its enemy prefix is `0f046b068b06ff`. Runtime code and state are
+supplied entirely by the unchanged62ba candidate and native gameplay.
+
+The bounded source CPU controller passes3,614 updates. Six genuine question
+blocks grant the original armor. Two actual parser-created Goombas initialize
+at worldX1120/1152 andY176, then native initialization moves them toY184.
+At update1,940, an actual native Goomba injury call leaves health6 intact and
+applies original contact arithmetic to armor timer105→103. A single right
+wave reaches genuine native JnDefeat for slots0/1 atX1050/1091 and retains
+its life after the first hit. The later left wave verifies the opposite
+motion/render direction. The original clock expires and exits naturally,
+retaining health6, both lives and robot1. No runtime actor, inventory,
+pattern, robot, timer or drawn-state seeds are used.
+
+The compiled readonly combat Lua hash is
+`81c9abab8969d68f07d858b2ce5ad25e202380894db85b627663d8e450bf0849`.
+`check_steve_armor_combat_1113.py` reproduces the actual controller test and
+measured native positions. Physical combat, current62ba full-stage and
+foreign-profile native regressions remain pending. Root retains the single
+emulator queue and the25GB free-space admission floor.
 
 ## Cold load and admission
 

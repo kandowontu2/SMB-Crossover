@@ -14,6 +14,7 @@ PARENTS = {
     'aa50112845d1cf70cae0924f03326647b3d2514f876c756d70b134ee44f971d1':
         '2aa5096391ddc303c4dc346293db1b628ddee36222fb3a7eaa20649c003b6cea',
 }
+IDLE_CANDIDATE = '62ba7f54117875ec018d6f85fb1c74408aa11f0fe0f6a85b8b4f601034a17639'
 POINTS = (80,192,304,416,528,640)
 SCRIPT = Packet.Entry.ROOT/'tools/playthroughs/steve_armor_native_1113.lua'
 
@@ -27,7 +28,7 @@ def proposal(raw):
 
 def fixture(candidate):
     """Replace only 1-1 level/enemy data for a declared private test ROM."""
-    assert Packet.Entry.digest(candidate) in PARENTS.values()
+    assert Packet.Entry.digest(candidate) in (*PARENTS.values(),IDLE_CANDIDATE)
     bundle = Roster.W.Symbols.bundle()
     bundle['raw'] = candidate
     level = Roster.W.location(bundle,'L_GroundArea6')
@@ -62,7 +63,7 @@ def fixture(candidate):
 def controller(candidate,info, *, mode='armor_fixture'):
     from check_ff_stdout_controller_source_1110 import LuaRuntime,DLL,DLL_SHA
     assert Packet.Entry.digest(DLL.read_bytes()) == DLL_SHA
-    assert Packet.Entry.digest(candidate) in PARENTS.values()
+    assert Packet.Entry.digest(candidate) in (*PARENTS.values(),IDLE_CANDIDATE)
     assert mode in ('armor_fixture','ingress','full_stage')
     if mode == 'full_stage':
         lua = full_stage_controller(candidate,info)
@@ -135,12 +136,17 @@ def jay_controller(candidate,info, *, mode='pickup'):
     import replay_jay_pickup_helper_1113 as Replay
     from check_ff_stdout_controller_source_1110 import LuaRuntime,DLL,DLL_SHA
 
-    assert Packet.Entry.digest(candidate) == PARENTS[
-        'aa50112845d1cf70cae0924f03326647b3d2514f876c756d70b134ee44f971d1']
+    image_hash = Packet.Entry.digest(candidate)
+    assert image_hash in (PARENTS[
+        'aa50112845d1cf70cae0924f03326647b3d2514f876c756d70b134ee44f971d1'],IDLE_CANDIDATE)
     assert mode in ('pickup','stage')
     cookie = candidate[Packet.Entry.prg(94,0xb2ef):Packet.Entry.prg(94,0xb2ef)+16]
     assert cookie == info['cookie'] and cookie[:4] == bytes.fromhex('aa10200c')
-    parent = Live.reverse(candidate)
+    if image_hash == IDLE_CANDIDATE:
+        import steve_armor_idle_1113 as Idle
+        parent = Idle.reverse(candidate,optimized=False)
+    else:
+        parent = Live.reverse(candidate)
     base = Head.inverse(Helper.inverse(Quick.inverse(parent)))
     assert Packet.Entry.digest(base) == Packet.QUALIFICATION_PARENT
     head = Head.proposal(base)[0]

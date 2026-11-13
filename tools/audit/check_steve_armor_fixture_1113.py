@@ -7,7 +7,7 @@ import check_roster_powerup_continuation_1110 as Frames
 import replay_steve_armor_native_1113 as Native
 
 
-def check(candidate,info):
+def check(candidate,info, *, return_model=False):
     image,proof = Native.fixture(candidate)
     lua = Native.controller(candidate,info)
     bundle = Native.Roster.W.Symbols.bundle()
@@ -95,11 +95,12 @@ def check(candidate,info):
     else:
         raise AssertionError(('Fixture armor bound',states))
     assert 13 in states and m.ram[2][0x1f2] == 127
-    return proof|dict(menu_startup_updates=startup,controller_updates=updates,
+    result = proof|dict(menu_startup_updates=startup,controller_updates=updates,
                 Lua_syntax_compiled=True,controller_SHA256=Native.Packet.Entry.digest(lua.encode()),
                 questions=receipts,armor_timer=127,state13_transport_passed=True,
                 runtime_state_writes=0,output_files=0,Mesen_run=False,
                 scope='Actual native menu, parser and controller route through a private level-data-only ROM fixture. All six powerups are revealed, prepared, matured and collected by native gameplay.')
+    return (result,m) if return_model else result
 
 
 if __name__ == '__main__':

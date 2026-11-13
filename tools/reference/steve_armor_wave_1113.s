@@ -226,6 +226,10 @@ WaveNativeDone:
 
 ArmorWaveDrawGateway:
     pha
+.ifdef STEVE_ARMOR_IDLE_FAST
+    lda SteveHitLife
+    beq WaveNativeOldDraw
+.endif
     lda #4
     jsr ArmorInvoke
     bcc WaveNativeOldDraw

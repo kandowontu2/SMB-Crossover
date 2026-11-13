@@ -359,9 +359,15 @@ ArmorPoseEntry:
     lda GameEngineSubroutine
     cmp #8
     bne ArmorOriginalStockPose
+.ifdef STEVE_ARMOR_IDLE_FAST
+    lda SteveUpgradeState
+    ora SteveArmorTimer
+    beq ArmorOriginalPose
+.endif
     lda #1
     jsr ArmorInvoke
     bcs ArmorPublishedPose
+ArmorOriginalPose:
     lda $c977
     bne ArmorOriginalSpecialPose
     jmp $cedc

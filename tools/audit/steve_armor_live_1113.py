@@ -44,7 +44,7 @@ def order_blocks(rows):
     return tuple(best)
 
 
-def link(raw, *, wave=True):
+def link(raw, *, wave=True,idle_fast=False):
     donor = Art.D.DONOR.read_bytes()
     pages, records, art_proof = Art.atlas(donor)
     bundle = Packet.Host.C.Start.W.bundle(raw)
@@ -55,6 +55,8 @@ def link(raw, *, wave=True):
     fields |= dict(SteveArmorWarning=0xc97a, SteveArmorEffectActor=0xc97b,
                    SteveArmorExitCount=0xc97c, SteveArmorAngleStep=0xc97d,
                    ArmorHurtAge=0xc97e, ArmorBodyPose=0xc97f)
+    if idle_fast:
+        fields['STEVE_ARMOR_IDLE_FAST'] = 1
     source = SOURCE.read_text()
     if wave:
         _, incumbent, _ = Wave.incumbent(raw)
@@ -135,7 +137,7 @@ def native_edits(raw, runtime):
     return changes, native
 
 
-def proposal(raw):
+def proposal(raw, *, idle_fast=False):
     reservation = json.loads((Entry.ROOT/'docs/qa/allocations/steve-armor-pages-1113.json').read_bytes())
     assert reservation['physical_CHR_pages'] == [8, 10, 709]
     for page in (8, 10):
@@ -145,7 +147,7 @@ def proposal(raw):
     assert wave_reservation['physical_CHR_pages'] == [739]
     assert Entry.digest(Art.page(raw,739)) == wave_reservation['preimage_SHA256']
     alias_image, alias_info = Carrier.proposal(raw)
-    program, pages, records, art_proof = link(raw)
+    program, pages, records, art_proof = link(raw,idle_fast=idle_fast)
     resident = {bank: bytearray(data) for bank, data in Packet.original_resident(raw).items()}
     resident[2][0x1f0:0x200] = bytes(16)
     resident[2][0x3fb:0x400] = bytes(5)
@@ -236,11 +238,11 @@ def proposal(raw):
                                        wave_page=739,wave_art=wave_art)
     info.update(runtime=program, native=native, art=art_proof, records=records,
                 native_changes=changes, wave_hooks=wave_hooks,wave_records=wave_records,
-                previous_owner_alias=alias_info, release_qualified=False)
+                previous_owner_alias=alias_info,idle_fast=idle_fast,release_qualified=False)
     return candidate, info
 
 
-def reverse(image):
+def reverse(image, *, idle_fast=False):
     """Restore the exact authenticated parent while retaining unrelated edits."""
     parent = bytearray(image)
     parent_cookie = image[Entry.CHR+371*1024+64:Entry.CHR+371*1024+80]
@@ -272,7 +274,7 @@ def reverse(image):
     at = Entry.prg(65, 0xaf01)
     parent[at:at+2] = old_cold['symbols']['JaySelect'].to_bytes(2,'little')
     parent = Carrier.reverse(bytes(parent))
-    assert proposal(parent)[0] == image
+    assert proposal(parent,idle_fast=idle_fast)[0] == image
     return parent
 
 
