@@ -71,13 +71,44 @@ ORDINARY
         old="if killed and r('WorldNumber')==0 and r('LevelNumber')==1 and r('GameEngineSubroutine')==8 and r('OperMode_Task')==3 then finish('entered-1-2')"
         assert text.count(old)==1
         text=text.replace(old,"if upgradePhase==5 and ticks>=40 then finish('earned-flower-shot')")
+        text=text.replace("elseif age>=6000 then finish('route-bound')",
+            "elseif (upgradePhase==0 and age>=1100) or age>=6000 then finish('route-bound')")
     if mode == 'armor':
         assert text.count(" if phase=='play' then\n") == 1
         text = text.replace(" if phase=='play' then\n", " if phase=='play' then\n  pad.b=true\n")
         text = text.replace('if x<240 then', 'if x<336 then')
     labels = set(re.findall(r"r\('([^']+)'", text)) | set(re.findall(r'L\.(\w+)', text))
+    labels.update(('PowerUpType','Enemy_State','Enemy_Flag','Enemy_ID','PlayerStatus'))
     bundle = Native.C.Start.W.bundle(raw)
     prefix = 'local L={' + ','.join(f'{name}={Native.N.address(bundle,name)}' for name in sorted(labels)) + '}\n'
+    pickup_pc = Native.N.address(bundle,'HandlePowerUpCollision')
+    pickup_offset = Native.N.location(bundle,'HandlePowerUpCollision')-16
+    prefix += '''local collections,pickupHooks,pendingPickup={},{},nil
+local function pickupRead(a)return emu.read(a,emu.memType.nesDebug)end
+local function pickupSource(a)return emu.read(2*8192+a,emu.memType.nesWorkRam)end
+emu.addMemoryCallback(function()
+ local map=emu.convertAddress(PICKUP_PC)
+ if pickupRead(0x6002)~=35 or not map or map.memType~=emu.memType.nesPrgRom or map.address~=PICKUP_OFFSET then return end
+ local cpu=emu.getState()
+ local slot=cpu['cpu.x']
+ if slot>5 or pickupRead(L.Enemy_ID+slot)~=46 then return end
+ local sp=cpu['cpu.sp']
+ local ret=pickupRead(0x100+((sp+1)&255))+256*pickupRead(0x100+((sp+2)&255))+1
+ pendingPickup={slot=slot,kind=pickupRead(L.PowerUpType+slot),mature=pickupRead(L.Enemy_State+slot)>=128,
+  beforeStatus=pickupRead(L.PlayerStatus),beforeArmor=pickupSource(0x5d0),beforeWeapon=pickupSource(0x718)}
+ if not pickupHooks[ret] then
+  pickupHooks[ret]=true
+  emu.addMemoryCallback(function()
+   if pendingPickup then
+    local row=pendingPickup;pendingPickup=nil
+    row.afterFlag=pickupRead(L.Enemy_Flag+row.slot)
+    row.afterStatus=pickupRead(L.PlayerStatus);row.afterArmor=pickupSource(0x5d0);row.afterWeapon=pickupSource(0x718)
+    if row.afterFlag==0 and #collections<8 then collections[#collections+1]=row end
+   end
+  end,emu.callbackType.exec,ret)
+ end
+end,emu.callbackType.exec,PICKUP_PC)
+'''.replace('PICKUP_PC',str(pickup_pc)).replace('PICKUP_OFFSET',str(pickup_offset))
     prefix += '''local headHits,headPending,headReturnHooks={},nil,{}
 local headCalls,headReturned,bumps=0,0,0
 local sourceContacts={}
@@ -125,7 +156,7 @@ end,emu.callbackType.write,0xc810)
     condition = ('got and spawned and matured and r(\'NumberofLives\')==initialLives'
                  if mode == 'armor' else "killed and r('WorldNumber')==0 and r('LevelNumber')==1 and r('GameEngineSubroutine')==8 and r('NumberofLives')==initialLives")
     if mode == 'upgrades':
-        condition = "upgradePhase==5 and upgradedShot and upgradeBirths[1] and upgradeBirths[1].mature and upgradeBirths[2] and upgradeBirths[2].mature and r('NumberofLives')==initialLives"
+        condition = "upgradePhase==5 and upgradedShot and upgradeBirths[1] and upgradeBirths[1].mature and upgradeBirths[2] and upgradeBirths[2].mature and #collections==2 and collections[1].kind==0 and collections[1].mature and collections[1].afterArmor==128 and collections[1].afterStatus==1 and collections[2].kind==1 and collections[2].mature and collections[2].afterWeapon==128 and collections[2].afterStatus==2 and r('NumberofLives')==initialLives"
     encoder = (R/'tools/playthroughs/prince_original_first_pipe_stdout_1110.lua').read_text()
     encoder = encoder[encoder.index('local function encode(value)'):encoder.index('local function finish(passed,reason)')]
     new = encoder + '''local function finish(reason)
@@ -136,7 +167,7 @@ end,emu.callbackType.write,0xc810)
   spawned=spawned,matured=matured,collected=got,lives=r('NumberofLives'),initial_lives=initialLives,
   status=r('PlayerStatus'),armor=emu.read(2*8192+0x5d0,emu.memType.nesWorkRam),
   weapon=emu.read(2*8192+0x718,emu.memType.nesWorkRam),output_files=0,
-  headHits=headHits,headCalls=headCalls,headReturned=headReturned,bumps=bumps,sourceContacts=sourceContacts}
+  headHits=headHits,headCalls=headCalls,headReturned=headReturned,bumps=bumps,sourceContacts=sourceContacts,collections=collections}
  print('SMB_NATIVE_RECEIPT '..encode(receipt))
  done=true;emu.stop(passed and 0 or 1)
 end

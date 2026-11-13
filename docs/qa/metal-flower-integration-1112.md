@@ -65,3 +65,13 @@ helper is resolving the actual public head dispatch before assigning a getter.
 Additional helpers are independently auditing Prince raised-hand reach and
 Steve's unfinished same-pattern robot armor transformation; neither has changed
 the nightly. Root's Mesen queue is free after the negative upgrade replay.
+
+The upgrade replay now additionally observes the exact mapped native
+HandlePowerUpCollision entry and return. Success requires mature mushroom
+consumption with armor/status1, then mature flower consumption with weapon/
+status2, followed by the type81 shot. Merely setting a progression flag cannot
+satisfy this observer. Updated baseline fails as expected with zero collections
+at1700 frames; receipt
+`40d00921dd1ad935bf4068d1fc86ae585ee7354956160fb5fccc4676af85be23`.
+The negative first-item bound is shorter; positive post-mushroom phases retain
+the longer route bound. No further gameplay change or delivery occurred.
