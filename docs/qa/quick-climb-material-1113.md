@@ -87,3 +87,13 @@ The test only reads HP while the source cache is active(engine8); engine11
 and lost-life guards remain unconditional. Root is extending the entry check
 to neutral descent and stable underground ground before delivery. This is
 root-supplied native evidence; no ROM has been installed by this helper.
+
+The final strict native candidate pass continues neutrally through underground
+descent to grounded1-2 X40/Y176/high1/state0, HP/max40/lives3:5693 physical
+frames/3622 updates, controller963f00a2ca58167983ef7a25da989d01df03decc60eabdba654237f227105691,
+receiptcd9be0d5a648dd026bd1df1eb345d6c0f3ba4ea0dd136a878136de4092fdfbcd.
+Exact same standalonecontroller fromreplay_quick_flag_jump_1113.controller(candidate)
+also passes the independent actualMain/NMI CPU replay in3659 logical updates,
+same grounded1-2 state/HP/lives and camera0, zero outputs. The source checker
+accepts--route for this exact script; it does not alter the previously frozen
+old flag-negative API. Native-vs-CPU cadence differences remain explicit.

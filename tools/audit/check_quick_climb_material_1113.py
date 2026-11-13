@@ -237,7 +237,11 @@ def main():
         print('QUICK_CLIMB_COLD_CUTS '+json.dumps(reload(m,cuts=True),separators=(',',':')),flush=True)
         print('QUICK_CLIMB_AUTH_GATES '+json.dumps(gates(m),separators=(',',':')),flush=True)
     if args.route:
-        result=Q.route(m,candidate,4000,'full')
+        from replay_quick_flag_jump_1113 import controller
+        text=controller(candidate)
+        if info['candidate_SHA256']=='4641ca4fb72699c0478e31b831d4c4ea0ffd2227be7f8446666092d2cc26e1d3':
+            assert sha256(text.encode()).hexdigest()=='963f00a2ca58167983ef7a25da989d01df03decc60eabdba654237f227105691'
+        result=Q.route(m,candidate,4200,'full',controller_text=text)
         print('QUICK_CLIMB_FULL_ROUTE '+json.dumps(result,separators=(',',':')),flush=True)
         assert result['passed']
 
