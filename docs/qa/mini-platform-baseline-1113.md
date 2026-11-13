@@ -72,3 +72,13 @@ Every run uses the existing bounded `build/metal-flower-native-1112` two-file
 root and the root-owned single Mesen queue. The private DK candidate file
 stays e73; only the root controller is replaced. Captures and generated
 receipt files:0. Nightly auto-patch guard is clear before and after.
+
+The later `contact_candidate=True` factory option accepts only the strict
+private composer PIN, reverses it through e73 to exact public7ef, and requires
+the Mini carrier to stay byte-identical. The public Lua remains67e3166d.
+An in-memory compile on the gap-only privatea3452808 yields Lua9e7040f4;
+this is syntax/binding qualification, not a native candidate run. Root has
+not staged that ROM. `--contact-candidate` requires root to stage it first.
+
+GitHub releases are now intentionally empty at the user's request. This
+verification does not authorize recreating Current or uploading a patch.

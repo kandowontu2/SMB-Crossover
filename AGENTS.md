@@ -16,10 +16,11 @@
 
 ## Nightly delivery
 
-- When pushing tested updates to GitHub, replace the sole IPS asset in the
-  existing `Current` release and mark that release as Latest. Keep the asset
-  named `SMB-Crossover-Latest-WIP-MMC5.ips`; verify patch reconstruction equals
-  the tested Downloads ROM. Do not publish private, unverified candidates.
+- GitHub releases must stay empty until the user explicitly changes this
+  instruction. The November 13 request stops all `Current` patch publishing:
+  do not create/recreate releases or upload IPS/BPS/UPS assets. Continue source
+  pushes and verified local Downloads nightlies; this supersedes the earlier
+  sole-IPS `Current`/Latest release workflow. Do not publish private candidates.
 
 - Publish usable character updates frequently to
   `C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes`.

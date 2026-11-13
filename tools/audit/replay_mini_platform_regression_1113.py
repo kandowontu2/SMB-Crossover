@@ -29,15 +29,24 @@ def once(text,before,after):
     return text.replace(before,after,1)
 
 
-def controller(raw):
-    assert sha256(raw).hexdigest()==PIN
+def controller(raw, *, contact_candidate=False):
+    digest=sha256(raw).hexdigest()
+    if contact_candidate:
+        import compose_dkjr_platform_contact_1113 as Contact
+        assert digest==Contact.PIN
+        public=Contact.P.inverse_current(Contact.reverse(raw))
+        assert sha256(public).hexdigest()==PIN
+        start=16+128*8192+962*1024
+        assert raw[start:start+5120]==public[start:start+5120], 'Mini carrier must remain exact'
+    else:
+        assert digest==PIN
     original=SOURCE.read_bytes()
     assert sha256(original).hexdigest()==SOURCE_SHA
     full=original.decode('utf-8')
     text=full.split('local MiniProfileHooks=',1)[0]
     assert full.count('local MiniProfileHooks=')==1
     old='c10b7d87f466bf028096bddd33b7ac2baee242870ee83ccc4eebd529af57bd7f'
-    text=once(text,old,PIN)
+    text=once(text,old,digest)
     kernel=raw[16+128*8192+962*1024:16+128*8192+967*1024]
     oldkernel=re.search(r'\["kernel_SHA256"\]="([0-9a-f]{64})"',text)[1]
     # Rebind only after each retained hook authenticates against the actual
@@ -118,15 +127,18 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--metadata',action='store_true')
     p.add_argument('--require-zero-lag',action='store_true')
+    p.add_argument('--contact-candidate',action='store_true',help='Strict private successor only; candidate must already be staged by root.')
     args=p.parse_args()
     assert check(ROM)['ROM_sha256']==PIN
-    text=controller(ROM.read_bytes())
-    summary=dict(ROM_SHA256=PIN,source_SHA256=SOURCE_SHA,
+    rom=OUT/'candidate.nes' if args.contact_candidate else ROM
+    raw=rom.read_bytes();digest=sha256(raw).hexdigest()
+    text=controller(raw,contact_candidate=args.contact_candidate)
+    summary=dict(ROM_SHA256=digest,public_ROM_SHA256=PIN,source_SHA256=SOURCE_SHA,
         script_SHA256=sha256(text.encode()).hexdigest(),native_run=not args.metadata)
     if not args.metadata:
         script=OUT/'controller.lua'
         script.write_text(text,encoding='utf-8',newline='\n')
-        q=run(script,ROM,OUT/'capture',PIN,240)
+        q=run(script,rom,OUT/'capture',digest,240)
         receipt=q['receipt']
         # The full actual receipt is hashed above. Print only bounded useful
         # fields; the old native-end observer has dozens of redundant states.

@@ -8,7 +8,7 @@ A native NES adaptation of [Super Mario Bros. Crossover](https://www.smbgames.be
 
 [Player's guide](<Player Guide/SMB-Crossover-Players-Guide-NU.pdf>) · [Full roster image](docs/images/SMB-Crossover-Full-Roster.png) · [Build from source](#build-from-source) · [Credits](CREDITS.md) · [Report a bug](https://github.com/kandowontu2/SMB-Crossover/issues)
 
-> **In development:** the expanded MMC5 nightly uses a **32-slot, four-row menu** with **101 named entries**, including Select alternates. Sonic and Super Sonic have new sprites and have cleared 1-1 in Mesen. Jay McCray, Steve Hermann, Prince of Persia and Donkey Kong Jr. remain playable work in progress. The prepared source build contains 37 identities. [Current IPS release](https://github.com/kandowontu2/SMB-Crossover/releases/tag/Current) · [Sonic and Super Sonic verification](docs/qa/sonic-vol2-delivery-1111.md)
+> **In development:** the expanded MMC5 nightly uses a **32-slot, four-row menu** with **101 named entries**, including Select alternates. Sonic and Super Sonic have new sprites and have cleared 1-1 in Mesen. Jay McCray, Steve Hermann, Prince of Persia and Donkey Kong Jr. remain playable work in progress. The prepared source build contains 37 identities. GitHub releases are intentionally empty while development continues. [Sonic and Super Sonic verification](docs/qa/sonic-vol2-delivery-1111.md)
 
 <p align="center">
   <img src="docs/images/character-select.png" width="512" alt="Actual NES character-select screen with four rows of heroes and highlighted Imajin">
@@ -25,7 +25,7 @@ A native NES adaptation of [Super Mario Bros. Crossover](https://www.smbgames.be
 - **Options for testing and play.** Player outlines, level selection, invincibility, mid-air jumps, screen wrapping, a frozen timer and full power.
 - **An audio browser.** Test character-labelled music and sound effects in the expanded MMC5 build.
 
-The title opens a separate character-select screen. Use the D-pad to highlight a slot and **Select** to cycle its alternates. The [complete access list](docs/character-select-access.md) gives the row, column and Select presses for all 100 names, with the unfinished prototypes clearly marked.
+The title opens a separate character-select screen. Use the D-pad to highlight a slot and **Select** to cycle its alternates. The [complete access list](docs/character-select-access.md) gives the row, column and Select presses for all 101 names, with the unfinished prototypes clearly marked.
 
 ## Current roster
 
@@ -58,7 +58,7 @@ This table records the core roster and verified recent additions, including work
 | Super Sunny World | Sunny | — |
 | Battletoads | Rash / Zitz | — |
 | SMB2 / Doki Doki Panic | Mario / Luigi / Toad / Peach / Imajin / Lina / Papa / Mama | — |
-| Mr. Gimmick | Mr. Gimmick / Bub / Bob / Sonic (WIP) | — |
+| Mr. Gimmick | Mr. Gimmick / Bub / Bob / Sonic / Super Sonic (WIP) | — |
 | Bowser | SMB3 Bowser / SMB1 Bowser | — |
 | Donkey Kong | Donkey Kong / Donkey Kong Jr. (prototype) | — |
 | WWF WrestleMania | Hulk Hogan / Ted DiBiase / Bam Bam Bigelow / Honky Tonk Man / Randy Savage / Andre the Giant | — |
@@ -191,7 +191,7 @@ The chosen starting level applies when confirming a character. Invincibility doe
 
 ## Development status
 
-The current MMC5 nightly is `c4568faf`. All **101 named roster entries** can start. The newest addition is Super Sonic, available as Mr. Gimmick's fourth Select alternate. [Character Select access](docs/character-select-access.md) · [Current build verification](docs/qa/sonic-vol2-delivery-1111.md)
+The current local MMC5 nightly is `7ef2de35`. All **101 named roster entries** can start. Recent updates include Steve's armor, Karnov's reusable Ladder, and Prince's sword and safe underground entrance. Super Sonic remains Mr. Gimmick's fourth Select alternate. GitHub releases and public patch assets are on hold; source development continues. [Character Select access](docs/character-select-access.md) · [Current delivery verification](docs/qa/prince-entrance-current-1113.md)
 
 The preceding a5 build also passes actual Mesen mushroom/flower acquisition, upgraded attacks and full 1-1 into 1-2 for all four Final Fantasy classes. Their empty-area benchmark improves from 80 updates in 159 video frames to 80 in 119, with significant lag still present. Kirby's close and medium first-enemy inhales and a copied green-shell full 1-1 route also pass on a5. These results retain their exact tested hashes in the [FF delivery](docs/qa/ff-mux-physical-delivery-1110.md) and [Kirby checks](docs/qa/kirby-current-functional-1110.md); the current Excitebike-only change preserves their code.
 
