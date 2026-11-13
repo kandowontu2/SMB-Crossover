@@ -12,35 +12,41 @@ LargePlatformCollision=$b453
 PlatformPrepare=$bf5c
 PlatformFinish=$bf83
 PlayerBottom=$065b
+EnemyY=$be
+EnemyID=$17
 
 .segment "NATIVE"
 DkPlatformDispatch:
-    sta SavedA
     lda SelectedCharacter
     cmp #40
-    beq DkContact
-    lda #<PlatformGeneric
-    sta TargetLo
-    lda #>PlatformGeneric
-    sta TargetHi
-    lda #$ba
-    jmp FarCallCommon
+    bne PlatformFallback
+    lda EnemyID,x
+    cmp #$25
+    bcc PlatformFallback
 DkContact:
     lda PlayerBottom
     pha
-    cmp #254
+    cmp EnemyY,x
     bcs DkContactReady
-    inc PlayerBottom
-    inc PlayerBottom
+    adc #2
+    bcs DkContactReady
+    sta PlayerBottom
 DkContactReady:
-    jmp DkContactRestore
-
-.segment "RESTORE"
-DkContactRestore:
     jsr LargePlatformCollision
     pla
     sta PlayerBottom
     rts
+PlatformFallback:
+    lda #<PlatformGeneric
+    sta TargetLo
+    jmp PlatformFallbackTail
+
+.segment "RESTORE"
+PlatformFallbackTail:
+    lda #>PlatformGeneric
+    sta TargetHi
+    lda #$ba
+    jmp FarCallCommon
 
 .segment "GENERIC_A"
 PlatformGeneric:

@@ -83,7 +83,7 @@ def audit(raw):
     assert sha256(raw).hexdigest()==P.PRINCE_CURRENT
     leaves=sources(raw)
     linked=H.T.assemble(SOURCE.read_text(),LAYOUT)
-    assert linked['used']==dict(NATIVE=42,RESTORE=8,GENERIC_A=21,GENERIC_B=24)
+    assert linked['used']==dict(NATIVE=44,RESTORE=10,GENERIC_A=21,GENERIC_B=24)
     assert linked['symbols']['DkPlatformDispatch']==0xb98e
     assert linked['symbols']['PlatformGeneric']==0xbd5b
     bank=raw[16:16+8192]
