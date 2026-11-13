@@ -15,32 +15,81 @@ def actors(m):
         y=N.get(m,'Enemy_Y_Position',i))for i in range(6)if N.get(m,'Enemy_Flag',i)]
 
 
+def descent_branches(branch,prefix_updates):
+    """Native480 lift and original moves; no actor/timer/ability seeds."""
+    rows=[]
+    def lift(m):
+        found=[row for row in actors(m)if row['id']==37 and row['x']==480]
+        assert len(found)==1,found
+        return found[0]['y']
+    for wait_x in(456,462):
+        for start_top in(168,176,184):
+            m=L.clone(branch);phase='position';prior=lift(m);hold_until=0;witness=[]
+            carried_seen=False;jumped=False;reason='logical-bound';done=0
+            for tick in range(650):
+                state=B.state(m);top=lift(m)
+                carried=state['source_state']==1 and state['y']+32==top and state['source_y']==state['y']+15
+                carried_seen|=carried
+                if state['source_state']==5 or state['lives']!=2 or state['engine']==11:
+                    reason='actual-native-or-source-injury';break
+                if phase=='position':
+                    pad=1 if state['x']<wait_x else 2 if state['x']>wait_x else 0
+                    if state['x']==wait_x and state['source_state']==1 and state['y']==144:
+                        phase='wait-descending';pad=0;witness.append((tick,phase,state['x'],state['y'],top))
+                elif phase=='wait-descending':
+                    pad=0
+                    if start_top<=top<=start_top+4 and top>prior:
+                        phase='transfer';pad=1;witness.append((tick,phase,state['x'],state['y'],top))
+                elif phase=='transfer':
+                    pad=1 if state['x']<496 else 0
+                    if state['x']>=496 and carried and top>=192:
+                        phase='jump-off';pad=129;hold_until=tick+8;jumped=True
+                        witness.append((tick,phase,state['x'],state['y'],top))
+                else:
+                    pad=129 if tick<hold_until else 1
+                    if state['x']>=516 and state['y']==176 and state['source_state']==1 and state['state']==0:
+                        done=1;reason='genuine-first-pipe-floor';witness.append((tick,'floor',state['x'],state['y'],top));break
+                prior=top;m.controller_pad=pad;B.Frames.frame(m)
+            row=dict(wait_x=wait_x,descending_start_top=start_top,passed=bool(done),reason=reason,
+                logical_updates=tick,carried=carried_seen,fresh_A_jump=jumped,events=witness,final=B.state(m))
+            rows.append(row);print('DKJR_FIRST_DESCENT_BRANCH '+json.dumps(row,separators=(',',':')),flush=True)
+    print('DKJR_FIRST_DESCENT_SUMMARY '+json.dumps(dict(branches=len(rows),passed=sum(row['passed']for row in rows),
+        source_prefix_Main=prefix_updates,RAM_seed_writes=0,outputs_written=0,physical_cadence_claim=False),separators=(',',':')),flush=True)
+
+
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--riser',action='store_true')
     ap.add_argument('--retreat',action='store_true')
-    ap.add_argument('--running-jump',action='store_true');args=ap.parse_args()
+    ap.add_argument('--running-jump',action='store_true')
+    ap.add_argument('--first-descent',action='store_true');args=ap.parse_args()
     assert not(args.retreat or args.running_jump)or args.riser
     assert not(args.retreat and args.running_jump)
+    assert not(args.first_descent and(args.riser or args.retreat or args.running_jump))
     raw=B.C.ROM.read_bytes();candidate,info=P.proposal_current(raw)
     _,seed=H.cold(candidate,bytes.fromhex(info['cookie']))
     prefix=P.controller(candidate,full=True,fourth_window=True,ledge_wait=True,stationary_wait=args.riser)
-    stop_at=7000 if args.riser else 4990
+    stop_at=1100 if args.first_descent else 7000 if args.riser else 4990
     updates=0;branch=None
     class AtBranch(Exception):pass
     def after(m):
         nonlocal updates,branch
         updates+=1
         if updates%1000==0:print('DKJR_BRANCH_PREFIX '+json.dumps(dict(updates=updates,player=B.state(m)),separators=(',',':')),flush=True)
-        if updates==stop_at:
+        state=B.state(m)
+        first_roof=args.first_descent and state['x']>=448 and state['y']==144 and state['source_state']==1
+        if first_roof or updates==stop_at:
             branch=L.clone(m);raise AtBranch
     try:B.route(seed,candidate,stop_at+10,controller_text=prefix,after_frame=after)
     except AtBranch:pass
     assert branch is not None and B.state(branch)['source_state']==1
-    assert B.state(branch)['x']==(2127 if args.riser else 1168)
+    if args.first_descent:assert 448<=B.state(branch)['x']<=478 and B.state(branch)['y']==144
+    else:assert B.state(branch)['x']==(2127 if args.riser else 1168)
     print('DKJR_BRANCH_BINDING '+json.dumps(dict(candidate_SHA256=sha256(candidate).hexdigest(),
         prefix_controller_SHA256=sha256(prefix.encode()).hexdigest(),prefix_Main_updates=updates,
         branch_state=B.state(branch),branch_actors=actors(branch),RAM_seed_writes=0,
         scope='One actual menu/stage/controller prefix cloned at complete Main. Only controller bytes differ after this point; not Mesen.'),separators=(',',':')),flush=True)
+    if args.first_descent:
+        descent_branches(branch,updates);return
     if args.riser:
         terrain=[]
         for x in range(2080,2193,16):

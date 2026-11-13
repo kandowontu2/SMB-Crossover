@@ -12,6 +12,8 @@ FUNDING=B.R/'tools/reference/dkjr_helper_retire_funding_1113.s'
 GRANT=B.R/'docs/qa/allocations/dkjr-retire-page-1113.json'
 KARNOV_CURRENT='526ef1df172c3172fccbd35aa0471a9ff9a5a256a416acba8f7530d147a5b3f2'
 PRINCE_CURRENT='7ef2de351d3a4ae60b3ada2eb1aa56b330873dc106ad43428ec6803bf420d4fc'
+PRINCE_PROPOSAL='e73b66263a8e150d3d21b801e5a55be1817f86d09639fc428ab809b2518842d9'
+TERRAIN_CONTROLLER='bd4bacd76d2584eccc1f745c6abd27c48ab39afe04764d6254438da0f4e11464'
 FIXTURE='2172ef3c3713c13bc8f5152771b88b105dfc3b0eadc3eda365e479b76c8b9e20'
 
 
@@ -312,7 +314,7 @@ def retirement_fixture(parent):
         lease_granted=False,ROM_written=False,alias_probe_SHA256=alias_info['candidate_SHA256'])
 
 
-def controller(raw,*,full=False,ride_fourth=False,fourth_window=False,ledge_wait=False,stationary_wait=False,early_stairs=False,riser_retreat=False,landing_prep=False):
+def controller(raw,*,full=False,ride_fourth=False,fourth_window=False,ledge_wait=False,stationary_wait=False,early_stairs=False,riser_retreat=False,landing_prep=False,settled_stairs=False):
     """Same frozen controls; bind only the moved private BOX return label."""
     import replay_dkjr_first_pickup_1113 as Replay
     text=Replay.full_stage_controller(raw)if full else Replay.controller(raw)
@@ -398,7 +400,55 @@ def controller(raw,*,full=False,ride_fourth=False,fourth_window=False,ledge_wait
             '   if elapsed>=24 and grounded and y==dkRiserPrep.target then dkRiserPrep=nil\n   elseif elapsed<12 then bits=2')
         text=once(text,'   dkRiserPrep={start=updates}',
             "   assert(riserAttempts<4,'Repeated late riser preparation '..lateStep)\n   dkRiserPrep={start=updates,target=step[2]-16}")
+    if settled_stairs:
+        assert landing_prep
+        text=once(text,'   local elapsed=updates-dkRiserPrep.start',
+            '   local elapsed=updates-dkRiserPrep.start\n   local back=dkRiserPrep.back')
+        text=once(text,'''   if elapsed>=24 and grounded and y==dkRiserPrep.target then dkRiserPrep=nil
+   elseif elapsed<12 then bits=2
+   elseif elapsed<16 then bits=0
+   elseif elapsed<24 then bits=129
+   elseif elapsed<56 then bits=1''','''   if elapsed>=back+12 and grounded and y==dkRiserPrep.target then dkRiserPrep=nil
+   elseif elapsed<back then bits=2
+   elseif elapsed<back+4 then bits=0
+   elseif elapsed<back+12 then bits=129
+   elseif elapsed<back+56 then bits=1''')
+        text=once(text,'  if ready and step[3] and player>takeoff+6 then',
+            '  if ready and step[3] and player>=takeoff then')
+        text=once(text,'''   dkRiserPrep={start=updates,target=step[2]-16}
+   riserStart,riserAttempts=updates+16,riserAttempts+1''','''   local back=player>takeoff+6 and 12 or 0
+   dkRiserPrep={start=updates,target=step[2]-16,back=back}
+   riserStart,riserAttempts=updates+back+4,riserAttempts+1''')
+        text=once(text,"   remember('late-retreat-jump-'..lateStep)",
+            "   remember('late-settled-jump-'..lateStep)")
+        text=once(text,'   bits=2;return\n  end\n  if ready and step[3] then',
+            '   bits=back>0 and 2 or 0;return\n  end\n  if ready and step[3] then')
     return text
+
+
+def terrain_positive_timer_negative_controller(raw):
+    """Frozen CPU terrain pass, timer negative; native full still unqualified."""
+    assert sha256(raw).hexdigest()==PRINCE_PROPOSAL
+    text=controller(raw,full=True,fourth_window=True,ledge_wait=True,
+        stationary_wait=True,early_stairs=True,riser_retreat=True,
+        landing_prep=False,settled_stairs=False)
+    assert sha256(text.encode()).hexdigest()==TERRAIN_CONTROLLER
+    return text
+
+
+def fourth_board_guard_controller(raw):
+    """Frozen terrain policy plus one original stationary hop at fourth board."""
+    text=terrain_positive_timer_negative_controller(raw)
+    return once(text," if phase=='board'and up then",''' if phase=='board'and up then
+  if index==4 and grounded and y==176 and updates>=rearm then
+   for _,actor in ipairs(approachActors())do
+    local distance=math.abs(actor[3]-player)
+    if actor[2]==6 and actor[4]>=172 and actor[5]&32==0 and distance>=18 and distance<=24 then
+     hold=updates+8;rearm=updates+47;remember('fourth-board-enemy-hop',up)
+     break
+    end
+   end
+  end''')
 
 
 def proposal_current(raw):

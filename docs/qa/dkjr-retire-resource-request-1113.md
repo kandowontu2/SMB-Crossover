@@ -317,3 +317,50 @@ It retains a four-attempt bound and changes only controller timing. The
 continuous full replay with this option is pending. The9564 negative remains
 reproducible with `landing_prep=False`. No donor motor, rectangle, helper
 position, native timer or ROM byte changed in any of these controller tests.
+
+`landing_prep=True` completed as another timer negative, not an optimization:
+Lua `ad07bd6498ea644e1eacf6517d3a5720802aa598722b5d4209e8936c544f4e85`,
+canonical `5a2a2f6904f5a27212adfd20ac44fcd80e3e0956c49526056869d853c20b287e`.
+It reaches final-capX3038/Y48 atMain9564/timer0/expired1. The final staircase
+is96updates later than the fixed preparation policy. Private336 plus all12
+public vertical actors are born; all except3040 are carried before timeout.
+
+The optional `settled_stairs=True` adds neutral4 before each fresh Right+A,
+retreating Left12 only after an overshoot. This is retained as a negative too:
+Lua `87dcbf30e77ca1e0a50162fe5b905f9ff690866fa53c19ad16b489eb501d9c16`,
+canonical `f7ceefeff7cfa5fa080e50147f24dc70d22cb77fa5ef1c5aa3176e13c3765849`.
+It hits the four-attempt controller bound on riser3, Main7373/X2158/Y144,
+healthy/lives2/timer91. No ROM defect or jump change is inferred.
+
+The added bounded wait observer measures logical updates, not physical NES
+lag. The largest same-X runs before this failure are511:311,717:280,
+439:267,960:265,909:246,589:236; vertical motion is included. The first
+`lower` to `depart` phase lasts446updates (Main1008..1454). The private336
+actor has no recorded carry in these no-pickup full-route attempts.
+
+An actual first-roof prefix is now selected by observed groundedY144,
+not a guessed Main940 (which was still airborne). It occurs atMain956,
+X466/Y144, controller prefix
+`aa2fb1e2843bdd36f4d5ee3e0b283bd40c2498e42343c53fb1f197d8ecc644dd`.
+Six in-memory descent branches wait atX456/462 for the genuine480 actor to
+descend through top168/176/184, transfer and use a fresh original jump near
+X496. All reach real floorX529/Y176 with both lives, after532 more updates.
+This establishes safe controller alternatives, **not a speed gain**. No RAM,
+inventory, actor, timer or ability state is seeded; output files remain zero.
+
+The root supplied a separate actual-Mesen e73/bd4 full-route negative:
+`8eb7ea9ab60f56e7679aadd080ccb064e1d59fd91c429a43b3a344f84255d350`.
+At7250physical frames/Main2835 a real ground Goomba877/Y184 contacts DK
+waiting at fourth-boardX891/Y176. All first three pipes pass;880/944 are
+both born offscreen and visible, so the old missing880 admission failure is
+no longer this run's cause. This is a controller contact failure and **not
+a full-stage pass**. It also confirms native pacing differs from this CPU
+scheduler; the CPU timer negatives are not physical timer proofs.
+
+`terrain_positive_timer_negative_controller(e73)` now explicitly asserts
+the exact e73 and frozen bd4 script pins. The optional separate
+`fourth_board_guard_controller(e73)` adds only a stationary fresh A8/rearm47
+when waiting at fourth-board, groundedY176, and a real undefeated ground
+Goomba is18..24px away. It preserves all ROM/cookie/constructor guards and
+the frozen negative factory. Its native qualification is pending; no ROM
+or public helper placement has changed.

@@ -148,9 +148,18 @@ def cold_cases(seed,candidate,info):
         native_ready=False,scope='Actual current CoCold under declared read faults, no emulator qualification claim.')
 
 
-def route(seed,candidate,info,*,full=False,ride_fourth=False,fourth_window=False,ledge_wait=False,stationary_wait=False,early_stairs=False,riser_retreat=False,landing_prep=False,roof_trace=False,contact_trace=False):
+def route(seed,candidate,info,*,full=False,ride_fourth=False,fourth_window=False,ledge_wait=False,stationary_wait=False,early_stairs=False,riser_retreat=False,landing_prep=False,settled_stairs=False,roof_trace=False,contact_trace=False):
     m=L.clone(seed);page=bytes(m.ram[2][LO:HI]);counts=Counter();updates=0;trace=[];writers=[]
-    previous=None;output=sys.stdout
+    previous=None;output=sys.stdout;still=None;longest_still=[]
+    def finish_still():
+        nonlocal still
+        if still is not None:
+            still['updates']=still['end']-still['start']
+            if still['updates']>=12:
+                longest_still.append(still)
+                longest_still.sort(key=lambda row:row['updates'],reverse=True)
+                del longest_still[12:]
+            still=None
     source=P.T.payload(candidate)[:8160]
     state_writes={0xa000+i for i in range(len(source)-2)if source[i:i+3]==bytes.fromhex('8d6bc0')}
     class CompactOutput:
@@ -175,12 +184,18 @@ def route(seed,candidate,info,*,full=False,ride_fourth=False,fourth_window=False
                     x=N.get(memory,'Enemy_X_Position',i)+256*N.get(memory,'Enemy_PageLoc',i),y=N.get(memory,'Enemy_Y_Position',i),
                     passenger=N.get(memory,'PlatformCollisionFlag',i))for i in range(6)if N.get(memory,'Enemy_Flag',i)]))
     def after(memory):
-        nonlocal updates,previous
+        nonlocal updates,previous,still
         updates+=1
         for bank,off,value in memory.ram_writes:
             if bank==2 and LO<=off<HI:counts['lease_writes']+=1
         assert bytes(memory.ram[2][LO:HI])==page
         player=B.state(memory)['x']
+        now=B.state(memory)
+        if previous is not None and previous['x']==player:
+            if still is None:still=dict(start=updates-1,end=updates,x=player,start_y=previous['y'],end_y=now['y'])
+            else:still.update(end=updates,end_y=now['y'])
+        else:finish_still()
+        previous=now
         if (roof_trace and 930<=player<=1000)or(contact_trace and 1140<=player<=1290):
             row=dict(update=updates,**B.state(memory),fall_start=memory.ram[2][0x76],
                 actors=[dict(slot=i,id=N.get(memory,'Enemy_ID',i),state=N.get(memory,'Enemy_State',i),
@@ -191,9 +206,13 @@ def route(seed,candidate,info,*,full=False,ride_fourth=False,fourth_window=False
                 trace.append(row)
         if updates%1000==0:print('DKJR_RETIRE_ROUTE_PROGRESS '+json.dumps(dict(full=full,updates=updates,player=B.state(memory)),separators=(',',':')),flush=True)
     with redirect_stdout(CompactOutput()):result=B.route(m,candidate,12000 if full else 2000,
-        controller_text=P.controller(candidate,full=full,ride_fourth=ride_fourth,fourth_window=fourth_window,ledge_wait=ledge_wait,stationary_wait=stationary_wait,early_stairs=early_stairs,riser_retreat=riser_retreat,landing_prep=landing_prep),after_frame=after,
+        controller_text=P.controller(candidate,full=full,ride_fourth=ride_fourth,fourth_window=fourth_window,ledge_wait=ledge_wait,stationary_wait=stationary_wait,early_stairs=early_stairs,riser_retreat=riser_retreat,landing_prep=landing_prep,settled_stairs=settled_stairs),after_frame=after,
         observe_extra=observe if(roof_trace or contact_trace)else None)
     assert not counts['lease_writes']
+    finish_still();events=result['receipt'].get('events',[])
+    intervals=sorted((dict(updates=z['Main']-a['Main'],start=a['Main'],end=z['Main'],
+        event=a['event'],next_event=z['event'],start_x=a['x'],end_x=z['x'])for a,z in zip(events,events[1:])),
+        key=lambda row:row['updates'],reverse=True)[:12]
     return dict(passed=result['passed'],logical_updates=result['logical_updates'],final=result['final'],
         controller_SHA256=result['controller_SHA256'],receipt=dict(
             canonical_SHA256=sha256(json.dumps(result['receipt'],sort_keys=True,separators=(',',':')).encode()).hexdigest(),
@@ -201,7 +220,8 @@ def route(seed,candidate,info,*,full=False,ride_fourth=False,fourth_window=False
             birth_lefts=sorted(result['receipt'].get('births',{})),carry_lefts=sorted(result['receipt'].get('carries',{})),
             late_events=[row for row in result['receipt'].get('events',[])if row['x']>=2080][-24:]),
         roof_trace=trace[:8]+trace[-24:]if len(trace)>32 else trace,source_state_writers=writers,immutable_page_runtime_writes=0,
-        full=full,ride_fourth=ride_fourth,fourth_window=fourth_window,ledge_wait=ledge_wait,stationary_wait=stationary_wait,early_stairs=early_stairs,riser_retreat=riser_retreat,landing_prep=landing_prep,physical_cadence_claim=False,native_ready=False)
+        longest_same_X_runs=longest_still,largest_phase_intervals=intervals,
+        full=full,ride_fourth=ride_fourth,fourth_window=fourth_window,ledge_wait=ledge_wait,stationary_wait=stationary_wait,early_stairs=early_stairs,riser_retreat=riser_retreat,landing_prep=landing_prep,settled_stairs=settled_stairs,physical_cadence_claim=False,native_ready=False)
 
 
 def header_guards(seed,info):
@@ -421,6 +441,7 @@ def main():
     ap.add_argument('--early-stairs',action='store_true')
     ap.add_argument('--riser-retreat',action='store_true')
     ap.add_argument('--landing-prep',action='store_true')
+    ap.add_argument('--settled-stairs',action='store_true')
     ap.add_argument('--roof-trace',action='store_true');ap.add_argument('--contact-trace',action='store_true');args=ap.parse_args()
     raw=B.C.ROM.read_bytes();parent,input_info=P.proof_parent(raw)
     candidate,info=P.proposal_current(raw if args.current else parent)
@@ -439,7 +460,7 @@ def main():
     if args.interrupts:print('DKJR_RETIRE_LEASE_INTERRUPTS '+json.dumps(interrupts(parent,seed,candidate,info),separators=(',',':')),flush=True)
     if args.first or args.full:
         result=route(seed,candidate,info,full=args.full,ride_fourth=args.ride_fourth,
-            fourth_window=args.fourth_window,ledge_wait=args.ledge_wait,stationary_wait=args.stationary_wait,early_stairs=args.early_stairs,riser_retreat=args.riser_retreat,landing_prep=args.landing_prep,
+            fourth_window=args.fourth_window,ledge_wait=args.ledge_wait,stationary_wait=args.stationary_wait,early_stairs=args.early_stairs,riser_retreat=args.riser_retreat,landing_prep=args.landing_prep,settled_stairs=args.settled_stairs,
             roof_trace=args.roof_trace,contact_trace=args.contact_trace)
         print('DKJR_RETIRE_LEASE_ROUTE '+json.dumps(result,separators=(',',':')),flush=True)
         assert result['passed'],(result['receipt']['canonical_SHA256'],result['receipt']['reason'])
