@@ -84,7 +84,7 @@ local function fifthClearEnemy(x,y)
  for i=0,5 do local a=actor(i)
   -- A Piranha at the top of a pipe is not a ground-level crouch-shot target.
   -- Let the ordinary wall/jump control handle the pipe and its native timing.
-  if a.flag>0 and a.flag<128 and a.id<21 and a.id~=13 and a.state&32==0 and math.abs(a.x-x)<100 and math.abs(a.y-y)<48 then
+  if a.flag>0 and a.flag<128 and a.id<21 and a.id~=13 and a.state&32==0 and math.abs(a.x-x)<100 and math.abs(a.y-y)<24 then
    return 4+(a.x<x and 2 or 1)+(epoch%12<6 and 64 or 0)
   end
  end
@@ -92,7 +92,7 @@ local function fifthClearEnemy(x,y)
 end
 local function fifthEnemyNear(x,d)
  for i=0,5 do local a=actor(i)
-  if a.flag>0 and a.flag<128 and a.id<21 and a.id~=13 and a.state&32==0 and a.x>x and a.x-x<d and math.abs(a.y-r('Player_Y_Position'))<48 then return true end
+  if a.flag>0 and a.flag<128 and a.id<21 and a.id~=13 and a.state&32==0 and a.x>x and a.x-x<d and math.abs(a.y-r('Player_Y_Position'))<24 then return true end
  end
  return false
 end
@@ -163,10 +163,10 @@ local function fifthControl(x,y,ground,item)
    if age>=110 and ground then fifthTo('collect-setup');return 0 end
    return(x>item.x+2 and 2 or 0)|(age<36 and 128 or 0)
   end
+  if x<2320 then assert(age<3200,'Fifth route ordinary traversal Main bound')end
   if ground then local clear=fifthClearEnemy(x,y);if clear then return clear end end
   local gap=fifthGapControl(x,y,ground);if gap then return gap end
   if x<2320 then
-   assert(age<3200,'Fifth route ordinary traversal Main bound')
    local pipe=fifthPipeControl(x,y,ground);if pipe then return pipe end
    return fifthOrdinary(x,y,ground)
   end

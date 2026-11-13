@@ -287,3 +287,89 @@ The uninterrupted run's actual manual helper births/carries were:
 All are Karnov/raw34 existing Up+Select vertical actors. The different1-2
 left113 here is the actual constructor observation, distinct from the older
 four-item route's left112. No authored placements changed.
+
+## Final uninterrupted source qualification
+
+The subsequent source controller fixes only the demonstrated decisions:
+both new ground-enemy checks require abs(dY)<24 instead of48, and the finite
+travel guard runs before an enemy return. This lets the ordinary original
+movement pass above the lower Goomba. No additional traversal platform,
+runtime patch, physics change or allocation was needed.
+
+An earned-four-prefix fork then collected the real fifth flower1104/103,
+state80, at player1106/80, with native sound32/popup6/inventory0/actor erasure.
+It changed cycle2 to3, selected1 to2 and owned0 to4, keeping shot2, health0 and
+two lives. Its first Ladder site1248 was rejected before activation because
+the authored brick row144 occupies1232/1248/1264. Readonly target1200 is a
+genuinely clear stock column. A further earned-state fork passed eight-cell
+growth, Up176 to154, Down/retraction, ownership return and all32 physical PPU
+pattern cells plus5 attributes restored. These were development components;
+the uninterrupted qualification below supersedes them as the complete CPU
+route evidence.
+
+Exact final command, stdout only:
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/karnov-equipment-1113 --max-files 1 --timeout 600 -- python -B tools/audit/replay_karnov_ladder_early_1113.py --limit 12000 --require-pass --summary
+```
+
+This passed in233.18 seconds /8214 actual Main/NMI updates, with no Lua VM
+restart, observer-history insertion, cartridge/source gameplay field grant,
+ROM/data edits or generated files. It begins with the actual native
+menu/constructor and the retained harness's60 ordinary opening updates; it is
+a CPU route qualification, not a native Mesen timing/visual claim.
+
+The five actual collector epochs were442,1786,2898,6277,7953. The last was the
+real mature flower1104/103 at player1106/80. Boots activation was recorded at
+epoch3145, player1866/176; Bomb was armed, blasted and retired before the
+fifth traversal. Final source fields: shot2, damage0, cycle3, selected2,
+owned4, Boots/Bomb stocks0, scene0. Terminal: active1-2, player1200/176,
+native state0, both lives.
+
+At1200 the original Ladder grew8 cells. Physical PPU proof observed32 glyph
+cells44/45 with palette quadrant2, then original Up moved176 to154 over24
+Main updates. Held Down descended/retracted; source ownership4 returned, and
+all32 original PPU pattern cells and5 exact attribute bytes were restored.
+Actual stock cave palette2 colors were `$21/$1c` (33/28), whereas the earlier
+ground fixture had `$21/$0f`. No global palette entry was written or changed
+by this work; this is the existing stage palette adaptation, not exact donor
+color parity. The runtime still owns/restores only its qualified attribute
+quadrants. Root should review the actual cave art during native replay.
+
+Final uninterrupted helper callbacks, all Karnov/Rygar Select alternate/raw34,
+all existing Up+Select vertical actors, width32 and initial top208:
+
+| Stage | Initial left | Center | Actual carries |
+| --- | --- | --- | --- |
+| 1-1 | 1201 | 1217 | 71 |
+| 1-1 | 1712 | 1728 | 296 |
+| 1-1 | 1767 | 1783 | 203 |
+| 1-2 | 113 | 129 | 71 |
+| 1-2 | 1127 | 1143 | 82 |
+
+These are CPU observations of ordinary dynamic constructors. Root owns the
+native repeat and shared inventory update; they are not new authored helpers.
+No other character or alternate is affected.
+
+## Frozen binding for root's native queue
+
+- Strict frozen526 factory: `replay_karnov_ladder_early_1113.controller(raw)`.
+  Lua SHA-256
+  `3ec55ec6041e6daef135bd736a357ca764e07f7a7d3f3358b54b829f73fdcc66`.
+- Exact current7ef factory:
+  `replay_karnov_ladder_early_1113.current_controller(raw)`.
+  Lua SHA-256
+  `7d1ea719a760ac0dedb17fedde3705d5ccfdc67d1af34018efc017f859c79091`.
+- Current image:
+  `7ef2de351d3a4ae60b3ada2eb1aa56b330873dc106ad43428ec6803bf420d4fc`.
+  The adapter uses the exact authenticated Prince inverse to526. A separate
+  zero-output gate compiled both scripts and proved that only the ROM identity
+  label differs; all controller logic and bindings are identical. Unknown
+  ROM hashes reject. Strict feature proposal/inverse pins remain untouched.
+
+Native Mesen qualification of this full stock route remains pending. The
+private DATA-only fixture and old four-item regression remain frozen and
+separately qualified. This work does not claim Karnov's remaining Clapper,
+Glasses, Swimming Mask, Shield, Star or1UP coverage. No public ROM/IPS change
+was made by this controller task. All source tests used the bounded owned
+root, retained zero outputs, and no helper launched Mesen.

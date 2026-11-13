@@ -19,7 +19,7 @@ def controller(raw,*,approach_x=None,carry_y=None):
     start=text.index('-- Extension after the frozen four-pickup gameplay prefix.')
     end=text.index('local function control()',start)
     body=text[start:end]
-    for before,after in((2400,1104),(2320,1024),(2393,1097),(2377,1081),(2464,1248),(2544,1264)):
+    for before,after in((2400,1104),(2320,1024),(2393,1097),(2377,1081),(2464,1200),(2544,1216)):
         body=re.sub(r'\b'+str(before)+r'\b',str(after),body)
     before='  local gap=fifthGapControl(x,y,ground);if gap then return gap end'
     assert body.count(before)==1
@@ -67,6 +67,19 @@ def run(raw,*,approach_x=None,carry_y=None,**kwargs):
     with patch.object(Late,'controller',lambda image:controller(image,approach_x=approach_x,carry_y=carry_y)):return Late.run(raw,**kwargs)
 
 
+def current_controller(raw):
+    """Bind identical controls to exact526 or the authenticated current7ef."""
+    if sha256(raw).hexdigest()==PIN:return controller(raw)
+    import compose_prince_entrance_current_1113 as Prince
+    assert sha256(raw).hexdigest()==Prince.PIN
+    parent=Prince.reverse(raw);assert sha256(parent).hexdigest()==PIN
+    text=controller(parent);before=f'local ROM_SHA="{PIN}"'
+    assert text.count(before)==1
+    result=text.replace(before,f'local ROM_SHA="{Prince.PIN}"')
+    Late.LuaRuntime().compile(result)
+    return result
+
+
 def sweep_high(raw,*,lower=False):
     prefix,seed=run(raw,limit=3000,checkpoint_x=1680,checkpoint_pickups=2,return_model=True)
     assert len(prefix['pickups'])==2 and prefix['source']['health']==0 and prefix['terminal']['x']==1680,prefix
@@ -88,11 +101,13 @@ def sweep_high(raw,*,lower=False):
         final_unbroken_replay_claim=False,runtime_field_grants_or_reseeds=0,output_files=0)
 
 
-def serve(raw,limit,*,from_head=False):
-    prefix,seed=run(raw,limit=limit,stop_on_native_head=True,return_model=True)if from_head else run(raw,limit=limit,checkpoint_x=1680,checkpoint_pickups=2,return_model=True)
-    assert len(prefix['pickups'])==2 and prefix['source']['health']==0,prefix
-    head_history=prefix['fifth']['early']['heads']if from_head else None
-    if from_head:assert head_history and any(h['tile']==193 and h['native_pad']&128 for h in head_history)
+def serve(raw,limit,*,from_head=False,from_four=False):
+    if from_four:prefix,seed=run(raw,limit=limit,checkpoint_x=400,checkpoint_pickups=4,return_model=True)
+    elif from_head:prefix,seed=run(raw,limit=limit,stop_on_native_head=True,return_model=True)
+    else:prefix,seed=run(raw,limit=limit,checkpoint_x=1680,checkpoint_pickups=2,return_model=True)
+    assert len(prefix['pickups'])==(4 if from_four else 2)and prefix['source']['health']==0,prefix
+    head_history=prefix['fifth']['early']['heads']if from_head or from_four else None
+    if from_head or from_four:assert head_history and any(h['tile']==193 and h['native_pad']&128 for h in head_history)
     else:assert prefix['terminal']['x']==1680
     models={'seed':seed};histories={'seed':prefix['pickups']};rows=[]
     observers={'seed':head_history}
@@ -121,7 +136,12 @@ if __name__=='__main__':
     p.add_argument('--sweep-high',action='store_true')
     p.add_argument('--sweep-lower',action='store_true')
     p.add_argument('--serve-head',action='store_true')
+    p.add_argument('--serve-four',action='store_true')
+    p.add_argument('--summary',action='store_true',help='Print one compact qualification receipt.')
     args=p.parse_args();raw=Late.candidate()
-    result=sweep_high(raw,lower=args.sweep_lower)if args.sweep_high or args.sweep_lower else serve(raw,args.limit,from_head=args.serve_head)if args.serve_suffix or args.serve_head else run(raw,limit=args.limit)
+    assert not(args.require_pass and(args.sweep_high or args.sweep_lower or args.serve_suffix or args.serve_head or args.serve_four)), '--require-pass requires an uninterrupted route'
+    result=sweep_high(raw,lower=args.sweep_lower)if args.sweep_high or args.sweep_lower else serve(raw,args.limit,from_head=args.serve_head,from_four=args.serve_four)if args.serve_suffix or args.serve_head or args.serve_four else run(raw,limit=args.limit)
+    if args.summary and'fifth'in result:
+        result={key:result[key]for key in('passed','stopped','controller_error','seconds','actual_Main_NMI_updates','opening','pickups','terminal','source','manual_helpers','boots_activation','controller_SHA256','ROM_SHA256','ROM_or_runtime_fixture_edits','new_helper_allocations','output_files','Mesen_run')if key in result}|dict(ladder={key:result['fifth'].get(key)for key in('stage','site','art','grown','climbed','complete','restored_cells','restored_attributes')})
     print(json.dumps(result,separators=(',',':')),flush=True)
     if args.require_pass:assert result.get('passed')is True,'Complete early stock item/Ladder route did not pass'

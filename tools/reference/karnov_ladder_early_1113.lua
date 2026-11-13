@@ -4,6 +4,7 @@ local EARLY_APPROACH_X=1720
 local EARLY_CARRY_Y=128
 local early={stage='approach',start=0,heads={},motion={}}
 stockFifth.early=early
+stockFifth.site=1200
 local function earlyTo(name)early.stage=name;early.start=stockFifth.main;routePhase='early-high-'..name;routeAge=0;early.last=state()end
 local function earlyControl(x,y,ground,item)
  if #pickups==2 and r('LevelNumber')==0 and x>=1680 and not item then

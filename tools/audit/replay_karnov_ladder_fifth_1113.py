@@ -156,7 +156,8 @@ def run(raw,*,limit=1000,stop_on_stall=False,return_model=False,input_model=None
         retired=len(history)>=4 and m.ram[2][0xbb]==0 and m.ram[2][0x8f]&2==0
         active=m.ram[2][0xc0]
         underground=Native.N.get(m,'LevelNumber')==1 and Native.N.get(m,'AreaType')==2 and(Native.Base.player(m)['x']>48 or Native.Base.player(m)['state']==0 and Native.Base.player(m)['y']>=160)
-        suffix='\npickups=CPU_FIFTH_HISTORY;armed='+str(retired or active>=128).lower()+';blastSeen='+str(retired or active>=129).lower()+';undergroundReady='+str(underground).lower()+';routePhase="travel"\n'
+        passed=Native.N.get(m,'LevelNumber')>0 or Native.Base.player(m)['x']>750
+        suffix='\npickups=CPU_FIFTH_HISTORY;armed='+str(retired or active>=128).lower()+';blastSeen='+str(retired or active>=129).lower()+';undergroundReady='+str(underground).lower()+';passedLift='+str(passed).lower()+';routePhase="travel"\n'
     if observer_early_heads:
         assert history and all(h['tile']==193 and h['native_pad']&128 for h in observer_early_heads)
         lua.globals().CPU_EARLY_HEAD_HISTORY=to_lua(observer_early_heads)
