@@ -3,6 +3,8 @@ import json
 from py65.devices.mpu6502 import MPU
 import check_steve_throw_controls_live_1111 as Controls
 import check_steve_shatterhand_robot_death_1112 as Death
+import check_steve_shatterhand_throw_pose_1111 as Render
+import steve_robot_death_art_funding_1112 as DeathArt
 
 Live, H = Controls.Live, Controls.H
 PARTS = (
@@ -16,11 +18,16 @@ PARTS = (
     ('THROW_POINT', 'steve_throw_point_1112.s'),
     ('THROW_CONTACT', 'steve_throw_contact_1112.s'),
     ('THROW_SCAN', 'steve_throw_scan_1112.s'),
+    ('DEATH_DRAW', 'steve_robot_death_draw_1112.s'),
+    ('DEATH_RECORDS', None),
 )
 
 
 def link(info):
     fields = info['throw_control_fields'] | info['throw_core_link']['symbols'] | info['laser_fields']
+    _, renderer = Render.link(info.get('throw_control_parent', info), chr_origin=0xda72)
+    fields.update(renderer['symbols'])
+    fields['SteveDeathOrdinaryDraw'] = renderer['symbols']['SteveLiftDraw']+3
     for name in ('Enemy_BoundBoxCtrl', 'Enemy_X_Position', 'Enemy_PageLoc', 'Enemy_Y_Position',
                  'Enemy_Y_HighPos', 'BoundBoxCtrlData', 'PlayerFacingDir', 'ObjectOffset'):
         fields[name] = Live.W.address(Live.W.Symbols.bundle(), name)
@@ -28,6 +35,7 @@ def link(info):
                   SteveDeathPolarity=fields['SteveBotRoomPolarity'], SteveBotHP=fields['SteveRobotArrival'],
                   ThrowPoint=3, ThrowLow=7, ThrowHigh=11, ThrowDelta=0x90, ThrowExtent=0x92)
     source = Live.bindings(fields)+'\n'.join(Death.source(fields) if segment == 'ROBOT_DEATH'
+                                           else DeathArt.records_source(Live.DONOR.DONOR.read_bytes()) if segment == 'DEATH_RECORDS'
                                            else (H.ROOT/'tools/reference'/name).read_text()
                                            for segment, name in PARTS)
     # First pass obtains exact instruction lengths; second packs all leaves
@@ -42,6 +50,8 @@ def link(info):
         packed[name] = cursor, size
         cursor += size
     assert cursor <= 0xaf00, hex(cursor)
+    record_start, record_size = packed['DEATH_RECORDS']
+    assert record_start >> 8 == (record_start+record_size-1) >> 8
     packed['THROW_EMISSION'] = (0xd777, 9)
     result = H.assemble(source, packed)
     return result, fields, cursor

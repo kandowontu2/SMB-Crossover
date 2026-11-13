@@ -172,3 +172,33 @@ Bounded combined-link test 44333 passed with 861 bytes used, 163 free;
 including the pending 125-byte renderer leaves 38 bytes in this row.
 The code is in the current proposal generator, but the combined gameplay
 update/death/render hooks remain unconnected. No new nightly was delivered.
+
+## Mounted death renderer
+
+The combined link now includes the 77-byte draw mux and 48 bytes of original
+records/pointers. The existing pose worker's first `BIT SteveThrowFrame` is
+replaced by a three-byte jump; normal rendering reproduces that BIT and
+continues at the next original instruction. The data generator checks that
+all record pointers share one high byte. The row occupies 986 bytes.
+
+Candidate SHA256:
+`87ba8b4348934a5921349a595f94112e2e3a7bccd7ae51a84cfabf01162d3105`.
+Cold test 60873 passed 78 cuts, eleven faults, and the full foreign-owner
+overwrite/restore. Mounted draw test 73243 then passed sixteen visible and
+sixteen hidden cases after the normal earned-robot route, executing the real
+native OAM renderer and checking CHR711 publication. Native OAM cell order is
+reverse record order; the first test exposed an incorrect fixture expectation,
+which was corrected. No graphics defect was inferred from that ordering.
+
+Remaining gameplay-hook placement plan (not implemented or qualified yet):
+put the 18-byte scan/fatal prefix inside the flight segment and a 16-byte
+fatal head after the records; that would use 1,020 row bytes. Use existing
+padding for a 14-byte grant/actor-sign dispatch at DEB1, a nine-byte Alpha
+shot/contact/death tail at CDF6, an eleven-byte Laser pose gate at C9F4, and
+a six-byte ordinary Laser continuation in the unused tail of the 64-byte
+player-begin region. The sign tests require proof that surviving receipt
+bits have been cleared before the next update; only fatal FF may remain
+negative at those entries. Validate every preimage and actual assembled size.
+Keep projectiles alive until the original death timer expiry and preserve the
+death-frame marker through terminal actor zero. Audio and native playthrough
+validation remain pending. Neither test generated output files or captures.

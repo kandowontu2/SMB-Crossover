@@ -4,6 +4,18 @@ from hashlib import sha256
 import check_steve_shatterhand_robot_death_1112 as Death
 
 
+def records_source(donor):
+    mapping = {0x51: 0x5f, 0x53: 0x61, 0x55: 0x77, 0x57: 0x79}
+    source = '.segment "DEATH_RECORDS"\nDeathRecords:\n'
+    for index, pose in enumerate((0x1dc, 0x1de, 0x1e0, 0x1e2)):
+        page, parts = Death.Art.Geometry.parts(donor, pose, 3)
+        assert page == 87
+        record = [len(parts)*4]+[value for dy, dx, tile, attr in parts
+                                for value in (mapping[tile], attr & 0xc3, dy & 255, dx & 255)]
+        source += f'DeathRecord{index}:\n.byte '+','.join(str(b) for b in record)+'\n'
+    return source+'DeathRecordLow:\n.byte <DeathRecord0,<DeathRecord1,<DeathRecord2,<DeathRecord3\n'
+
+
 def edits(raw, donor):
     assert sha256(donor).hexdigest() == Death.D.PIN
     chr_start = 16+1048576

@@ -144,6 +144,11 @@ def proposal(raw, *, graphics=False, flight_storage=False, flight_active=False, 
         from deliver_steve_lift_art_1111 import recover_parent
 
         worker, renderer = Render.link(info, chr_origin=0xda72 if flight_storage else 0xda71)
+        if combat_storage:
+            draw_at = renderer['symbols']['SteveLiftDraw']-0xce00
+            assert worker[draw_at:draw_at+3] == bytes.fromhex('2c78c9')
+            worker = (worker[:draw_at]+b'\x4c'+flight_link['symbols']['SteveDeathDrawMux'].to_bytes(2, 'little')+
+                      worker[draw_at+3:])
         art = Render.Art.plan(recover_parent(raw), donor, pose_worker=worker)
         data += Render.records(art)
         tail = renderer['images']['THROW_POSE_CHR']

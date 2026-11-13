@@ -1,16 +1,65 @@
 """Exercise original explosion records through the existing pose builder."""
 import json
+import argparse
 from itertools import product
 import check_steve_throw_controls_live_1111 as Controls
 import check_steve_shatterhand_throw_pose_1111 as Render
 import check_steve_shatterhand_robot_death_1112 as Death
 
 
+def mounted(candidate, info, records):
+    Live, C = Controls.Live, Controls.C
+    seed, _ = Live.natural(candidate, info)
+    fields = info['throw_control_fields'] | info['laser_fields'] | dict(SteveThrowFrame=0xc978, SteveDeathDraw=0xc979)
+    count = hidden = 0
+    for index, facing, polarity, draw in product(range(4), (0, 128), (0, 128), (0, 1)):
+        m = C.Vector.clone(seed)
+        m.raw_page(1, 3)
+        m.raw_page(2, 2)
+        Live.N.put(m, CurrentBank=3, CurrentBankC=2, GameEngineSubroutine=8,
+                   GuestOamRotationActive=0, CurrentOAMOffset=0)
+        cpu = Live.N.NesMPU(memory=m)
+        call = Controls.Carrier.Late.Transport.Transport.Upgrade.call
+        call(cpu, info['throw_flight_link']['symbols']['SteveDeathClearShots'])
+        for name, value in dict(SteveThrowFrame=0xc0, SteveDeathDraw=draw, SteveBotPose=0xdc+index*2,
+                                SteveBotFacing=facing, SteveBotRoomPolarity=polarity, SteveLaserActive=0).items():
+            m[fields[name]] = value
+        m[fields['SteveBotPose']+1] = 1
+        camera = Live.N.get(m, 'ScreenLeft_X_Pos')+256*Live.N.get(m, 'ScreenLeft_PageLoc')
+        for name, value in (('SteveBotX', ((camera+100)*16) & 65535), ('SteveBotY', 1600)):
+            m[fields[name]], m[fields[name]+1] = value & 255, value >> 8
+        call(cpu, info['companion_symbols']['SteveCompanionDraw'])
+        record = records[index]
+        if draw:
+            expected = []
+            for at in range(1, len(record), 4):
+                tile, attr, dy, dx = record[at:at+4]
+                expected.append(((100+(dy if dy < 128 else dy-256)) & 255, tile,
+                                 attr ^ polarity, (100+(dx if dx < 128 else dx-256)) & 255))
+            expected.reverse()  # Native metasprite renderer walks cells backward.
+            actual = [tuple(m[0x200+at:0x204+at]) for at in range(0, len(expected)*4, 4)]
+            assert actual == expected, (index, facing, polarity, actual, expected)
+            assert Live.N.get(m, 'CurrentOAMOffset') == len(expected)*4
+            assert m.chr_latches[5] == 711
+            count += 1
+        else:
+            assert Live.N.get(m, 'CurrentOAMOffset') == 0
+            hidden += 1
+    print(json.dumps(dict(candidate=C.digest(candidate), native_OAM_draws=count, hidden_draws=hidden,
+                          mounted=True, output_files=0, delivered=False)))
+
+
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--mounted', action='store_true')
+    args = parser.parse_args()
     raw = Controls.Live.DONOR.HOST.read_bytes()
-    _, info = Controls.proposal(raw, combat_storage=True)
+    candidate, info = Controls.proposal(raw, combat_storage=True)
     parent = info['throw_control_parent']
     renderer = info['pose_link']
+    # The isolated fixture calls its separately linked mux; keep the old
+    # worker entry here rather than the mounted candidate's AB00-row jump.
+    fixture_worker, _ = Render.link(parent, chr_origin=0xda72)
     fields = info['throw_control_fields'] | renderer['symbols'] | dict(
         SteveThrowFrame=0xc978, SteveDeathDraw=0xc979,
         SteveDeathPolarity=info['throw_control_fields']['SteveBotRoomPolarity'],
@@ -24,6 +73,9 @@ def main():
         record = bytes([len(parts)*4]+[value for dy, dx, tile, attr in parts
                                      for value in (mapping[tile], attr, dy & 255, dx & 255)])
         records.append(record)
+    if args.mounted:
+        mounted(candidate, info, records)
+        return
     data = '.segment "DEATH_RECORDS"\nDeathRecords:\n'
     for index, record in enumerate(records):
         data += f'DeathRecord{index}:\n.byte '+','.join(str(b) for b in record)+'\n'
@@ -33,7 +85,7 @@ def main():
                                  {'DEATH_DRAW': (0xb000, 256), 'DEATH_RECORDS': (0xb100, 64)})
     count = hidden = 0
     for index, facing, polarity, draw in product(range(4), (0, 128), (0, 128), (0, 1)):
-        cpu = Render.fixture(parent, info['pose_worker'], renderer)
+        cpu = Render.fixture(parent, fixture_worker, renderer)
         m = cpu.memory
         for segment, address in (('DEATH_DRAW', 0xb000), ('DEATH_RECORDS', 0xb100)):
             code = linked['images'][segment]
@@ -57,7 +109,7 @@ def main():
             hidden += 1
     retained = 0
     for facing, polarity in product((0, 128), (0, 128)):
-        cpu = Render.fixture(parent, info['pose_worker'], renderer)
+        cpu = Render.fixture(parent, fixture_worker, renderer)
         m = cpu.memory
         m[0xb000:0xb000+len(linked['images']['DEATH_DRAW'])] = linked['images']['DEATH_DRAW']
         for name, value in dict(SteveThrowFrame=0x80, SteveDeathDraw=1, SteveBotPose=0x5e,
