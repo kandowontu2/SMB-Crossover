@@ -69,3 +69,29 @@ python -B tools/audit/run_bounded_build_v1.py --output build/quick-powerups-cpu-
 Both completed runs exit0 with zero outputs. Natural1UP/Star/second ordinary
 item and full1-1 traversal remain in progress. No Quick helper placement,
 source gameplay change, Mesen pass or completed full-stage claim is made.
+
+The first items continuation (script8cdcb759ea68ab3e8a23a7bf8f83123271ad97bd9e3808f6ec66680746002189,
+sourcec8b464b9) stalls X592/Y176 before the second pipe left608/top160,
+HP40/lives2. This is a negative controller result. Its12-update A hold only
+rises45 pixels; the pipe requires48. Fresh-A enemy-free opening tests execute
+one original jump-store each: tap rises8pixels; hold12 rises45; hold40 rises50.
+Holding B alongside A produces the same50-pixel curve. Air release/repress
+does not create another jump. Full hold returns to ground on update40.
+
+These results match supplied original Rockman CX ROM
+e04a4523e4ff0a0c7bfad1d30acedb9140c0972fa3be1c62e5d42a09664b5f6e.
+Physical PRG3C:8588 tests new A bit0,859F stores original04DF VY. Airborne
+state6 starts8609;869A..86A5 caps rising VY to0100 if A is released. State12
+starts3D:BE81 and tests its own fresh A atBE94..BE9E before859F. No airborne
+doublejump is invented. The checker also executes bounded original ground
+edge and preguarded air-release leaves directly from this retained donor.
+
+The full-hold/wall-edge items controller now crosses all four early pipes
+without a helper, genuinely collects the hidden1UP (authored1024/top128;
+actual actor1058/Y165 at player1048/Y176) and the next ordinary mushroom
+(authored1248/top144; actor1293/Y165, player1284/Y176). Lives become3 and
+HP stays40. It subsequently lands above the Star row atX1606/Y112 and cannot
+bump it from below, so the complete items run remains negative. This is a
+controller approach issue, not a demonstrated source defect. All results
+here remain CPU Main/NMI/controller evidence; native cadence and full1-1
+are open. No new game bytes, helpers, ROM copies or generated outputs exist.

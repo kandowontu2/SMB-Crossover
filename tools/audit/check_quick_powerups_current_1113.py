@@ -5,6 +5,7 @@ import argparse
 import json
 from pathlib import Path
 import re
+import subprocess
 
 import audit_current_roster_powerups_1110 as C
 import check_roster_powerup_continuation_1110 as Frames
@@ -113,15 +114,89 @@ def profile(seed):
     return cases
 
 
+def jump_curves(seed):
+    """Real source jumps in the existing native opening, enemy-free fixture."""
+    settled=L.clone(seed);settled.controller_pad=0
+    for i in range(6):settled[W.address(settled.bundle,'Enemy_Flag')+i]=0
+    for _ in range(60):Frames.frame(settled)
+    assert player(settled)['y']==176 and N.get(settled,'QmField_002C')==3
+    rows=[]
+    for name,held in (
+        ('tap_A',lambda t:128 if t==0 else 0),
+        ('hold_A_12',lambda t:128 if t<12 else 0),
+        ('hold_A_40',lambda t:128 if t<40 else 0),
+        ('hold_A_B_40',lambda t:192 if t<40 else 0),
+        ('run_hold_A_40',lambda t:129 if t<40 else 0),
+        ('air_release_repress',lambda t:128 if t<12 or 18<=t<40 else 0)):
+        m=L.clone(settled);samples=[];stores=[];previous=None;peak=256
+        entry=W.address(m.bundle,'CX_3C_859F')
+        for tick in range(75):
+            m.controller_pad=held(tick)
+            def observe(memory,cpu):
+                if cpu.pc==entry and memory.rawtags[1]==1:stores.append(tick)
+            Frames.frame(m,observe)
+            row=dict(tick=tick,pad=held(tick),**player(m),source_state=N.get(m,'QmField_002C'),
+                source_held=N.get(m,'QmField_0023'),source_edges=N.get(m,'QmField_0027'),
+                source_y=N.get(m,'QmField_04A0'),source_vy=[N.get(m,'QmField_0640'),N.get(m,'QmField_0660')])
+            peak=min(peak,row['y'])
+            if tick<4 or tick in (11,12,17,18,39,40,74) or row['state']!=previous:samples.append(row)
+            previous=row['state']
+            assert row['engine']==8 and row['lives']==2
+        assert stores==[0],(name,stores)
+        assert samples[0]['source_vy']==[4,223]
+        rows.append(dict(name=name,jump_store_ticks=stores,minimum_y=peak,
+            samples=samples,scope='Six enemy flags cleared in clone; native opening terrain and actual Main/NMI unchanged. No natural-route or physical cadence claim.'))
+    return rows
+
+
+def original_jump_policy():
+    """Bounded leaves from the supplied CX ROM, without historical extraction."""
+    from py65.devices.mpu6502 import MPU
+    donor=Path('C:/NES/the stash/Rockman_CX-world44.spcs.bio.nes').read_bytes()
+    pin='e04a4523e4ff0a0c7bfad1d30acedb9140c0972fa3be1c62e5d42a09664b5f6e'
+    assert sha256(donor).hexdigest()==pin
+    body=donor[0x78010:0x80010]
+    def leaf(pc,stop,values):
+        cpu=MPU();cpu.memory[0x8000:]=body
+        for address,value in values.items():cpu.memory[address]=value
+        cpu.pc=pc;steps=0
+        while cpu.pc!=stop:
+            cpu.step();steps+=1;assert steps<32
+        return cpu
+    rows=[]
+    for edge in (0,1):
+        c=leaf(0x8588,0x85ad,{0x27:edge,0x9b:128,0x3b:223,0x3c:4,0x2c:3})
+        assert c.memory[0x2c]==(6 if edge else 3)
+        if edge:assert c.memory[0x640:0x641]+c.memory[0x660:0x661]==[4,223]
+        rows.append(dict(entry='3C:8588',fresh_A=edge,state=c.memory[0x2c],
+            VY=[c.memory[0x640],c.memory[0x660]]))
+    for held in (0,1):
+        c=leaf(0x869a,0x86a8,{0x23:held,0x640:4,0x660:223})
+        assert [c.memory[0x640],c.memory[0x660]]==([4,223]if held else[1,0])
+        rows.append(dict(entry='3C:869A',held_A=held,VY=[c.memory[0x640],c.memory[0x660]]))
+    states={state:body[0x790+state]+256*body[0x783+state]for state in (3,6,12)}
+    assert states=={3:0x8560,6:0x8609,12:0xbe81}
+    return dict(ROM_SHA256=pin,source_file='C:/NES/the stash/Rockman_CX-world44.spcs.bio.nes',
+        physical_PRG_banks=[60,61],ground_A_leaf=body[0x588:0x5ad].hex(),
+        air_release_leaf=body[0x69a:0x6a8].hex(),wall_A_branch=body[0x3e94:0x3ea1].hex(),
+        state_entries={str(k):f'{v:04X}'for k,v in states.items()},actual_original_CPU_leaves=rows,
+        scope='Original ground fresh-A and preguarded air-release leaves; no original live game, terrain or unlock claim.')
+
+
 def controller(raw,mode='mushroom'):
     assert mode in ('mushroom','items','full')
     b=W.Symbols.bundle();b['raw']=raw;text=SOURCE.read_text()
+    if mode=='mushroom':
+        text=subprocess.check_output(['git','show','c8b464b9:tools/reference/quick_natural_powerups_1113.lua'],cwd=R).decode()
     names=set(re.findall(r"r\('([^']+)'",text))|set(re.findall(r'\bL\.(\w+)',text))
     labels={name:W.address(b,name)for name in sorted(names)}
     pre='local L={'+','.join(f'{name}={value}'for name,value in labels.items())+'}\n'
     pre+=f'local ROM_SHA="{sha256(raw).hexdigest()}"\nlocal MODE="{mode}"\n'
     pre+=f'local PICKUP_OFFSET={W.location(b,"HandlePowerUpCollision")-16}\nlocal HEAD_OFFSET={W.location(b,"NativeRarePlayerHeadCollisionCore")-16}\n'
-    return pre+text
+    result=pre+text
+    if mode=='mushroom'and sha256(raw).hexdigest()==PIN:
+        assert sha256(result.encode()).hexdigest()=='a8b617b0a44587bfbb8875c828e95c019a36a58fbeb036e33ecb07ed20355dd4'
+    return result
 
 
 def route(seed,raw,limit,mode):
@@ -165,11 +240,15 @@ def route(seed,raw,limit,mode):
 
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--cold-only',action='store_true')
+    parser.add_argument('--jump-curves',action='store_true')
     parser.add_argument('--route',choices=('mushroom','items','full'));parser.add_argument('--limit',type=int,default=1800)
     args=parser.parse_args()
     raw=C.ROM.read_bytes();opening,seed=cold(raw)
     print('QUICK_CURRENT_COLD '+json.dumps(dict(ROM_SHA256=sha256(raw).hexdigest(),opening=opening),separators=(',',':')),flush=True)
     if args.cold_only:return
+    if args.jump_curves:
+        print('QUICK_ORIGINAL_JUMP_POLICY '+json.dumps(original_jump_policy(),separators=(',',':')),flush=True)
+        print('QUICK_CURRENT_JUMPS '+json.dumps(jump_curves(seed),separators=(',',':')),flush=True);return
     if args.route:
         result=route(seed,raw,args.limit,args.route)
         print('QUICK_CURRENT_NATURAL '+json.dumps(result,separators=(',',':')),flush=True)

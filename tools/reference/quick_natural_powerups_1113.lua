@@ -5,11 +5,12 @@ local epoch,priorCounter=0,nil
 local pickups,births,recent,heads={},{},{},{}
 local pending,returns=nil,{}
 local jumpLeft,cooldown=0,0
+local wallRelease=nil
 local lastX,stalled=nil,0
 local function r(n,i)return emu.read(assert(L[n],n)+(i or 0),emu.memType.nesDebug)end
 local function wx()return r('Player_X_Position')+256*r('Player_PageLoc')end
 local function actor(i)return {slot=i,flag=r('Enemy_Flag',i),id=r('Enemy_ID',i),kind=r('PowerUpType',i),state=r('Enemy_State',i),x=r('Enemy_X_Position',i)+256*r('Enemy_PageLoc',i),y=r('Enemy_Y_Position',i)}end
-local function state()return {frame=frame,epoch=epoch,x=wx(),y=r('Player_Y_Position'),dy=r('Player_Y_Speed'),state=r('Player_State'),engine=r('GameEngineSubroutine'),world=r('WorldNumber'),level=r('LevelNumber'),lives=r('NumberofLives'),HP=r('QmField_06C0'),maxHP=r('QmField_0099'),status=r('PlayerStatus'),camera=r('ScreenLeft_X_Pos')+256*r('ScreenLeft_PageLoc')}end
+local function state()return {frame=frame,epoch=epoch,x=wx(),y=r('Player_Y_Position'),dy=r('Player_Y_Speed'),state=r('Player_State'),source_state=r('QmField_002C'),source_held=r('QmField_0023'),source_edges=r('QmField_0027'),engine=r('GameEngineSubroutine'),world=r('WorldNumber'),level=r('LevelNumber'),lives=r('NumberofLives'),HP=r('QmField_06C0'),maxHP=r('QmField_0099'),status=r('PlayerStatus'),camera=r('ScreenLeft_X_Pos')+256*r('ScreenLeft_PageLoc')}end
 local function encode(v)
  if type(v)=='table'then local a,n=true,0;for k in pairs(v)do if type(k)~='number'then a=false end;n=n+1 end;local out={}
   if a then for i=1,n do out[#out+1]=encode(v[i])end;return '['..table.concat(out,',')..']'end
@@ -23,7 +24,14 @@ local function finish(ok,why)
 end
 local function mapped(pc,offset)local m=emu.convertAddress(pc);return m and m.memType==emu.memType.nesPrgRom and m.address==offset end
 local function jump()
- if r('Player_State')==0 and jumpLeft==0 and cooldown==0 then jumpLeft=12;cooldown=42 end
+ if #pickups>0 and r('QmField_002C')==12 then
+  if wallRelease==nil then wallRelease=2;jumpLeft=0 end
+  if wallRelease>0 then return 0 end
+  jumpLeft=40;cooldown=48
+ else
+  wallRelease=nil
+  if r('Player_State')==0 and jumpLeft==0 and cooldown==0 then jumpLeft=#pickups==0 and 12 or 40;cooldown=#pickups==0 and 42 or 48 end
+ end
  return jumpLeft>0 and 128 or 0
 end
 local function control()
@@ -79,7 +87,7 @@ emu.addEventCallback(function()
  if not game then return end
  if r('GameEngineSubroutine')==11 or r('NumberofLives')<2 or r('QmField_06C0')==0 then finish(false,'life-lost');return end
  local counter=r('FrameCounter');if counter~=priorCounter then
-  priorCounter=counter;epoch=epoch+1;jumpLeft=math.max(0,jumpLeft-1);cooldown=math.max(0,cooldown-1)
+  priorCounter=counter;epoch=epoch+1;jumpLeft=math.max(0,jumpLeft-1);cooldown=math.max(0,cooldown-1);if wallRelease then wallRelease=math.max(0,wallRelease-1)end
   if wx()==lastX then stalled=stalled+1 else stalled=0;lastX=wx()end
  end
  for i=0,5 do local a=actor(i);if a.flag>0 and a.id==46 then
