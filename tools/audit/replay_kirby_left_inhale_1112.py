@@ -6,7 +6,7 @@ from hashlib import sha256
 from run_stdout_mesen_1110 import R, run
 
 
-def controller(variant=1):
+def controller(variant=1, hard=False):
     text=(R/'tools/playthroughs/kirby_current_inhale_stdout_1110_v3.lua').read_text()
     text=text.replace('local lastIngress', "local crossing='approach'\nlocal landFrame=0\nlocal lastIngress")
     text=text.replace('~=0x41','~=0x42').replace('fresh.facing~=1','fresh.facing~=2')
@@ -44,18 +44,34 @@ def controller(variant=1):
     text=text.replace("if x()>=400 then", "if x()>=448 then")
     if variant == 2:
         text=text.replace('if x()-a.x>=32 then', 'if x()-a.x>=16 then')
+    if hard:
+        identity="r('KbVariant')==0 and r('CrossoverBehaviorVersion')==0 and noCheats()"
+        assert text.count(identity)==1
+        text=text.replace(identity, identity.replace("Version')==0", "Version')==1"))
+        entry=" press('start')\n ready(function()return r('CrossoverMenuState')==2"
+        assert text.count(entry)==1
+        text=text.replace(entry, """ press('down');press('a')
+ assert(r('CrossoverMenuState')==4,'Actual Options opens')
+ press('down');press('a')
+ assert(r('CrossoverBehaviorVersion')==1,'Actual Hard selected')
+ press('b')
+ ready(function()return r('CrossoverMenuState')==0 and r('DisableScreenFlag')==0 end,180,'title return')
+ press('start')
+ ready(function()return r('CrossoverMenuState')==2""")
+        text=text.replace('Actual Easy Kirby selection','Actual Hard Kirby selection')
     return text
 
 
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--variant',type=int,choices=(1,2),default=1)
+    parser.add_argument('--hard',action='store_true')
     args=parser.parse_args()
     rom=Path('C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes')
     output=R/'build/kirby-left-inhale-1112'
     output.mkdir(exist_ok=True)
     script=output/'controller.lua'
-    script.write_text(controller(args.variant),encoding='utf-8',newline='\n')
+    script.write_text(controller(args.variant,args.hard),encoding='utf-8',newline='\n')
     result=run(script,rom,output/'capture',sha256(rom.read_bytes()).hexdigest(),60,variant=args.variant)
     print(json.dumps({k:result[k] for k in ('passed','receipt_SHA256','script_SHA256','receipt')}),flush=True)
     assert result['passed']
