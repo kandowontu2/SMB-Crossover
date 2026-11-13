@@ -34,7 +34,12 @@ def controller(raw, mode):
     assert sha256(raw).hexdigest() == PIN
     if mode in ('route', 'upgrades'):
         return MR.controller(raw, mode)
-    text = KL.controller(2, True) if mode == 'inhale' else KR.controller(True, True)
+    if mode == 'green-route':
+        source = MR.R/'tools/playthroughs/kirby_current_green_stdout_1110_v5.lua'
+        assert sha256(source.read_bytes()).hexdigest() == '730a40160788c5fa41b3bf8b931bfd14834bb463ae75a04b18f07f12e0d2ff20'
+        text = source.read_text()
+    else:
+        text = KL.controller(2, True) if mode == 'inhale' else KR.controller(True, True)
     # Capture's existing execution observer must match the changed instruction,
     # while retaining its original mapped address and all behavioral assertions.
     first, body = text.split('\n', 1)
@@ -60,7 +65,7 @@ def reverse(raw):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--mode', choices=('route','upgrades','inhale','shell'), required=True)
+    parser.add_argument('--mode', choices=('route','upgrades','inhale','shell','green-route'), required=True)
     parser.add_argument('--rom', type=Path)
     args = parser.parse_args()
     raw = compose(Path('C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes').read_bytes()) if args.rom is None else args.rom.read_bytes()
@@ -69,13 +74,14 @@ def main():
         rom.write_bytes(raw)
     script = OUTPUT/'controller.lua'
     script.write_text(controller(raw,args.mode),encoding='utf-8',newline='\n')
-    result = MR.run(script,rom,OUTPUT/'capture',sha256(raw).hexdigest(),120)
+    result = MR.run(script,rom,OUTPUT/'capture',sha256(raw).hexdigest(),120,
+                    variant=1 if args.mode == 'green-route' else 0)
     receipt = result['receipt']
     print(json.dumps(dict(mode=args.mode,ROM_SHA256=sha256(raw).hexdigest(),
         passed=result['passed'],receipt_SHA256=result['receipt_SHA256'],
         script_SHA256=result['script_SHA256'],receipt={k:v for k,v in receipt.items()
             if k in ('reason','frames','lives','armor','weapon','status','collections',
-                     'upgradedShot','terminal','catch_verified','passed')})),flush=True)
+                     'upgradedShot','terminal','catch_verified','passed','full_1_1','active_1_2')})),flush=True)
     assert result['passed']
 
 
