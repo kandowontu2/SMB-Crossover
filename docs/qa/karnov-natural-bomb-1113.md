@@ -1,11 +1,12 @@
 # Karnov natural Bomb route
 
 The original collector requires four healthy ordinary powerups to reach Bomb.
-The first two-pickup route changes no ROM bytes. Current Downloads is
-`65ee94ca9ac6e1b5ad44303d08f76ecbc175a88232c82ef8c32712edf150a643`.
-Its Thomas-only successor is authenticated by exact inverse to318a087 and
-forward roundtrip; every Karnov carrier and the manual-platform PRG bank
-remain identical.
+The first two-pickup route changes no ROM bytes. Root has delivered the
+qualified scene-motor fix as exact Downloads
+`a3c5fa63872fbb3103ae57d9748fef233e8b2273e26d985aa4006b2492d81b8a`.
+Its exact inverse reconstructs65ee94ca, whose Thomas-only inverse reconstructs
+318a087. The natural pickup/option code and manual-platform bank remain
+unchanged; the motor fix and both owner cookies are separately scoped below.
 
 | Pickup | Physical item | Original source result |
 | --- | --- | --- |
@@ -100,7 +101,26 @@ Its Lua source is frozen in Git commitf19ecfb5. The binder reads that immutable
 blob for `stop_after=3`, independently of the continuing fourth-pickup source.
 The complete CPU route also exits0 after5675 updates, same script SHA,
 source shot2/health0/cycle1,1-2X162/Y97 and both lives.
-This is private candidate evidence; root owns installation/publication.
+Root repeated the exact same native receipt from Downloads and published
+Current/Latest sole IPS57b84a6d; see `karnov-scene-delivery-1113.md`.
+
+The first four-pickup/default0 continuation is deliberately retained as a
+negative controller diagnostic. Script
+`1f8a0ad07b60d2c6aeb4b8d5b39ca876cc33701edb540d06e25f7a67b9d4b36c`
+on actual Downloads passes all first three pickups, then genuinely activates
+earned Boots at frame9794/update5603, X163/Y112: stock1→0, ownership1→0,
+source65 bit80 set. It reaches the fourth brick region healthy with both
+lives, but its unnecessary lift directly below the brick carries the player
+past the required underside bump. Native diagnostic helper is **1-2
+left1089, center1105, initialtop208, width32**, slot3,1533 carries. Terminal
+physical bound24001/update14431 is X1151/Y48, cycle1, Bomb0, no fourth birth.
+Root negative receipt:
+`a2d7c0656d7b98ffe70562d89ac5426e228e45fd787d6e0bfd14355ccb3fcbc9`.
+CPU independently reaches the same healthy missed-bump endpoint, and the
+actual1104/128 cell remains unconsumed tile5A. This is a route setup failure;
+no additional ROM change is indicated. The next controller will approach the
+brick on the ground and use a fresh original jump before summoning its
+separate flower-collection lift.
 
 Fourth natural flower/Bomb acquisition and use remain pending. Ladder, Clapper,
 Glasses, Swimming Mask and Shield remain required integrations, along with the

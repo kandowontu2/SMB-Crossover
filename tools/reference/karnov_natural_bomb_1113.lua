@@ -15,11 +15,12 @@ local lastTravelX,travelStall=nil,0
 local undergroundReady,entryTrace=false,0
 local entryFirst,entryRecent={},{}
 local deathIngress=nil
+local bootsUsed=nil
 local function r(n,i)return emu.read(assert(L[n],n)+(i or 0),emu.memType.nesDebug)end
 local function kr(a)return emu.read(2*8192+a,emu.memType.nesWorkRam)end
 local function wx()return r('Player_X_Position')+256*r('Player_PageLoc')end
 local function actor(i)return {slot=i,flag=r('Enemy_Flag',i),id=r('Enemy_ID',i),kind=r('PowerUpType',i),state=r('Enemy_State',i),x=r('Enemy_X_Position',i)+256*r('Enemy_PageLoc',i),y=r('Enemy_Y_Position',i)}end
-local function state()return {frame=frame,epoch=epoch,x=wx(),y=r('Player_Y_Position'),state=r('Player_State'),engine=r('GameEngineSubroutine'),level=r('LevelNumber'),world=r('WorldNumber'),area=r('AreaAddrsLOffset'),lives=r('NumberofLives'),shot=kr(0x65)&3,health=kr(0x68),cycle=kr(0x860),option=kr(0x8e),owned=kr(0x8f),stock=kr(0xbb),bomb=kr(0xc0),route=routePhase}end
+local function state()return {frame=frame,epoch=epoch,x=wx(),y=r('Player_Y_Position'),state=r('Player_State'),engine=r('GameEngineSubroutine'),level=r('LevelNumber'),world=r('WorldNumber'),area=r('AreaAddrsLOffset'),lives=r('NumberofLives'),shot=kr(0x65)&3,boots_active=kr(0x65)&128~=0,boots_stock=kr(0xbd),health=kr(0x68),cycle=kr(0x860),option=kr(0x8e),owned=kr(0x8f),stock=kr(0xbb),bomb=kr(0xc0),route=routePhase}end
 local function encode(v)
  if type(v)=='table'then local a=true;local n=0;for k in pairs(v)do if type(k)~='number'then a=false end;n=n+1 end
   local out={};if a then for i=1,n do out[#out+1]=encode(v[i])end;return '['..table.concat(out,',')..']'end
@@ -28,7 +29,7 @@ local function encode(v)
 end
 local function finish(ok,reason)
  if done then return end;done=true
- print('SMB_NATIVE_RECEIPT '..encode({passed=ok,ROM_SHA256=ROM_SHA,reason=reason,controller_only=true,frames=frame,updates=epoch,pickups=pickups,births=births,scenes=scenes,manual_helpers=helpers,recent=trace,underground_entry_first=entryFirst,underground_entry_recent=entryRecent,death_ingress=deathIngress,terminal=state(),armed=armed,blast_seen=blastSeen,native_blast_contacts=blastCalls}))
+ print('SMB_NATIVE_RECEIPT '..encode({passed=ok,ROM_SHA256=ROM_SHA,reason=reason,controller_only=true,frames=frame,updates=epoch,pickups=pickups,births=births,scenes=scenes,manual_helpers=helpers,boots_activation=bootsUsed,recent=trace,underground_entry_first=entryFirst,underground_entry_recent=entryRecent,death_ingress=deathIngress,terminal=state(),armed=armed,blast_seen=blastSeen,native_blast_contacts=blastCalls}))
  emu.stop(ok and 0 or 1)
 end
 local function to(p)
@@ -110,6 +111,10 @@ local function control()
  end
  if r('LevelNumber')==1 and r('AreaType')==2 then
   if #pickups==3 then
+   if kr(0x65)&128==0 and kr(0xbd)>0 then
+    if not ground then return 0 end
+    return routeAge%8<2 and 68 or 0 -- Original earned Boots: Down + fresh B.
+   end
    if routePhase=='bomb-bump'then
     if ground and epoch-lastPulse>30 then lastPulse=epoch;return 128 end
     return 0
@@ -223,6 +228,7 @@ emu.addEventCallback(function()
   end
   for _,h in ipairs(helpers)do if h.world==r('WorldNumber')+1 and h.stage==r('LevelNumber')+1 and r('Enemy_Flag',h.slot)==1 and r('Enemy_ID',h.slot)==37 and r('Enemy_State',h.slot)==65 and r('Enemy_X_Position',h.slot)+256*r('Enemy_PageLoc',h.slot)==h.left and r('PlatformCollisionFlag',h.slot)==h.slot then h.carries=h.carries+1 end end
   if kr(0xc0)==128 then armed=true end;if kr(0xc0)>=129 then blastSeen=true end
+  if not bootsUsed and #pickups>=3 and kr(0x65)&128~=0 then bootsUsed=state()end
   if STOP_AFTER and #pickups>=STOP_AFTER then finish(true,'requested-natural-pickups');return end
   if #pickups>=4 and armed and blastSeen and kr(0xc0)==0 then finish(true,'naturally-earned-and-used-bomb');return end
   if frame%120==0 then trace[#trace+1]=state();if #trace>16 then table.remove(trace,1)end;print('KARNOV_NATURAL_PROGRESS '..encode(state()))end
