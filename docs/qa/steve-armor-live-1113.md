@@ -1,5 +1,14 @@
 # Steve armor live integration
 
+Current private release target is exact62ba7f, with source gates committed
+in4e998e0c. Root independently reconstructs that image, verifies exact inverse
+to Downloadsaa501, and performs actual cold readback after the retired Thomas
+debug cleanup:2,398,039 CPU instructions, packet8,839bytes,268bytes spare,
+all three complete owner headers `aa10200c3c8114b6f52cd1db4b8564a0`.
+No output files are created. Physical62ba cadence passes separately; physical
+combat, full-stage, foreign-profile and installed Downloads checks remain
+pending. Older2aa physical results below retain their own limited scope.
+
 The full armor component remains private while final native gates continue. Root
 owns the emulator queue, installation and release. All helper tests use the
 bounded runner with `build/steve-armor-transport-1112`, one allowed new file
