@@ -55,6 +55,22 @@ patch diagnosis: the source agent is binding actual current bytes/callers and
 will qualify a real native handoff. All eight share this implementation;
 only Imajin has had the full native route diagnostic here.
 
+The subsequent passive native cell diagnostic preserves exact6371 inputs:
+Lua183451c88967a850a88aa9b7af14c3714aa20d7caa77d59379cdaca824db16dc,
+receipt6dc5fb1a4d7567d0ae158c0298876101e9d8c78512fc46fe44dfb81982847081.
+It stops intentionally false after60 stuck physical frames, at3,102 physical /
+2,349 returned Main, source/nativeX3155, size0/duck0, sourceYPage0,
+health15/lives2. Actual Right/Right+A cycles move Y110..174 but VX remains0.
+
+The obstructing world column is3168: tile24hex/attribute7 atY32,
+tile25hex/attribute7 atY48..176, stone61hex/attribute69decimal atY192,
+and ground54hex/attribute65decimal atY208. Adjacent3136/3152/3184 are empty
+through192. The shaft is therefore both solid and climbable. Source right
+edge3155+13 meets3168 before native base-nibble6..9 admission; the stopped
+base nibble is3. The source agent is now qualifying both passability and
+the actual native flag contact/handoff, with no forced player or engine state.
+This is a compact aggregate diagnostic; no screenshots or state files exist.
+
 No physics, collision, difficulty, actor, health, block or helper placement
 is changed to accommodate these tests. Normal running/jumping can traverse
 the final pit; no additional helper is indicated by this route.
