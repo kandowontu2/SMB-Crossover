@@ -10,9 +10,8 @@ local function earlyControl(x,y,ground,item)
   early.entered=early.entered or stockFifth.main;assert(stockFifth.main-early.entered<700,'Authored high-question total Main bound')
   local age=stockFifth.main-early.start
   if early.stage=='low-block'or early.stage=='head'then
-   if stockFifth.main%4==0 then
+   if stockFifth.main%2==0 and #early.motion<40 then
     early.motion[#early.motion+1]={main=stockFifth.main,x=x,y=y,ground=ground,native_dy=r('Player_Y_Speed'),pad=r('SavedJoypadBits'),flags=kr(0x62),held=kr(0x1b),pressed=kr(0x21),air=kr(0x66)}
-    if #early.motion>32 then table.remove(early.motion,1)end
    end
   end
   if ground then local clear=fifthClearEnemy(x,y);if clear then return true,clear end end
@@ -37,7 +36,7 @@ local function earlyControl(x,y,ground,item)
   elseif early.stage=='low-block'then
    if x<1737 then return true,1|(age<36 and 128 or 0)elseif x>1737 then return true,2 end
    if ground and y==112 then earlyTo('release')end
-   assert(age<120,'Ordinary landing on authored lower coin block');return true,0
+   assert(age<120,'Ordinary landing on authored lower coin block');return true,age<36 and 128 or 0
   elseif early.stage=='release'then
    if age>=3 then earlyTo('head')end;return true,0
   end

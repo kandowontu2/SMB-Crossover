@@ -29,7 +29,7 @@ def controller(raw,*,approach_x=None,carry_y=None):
         assert approach_x in(1720,1724,1728)
         source=source.replace('local EARLY_APPROACH_X=1720',f'local EARLY_APPROACH_X={approach_x}')
     if carry_y is not None:
-        assert carry_y in(64,80,96)
+        assert carry_y in(64,80,96,112,128)
         source=source.replace('local EARLY_CARRY_Y=80',f'local EARLY_CARRY_Y={carry_y}')
     text=text[:start]+body+source+'\n'+text[end:]
     before=' if #pickups>=4 then return fifthControl(x,y,ground,item)end'
@@ -55,12 +55,12 @@ def run(raw,*,approach_x=None,carry_y=None,**kwargs):
     with patch.object(Late,'controller',lambda image:controller(image,approach_x=approach_x,carry_y=carry_y)):return Late.run(raw,**kwargs)
 
 
-def sweep_high(raw):
+def sweep_high(raw,*,lower=False):
     prefix,seed=run(raw,limit=3000,checkpoint_x=1680,checkpoint_pickups=2,return_model=True)
     assert len(prefix['pickups'])==2 and prefix['source']['health']==0 and prefix['terminal']['x']==1680,prefix
     rows=[]
     for x in(1720,1724,1728):
-        for y in(64,80,96):
+        for y in((112,128)if lower else(64,80,96)):
             report,model=run(raw,approach_x=x,carry_y=y,input_model=Late.Native.N.fork(seed),
                 history=prefix['pickups'],limit=650,stop_on_native_head=True,return_model=True)
             early=report['fifth']['early'];heads=[h for h in early['heads']if h['tile']==193 and h['native_pad']&128]
@@ -101,7 +101,8 @@ if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--limit',type=int,default=11000)
     p.add_argument('--serve-suffix',action='store_true');p.add_argument('--require-pass',action='store_true')
     p.add_argument('--sweep-high',action='store_true')
+    p.add_argument('--sweep-lower',action='store_true')
     args=p.parse_args();raw=Late.candidate()
-    result=sweep_high(raw)if args.sweep_high else serve(raw,args.limit)if args.serve_suffix else run(raw,limit=args.limit)
+    result=sweep_high(raw,lower=args.sweep_lower)if args.sweep_high or args.sweep_lower else serve(raw,args.limit)if args.serve_suffix else run(raw,limit=args.limit)
     print(json.dumps(result,separators=(',',':')),flush=True)
     if args.require_pass:assert result.get('passed')is True,'Complete early stock item/Ladder route did not pass'

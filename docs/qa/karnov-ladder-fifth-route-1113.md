@@ -170,3 +170,31 @@ normally. No process or Mesen instance from another task was touched.
 Next useful ordinary-input probes are lower takeoff heights112/128 or an east
 approach. A real high-question head, mature third flower/Boots grant, later
 Bomb/Ladder, final uninterrupted run and root native replay remain pending.
+
+## Lower takeoff result
+
+The completed nine-case table above is pinned by source checkpoint03b74a8c.
+The subsequent `--sweep-lower` changed the controller to hold A through the
+attempted impact and retained the first40 motion samples instead of the last
+32. It completed normally after one genuine2347-Main two-item prefix:
+
+| Adjacent X | Carry Y | Fork Main updates | Actual result |
+| --- | --- | --- | --- |
+| 1720 | 112 | 381 | Healthy negative, no head/third item |
+| 1720 | 128 | 156 | Real native C1 head at player1737/Y87 |
+
+The sweep stopped at its first successful head, so the other four lower
+combinations were not run. The positive actual head callback observed tile193,
+native A128, native vertical speedFF and state1, source held1 and full source
+health0/lives2. Its motion starts with source fresh pressed129 (Right+A),
+original rising selector8 and original air timer32, then reaches1737/87.
+This is a genuine prefix-derived **CPU head component** result, with no
+native/source fields granted. The current test has not yet collected the high
+flower and does not establish a complete stock-five route or native Mesen
+result.
+
+Those first motion samples also confirm ordinary jumping off the girder.
+The apparent end-frame source/native support difference did not prevent the
+original fresh jump; there is no demonstrated runtime defect and no runtime
+patch. Next, keep the measured1720/128 head approach, retain its earned model
+in memory and test the existing east-side1776/Y80 girder/flower collector.
