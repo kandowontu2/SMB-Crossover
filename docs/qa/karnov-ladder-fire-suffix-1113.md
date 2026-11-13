@@ -88,11 +88,59 @@ The Karnov/Rygar Select alternate/raw34 uses no new authored helper or extra
 353 platform. This is explicitly a prefix-derived development proof,
 not a final uninterrupted or physical-native claim.
 
-Root authorized an experimental native run on unchanged Downloads7ef after
-this component/prefix qualification. The same frozen uninterrupted source
-replay is in progress; its result and root's native result remain pending.
-There are no ROM/state writes, new helper allocations or generated output
-roots. Root owns Mesen; GitHub releases stay empty under the new user policy.
+The final uninterrupted source replay passed the exact same7d5f87b6 in
+341.58seconds /8175 logical Main/NMI scheduler iterations. It used the real
+menu/constructor and retained60 ordinary opening updates, then one continuous
+controller VM: no history insertion, model clone, state seed or runtime grant.
+The five actual collector epochs were442/1786/2898/6277/7913. Fifth collection
+was native mature1104/103 at hero1106/80, slot5/state128, with erasure,
+SFX32/popup6/inventory0, source cycle3/owned4/selected2. Boots were activated
+at3145 and consumed naturally; the real Bomb blasted and retired. The empty
+Bomb selection changed1→FIRE255 through ordinary Select at6414.
+
+The uninterrupted model recorded nine terrain-fire calls and four actual
+native fire defeats: one Koopa and three Goombas, all state→34 with native
+popup2/1. Original Ladder growth reached eight cells /32 pattern cells at
+site1200; Up moved176→154, then Down restored32cells/five attributes and
+returned ownership4. Source cave palette2 remained21/1C. Terminal was active
+1-2,1200/176, damage counter0, two lives, shot2/cycle3/selected2/owned4,
+Boots/Bomb stocks0 and scene0.
+
+The complete uninterrupted source helper observations, all existing ordinary
+Up+Select actors for Karnov/Rygar Select alternate/raw34, initial top208 and
+width32, were:
+
+| Stage | Source left | Center | Carries |
+| --- | ---: | ---: | ---: |
+| 1-1 |1201|1217|71|
+| 1-1 |1712|1728|296|
+| 1-1 |1767|1783|203|
+| 1-2 |113|129|71|
+| 1-2 |1127|1143|82|
+
+These are logical CPU-model observations. Root's separate actual Downloads
+native proof has its own physical positions/counters: notably the first
+1-2 helper is left112/center128 there. Root owns that native QA and the shared
+helper inventory; this source record does not overwrite them.
+
+Root also reported actual Downloads7ef native PASS with passive two-image
+observation, receipt
+`b12de68301957240b311aa34defb6b715424d369b31cbd395297ef9ae1c3a763`
+/observer Lua
+`f722c5b476c91c42f7d8812f52724c9b07aeee9088214dbe0d0fc905bc985657`.
+The base controller remains exact7d5f87b6. Native14,891 physical frames and
+8,190 controller epochs are separately reported measurements. The old4,475
+normal-return counter is incomplete and is not called all Main. Native
+Ladder climbing176→130 differs from this logical model's176→154; both retain
+the same controls and native full restoration. Root reviewed both actual
+in-memory images and writes the authoritative native scope separately.
+
+All helper jobs are terminal, and no source edit remains pending. There are
+no ROM/state writes, new helper allocations, output files or new output roots.
+Root alone ran Mesen; the installed ROM remained unchanged7ef. Natural5th
+Ladder coverage is now qualified. This does not qualify Karnov Star/1UP or
+the remaining Clapper/Glasses/SwimmingMask/Shield equipment. GitHub releases
+stay empty under the new user policy; no IPS or release was uploaded.
 
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/karnov-equipment-1113 --resume --max-files 1 --timeout 180 -- python -B tools/audit/replay_karnov_ladder_fire_suffix_1113.py --component-check
