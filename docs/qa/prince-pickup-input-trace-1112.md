@@ -107,3 +107,19 @@ Existing pickup source maps mushroom to a capped five-HP heal and flower to
 sword1/action91. Historical strike qualification explicitly seeds sword2;
 neither it nor the staged pickup tests establish natural acquisition or a
 usable unarmed activation path. Keep that gap explicit.
+
+## Walking off the settled climb exposes support gap
+
+`--top-walk --observe-updates 280` holds Right during ages120..147, then B
+during220..239. Prince falls before the B window: source action1 at phase228
+aligns rawY65→63→65, then action7 falls at phase229. Terminal X335/Y176,
+HP5/two lives, no item. Receipt
+`224631d8d80532b7fa86f30e92866d0bfad68263515fb57a947b6df72270de49`, script
+`fa4e69881a25d1e788b437545de6f9b6c9225018280b8a9cfc01b0879a66bdcb`.
+
+Relevant actual source: `prince_exposed_brick_idle_1111.s` admits ordinary
+brick51/57 only when action0; coin-brick58 is also admitted while moving.
+Its logical-sole fallback remains careful-step-only. This is a concrete next
+investigation: trace the failing support call and its exact native tile and
+sole geometry before broadening admission. Do not claim a fixed bug or infer
+the tile solely from appearance. No ROM edits made.
