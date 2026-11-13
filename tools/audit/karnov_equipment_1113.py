@@ -204,13 +204,247 @@ def relink_plan(raw):
         full_source_relink_proved=False,live_cold_IRQ_and_abilities_proved=False)
 
 
+def relink_core(raw,*,compact=False,verify_baseline=True):
+    """Reassemble three exact current source islands; no candidate mutation."""
+    import check_karnov_bomb_1112 as Cpu
+    from check_steve_shatterhand_upgrade_transport_1111 import H
+    b=Cpu.Cpu.Flower.Host.C.Start.W.bundle(raw)
+    address=lambda n:Cpu.M.address(b,n)
+    files={'ACTOR_CORE':('host/kr-host-actor.inc',0xa087,0xac06),
+           'WEAPON_CORE':('original-source/portable_weapon.inc',0xac06,0xafa4),
+           'CLEAR_CORE':('original-source/portable_clear.inc',0xafa4,0xafbb)}
+    branches={'cc':(0x90,0xb0,'bcc','bcs'),'cs':(0xb0,0x90,'bcs','bcc'),
+        'eq':(0xf0,0xd0,'beq','bne'),'ne':(0xd0,0xf0,'bne','beq'),
+        'mi':(0x30,0x10,'bmi','bpl'),'pl':(0x10,0x30,'bpl','bmi'),
+        'vc':(0x50,0x70,'bvc','bvs'),'vs':(0x70,0x50,'bvs','bvc')}
+    texts=[];selected=[]
+    with zipfile.ZipFile(PACKET)as z:
+        for segment,(name,lo,hi)in files.items():
+            text=z.read(name).decode()
+            lines=[f'.segment "{segment}"']
+            for line in text.splitlines():
+                found=re.match(r'^(Kr_[A-F0-9]+):\s*j(cc|cs|eq|ne|mi|pl|vc|vs)\s+(Kr_[A-F0-9]+)',line)
+                if not found:lines.append(line);continue
+                label,cond,target=found.groups();pc,dest=address(label),address(target)
+                short,inverse,op,opposite=branches[cond]
+                # ca65's retained macro can shorten an already-defined
+                # backward label; forward targets remain its five-byte form.
+                # Derive that source policy rather than reading new code as
+                # if it were the old instruction stream during an inverse.
+                if dest<pc and -128<=dest-pc-2<=127:
+                    lines.append(f'{label}: {op} {target}')
+                else:
+                    if compact and lo<=dest<hi and -128<=dest-pc-2<=127:
+                        lines.append(f'{label}: {op} {target}');selected.append(pc)
+                    else:
+                        skip='KrFarSkip_'+label
+                        lines.extend((f'{label}: {opposite} {skip}',f'jmp {target}',skip+':'))
+            texts.extend(lines)
+    body='\n'.join(texts)
+    labels=set(re.findall(r'^(\w+):',body,re.M))
+    external={n for n in re.findall(r'\bKr\w+\b',body)if n not in labels}
+    constants=dict(KrState=0xc000,KrPointer=3,KrDispatch=address('KrInlineDispatch'),
+        KrExternal_C1C7=address('KrSceneCallback'),KrExternal_C81D=address('KrSoundCallback'),
+        KrExternal_C3D8=address('KrTerrainCallback'),KrExternal_C2B7=0xafa4)
+    for name in external-set(constants):constants[name]=address(name)
+    definitions=''.join(f'{name}=${value:04x}\n'for name,value in constants.items())
+    linked=H.assemble(definitions+body,{segment:(lo,hi-lo)for segment,(_,lo,hi)in files.items()})
+    linked['shortened']=tuple(selected)
+    preserved={};tails={}
+    for segment,(_,lo,hi)in files.items():
+        old=raw[Bomb.CHR+399*1024+lo-0xa000:Bomb.CHR+399*1024+hi-0xa000]
+        image=linked['images'][segment]
+        if not compact and verify_baseline:assert image==old,(segment,len(image),len(old),next((i for i,p in enumerate(zip(image,old))if p[0]!=p[1]),None))
+        tails[segment]=(lo+len(image),hi)
+    for name,want in(('Kr_F28D',0xa087),('Kr_AAB2',0xac06),('Kr_C2B7',0xafa4)):
+        assert linked['symbols'][name]==want;preserved[name]=want
+    return linked,dict(compacted=compact,baseline_source_exact=not compact and verify_baseline,source_islands=linked['used'],
+        selected_branches=len(selected),potential_tail_ranges=tails,external_anchors=preserved,
+        source_SHA256=digest((definitions+body).encode()),ROM_mutation=False,
+        live_abilities_IRQ_and_cold_proved=False)
+
+
+def branch_proof(raw):
+    """Every shortened branch, all incoming flags, actual continuation PCs."""
+    from verify_native_relocation import NesMPU
+    old,_=relink_core(raw);new,report=relink_core(raw,compact=True)
+    mapping={value:new['symbols'][name]for name,value in old['symbols'].items()
+             if name in new['symbols']and(name.startswith('KrFarSkip_')or re.fullmatch(r'Kr_[A-F0-9]+',name))}
+    memories=[]
+    for compiled in(old,new):
+        m=bytearray(65536)
+        for segment,(lo,hi)in dict(ACTOR_CORE=(0xa087,0xac06),WEAPON_CORE=(0xac06,0xafa4),CLEAR_CORE=(0xafa4,0xafbb)).items():
+            body=compiled['images'][segment]
+            m[lo:hi]=body.ljust(hi-lo,b'\xea')
+        memories.append(m)
+    cpus=[NesMPU(memory=m)for m in memories]
+    cases=0;minimum_saving=100;maximum_saving=-100
+    for pc in new['shortened']:
+        destination=memories[0][pc+3]+256*memories[0][pc+4]
+        assert pc in mapping and pc+5 in mapping and destination in mapping
+        for flags in range(256):
+            for c,start in zip(cpus,(pc,mapping[pc])):
+                c.pc,c.a,c.x,c.y,c.p,c.sp=start,flags^85,(flags*3)&255,255-flags,flags,224
+                c.processorCycles=0
+            cpus[0].step()
+            if cpus[0].pc==pc+2:cpus[0].step()
+            cpus[1].step()
+            assert cpus[0].pc in(pc+5,destination)
+            assert cpus[1].pc==mapping[cpus[0].pc],(pc,flags,cpus[0].pc,cpus[1].pc)
+            assert all(getattr(cpus[0],n)==getattr(cpus[1],n)for n in('a','x','y','p','sp'))
+            saving=cpus[0].processorCycles-cpus[1].processorCycles
+            minimum_saving=min(minimum_saving,saving);maximum_saving=max(maximum_saving,saving)
+            cases+=1
+    return dict(standalone=True,current_source_baseline_exact=True,branches=len(new['shortened']),
+        incoming_status_values=256,cases=cases,AXYP_SP_and_taken_or_fallthrough_continuations_exact=True,
+        cycle_saving_range=(minimum_saving,maximum_saving),compiled=report,
+        full_host_abilities_IRQ_and_cold_proved=False)
+
+
+def reference_proof(raw):
+    """Reach actual owning code from all services, respecting inline tables."""
+    import check_karnov_bomb_1112 as Cpu
+    from verify_native_relocation import NesMPU
+    b=Cpu.Cpu.Flower.Host.C.Start.W.bundle(raw)
+    address=lambda n:Cpu.M.address(b,n)
+    spans=((0xa000,0xbfe0,'actor'),(0xc900,0xce00,'combat'),(0xd600,0xde00,'options'))
+    def owned(pc):return next((role for lo,hi,role in spans if lo<=pc<hi),None)
+    def read(pc):
+        role=owned(pc);assert role is not None,hex(pc)
+        page,_,origin=Bomb.OWNED[role]
+        return raw[Bomb.CHR+page*1024+pc-origin]
+    tables={address(name):count for name,count in dict(Kr_F29B=32,Kr_F326=8,Kr_F723=16,Kr_F7DD=16,
+        Kr_AAB6=9,Kr_AC0F=4,Kr_AC48=8,Kr_EAD5=9,Kr_ADCB=8).items()}
+    sizes=dict(imp=1,acc=1,imm=2,zpg=2,zpx=2,zpy=2,inx=2,iny=2,rel=2,abs=3,abx=3,aby=3,ind=3)
+    todo=[0xa000+3*i for i in range(37)];seen=set();inbound=[];data_refs=[];indirect=[];dispatches=[]
+    decode=NesMPU().disassemble
+    while todo:
+        pc=todo.pop()
+        if pc in seen or owned(pc)is None:continue
+        seen.add(pc);op,mode=decode[read(pc)]
+        assert op!='BRK',(hex(pc),owned(pc))
+        size=sizes[mode]
+        operand=read(pc+1)+(256*read(pc+2)if size==3 else 0)if size>1 else None
+        core=0xa087<=pc<0xafbb
+        if op in('JSR','JMP')and mode=='abs':
+            if not core and 0xa087<=operand<0xafbb:inbound.append((pc,operand))
+            if op=='JSR'and operand==address('KrInlineDispatch'):
+                assert pc in tables,('Unbound inline dispatcher',hex(pc))
+                count=tables[pc];dispatches.append((pc,count))
+                for i in range(count):
+                    at=pc+3+2*i;todo.append(read(at)+256*read(at+1))
+                continue
+            todo.append(operand)
+            if op=='JMP':continue
+        elif mode=='rel':todo.append((pc+2+(operand if operand<128 else operand-256))&65535)
+        elif op=='JMP'and mode=='ind':
+            indirect.append(pc);continue
+        elif size==3 and not core and 0xa087<=operand<0xafbb:data_refs.append((pc,op,operand))
+        if op not in('RTS','RTI'):todo.append(pc+size)
+    anchors={address(n)for n in('Kr_F28D','Kr_AAB2','Kr_C2B7')}
+    assert all(dest in anchors for _,dest in inbound),inbound
+    assert not data_refs and not indirect,(data_refs,indirect)
+    return dict(actual_reached_instructions=len(seen),all37_service_roots=True,
+        inline_dispatches=dispatches,external_core_calls=inbound,no_external_core_absolute_data_refs=True,
+        no_unbound_indirect_control=True,immediate_SMC_scope='--part smc',
+        actual_native_ingress_scope='check_karnov_equipment_1113.py --part entries')
+
+
+def smc_proof(raw):
+    """Bound the direct immediate far-call form; classify foreign owners."""
+    import check_karnov_bomb_1112 as Cpu
+    b=Cpu.Cpu.Flower.Host.C.Start.W.bundle(raw)
+    # Actual fixed ABI: two immediate target bytes, bank3, FarCallCommon.
+    pattern=rb'\xa9(.)\x8d\x6c\x01\xa9(.)\x8d\x6d\x01\xa9\x03[\x20\x4c]\x5a\x01'
+    found=[]
+    for hit in re.finditer(pattern,raw[16:Bomb.CHR],re.S):
+        pc=hit[1][0]+256*hit[2][0]
+        if not 0xa087<=pc<0xafbb:continue
+        at=16+hit.start();owners=[]
+        for segment in b['segs'].values():
+            lo=int(segment.get('ooffs','0'),0);size=int(segment.get('size','0'),0)
+            if lo<=at<lo+size:owners.append(segment['name'].strip('"'))
+        found.append(dict(file_offset=at,target=pc,segments=sorted(set(owners))))
+    assert len(found)==2,found
+    assert found[0]['file_offset']==696154 and found[0]['target']==0xa200
+    assert 'ROGUE_RELOC_PAGE_3'in found[0]['segments']
+    assert found[1]['file_offset']==765847 and found[1]['target']==0xae06
+    # The second literal is in the exact native Battletoads acquisition stub.
+    lo=Cpu.M.location(b,'BtAcquire');hi=Cpu.M.location(b,'BtAcquireDone')
+    assert lo<=found[1]['file_offset']<hi
+    found[1]['symbol_owner']='BtAcquire'
+    with zipfile.ZipFile(PACKET)as z:
+        resident=z.read('host/kr-resident.inc').decode()
+        route=z.read('host/kr-pickup-rom-route-v4.inc').decode()
+        assert 'cmp #111'in resident and 'sbc #<KrServiceVeneers'in resident
+        assert 'adc #<KrCacheServices'in route and 'lda #>KrCacheServices'in route
+        assert 'KrPickupPrepareDirect:'in route
+    return dict(conventional_immediate_bank3_farcall_matches=found,
+        both_matches_are_foreign_owners=True,own_native_dispatch_is_typed_A000_plus_row=True,
+        all37_dynamic_ingress_checked_separately=True,
+        scope='Exact conventional immediate SMC form plus owning source/typed ingress; not arbitrary-byte disassembly')
+
+
+def ladder_scene_proof(donor):
+    """Original dispatcher/ownership only; background worker explicitly stubbed."""
+    from verify_native_relocation import NesMPU
+    def memory():
+        m=bytearray(65536)
+        m[0xc000:]=donor[16+14*8192:]
+        m[0xa000:0xc000]=donor[16+12*8192:16+13*8192]
+        return m
+    original=memory()
+    targets={i:int.from_bytes(original[0xd5f5+2*i:0xd5f7+2*i],'little')for i in(1,2,11)}
+    assert targets=={1:0xd6ea,2:0xd6f8,11:0xdaf8}
+    rows=[]
+    for scene in(1,2,11):
+        m=memory()
+        for at,value in{0x5e:scene,0x624:1,0x625:128,0x626:32,0x8e:255,0x8f:0,
+                0x71f:3,0x63:160,0x64:144,0x6b0:0}.items():m[at]=value
+        # Stage restoration/VRAM is not part of this dispatch/owner check.
+        for pc in(0xa003,0xa006,0xdf61,0xc534):m[pc]=0x60
+        c=NesMPU(memory=m,pc=0xd5f0);c.sp=224;c.p=0x21
+        path=[]
+        for _ in range(200):
+            if c.pc==0xc046:break
+            if c.pc in(targets[scene],0xa003,0xa006,0xd700,0xdb00):path.append(c.pc)
+            assert m[c.pc]!=0,('Donor dispatch BRK',scene,hex(c.pc))
+            c.step()
+        else:raise AssertionError(('Donor dispatch bound',scene,hex(c.pc)))
+        assert c.sp==224
+        if scene==1:assert path==[0xd6ea,0xa003]and m[0x5e]==1
+        elif scene==2:
+            assert path==[0xd6f8,0xa006,0xd700]
+            assert(m[0x624],m[0x625],m[0x626],m[0x8f]&4,m[0x8e],m[0x5e])==(0,0,0,4,2,3)
+        else:
+            assert path==[0xdaf8,0xa006,0xdb00]
+            assert(m[0x624],m[0x625],m[0x626],m[0x8f]&4,m[0x5e])==(0,160,136,0,1)
+        rows.append(dict(scene=scene,actual_dispatch_target=targets[scene],path=path,
+            returned_scene=m[0x5e],owned=m[0x8f],anchor=(m[0x625],m[0x626])))
+    m=memory()
+    for at,value in{0x62:10,0x63:128,0x64:200,0x1b:32,0x89:9,0x8b:2,
+            0x6b0:0,0x5e:3,0x71f:0,0xc4:0}.items():m[at]=value
+    c=NesMPU(memory=m,pc=0xf623);c.p=0x21;c.sp=224
+    for _ in range(100):
+        if c.pc==0xf6a0:break
+        assert m[c.pc]!=0,('Donor bottom-climb BRK',hex(c.pc));c.step()
+    else:raise AssertionError(('Donor bottom-climb bound',hex(c.pc)))
+    assert(m[0x5e],m[0x71f])==(2,3)
+    return dict(actual_fixed_dispatch_and_owner_paths=rows,original_held_Down_at_bottom_sets_scene2=True,
+        source_actor_entry=0xf623,source_scene_writer=0xf69e,declared_collision_fields={0x89:9,0x8b:2},
+        background_workers_stubbed=True,native_SMB_Ladder_claim=False)
+
+
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--part',choices=('members','donor','footprint','renderer-plan','renderer-proof','relink-plan'),default='members')
+    p.add_argument('--part',choices=('members','donor','footprint','renderer-plan','renderer-proof','relink-plan','relink','branches','references','smc','ladder-scenes'),default='members')
     args=p.parse_args()
     raw,donor=inputs()
     result={'members':members,'footprint':lambda:footprint(raw),'donor':lambda:donor_ladder(donor),
             'renderer-plan':lambda:renderer_plan(raw,donor),'renderer-proof':lambda:renderer_proof(raw,donor),
-            'relink-plan':lambda:relink_plan(raw)}[args.part]()
+            'relink-plan':lambda:relink_plan(raw),
+            'relink':lambda:{'baseline':relink_core(raw)[1],'compact':relink_core(raw,compact=True)[1]},
+            'branches':lambda:branch_proof(raw),'references':lambda:reference_proof(raw),'smc':lambda:smc_proof(raw),
+            'ladder-scenes':lambda:ladder_scene_proof(donor)}[args.part]()
     print(json.dumps(dict(ROM_SHA256=digest(raw),donor_SHA256=digest(donor),part=args.part,
         output_files=0,ROM_modified=False,result=result)),flush=True)
