@@ -70,8 +70,10 @@ four mature authored items and reaches grounded1-2 at full health/lives3.
 
 ## Delivery
 
-Private native checks and exact IPS roundtrip pass. The remaining steps are
-direct Downloads replacement, all three exact installed replays, automatic
-patch guards and sole Current/Latest asset refresh. The delivery recipe is
-`deliver_jay_pickup_helper_1113.py`; no backup ROM or capture files are created.
+Downloads was directly replaced withaa501, without a backup. All three
+installed runs repeat their exact private receipts above. Installed bytes
+equal the tested candidate; before/after automatic patch guards pass with
+no same-name patch files. Exact IPS reconstruction passes. The remaining
+delivery step is the sole Current/Latest asset refresh. The delivery recipe
+is `deliver_jay_pickup_helper_1113.py`; no capture files were created.
 Steve armor remains private; broader roster/powerup/audio review continues.
