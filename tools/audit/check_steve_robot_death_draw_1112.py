@@ -7,11 +7,11 @@ import check_steve_shatterhand_throw_pose_1111 as Render
 import check_steve_shatterhand_robot_death_1112 as Death
 
 
-def mounted(candidate, info, records):
+def mounted(candidate, info, records, interrupts=False):
     Live, C = Controls.Live, Controls.C
     seed, _ = Live.natural(candidate, info)
     fields = info['throw_control_fields'] | info['laser_fields'] | dict(SteveThrowFrame=0xc978, SteveDeathDraw=0xc979)
-    count = hidden = 0
+    count = hidden = cuts = 0
     for index, facing, polarity, draw in product(range(4), (0, 128), (0, 128), (0, 1)):
         m = C.Vector.clone(seed)
         m.raw_page(1, 3)
@@ -28,6 +28,20 @@ def mounted(candidate, info, records):
         camera = Live.N.get(m, 'ScreenLeft_X_Pos')+256*Live.N.get(m, 'ScreenLeft_PageLoc')
         for name, value in (('SteveBotX', ((camera+100)*16) & 65535), ('SteveBotY', 1600)):
             m[fields[name]], m[fields[name]+1] = value & 255, value >> 8
+        if interrupts and draw:
+            original_step = cpu.step
+            def checked_step():
+                nonlocal cuts
+                if cpu.pc == info['pose_link']['symbols']['BuildPose']:
+                    for kind in ('NMI', 'IRQ'):
+                        q, branch = C.Vector.clone(m, cpu)
+                        branch.step = type(branch).step.__get__(branch, type(branch))
+                        before = bytes(q[3:7])
+                        assert C.Vector.isr(q, branch, kind) == 'returned'
+                        assert bytes(q[3:7]) == before, (kind, hex(cpu.pc), before.hex(), bytes(q[3:7]).hex())
+                        cuts += 1
+                return original_step()
+            cpu.step = checked_step
         call(cpu, info['companion_symbols']['SteveCompanionDraw'])
         record = records[index]
         if draw:
@@ -46,12 +60,13 @@ def mounted(candidate, info, records):
             assert Live.N.get(m, 'CurrentOAMOffset') == 0
             hidden += 1
     print(json.dumps(dict(candidate=C.digest(candidate), native_OAM_draws=count, hidden_draws=hidden,
-                          mounted=True, output_files=0, delivered=False)))
+                          interrupt_cuts=cuts, mounted=True, output_files=0, delivered=False)))
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--mounted', action='store_true')
+    parser.add_argument('--interrupts', action='store_true')
     args = parser.parse_args()
     raw = Controls.Live.DONOR.HOST.read_bytes()
     candidate, info = Controls.proposal(raw, combat_storage=True)
@@ -74,7 +89,7 @@ def main():
                                      for value in (mapping[tile], attr, dy & 255, dx & 255)])
         records.append(record)
     if args.mounted:
-        mounted(candidate, info, records)
+        mounted(candidate, info, records, args.interrupts)
         return
     data = '.segment "DEATH_RECORDS"\nDeathRecords:\n'
     for index, record in enumerate(records):

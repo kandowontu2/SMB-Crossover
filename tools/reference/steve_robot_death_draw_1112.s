@@ -18,9 +18,9 @@ DeathBody:
     lsr a
     tax
     lda DeathRecordLow,x
-    sta $00
+    sta $03
     lda #>DeathRecords
-    sta $01
+    sta $04
     jmp DeathBuild
 DeathRetainedBody:
     jsr FindPose

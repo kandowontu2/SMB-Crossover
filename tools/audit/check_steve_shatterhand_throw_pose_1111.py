@@ -1,6 +1,7 @@
 """Link and compare the detached native Steve throw pose extension."""
 
 import json
+import re
 from itertools import product
 
 from py65.devices.mpu6502 import MPU
@@ -77,7 +78,12 @@ PlayerPoseReady:
         assert source.count(old) == 1, old
         source = source.replace(old, new)
     layout = LAYOUT | {'THROW_POSE_CHR': (chr_origin, 0xda80-chr_origin)}
-    linked = H.assemble(Live.bindings(FIELDS) + source + '\n' + SOURCE.read_text(), layout)
+    # NMI owns $00/$01. Keep both live record pointers outside that scratch.
+    # Apply only to the new worker, leaving the installed-parent reconstruction intact.
+    source += '\n' + SOURCE.read_text()
+    scratch = {'00': '03', '01': '04', '02': '05', '03': '06'}
+    source = re.sub(r'\$(00|01|02|03)\b', lambda m: '$'+scratch[m[1]], source)
+    linked = H.assemble(Live.bindings(FIELDS) + source, layout)
     assert linked['symbols']['StevePoseSelect'] == old_link['symbols']['StevePoseSelect'] == 0xcecf
     for segment in ('POSE_GATE', 'POSE_BANK'):
         assert linked['images'][segment] == old_link['images'][segment]
