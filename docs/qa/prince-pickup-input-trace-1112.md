@@ -38,3 +38,20 @@ Receipt `3a967dcf6a500b533749476677db82b0cbb756f367d6cc4dd2293a420894d4d3`;
 script `051560564983fb76f52fb3820710b37d0eb84f2559c81937310211c07b73ebbf`.
 All100 update samples are retained in the in-memory receipt; stdout displays
 only changes in source Y, origin, projection delta or action. No captures added.
+
+## Original ROM comparison resolves the shallow-hop question
+
+`check_prince_original_jump_commands_1112.py` executes actual original ROM
+SetAction and AdvanceActor instructions, using the retained original RAM seed.
+The ROM is SHA-pinned by the existing donor oracle. Bounded execution passed:
+standing action3 has Y128 except pose25/Y122, then returns128 at pose26.
+Running action4 reaches114. Action14 animation commands alone leave Y128.
+This exactly explains the observed standing-hop source writes; do not increase
+its height as a supposed porting fix. Action14 also needs its terrain/climb
+context assessed separately. This check does not execute terrain or projection.
+
+Initial checker attempts omitted the actor-slot register at AdvanceActor entry;
+those failed the execution bound and were harness failures, not game failures.
+The corrected call explicitly supplies X0, matching the original slot0 ABI.
+No output files were generated. Next investigate reachable block interaction
+with intended climb/reach controls rather than retuning authentic action3.
