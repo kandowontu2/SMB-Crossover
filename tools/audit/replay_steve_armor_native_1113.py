@@ -63,7 +63,11 @@ def controller(candidate,info, *, mode='armor_fixture'):
     from check_ff_stdout_controller_source_1110 import LuaRuntime,DLL,DLL_SHA
     assert Packet.Entry.digest(DLL.read_bytes()) == DLL_SHA
     assert Packet.Entry.digest(candidate) in PARENTS.values()
-    assert mode in ('armor_fixture','ingress')
+    assert mode in ('armor_fixture','ingress','full_stage')
+    if mode == 'full_stage':
+        lua = full_stage_controller(candidate,info)
+        LuaRuntime().compile(lua)
+        return lua
     bundle = Roster.W.Symbols.bundle()
     bundle['raw'] = candidate
     names = ('Player_X_Position','Player_PageLoc','Player_Y_Position','Player_Y_HighPos',
@@ -81,6 +85,45 @@ def controller(candidate,info, *, mode='armor_fixture'):
     lua = lua.replace('STEVE_WAVE_RENDER',str(info['runtime']['symbols']['ArmorWaveNativeRender']))
     assert 'emu.write' not in lua and 'emu.setState' not in lua
     LuaRuntime().compile(lua)
+    return lua
+
+
+def full_stage_controller(candidate,info):
+    import compose_steve_full_route_1111 as Full
+    import check_steve_shatterhand_move_live_1111 as Movement
+
+    model,_ = Packet.load(candidate,info)
+    movement = Movement.link()
+    bundle = dict(model.bundle,syms=dict(model.bundle['syms']))
+    bundle['syms']['CurrentOAMOffset'] = dict(val='0x06de')
+    punch = Movement.S.link(bundle)
+    draw = punch['images']['DRAW']
+    assert bytes(model.ram[2][0x1bd4:0x1bd4+len(draw)]) == draw
+    for name in ('SteveLiveMovement','SteveMotionProject'):
+        pc = movement['symbols'][name]
+        segment = next(key for key,(origin,size) in Movement.LAYOUT.items()
+                       if origin <= pc < origin+size)
+        offset = pc-Movement.LAYOUT[segment][0]
+        expected = movement['images'][segment][offset:offset+8]
+        assert bytes(model.ram[2][pc-0xc000:pc-0xc000+8]) == expected,name
+    lua = Full.controller()
+    values = {
+        "assert(os.getenv('SMB_STEVE_COOKIE'))":json.dumps(info['cookie'].hex()),
+        "assert(tonumber(os.getenv('SMB_STEVE_BIRTH')))":str(info['wave_hooks'][0][0]),
+        "assert(tonumber(os.getenv('SMB_STEVE_DRAW')))":str(punch['symbols']['SteveDrawEmit']),
+        "assert(tonumber(os.getenv('SMB_STEVE_MOVE_ENTRY')))":str(movement['symbols']['SteveLiveMovement']),
+        "assert(tonumber(os.getenv('SMB_STEVE_MOVE_PROJECT')))":str(movement['symbols']['SteveMotionProject']),
+    }
+    for before,after in values.items():
+        assert lua.count(before) == 1,before
+        lua = lua.replace(before,after)
+    before = "  if level==1 and engine==8 and read(0x753)==2 then\n"
+    after = before+"    pad=0\n    if wy~=176 or read(0x1e)~=0 then return end\n"
+    assert lua.count(before) == 1
+    lua = lua.replace(before,after)
+    lua = lua.replace('Steve cleared 1-1 and entered underground 1-2',
+                      'Steve cleared 1-1 and landed grounded in underground 1-2')
+    assert 'emu.write' not in lua and 'emu.setState' not in lua
     return lua
 
 

@@ -164,10 +164,29 @@ The readonly armor controller hash is
 `f6d1f69b12e40878abfcce234c30cfde4262e6a9e5df589ed48bb10ae51958f3`.
 Wave record counts come from source metadata. Both controller modes compile
 with the existing retained Lua5.4 module after its DLL hash is checked.
-Physical Mesen runtime qualification remains pending with root's queue.
+Root's actual unmodified2aa ingress passes61 updates and833 physical frames,
+health6/lives2. Its receipt is
+`1f18d91c730e280519712dd64adc3634320e8e537a00ca04441427b6476423da`.
 
-Root still must qualify physical armor/DMA, unmodified candidate ingress and
-full1-1, then exact Downloads installation/release if approved. The private
+Root's private c75 fixture passes6,264 physical frames and3,665 updates,
+six actual preparations/collections, two armored waves in both facings,
+44 hardware DMA cell matches and the complete entry/clock/exit sequence.
+Health6 and both lives remain. Its receipt is
+`5864f14027ccb91410b598b83e07672211a22db35685d63841689f6a685eb088`.
+These physical results concern the declared six-question level fixture.
+
+The unmodified full-stage mode reuses the existing pure
+`compose_steve_full_route_1111.controller()` route. Actual mounted cold output
+authenticates its movement entry/projection and ordinary punch draw bytes.
+The generated readonly Lua inlines the current cookie and entry addresses,
+retains the natural first-Goomba fight and six-pipe/three-gap/flag/castle
+checks, and holds neutral until grounded1-2 at Y176. It compiles with retained
+Lua5.4 and has hash
+`0295efe67ae7c86ea0874e4d945f057c5eb51cd60be391196c59534cd184564c`.
+Its actual physical full-stage result is pending with root.
+
+Root still must qualify unmodified full1-1 into grounded1-2, then exact
+Downloads installation/release if approved. The private
 level fixture stays separate from the installed candidate. No helper platforms
 or authored public stage placements change in this patch.
 
