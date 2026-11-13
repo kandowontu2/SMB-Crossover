@@ -13,6 +13,7 @@ from nightly_patch_guard_v1 import check
 
 PARENT = '464c8f1af0401ba7d5393e331833af5bdd68882c536dfc3c77534b71508213c0'
 PIN = '6d0346164b7099f8e75cdbe22a9e9f1fd5f4f673116fd1dcb48a3cee620734c2'
+PATCH_PIN = 'e2662c8439e226fa5fd3a2684427c97affb3f3a3be6ef3dc1d80f7d4acec897d'
 RECEIPT = 'a3c15de76676ba9ebdf3ffdbc84049ef953b70d14015285e31e05251c0fd773c'
 SCRIPT_PIN = 'a115265b9c2a3cc12fbf792a3460e01c5ce67264e2829dc901dfe5ee37ce33d0'
 NIGHTLY = Path('C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes')
@@ -48,6 +49,7 @@ def install():
     base = SOURCE_BASE.read_bytes()
     assert digest(base) == SOURCE_PIN
     ips = ips_for(image)
+    assert digest(ips) == PATCH_PIN
     assert apply_ips(base, ips)[0] == image
     script = OUTPUT/'controller.lua'
     script.write_text(Replay.controller(layout['cookie'], 0xd74b, 3115, True),
@@ -67,8 +69,41 @@ def install():
                           receipt=RECEIPT, backup_files=0)), flush=True)
 
 
+def release_notes(head):
+    return ('Current MMC5 WIP nightly. Apply the sole IPS to clean headered Super Mario Bros. (World).\n\n'
+            f'ROM SHA-256: {PIN}\nIPS SHA-256: {PATCH_PIN}\nSource commit: {head}\n\n'
+            'Prince can walk across exposed bricks after climbing onto them. Verified in Mesen '
+            'through all of 1-1 into active 1-2 with both lives, including a repeat from Downloads. '
+            'Original movement physics and helper-platform locations are unchanged.\n\n'
+            'The expanded roster remains WIP. Prince natural powerup collection, remaining character '
+            'abilities, audio and further performance work are unfinished.\n')
+
+
+def publish(report_sha):
+    import publish_ff_corner_current_1110 as publisher
+    class Recipe:
+        V1 = SimpleNamespace(BASE=SOURCE_BASE)
+        @staticmethod
+        def proposal(base):
+            assert digest(base) == SOURCE_PIN
+            image = NIGHTLY.read_bytes()
+            parent, _ = transform(image, True)
+            return transform(parent)
+    with patch.multiple(publisher, PIN=PIN, PATCH_PIN=PATCH_PIN,
+                        OLD_PATCH='508ac358f5d8476e3b33ae6e92b649a9954f457cf33734c57b283e65c1ac0a88',
+                        RECEIPTS=(RECEIPT,), Fix=Recipe, CANDIDATE=CANDIDATE,
+                        SCRIPT=OUTPUT/'controller.lua', SCRIPT_PIN=SCRIPT_PIN,
+                        REPORT=REPORT, release_body=release_notes):
+        publisher.main(report_sha=report_sha)
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--install', action='store_true', required=True)
-    parser.parse_args()
-    install()
+    mode = parser.add_mutually_exclusive_group(required=True)
+    mode.add_argument('--install', action='store_true')
+    mode.add_argument('--publish-report-sha')
+    args = parser.parse_args()
+    if args.install:
+        install()
+    else:
+        publish(args.publish_report_sha)
