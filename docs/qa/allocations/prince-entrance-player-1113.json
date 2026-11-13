@@ -1,0 +1,50 @@
+{
+  "owner": "Prince ordinary native entrance handoff",
+  "status": "conditional source-owned compaction and private qualification only",
+  "reviewed_parent_ROM_SHA256": "526ef1df172c3172fccbd35aa0471a9ff9a5a256a416acba8f7530d147a5b3f2",
+  "unchanged_native_preimage_also_in": "62ba7f54117875ec018d6f85fb1c74408aa11f0fe0f6a85b8b4f601034a17639",
+  "profile": {
+    "native_PRG_bank": 1,
+    "public_entry": "AB5E",
+    "end_inclusive": "AB86",
+    "bytes": 41,
+    "complete_preimage": "ad0260c901d01bad0607d015a50fc908d00fa9408d0b078d0c078d0206a9fb858e60c908d0fb4c23b9",
+    "preimage_SHA256": "7c334a0b7833778e1eb60f08169113f55a84cc014585173b667ff5850b5d88c7",
+    "replacement_prefix": "11-byte Luigi/foreign dispatcher retaining AB5E public entry and B923 LuigiNativeJump",
+    "recovered_start": "AB69",
+    "recovered_end_inclusive": "AB86",
+    "recovered_bytes": 30,
+    "new_gate_maximum_bytes": 25,
+    "unused_bytes": "Explicit EA padding inside this owned41-byte routine, not neighboring space"
+  },
+  "entrance_hook": {
+    "native_PRG_bank": 1,
+    "start": "A04F",
+    "end_inclusive": "A059",
+    "bytes": 11,
+    "complete_preimage": "ad1307c906f004c907d053",
+    "preimage_SHA256": "700fe6cf31e34dfdfc3988374f657a772675522c10c304cdf75d85545dc51f04",
+    "replacement": "LDA PlayerEntranceCtrl; LSR; CMP3; BEQ originalpipeA05A; JMP qualifiednewgate",
+    "preserved": ["PlayerEntrance A040", "PlayerRdy A0AD", "AutoControlPlayer A0C1", "PlayerCtrlRoutine A0C3", "all other129-byte entrance instructions and labels"]
+  },
+  "root_review": {
+    "exact_installed526_profile_and_hook_preimages": true,
+    "actual_native_profile_direct_JSR": "native1 offset2210:205EAB, inside PlayerPhysicsSub",
+    "raw37_same_numeric_word": "D95EAB/B95EAB are raw37 data reads, not calls to native1",
+    "raw23_numeric_word": "Must retain its typed metadata/owner classification in the written closure",
+    "source_entrance_and_movement_branches_inspected": true,
+    "new_candidate_or_native_run": false
+  },
+  "conditions": [
+    "Encode and authenticate actual current source/compiled caller closure before retiring the legacy MegaMan1 branch. No unknown direct, indirect, farcall or interior caller may be assumed absent.",
+    "Close all legitimate MM contexts:0/6 setup and life;1 climb;2/3/4/5/7 neutral scripted controls;8 source movement or spring/climb native exclusions;9/12 guest power dispatch;10 modern/legacy injury ownership;11 guest death; cheats. Native PlayerPhysicsSub rejects spring and climb before the sole profile call, which requires a fresh A jump.",
+    "Prove the reduced dispatcher retains complete direct-call AXYP/SP and native physics effects for all nonMM1 owners, especially Luigi8, with no changed external entry or following graphics code.",
+    "New gate applies only Prince38, ordinary nonwater entrance after existing Alt2/header6/7 exclusions. Run unchanged AutoControlPlayer0 until post-call native floor support, then original PlayerRdy. Preserve normal source fall damage, source movement and water/vine/pipe behavior. No new persistent state, temporary actor/health/owner substitution or physics constants.",
+    "Prove all256 header classifications, original foreign/water entrance paths, actual cold and IRQ/lag-NMI safety. Compose cache209 and currentKarnov526 explicitly/disjointly through separate reversible known-parent APIs; keep existing frozen APIs unchanged.",
+    "Root owns native full1-1 and safe1-2 landing, earned-sword combat, foreign regression, Downloads repeat and matching Current/Latest IPS. The reservation does not authorize publishing an unverified candidate."
+  ],
+  "new_persistent_RAM_bytes": 0,
+  "new_physical_CHR_pages": 0,
+  "neighboring_native_PRG_granted": false,
+  "feature_enabled_or_delivered": false
+}
