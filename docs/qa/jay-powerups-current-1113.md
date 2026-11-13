@@ -1,7 +1,8 @@
 # Jay native item-block bridge, November 13
 
-This is a private CPU-qualified component. It has not been installed or run in
-Mesen. Root owns the native queue and delivery. Downloads remains
+This is a private component. Root's native full-stage replay passes; the
+natural first-pickup controller remains open. It has not been installed.
+Root owns the native queue and delivery. Downloads remains
 `a3c5fa63872fbb3103ae57d9748fef233e8b2273e26d985aa4006b2492d81b8a`.
 
 The affected identity is **Jay McCray**, Mike Jones's first Select alternate:
@@ -134,9 +135,28 @@ and initial top192; no placement or control changes.
 full-stage/machine-gun controller and changes only its cookie/variant/flag
 bindings. Generated Lua SHA256:
 `64e1303f28dacc3fef18cf8ea57b94dd1b86d2ad60d7ac630900bd12b52987ae`.
-It compiles and needs no extra environment beyond the normal ROM SHA. This
-native controller has not run on9349; its CPU stage policy is a separate
-retained fixture, not the331-input Lua parity claim above.
+It compiles and needs no extra environment beyond the normal ROM SHA. Root's
+actual Mesen run on9349 passes in5508 physical frames, clears1-1, enters1-2 and
+fires five earned machine-gun shots, retaining lives2. Native receipt:
+`610cd7566afaf5c1fb9f262424e987efbca9ff1027e2d5fa740f3f0643294daa`.
+Its CPU stage policy is a separate retained fixture, not the331-input Lua
+parity claim above.
+
+The original first-pickup Lua8e72 misses its native return jump. Root's
+controls-only run-up variant447 reaches the brick row but stalls at
+X351/Y112/control4, with the mature heart still336/Y120. Trace script:
+`c7e54d295a2ad368f98148a1e68b058a1165e0a2043b8600adb577e4c0afd5da`;
+receipt `c067fb37d2455bb5eaca4d188c4710330df454fdaa0b4ffd12aec7006bfff04d`.
+This is not a demonstrated side-collision defect. The new
+`check_jay_pickup_camera_1113.py` retains the real CPU-authored-row approach at
+X351/Y112 and compares camera333 versus336. Camera336 reproduces the stall:
+six original `ClampScreenX`/`XWorldFromScreen` calls, source relative X17,
+final X351/control4/health6, and zero `SideBlocked` entries. Every left side
+probe is row7/8,column21, tile0/class0; the supporting brick is only the foot
+probe at row9. Camera333 instead reaches X348 and the real collector grants
+health8/max4. The native trace did not yet log its camera; this is the matching
+CPU screen-clamp witness. Earlier first-pipe braking is under controller-only
+review. No donor clamp, physics or terrain exception was changed.
 
 Run all finite gates without outputs:
 
@@ -144,14 +164,15 @@ Run all finite gates without outputs:
 python -B tools/audit/run_bounded_build_v1.py --output build/jay-head-bridge-1113 --max-files 1 --timeout 180 -- python -B tools/audit/check_jay_head_bridge_1113.py --section all
 python -B tools/audit/run_bounded_build_v1.py --output build/jay-head-bridge-1113 --max-files 1 --timeout 180 -- python -B tools/audit/check_jay_block_lifecycle_1113.py
 python -B tools/audit/run_bounded_build_v1.py --output build/jay-head-bridge-1113 --max-files 1 --timeout 180 -- python -B tools/audit/replay_jay_stage_current_1113.py --cpu-route
+python -B tools/audit/run_bounded_build_v1.py --output build/jay-head-bridge-1113 --max-files 1 --timeout 180 -- python -B tools/audit/check_jay_pickup_camera_1113.py
 ```
 
 Root's existing two-file native slot may receive the in-memory image and
 `replay_jay_powerups_1113.controller(image, expect='earned')`. Its direct CLI
 is `replay_jay_powerups_1113.py --rom <candidate.nes> --expect earned --output
 <root-owned existing output>`; root must apply the usual bounded/capture guard.
-This helper never launched Mesen. Positive native collection and a current
-full1-1/active1-2 replay remain outstanding before delivery.
+This helper never launched Mesen. Positive native collection remains
+outstanding before delivery; full1-1/active1-2 has root's native proof above.
 
 ## Remaining powerup coverage
 
