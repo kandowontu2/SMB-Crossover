@@ -1,0 +1,40 @@
+{
+  "owner": "Current Ready85 SMB2/Doki native pipe priority and OAM propagation",
+  "status": "conditional source repack and private qualification only; not delivered",
+  "base_recipe_SHA256": "7ef2de351d3a4ae60b3ada2eb1aa56b330873dc106ad43428ec6803bf420d4fc",
+  "current_Downloads_SHA256": "f88cfe5aee15bb3921c691b7f06d905246be9ff88b9b43eea71c2405722724a7",
+  "private_flag_and_mirror_parent_SHA256": "2c62e1a0de1b732cfa57af59e71c0775396e067bf04aa101e78f644c3e4c9c4b",
+  "fresh_source": "tools/reference/smb2_pipe_priority_1113.s",
+  "fresh_source_SHA256": "53e6a38c1a47d36996ea1e5d4e9ec36bcbd62086113f91dca46570a19c13b76e",
+  "exact_Ready85_render_member_SHA256": "78ee206b221df9d8ad49de67d57fc51a403acd3b1ffac575ec37ca55604c8ffb",
+  "exact_Ready85_Doki_member_SHA256": "ad294b97516974279f1195a7496e1db36f9cfc371f61a3434f552963f344c2e4",
+  "resources": [
+    {"physical_PRG":118,"CPU_start":"B62F","file_offset":972351,"bytes":144,"preimage_SHA256":"608cbaff10ef768615097577f71ad5cf1d384ad19ec8f4898dd2e49860b67df7","purpose":"Exact current S2Graphics, same144B; preserve native priority via helper, offset one extra byte with actual DdqBuildPose C0 return branch."},
+    {"physical_PRG":118,"CPU_start":"B7EF","file_offset":972799,"bytes":63,"preimage_SHA256":"e0b026cefbcfa9c55d0525a048874e5c3ec8487c20442dd12d6c8ca6231a1df1","purpose":"Exact current USA/FDS PalettePointer63B becomes55B plus8B synchronous priority helper atB826..B82D; preserve palette anchors."},
+    {"physical_PRG":118,"CPU_start":"B762","file_offset":972658,"bytes":6,"preimage_hex":"a90085068508","purpose":"Actual DrawBody R3/R5 initialization only; retain helper R3 and zero R5 from proved actual Y0 after PublishBody/X5SetPhysicalChr."},
+    {"physical_PRG":118,"file_offset":974799,"bytes":3,"old_hex":"4c9bb6","new_hex":"4c9ab6","purpose":"True DdqStanding JMP to moved internal DokiMeta; opcode unchanged."},
+    {"physical_PRG":118,"file_offset":974826,"bytes":3,"old_hex":"4c8bb6","new_hex":"4c8ab6","purpose":"True DdqStanding JMP to moved internal SetBody; opcode unchanged."}
+  ],
+  "protected_anchors":{"S2PalettePointer":"B7EF","Palettes":"B82E","S2OriginalRole1":"B83E"},
+  "unrelated_raw_matches_preserved":[652957,32781],
+  "root_independent_review": {
+    "bounded_root":"build/smb2-flag-native-1113",
+    "result":"Actual metadata/reassembly PASS, zero outputs, four-second bounded process. Exact entire Graphics144B, PalettePointer63B and unchanged134B DdqBuildPose source reproduced; no extracted archive tree.",
+    "source_sizes":{"graphics":144,"palette_including_helper":63,"body_site":6,"priority_helper":8},
+    "current_native_cause":"Actual2c62 ordinary next-stage entrance setsPlayerSprAttrib0→32 atfixed1269CFD then clears32→0 atsourceB6A5 in SAME Main, preventing ChangeAreaTimer160 countdown. No source motor or control change is needed to preserve that latch.",
+    "withdrawn_design":"The earlier19B NativePaletteOffset-table funding used stale USA source and is rejected. It grants nothing. This is a fresh actual Ready85 eight-byte repack."
+  },
+  "conditions":[
+    "Replace only the declared complete footprints, authenticating preimages on7ef/2c62 and both true DdqStanding instruction envelopes. Retain PalettesB82E/Role1B83E and every unrelated byte, table, sample and carrier. No new shared/private RAM, CHR, ROM, physics, platform or inventory is granted.",
+    "Close all actual inbound calls, jumps and computed/data references for the moved internal Meta/SetBody/No entries and removed instructions. Keep raw non-code matches652957/32781 unchanged. Do not retarget whole-word matches indiscriminately.",
+    "Prove the real variant0..7/native-character0..3 producer domain and DdqBuildPose C0 return. Prove both palette-low additions cannot carry, BNE high is unconditional in the real path, and all live palette AXYP/SP/scratch/pointers remain exact in USA/FDS and foreign cases.",
+    "Prove actual PublishBody/X5SetPhysicalChr preserves Y0 and helper R3 across all8 profiles, sizes, facings, carry and animation cases. Compare actual rendered OAM prioritybit20 and unchanged colors/poses; preserving the RAM latch alone is insufficient.",
+    "Preserve normal and foreign behavior and genuine IRQ/busy-NMI stack/register/SMC/mapping lifetimes at the changed code. Compare legitimate audio progress to original ISR from the same cut, without masking or repairing live state.",
+    "Use separately pinned proposal/inverse APIs over exact2c62 and retain all frozen negative proposals/controllers. Root owns private native1-1 and25grounded1-2 verification, merged f88 preservation and direct byte-verified Downloads delivery. Never replace f88 with an older-base private image.",
+    "GitHub releases must remain empty. No IPS/BPS/UPS or private nightly installation is authorized by this conditional reservation."
+  ],
+  "new_RAM_bytes":0,
+  "new_CHR_bytes":0,
+  "new_ROM_bytes":0,
+  "delivered":false
+}

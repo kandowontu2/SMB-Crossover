@@ -15,6 +15,7 @@ PARENT='7ef2de351d3a4ae60b3ada2eb1aa56b330873dc106ad43428ec6803bf420d4fc'
 CANDIDATE='0e9e9254927236bcc651e79da36a77924eea5481421858a05f869b15298412e1'
 WITH_MIRRORS='2c62e1a0de1b732cfa57af59e71c0775396e067bf04aa101e78f644c3e4c9c4b'
 PUBLIC_BUB='f88cfe5aee15bb3921c691b7f06d905246be9ff88b9b43eea71c2405722724a7'
+WITH_PRIORITY='dadb9d80702148fe40b1a64d1cfff7ff2df65248b9c72e7c167d32e3589670be'
 NIGHTLY=Path('C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes')
 
 
@@ -24,6 +25,8 @@ def main():
     p.add_argument('--metadata',action='store_true')
     p.add_argument('--next-area-diagnostic',action='store_true')
     p.add_argument('--mirrors',action='store_true',help='Explicit flag plus three source-qualified fixed-bank mirrors; retains the old private proposal.')
+    p.add_argument('--pipe-priority',action='store_true',help='Explicit separately pinned current-Doki priority successor; requires --mirrors.')
+    p.add_argument('--visual',action='store_true',help='Two bounded in-memory natural-route PNGs; requires --pipe-priority.')
     args=p.parse_args()
     public_now=check(NIGHTLY)['ROM_sha256']
     assert public_now in(PARENT,PUBLIC_BUB)
@@ -44,6 +47,14 @@ def main():
         assert Mirror.all_mirrors_inverse(image)==control_image
         assert mirror_info['changed_bytes']==180 and mirror_info['extra_RAM_bytes']==mirror_info['extra_ROM_bytes']==0
         candidate=WITH_MIRRORS
+    if args.pipe_priority:
+        assert args.mirrors
+        import compose_smb2_pipe_priority_1113 as Priority
+        mirror_image=image
+        image,priority_info=Priority.proposal(mirror_image)
+        assert sha256(image).hexdigest()==WITH_PRIORITY
+        assert Priority.inverse(image)==mirror_image and priority_info['changed_bytes']==132
+        candidate=WITH_PRIORITY
     variants=range(8)if args.variant=='all'else(int(args.variant),)
     if not args.metadata:
         OUT.mkdir(exist_ok=True)
@@ -58,12 +69,18 @@ def main():
             text=Diagnostic.controller(control_image,variant)
         if args.mirrors:
             assert text.count(CANDIDATE)==1
-            text=text.replace(CANDIDATE,WITH_MIRRORS)
+            text=text.replace(CANDIDATE,candidate)
             Replay.Root.Base.LuaRuntime().compile(text)
+        if args.pipe_priority and variant==4 and not args.next_area_diagnostic:
+            assert sha256(text.encode()).hexdigest()=='f4b9ebfaee4cd75245ecd3cb0e38b5d4ab6c00127fc2a9f125270448a5ddf5cc'
+        if args.visual:
+            assert args.pipe_priority and not args.next_area_diagnostic
+            import replay_smb2_priority_visual_1113 as Visual
+            text=Visual.controller(image,variant)
         summary=dict(ROM_SHA256=candidate,parent_SHA256=PARENT,current_Downloads_SHA256=public_now,
             identity=Replay.Root.NAMES[variant],variant=variant,
             script_SHA256=sha256(text.encode()).hexdigest(),
-            controls_unchanged_from_public_diagnostic=True,next_area_diagnostic=args.next_area_diagnostic,all_fixed_mirrors=args.mirrors,
+            controls_unchanged_from_public_diagnostic=True,next_area_diagnostic=args.next_area_diagnostic,all_fixed_mirrors=args.mirrors,pipe_priority=args.pipe_priority,
             private_only=True,installed=False,native_run=not args.metadata)
         if not args.metadata:
             script=OUT/'controller.lua'
@@ -72,13 +89,15 @@ def main():
             receipt=q['receipt']
             compact={k:receipt.get(k)for k in('passed','reason','terminal','physical_frames',
                 'all_returned_Main','return_counts','idle','last_pit','injury_entries',
-                'flag','castle','entrance','next_area_updates','next_phase','capture_files','runtime_state_writes')}
+                'flag','castle','entrance','next_area_updates','next_phase','image_tags','capture_files','runtime_state_writes')}
             summary.update(passed=q['passed'],receipt_SHA256=q['receipt_SHA256'],
                 receipt=compact,outputs_written=q['outputs_written'])
-            if args.next_area_diagnostic:
+            if args.next_area_diagnostic or args.visual:
                 summary['images']=q['images']
             print(json.dumps(summary,separators=(',',':')),flush=True)
             assert q['passed'],'Private SMB2/Doki native full-stage qualification failed'
+            if args.visual:
+                assert len(q['images'])==2 and set(receipt['image_tags'])=={'side_pipe','underground_grounded'}
         else:print(json.dumps(summary,separators=(',',':')),flush=True)
     assert check(NIGHTLY)['ROM_sha256']==public_now
 

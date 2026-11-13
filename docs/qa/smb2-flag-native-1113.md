@@ -151,3 +151,55 @@ was rejected before allocation: the actual current Doki palette function is
 B7EF..B82D and has no old NativePaletteOffset table. Its actual source and
 preimages must be recovered before a priority proposal. The tentative design
 did not change any ROM, allocation or current palette behavior.
+
+## Actual Ready85 priority proposal: two natural full-stage passes
+
+The separately pinned private successor is
+`dadb9d80702148fe40b1a64d1cfff7ff2df65248b9c72e7c167d32e3589670be`.
+It uses the actual Ready85 code, with8 source-owned bytes reclaimed inside
+the current palette function and exact scoped graphics/body/caller changes.
+Its inverse returns2c62. It is not installed, and its normal-play foreground
+priority lifetime remains under review below.
+
+Imajin's original controls and full exit assertions now pass actual Mesen:
+Lua `f4b9ebfaee4cd75245ecd3cb0e38b5d4ab6c00127fc2a9f125270448a5ddf5cc`,
+receipt `ce9b9c55e30dc1e0118151f3f77381936c49f6af985d96223ff3abc9ae4d44c0`.
+The run takes4566 physical/3555 returned Main, with actual flag/castle/pipe
+transition and25 consecutive living grounded underground1-2 updates at40/176,
+health15/lives2. Empty opening remains48 Main/48 physical/skips0. All1-1
+terrain is crossed without helpers.
+
+SMB2 Mario also passes, with the two read-only visual observers appended:
+Lua `6f1c494c855d5a946735f660ecd9d43152833eac2d26438b36b5302059037c53`,
+receipt `a8092c7c38c1537185c96be94e8e54ef618e54c89c8cff91a18e351efed98395`.
+He reaches the same25-update grounded endpoint, health15/lives2, in4484
+physical/3597 Main. `replay_smb2_priority_visual_1113.py` leaves ordinary
+controls and the full exit assertion unchanged and captures two bounded PNGs
+in memory, with no disk images:
+
+- Side pipe:2645 bytes, SHA256
+  `ff20a4d447f220d226028752ff71c7360f6b977e93f1da03badd172e4edc13d3`,
+  frame3987/Main3273,155/176,engine7,attr32. The reviewed image shows Mario
+  correctly passing behind the pipe.
+- Underground:2002 bytes, SHA256
+  `8c2d0635c1cb45d1d7744041dc6b754acb0d07ce397f442b073c300aebb2ecab`,
+  frame4481/Main3593,40/176,engine8,next-area count21,attr32. The HUD, Mario
+  and upcoming Goombas are visible.
+
+The second view also proves the priority latch remains32 during normal
+active play. The new helper preserves that bit indefinitely, while the old
+graphics cleared it. Actual native PlayerCtrlRoutine's normal foreground
+clear is a source lead because S2MainPlayer replaces that routine. A player
+remaining behind decorative background would be a rendering regression.
+Normal-play foreground clearing and the native pipe latch must both work
+before delivery; two logical stage passes alone do not settle that issue.
+
+The first2112-pose directed claim used wrong Doki5..7 native-class fixtures
+that could reset in S2Ensure. That coverage claim is withdrawn. The corrected
+actual-constructor table is0,3,2,1,0,1,2,3, with explicit postcall assertions
+that variant/class/size/facing/holding/animation are not reset. Its corrected
+2112 Graphics/2112 real OAM pairs pass, with1216 active priority cases;
+the old1408 count must not be reused. Source domain/constructor and actual
+PublishBody Y0/R3 lifetime gates are separate. Remaining caller/interrupt and
+foreground-lifetime work is still open; no complete eight-character or
+finished-visual-review claim is made.

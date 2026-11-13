@@ -1,5 +1,12 @@
 # Mini Mario: current shared-platform regression baseline
 
+Current Downloads has since advanced to f88. A fresh actual f88 run exactly
+reproduces the5279-frame/3495-Main result and the one missed update described
+below. Lua b5c66789, receipt42974aad. The private14ae contact candidate also
+clears1-1 but records four misses; it remains private. See
+`mini-platform-descending-1113.md` for exact hashes and the paired comparison.
+The original7ef measurements below remain scoped to their own ROM.
+
 The actual Downloads ROM remains
 `7ef2de351d3a4ae60b3ada2eb1aa56b330873dc106ad43428ec6803bf420d4fc`.
 No ROM change or delivery is made by this check. This is the baseline for the

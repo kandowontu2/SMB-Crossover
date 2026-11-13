@@ -18,6 +18,7 @@ from run_stdout_mesen_1110 import run
 
 R=W.R
 PIN='7ef2de351d3a4ae60b3ada2eb1aa56b330873dc106ad43428ec6803bf420d4fc'
+BUB_NIGHTLY='f88cfe5aee15bb3921c691b7f06d905246be9ff88b9b43eea71c2405722724a7'
 ROM=Path('C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes')
 SOURCE=R/'build/complete-roster-native-1110/packets/regression/mini/controller.lua'
 SOURCE_SHA='d20ec6a9c7481b902a5b45033e1a2e4448df4555ba31d4e0981d1a371e920677'
@@ -29,12 +30,27 @@ def once(text,before,after):
     return text.replace(before,after,1)
 
 
-def controller(raw, *, contact_candidate=False):
+def controller(raw, *, contact_candidate=False, descending_candidate=False, bub_nightly=False):
     digest=sha256(raw).hexdigest()
-    if contact_candidate:
+    assert sum((contact_candidate,descending_candidate,bub_nightly))<=1
+    if descending_candidate:
+        import compose_dkjr_descending_platform_1113 as Contact
+        assert digest==Contact.PIN
+        public=Contact.P.inverse_current(Contact.reverse(raw))
+        assert sha256(public).hexdigest()==PIN
+        start=16+128*8192+962*1024
+        assert raw[start:start+5120]==public[start:start+5120], 'Mini carrier must remain exact'
+    elif contact_candidate:
         import compose_dkjr_platform_contact_1113 as Contact
         assert digest==Contact.PIN
         public=Contact.P.inverse_current(Contact.reverse(raw))
+        assert sha256(public).hexdigest()==PIN
+        start=16+128*8192+962*1024
+        assert raw[start:start+5120]==public[start:start+5120], 'Mini carrier must remain exact'
+    elif bub_nightly:
+        import bub_native_noops_1113 as Bub
+        assert digest==BUB_NIGHTLY
+        public=Bub.combined_reverse(raw)
         assert sha256(public).hexdigest()==PIN
         start=16+128*8192+962*1024
         assert raw[start:start+5120]==public[start:start+5120], 'Mini carrier must remain exact'
@@ -127,13 +143,17 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--metadata',action='store_true')
     p.add_argument('--require-zero-lag',action='store_true')
-    p.add_argument('--contact-candidate',action='store_true',help='Strict private successor only; candidate must already be staged by root.')
+    modes=p.add_mutually_exclusive_group()
+    modes.add_argument('--contact-candidate',action='store_true',help='Frozen b420 negative only; candidate must already be staged by root.')
+    modes.add_argument('--descending-candidate',action='store_true',help='Explicit exact14ae private successor; retains the frozen b420 mode.')
     args=p.parse_args()
-    assert check(ROM)['ROM_sha256']==PIN
-    rom=OUT/'candidate.nes' if args.contact_candidate else ROM
+    public_now=check(ROM)['ROM_sha256']
+    assert public_now in(PIN,BUB_NIGHTLY)
+    rom=OUT/'candidate.nes' if args.contact_candidate or args.descending_candidate else ROM
     raw=rom.read_bytes();digest=sha256(raw).hexdigest()
-    text=controller(raw,contact_candidate=args.contact_candidate)
-    summary=dict(ROM_SHA256=digest,public_ROM_SHA256=PIN,source_SHA256=SOURCE_SHA,
+    text=controller(raw,contact_candidate=args.contact_candidate,descending_candidate=args.descending_candidate,
+        bub_nightly=not(args.contact_candidate or args.descending_candidate)and public_now==BUB_NIGHTLY)
+    summary=dict(ROM_SHA256=digest,public_ROM_SHA256=public_now,recipe_parent_SHA256=PIN,source_SHA256=SOURCE_SHA,
         script_SHA256=sha256(text.encode()).hexdigest(),native_run=not args.metadata)
     if not args.metadata:
         script=OUT/'controller.lua'
@@ -148,7 +168,7 @@ def main():
         compact['obstacles']=receipt.get('phases',{}).get('fullstage',{}).get('actual_obstacle_clears',[])
         summary.update(passed=q['passed'],receipt_SHA256=q['receipt_SHA256'],receipt=compact,outputs_written=q['outputs_written'])
         print(json.dumps(summary,separators=(',',':')),flush=True)
-        assert check(ROM)['ROM_sha256']==PIN
+        assert check(ROM)['ROM_sha256']==public_now
         assert q['passed'],'Retained current Mini full-stage replay failed'
         if args.require_zero_lag:
             cadence=q['receipt']['cadence']
