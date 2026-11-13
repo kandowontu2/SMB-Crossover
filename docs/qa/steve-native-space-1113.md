@@ -67,6 +67,23 @@ The completed run exited0 and generated zero files. No historical source tree
 was extracted. It does not claim a global proof that every possible unused
 instruction/data byte has been found, or any new Main/ISR/gameplay proof.
 
+## Second small native bridge reservation
+
+Root independently verified another26-byte alignment tail on the installed
+`65ee94ca` ROM: physical PRG8, CPU BFE6..BFFF, file73718..73743. Compiled
+`MegaManRushBusterSpawn` is BFDE, bytes `A90120CBA14CD6A1`; its terminal
+JMP A1D6 excludes fallthrough. The complete bank hashes to
+`6cd11962cbc95527cfcfd860e88e788007fa473e767e0b153ca3d9e090ce4ca0`.
+All26 tail bytes are FF, no literal local JSR/JMP targets the interval,
+and all224 actual Rogue raw-reader rows exclude PRG8. Root repeated these
+checks through the bounded two-file task root with zero generated files.
+
+`allocations/steve-native-prg8-1113.json` formally reserves this exact
+interval for the Steve armor native status bridge. It is a placement
+grant only; source integration, native caller/mapper contracts, foreign
+behavior, interrupt/cold checks and actual emulator tests are still
+required. The PRG5 grant and CHR reservations remain separate.
+
 An additional26-byte native interval is source-qualified on installed65ee:
 physical PRG8, CPU `BFE6..BFFF`, file half-open `11FF6..12010`.
 `src/megaman_rush.s:112` defines the final GUEST worker
