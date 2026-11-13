@@ -228,6 +228,8 @@ def controller(raw,mode='mushroom'):
         text=subprocess.check_output(['git','show','c8b464b9:tools/reference/quick_natural_powerups_1113.lua'],cwd=R).decode()
     elif mode=='items':
         text=subprocess.check_output(['git','show','0956e57d:tools/reference/quick_natural_powerups_1113.lua'],cwd=R).decode()
+    elif mode=='full':
+        text=subprocess.check_output(['git','show','a7dc2ba8:tools/reference/quick_natural_powerups_1113.lua'],cwd=R).decode()
     names=set(re.findall(r"r\('([^']+)'",text))|set(re.findall(r'\bL\.(\w+)',text))
     labels={name:W.address(b,name)for name in sorted(names)}
     pre='local L={'+','.join(f'{name}={value}'for name,value in labels.items())+'}\n'
@@ -239,6 +241,8 @@ def controller(raw,mode='mushroom'):
         assert sha256(result.encode()).hexdigest()=='a8b617b0a44587bfbb8875c828e95c019a36a58fbeb036e33ecb07ed20355dd4'
     elif mode=='items'and sha256(raw).hexdigest()==PIN:
         assert sha256(result.encode()).hexdigest()=='a28640952287b1bf4d42c30c4ca988aede4be9e869bcec3b56b4dec4af63ba22'
+    elif mode=='full'and sha256(raw).hexdigest()==PIN:
+        assert sha256(result.encode()).hexdigest()=='2283a8e704a209b1bd9595a69eb87b3e4e956074682f312eb448c3fee051dcf5'
     return result
 
 
