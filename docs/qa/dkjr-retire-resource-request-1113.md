@@ -430,3 +430,43 @@ archive restore or emulator launch. This is a current compiled-menu/rendered
 byte comparison in the CPU peripheral model, not a new physical raster or
 inherent-art orientation claim. The reference auditor's per-slot model setup
 and actual Select input procedure are unchanged.
+
+## Frozen causal observer before any carry repair
+
+The actual contact-ride9f943 native run remains negative: root receipt
+`07c1ac5f26bad59f4f3e9b2f78248bbdb6e32e78d1e91edc56b8b514e5285ce0`.
+One944 carry is observed atMain3345, player939/106/top138/source1. Lower
+starts3346, but source injury follows3381 at player945/148, timer260/lives2.
+That single contact is not persistent support or a successful descent.
+
+The new scoped `dkjr_contact_observer_1113.controller(e73)` leaves the frozen
+9f943 controls intact and appends read-only callbacks. Lua SHA:
+`d46b3350c2a23dcc9c2ec5dc4323411c9cc4e114305c995b4e8ec2702067d13b`.
+The default Main3338..3385 trace has512 compact rows maximum, retaining the
+first128/latest384 if necessary. It records actual native positioning around
+PRG71 AC18/AC26/AC29, source carry/step/support/fall/land entries and returns,
+native PlatformCollisionFlag0566 and BoundingBoxes0658, source rectangles,
+Y/state/previous-state/fall start/limit, query windows and CPU/maps. Current
+bytes authenticate AC18's Y store and AC29's finalRTS; AC29 is completed
+positioning evidence, not proof that support persists in the next source step.
+
+`check_dkjr_contact_observer_1113.py` exercises the callbacks on a genuinely
+constructed32-Main prefix, changing only the telemetry window and test stop.
+It exits0, captures195 rows without dropping any, and compares all WRAM,
+native RAM, maps, VRAM and CHR exactly to the same unobserved control prefix.
+The actual native observer retains its original window and has no test stop.
+No game memory writes, repairs, captures or generated outputs occur.
+
+Root narrows only the observation window to3343..3351 for a native run:
+Lua `4612b3ae50444b536376bcc4c466629140d82b0b355131b29667be47108d7976`,
+receipt `693270bbf2f840a0cc20e77112d1f4497c5c823550364cead53a22a51f69e703`.
+The90 trace rows have no drops; trace digest
+`1d9077ecf9cc0195e2371d366ea33413bd70c9001f3e6a3b1d8ac64c38a9ad11`.
+Native positioning and the source carry endpoint really importY127→121.
+AtMain3346 source ground1 persists, support query137..138 appends the current
+plane138. At3347 actor top139/flag255 no longer lies in137..138, append count
+is0, player bbox bottom remains136, and the actual source store changes1→4.
+Fall start121/limit24 then lead to the original injury at3381. This isolates
+the descending-support failure. It does not yet establish the correct repair;
+native position offsets, source footer and actual actor delta must be
+qualified together before any game bytes or donor physics are changed.
