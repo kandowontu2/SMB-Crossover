@@ -409,3 +409,24 @@ read-only metadata check against root's retained candidate compiled all three
 as Lua with zero outputs. Contact-ride native/full-stage qualification is
 pending. No source motor, timer, helper placement, ROM or public delivery
 changed in these experiments.
+
+## All101 current menu rows and rendered bytes
+
+`check_dkjr_menu_parity_1113.py` passes on exact parent7ef and privatee73.
+It authenticates the unchanged `check_menu_facing_1112.py` auditor SHA
+`4e886d4259f4ba308c91d9779e052c3756a878bdfdc074551ed82494a576c671`
+and requires the strict DK inverse to return exact7ef. The actual resolver,
+Select cycles, portrait renderer and NMI run on both images. All101 rows
+match identity, owner, facing, sprite count, portrait dimensions/hash and
+silhouette hash. Every one of101 portraits and101 silhouettes is also
+compared as RGBA bytes:202 images/350404bytes, exactly equal.
+
+The default-separator sorted-JSON row digest remains
+`f58ec905102307ca87d9c302248fa7da9c44cd5550df154323e67024da245db7`.
+Aggregate receipt:
+`8b40e7067344d7735becff2ddb5fc018f08584a8d2e5f14c97a76c53d0810016`.
+The owned bounded command exits0 and writes zero files: no sheet, PNG, ROM,
+archive restore or emulator launch. This is a current compiled-menu/rendered
+byte comparison in the CPU peripheral model, not a new physical raster or
+inherent-art orientation claim. The reference auditor's per-slot model setup
+and actual Select input procedure are unchanged.
