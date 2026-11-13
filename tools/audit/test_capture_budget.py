@@ -1,6 +1,7 @@
 """Exercise real process termination/locking without launching an emulator."""
 from pathlib import Path
 import json
+import os
 import subprocess
 import sys
 import tempfile
@@ -13,7 +14,7 @@ import capture_budget as budget
 
 class CaptureLimits(unittest.TestCase):
     def setUp(self):
-        parent = budget.WORKSPACE/'build'
+        parent = Path(os.environ.get('CAPTURE_BUDGET_TEST_ROOT', budget.WORKSPACE/'build'))
         parent.mkdir(exist_ok=True)
         self.temp = tempfile.TemporaryDirectory(prefix='capture-limit-check-', dir=parent)
         self.root = Path(self.temp.name).resolve()
@@ -100,6 +101,23 @@ class CaptureLimits(unittest.TestCase):
         self.assertEqual(result.returncode, 0)
         self.assertEqual(result.stdout.strip(), 'bounded')
         self.assertEqual(len(list(self.output.iterdir())), 1)
+
+    def test_stdout_fixture_reserves_only_receipt(self):
+        result = budget.run_capped([sys.executable, '-c', 'print("fixture")'],
+                                   output=self.output, timeout=5, reserved_files=1)
+        self.assertEqual(result.returncode, 0)
+        self.assertEqual(result.stdout.strip(), 'fixture')
+        receipt = json.loads((self.output/'capture-budget.json').read_text())
+        self.assertEqual(receipt['reserved_files'], 1)
+        self.assertEqual([p.name for p in self.output.iterdir()], ['capture-budget.json'])
+
+    def test_stdout_fixture_rejects_payload_file(self):
+        program = 'from pathlib import Path; import sys; Path(sys.argv[1],"unexpected").touch()'
+        with self.assertRaises(budget.CaptureBudgetExceeded):
+            budget.run_capped([sys.executable, '-c', program, str(self.output)],
+                              output=self.output, timeout=5, reserved_files=1)
+        receipt = json.loads((self.output/'capture-budget.json').read_text())
+        self.assertTrue(receipt['violations'])
 
 
 if __name__ == '__main__':

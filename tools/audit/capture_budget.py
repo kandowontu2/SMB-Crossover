@@ -152,17 +152,23 @@ def preflight(output: Path, reserved_bytes: int = RUN_BYTES,
                 run_byte_cap=RUN_BYTES,run_file_cap=RUN_FILES,minimum_free=MINIMUM_FREE)
 
 
-def run_capped(command: list[str], *, output: Path, timeout: float) -> subprocess.CompletedProcess:
+def run_capped(command: list[str], *, output: Path, timeout: float,
+               reserved_files: int = RUN_FILES) -> subprocess.CompletedProcess:
     """Run one owned emulator with preflight and a live output growth watchdog."""
     with capture_lease():
-        return _run_owned(command, output=output, timeout=timeout)
+        return _run_owned(command, output=output, timeout=timeout, reserved_files=reserved_files)
 
 
-def _run_owned(command: list[str], *, output: Path, timeout: float) -> subprocess.CompletedProcess:
+def _run_owned(command: list[str], *, output: Path, timeout: float,
+               reserved_files: int = RUN_FILES) -> subprocess.CompletedProcess:
     output = output.resolve()
-    receipt = preflight(output)
+    assert 1 <= reserved_files <= RUN_FILES
+    receipt = preflight(output, reserved_files=reserved_files)
     output.mkdir(parents=True, exist_ok=True)
-    baseline = inventory(output, PAYLOAD_BYTES, PAYLOAD_FILES)
+    # One file slot belongs to the receipt written on exit. A stdout-only
+    # fixture can reserve that slot alone and allow zero payload files.
+    payload_file_cap = min(PAYLOAD_FILES, reserved_files-1)
+    baseline = inventory(output, PAYLOAD_BYTES, payload_file_cap)
     if not baseline.complete:
         raise CaptureBudgetExceeded('The evidence output already exceeds the per-run cap.')
     stopped = threading.Event()
@@ -176,7 +182,7 @@ def _run_owned(command: list[str], *, output: Path, timeout: float) -> subproces
     def watch() -> None:
         try:
             while not stopped.wait(0.1):
-                size = inventory(output,PAYLOAD_BYTES,PAYLOAD_FILES)
+                size = inventory(output,PAYLOAD_BYTES,payload_file_cap)
                 free = shutil.disk_usage(output).free
                 if not size.complete or free < MINIMUM_FREE or sum(1 for _ in output.rglob('*.png'))>4:
                     violation.append('Evidence exceeded its 128 MB / 64-file / four-PNG limit or 25 GB free-space floor.')
@@ -204,7 +210,7 @@ def _run_owned(command: list[str], *, output: Path, timeout: float) -> subproces
     finally:
         stopped.set()
         watcher.join(timeout=2)
-        final = inventory(output,PAYLOAD_BYTES,PAYLOAD_FILES)
+        final = inventory(output,PAYLOAD_BYTES,payload_file_cap)
         if not final.complete and not violation:
             violation.append('Evidence exceeded the per-run cap before process exit.')
         total = inventory(ARCHIVE, ARCHIVE_BYTES, ARCHIVE_FILES)
