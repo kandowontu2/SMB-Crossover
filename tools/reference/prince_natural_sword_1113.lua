@@ -26,15 +26,15 @@
       elseif progress=='flower-face'then
         if s.facing==255 then pad=0 end
         if age>4 and s.facing==255 and idle(s) and floor(s)then
-          late.flower.climb=s;switch('flower-climb',9)
+          late.flower.climb=s;switch('flower-climb',8)
         end
       elseif progress=='flower-climb'then
         if s.action==10 then pad=0 end
-        if s.y<=114 and support(s)then
-          late.flower.boarded=s;switch('flower-walk',1)
+        if s.y<=114 and(support(s)or s.action==10)then
+          late.flower.boarded=s;switch('flower-walk',s.x>1248 and 2 or 1)
         elseif age>=125 then error('Bounded original flower ledge climb')end
       elseif progress=='flower-walk'then
-        if s.x>=1272 then pad=0 end
+        pad=s.x>1252 and 2 or s.x<1240 and 1 or 0
         assert(age<120,'Bounded native flower overlap')
       end
       assert(age<180,'Bounded original flower collection phase');return

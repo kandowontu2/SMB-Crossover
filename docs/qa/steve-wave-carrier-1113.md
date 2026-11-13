@@ -93,3 +93,10 @@ python -B tools/audit/run_bounded_build_v1.py --output build/steve-wave-space-11
 
 The eventual Steve cold loader, arbitrary739 carrier contents, all-owner
 transitions and actual gameplay remain the owning Steve helper's gates.
+
+Root independently repeated the complete current54-table/15-private-scope
+audit, actual renderer and cold/runtime interrupt checks, then formally
+reserved739 in commit83bd2782. See
+`allocations/steve-wave-page-1113.json`. The exact Excitebike blank alias is
+mandatory before any replacement739 payload. This placement grant does not
+qualify the final Steve waveform, transport or native gameplay.

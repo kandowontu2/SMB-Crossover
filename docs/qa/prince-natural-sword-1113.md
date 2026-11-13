@@ -65,3 +65,37 @@ python -B tools/audit/run_bounded_build_v1.py --output build/metal-flower-native
 
 Add `--collect-sword` for the unfinished collection continuation. Root
 retains a single controller output and the already delivered candidate.
+
+## Current CPU alignment and placed-flower check
+
+On installed `a3c5fa63872fbb3103ae57d9748fef233e8b2273e26d985aa4006b2492d81b8a`,
+the checker authenticates the Prince packet and stages the observed flower
+ledge at1232/1248/1264, top144, with camera left1148. Eighteen directed
+positions execute the existing live controller. Facing right, initial
+X1218 through1230 (two-pixel increments) reach original climb action10,
+pose145 at X1289/Y113. Initial X1214/1216 do not grab. The nine tested
+left-facing positions1278 through1294 do not reach that height.
+
+The optional placed-flower check uses three initial positions1218/1220/1224,
+native status1 and an explicitly placed mature flower in slot5 at1248/Y119.
+It holds original Up, then requests Left when the climb reaches the cap.
+All three execute the real native PowerUpObjHandler and collect the flower
+at X1260/Y112: the actor is erased and original sword inventory becomes1.
+Sword inventory itself is never seeded. These are directed position/terrain
+and mature-item fixtures, not natural emergence or complete controller routes.
+No raster inspection, helper, ROM edit or movement-constant change is involved.
+
+The prepared natural controller now brakes its flower approach six pixels
+later, uses Up alone for the grab, accepts the original action10 cap, and
+walks back toward the stationary flower. Lua syntax passes with SHA256
+`12f55c86840aa9750d0312c806f629b23e8cec5e8aa67483ffe77762934d3e66`.
+That revised natural route has not run in Mesen; the existing25GB free-space
+guard currently prevents a new native test. The adapter authenticates the
+unrelated Karnov successor through its exact inverse and confirms the Prince
+packet is identical to65ee. The older emergence receipt above retains its
+stated65ee scope.
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/metal-flower-native-1112 --resume --max-files 2 --timeout 180 -- python -B tools/audit/check_prince_flower_climb_1113.py --placed-flower
+python -B tools/audit/run_bounded_build_v1.py --output build/metal-flower-native-1112 --resume --max-files 2 --timeout 120 -- python -B tools/audit/replay_prince_current_pickups_1113.py --collect-sword --check-only
+```
