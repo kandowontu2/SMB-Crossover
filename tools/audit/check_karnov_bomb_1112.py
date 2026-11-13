@@ -112,11 +112,11 @@ def episode(parent, candidate):
                 old_candidate_Bomb_refused=True, phases=phases, BCD_stock=model.ram[2][0xbb])
 
 
-def call_donor(memory, entry, *, a=85, x=7, y=91, p=0x61):
+def call_donor(memory, entry, *, a=85, x=7, y=91, p=0x61, limit=300):
     cpu = M.NesMPU(memory=memory, pc=entry)
     cpu.a, cpu.x, cpu.y, cpu.p, cpu.sp = a, x, y, p, 224
     cpu.stPushWord(0x5ffe)
-    for _ in range(300):
+    for _ in range(limit):
         if cpu.pc == 0x5fff:
             return
         assert memory[cpu.pc], hex(cpu.pc)
@@ -147,24 +147,71 @@ def donor_tick(candidate, pc):
 
 def contact(candidate):
     counts = Counter()
-    for phase, dx, dy in product((128, 129, 130, 131), (-16, -15, 0, 16, 17), (-8, -7, 0, 8, 9)):
+    donor = DonorMemory(Compose.ROM.read_bytes(), [0] * 2048)
+    for phase, dx, dy in product((128, 129, 130, 131), (-16, -15, 0, 16, 17), (-16, -15, -1, 0, 1)):
         model = M.fork(candidate)
         input_step(model, 0, 1)
         M.put(model, Square1SoundQueue=0, Square2SoundQueue=0, ObjectOffset=3)
         model.ram[2][0xc0:0xc4] = bytes((phase, 128, 208, 16))
         for name, value in dict(Enemy_Flag=1, Enemy_State=0, Enemy_ID=6,
-                                Enemy_X_Position=128 + dx, Enemy_PageLoc=0,
-                                Enemy_Y_Position=192 + dy, Enemy_Y_HighPos=1).items():
+                                Enemy_X_Position=120 + dx, Enemy_PageLoc=0,
+                                Enemy_Y_Position=184 + dy, Enemy_Y_HighPos=1).items():
             model[M.address(model.bundle, name) + 5] = value
+        # Execute the original blast predicate with the host's explicit
+        # left/top-to-center/feet coordinate conversion. Stop at the donor
+        # damage continuation; its native HP system is a separate receiver.
+        donor[0xc0:0xc4] = bytes((phase, 128, 208, 16))
+        donor[0x44] = 0
+        donor[0x652], donor[0x653], donor[0x655] = 128 + dx, 208 + dy, 0
+        cpu = M.NesMPU(memory=donor, pc=0xccfc)
+        cpu.sp = 224
+        cpu.stPushWord(0x5ffe)
+        for _ in range(100):
+            if cpu.pc in (0xcd6d, 0x5fff):
+                break
+            assert donor[cpu.pc], hex(cpu.pc)
+            cpu.step()
+        else:
+            raise AssertionError(('Original blast predicate bound', hex(cpu.pc)))
+        expected = cpu.pc == 0xcd6d
         result = M.invoke(model, 'HuWeaponTail', x=7, p=0x21)
         hit = bool(M.get(model, 'Enemy_State', 5) & 0x20) or not M.get(model, 'Enemy_Flag', 5)
-        expected = phase != 128 and -15 <= dx <= 16 and -7 <= dy <= 8
+        assert expected == (phase != 128 and -15 <= dx <= 16 and -15 <= dy <= 0)
         assert hit == expected and M.get(model, 'ObjectOffset') == 3, (phase, dx, dy, result, hit)
         assert result['counts'].get('ShellOrBlockDefeat', 0) == int(expected), (phase, dx, dy, result)
         again = M.invoke(model, 'HuWeaponTail', x=7, p=0x21)
         assert not again['counts'].get('ShellOrBlockDefeat', 0)
         counts['native_donor_rectangle_hits' if expected else 'native_non_contacts'] += 1
     return dict(counts)
+
+
+def anchor_render(candidate):
+    """Read and execute the real donor/native small-enemy records."""
+    donor = DonorMemory(Compose.ROM.read_bytes(), [0] * 2048)
+    donor.page(1, 9)
+    assert bytes(donor[0xa05d:0xa067]) == bytes.fromhex('b952068546b953068547')
+    assert bytes(donor[0xa0fc:0xa10a]) == bytes.fromhex('b14c4a29788549a54738e549854f')
+    assert bytes(donor[0xa25e:0xa264]) == bytes.fromhex('21020091018f')
+    donor[0x650:0x657] = bytes((0x80, 4, 128, 208, 0, 0, 0))
+    donor[0xe8] = 0
+    call_donor(donor, 0xa036, limit=2000)
+    original = [tuple(donor[at:at+4]) for at in (0x290, 0x294)]
+    assert original == [(192, 145, 0, 120), (192, 143, 0, 128)], original
+    model = M.fork(candidate)
+    M.put(model, SelectedCharacter=0, CurrentOAMOffset=0, GuestOamRotationActive=0,
+          Enemy_X_Position=120, Enemy_PageLoc=0, Enemy_Y_Position=184,
+          Enemy_Y_HighPos=1, Enemy_MovingDir=1, EnemyVerticalFlip=0,
+          Enemy_SprAttrib=0, ScreenLeft_X_Pos=0, ScreenLeft_PageLoc=0)
+    model[M.address(model.bundle, 'HpNativeDrawHi')+1] = 0
+    index = M.address(model.bundle, 'METASPRITE_GOOMBA_WALKING_1')
+    result = M.invoke(model, 'DrawMetasprite', x=index, y=1, p=0x21)
+    at = M.address(model.bundle, 'Sprite_Data')
+    native = [tuple(model[at+i:at+i+4]) for i in (0, 4)]
+    assert sorted((y, x) for y, _, _, x in native) == [(192, 120), (192, 128)], (native, result)
+    assert all(y+16 == 208 for y, _, _, _ in native)
+    return dict(donor_record_PC=0xa25e, donor_anchor=(128, 208),
+                donor_OAM=original, native_position=(120, 184), native_OAM=native,
+                native_to_donor_anchor=(8, 24), rectangle=(32, 16))
 
 
 def draw_hud(candidate):
@@ -290,8 +337,8 @@ def interrupts(candidate):
         input_step(model, 0, 3)
         model.ram[2][0xc0:0xc4] = bytes((130, 128, 208, 16))
         for name, value in dict(Enemy_Flag=1, Enemy_State=0, Enemy_ID=6,
-                                Enemy_X_Position=128, Enemy_PageLoc=0,
-                                Enemy_Y_Position=192, Enemy_Y_HighPos=1).items():
+                                Enemy_X_Position=120, Enemy_PageLoc=0,
+                                Enemy_Y_Position=184, Enemy_Y_HighPos=1).items():
             model[M.address(model.bundle, name) + 5] = value
         M.invoke(model, 'HuWeaponTail', p=0x21)
         M.invoke(model, 'HuDraw', p=0x21)
@@ -322,6 +369,7 @@ def main():
         print('KARNOV_BOMB_DONOR ' + json.dumps(donor_tick(candidate,
             layout['symbols']['KrBombTick']), separators=(',', ':')), flush=True)
         print('KARNOV_BOMB_CONTACT ' + json.dumps(contact(candidate), separators=(',', ':')), flush=True)
+        print('KARNOV_BOMB_ANCHOR ' + json.dumps(anchor_render(candidate), separators=(',', ':')), flush=True)
         print('KARNOV_BOMB_DRAW ' + json.dumps(draw_hud(candidate), separators=(',', ':')), flush=True)
         print('KARNOV_BOMB_LIFETIMES ' + json.dumps(lifetimes(parent, candidate), separators=(',', ':')), flush=True)
         cases = ((2, 0x16e5, 0xc9), (2, 0xd79, 0xb5), (3, 0x1184, 0x20))

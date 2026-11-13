@@ -1,9 +1,10 @@
 # Karnov Bomb integration
 
-The in-memory transform from installed `8fc57b8b` produces candidate
-`b8a657474e89c70017d15594a370bae41cb1b377c4aad8ece07d597fdf98ce13`.
-It also composes onto Thomas candidate `15a68332` and produces
-`0935e6c22725c008d88c3d249aae7c4c8a30cf11d87e221e2ffaef544cc088ed`.
+The in-memory transform from installed Thomas image
+`15a683321cde608cfe15447e90ef58d5295a16a1a6b607434f98df37162ac533`
+produces current candidate
+`318a087735b4204c74274b4107efbc302bc15a674a7f6f9d3bed598cea90d08d`,
+with cookie `a707011147d338f92c669d26e11e5b71`.
 The 49 Thomas edits and 1,137 Karnov edits are disjoint. The patch report
 retains exact preimages and can restore either parent.
 
@@ -18,6 +19,32 @@ the lower viewport cutoff moves from C0 to E0 to include ordinary SMB ground.
 The original final donor stage-specific tile scripts have no SMB stage data
 equivalent here. Damage uses the original 32-by-16 contact rectangle and
 passes eligible ordinary SMB enemies to their native defeat and score path.
+
+The first native contact replay exposed an anchor error: Goomba native Y184
+draws at OAM Y192, while Bomb source Y208 also draws at Y192. The old adapter
+converted the enemy to its OAM top192, so the original exclusive16 boundary
+rejected a visibly overlapping actor. Negative receipt
+`53d9ca0ed1d5f2da86a07bb9b9c2f811ebed74d9b30a0444125c4c7fca2737b1`
+is retained separately from success.
+
+Original donor bank9 A05D..A065 loads enemy0652/0653. Its A0FC..A108 renderer
+subtracts the record origin. Small-enemy record A25E is `21 02 00 91 01 8F`:
+an eight-pixel horizontal origin and16-pixel vertical origin, followed by two
+8x16 cells. Original A036 actually renders anchor128/208 at OAM120/192 and
+128/192. The actual native DrawMetasprite renders the same coordinates from
+native position120/184. The adapter therefore adds8 to native X and24 to Y
+to produce donor center/feet coordinates. The horizontal addition is folded
+into Bomb's original +16, reducing that constant to8. Width32, height16 and
+their unsigned exclusive comparisons remain original. All100 native contact
+cases now use the actual donor CCFC execution as their predicate oracle.
+
+Root's corrected candidate ground-Goomba fixture passes: native blast callback1
+at SP230, Bomb247/Y192 and Goomba244/native Y184, followed by the ordinary
+defeat displacement. Both lives, fuse phases and original hardware OAM survive.
+Receipt `c912b6e0ae1f5e575152b3dd5f41d95378ec2c6769a8c0fd46e5331d8b38bde4`,
+controller `da2b3d7f6901062f70b2109f327e733bf8a03935943f57fe1c2ee62bc424d0a3`.
+This fixture seeds stock as described below. Full current-candidate stage
+regression and delivery remain root-owned.
 
 The six Bomb sprite patterns come from the original page12. Two mirrored
 body packets move to another existing Karnov body page, preserving all 358
@@ -67,3 +94,6 @@ audio and full earned-equipment gap also remain open.
 ```
 python -B tools/audit/run_bounded_build_v1.py --output build/karnov-bomb-cpu-1112 --max-files 1 --timeout 600 -- python -B tools/audit/check_karnov_bomb_1112.py
 ```
+
+The anchor correction repeated the complete suite through bounded output root
+`build/karnov-bomb-1112`, session96314, exit0. It created zero files.

@@ -268,7 +268,9 @@ KrBombEnemyGeometry:
     bne KrBombEnemyNext
     lda $c0c1
     clc
-    adc #16
+    ; Donor 0652 is the horizontal center. Native ordinary enemies store
+    ; their left edge; fold its +8 conversion into Bomb's original +16.
+    adc #8
     sec
     sbc R0
     cmp #32
@@ -285,7 +287,9 @@ KrBombOrdinaryShots:
 KrBombEnemyVertical:
     lda Enemy_Y_Position,x
     clc
-    adc #8
+    ; Donor 0653 and Bomb C2 share the bottom/feet anchor. A native
+    ; Goomba's two 8x16 cells start at native Y+8 and end at Y+24.
+    adc #24
     sta R0
     lda $c0c2
     sec
