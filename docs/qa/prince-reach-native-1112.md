@@ -82,3 +82,11 @@ restricted to active engine8. Changing walker timing to800 still incurred the
 same fall loss and later died; simply walking off instead encountered a Goomba
 at X804. Both experiments were controller changes only and are reverted.
 The natural sword route needs a safe original descent, not a fall-damage bypass.
+
+`--descent 4` (Down) crouches on the cap at X758/Y112 without damage; it does
+not descend (receipt59175396). `--descent 5` (Down+Right) walks off and lands
+with fall counter0, but contacts a Goomba at X804. Current A345 debits all five
+HP through the unarmed defender, with successive returns AB5C/5F/62/65/68.
+Receipt `419539227df5df1013e742770aa97b33b52a2e50b417d676ef7f9f6e7df33b9f`.
+This distinguishes a safe-height descent from a safe enemy-crossing route;
+the latter remains unresolved. The optional descent replay retains both probes.

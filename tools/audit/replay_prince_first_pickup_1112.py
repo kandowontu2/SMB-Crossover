@@ -21,6 +21,7 @@ def main():
     parser.add_argument('--reach-candidate', action='store_true')
     parser.add_argument('--collect', action='store_true')
     parser.add_argument('--flower', action='store_true')
+    parser.add_argument('--descent',type=int,choices=(0,4,5,68),default=0)
     args = parser.parse_args()
     if args.flower:
         args.collect=True
@@ -46,6 +47,14 @@ def main():
     if args.flower:
         import replay_prince_native_flag_1111 as Full
         source=Full.controller(cookie,0xd74b,3115,True)
+        if args.descent:
+            source=source.replace("switch('third-standing-jump',129,walkers)",f"switch('third-descent',{args.descent},walkers)")
+            source=source.replace("  elseif progress=='third-standing-jump' and s.action==3 then", """  elseif progress=='third-descent' then
+    late.descent=late.descent or {}
+    if commits%5==0 and #late.descent<40 then late.descent[#late.descent+1]=s end
+    if s.y>=174 and s.y<=178 and support(s) then switch('fourth-recovery',1)
+    elseif commits-changedAt>150 then finish(false,'Bounded original descent probe');return end
+  elseif progress=='third-standing-jump' and s.action==3 then""")
     begin, end = source.index('local function tick()'), source.index('local function frames(count)')
     original_tick=source[begin:end].replace('local function tick()', 'local function routeTick()',1)
     tick = '''
@@ -270,7 +279,8 @@ end),emu.callbackType.write,0xc6cf)
         flower=route.get('flower',{})
         flower['trace']=[{'x':r['state']['x'],'y':r['state']['y'],'action':r['state']['action'],'pose':r['state']['pose'],'itemFlag':r['itemFlag'],'kind':r['kind']} for r in flower.get('trace',[])]
         hp_writes=route.get('hpWrites',[])
-        route.clear();route['flower']=flower;route['hpWrites']=hp_writes
+        descent=route.get('descent',[])
+        route.clear();route['flower']=flower;route['hpWrites']=hp_writes;route['descent']=descent
     print(json.dumps(dict(passed=result['passed'],receipt_SHA256=result['receipt_SHA256'],
                          script_SHA256=result['script_SHA256'],receipt=result['receipt'].get('later_route'),
                          injuries=result['receipt'].get('injuries'),
