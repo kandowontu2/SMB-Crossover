@@ -42,6 +42,18 @@ were observed; it does not certify this visual behavior as acceptable. The retur
 observer must be tightened when catch retirement is implemented. No fix delivered.
 # Explicit catch regression on the November12 nightly
 
+## Delivery
+
+The catch candidate below is now installed directly in Downloads, with no
+backup. The Downloads launch repeated the strict catch replay with exact
+receipt `0ba2031f64825b6188e67ecd7d6f849c70c365af5ba0e5072f61b3001e9128f6`.
+Patch guards passed before/after, and IPS reconstruction equals the tested
+installed bytes. IPS SHA256:
+`55381d7bfb47beb05d00863d072e04b365be48b97ae731e16b03ceb02608f86d`,
+2,099,506 bytes. All source/control/contact/interrupt/lifecycle checks passed;
+root independently repeated243 TTL comparisons and three mixed-slot cleanups.
+The older candidate-pending text below describes the pre-delivery checkpoint.
+
 The private catch candidate
 `f228e61399432c1a205b8f5ac6dad13d990515f9c2e2f5024bcd5ce443c76653`
 passes the same strict controller in actual Mesen. Receipt
