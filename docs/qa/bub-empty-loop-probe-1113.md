@@ -76,9 +76,19 @@ and every added byte in mounted RAM3, then retains the baseline control policy.
 
 Modeled empty Main saves **2,430 cycles**; the ordinary B-active suffix saves
 885–2,430, averaging 1,446.82. Catch-up skips draw and its Observe call, so the
-expected normal/catch-up pair saves about **3,818**, not twice 2,430. Actual
-parent mean Main is 46,493 inclusive cycles; whether this crosses a video
-frame boundary needs the root's physical test. No cadence gain is inferred.
+expected normal/catch-up pair saves about **3,821**, not twice 2,430. Actual
+parent mean Main is 46,493 inclusive cycles.
+
+Root's private native tests passed both identities but found **no idle cadence
+gain**: 48 idle source/Main updates still take 96 physical frames, with 72
+skipped NMIs. Walking takes 71 physical frames for 36 updates, compared with
+72 before; both end at X75 and parse the first Goomba at 352/184 when the
+player reaches X128. Each run has 138 matching Main entries, returns and
+source updates. Bub's receipt is
+`4f2658e807bb2f5812cd854b5a02adc37e7f4afd416fd0acb2bf9814fbc3538b`;
+Bob's is
+`9741a91bf2f08ac56d6ad2b4f7e32b3f1f7efa0bf6b76b70af7cec5bd4511040`.
+The ROM remains a private, reversible cost probe, not a useful idle-lag repair.
 
 The rejected predecessor
 `b6393502f17d8ff501d2e3a436d70b5bcf40b98741d24b36a84792debe691d47`
@@ -95,4 +105,4 @@ build/prince-pickup-reach-1112 --max-files 1`, with zero generated output files.
 Root alone owns Mesen and any two-file native probe output. No installation or
 publication is authorized by these source results. Cold readback/fault/warm,
 foreign lifetime, full-stage, pickups and broader native qualification remain
-separate if the cadence measurement warrants continuing this candidate.
+unqualified. These are deferred while a larger transport reduction is studied.
