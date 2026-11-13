@@ -66,10 +66,12 @@ stage_lua = Replay.stage_controller(image)
 
 `proposal` requires exact head candidate9349 and authenticated source-owned
 carrier pages. `inverse` authenticates the complete candidate, reconstructs
-9349, and proves forward equality. `frozen_head` currently reconstructs exact
-a3 from installed Quick4641 with `compose_quick_climb_material_1113.inverse`,
-then composes the strict head bridge; this is not a silent full-ROM rebase.
-Root will compose independently qualified Quick bytes over a final Jay image.
+9349, and proves forward equality. `frozen_head` reconstructs exact a3 from
+installed Quick4641 with `compose_quick_climb_material_1113.inverse`. After
+delivery of combined aa501128, it explicitly unwinds Quick→eac, helper→9349,
+head→a3, with each inverse's exact preimage/roundtrip checks, then repeats
+the original typed head recipe. Strict proposal/inverse pins and both native
+controllers remain unchanged. This is not a silent full-ROM rebase.
 
 ## CPU evidence
 

@@ -95,9 +95,13 @@ def inverse(raw):
 def frozen_head():
     installed=B.Current.ROM.read_bytes()
     if digest(installed)==Head.CANDIDATE_PIN:return installed
-    if digest(installed)!=Head.PARENT_PIN:
+    if digest(installed)not in(Head.PARENT_PIN,PIN):
         import compose_quick_climb_material_1113 as Quick
         installed=Quick.inverse(installed)
+    if digest(installed)==PIN:
+        # Delivered Quick+Jay unwinds Quick -> helper -> head -> exact a3,
+        # then repeats the original typed recipe. Strict APIs stay pinned.
+        installed=Head.inverse(inverse(installed))
     assert digest(installed)==Head.PARENT_PIN
     return Head.proposal(installed)[0]
 
