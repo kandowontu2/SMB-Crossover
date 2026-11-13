@@ -1,5 +1,6 @@
 """Explore Prince's first authored pickup using controller input only."""
 import json
+import argparse
 from pathlib import Path
 from replay_prince_koopa_1111 import PUBLISHED, NIGHTLY, R
 from run_stdout_mesen_1110 import run, digest
@@ -9,6 +10,9 @@ OUTPUT = R/'build/prince-first-pickup-1112'
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--jump-mask', type=int, choices=(8, 128, 136), default=8)
+    args = parser.parse_args()
     assert digest(NIGHTLY) == PIN
     source = PUBLISHED.read_text()
     source = source.replace('a726021676a00802119275ac7f48cce7', 'a72602f65bd78bf89874939486b6742f')
@@ -17,6 +21,7 @@ def main():
     tick = '''
 local itemSeen=false
 local minimumY=255
+local jumpTrace={}
 local function tick()
   if commits==lastCommit then return end
   lastCommit=commits
@@ -50,9 +55,10 @@ local function tick()
   elseif progress=='pickup-settle' and s.action==0 and s.ground==0 and s.pose==15 and s.mode==0 and s.lock==0 then
     switch('pickup-jump',8)
   elseif progress=='pickup-jump' then
+    if age<=30 or age%10==0 then jumpTrace[#jumpTrace+1]=s end
     if age>8 then pad=0 end
     if age>100 then
-      late.pickup={spawned=itemSeen,minimumY=minimumY,sword=source(0x6ee)}
+      late.pickup={spawned=itemSeen,minimumY=minimumY,sword=source(0x6ee),trace=jumpTrace}
       finish(itemSeen,'First authored powerup spawn probe')
     end
   end
@@ -60,12 +66,16 @@ local function tick()
 end
 
 '''
+    tick = tick.replace("switch('pickup-jump',8)",
+                        "switch('pickup-jump',%d)" % args.jump_mask)
     source = source[:begin]+tick+source[end:]
     OUTPUT.mkdir(exist_ok=True)
     script = OUTPUT/'controller.lua'
     script.write_text(source, encoding='utf-8', newline='\n')
     result = run(script,NIGHTLY,OUTPUT/'capture',PIN,60)
-    print(json.dumps({k:v for k,v in result.items() if k not in ('images','capture_preflight')}),flush=True)
+    print(json.dumps(dict(passed=result['passed'],receipt_SHA256=result['receipt_SHA256'],
+                         script_SHA256=result['script_SHA256'],receipt=result['receipt'].get('later_route'),
+                         reason=result['receipt']['reason'],terminal=result['receipt']['terminal'])),flush=True)
     assert result['passed'],result['receipt']['reason']
 
 
