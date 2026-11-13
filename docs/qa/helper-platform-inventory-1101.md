@@ -610,3 +610,20 @@ Result SHA256: `9ddf1e6ea00af9b182f0663e35fcfa9ed1c8f355825098f6d6387170e9f07a92
 Its bindings are valid. The two earlier failed packets remain diagnostic
 evidence; see `docs/qa/cleanup-current-owned-1110.md` for exact disposable files
 whose deletion was rejected before execution.
+
+### November 13: Karnov natural flower via manual vertical helper
+
+On exact Downloads `65ee94ca`, Karnov uses the existing **Up + Select** control
+to summon a native ID25 vertical girder in **1-1**. Its observed creation is
+**left1201, center1217, initial top208, width32**, slot0, frame3246. The actual
+Mesen route records141 native carries and then naturally collects the first
+flower at frame3491, reaching original triple shot with health0 and both lives.
+This is a controller-created helper, not a new authored ROM placement. The
+fixed Karnov pipe helpers remain left688/center704/top208 and
+left872/center888/top208, width32, in1-1.
+
+Root's native two-pickup receipt is
+`55c1f5d3b097377b190f836cb213ed7f31a0736dbdc9ec5d3054638dd6f45a23`;
+controller `88ccc41014cea57d2e95e48833f27291f7bf566356481362c4cbbe08b6f0eba4`.
+Later natural Boots/Bomb acquisition remains in progress. See
+`docs/qa/karnov-natural-bomb-1113.md`; no ROM bytes or helper controls changed.
