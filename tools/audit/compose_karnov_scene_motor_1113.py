@@ -71,7 +71,9 @@ def inverse(raw):
 
 
 if __name__=='__main__':
-    parent=Bomb.NIGHTLY.read_bytes();candidate,report=transform(parent)
+    installed=Bomb.NIGHTLY.read_bytes()
+    parent=inverse(installed)if installed[ACTOR+PC-0xa000:ACTOR+PC-0xa000+len(OLD)]==code()else installed
+    candidate,report=transform(parent)
     assert inverse(candidate)==parent
     print(json.dumps(report,separators=(',',':')))
 

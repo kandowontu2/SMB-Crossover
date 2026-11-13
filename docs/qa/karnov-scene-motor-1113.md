@@ -64,12 +64,21 @@ Existing controller-created helpers:1-1 left1201/center1217/initialtop208 and
 1-2 left112/center128/initialtop208, width32; fixed1-1 pipe helpers688/704/208
 and872/888/208 remain. Full details are in the helper inventory.
 
-The full CPU controller route is still running at this note's initial write.
-Its independent final result will be appended. The bounded command is:
+The full CPU controller route independently passes5675 Main/NMI updates,
+natural mushroom/flower/flower, final1-2 X162/Y97, source shot2/health0/cycle1,
+both lives. Its generated controller SHA57763e63 matches the exact native
+passing script above. The complete bounded command exited0:
 
 ```
 python -B tools/audit/run_bounded_build_v1.py --output build/karnov-scene-motor-cpu-1113 --max-files 1 --timeout 600 -- python -B tools/audit/check_karnov_scene_motor_1113.py --route --stop-after 3
 ```
 
-Zero generated files. Natural fourth flower/Bomb acquisition and use remain
+The exact three-pickup Lua source is frozen in Git commitf19ecfb5; the binder
+reads that immutable blob for `controller(raw, stop_after=3)` and asserts the
+full57763e63 script hash on candidatea3c5fa63. The previous two-pickup88cc
+script remains independently frozen. Both checker/composer CLIs reproduce
+from the tested parent or installed successor through exact inverse, with no
+backup copy or generated ROM. Zero generated files.
+
+Natural fourth flower/Bomb acquisition and use remain
 pending, and Ladder, Clapper, Glasses, Swimming Mask and Shield remain required.

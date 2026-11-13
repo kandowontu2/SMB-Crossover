@@ -88,7 +88,10 @@ def main():
     parser=argparse.ArgumentParser();parser.add_argument('--basic',action='store_true')
     parser.add_argument('--route',action='store_true');parser.add_argument('--stop-after',type=int,default=3)
     parser.add_argument('--limit',type=int,default=7500);args=parser.parse_args()
-    raw=Compose.Bomb.NIGHTLY.read_bytes();candidate,report=Compose.transform(raw)
+    raw=Compose.Bomb.NIGHTLY.read_bytes()
+    at=Compose.ACTOR+Compose.PC-0xa000
+    if raw[at:at+len(Compose.OLD)]==Compose.code():raw=Compose.inverse(raw)
+    candidate,report=Compose.transform(raw)
     assert Compose.inverse(candidate)==raw
     seed,cold=Bomb.cold(candidate,bytes.fromhex(report['cookie']))
     print('KARNOV_SCENE_MOTOR_BASIC '+json.dumps(dict(layout=report,cold=cold,

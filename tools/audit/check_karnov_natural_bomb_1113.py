@@ -14,9 +14,16 @@ R = Path(__file__).resolve().parents[2]
 SOURCE = R/'tools/reference/karnov_natural_bomb_1113.lua'
 PIN = '318a087735b4204c74274b4107efbc302bc15a674a7f6f9d3bed598cea90d08d'
 CURRENT = '65ee94ca9ac6e1b5ad44303d08f76ecbc175a88232c82ef8c32712edf150a643'
+SCENE = 'a3c5fa63872fbb3103ae57d9748fef233e8b2273e26d985aa4006b2492d81b8a'
 
 
 def authenticate(raw):
+    if sha256(raw).hexdigest()==SCENE:
+        from compose_karnov_scene_motor_1113 import inverse as motor_inverse
+        parent=motor_inverse(raw)
+        assert sha256(parent).hexdigest()==CURRENT
+        authenticate(parent)
+        return
     if sha256(raw).hexdigest() == PIN:
         return
     assert sha256(raw).hexdigest() == CURRENT
@@ -84,6 +91,9 @@ def controller(raw, stop_after=0):
         # later-only route work continues in the current source file.
         source_text=subprocess.check_output(['git','show',
             '66e595f3:tools/reference/karnov_natural_bomb_1113.lua'],cwd=R).decode()
+    elif stop_after==3:
+        source_text=subprocess.check_output(['git','show',
+            'f19ecfb5:tools/reference/karnov_natural_bomb_1113.lua'],cwd=R).decode()
     names = set(re.findall(r"r\('([^']+)'", source_text))
     names.update(('Block_Buffer_1', 'HandlePowerUpCollision', 'HandleEnemyFBallCol'))
     labels = {name: W.address(bundle, name) for name in sorted(names)}
@@ -98,6 +108,8 @@ def controller(raw, stop_after=0):
     result=pre+source_text
     if stop_after==2 and sha256(raw).hexdigest()==CURRENT:
         assert sha256(result.encode()).hexdigest()=='88ccc41014cea57d2e95e48833f27291f7bf566356481362c4cbbe08b6f0eba4'
+    if stop_after==3 and sha256(raw).hexdigest()==SCENE:
+        assert sha256(result.encode()).hexdigest()=='57763e630aeae8ea0a0792646dd200bec841410b72942b1d1cde89af96754f35'
     return result
 
 

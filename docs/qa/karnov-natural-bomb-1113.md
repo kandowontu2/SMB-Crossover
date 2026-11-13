@@ -96,6 +96,10 @@ Root receipt:
 `4d0e7e4ffbf11b56b4aad0f18d87da629804d00f7993de9499687a8fe96b90e0`.
 Complete three-pickup controller:
 `57763e630aeae8ea0a0792646dd200bec841410b72942b1d1cde89af96754f35`.
+Its Lua source is frozen in Git commitf19ecfb5. The binder reads that immutable
+blob for `stop_after=3`, independently of the continuing fourth-pickup source.
+The complete CPU route also exits0 after5675 updates, same script SHA,
+source shot2/health0/cycle1,1-2X162/Y97 and both lives.
 This is private candidate evidence; root owns installation/publication.
 
 Fourth natural flower/Bomb acquisition and use remain pending. Ladder, Clapper,
