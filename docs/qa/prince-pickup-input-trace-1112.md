@@ -164,3 +164,19 @@ one file despite the retained candidate and was terminated by the guard.
 Removed the byte-identical delivered Steve candidate from its old build folder
 after hash comparison with Downloads. Its source and installed ROM remain.
 Current Prince folder has only candidate plus regenerated controller; no captures.
+
+## Candidate full-stage pass with corrected controller retreat
+
+The failed old controller starts retreat atX1913 while still atY113 because
+walking support now works. It turns right again atX1902, beyond the isolated
+brick1888, and Up cannot grab it. The optional `--adaptive-retreat` continues
+original careful left steps until at least9px left of the previously observed
+climb-cap X. This is controller-only and uses actual prior geometry, no actor
+or HP writes. It stops left at1863 and turns to1872, then climbs successfully.
+
+Unchanged candidate6d0346 passes full1-1 into active1-2 with both lives at
+frame16355. Receipt a3c15de76676ba9ebdf3ffdbc84049ef953b70d14015285e31e05251c0fd773c,
+script a115265b9c2a3cc12fbf792a3460e01c5ce67264e2829dc901dfe5ee37ce33d0.
+The old-controller negative remains valid evidence of a controller assumption,
+not proof that the candidate cannot clear the stage. CPU boundary/interrupt
+checks and Downloads delivery remain pending. Natural pickups still unresolved.

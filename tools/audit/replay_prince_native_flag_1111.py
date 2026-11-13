@@ -11,7 +11,7 @@ from nightly_patch_guard_v1 import check
 FLAG = Route.R / 'tools/playthroughs/prince_native_flag_1111.lua'
 
 
-def controller(cookie, support_publication, brake=3097):
+def controller(cookie, support_publication, brake=3097, adaptive_retreat=False):
     source = Route.controller(cookie, support_publication)
 
     def change(old, new):
@@ -20,6 +20,15 @@ def controller(cookie, support_publication, brake=3097):
         source = source.replace(old, new)
 
     change('local ending\n', 'local ending\n' + FLAG.read_text(encoding='utf-8') + '\n')
+    if adaptive_retreat:
+        change("  elseif progress=='late-finish-step-settle' and support(s) and idle(s) then\n",
+               """  elseif progress=='late-finish-step-settle' and support(s) and idle(s) then
+    local originalCap=p.climbs[1].cap
+    if originalCap and x>originalCap.x-9 then
+      switch('late-finish-step-left',66)
+      return
+    end
+""")
     change("  elseif progress=='late-finish-run' then\n", f"""  elseif progress=='late-finish-flag-brake' then
     if s.y_high==1 and s.y>=174 and s.y<=178 and idle(s) and s.action==0 then
       p.jumps[#p.jumps+1]={{kind='flag',request=s}}
@@ -55,6 +64,7 @@ def main():
     parser.add_argument('--expected', required=True)
     parser.add_argument('--cookie', required=True)
     parser.add_argument('--brake', type=int, default=3097)
+    parser.add_argument('--adaptive-retreat', action='store_true')
     parser.add_argument('--support-publication', type=lambda value: int(value, 0), default=0xd74b)
     args = parser.parse_args()
     output, rom = args.output.resolve(), args.rom.resolve()
@@ -62,10 +72,14 @@ def main():
     assert check(rom)['ROM_sha256'] == args.expected
     output.mkdir(exist_ok=True)
     script = output / 'controller.lua'
-    script.write_text(controller(args.cookie, args.support_publication, args.brake),
+    script.write_text(controller(args.cookie, args.support_publication, args.brake, args.adaptive_retreat),
                       encoding='utf-8', newline='\n')
     result, route = replay(script, rom, output / 'capture', args.expected)
     receipt = result['receipt']
+    print(json.dumps(dict(route_events=[dict(phase=e['phase'],x=e['state']['x'],
+        y=e['state']['y'],hp=e['state']['hp'],frame=e['state']['frame'])
+        for e in receipt.get('events', []) if 1450 <= e['state']['x'] <= 1950],
+        injuries=receipt.get('injuries'),climbs=route.get('climbs')),sort_keys=True),flush=True)
     print(json.dumps(dict(passed=result['passed'], reason=receipt['reason'], phase=receipt['phase'],
                           terminal=receipt['terminal'], flag=route.get('flag'), castle=route.get('castle'),
                           flag_brake=route.get('flag_brake'), obstruction=route.get('obstruction'),
