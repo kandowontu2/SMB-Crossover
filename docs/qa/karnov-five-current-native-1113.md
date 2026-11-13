@@ -1,5 +1,67 @@
 # Karnov current natural five-item native follow-up
 
+## Current result: all five stock pickups and Ladder pass
+
+Actual Downloads7ef passes the uninterrupted ordinary-input route with the
+separate frozen fire-suffix controller. No ROM or helper policy changes were
+needed. Decision Lua is
+`7d5f87b634174a4e35b282389569b5bb7059d1801d90522413e9051e33b9a50b`;
+root's two passive in-memory PNG observers produce
+`f722c5b476c91c42f7d8812f52724c9b07aeee9088214dbe0d0fc905bc985657`.
+Native receipt:
+`b12de68301957240b311aa34defb6b715424d369b31cbd395297ef9ae1c3a763`.
+
+The run takes14,891 physical frames and8,190 controller epochs. Both lives
+remain, with original damage counter0 (full health). The old fifth observer's
+4,475 normal-return count omits the native catch-up return and must not be
+called the total completed Main count. Its8,189 entry count and7,130 movement
+calls are reported separately.
+
+| Stock item | Real collector frame / epoch | Actor position | Earned result |
+| --- | --- | --- | --- |
+|1-1 first mushroom |1347 /501 |413/164 |Shot level0→1, actual erasure |
+|1-1 flower1248 |3552 /1667 |1248/119 |Shot level1→2, actual erasure |
+|1-1 high flower1744 |5561 /2778 |1744/55 |Boots owned1/stock1, cycle1 |
+|1-2 flower160 |11058 /6221 |160/119 |Bomb owned2/stock1, cycle2 |
+|1-2 flower1104 |14314 /7861 |1104/103 |Ladder owned4/option2, cycle3 |
+
+The last three actual inventory collectors each queue sound32/popup6 and
+erase their mature native actor. Boots really activates at1866/176. Bomb
+arms, blasts and retires; it has zero enemy blast contacts in this route.
+Select then returns empty Bomb to normal fire. Six later actual normal-fire
+enemy contact/defeat calls and11 terrain-fire decisions are observed. They
+are not Bomb kills.
+
+At worldX1200 in1-2, the earned Ladder grows eight segments. Root visually
+checks both actual PNGs: the continuous white/blue Ladder is visible with
+Karnov at its base and on the climb. Up moves Y176→130; Down returns to176.
+Retraction restores all32 owned nametable cells and5 attribute bytes,
+returns ownership4, and ends at1200/176 with both lives and damage0.
+The original palette2 colors21/1C are retained. PNGs are2,549/2,542 bytes,
+SHA256 `96c71727a26bf9d8bec4022c0ebab0138b4a7e3dec699c52beb5f336dc58bba0`
+and `382ebe126b0b245cef5cd9dd7ec5c23b6e12dccdfb96bb74ca8d39a8a50311fa`,
+transported and reviewed in memory; zero capture files or videos are written.
+
+The five existing manual native vertical helpers, all collision width32 and
+initial top208, are1-1 left1201/1712/1767 (centers1217/1728/1783), and1-2
+left112/1127 (centers128/1143). No helper is needed at the previously stalled
+353 ledge. The final ordinary route clears breakable corridor bricks and
+avoids chasing rear enemies. Empty Bomb itself restores B; it was not a
+proved fire-input consumption bug.
+
+Independent exact7d5 source qualification also passes without a fork or
+reseed:8,175 logical Main/NMI scheduler iterations, five collectors, Boots,
+Bomb, normal fire and full Ladder restore. Its climb176→154, nine terrain
+decisions and four native-source defeats differ from the physical run and
+are not substituted for native measurements. See
+`karnov-ladder-fire-suffix-1113.md` for that separate scope.
+
+This closes the stock five-item route and naturally earned Ladder lifecycle.
+Further equipment and all-mode/audio/per-frame visual review remain separate.
+The local nightly is unchanged; GitHub releases remain empty by user request.
+
+## Earlier first native follow-up: retained negative
+
 Public Downloads remains exact7ef; no ROM or helper policy changes occur.
 The uninterrupted source route8214 passes all five earned items and original
 Ladder use. Its actual-native follow-up is a separate **negative**, not a

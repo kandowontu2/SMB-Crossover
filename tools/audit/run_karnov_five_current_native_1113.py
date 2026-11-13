@@ -11,12 +11,16 @@ PIN='7ef2de351d3a4ae60b3ada2eb1aa56b330873dc106ad43428ec6803bf420d4fc'
 BASE='7d1ea719a760ac0dedb17fedde3705d5ccfdc67d1af34018efc017f859c79091'
 LEDGE='d6d0f47e1d7cf1d6544073c0937835d7b520a80bb6b2aa56614e406b9cf09a44'
 DIAGNOSTIC='1b998db9a3758e697e1ccc6eecffcc85097370767aaa1cad5f3d575666a41937'
+FIRE='7d5f87b634174a4e35b282389569b5bb7059d1801d90522413e9051e33b9a50b'
 OUT=E.Late.Feature.Owner.R/'build/metal-flower-native-1112'
 
 
-def controller(raw, *, images=False, ledge=False, diagnostic=False):
+def controller(raw, *, images=False, ledge=False, diagnostic=False, fire=False):
     assert sha256(raw).hexdigest()==PIN
-    if diagnostic:
+    if fire:
+        import replay_karnov_ladder_fire_suffix_1113 as Fire
+        text=Fire.controller(raw)
+    elif diagnostic:
         import replay_karnov_ladder_suffix_diagnostic_1113 as D
         text=D.controller(raw)
     elif ledge:
@@ -24,7 +28,7 @@ def controller(raw, *, images=False, ledge=False, diagnostic=False):
         text=Suffix.controller(raw)
     else:
         text=E.current_controller(raw)
-    assert sha256(text.encode()).hexdigest()==(DIAGNOSTIC if diagnostic else LEDGE if ledge else BASE)
+    assert sha256(text.encode()).hexdigest()==(FIRE if fire else DIAGNOSTIC if diagnostic else LEDGE if ledge else BASE)
     if images:
         # Reuse the qualified two-PNG encoder, in memory. No controller
         # decisions or original assertions are changed by these observers.
@@ -60,16 +64,17 @@ def main():
     modes=p.add_mutually_exclusive_group()
     modes.add_argument('--ledge',action='store_true')
     modes.add_argument('--diagnose-ledge',action='store_true')
+    modes.add_argument('--fire',action='store_true',help='Separate frozen ordinary terrain-fire suffix; experimental native diagnostic.')
     args=p.parse_args()
     rom=E.Late.Feature.Owner.NIGHTLY
     assert check(rom)['ROM_sha256']==PIN
-    text=controller(rom.read_bytes(),images=args.images,ledge=args.ledge,diagnostic=args.diagnose_ledge)
+    text=controller(rom.read_bytes(),images=args.images,ledge=args.ledge,diagnostic=args.diagnose_ledge,fire=args.fire)
     script=OUT/'controller.lua';script.write_text(text,encoding='utf-8',newline='\n')
     result=run(script,rom,OUT/'capture',PIN,240)
     receipt=result['receipt']
     compact={key:value for key,value in receipt.items()
         if not isinstance(value,(dict,list)) or key in('terminal','manual_helpers','boots_activation',
-            'native_suffix','native_suffix_diagnostic')}
+            'native_suffix','native_suffix_diagnostic','normal_fire')}
     compact['pickups']=[]
     for q in receipt.get('pickups',[]):
         row={key:value for key,value in q.items() if key in('frame','epoch','item','native','erased')}
@@ -85,7 +90,7 @@ def main():
     compact['fifth']['last_progress']=fifth.get('progress',[])[-6:]
     print(json.dumps(dict(passed=result['passed'],ROM_SHA256=PIN,
         script_SHA256=result['script_SHA256'],base_controller_SHA256=BASE,
-        decision_controller_SHA256=DIAGNOSTIC if args.diagnose_ledge else LEDGE if args.ledge else BASE,
+        decision_controller_SHA256=FIRE if args.fire else DIAGNOSTIC if args.diagnose_ledge else LEDGE if args.ledge else BASE,
         receipt_SHA256=result['receipt_SHA256'],receipt=compact,
         images=result['images'],outputs_written=result['outputs_written']),
         separators=(',',':')),flush=True)

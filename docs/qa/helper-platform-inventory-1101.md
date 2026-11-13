@@ -1,5 +1,29 @@
 # Helper platform inventory — functional pass in progress
 
+## November13 Karnov complete five-pickup route
+
+Actual Downloads7ef now passes all five natural stock pickups and the full
+earned Ladder lifecycle, both lives/full original health, receipt
+`b12de68301957240b311aa34defb6b715424d369b31cbd395297ef9ae1c3a763`.
+Affected alternate: **Karnov (Rygar, Select)**. All helpers are existing
+player-requested **Up + Select** native ID25 vertical actors, collision
+width32 and initial topY208. No placement or helper code changes occur.
+
+| Stage | Initial world left X | Center X | Initial top Y | Native slot | Physical support observations |
+| --- | ---: | ---: | ---: | ---: | ---: |
+|1-1 |1201 |1217 |208 |0 |141 |
+|1-1 |1712 |1728 |208 |2 |563 |
+|1-1 |1767 |1783 |208 |2 |357 |
+|1-2 |112 |128 |208 |0 |142 |
+|1-2 |1127 |1143 |208 |0 |161 |
+
+The support counts are physical observations, not distinct carry-procedure
+entries. The fifth flower at1104/103 is genuinely collected; Ladder grows,
+climbs176→130, retracts and restores32 cells plus5 attributes atX1200.
+The prior353 stall needed ordinary terrain fire and route correction, so
+no extra helper is added there. Earlier failed/partial routes below retain
+their original scope. See `karnov-five-current-native-1113.md`.
+
 ## November13 current Karnov high-question route
 
 Actual Downloads7ef now verifies Karnov's high1-1 flower as the third earned
