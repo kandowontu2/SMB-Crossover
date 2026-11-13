@@ -180,3 +180,14 @@ script a115265b9c2a3cc12fbf792a3460e01c5ce67264e2829dc901dfe5ee37ce33d0.
 The old-controller negative remains valid evidence of a controller assumption,
 not proof that the candidate cannot clear the stage. CPU boundary/interrupt
 checks and Downloads delivery remain pending. Natural pickups still unresolved.
+
+## Powerup reveal progression audit on delivered6d0346
+
+`check_prince_powerup_progression_1112.py` cold-loads current Prince and invokes
+the genuine native PwrUpJmp for slot5/type0 with controlled PlayerStatus0/1/2.
+Actual revealed types are0/1/1 respectively. Test passed with zero files.
+This proves the native reveal selector's dependency on PlayerStatus, not a
+natural pickup or default-status claim. Existing Prince pickup source heals
+mushrooms without a PlayerStatus store. Next exercise its actual linked mature
+pickup and re-reveal to determine whether a progression bridge is missing.
+No gameplay edit in this diagnostic.
