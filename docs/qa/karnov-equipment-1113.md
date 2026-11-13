@@ -1,9 +1,10 @@
 # Karnov remaining equipment and Ladder plan, November13
 
 This is a source/space audit, an in-memory **refactor-only** trial and one
-unallocated44-byte renderer component. Ladder remains disabled, and no new
-routine occupies either measured tail. There is no equipment candidate,
-resource grant, emulator run or generated output. Current input is exact installed Quick+Jay
+standalone44-byte renderer component. Ladder remains disabled in every ROM.
+There is no equipment ROM candidate, emulator run or generated output. Root
+reserved624 relinked code bytes in commit389ff135 and the later556 code bytes,
+original object and32 glyph bytes in4c027e30. Frozen input is Quick+Jay
 `aa50112845d1cf70cae0924f03326647b3d2514f876c756d70b134ee44f971d1`.
 The original Karnov donor is `C:/NES/Karnov (USA).nes`, SHA256
 `0d49c1120fc13ead1efe4429f7cbb4f01b90e2486c66661c46e922dda6dc830a`.
@@ -187,8 +188,11 @@ Qualified checks on that exact trial:
   includes reached actual menu/Main and declared equipment public-service
   paths; it is not every possible program state.
 
-No tail has been allocated by the recipe: its reports retain
-`allocation_qualified=False` until root reviews/funds this explicit request.
+The recipe reports retain `allocation_qualified=False`; the later formal
+reservation is the separate root-owned JSON in commit389ff135. The complete
+1178-byte source adapter and its additional556-byte code/32-byte art request
+are documented in [the follow-up request](karnov-equipment-extra-request-1113.md).
+It remains a measured source proposal with no feature ROM or installed change.
 
 For comparison, current LZ packing gives actor5648/8192, options1738/2048,
 combat1229/2048. Compression alone does not grant runtime space. A compressed

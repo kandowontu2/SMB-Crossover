@@ -12,6 +12,8 @@ from recover_karnov_actor_1101_v1 import ROM,EXPECTED,graph,emit
 
 PACKET=Scene.PACKET
 SOURCE=Bomb.R/'tools/reference/karnov_equipment_1113.s'
+FROZEN_PARENT='aa50112845d1cf70cae0924f03326647b3d2514f876c756d70b134ee44f971d1'
+STEVE_CURRENT='62ba7f54117875ec018d6f85fb1c74408aa11f0fe0f6a85b8b4f601034a17639'
 
 
 def digest(data):return sha256(data).hexdigest()
@@ -19,6 +21,10 @@ def digest(data):return sha256(data).hexdigest()
 
 def inputs():
     raw=Bomb.NIGHTLY.read_bytes();donor=ROM.read_bytes()
+    if digest(raw)==STEVE_CURRENT:
+        import steve_armor_idle_1113 as Steve
+        raw=Steve.reverse(raw)
+    assert digest(raw)==FROZEN_PARENT,'Use explicit authenticated normalization to frozen aa501'
     assert digest(donor)==EXPECTED
     previous=Scene.inverse(raw)
     assert Scene.transform(previous)[0]==raw
@@ -301,7 +307,7 @@ def branch_proof(raw):
         full_host_abilities_IRQ_and_cold_proved=False)
 
 
-def reference_proof(raw):
+def reference_proof(raw,*,include_code=False):
     """Reach actual owning code from all services, respecting inline tables."""
     import check_karnov_bomb_1112 as Cpu
     from verify_native_relocation import NesMPU
@@ -317,7 +323,7 @@ def reference_proof(raw):
         Kr_AAB6=9,Kr_AC0F=4,Kr_AC48=8,Kr_EAD5=9,Kr_ADCB=8).items()}
     sizes=dict(imp=1,acc=1,imm=2,zpg=2,zpx=2,zpy=2,inx=2,iny=2,rel=2,abs=3,abx=3,aby=3,ind=3)
     todo=[0xa000+3*i for i in range(37)];seen=set();inbound=[];data_refs=[];indirect=[];dispatches=[]
-    decode=NesMPU().disassemble
+    decode=NesMPU().disassemble;decoded=[]
     while todo:
         pc=todo.pop()
         if pc in seen or owned(pc)is None:continue
@@ -325,6 +331,7 @@ def reference_proof(raw):
         assert op!='BRK',(hex(pc),owned(pc))
         size=sizes[mode]
         operand=read(pc+1)+(256*read(pc+2)if size==3 else 0)if size>1 else None
+        decoded.append((pc,owned(pc),op,mode,operand))
         core=0xa087<=pc<0xafbb
         if op in('JSR','JMP')and mode=='abs':
             if not core and 0xa087<=operand<0xafbb:inbound.append((pc,operand))
@@ -344,10 +351,11 @@ def reference_proof(raw):
     anchors={address(n)for n in('Kr_F28D','Kr_AAB2','Kr_C2B7')}
     assert all(dest in anchors for _,dest in inbound),inbound
     assert not data_refs and not indirect,(data_refs,indirect)
-    return dict(actual_reached_instructions=len(seen),all37_service_roots=True,
+    report=dict(actual_reached_instructions=len(seen),all37_service_roots=True,
         inline_dispatches=dispatches,external_core_calls=inbound,no_external_core_absolute_data_refs=True,
         no_unbound_indirect_control=True,immediate_SMC_scope='--part smc',
         actual_native_ingress_scope='check_karnov_equipment_1113.py --part entries')
+    return(report,decoded)if include_code else report
 
 
 def smc_proof(raw):
