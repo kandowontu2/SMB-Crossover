@@ -9,8 +9,12 @@ import check_prince_brick_support_1111 as B
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--candidate', action='store_true')
+    parser.add_argument('--interrupts', action='store_true')
     args = parser.parse_args()
     raw = Path('C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes').read_bytes()
+    if sha256(raw).hexdigest() == 'cebb0ae64b4e6cc92e473a239cb8fd4011d54cfd5e6814013a3afbd2de2bf7d7':
+        from prince_pickup_progression_1112 import transform
+        raw, _ = transform(raw, True)
     assert sha256(raw).hexdigest() == '6d0346164b7099f8e75cdbe22a9e9f1fd5f4f673116fd1dcb48a3cee620734c2'
     if args.candidate:
         from prince_pickup_progression_1112 import transform
@@ -61,6 +65,7 @@ def main():
     assert collected['next_reveal'] == int(args.candidate), collected
     assert model.ram[2][0x6ee] == 0, 'Mushroom must not grant sword'
     matrix = 0
+    interrupts = []
     for hp in range(6):
         for status in range(3):
             for kind in (0, 1):
@@ -71,6 +76,11 @@ def main():
                     m[B.N.address(m.bundle,'Enemy_Flag')+5] = 1
                     m[B.N.address(m.bundle,'Enemy_State')+5] = mature
                     m[B.N.address(m.bundle,'PowerUpType')+5] = kind
+                    if args.interrupts and status == 0 and mature == 128 and (hp,kind) in ((4,0),(5,0),(4,1)):
+                        interrupts.append(B.Async.stress(
+                            f'pickup hp{hp} type{kind}', m,
+                            lambda trial: B.I.invoke(trial,3,0xc7b3,(0,5,0,0x20))['regs'],
+                            [(2,0xc7b3,0xc7fb)]))
                     B.I.invoke(m, 3, 0xc7b3, (0, 5, 0, 0x20))
                     accepted = bool(hp and mature)
                     expected_status = 1 if args.candidate and accepted and kind == 0 else status
@@ -81,6 +91,7 @@ def main():
                     matrix += 1
     print(json.dumps(dict(rows=rows, mushroom_then_reveal=collected,
                          pickup_matrix=matrix,
+                         interrupts=interrupts,
                          candidate=args.candidate, rom_sha256=sha256(raw).hexdigest(),
                          scope='Controlled native actor/pickup/reveal, not naturally earned', output_files=0)))
 
