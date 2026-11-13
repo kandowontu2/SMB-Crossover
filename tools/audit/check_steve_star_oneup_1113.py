@@ -333,13 +333,92 @@ def compact(result):
                 source_health_weapon_pattern_armor_seeds=0,new_helpers=0,output_files=0,Mesen_run=False)
 
 
+def controller(raw):
+    from check_ff_stdout_controller_source_1110 import LuaRuntime,DLL,DLL_SHA
+    assert Native.Packet.Entry.digest(raw) == PIN
+    candidate,info = Natural.Idle.proposal(Natural.Idle.reverse(raw))
+    assert candidate == raw
+    lua = Natural.controller(raw,info)
+    bundle = W.Symbols.bundle()
+    bundle['raw'] = raw
+    fields = {name:W.address(bundle,name) for name in (
+        'JnPreparePickup','JnCollectPickup','Enemy_ID','Enemy_X_Position','Enemy_PageLoc',
+        'Enemy_Y_Position','Enemy_State','Enemy_Flag','PowerUpType','InvPickup',
+        'Square2SoundQueue','StarInvincibleTimer','AreaMusicQueue','FloateyNum_Control')}
+    for name in ('JnPreparePickup','JnCollectPickup'):
+        fields[name+'Bank'] = (W.location(bundle,name)-16)//8192
+    auth = []
+    for name,bank,pc in (('STEVE_ARMOR_RUNTIME',1,0xa000),('STEVE_ARMOR_BRIDGE',2,0xcd00),
+                         ('STEVE_ARMOR_GATE',2,0xc3bf)):
+        body = info['runtime']['images'][name]
+        auth.append('{bank='+str(bank)+',at='+str(pc)+',hex='+json.dumps(body.hex())+'}')
+    tail = (Native.Packet.Entry.ROOT/'tools/playthroughs/steve_all_pickups_native_1113.lua').read_text()
+    tail = tail.replace('FOUR_PICKUP_FIELDS',','.join(f'{key}={value}' for key,value in fields.items()))
+    tail = tail.replace('FOUR_RUNTIME_PARTS',','.join(auth))
+    start = lua.index('local pickupPoints={{left=336')
+    end = lua.index('local function tick()',start)
+    lua = lua[:start]+tail+'\n'+lua[end:]
+    def change(before,after):
+        nonlocal lua
+        assert lua.count(before) == 1,before
+        lua = lua.replace(before,after)
+    change('local natural={index=1,since=0,lastProjection=-1,items=0,preparations=0,collections=0,kinds={}}',
+           'local natural={index=1,since=0,lastProjection=-1,items=0,preparations=0,collections=0,kinds={},slots={},receipts={},oneupAwarded=false}')
+    change("      phase='natural-approach';natural.since=updates;pad=1",
+           "      phase='natural-approach';natural.since=projections;pad=1")
+    change("  phase='settle'\n","  phase='settle'\n  verifyPickupRuntime()\n")
+    change('assert(#rom==64 and #cookie==32,\'Exact ROM and transport cookie required\')',
+           "assert(rom=="+json.dumps(PIN)+" and cookie=="+json.dumps(info['cookie'].hex())+",'Exact62ba ROM and transport required')")
+    change('assert(lives==2 and engine~=11 and hp>0,',
+           'assert(lives==(natural.oneupAwarded and 3 or 2) and engine~=11 and hp>0,')
+    change('"prepare_kinds":[%d,%d]}',
+           '"prepare_kinds":[%d,%d,%d,%d],"pickup_slots":[%d,%d,%d,%d],"pickup_events":[%s],"star_timer":%d,"runtime_authenticated":%s}')
+    change('natural.kinds[1] or -1,natural.kinds[2] or -1))',
+           'natural.kinds[1] or -1,natural.kinds[2] or -1,natural.kinds[3] or -1,natural.kinds[4] or -1,'
+           'natural.slots[1] or -1,natural.slots[2] or -1,natural.slots[3] or -1,natural.slots[4] or -1,'
+           'table.concat(natural.receipts,","),read('+str(fields['StarInvincibleTimer'])+'),tostring(natural.authenticated)))')
+    assert 'emu.write' not in lua and 'emu.setState' not in lua
+    assert Native.Packet.Entry.digest(DLL.read_bytes()) == DLL_SHA
+    LuaRuntime().compile(lua)
+    return lua
+
+
+def lua_check(raw):
+    script = controller(raw)
+    direct = natural(raw,include_streams=True)
+    candidate,info = Natural.Idle.proposal(Natural.Idle.reverse(raw))
+    pads,states = [],[]
+    def frame(model,observe=None):
+        pads.append(model.controller_pad)
+        FRAME(model,observe)
+        states.append(Native.Packet.Entry.digest(json.dumps(state(model),sort_keys=True).encode()))
+    with patch.object(Natural,'controller',lambda _raw,_info:script),patch.object(Natural,'FRAME',frame):
+        result = Natural.controller_cpu(candidate,info,limit=2800)
+    expected = direct.pop('streams')
+    if pads != expected['pads'] or states != expected['states']:
+        count = min(len(pads),len(expected['pads']))
+        mismatch = next((index for index in range(count) if pads[index] != expected['pads'][index] or
+                         states[index] != expected['states'][index]),count)
+        raise AssertionError(dict(first_divergence=mismatch+1,direct_count=len(expected['pads']),
+                                  Lua_count=len(pads),direct=expected['pads'][max(0,mismatch-3):mismatch+4],
+                                  Lua=pads[max(0,mismatch-3):mismatch+4],result=result))
+    result.update(full_input_stream_exact=True,full_Main_state_stream_exact=True,
+                  input_SHA256=direct['input_SHA256'],state_SHA256=direct['state_SHA256'],
+                  natural_direct=compact(direct),dynamic_pickup_slots=True)
+    return result
+
+
 if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--natural',action='store_true')
+    parser.add_argument('--lua',action='store_true')
     parser.add_argument('--verbose',action='store_true')
     args = parser.parse_args()
     raw = Native.Live.Art.D.HOST.read_bytes()
     with nullcontext() if args.verbose else redirect_stdout(StringIO()):
-        result = natural(raw) if args.natural else check(raw)
-    print(json.dumps(result if args.verbose else compact(result),sort_keys=True),flush=True)
+        if args.lua:
+            result = lua_check(raw)
+        else:
+            result = natural(raw) if args.natural else check(raw)
+    print(json.dumps(result if args.verbose or args.lua else compact(result),sort_keys=True),flush=True)

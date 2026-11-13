@@ -66,12 +66,13 @@ The authored Star brick has left1616, center1624 and top144. It is revealed
 from X1613/Y176 and matures at X1616/Y119. Straight Right outruns the native
 actor. The passing controller instead follows eight pixels behind its
 observed world X, with a four-pixel deadband. Collection occurs after85
-chase updates at update2,003 and requests Star35/music64. After24 further
+chase updates at update2,003, at actorX1701/Y163 versus SteveX1689/Y176,
+and requests Star35/music64. After24 further
 Main/NMI updates, terminal state is X1693/Y176, health4/lives3, pattern5,
 robot0, armor0 and Star34.
 
-The natural route includes native enemy damage and native drop healing.
-It does not assert an injury-free run. The two Alpha grants preserve their
+The natural route includes native enemy damage and native drop healing,
+finishing with health4. The two Alpha grants preserve their
 ordinary pattern1→5 behavior while Star and 1UP retain their native effects.
 It crosses the four early pipes and the first two pits with the installed
 source movement. No helper or physics changes are needed.
@@ -80,6 +81,39 @@ source movement. No helper or physics changes are needed.
 python -B tools/audit/run_bounded_build_v1.py --output build/steve-armor-transport-1112 --max-files 1 --timeout 300 -- python -B tools/audit/check_steve_star_oneup_1113.py --natural
 ```
 
-A readonly four-item Lua binding and complete input-stream comparison are
-the next source gate before root's physical test. The compact CLI receipt
-keeps fixture semantics and natural-route results distinct.
+`check_steve_star_oneup_1113.controller(raw62)` returns the compiled standalone
+readonly four-item Lua. It reuses the qualified menu, first-Goomba fight and
+full-stage movement controller. The new source template is
+`tools/playthroughs/steve_all_pickups_native_1113.lua`.
+
+The binding pins exact62ba and its AA cookie. At ingress it checks all three
+complete identities, the entire1,912-byte raw1 executable,136-byte bridge and
+60-byte gateway. Actual JnPreparePickup supplies each current pickup slot.
+The native collection callback records actor position, kind, transport tag
+and Steve's position before erasure. Live actors require ID46. The erased
+actor's cleared ID is handled through its native flag.
+
+The Lua route passes the same actual cold/menu/Start/parser and Main/NMI
+CPU gate. Its complete2,027-byte NES input stream equals the direct source
+route. Every per-update gameplay-state hash also matches, including world
+position, health, lives, hurt, tier, selection, ammo, pattern, pending flight,
+robot, armor, native status, freeze and Star timer. All per-update comparison
+data stays in memory. The compact stdout receipt contains aggregate hashes.
+
+| Qualified binding | SHA256 |
+| --- | --- |
+| Standalone native Lua | `1869b7a86f51e29fe423e27ef9916ecbafa249e9b0a32d3dfff7d211687a5e05` |
+| CPU binding after actual menu ingress | `b41b13c8f863abe0df05a19ab7b15c0cc04b057e1a97b097603a4dd1da60d759` |
+| Complete NES input bytes | `e5251869acfea99ef49a9af872a5aaca6ed0001841d84b303acfdd84dfdcb2d8` |
+| Complete sampled gameplay-state stream | `f467c93a608ec6425a40c14d6f8f0ffbd4469fb107b84d5687bba772657b48cc` |
+
+The actual preparation kinds are0,3,1,2. All four observed slots happen to
+be5. The controller captures them dynamically. It records four native
+collections,60 modeled DMA cell matches and2,027 movement projections.
+The inherited punch-control counter is1,909 because native hurt handling
+skips that caller during part of the route. The terminal state matches the
+direct route exactly. Physical Mesen qualification remains with root.
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/steve-armor-transport-1112 --max-files 1 --timeout 600 -- python -B tools/audit/check_steve_star_oneup_1113.py --lua
+```
