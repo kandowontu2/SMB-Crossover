@@ -3,6 +3,23 @@
 The functional roster pass is not complete. This inventory separates source
 placements from actual route verification; it is not the final all-character list.
 
+## November 13 Karnov underground pickup helper
+
+The ordinary-input route on candidate `a3c5fa63` uses the existing Up+Select
+manual vertical platform in **World1-2, initial left X112, center X128,
+initial top Y208, width32**, native actor `$25`, slot0. It records143
+native carry updates and reaches the first underground flower at X160/Y119;
+the collector grants Boots with both lives and full source health. The same
+run uses the earlier **World1-1 manual platform at left X1201, center X1217,
+initial top Y208, width32**, with141 carries. These are observed player-triggered
+spawn positions, not newly authored fixed stage placements. Affected identity:
+Karnov, the Rygar Select alternate. No helper manager or coordinates changed
+in this scene initialization fix.
+
+Native full1-1/1-2/three-item receipt:
+`4d0e7e4ffbf11b56b4aad0f18d87da629804d00f7993de9499687a8fe96b90e0`.
+See `karnov-scene-delivery-1113.md` for exact verification scope.
+
 ## November 13 Thomas hidden 1UP access
 
 Thomas now has eight native vertical lifts in World 1-1, all actor `$25`,
