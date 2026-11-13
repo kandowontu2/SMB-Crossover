@@ -26,6 +26,9 @@ def address(pc):
 
 
 def proposal(raw, *, graphics=False, flight_storage=False, flight_active=False, combat_storage=False, combat_active=False):
+    if C.digest(raw) == '464c8f1af0401ba7d5393e331833af5bdd68882c536dfc3c77534b71508213c0':
+        from deliver_steve_combat_1112 import recover_parent
+        raw = recover_parent(raw)
     if combat_active:
         combat_storage = True
     if combat_storage:

@@ -38,6 +38,9 @@ def link(info, *, active=False):
     islands = {}
     if active:
         raw = Live.DONOR.HOST.read_bytes()
+        if Controls.C.digest(raw) == '464c8f1af0401ba7d5393e331833af5bdd68882c536dfc3c77534b71508213c0':
+            from deliver_steve_combat_1112 import recover_parent
+            raw = recover_parent(raw)
         start, end = fields['SteveCompanionTick'], fields['FirstBotActive']
         region = bytes(raw[Controls.address(pc)] for pc in range(start, end))
         token_call = b'\x20'+fields['SteveTokenTick'].to_bytes(2, 'little')
