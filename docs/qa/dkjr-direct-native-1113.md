@@ -52,3 +52,23 @@ The ordinary DK full controls still need a physical pass. The earlier
 14ae/122f and14ae/acf negatives remain in `dkjr-descending-native-1113.md`;
 their Goomba contacts must be handled by controller input, with the full
 injury assertions retained.
+
+## All pipes and pits; final staircase remains negative
+
+Actual769 full waiting-guard6c6aac8a reaches the final staircase with both
+lives and no source injury. Receipt:
+`be48c66d88b1a0310cf78bef735bf0115520c7d0b859c24ab5c3b709d8fa1150`.
+It crosses the four main pipes at Main1158/1668/2177/3021 and all three pits
+at3281/3885/6253. The horizontal platform has73 real native support/carry
+observations, with actual overlap, footer restoration and equal passenger/
+actor movement verified. Later pipe5/pipe6 and their existing lifts pass.
+The new ordinary enemy jumps avoid both previous Goomba contacts.
+
+The run stops negative at physical17803/Main7778, X2943/Y112, timer76,
+lives2/source1/prior1, because final stair riser3 gains no height. Riser1
+jump7545 at2912/144 lands7551 at2914/128; riser2 jump7573 at2928/128
+lands7582 at2932/112. Four riser3 attempts at7636/7652/7694/7752 near
+2942/112 remain at jump-age2. No helper, geometry, jump or collision change
+is inferred from this symptom; the source agent is separating head/side
+cancellation from ordinary launch positioning. This remains a negative
+full route, not a verified completion or a delivered DK update.
