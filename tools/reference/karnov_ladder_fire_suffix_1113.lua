@@ -5,24 +5,44 @@ local function fireReject(reason,a,x,y,block)
  normalFire.rejections[reason]=(normalFire.rejections[reason]or 0)+1
  normalFire.last_rejected={reason=reason,actor=a,s=state(),block=block}
 end
+local function shotCell(xx,yy)
+ local t=tile(xx,yy)
+ local cell=((xx//256)%2)*208+((yy-32)//16)*16+(xx%256)//16
+ local terrain=emu.read(FIRE_TERRAIN_BASE+cell,emu.memType.nesDebug)
+ local pass=t==0 or t==35 or t==38 or t==194 or t==195 or t==95 or t==96
+ local brick=t==81 or(t==82 and terrain==0)
+ local attackable=brick or t==192 or t==193 or(t>=85 and t<=94)
+ return{tile=t,terrain=terrain,x=xx,y=yy,brick=brick,pass=pass,
+  blocked=not(pass or attackable)and emu.read(MTILE_ATTRIBUTES_OFFSET+t,emu.memType.nesPrgRom)&1~=0,
+  attackable=attackable}
+end
 local function openLowShot(x,y,a)
  if a.x<=x+20 then return false,'behind-or-too-close'end
  if a.x-x>=100 then return false,'range'end
- -- Preserve the owning KrCombatBlock predicate: shots may activate native
- -- bumpable tiles and break51 / non-terrain52. Hard solids still block aim.
+ -- Original crouch state6 uses FAFD[6]=$18 against sourceY=nativeY+32.
+ -- The native combat center is that shot anchor+8+4: nativeY+20.
  for xx=((x+16)//8)*8,a.x,8 do
-  for yy=y+8,y+24,8 do
-   local t=tile(xx,yy)
-   if emu.read(MTILE_ATTRIBUTES_OFFSET+t,emu.memType.nesPrgRom)&1~=0 then
-    local cell=((xx//256)%2)*208+((yy-32)//16)*16+(xx%256)//16
-    local terrain=emu.read(FIRE_TERRAIN_BASE+cell,emu.memType.nesDebug)
-    local attackable=t==81 or(t==82 and terrain==0)or t==192 or t==193 or(t>=85 and t<=94)
-    if not attackable then return false,'masonry',{tile=t,terrain=terrain,x=xx,y=yy}end
-    normalFire.breakable_corridor=normalFire.breakable_corridor or{tile=t,terrain=terrain,x=xx,y=yy,s=state()}
-   end
-  end
+  local q=shotCell(xx,y+20)
+  if q.blocked then return false,'masonry',q end
+  if q.attackable then normalFire.breakable_corridor=normalFire.breakable_corridor or{cell=q,s=state()}end
  end
  return true
+end
+local function terrainFire(x,y)
+ -- Standing state0 uses FAFD[0]=$20: combat center nativeY+12.
+ -- Clear each actual body-height brick row with the appropriate original
+ -- shot before walking; do not rely on an enemy to trigger brick firing.
+ local xx=((x+16)//16)*16
+ for _,aim in ipairs({{center=12,down=false},{center=20,down=true}})do
+  local q=shotCell(xx,y+aim.center)
+  local prior=normalFire.terrain_aim
+  if q.brick or(q.tile==35 and prior and prior.cell.x==xx and prior.down==aim.down)then
+   normalFire.terrain_aim={cell=q,down=aim.down,s=state()}
+   normalFire.terrain_calls=(normalFire.terrain_calls or 0)+1
+   if r('PlayerFacingDir')~=1 then return 1 end
+   return(aim.down and 4 or 0)+(kr(0xe8)%12<6 and 64 or 0)
+  end
+ end
 end
 local function frontGoomba(x,y,d)
  for i=0,5 do local a=actor(i)
@@ -64,9 +84,18 @@ control=function(...)
   end
   if not normalFire.ready then normalFire.ready=state()end
   normalFire.phase='normal-fire'
+  if r('Player_State')==0 and(stockFifth.stage=='travel'or stockFifth.stage=='bump')then
+   local pad=terrainFire(wx(),r('Player_Y_Position'));if pad~=nil then normalFire.requested_pad=pad;return pad end
+  end
  end
  local pad=originalFireControl(...)
  normalFire.requested_pad=pad
+ return pad
+end
+local checkedFireControl=control
+control=function(...)
+ local ok,pad=pcall(checkedFireControl,...)
+ if not ok then finish(false,'normal-fire: '..tostring(pad));return 0 end
  return pad
 end
 emu.addMemoryCallback(function()
