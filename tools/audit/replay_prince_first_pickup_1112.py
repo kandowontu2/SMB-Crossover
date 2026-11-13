@@ -18,6 +18,8 @@ def main():
     parser.add_argument('--observe-updates', type=int, default=100)
     parser.add_argument('--top-b', action='store_true')
     parser.add_argument('--top-walk', action='store_true')
+    parser.add_argument('--reach-candidate', action='store_true')
+    parser.add_argument('--collect', action='store_true')
     args = parser.parse_args()
     assert 1 <= args.hold_updates <= 90
     assert 324 <= args.runout_x <= 400
@@ -27,6 +29,13 @@ def main():
     import prince_cold_packet_1111 as Packet
     image = NIGHTLY.read_bytes()
     Packet.extract(image)  # Authenticate the complete current cold packet.
+    if args.reach_candidate:
+        from prince_pickup_reach_1112 import transform
+        image, _, layout = transform(image)
+        OUTPUT.mkdir(exist_ok=True)
+        rom = OUTPUT/'candidate.nes'
+        rom.write_bytes(image)
+        expected = layout['memory_SHA256']
     cookie = image[Packet.COOKIE:Packet.COOKIE+16].hex()
     source = PUBLISHED.read_text()
     source = source.replace('a726021676a00802119275ac7f48cce7', cookie)
@@ -169,6 +178,29 @@ end
         assert not args.top_b and args.observe_updates >= 280
         tick = tick.replace('if age>%d then pad=0 end' % args.hold_updates,
                             'if age>%d then pad=0 end\n    if age>=120 and age<148 then pad=1 end\n    if age>=220 and age<240 then pad=64 end' % args.hold_updates)
+    if args.collect:
+        tick=tick.replace('local itemSeen=false','local itemSeen=false\nlocal itemTrace={}\nlocal matureSeen=false')
+        tick=tick.replace('\n  local age=commits-changedAt', '''
+  if itemSeen and (commits%10==0 or read(0x75b)==1) and #itemTrace<80 then
+    itemTrace[#itemTrace+1]={commit=commits,playerX=s.x,playerY=s.y,status=read(0x75b),
+      flag=read(0x15),id=read(0x1c),kind=read(0x34),state=read(0x24),
+      x=read(0x7b)+256*read(0x62),y=read(0xc3)}
+  end
+  if itemSeen and read(0x24)>=128 then matureSeen=true end
+  if itemSeen and matureSeen and read(0x75b)==1 and read(0x15)==0 then
+    late.collection={trace=itemTrace,mature=matureSeen,status=read(0x75b),sword=source(0x6ee)}
+    finish(true,'Naturally emerged mushroom collected');return
+  end
+  local age=commits-changedAt''')
+        tick=tick.replace("      finish(itemSeen,'First authored powerup spawn probe')", "      switch('pickup-collect',1)")
+        tick=tick.replace("  assert(commits<1000,'Bounded first pickup approach')", """  if progress=='pickup-collect' then
+    if s.x>=420 then pad=0 end
+    if age>250 then
+      late.collection={trace=itemTrace,mature=matureSeen,status=read(0x75b),sword=source(0x6ee)}
+      finish(false,'Bounded natural mushroom collection');return
+    end
+  end
+  assert(commits<1200,'Bounded first pickup approach')""")
     source = source[:begin]+tick+source[end:]
     OUTPUT.mkdir(exist_ok=True)
     script = OUTPUT/'controller.lua'

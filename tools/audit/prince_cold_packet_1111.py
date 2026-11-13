@@ -52,26 +52,39 @@ def cookie(chunks, payload):
     return PREFIX + sha256(b''.join(chunks) + payload).digest()[:13]
 
 
-def extract(image):
-    assert len(image) == 2097168 and len(PAGES) == len(set(PAGES)) == 45
-    data = b''.join(image[CHR+page*1024:CHR+(page+1)*1024] for page in PAGES)
-    fields = struct.unpack_from('<12H', data, CONFIG)
+def _extract_layout(image, data, loader_bytes):
+    streams = LOADER + loader_bytes
+    config = streams - 54  # Twelve words, followed by the two15-byte page tables.
+    fields = struct.unpack_from('<12H', data, config)
     inputs = fields[0::4]
     destinations = fields[1::4]
     lengths = fields[2::4]
     sizes = fields[3::4]
     assert inputs == (0xc500, 0xe100-lengths[1], 0xc300)
     assert destinations == (0xa000, 0xc800, 0xc100)
-    assert PAGES[-15:] == tuple(lo+256*hi for lo, hi in zip(data[STREAMS-30:STREAMS-15], data[STREAMS-15:STREAMS]))
-    end = STREAMS + sum(lengths)
+    assert PAGES[-15:] == tuple(lo+256*hi for lo, hi in zip(data[streams-30:streams-15], data[streams-15:streams]))
+    end = streams + sum(lengths)
     assert data[end:] == b'\xff' * (len(data) - end)
     chunks = []
-    cursor = STREAMS
+    cursor = streams
     for length, size in zip(lengths, sizes):
         chunks.append(decode(data[cursor:cursor+length], size))
         cursor += length
     assert cookie(chunks, data[:end]) == image[COOKIE:COOKIE+16]
-    return data[:STREAMS], tuple(chunks), lengths
+    return data[:streams], tuple(chunks), lengths
+
+
+def extract(image):
+    assert len(image) == 2097168 and len(PAGES) == len(set(PAGES)) == 45
+    data = b''.join(image[CHR+page*1024:CHR+(page+1)*1024] for page in PAGES)
+    # Preserve the446B form exactly. The450B form adds the four-byte C280
+    # staging-wrap low-byte store; both must authenticate the complete cookie.
+    for loader_bytes in (446, 450):
+        try:
+            return _extract_layout(image, data, loader_bytes)
+        except (AssertionError, struct.error):
+            pass
+    raise AssertionError('No authenticated446B/450B Prince cold packet')
 
 
 def rebuild(image, mutate):
@@ -83,7 +96,8 @@ def rebuild(image, mutate):
     sizes = tuple(map(len, packed))
     assert len(head) + sum(sizes) <= len(PAGES)*1024
     header = bytearray(head)
-    struct.pack_into('<12H', header, CONFIG, 0xc500,0xa000,sizes[0],len(after[0]),
+    assert len(header) in (LOADER + 446, LOADER + 450)
+    struct.pack_into('<12H', header, len(header)-54, 0xc500,0xa000,sizes[0],len(after[0]),
                      0xe100-sizes[1],0xc800,sizes[1],len(after[1]),
                      0xc300,0xc100,sizes[2],len(after[2]))
     payload = bytes(header) + b''.join(packed)
