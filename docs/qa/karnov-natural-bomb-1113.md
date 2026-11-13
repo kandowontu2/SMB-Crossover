@@ -241,3 +241,13 @@ The previous4641 controller remains exactly dc93477b above. This is source
 authentication and controller continuity, without a repeated native four-item
 run on aa501 or a gameplay patch.
 
+Root subsequently repeats that exact current controller from actual Downloads
+aa501. Native receipt SHA256:
+`ad5539481965e806b647fb4d3e136d4a9996e495452bbbf5cb94801310061672`.
+It again passes12,756 physical frames/7,112updates, all four natural pickups,
+Boots use and complete Bomb activation/explosion/retirement, full source
+health and both lives. Helpers are unchanged at left1201,112,1127 with the
+same initial heights/centers above. The run has zero Bomb/enemy contacts;
+this extends current-ROM progression qualification without adding a new
+enemy-damage claim. Before/after Downloads automatic patch guards pass.
+

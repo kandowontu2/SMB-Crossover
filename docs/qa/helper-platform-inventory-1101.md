@@ -20,6 +20,14 @@ Native full1-1/1-2/three-item receipt:
 `4d0e7e4ffbf11b56b4aad0f18d87da629804d00f7993de9499687a8fe96b90e0`.
 See `karnov-scene-delivery-1113.md` for exact verification scope.
 
+The later four-pickup route also passes on actual Downloadsaa501 with
+receipt`ad5539481965e806b647fb4d3e136d4a9996e495452bbbf5cb94801310061672`.
+It uses the two manual locations above and an eastern World1-2 girder at
+**initial left X1127, center X1143, initial top Y208, width32**. This is
+Karnov's existing Up+Select actor, not an authored fixed placement. The
+controller earns/uses/retires Bomb after the fourth flower. Both lives/full
+source health remain. See `karnov-natural-bomb-1113.md`.
+
 A later fourth-pickup diagnostic also summons the same manual actor in
 1-2 at **left X1089, center X1105, initial top Y208, width32**. This is an
 unsuccessful setup: it carries Karnov above the target powerup brick and
