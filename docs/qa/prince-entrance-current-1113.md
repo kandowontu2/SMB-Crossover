@@ -135,4 +135,9 @@ The direct Downloads replacement passed both actual launch-context repeats.
 Entry receipt98e6 and combat receiptd2e72 above match the private cases
 exactly. Installed bytes equal the tested candidate; before/after automatic
 patch guards are clear, with no matching IPS/BPS/UPS. No backup was created.
-Current/Latest IPS publication remains pending the source push.
+Current is now Latest with exactly one asset,
+`SMB-Crossover-Latest-WIP-MMC5.ips`, asset744354526. Root downloaded that asset
+and independently reconstructed the installed7ef ROM exactly. Publication used
+source `bcca3c14c1573c511cb4153614aa3d8450842de1` and this report's prior
+snapshot SHA `ff2ddf6a542ad45aa5638a7d1b108116785dfa3532dbd98a2354462f8f0bd09c`.
+No private test level or unqualified DK candidate was installed or published.
