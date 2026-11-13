@@ -187,6 +187,7 @@ local function bridgeEvent(label,value)
  local cpu=emu.getState()
  local packet={}
  for i=0,6 do packet[i+1]=emu.read(2*8192+0x880+i,emu.memType.nesWorkRam) end
+ if label=='packet-write' and value~=0xa7 and packet[1]~=0xa7 then return end
  headBridge[#headBridge+1]={label=label,value=value,pc=cpu['cpu.pc'],a=cpu['cpu.a'],ix=cpu['cpu.x'],iy=cpu['cpu.y'],p=cpu['cpu.ps'],x=x,y=debugRead(0xbd),epoch=debugRead(L.FrameCounter),packet=packet}
 end
 for _,entry in ipairs({{0xad54,3},{0xbfc0,3},{0xdcd9,2},{0xd8af,2},{0xb5b2,3}}) do
