@@ -77,4 +77,16 @@ at injury. The native control route needs an ordinary enemy-avoidance step;
 this result does not establish a platform-contact defect. No candidate was
 installed, no lives/health/timer or actor state was seeded, and no capture
 files were produced. The controller and this negative remain reproducible
-through `run_dkjr_descending_native_1113.py --route full --reuse`.
+through `run_dkjr_descending_native_1113.py --route full`; `--reuse` additionally
+requires exact14ae already staged. The active component can hold769afe later.
+
+The separate ordinary enemy guardacf45457 avoids that first Goomba: actual
+fresh jump at Main2081/X783/Y164, then third-pipe crossing at2177/X841/Y176.
+Its actual full replay remains negative later, at physical5986/Main2288,
+851/176/source injury5/lives2. Receipt
+`d2a4d3848675e4271fd234d5a1894c3f4801620ebf8c67b20debe7a365d1d140`.
+A Goomba at837/184 approaches from behind while the fourth-pipe helper is
+present at880/168. The old forward-only enemy observer does not handle this
+waiting contact. That control route remains reproducible as
+`--route full-enemy-guard` (add `--reuse` only with14ae staged); do not convert it into a full pass or
+change injury assertions to hide the contact.

@@ -20,6 +20,12 @@ PINS = {
     'first-pipe': '65af12f18021d30e47bd9f4022c01148bf295da76017f744acc38456345b90b8',
     'full': '122f4984fcf4310ce19fb26e4a7a121c83c0fff08b62dbc85af6d95adfffee66',
     'full-enemy-guard': 'acf454572d604b049deebbb82300a07c6852c9712065d6d32f44932c6e38442f',
+    'full-waiting-guard': '36307f8ca293bf558377591a05939ed74d4b5a8cc42152a38cdce1c998cf0fbc',
+}
+DIRECT_PINS = {
+    'first-item': '5ef1c7955010c1abebcbefdcdbe6594b76024f123a89117436b5782cde7f1d53',
+    'full-enemy-guard': '84161feb7c7d4c6f6eb938e85a0fb2d82aef0600a9132d9946f148f85f1dcec6',
+    'full-waiting-guard': '6c6aac8a3d0fdfe334beebcf62b4514014e45d9e044f43926b3ee38e261c8d73',
 }
 
 
@@ -28,7 +34,11 @@ def main():
     p.add_argument('--route', choices=tuple(PINS), required=True)
     p.add_argument('--metadata', action='store_true')
     p.add_argument('--reuse', action='store_true', help='Reuse the already composed exact14ae private file; no repeated parent build.')
+    p.add_argument('--direct', action='store_true', help='Explicit granted769afe direct-foreign successor; first-item or full-enemy-guard only.')
     args = p.parse_args()
+    if args.direct:
+        import compose_dkjr_direct_platform_1113 as Direct
+        assert args.route in DIRECT_PINS
     public_now = check(NIGHTLY)['ROM_sha256']
     assert public_now in (PARENT, PUBLIC_BUB, PUBLIC_SMB2)
     raw = NIGHTLY.read_bytes()
@@ -42,6 +52,8 @@ def main():
         assert sha256(raw).hexdigest() == PARENT
     if args.reuse:
         image = (OUT / 'candidate.nes').read_bytes()
+        if args.direct and sha256(image).hexdigest()==Direct.PIN:
+            image=Direct.reverse(image)
         assert sha256(image).hexdigest() == C.PIN
         assert sha256(C.reverse(image)).hexdigest() == C.PARENT
     else:
@@ -49,18 +61,30 @@ def main():
         assert sha256(image).hexdigest() == C.PIN
         assert C.P.inverse_current(C.reverse(image)) == raw
         assert info['new_RAM_bytes'] == info['new_CHR_bytes'] == 0
-    if args.route == 'first-item':
+    candidate=C.PIN
+    expected=PINS[args.route]
+    if args.direct:
+        direct_parent=image
+        image,direct_info=Direct.transform(image)
+        assert Direct.reverse(image)==direct_parent and direct_info['changed_bytes']==141
+        candidate=Direct.PIN
+        full=args.route in ('full-enemy-guard','full-waiting-guard')
+        text=Direct.controller(image,full=full,departure_enemy_guard=full,
+                               approach_enemy_guard=args.route=='full-waiting-guard')
+        expected=DIRECT_PINS[args.route]
+    elif args.route == 'first-item':
         text = C.controller(image)
-    elif args.route in ('full', 'full-enemy-guard'):
+    elif args.route in ('full', 'full-enemy-guard', 'full-waiting-guard'):
         text = Replay.controller(image, descending_roof=(2,3), observe_prior=True,
                                  early_ledge=True, native_gap_observer=True,
-                                 departure_enemy_guard=args.route=='full-enemy-guard')
+                                 departure_enemy_guard=args.route!='full',
+                                 approach_enemy_guard=args.route=='full-waiting-guard')
     else:
         text = Replay.controller(image, pipes=(1,), stop_after_pipe=1)
-    assert sha256(text.encode()).hexdigest() == PINS[args.route]
+    assert sha256(text.encode()).hexdigest() == expected
     LuaRuntime().compile(text)
-    summary = dict(ROM_SHA256=C.PIN, parent_SHA256=PARENT, current_Downloads_SHA256=public_now, route=args.route,
-                   Lua_SHA256=PINS[args.route], private_only=True, installed=False,
+    summary = dict(ROM_SHA256=candidate, parent_SHA256=PARENT, current_Downloads_SHA256=public_now, route=args.route,
+                   Lua_SHA256=expected, direct_foreign=args.direct, private_only=True, installed=False,
                    native_run=not args.metadata, reused_exact_private_candidate=args.reuse)
     if not args.metadata:
         assert OUT.is_dir()
@@ -68,7 +92,7 @@ def main():
         rom, script = OUT / 'candidate.nes', OUT / 'controller.lua'
         rom.write_bytes(image)
         script.write_text(text, encoding='utf-8', newline='\n')
-        q = run(script, rom, OUT / 'capture', C.PIN, 240)
+        q = run(script, rom, OUT / 'capture', candidate, 240)
         receipt = {k: v for k, v in q['receipt'].items() if k != 'events'}
         receipt['last_events'] = q['receipt'].get('events', [])[-12:]
         summary.update(passed=q['passed'], receipt_SHA256=q['receipt_SHA256'],
