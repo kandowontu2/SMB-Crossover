@@ -1,13 +1,20 @@
 """Inspect actual native reveal classification for current Prince cold state."""
 import json
+import argparse
 from hashlib import sha256
 from pathlib import Path
 import check_prince_brick_support_1111 as B
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--candidate', action='store_true')
+    args = parser.parse_args()
     raw = Path('C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes').read_bytes()
     assert sha256(raw).hexdigest() == '6d0346164b7099f8e75cdbe22a9e9f1fd5f4f673116fd1dcb48a3cee620734c2'
+    if args.candidate:
+        from prince_pickup_progression_1112 import transform
+        raw, packing = transform(raw)
     seed, _ = B.cold(raw)
     rows = []
     for status in (0, 1, 2):
@@ -50,7 +57,31 @@ def main():
     model[B.N.address(model.bundle,'PowerUpType')+5] = 0
     B.N.invoke(model, 'PwrUpJmp', x=5)
     collected['next_reveal'] = model[B.N.address(model.bundle,'PowerUpType')+5]
+    assert collected['status'] == int(args.candidate), collected
+    assert collected['next_reveal'] == int(args.candidate), collected
+    assert model.ram[2][0x6ee] == 0, 'Mushroom must not grant sword'
+    matrix = 0
+    for hp in range(6):
+        for status in range(3):
+            for kind in (0, 1):
+                for mature in (0, 128):
+                    m = B.fixture(seed)
+                    B.N.put(m, PlayerStatus=status, ObjectOffset=5)
+                    m.ram[2][0x6cf] = hp
+                    m[B.N.address(m.bundle,'Enemy_Flag')+5] = 1
+                    m[B.N.address(m.bundle,'Enemy_State')+5] = mature
+                    m[B.N.address(m.bundle,'PowerUpType')+5] = kind
+                    B.I.invoke(m, 3, 0xc7b3, (0, 5, 0, 0x20))
+                    accepted = bool(hp and mature)
+                    expected_status = 1 if args.candidate and accepted and kind == 0 else status
+                    assert B.N.get(m,'PlayerStatus') == expected_status, (hp,status,kind,mature)
+                    assert m.ram[2][0x6cf] == (min(5,hp+1) if accepted and kind == 0 else hp)
+                    assert m.ram[2][0x6ee] == int(accepted and kind == 1)
+                    assert m[B.N.address(m.bundle,'Enemy_Flag')+5] == int(not accepted)
+                    matrix += 1
     print(json.dumps(dict(rows=rows, mushroom_then_reveal=collected,
+                         pickup_matrix=matrix,
+                         candidate=args.candidate, rom_sha256=sha256(raw).hexdigest(),
                          scope='Controlled native actor/pickup/reveal, not naturally earned', output_files=0)))
 
 
