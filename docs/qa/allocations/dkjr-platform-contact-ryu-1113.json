@@ -1,0 +1,59 @@
+{
+  "owner": "Private DK Jr descending-only native platform contact",
+  "status": "conditionally reserved for implementation and qualification; not native-ready",
+  "request": "docs/qa/dkjr-platform-contact-ryu-amendment-1113.md",
+  "extends": "docs/qa/allocations/dkjr-platform-contact-1113.json",
+  "public_parent_SHA256": "7ef2de351d3a4ae60b3ada2eb1aa56b330873dc106ad43428ec6803bf420d4fc",
+  "private_parent_SHA256": "e73b66263a8e150d3d21b801e5a55be1817f86d09639fc428ab809b2518842d9",
+  "atomic_native_resource": {
+    "physical_PRG": 0,
+    "CPU_start": "B963",
+    "CPU_end_inclusive": "B9B9",
+    "bytes": 87,
+    "file_offset": 6515,
+    "preimage_SHA256": "4285846e047bfdbb5478ce97658df5f90e56f115ead98364fdf8b3e3738e4c8c",
+    "preimage_hex": "0848ad0260c90ad01ab517c928d0148d6a01a9548d6c01a9b88d6d01a996205a01900568284c2c9a6828608d6a01082007b79006d004284c53b428a95c20abb92053b48d6a01a9838d6c01a9bf8d6d01a9ba4c5a01eaea",
+    "packing": "Original43-byte Ryu bridge plus44-byte dispatch becomes37-byte source-equivalent Ryu bridge, two EA bytes, then48-byte descending-only ingress at B98A. This supersedes the prior NATIVE span as one atomic overlapping repack.",
+    "compact_Ryu_hex": "ad0260c90ad01ab517c928d0148d6a01a9548d6c01a9b88d6d01a996205a0190034c2c9a60",
+    "unchanged_Ryu_entry": "B963",
+    "padding_half_open": ["B988", "B98A"],
+    "new_ingress_half_open": ["B98A", "B9BA"]
+  },
+  "sole_dispatch_call_site": {
+    "physical_PRG": 0,
+    "CPU_start": "B43F",
+    "CPU_end_inclusive": "B441",
+    "file_offset": 5199,
+    "old_hex": "208eb9",
+    "new_hex": "208ab9"
+  },
+  "continued_prior_resources": ["PRG0 B707..B711", "PRG58 BD5B..BD74", "PRG58 BDD5..BDEE"],
+  "root_independent_review": {
+    "bounded_output_root": "build/metal-flower-native-1112",
+    "outputs_written": 0,
+    "old_and_compact_source_reproduced": true,
+    "atomic_and_caller_preimages_match_public_and_private": true,
+    "isolated_compaction_SHA256": "e57f6df1ee465decb638350fa2de72b027d6019e2515cd98a720b40b1a7b03e2",
+    "source_SHA256": "d4fd732b70216d679cc9ef4a37d7aba67ec48407e761ac73589d9494ed059bda",
+    "funding_checker_SHA256": "ff470eac6d4daed9c3e2bc8a1321ec046c34457933a074df000dce70774df791",
+    "request_SHA256": "710331dd4fd25f6171e7e46b21ca2ff514d20ac06d3c79ca9d051d0d5f4267d7",
+    "sole_Ryu_bridge_caller": "PRG0 B483",
+    "benign_B97C_tuple": "Exact PRG59 opcode/operand crossing at file484603; no pointer or callable entry.",
+    "reported_callback_cases": 3072,
+    "reported_five_owner_complete_Main_updates": 160,
+    "new_native_successor_or_Mesen_run": false
+  },
+  "conditions": [
+    "Only the atomic87-byte span and named3-byte caller site are added. No neighboring bytes, helper geometry, donor motor, fall thresholds, persistent RAM, CHR or additional cache are granted.",
+    "Keep Ryu entry B963 and its real overlap/native collision paths. Preserve I/D, X/Y/SP and actual Ryu/foreign Main semantics; A/NZCV differences at the internal bridge require the proved native caller liveness.",
+    "Sample only owner40 eligible platform IDs25..2A with nonnegative native vertical speed. Preserve original upward and paired balance contacts, deep overlaps, jumps, gaps and high-fall injury.",
+    "Retain the explicit footer ADC-overflow guard. A real typed high0/climb footer254 counterexample rejected its removal; do not hide or weaken it.",
+    "Use new explicitly pinned successor APIs over exact e73, with strict inverse to e73/public7ef and all unowned bytes exact. Preserve frozen b420 and its first/full negatives.",
+    "Qualify every emitted sampler/compacted-Ryu/call-site PC under actual Main, IRQ and genuine busy NMI. Legitimate music progress must match the original ISR at an identical cut state; live audio stack bytes must not be masked or repaired.",
+    "Natural first mushroom and full1-1 must pass together, followed by relevant foreign routes and paired current Mini cadence. Root owns the sole Mesen queue, byte verification and local Downloads delivery.",
+    "GitHub releases must remain empty. This conditional reservation authorizes no IPS upload, release creation, private nightly installation or completion claim."
+  ],
+  "new_RAM_bytes": 0,
+  "new_CHR_bytes": 0,
+  "delivered": false
+}
