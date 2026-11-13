@@ -6,7 +6,8 @@ from pathlib import Path
 from run_stdout_mesen_1110 import R, run
 
 
-def controller(return_flight=False):
+def controller(return_flight=False, expect_catch=False):
+    assert not expect_catch or return_flight
     source=R/'build/kirby-red-shell-1110-v3/controller.lua'
     assert sha256(source.read_bytes()).hexdigest()=='15d360ea10e46543d869b39363dd2bf2718f4f210a3aff7db5a9987d8fb4a14c'
     text=source.read_text()
@@ -41,21 +42,43 @@ def controller(return_flight=False):
    if frame-hit.player.frame>180 then finish('bounded-return-flight-timeout');return end
   elseif shotInput and frame-shotInput.player.frame>35 then finish('ground-shell-did-not-hit');return end
 '''+body[end:]
+    if expect_catch:
+        old="   if returned and r('KbShotType',hit.shell.slot)==0 then finish('natural-red-shell-return');return end"
+        assert body.count(old)==1
+        body=body.replace(old,'''   if returned and r('KbShotType',hit.shell.slot)==0 then
+    local firstNear=nil
+    for _,p in ipairs(returnShots) do
+     if p.age>=32 and math.abs(p.x-p.player_x)<=3 then firstNear=firstNear or p.age end
+    end
+    local last=returnShots[#returnShots]
+    if not firstNear or last.age-firstNear>2 or last.age>=89 or math.abs(last.x-last.player_x)>3 then
+     finish('return-shell-not-caught');return
+    end
+    finish('natural-red-shell-return');return
+   end''')
+        body=body.replace('controller_only=true,','controller_only=true,catch_verified=passed,')
     return first+"\nC.sha=assert(os.getenv('SMB_STDOUT_ROM_SHA'))\n"+body
 
 
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--return-flight',action='store_true')
+    parser.add_argument('--expect-catch',action='store_true')
+    parser.add_argument('--rom',type=Path,default=Path('C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes'))
     args=parser.parse_args()
-    rom=Path('C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes')
+    rom=args.rom
     output=R/'build/kirby-red-current-1112'
     output.mkdir(exist_ok=True)
     script=output/'controller.lua'
-    script.write_text(controller(args.return_flight),encoding='utf-8',newline='\n')
+    script.write_text(controller(args.return_flight or args.expect_catch,args.expect_catch),encoding='utf-8',newline='\n')
     result=run(script,rom,output/'capture',sha256(rom.read_bytes()).hexdigest(),90)
     summary={k:result[k] for k in ('passed','receipt_SHA256','script_SHA256')}
     summary['receipt']={k:v for k,v in result['receipt'].items() if k in ('reason','returned','return_shots','terminal','actual_ground_copy_attack','native_defeat_return')}
+    shots=summary['receipt'].get('return_shots',[])
+    if shots:
+        summary['return_trace_count']=len(shots)
+        summary['receipt']['return_shots']=[p for i,p in enumerate(shots)
+            if i<3 or i>=len(shots)-3 or 30<=p['age']<=33 or 65<=p['age']<=70]
     print(json.dumps(summary),flush=True)
     assert result['passed']
 

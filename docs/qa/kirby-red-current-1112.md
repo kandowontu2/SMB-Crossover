@@ -40,3 +40,16 @@ controller `c14d7413ac5f34415527747dfb6fcecdd5bc92f2e0662ad2e949e69c1fa8da4c`.
 instead of retiring on return. The replay's `passed` means travel/return/expiry
 were observed; it does not certify this visual behavior as acceptable. The return
 observer must be tightened when catch retirement is implemented. No fix delivered.
+# Explicit catch regression on the November12 nightly
+
+`replay_kirby_red_current_1112.py --expect-catch` now distinguishes an actual
+catch from eventual shot expiry: the returned shell must retire within two
+updates of reaching three pixels from Kirby, before the89-update expiry edge.
+The currentc5ce8c nightly correctly fails this new check with
+`return-shell-not-caught`, receipt
+`7ab8497b5bb817a63db45352519bec7d44b651e3a409b553c8385ddcbc6372b8`,
+controller `c76e0e3236aa81a845d47c06a81605072d9f1930f7a4a26f8ab0464a862190c1`.
+The natural first red-shell shot still defeats the real red Koopa; Kirby
+retains copy3, HP6 and both lives. This is a reproducible negative regression
+for the pending catch fix, not a new ROM change or a passing catch claim.
+
