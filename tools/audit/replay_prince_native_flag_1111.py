@@ -69,7 +69,7 @@ def main():
     print(json.dumps(dict(passed=result['passed'], reason=receipt['reason'], phase=receipt['phase'],
                           terminal=receipt['terminal'], flag=route.get('flag'), castle=route.get('castle'),
                           flag_brake=route.get('flag_brake'), obstruction=route.get('obstruction'),
-                          jump=route.get('jumps', [])[-1:] if route else [],
+                          jump=(route.get('jumps') or [])[-1:] if route else [],
                           receipt_SHA256=result['receipt_SHA256'], script_SHA256=result['script_SHA256']),
                      sort_keys=True), flush=True)
     raise SystemExit(0 if result['passed'] else 1)

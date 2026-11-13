@@ -145,3 +145,22 @@ successful movement observation, not a passing pickup or delivery gate.
 Candidate and Lua are the two bounded files in build/prince-first-pickup-1112.
 Next: negative support/interrupt/full-stage regressions and natural pickup;
 do not install this private candidate yet.
+
+## Full-route regression blocks delivery
+
+Candidate SHA `6d0346164b7099f8e75cdbe22a9e9f1fd5f4f673116fd1dcb48a3cee620734c2`
+fails the existing controller at X1888/Y176, HP0, late-finish-climb,
+physical frame9412. Receipt c057a8dd9d7ae71aa5343234cfa097d734d8435d6bcff846de8e924efd9197a4.
+The same controller on installed464c8 passes into1-2 with both lives,
+physical frame16598; receipt e94382dd32df70ec9325ec0548688664bcb8faecc0150b1f1a529c9305e52058.
+Thus candidate is NOT qualified for delivery. Investigate the first route
+divergence near the later brick/Goomba section before deciding whether this
+is altered controller timing or incorrect newly admitted support.
+
+The replay formatter previously raised on Lua's empty jumps table (decoded
+as `{}`); fixed that reporting path so the actual failure is visible.
+Storage guard initially blocked reservation; one retry incorrectly budgeted
+one file despite the retained candidate and was terminated by the guard.
+Removed the byte-identical delivered Steve candidate from its old build folder
+after hash comparison with Downloads. Its source and installed ROM remain.
+Current Prince folder has only candidate plus regenerated controller; no captures.
