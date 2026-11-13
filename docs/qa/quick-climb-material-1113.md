@@ -77,3 +77,13 @@ script6a668b6323b1573f8abc9ff2adc9f458abdccb0ea971ab90892539ccbd1864a4.
 The controller releases A after the final stair and cannot walk onto the
 unchanged16-pixel flag base. Root is qualifying a fresh-A approach and actual
 new source material observations before any full-stage or delivery claim.
+
+Root's held-A/no-B final-base controller now passes actual native full1-1 and
+all four natural items on unchanged4641:5655 physical/3596 updates, active1-2
+X40/Y48, HP/max40, lives3. Actual HandleClimbing/FlagpoleCollision, flag slide
+and castle transition execute. Receipt1b7aa76aa8d0e063b220681f7723d353383c55b0d82bd569b2b0b11bcad4dad6,
+scriptf1a18f13661b10ed17dd78f93d64c5cb7d93afc2aef68467d77b9f06b900dc04.
+The test only reads HP while the source cache is active(engine8); engine11
+and lost-life guards remain unconditional. Root is extending the entry check
+to neutral descent and stable underground ground before delivery. This is
+root-supplied native evidence; no ROM has been installed by this helper.

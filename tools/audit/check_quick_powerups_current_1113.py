@@ -246,7 +246,7 @@ def controller(raw,mode='mushroom'):
     return result
 
 
-def route(seed,raw,limit,mode):
+def route(seed,raw,limit,mode,controller_text=None):
     from check_ff_stdout_controller_source_1110 import LuaRuntime,DLL,DLL_SHA
     assert sha256(DLL.read_bytes()).hexdigest()==DLL_SHA
     lua=LuaRuntime(unpack_returned_tuples=True);events={};callbacks=[]
@@ -271,7 +271,7 @@ def route(seed,raw,limit,mode):
     emu.addEventCallback=lambda fn,kind:events.setdefault(kind,fn)
     emu.addMemoryCallback=lambda fn,_kind,lo,hi=None:callbacks.append((lo,lo if hi is None else hi,fn))
     lua.globals().emu=emu;lua.globals().CPU_CONTROLLER_OPENING=True;lua.globals().print=emit
-    text=controller(raw,mode);lua.execute(text)
+    text=controller(raw,mode)if controller_text is None else controller_text;lua.execute(text)
     def observe(_m,c):
         context['cpu']=c
         for lo,hi,fn in callbacks:
