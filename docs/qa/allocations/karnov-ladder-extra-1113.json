@@ -1,0 +1,65 @@
+{
+  "owner": "Karnov native Ladder transport",
+  "status": "reserved for private implementation and qualification",
+  "parent_ROM_SHA256": "aa50112845d1cf70cae0924f03326647b3d2514f876c756d70b134ee44f971d1",
+  "required_owning_source_refactor_SHA256": "13816e9ff6ecb4d4e10d6f1fa2f9be28c683c52e570a8abb29a9f5e944457c2c",
+  "prior_624_byte_lease": "docs/qa/allocations/karnov-equipment-tails-1113.json",
+  "measured_source_SHA256": "9d8a1cf29c03b977323d3a9b13b1eb9047451a11b1fc99871f041cbc066272f8",
+  "additional_code_bytes": 556,
+  "regions": [
+    {"bank": 2, "start": "CE00", "end_inclusive": "CFFF", "bytes": 512,
+      "physical_CHR_page": 1020, "page_offset": 256, "file_offset": 2093328,
+      "required_fill": "00", "preimage_SHA256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560"},
+    {"bank": 2, "start": "CDD4", "end_inclusive": "CDFF", "bytes": 44,
+      "physical_CHR_page": 1020, "page_offset": 212, "file_offset": 2093284,
+      "required_fill": "FF", "preimage_SHA256": "463d5921a6bfd5c98f6047f561495800372e627c07ce458c23b7ac164a22be51"}
+  ],
+  "loader_change": {
+    "file_offset": 244491, "before": "01", "after": "03", "row": 9,
+    "helper_file_offset": 244477,
+    "complete_helper_preimage": "a605bd20bb8504a904e009d002a9018507e0089005a902202cbb60",
+    "combat_copy_before": 1280, "combat_copy_after": 1792,
+    "forbidden_extension": "D000 and later belong to pose metadata/options"
+  },
+  "original_state_repurposing": {
+    "bank": 2, "start": "C624", "end_inclusive": "C63E", "bytes": 27,
+    "purpose": "Reuse original Ladder transport for count, packed world anchor, camera and eight saved native metatiles",
+    "new_persistent_bytes": 0,
+    "conditions": "Preserve original constructor reset; qualify every writer and scene/life cleanup. R0..R7 remain transient and preserved at callbacks."
+  },
+  "private_art": {
+    "physical_CHR_page": 1023, "glyphs": [44,45], "file_offset": 2096848,
+    "bytes": 32,
+    "preimage_SHA256": "8d431612acbaebd7d4b54aa4e62a6fbf1d13726073a32d07e5466343df8f8be9",
+    "replacement_SHA256": "a695f4fc2d1211572a01a2f65aa755c008f09da2d47d466010d4ddbb905e535e",
+    "pattern_policy": "Exact donor BE/BF patterns and opacity",
+    "palette_policy": "Explicit adaptation to existing native BG palette2: pattern2=21, pattern3=0F; donor palette1 uses22/02. No global palette edits.",
+    "lifetime_policy": "Karnov private gameplay font only. Preserve native font return during menu, intermediate, ending and retirement contexts; verify actual transitions before delivery."
+  },
+  "root_independent_checks": {
+    "bounded_zero_output_parts": ["measure", "storage-plan", "loader-geometry", "font"],
+    "complete_adapter_bytes": 1178,
+    "partition_bytes": {"AA1A":492, "AF20":131, "CE00":511, "CDD4":44},
+    "all37_owning_graph_instructions": 4027,
+    "direct_new_runtime_references": 0,
+    "indexed_read_bounds_verified": 5,
+    "indirect_contracts_checked": 6,
+    "actual_loader_helper_executions": 24,
+    "all12_rows_preserve_AXYP_SP_maps": true,
+    "current_HUD_cursor_ownership_fixtures": 512,
+    "all256_native_metatile_quad_glyph_references": 0,
+    "actual_UI_CHR_font_return_contexts": 5,
+    "actual_retirement_restores_native_font": true,
+    "new_candidate_or_native_feature_test": false
+  },
+  "conditions": [
+    "Apply the qualified owning-source refactor first. Keep exact preimages, inverse closure, all37 native services and A087/AC06/AFA4 anchors.",
+    "Only known public62ba may normalize through the exact Steve inverse to this pinned AA parent; later rebases require explicit disjoint ownership proof.",
+    "Qualify actual zero/copy/readback of extended C2 and complete new identities, expected cold reads, new fault rejection, ABI and IRQ/lag-NMI before native review. Old headers must not admit new services.",
+    "Keep original grow1, retract2, rebuild0B, native terrain policy and restoration. Never restore stale scene tiles or overwrite busy VRAM queues. Attribute updates must affect only owned Ladder quadrants and reconstruct current neighbors.",
+    "Preserve Boots/Bomb and all foreign owners. Execute the full original Ladder lifecycle, zero/solid/camera/life/area/pause cases and existing power controls; measured fit alone is not feature qualification.",
+    "This reserves only these named bytes and the original27-byte object. No neighboring runtime, glyph, state or graphics allocation is implied.",
+    "Root retains the sole Mesen queue. Physical gameplay, Downloads-context repeat and verified sole Current/Latest IPS reconstruction remain required before delivery."
+  ],
+  "feature_enabled_or_delivered": false
+}
