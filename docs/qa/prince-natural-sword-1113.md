@@ -99,3 +99,30 @@ stated65ee scope.
 python -B tools/audit/run_bounded_build_v1.py --output build/metal-flower-native-1112 --resume --max-files 2 --timeout 180 -- python -B tools/audit/check_prince_flower_climb_1113.py --placed-flower
 python -B tools/audit/run_bounded_build_v1.py --output build/metal-flower-native-1112 --resume --max-files 2 --timeout 120 -- python -B tools/audit/replay_prince_current_pickups_1113.py --collect-sword --check-only
 ```
+# November 13 native alignment follow-up
+
+The revised `12f55c86840aa9750d0312c806f629b23e8cec5e8aa67483ffe77762934d3e66`
+controller ran on exact Downloads `a3c5fa63`. It naturally earned the first
+mushroom, crossed four pipes and the first pit, revealed the flower, and kept
+both lives. The flower matured at X1248/Y119. The retreat/turn still ended at
+X1214, outside the separately measured X1218..1230 original grab range; Up
+there performed the original standing jump and did not collect the sword.
+The bounded negative ended at physical frame6276, native X1213/Y176, HP4.
+Receipt: `22b2b2365b2f22fc832f2468e489c7859796be049ff5b2d5dd49dc7827edd4a3`.
+The one health loss remains the known original third-pipe fall at X844.
+
+`check_prince_natural_sword_1113.py` now runs the same generated controller
+with all file writes diverted to memory and the native title waits replaced
+by actual CPU menu/Start/parser ingress. Its CPU binding
+`4932ba3bc42cf5d91a6bdbc88e306643e1d6f6c5297c807dc8b1e61b25eef0d8`
+reproduces that endpoint in2666 logical Main/NMI updates: X1213/Y176, HP4,
+both lives, sword0. No player, item, source-state or helper injection occurs
+after the established menu arena. These logical updates do not measure NES
+cadence. Full cold ingress is167 parser updates, X40/HP5/lives2.
+
+An additional directed `--forward-nudge` fixture starts at X1214 and tests
+Right for1/4/8/12/16/24 updates, with0/8 neutral updates before Up. None of
+these12 controller sequences climbs. They do not replace the earlier three
+explicitly placed flower successes or qualify a natural sword route. No ROM
+bytes or gameplay constants changed; natural sword collection remains open.
+

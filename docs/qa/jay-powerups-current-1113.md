@@ -171,3 +171,35 @@ six WWF identities, Excitebike and Metal Storm; Getsu's listed native receipt
 covers mushroom/flower; FF's four-item continuation evidence was CPU rather
 than complete native review. These are scoped report gaps, not a refreshed
 101-identity census. Root owns the current inventory/continuation reports.
+# Root native verification, November 13
+
+Private `9349a0f5a66673b3a6e0bc00fcd351b2f3b3ab7a1858b4b5fdbc4f3f9864311d`
+passes the actual Mesen full-stage controller
+`64e1303f28dacc3fef18cf8ea57b94dd1b86d2ad60d7ac630900bd12b52987ae`:
+5508 physical frames, both lives, real flag/castle, active1-2 at X40/Y176,
+and five held-B machine-gun shots after selecting the earned weapon.
+Receipt: `610cd7566afaf5c1fb9f262424e987efbca9ff1027e2d5fa740f3f0643294daa`.
+The existing1-1 helpers remain left688/center704/top192 and
+left880/center896/top192, width32, with actual carries and visible births.
+Root also independently repeats the separate CPU stage route through
+grounded active1-2 with HP6/lives2. No helper changes.
+
+The first-pickup Lua `8e72af80` proves the repaired native head effect at
+X333/Y161, then native item birth336/Y136 and mature stationary heart
+336/Y120. It does **not** collect the heart in Mesen. The original replay
+jumps back from the pipe before building leftward movement and misses the
+brick row; receipt
+`2a4ad8b7b6089885f33e365ced44015dfd3fee685708236acb7c1e984630ac89`.
+
+The controls-only diagnostic `replay_jay_pickup_trace_1113.py --runup-x447`
+first builds leftward movement on the pipe. It lands on the brick row at
+X394/Y112, then stops at X351/Y112, donor flags2/control4. The mature heart
+remains present and health stays6. Trace Lua
+`c7e54d295a2ad368f98148a1e68b058a1165e0a2043b8600adb577e4c0afd5da`,
+receipt `c067fb37d2455bb5eaca4d188c4710330df454fdaa0b4ffd12aec7006bfff04d`.
+The exact screen-minimum/clamp versus terrain cause is under investigation;
+this is not evidence of an item disappearing. Smaller runup thresholds412,
+440 and444 start after donor support is lost and fail; they change controls
+only. The candidate remains private pending the pickup investigation and
+Downloads launch verification. No captures were created.
+

@@ -16,7 +16,9 @@ PIN = 'a3c5fa63872fbb3103ae57d9748fef233e8b2273e26d985aa4006b2492d81b8a'
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--placed-flower', action='store_true')
+    parser.add_argument('--forward-nudge', action='store_true')
     args = parser.parse_args()
+    assert not (args.placed_flower and args.forward_nudge)
     raw = Path('C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes').read_bytes()
     assert sha256(raw).hexdigest() == PIN
     Probe.Packet.extract(raw)
@@ -31,8 +33,11 @@ def main():
         episode = namespace['current_episode']
     rows = []
     cases = ((255, (1218, 1220, 1224)),) if args.placed_flower else (
-        (255, range(1214, 1232, 2)), (0, range(1278, 1296, 2)))
-    for face, positions in cases:
+        ((255, (1214,)),) if args.forward_nudge else (
+        (255, range(1214, 1232, 2)), (0, range(1278, 1296, 2))))
+    controls = [(n, pause) for n in (1, 4, 8, 12, 16, 24) for pause in (0, 8)] if args.forward_nudge else [(0, 0)]
+    for forward, pause in controls:
+      for face, positions in cases:
         for x in positions:
             returning, picked = False, None
             def put(model, **fields):
@@ -52,6 +57,10 @@ def main():
                     returning |= Probe.B.N.get(model, 'Player_Y_Position') <= 114
                     if returning:
                         fields.update(SavedJoypad1Bits=2, SavedJoypadBits=2)
+                elif args.forward_nudge and 'FrameCounter' in fields:
+                    epoch = fields['FrameCounter']
+                    pad = 0 if epoch < 16 else 1 if epoch < 16+forward else 0 if epoch < 16+forward+pause else 8
+                    fields.update(SavedJoypad1Bits=pad, SavedJoypadBits=pad)
                 return original_put(model, **fields)
 
             def terrain(model, _historical_fixture):
@@ -80,7 +89,8 @@ def main():
                 result = episode(seed, dict(poses=[]), b'', row=True, facing=face)
             frames = result['rows']
             climbed = [p for p in frames if p['native_y'] <= 114]
-            rows.append(dict(x=x, facing=face, minimum_y=min(p['native_y'] for p in frames),
+            rows.append(dict(x=x, facing=face, forward=forward, neutral=pause,
+                             minimum_y=min(p['native_y'] for p in frames),
                              first_cap=climbed[0] if climbed else None,
                              last=frames[-1], native_effects=len(result['native_effects']),
                              placed_flower_collected=picked))
