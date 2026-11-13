@@ -144,10 +144,18 @@ probe authenticates the actual runtime instead. Receipt:
 Root's separate actual7ef shots at engine7 Y99/Y163 confirm the invisible
 drop, receipt
 `252f9d60df0be361de719f91dff44bbf724798f6679fa9c022f3681f597991dd`.
-A settled phase4/pose15 snapshot emits five Prince OAM cells but its body
-region is black. That is a second unresolved visual issue; root is checking
-later palette/CHR data before selecting a repair. Neither309 nor7ef is
-called visually qualified or ready for delivery.
+A settled phase4/pose15 snapshot emits five shadow-OAM cells but its sampled
+body region is black. Root then completed a fourth bounded physical shot at
+phase30/frame16,404: Prince's brown/white body is visible at nativeY176.
+All four shots have correct hardware sprite palette3F11..13 values27/16/20.
+Six actual1-2 color calls show the queue empty before backdrop, offset4 after
+backdrop, and successful body-palette publication at offset10. The palette
+drop hypothesis is refuted; no palette retry is warranted. Four-shot receipt:
+`4e11add0aaedc5bc190d76f7aaf2abc05178991a068750c68f7cb57c78d96230`.
+The early shadow-OAM/PNG difference does not establish a persistent black-body
+defect or a particular hardware-DMA cause. Root separately reports all five
+functional physical cases green. These observations do not claim perfect
+raster output or a Downloads installation by this helper.
 
 There is an exact original fall-art witness for a later render-only fix:
 root's public62 cause trace sees action7/pose106 while the native drop passes
@@ -157,3 +165,13 @@ native world X minus screen-left plus8, and vertical anchor native Y+27.
 This does not justify priming C617, advancing source physics, or modifying
 health/fall counters. No render repair has been implemented in this
 checkpoint, and the frozen309/7ef image bytes remain unchanged.
+
+The read-only funding check found no immediate qualified80–90-byte renderer
+worker interval. Each remaining nine-byte retired material span A487/A51E
+needs a three-byte ordinary-flow bypass, leaving two six-byte helpers.
+The apparent historical PpReadProjection compaction is already installed;
+its recovered BD82..BDA1 tail contains a live action42/support helper and
+cannot be borrowed. The extended invisible engine7 drop is noninteractive;
+the user regains source control after actual support with full entrance
+health. Its appearance remains recorded for the later per-character
+cosmetic review. This checkpoint adds no unqualified code allocation.
