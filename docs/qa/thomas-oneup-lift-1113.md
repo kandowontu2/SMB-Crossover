@@ -1,6 +1,6 @@
 # Thomas hidden 1UP lift
 
-## Proposed source change
+## Source change
 
 Parent ROM SHA256 is
 `318a087735b4204c74274b4107efbc302bc15a674a7f6f9d3bed598cea90d08d`.
@@ -116,6 +116,37 @@ cookie and source hash. The parent must be exact 318a087.
 old cookie. It verifies the complete parent hash and recomposes the
 candidate byte-for-byte. It writes no files and requires no parent ROM
 copy. The forward/inverse round trip passes on 65ee94.
+
+## Complete stage regression and delivery qualification
+
+The same candidate separately passes the ordinary-controller mushroom,
+flower and Star route through the complete non-shortcut 1-1 and enters
+active 1-2 at X40/Y48, status2 and both lives. All six original pipe lifts
+are boarded and crossed, as well as the flower lift. The new eighth record
+does not prevent those actors from spawning. This run completes at physical
+frame8914, Main6178. Receipt SHA256 is
+`0ce772a418109ffd070ea0c1d5b29d6ba290ea1f21757246c3a7ff9f3737f3de`;
+controller SHA256 is
+`22a1ba43bb5b517c15b30843d4527cc3ba2f310c73fd8434daa8dfeda09b49c8`.
+The 1UP and full-stage routes are separate runs; this does not claim all
+four pickups in one uninterrupted run or both difficulty settings.
+
+The matching sole IPS has SHA256
+`8d08344f5faa26ac9bf5e4405455732f23699fd6777e4d1845408b89a9c66300`
+and 2,099,506 bytes. In-memory patch application reconstructs the exact
+tested candidate from the clean headered SMB World base. The delivery
+recipe `deliver_thomas_oneup_1113.py` requires the installed parent,
+reconstructs it from the candidate without a backup file, directly replaces
+Downloads, checks automatic patch sidecars before and after, and repeats
+the natural 1UP test using the Downloads launch path. Any failure restores
+the parent from memory. The source and report must be pushed before
+refreshing Current; the publisher independently downloads and reconstructs
+the sole release asset, then verifies Current is Latest.
+
+The direct Downloads replacement and repeat completed successfully: exact
+ROM `65ee94ca`, controller `66de68b1` and native receipt `3035b17e` match
+the qualified candidate run. Both patch guards pass and installed bytes
+equal the candidate. No backup files or captures were created.
 
 ## Reproduction
 

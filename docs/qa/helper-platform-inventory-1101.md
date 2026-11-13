@@ -3,6 +3,27 @@
 The functional roster pass is not complete. This inventory separates source
 placements from actual route verification; it is not the final all-character list.
 
+## November 13 Thomas hidden 1UP access
+
+Thomas now has eight native vertical lifts in World 1-1, all actor `$25`,
+width32 and initial top Y192. Their initial left edges are X400, X560,
+X688, X864, **X1008**, X1200, X2560 and X2816; corresponding centers are
+X416, X576, X704, X880, **X1024**, X1216, X2576 and X2832. The new X1008
+lift is below the authored hidden 1UP. No other character or alternate is
+affected by this placement.
+
+Actual Mesen on candidate `65ee94ca` observes its offscreen construction
+at relative left287, boarding at player X1023/Y152, a fresh original jump,
+the real hidden-block hit at X1026/Y139, native emergence/collection and
+exactly one awarded life (2 to3). Receipt
+`3035b17ea05fa4600ea64238fbbd59dc03a83fd680404c210e597392b5565cf3`.
+A separate full-stage run earns mushroom, flower and Star, uses the six
+pipe assists plus the flower lift, and enters active1-2 with both lives at
+frame8914. Receipt
+`0ce772a418109ffd070ea0c1d5b29d6ba290ea1f21757246c3a7ff9f3737f3de`.
+See `thomas-oneup-lift-1113.md`. The older notes below retain the earlier
+seven-record and six-record verification scopes.
+
 ## November 13 Thomas flower access
 
 Thomas receives a seventh native vertical platform in World 1-1 at the
