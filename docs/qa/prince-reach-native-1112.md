@@ -126,3 +126,9 @@ matching native controller bytes and in-memory IPS reconstruction. Proposed
 IPS SHA256 `fd0c11b7745c1a3e4f62d46272b0540316d5ab2861667bd65749050f131357a4`,
 2,099,506 bytes. Installation and release publication have not been run;
 the pending sword regression gates remain mandatory before either action.
+
+Root independently repeated all four sword-control episodes on combinedc5ce8c
+using the actual native collector/controller/defeat entry points in the CPU
+model: Koopa box3 and Goomba box9, each facing. All completed parry, attack,
+one native defeat, sheathing and idle with HP5. These are placed-flower/enemy
+scenes, not a natural pickup route or a physical Mesen sword recording.
