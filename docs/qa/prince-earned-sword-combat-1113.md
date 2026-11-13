@@ -90,7 +90,16 @@ Commands are stdout-only through `run_bounded_build_v1.py`, output root
 The pure readonly native binding is `check_prince_earned_sword_combat_1113.controller(candidate)`;
 it authenticates the exact image, cookie and all24 runtime bytes, retains the
 frozen natural prefix, then applies the same combat decisions and causal checks.
-Its complete CPU/Main/NMI run (`--candidate --lua`) is in progress at this
-checkpoint. Root owns later physical Mesen, full-stage/regressions, installation
-and IPS publication. No physical pass or delivery is claimed here. Prince is
-the only affected identity; no helper locations changed.
+Its complete CPU/Main/NMI run (`--candidate --lua`) passes3499 updates:
+2885 natural-prefix updates plus614 combat updates. Every terminal source,
+native, guard, camera and cache field equals the direct strict replay.
+Native slot0 remains defeated (state34/score1), and the second genuine Goomba
+has become the next proxy UID129; its newly drawn sword is not a stuck state.
+Controller SHA `848c67e399f5166ffea335d437a82a565885303a2753e5911e629d559b4aa0b3`,
+CPU binding `6d7e240640cee6500931a8a6e114e7ab589c9db280b7994482c787d111533b12`.
+This binding uses read-only observations and ordinary controller inputs only;
+it includes the entire actual title/menu/Start prefix for root's physical run.
+
+Root owns later physical Mesen, full-stage/regressions, installation and IPS
+publication. No physical pass or delivery is claimed here. Prince is the only
+affected identity; no helper locations changed.
