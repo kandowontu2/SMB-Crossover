@@ -134,6 +134,16 @@ KrCombatBlock and a real native MmBlockAttack proxy to shatter masonry and
 activate powerup bricks. The next controller uses standing B pulses during
 the jump and continues clearing incoming enemies; no ROM defect is claimed.
 
+The jump-plus-fireball diagnostic8a9ef998d23ccec51bfc137972cf1d0886cb5bb7dce2ccbbf37a7afa1a02df3c
+keeps full health and both lives in actual Mesen, but hits the480-update
+fourth-bump bound with only three births (X1097/Y176). Receipt
+159ab83104f48f8957d4f1bf6b9071a1bb2ca74a62cbf5ca0449e9298dfe4c2e.
+CPU with the identical script does shatter the lower brick and reveal/mature
+the fourth flower, then misses collection because the helper is displaced
+by adjacent masonry. CPU/native timing equivalence is therefore not claimed.
+The next replay adds read-only source projectile/block and native head traces
+before further control changes.
+
 Fourth natural flower/Bomb acquisition and use remain pending. Ladder, Clapper,
 Glasses, Swimming Mask and Shield remain required integrations, along with the
 broader original equipment/audio and roster obligations.

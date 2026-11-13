@@ -127,9 +127,16 @@ local function control()
      return 0
     end
     -- GroundY176 and the authentic48px jump already reach the underside
-    -- at brick128..143. A lift here bypasses that head contact.
-    if ground and epoch-lastPulse>30 then lastPulse=epoch;return 128 end
-    return 0
+    -- at brick128..143. The52 masonry immediately below it must first be
+    -- broken by the existing source fireball/native block-effect bridge.
+    if ground then
+     local clear=clearGroundEnemy(x,y);if clear then return clear end
+     if x<1097 or x>1099 then to('bomb-approach');return 0 end
+     if r('PlayerFacingDir')~=1 then return 1 end
+    end
+    local pad=epoch%8<4 and 64 or 0
+    if ground and epoch-lastPulse>30 then lastPulse=epoch;pad=pad|128 end
+    return pad
    end
    return ordinary(x,y,ground)
   end
