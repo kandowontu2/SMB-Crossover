@@ -46,6 +46,16 @@ Checker SHA b2f2587e687d698d89b7852e182060a2ea0e3dafb7ebbab38d15809f9d777820;
 trajectory digest f8acc5be87bfdbda686fcfa694ba98b9f40c0c50f4c86260dcb528b7bdd71615.
 The bounded command exits0 with zero files, no ROM edits or Mesen.
 
+`check_dkjr_platform_contact_caller_1113.py` independently tests the existing
+caller suffix before relocating anything. At actual native PRG0 B442, after
+the current dispatch returns, it varies A over0/1/40/255 and all16 NZCV
+combinations. Across slots0/3/5 and timer0/1,384 cases produce exact returned
+AXYP, native fields, all source WRAM/maps, VRAM and CHR selection. Only dead
+foreground stack bytes0100..01DE are excluded; the live return stack is exact.
+This establishes A/NZCV liveness for the declared DK component fixture, not
+foreign-owner or complete-Main parity. Checker SHA
+e36a39fbc21f34ce46337c24bb8ccd008ae2d36cb0a0bf93adc71349baac8e20.
+
 ## Narrow native resource request, not a grant
 
 `check_dkjr_platform_contact_funding_1113.py` reproduces the original full
@@ -89,5 +99,7 @@ This fit sends foreign fast platform paths through an additional native
 farcall pair; its actual cycle cost must be measured before adoption.
 Preserving the old direct fast jump instead needs7 more qualified PRG0 bytes
 than the current55B dispatch/policy ownership. No such span is assumed.
+The apparent fixed126 SmallPlatformCollision padding is unavailable: current
+99FE..9A28 contains live LmNativeMusicGate/DMC code, with only1EA remaining.
 No resource is granted or ROM patched by these source fit checks. All old
 frozen controllers and observer outputs remain unchanged.
