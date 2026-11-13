@@ -80,6 +80,11 @@ Refresh grows128 to129 bytes within its129-byte grant. PIPE remains117
 bytes and constructor returnD1F0 stays fixed. Horizontal ordinal8 becomes9.
 Production helper inventory awaits root's native qualification.
 
+Width32 above denotes the native box5 collision extent. The current normal1-1
+native renderer selects six-sprite poses86/87, whose visual offsets are0..47:
+the visual width is48. The inventory now lists the336 proposal explicitly as
+PRIVATE/unreleased with both widths; the thirteen public rows stay unchanged.
+
 ## CPU results
 
 The bounded zero-output suite passes384 paired original rectangle cases,
@@ -154,7 +159,58 @@ resumes. This uses the earlier observer Lua
 receipt `bb4a963c3f24ebcb9c08ece675f72570d96eae0a09a707b3f4989d0c3bc375dd`.
 The later fa9 observer adds an explicit equality between the already observed
 birth/maturity/collector slot, with identical controls and ROM bytes. Its
-stricter direct62 CPU replay passes. Native full-stage regression is pending;
-root keeps f116 gameplay source and full2057 controls frozen during that run.
+stricter direct62 CPU replay passes. Actual native full-stage Lua2057 also
+fails on the same f116: first three pipes pass,880 has no birth, and a native
+Goomba injures DK Jr. atX851 after7030 physical frames /2755 Main updates.
+Receipt `384e3259e90cd6c107523efd3e62ba2608577a22c13fda374e611ba2ca13868e`
+confirms that this is a real resource/admission regression. f116 remains
+unqualified/private; public62 retains the original thirteen-row policy.
+The candidate and its fa9/2057 controllers stay reproducible and frozen.
 All outputs are in memory/stdout under
 `build/dkjr-head-bridge-1113`, maximum one file reserved; none generated.
+
+## Retirement investigation after the native negative
+
+`check_dkjr_helper_retire_1113.py` measures the actual current native pose
+selection and bytes. Normal1-1 poses86/87 use six eight-pixel cells at
+offsets0,8,16,24,32,40; visual right is47. Box5 is[0,0,32,13]. For helper560,
+visual right607 and collision right592 are both strictly left of camera608.
+The native OffscreenBoundsCheck nevertheless retains it through camera632
+and calls genuine EraseEnemyObject8D2F at633, using its original72-pixel
+extended margin. A conservative new threshold609 would fit the next880
+helper's ordinary camera593..624 birth window.
+
+The unallocated native-service draft checks SelectedCharacter40, world0,
+level0, areaCE, live primary ID25/state0/box5, negative native passenger flag
+and the complete unsigned16-bit camera-minus-left distance greater than48.
+It uses genuine native teardown and otherwise retains the original large or
+small bbox. Isolated fixtures pass306 geometry/slot cases,29 nonowner,
+state or passenger guards, and216 paired complete-refresh fallbacks with
+identical AXYP/SP, native fields and WRAM. The explicit-owner native draft is
+85 bytes. Its fixture temporarily substitutes a native span in memory only;
+that span is not granted and this is not a composable candidate.
+
+No existing OBJECT tail qualifies: DrawSmallPlatform130 bytes contain the
+live lift wrappers and bbox gate; DrawVine181 bytes contain live Ryu closure
+bridges; only11 bytes remain in the declared PositionPlayerOnVPlat padding,
+and the OBJECT end is followed by live HuTimerFast. Apparent old linker gaps
+in other banks are occupied by later owners, including Tank31, Metal36,
+Ex37 and the Mac123 common cold pool. No fill-only allocation is inferred.
+
+A separate owned-storage proposal is under investigation. Current DK pairs
+47/55 are byte-identical to9 and49 is identical to41. They occupy96 bytes of
+physical959 at[736,800) and[864,896). Rebinding all consumers could store
+private code there without changing any sprite pixels. That page is
+currently skipped by program/metadata cold copying. A proposed ninth-row
+copy would require an explicit entire conditional raw2 C900..CCFF lease;
+no such lease is granted. Complete pose/portrait/OAM alias census, effective
+writer/clear/indirect bounds, copy/readback/header failure closure and stack
+proof remain required before any placement or formal resource request.
+
+`check_dkjr_helper_retire_funding_1113.py` separately proves the original
+62-byte rectangle predicate can use42 bytes:135168 paired cases preserve
+all AXYP/SP, source RAM, C/V/N/Z and original source-field read order,
+including the equal-left short circuit. This is an isolated compaction
+proof. It has not been applied to f116. The existing pure fall leafA31F is
+also byte-identical to the duplicated six-byte OriginalFall, providing a
+measured source-factoring lead. Current f116/fa9/full2057 remain frozen.

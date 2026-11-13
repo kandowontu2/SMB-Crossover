@@ -160,6 +160,25 @@ The horizontal platform spawns at camera-left X1121. Its left edge first
 enters screen bounds at X1397 with camera-left X1143. Donkey Kong Jr. lands
 on it at X1393 and reaches the far side at X1425/Y176.
 
+PRIVATE / UNRELEASED November13 DK Jr. first-pickup proposal: the public
+thirteen placements above remain authoritative. This additional helper has
+passed the first mushroom route but fails the ordinary full-stage regression;
+it is not installed in public62.
+
+| Character/alternate | Stage | World left X | Center X | Initial top Y | Collision width | Visual width | Status |
+|---|---|---:|---:|---:|---:|---:|---|
+| Donkey Kong Jr. (Donkey Kong, Select once) | 1-1 | 336 | 352 | 192 | 32 | 48 | PRIVATE, unreleased |
+
+On privatef116, native first-pickup Lua9730 gives receipt
+`bb4a963c3f24ebcb9c08ece675f72570d96eae0a09a707b3f4989d0c3bc375dd`:
+helper5 is born at relative287, and mushroom slot2 is prepared, matures and is
+actually collected; status1 resumes with both lives. The same candidate's
+ordinary full-stage Lua2057 fails because880 never receives a free actor slot,
+then a Goomba injures DK Jr. atX851; receipt
+`384e3259e90cd6c107523efd3e62ba2608577a22c13fda374e611ba2ca13868e`.
+Measured native collision width is32, while the normal1-1 six-sprite visual
+width is48. [Private source and scope](dkjr-head-bridge-1113.md).
+
 The [SMB2 preview update](smb2-menu-tier-isolation-1110.md) changes menu
 power state and uses no new helper platforms.
 Prince of Persia (Excitebike Select 1) clears four authored pipes and the first
