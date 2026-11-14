@@ -180,3 +180,88 @@ its qualification: do not deliver a motion-only change that exposes them.
 An actual full cheat-route witness and separate literal authorization are
 required. Ordinary no-cheat12397 routes for all8 remain a separate closed
 positive; this diagnostic does not supersede them.
+
+## Source cause: cold owner routing, all supported cheat masks
+
+New zero-output checker `check_smb2_invincible_dispatch_1113.py` binds exact
+installed12397 and its inverse, actual compiled menu/caller/restore/owner
+windows, and the normal S2BoundaryGame foreign path. Normal E045 dispatch
+reaches BF:AD21 S2BoundaryGame, then F6:B86F S2MainGame, B897 S2MainPlayer
+and A640 S2NativeStart. The canonical cold path instead reaches CF:BDF5
+HuGameColdDispatch, BF:A252 CheatsGameRoutinesGate, then its A2D0 Native
+tail calls81:A021 GameRoutines directly. This skips the source owner that
+imports controls and updates the SMB2 actor. Native PlayerCtrlRoutine alone
+does not replace that update. Source clock advancement is not evidence of
+an actor update.
+
+The matrix uses all eight genuine cold/menu/Start constructor variants.
+For each it clones the constructor and tests all32 supported flag masks.
+The nonzero masks are produced by actual compiled CheatsMenuInput calls
+with explicit focus/pressed UI mailboxes: rows0/2/3/4/5 toggle bits1/2/4/8/16.
+This is a **direct menu-call source unit**, not a title/options replay; the
+real opening's authority remains root's86e0977a native receipt. No direct
+cheat-flag, actor, position, source health or ability seed is used.
+
+All256 cases pass the diagnosis assertions, eight ordinary Right Main/NMI
+updates each. Every one of248 nonzero-mask cases makes eight CheatsGate,
+Native, GameRoutines and PlayerCtrl calls, with zero calls to the four S2
+owner entries above. X remains40, Held/VX remain0, despite actual saved
+Right input1 and eight source-clock increments. All eight zero-mask controls
+make eight calls to each S2 owner entry, set Held1 and move right from40.
+The source trace SHA256 is
+`6fbf5f5d323ffa9e04771f2e0fa315eeb73b99fc1261a1523511daeee9893f3f`.
+This is a whole-byte CheatsGate routing defect, rather than an Invincible1
+input-poll defect. Ordinary no-cheat routes remain the closed positives.
+
+The actual Native entry is reached1984 times with GuestHurtKind0 and
+A0/Z1/N0, established by its immediately preceding `LDA GuestHurtKind/BEQ`.
+Other incoming flags and X/Y are not assumed zero. A blanket retarget to
+S2BoundaryGame would be unsafe: that routine's foreign leg targets81:A14D
+HuGameRoutinesDirect, whose raw24/DragonPower and raw2/RdVariant1 special
+paths return to E033. The repair must select only raw25 and retain the
+original foreign81:A021 fallback, without introducing that recursion.
+
+## Isolated minimal routing proposal; placement not granted
+
+The checker also contains an isolated instruction-memory unit proposal;
+it does **not** return or modify a ROM. Existing57-byte owned restore/tail
+A2A9..A2E1 has preimage SHA256
+`f0b7b295e1117561595767b6105c2b6a7a203d3044118e020af663c6e55e24b5`.
+Changing its ten-byte pop loop to eight bytes (`LDX #F8; PLA; STA R0+8,X;
+INX; BNE`) retains the same eight R0..R7 pop/write addresses and order via
+zero-page wrap. The restored X/Y/A/P and original injury tail remain.
+The two bytes allow a20-byte selector in the existing Native footprint:
+raw25 reuses existing AD40's genuine F6:B86F tail, while all other raw
+owners retain the exact81:A021 target setup through a15-byte local tail.
+The selector uses LDA/EOR and restores the proven A0/NZ precondition,
+preserving Carry/Overflow and introducing no extra pushes or RAM writes.
+
+Requested storage is only BF:AAF0..AAFE, file half-open518912..518927,
+with AAFF retainedFF. All16 current padding bytes areFF, SHA256
+`5ac6a5945f16500911219129984ba8b387a06f24fe383ce4e81a73294065461b`.
+The exact Ready85 member
+`build/doki-current-component-1101-v1/src/smb2_roster_host_v5.s` in retained
+source.zip has SHA256
+`ec181a33ecc6a7bd74d5f0856ec6cf40f76b00946a71e603cdf8a446f10e3220`.
+Its line84 explicitly emits this padding after the14-byte
+S2TypedWorldPalette arithmetic/RTS and before the36 veneers at AB00.
+No local literal JSR/JMP targets the padding; all224 actual current Rogue
+page-reader rows exclude physical63. The apparent old B001..B800 gap is
+**not** used: current bytes there are populated code/data, irrespective
+of the historical segment-end label. Root must review and grant the
+exact15-byte padding before any composer or runtime placement.
+
+The isolated source unit passes65,280 foreign-owner/all-P pairs,
+256 raw25/all-P owner pairs and65,280 nonzero-hurt/all-P pairs. Each R0..R7
+slot spans all256 data values for every P; fixed loop control is independent
+of those data. All foreign/injury AXYP/SP, live stack and ordered RAM/SMC
+writes match the original exactly. Raw25 differs only in its intended
+F6:B86F target/terminal bank A, using authenticated existing AD40 code.
+This is a proposed restore/selector ABI, **not** a Main/IRQ/native pass.
+
+Commands use the same empty bounded root, max-files1, timeout120/600;
+bindings,256-case matrix, exact-source funding and isolated ABI modes
+all exit0 with outputs0. There is no resource grant, ROM patch, new
+RAM/CHR/helper, renderer change or native invocation from this work.
+The unresolved119/120 E037 old cold literals remain untouched and must
+be qualified if a later private movement repair reaches DMC aliases.
