@@ -242,3 +242,17 @@ compilation pass. Candidate Lua SHA256 is
 Root owns native qualification and requires zero matched stale targets and
 correct resident returns during real samples before delivery. No local
 nightly, patch or release is created by these source APIs.
+
+An additional bounded unmodified-game Luigi source replay passes on exact
+12397. It uses the same genuine cold/menu/Start and Main/NMI driver as the
+negative, supplying the frozen a8e2c9a4 ordinary control text with only its
+ROM identity rebound. The resulting control SHA256 is
+`5804ddb027a6b2956dae8fd155184a4a521a59e7fd784689d95db240fd8bfe4f`.
+At3768 scheduler passes/3767 returned Main, real flag/castle/pipe and25
+quiet grounded1-2 updates pass: world0/level1, AreaType2, engine8,
+X40/Y176/HP31/lives2, no source CPU fault. Actor/position/ability seeds and
+output files are zero. Only the local test harness's controller factory
+binding is supplied; no game byte beyond the six-operand proposal or
+peripheral status/timing is changed. This closes the measured A176/9139
+source replay failure while retaining the driver's documented timing
+limits. It does not replace root's native sample/return qualification.
