@@ -1,0 +1,144 @@
+{
+  "schema": "root-source-allocation-v1",
+  "date": "2026-11-13",
+  "status": "granted-private-source-proposal-only",
+  "owner": "SMB2/Doki hidden upward player head cache",
+  "parent_ROM_SHA256": "12397b1c2557834f6a2b7e23c9915d5dc40c6cabff7a6ee844c1adebf6564c52",
+  "source_checkpoint": "797d415b",
+  "measurement_tool": "tools/audit/measure_smb2_hidden_head_split_1113.py",
+  "measurement_tool_SHA256": "39ff7854976e7ed81d66042d1aeb6b35b9b547552d3ede684c342389cc45b353",
+  "measured_generated_source_SHA256": "5302cab40bdc908174b0ae52be9f10e8f09b9940750d28d051d1e852818b12a1",
+  "root_independent_readers_check_passed": true,
+  "native_negative_receipt_SHA256": "8a01bf25bea218ee2e5fd8a894f8aedd051029eeef66e2a77bb1bde2be60489c",
+  "spans": [
+    {
+      "role": "existing owned probe body",
+      "physical_bank": 118,
+      "CPU_half_open": [
+        45352,
+        45526
+      ],
+      "file_half_open": [
+        971064,
+        971238
+      ],
+      "bytes": 174,
+      "preimage_SHA256": "d3a51ff14df075b3b6ef29faf6d23f96bcf1f938c24b6b98c7dd8543a44636ad",
+      "allowed_replacement": "Exact 174B publisher-sharing main from the pinned measurement and generated source; no envelope growth"
+    },
+    {
+      "role": "rare tile60 predicate in explicit alignment",
+      "physical_bank": 118,
+      "CPU_half_open": [
+        42551,
+        42560
+      ],
+      "file_half_open": [
+        968263,
+        968272
+      ],
+      "bytes": 9,
+      "preimage_hex": "ffffffffffffffffff",
+      "replacement_hex": "8af003297f604c6bb8",
+      "source_member": "src/smb2_roster.s",
+      "source_line": 5,
+      "source_declaration": ".res 9,$ff",
+      "source_SHA256": "e800627aa1297c7f9503a18c700383bda2fc16b516f30e79c3b379cfba60e057"
+    },
+    {
+      "role": "player vertical-speed leaf in explicit palette-header tail",
+      "physical_bank": 118,
+      "CPU_half_open": [
+        47211,
+        47215
+      ],
+      "file_half_open": [
+        972923,
+        972927
+      ],
+      "bytes": 4,
+      "preimage_hex": "eaeaeaea",
+      "replacement_hex": "ad2a5c60",
+      "source_member": "src/smb2_roster_palette_v2.s",
+      "source_line": 27,
+      "source_declaration": ".res 45-(*-OwnStart),$ea",
+      "source_SHA256": "54b432ff7332181fd092e19a7f5d6a02043bc4ec1c8edece786ff3ef2f1cbe7f"
+    },
+    {
+      "role": "shared probe return in explicit MainPalette tail",
+      "physical_bank": 118,
+      "CPU_half_open": [
+        48278,
+        48292
+      ],
+      "file_half_open": [
+        973990,
+        974004
+      ],
+      "bytes": 14,
+      "preimage_hex": "eaeaeaeaeaeaeaeaeaeaeaeaeaea",
+      "replacement_hex": "8af004a9ffd001388d0e5c68aa60",
+      "source_member": "src/smb2_roster_main_v2.s",
+      "source_line": 567,
+      "source_declaration": ".res 14,$ea",
+      "source_SHA256": "605c9db58cea4b18a860b961ad5b34db16dddf4bf09af18cfe3b3c40fcb2f92c"
+    }
+  ],
+  "source_packet": "docs/qa/checkpoints/2026-11-01/ready85-doki-native-v1/source.zip",
+  "source_member_prefix": "build/doki-current-component-1101-v1/",
+  "protected_anchors": {
+    "probe_entry": 45352,
+    "probe_shared_RTS": 45525,
+    "following_Ground": 45526,
+    "component": 42560,
+    "MainGame": 47215,
+    "Spawn": 48292
+  },
+  "allowed_internal_relocations": {
+    "ProbeOtherTile": [
+      45467,
+      45460
+    ],
+    "ProbeSolid": [
+      45513,
+      45514
+    ]
+  },
+  "consumer_evidence": {
+    "header45_SHA256": "4cf03224d0a1439453d784e963f5a8ab6eaaa9ed3bd4b84de1bf0f1b15611256",
+    "palette74_SHA256": "270884207301ddcef146df789ee21134e3930d1a5ae79a41cfa9ba1dd7dbe7ba",
+    "header_table_half_open": [
+      47203,
+      47211
+    ],
+    "header_index_domain": "BackgroundColorCtrl0..7; AreaType0..3 if control0; actual parser masks and menu values bounded",
+    "current_Rogue_page_readers_excluding_bank118": 224,
+    "all_eight_S2_DMC_samples_in_banks": [
+      119,
+      120
+    ],
+    "audio_driver_bank": 74,
+    "music_data_bank": 117,
+    "no_literal_local_JSR_JMP_into_padding": true,
+    "no_original_padding_fallthrough": true
+  },
+  "required_behavior": "Only tile60 upward player X0, negative source vertical speed and direction0/1 may publish the existing head cache; retain the original empty/passable probe response. Feet/sides/nonplayers stay passable and cache-empty. All non60 behavior remains equivalent.",
+  "new_RAM_bytes": 0,
+  "new_CHR_bytes": 0,
+  "new_padding_code_bytes": 27,
+  "stack_policy": "Original returned SP and live caller stack exact; rare tile60 predicate JSR must be explicitly covered by IRQ/busy-NMI stack bounds. No new persistent stack or RAM allocation.",
+  "required_gates": [
+    "Exact source assembly, reversible candidate and unowned-byte equality",
+    "Public anchors and all outside callers of moved internal labels closed",
+    "Whole-probe and actual-caller oracle for non60, all hidden orientations/object roles, live registers/flags/stack/peripherals",
+    "Genuine source-frame and IRQ/busy-NMI validation at every new instruction",
+    "Natural hidden1UP head/birth/mature collector/popup0B/delayed life gain/stat retention with no gameplay seeds",
+    "Root private native and ordinary regression before delivery",
+    "Any rebase must preserve the independently repaired cheat owner/E037 operands and every other current fix"
+  ],
+  "exclusions": [
+    "No BFFC module-end fill, BF AAF0 cheat lease, audio payload or unrelated padding",
+    "No new helper platforms, general hidden-block solidity, physics or level changes",
+    "No Downloads replacement or patch/release publishing under this private grant"
+  ]
+}
