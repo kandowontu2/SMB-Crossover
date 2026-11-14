@@ -82,3 +82,24 @@ art change or candidate is proposed/applied here. Root requested a separate
 natural-Mushroom observation and, if confirmed, a minimal temporal7 proposal.
 Any such change requires its own source-domain/owner/record/lifecycle proof and
 Root grant. Current stage and graphical correctness scopes remain separate.
+
+## Root64354 actual Downloads full-stage result
+
+Frozen1725 passes actual Downloads1daca:8959 physical frames/7402 Main,
+6120 GmMovement calls/56 in1-2, full flag6356/castle6418/entrance6807 followed
+by25 grounded1-2 updates. Terminal40/176/high1/native0, HP2/max2, lives2,
+power0/Star0. Receipt
+`a6f2ada1ada24b24daaecd33352b60e95d7525bf2863eaaad62f371afc0965d9`.
+
+Actual native execution records **8 genuine GmRideStar support events**.
+First: Main3469/frame4350, player721/Y162, nativeState2 at the pre-export
+return witness, source ground80hex, star status1/flags40hex, star world
+X726.8125/Y208. The hook witnesses the actual original air→support transition
+before the following motion export. This is intended-star-riding evidence on
+the native route. The source model's0 support events stay separately scoped;
+they are not transferred to, or used to deny, the observed native result.
+
+No helper or geometry changed. This closes the stated current normal full
+stage scope with original star use/riding and both lives. It does not qualify
+every ability, every natural item, all graphics, audio or physical performance.
+Root alone ran Mesen; no images or generated output files accompany this test.
