@@ -404,6 +404,39 @@ stairs/native flag/castle assertions pass. The endpoint remains active falling
 CPU result is offered for root's private native test; no new native success,
 ROM update, source physics change or nightly delivery is claimed.
 
+Root92539 has since run exactcd300 on769: **negative** at final riser6,
+receipt `5d76c90841f0c0e5c6d30fcf148ac71e042ce43f778413bc3c370cbd29a2e509`.
+At17812 physical/Main7776 it is2991/64/age2/time76/both lives. Actual3 Left
+acknowledges7583 at2931/112/nativeState2, jump7585 source3/facing0/direction4,
+and settled landing7610 at2946/96. Step4 jumps7632/2960 and lands7644/2966/80.
+Actual5 acknowledges Left7648 at2965/80 and jump7650 at2964/79, then lands7682
+at2983/64. Both backward-facing sequences work natively. Step6's unchanged
+late right-facing A7696 at2992/64 and retries7712/7731/7752 gain no useful
+height. All6 pipes/3 gaps remain healthy. cd300 is therefore a retained native
+negative, not a full clear; no installed merge follows from it. The next one
+bounded proposal applies the same authentic early preparation to every actual
+stair top, deriving its takeoff from live solid-cell geometry and backing up
+from a farther-forward preceding landing. No ROM or geometry change is made.
+
+The separate `replay_dkjr_stair_geometry_turn_1113.controller(raw769)` is
+frozen as Lua
+`80ef49e799e7d59775cc8a81ae7f5ef14207240e4d78b90c7b54f68105261386`
+(metadata95612 exit0). For all six authored risers it reads the actual block
+buffers and original solid-attribute predicate, finds the next exposed stair
+top, derives the takeoff from the original backward body's16px right extent,
+and stages12px before that anchor. It requires actual donor ground, released
+A/acknowledged Left facing and acknowledged backward-right jump. It retains
+all landing, health, stage, flag and castle checks. Full source replay13389
+is still pending; a terminated earlier run lost its exec receipt during the
+context handoff and is not counted as evidence. No native run is requested
+from metadata alone.
+
+The strict source-only merge over delivered12397 is recorded separately in
+[dkjr-direct-postbg-current-1113.md](dkjr-direct-postbg-current-1113.md).
+Before DK delivery, empty-opening idle/walk returned-Main cadence must also
+be compared with genuine original NROM scheduling. The full native route's
+input-poll/physical/Main ratio alone does not identify a performance cause.
+
 The strengthened primitive unit audit20880 exits0 with all state-reset
 assertions. Its first stricter-PC audit90013 misclassified the owned RAM2
 world-span helper D2D5/D2D8/D2DB/D2DE/D2F6 as native code. Classification now
