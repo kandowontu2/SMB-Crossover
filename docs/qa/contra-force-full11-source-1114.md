@@ -3,7 +3,8 @@
 Four separate normal-control full1-1 controllers are prepared for exact current
 `421379021e775e6e03357c0aa11d4cab04008452f94bc9e8938f0662cc0c979f`.
 Strict metadata, Lua compilation and local controller components pass for each
-choice. Full source routes and root's native routes remain pending below.
+choice. Use the **v2 observer successor** below; the original v1 cookie observer
+is an explicitly retained negative. Full source routes and root's native routes remain pending below.
 Preparation is not a stage-clear receipt.
 
 The retained f476 report at
@@ -84,8 +85,43 @@ python -B tools/audit/run_bounded_build_v1.py --output build/contra-force-full11
 
 ## Full route status
 
-All four metadata/component arms returned0/PASS. Burns full source is active;
-Smith/Iron/Beans full source and all four native results are pending. Source
+The original v1 Burns source run failed its observer at Main2/X42/Y176/lives2,
+after a genuine source movement/export: receipt
+`cb919f8c0963afc6feae9982f68c50690e58c9d3810ec188fa1755055694c908`.
+It incorrectly expected the complete fingerprint in both C2 and C3. The actual
+loader source `CfLoadVerified` publishes only C2's cookie and deliberately
+leaves C3's32-byte reserved tail zero. This is an observer assumption error,
+not a game/traversal failure. Commit`f5489dfd` and every v1 pin above remain
+frozen, unqualified and independently reproducible.
+
+The separate `replay_contra_force_full11_v2_1114.py` authenticates its frozen v1
+parent and replaces exactly one observer statement. It requires the complete
+16-byte C2 cookie and all32 source-declared zero C3-tail bytes; all existing
+C3 worker/export/impact signatures remain enforced. The expected outer cookie
+also equals current `CfLoaderExpectedCookie` byte-for-byte. Selector, navigation,
+combat, jumps, success conditions and every other observer are identical.
+
+Corrected API: `replay_contra_force_full11_v2_1114.controller(raw421,key)`.
+Factory SHA256 `8330845efee9e4a7eb800e457f3c3c55a28590159d274b6d7d49b699500a08c4`;
+checker `check_contra_force_full11_v2_1114.py` SHA256
+`7814058dc0d1ec48646c2591b9a752c3c2bfe9e56afdce4553b37517e6bb9d63`.
+
+| Key | Corrected frozen v2 Lua SHA256 |
+| --- | --- |
+| `burns` | `93028d0999787c6eebf6ca46b19898a6b2452d45e8c8957af4ec3d52b0c7b1e0` |
+| `smith` | `e108ceacb8ddca9d86c52abda547576348b60109853497c178265a290d042c1c` |
+| `iron` | `9d8e2d714bf5deec13f36b24530ac40305c773fea345167c90019b03486a5edc` |
+| `beans` | `74f91e095f47813de185f003a6e12e40e3cfa9b51df533b63c248ccada073270` |
+
+All four v2 metadata/component arms returned0/PASS. The same unmodified Burns
+full controller also passed a genuine ordinary first-pipe/camera source prefix:
+Main399 at X508/Y176, camera396, grounded, life2, power0 and source class0, with
+the complete C2 cookie/zero C3 tail verified. No state is seeded. `--prefix`
+on the v2 checker repeats this bounded read-only checkpoint; it does not claim
+the unexecuted remainder of1-1. Full Burns source then advanced to Main500 at
+X631/Y98 on the next pipe, alive and unpowered.
+
+All four full v2 source processes are active; all four native results are pending. Source
 execution uses the compiled cold-menu/Select/Start/parser/constructor arena and
 normal controller/Main/NMI scheduling; it does not establish physical video/APU
 timing or cold-title authority. Root owns those actual native checks.
