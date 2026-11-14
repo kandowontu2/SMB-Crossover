@@ -9,6 +9,7 @@ from nightly_patch_guard_v1 import check
 Base=Replay.Base
 LUA='ca91879ddf7745d10d1fb7b9199a6bfd7d1f5bd7ace490070c19fc8afdea3e8d'
 PUBLIC='3684f3d2a418a484befd80fca351d0dc5f9b472f6f067a0a7894994ea343679d'
+PUBLIC_POSTBG='12397b1c2557834f6a2b7e23c9915d5dc40c6cabff7a6ee844c1adebf6564c52'
 
 
 def main():
@@ -16,13 +17,14 @@ def main():
     p.add_argument('--metadata',action='store_true')
     p.add_argument('--max-missed-updates',type=int)
     args=p.parse_args()
-    assert check(Base.ROM)['ROM_sha256']==PUBLIC
+    public_now=check(Base.ROM)['ROM_sha256']
+    assert public_now in(PUBLIC,PUBLIC_POSTBG)
     rom=Base.OUT/'candidate.nes'
     raw=rom.read_bytes()
     assert sha256(raw).hexdigest()==Replay.T.PIN
     text=Replay.controller(raw)
     assert sha256(text.encode()).hexdigest()==LUA
-    summary=dict(ROM_SHA256=Replay.T.PIN,current_Downloads_SHA256=PUBLIC,
+    summary=dict(ROM_SHA256=Replay.T.PIN,current_Downloads_SHA256=public_now,
         Lua_SHA256=LUA,native_run=not args.metadata,private_only=True,installed=False)
     if not args.metadata:
         script=Base.OUT/'controller.lua'
@@ -37,7 +39,7 @@ def main():
         summary.update(passed=q['passed'],receipt_SHA256=q['receipt_SHA256'],
                        receipt=compact,outputs_written=q['outputs_written'])
     print(json.dumps(summary,separators=(',',':')),flush=True)
-    assert check(Base.ROM)['ROM_sha256']==PUBLIC
+    assert check(Base.ROM)['ROM_sha256']==public_now
     if not args.metadata:
         assert q['passed'],'Private Mini full route failed'
         if args.max_missed_updates is not None:

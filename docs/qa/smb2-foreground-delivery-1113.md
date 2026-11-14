@@ -1,8 +1,10 @@
 # SMB2 entrance and normal foreground qualification
 
-Current Downloads is the verified merged3684 nightly. It directly replaces
-f88 and retains the Bub/Bob improvements. Releases remain empty. The earlier
-private2448 evidence below stays attached to that tested candidate.
+This records the verified merged3684 delivery, subsequently replaced by
+12397 after the sampled-audio fallback repair. The current authority is
+`smb2-postbg-delivery-1113.md`. Both retain the Bub/Bob improvements;
+releases remain empty. The earlier private2448 evidence below stays
+attached to that tested candidate.
 
 ## Reversible merge
 

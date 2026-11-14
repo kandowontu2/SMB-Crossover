@@ -1,12 +1,12 @@
 # SMB2 sample-bank fallback: native qualification and delivery
 
-The private candidate is
+The delivered nightly is
 `12397b1c2557834f6a2b7e23c9915d5dc40c6cabff7a6ee844c1adebf6564c52`.
 It changes exactly six literal operand bytes in sample aliases119/120 over
 3684. All opcodes, addresses, samples and every other byte remain exact.
 The strict inverse reconstructs3684 without an installed-parent dependency.
 The frozen allocation is `allocations/smb2-postbg-mirrors-1113.json`.
-Installation and actual Downloads launch are pending below; releases stay empty.
+Installation and actual Downloads launch pass below; releases stay empty.
 
 ## Actual failure and corrected return
 
@@ -66,3 +66,27 @@ Genuine119 earned-lift and120 injury prefixes provide sample/audio contexts;
 Minimum SP is182, with no live RAM/audio/SMC/stack masks or repairs.
 The previous Luigi source-driver A176/9139 failure also passes without any
 peripheral-clock model changes; source cadence remains unqualified.
+
+## Delivered and visually checked from Downloads
+
+Source qualification/installer checkpointf1c957b9 was pushed before direct
+replacement. The installer replaced3684 with the exact all-eight tested
+12397 bytes, with no backups, patches or release assets. Pre/post sidecar
+guards pass and the installed bytes equal the tested candidate.
+
+Root then launched the actual Downloads file through a full Mario route,
+with the two bounded visual observers. Lua:
+`24a7adb1ed70a8ccf2699ce5901f773bf837bb4b0680fd62c98bf7187448d430`.
+Receipt:
+`c81a3debec4f1dce1032c767f2c1286f8dbb50fbe16f5c455daf7fc972ad1ff8`.
+It passes4261 physical/3545 Main, HP15/lives2 and25 grounded1-2 updates.
+Two memory PNGs were reviewed: side pipe at3978/Main3273 has attribute32,
+proper occlusion and the same2645-byte hashff20a4d4…; underground at4258/
+Main3541 has attribute0, proper foreground and the same2010-byte hash
+d2cea1da… as the prior reviewed views. No capture files are written.
+
+The other seven full runs and the zero-stale critical observer used the
+private candidate path with identical bytes; they were not all repeated
+after installation. Root's new Mini CLI normalizer also compiles against
+12397 (Lua b98e5798…); this is metadata, not another physical Mini pass.
+The expanded roster/powerup goal remains active and incomplete.
