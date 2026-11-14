@@ -1,9 +1,9 @@
 # SMB2 DMC sample-alias timing diagnostic
 
-This is a timing investigation, not an alias repair or a gameplay failure
-verdict. The first native observer completes the route but exhausts its
-record budget; a separately pinned scene-only successor is pending.
-Current Downloads is exactly
+The scene-only native observer confirms actual wrong post-background
+routing during an active DMC sample, despite the full stage completing.
+A separately granted exact six-operand repair is private and undergoing
+qualification. Current Downloads is exactly
 `3684f3d2a418a484befd80fca351d0dc5f9b472f6f067a0a7894994ea343679d`.
 The ordinary Luigi full-stage control binding is
 `a8e2c9a408daf9fb228c822ab85ccabb98eda00769922dfbec2be0337af47cc5`.
@@ -164,5 +164,81 @@ accept a correct old chain and a correct alias-to-canonical flip, reject
 three uncorrelated named entries, witness both FRC/resident returns and
 next Main, exclude100 level0 writes, deduplicate100 low-status changes to
 one record and retain the64-record cap. These are observer fixtures, not
-native timing or gameplay evidence. Root's scene-only physical trace is
-pending; no mirror, physics, state or input patch is proposed.
+native timing or gameplay evidence.
+
+## Confirmed native negative and exact private repair
+
+Root's actual Downloads scene-only run completes the full route,4744
+physical frames/3820 Main, but confirms the wrong routing. Receipt:
+`5efd649e6bf779402b3aa6f4b6a0b30df9b409e9d92bc9e56133d8423424505c`.
+All402 resident entries match tails/gateways/SMC/FRC returns:141 causally
+matched old targets and261 canonical targets. Only261 original resident
+returns are observed. Event cap64/drop103 retains the first three complete
+wrong contexts, rather than early unrelated sound stops.
+
+The real sample starts at frame4056/Main3316/cycle120791942, length321.
+At frame4057/Main3317/cycle120834279, alias120 has247 actual bytes remaining.
+SMC at120834340 selects BB87/rawCF. Target entry at120834346 is physical79
+BB87, SP232, with native return016E. FRC returns at120835853, SP234, bankA191
+instead of entry129; the original resident return is absent. Next Main3318
+continues at120851727. The next two retained contexts have197/143 bytes
+remaining and the same wrong route. Canonical contexts return normally.
+This is neither an unrelated name-loop fall-through nor a model-only
+failure. The earlier source executed-cycle lower bound was insufficient;
+this actual APU/call-chain witness is the negative authority.
+
+Root's conditional grant is
+`docs/qa/allocations/smb2-postbg-mirrors-1113.json`, SHA256
+`51cc906ffbb81f478639425aed5d7ea446980f345797eae85b936602db153d92`.
+Only these six literal operands change:
+
+| Physical PRG | File offsets | CPU operands | Before / after |
+| --- | --- | --- | --- |
+|119|976378,976383,976388|E5EA,E5EF,E5F4|87/38,BB/B4,CF/C2|
+|120|984570,984575,984580|E5EA,E5EF,E5F4|87/38,BB/B4,CF/C2|
+
+`compose_smb2_postbg_mirror_1113.proposal(exact3684)` returns image/info in
+memory, exact candidate
+`12397b1c2557834f6a2b7e23c9915d5dc40c6cabff7a6ee844c1adebf6564c52`.
+Its strict inverse returns exact3684 and reauthenticates the source/grant.
+All49 bytes of the repaired119/120 bridge equal existing canonical125/127,
+SHA256 `496d063b486ebe5858784a53b2f06d0890eab5e65de02b7aac40405f9241ec5a`.
+The source recipe explicitly rebinds HuAfterTerrainGate to current
+ThPostNativeHot, rawC2:B438; retained compiled canonical bytes and current
+typed labels agree. The sole real native caller is bank1 A173, `JSR E5CC`.
+Every unowned byte, opcode/PC and ROM length remains exact. No new native,
+RAM, CHR, helper, physics, palette or audio state is allocated.
+
+All eight original request selectors/length/rate tables match retained
+linked source. Sample ranges start atF140 or later and end no later than
+FE01, disjoint fromE5xx. The composer records all eight exact payload
+hashes and proves every payload byte unchanged. Other known alias debt
+remains outside this six-byte grant.
+
+`check_smb2_postbg_mirror_1113 --mode all` passes in the bounded zero-output
+root:263,168 repaired-alias/canonical prefix pairs, exhaustive65,536 A/P
+vectors each for selected-special3 and SMB2, all256 raw prefix owners,
+plus256 unchanged original-special flag pairs. AXYP/SP/live stack and
+ordered SMC writes agree exactly. These explicit direct-prefix fixtures
+stop at actual ACA4 or FarCallCommon; they do not execute uninitialized
+foreign private actors or claim whole-caller/IRQ parity. Eleven unknown,
+corrupted, truncated or mislabeled parent/candidate cases are rejected.
+The independently owned `check_smb2_postbg_irq_1113.py` covers the real
+caller, all eight source families and real IRQ/busy-NMI continuation.
+
+Frozen new source hashes:
+
+- Composer: `415ca42d6efe1023a56c147a2d1dc0c8e32c75c98fef31b9f1a54e0fb71b7647`.
+- Prefix/fault checker: `6fbf65fea122799bcbbf8e93981e6b6fc3aa5e0c4fad1c08254adb8263db1d29`.
+- Candidate observer: `1c6c137f1b2a61946d49b82af8005b71641ed85fe3ff6c30e11132f604777a9d`.
+
+`replay_smb2_postbg_native_1113.controller(exact12397)` reverses to3684 and
+derives the frozen scene5bd observer. Only its ROM pin and the two clone
+authentication payloads are rebound. Reversing those three substitutions
+reproduces exact5bd, preserving original a8e2c9a4 controls and25-grounded
+endpoint. Strict source/current bytes, inverse-text equality and Lua
+compilation pass. Candidate Lua SHA256 is
+`ff9bc7b38a268d8cc211b57d76340b51baa4840791bf55905b206be28a8bd58f`.
+Root owns native qualification and requires zero matched stale targets and
+correct resident returns during real samples before delivery. No local
+nightly, patch or release is created by these source APIs.
