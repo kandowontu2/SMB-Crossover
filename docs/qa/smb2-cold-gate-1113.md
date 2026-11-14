@@ -366,3 +366,56 @@ Downloads changes or release assets. The movement-only candidate remains
 **private and blocked from delivery** pending actual UI-enabled gameplay,
 enemy-contact/protection checks and newly reachable DMC/E037 evidence.
 Any E037 repair still requires a separate source-backed grant.
+
+## Root-only private diagnostic CLI
+
+New `run_smb2_cheat_owner_native_1113.py`, SHA256
+`3c9c4f4218e954fd8697fa76772cc524a53ae8a96542e40af806fded1ed0c040`,
+defaults to readonly metadata/compile checks. It pins composer17d915df,
+factory2f0a5f42, exacte8cd and frozen Lua53055897. Metadata passes with
+actual Downloads12397/sidecar guards unchanged and both existing Bub slot
+files still exactf88/79c3859f. Prospective bytes are2120526 across the same
+two files, below the8MiB component bound. No private image was staged by
+this helper.
+
+Only explicit `--run` may overwrite existing
+`build/bub-empty-native-1113/candidate.nes` and `controller.lua`, without
+backups or additional files. It accepts only the exact known f88/79c385
+preimages or e8cd/530558 restaging identities; known partial staging is
+labeled. An existing empty capture directory is permitted, while all extra
+files and unrelated directories are rejected. The queue guard precedes
+**either** overwrite, then shared storage preflight reserves only actual
+byte growth and zero new files. The generic stdout runner repeats queue
+admission and retains the existing capture lease/preflight/watchdog.
+
+Root invocation, not executed by this helper:
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/bub-empty-native-1113 --resume --max-files 2 --timeout 360 -- python -B tools/audit/run_smb2_cheat_owner_native_1113.py --run
+```
+
+The native timeout remains240 seconds. Source preparation and post-run
+guards stay within the360-second outer bound; no cap is raised. It launches
+the private slot, never Downloads. The installed ROM's exact full bytes
+and same-name sidecar guards are checked before and after, including
+staging/emulator/receipt/route error paths. Private staged ROM/Lua hashes
+are also checked afterward. Neither installed bytes nor old literals are
+rewritten; no delivery or release capability exists.
+
+The compact stdout result retains the original route reason, terminal
+fields, menu checkpoints and up to64 exact target/return/audio observations,
+plus uncapped causal counters. A matched obsolete E037 target explicitly
+forces `real_causal_obsolete_E037_private_negative`, even if the original
+route receipt reports pass. The original pass/reason remain separately
+visible. Absence of an old-target witness never clears the delivery block.
+A last menu checkpoint is not presented as failure-time UI state.
+
+Pure source contract units pass: queue rejection prevents both writes and
+storage preflight; success order is queue, storage, existing-ROM overwrite,
+existing-Lua overwrite; a negative receipt still runs installed byte/sidecar
+guards; an old-target witness and original reason survive route failure;
+an old target also forces a private negative when a mocked route passes;
+and a menu-only negative retains checkpoint scope. These use mocked queue,
+file-write and native functions with memory-only data, not Mesen or runtime
+state. Real component and Downloads hashes remain unchanged. Metadata and
+units use the existing empty bounded helper root/max-files1, outputs0.
