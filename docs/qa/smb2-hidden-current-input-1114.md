@@ -66,7 +66,8 @@ exact421; removing all176 current changes recovers exact16c71. The actual
 DK inverse also recovers exact12397. Complete hidden and cheat envelopes and
 all other current bytes match421 exactly.
 
-This adds no new ROM capacity, RAM, CHR, geometry or helper. It does not repair
+The adapter adds no ROM capacity, RAM, CHR or helper and changes none of the
+retained DK component's actors or geometry. It does not repair
 the retained DK native final-handoff negative or qualify the combined image
 for native play or installation. Root owns all CLI changes, Mesen and delivery.
 No ROM, patch, capture, backup, release or generated build file was written.
