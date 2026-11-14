@@ -121,7 +121,17 @@ on the v2 checker repeats this bounded read-only checkpoint; it does not claim
 the unexecuted remainder of1-1. Full Burns source then advanced to Main500 at
 X631/Y98 on the next pipe, alive and unpowered.
 
-All four full v2 source processes are active; all four native results are pending. Source
+Burns full v2 source returned0/PASS:4128 Main/scheduler passes, receipt
+`7eaf28881608bb9ec1d314db4016485ab5318896d3419da000d105a92f63ac5b`.
+Flag was Main2745 at X3161/Y115, castle2808, next-area entrance3511; the endpoint
+was X40/Y176, active underground1-2 and25 consecutive living grounded updates.
+Lives2, power0 and Star0 remained. It observed2821 actual CF movement calls,
+including76 in1-2, plus13 source impact calls (not a separate13-kill claim).
+The complete C2 cookie, zero C3 tail and source class0 assertions passed. Burns
+crossed all ordinary obstacles with its intended source jump, without a helper.
+
+Smith/Iron/Beans full v2 source processes remain active; all four native results
+are pending in root's serial batch24556. Source
 execution uses the compiled cold-menu/Select/Start/parser/constructor arena and
 normal controller/Main/NMI scheduling; it does not establish physical video/APU
 timing or cold-title authority. Root owns those actual native checks.
