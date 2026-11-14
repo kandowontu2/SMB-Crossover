@@ -89,3 +89,34 @@ not staged that ROM. `--contact-candidate` requires root to stage it first.
 
 GitHub releases are now intentionally empty at the user's request. This
 verification does not authorize recreating Current or uploading a patch.
+
+## Current12397 actual Downloads regression
+
+Root session20901 reran the retained route on the actual installed
+`12397b1c2557834f6a2b7e23c9915d5dc40c6cabff7a6ee844c1adebf6564c52`.
+Exact Lua is
+`b98e5798b0dfa7b1aca5d89670d8507b0f0bcf9971f148495a2fccf6c594dc38`;
+receipt is
+`d2b3e4a6acb8dd4b56f4195b3a92b9cf478ffe45a8993cacd8f21e3fe9331fd4`.
+It passes5279 physical /3495 Main and source updates,190693 checks, both lives,
+all four pipes, three pits and three native helper boardings/departures.
+The endpoint remains active entry falling at40/51 in1-2, not25 grounded updates.
+
+The eligible window is exactly3493 physical/Main/source/input-polled frames.
+The same missed completion occurs at2838,1585/176, PC90BC/SP243; frame2839
+completes two updates and increments skipped-NMI once. This matches the
+preceding public baselines and private optimized769afe comparison; it is
+not a zero-lag claim. The six SMB2 post-background operand fixes introduce
+no measured regression in this route.
+
+All three helpers retain the table above, including offscreen births at
+relative262/263/263, initial top192, left560/688/864 and center576/704/880.
+Actual board/depart frames are1290/1374,1769/1867 and2210/2302.
+No helper, physics or ROM byte changes. The existing two-file metal component
+keeps its private769afe candidate; only its controller slot now contains
+Mini b98e5798. The actual launch uses Downloads, not that private candidate.
+Output and capture files are zero; pre/post nightly sidecar/hash guards pass.
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/metal-flower-native-1112 --resume --max-files 2 --timeout 360 -- python -B tools/audit/replay_mini_platform_regression_1113.py
+```

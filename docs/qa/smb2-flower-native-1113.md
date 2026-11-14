@@ -53,7 +53,27 @@ collector event is329/97 against the mature336/119 item, followed by the same
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 600 -- python -B tools/audit/run_smb2_postbg_flower_native_1113.py --followup --variants 1,2,3,4,5,6,7 --scope collect
 ```
 
-The root queue is free after97422. Throw and hit followups are under source
+## Retained native Mario attack-approach negative
+
+Root session1277 ran the separately source-qualified Mario hit controller
+`204e959e535f99427846fe54d729cff1b483d9e957efe510c7355b6d7a5c4c87`.
+Native receipt
+`5d9d4a6102795297b28c30fd7dc3cdf7cc0dca5203e4fed5089796c4bd5370fe`
+is negative:1184 physical /795 Main, endpoint703/176, HP15 and both lives.
+The unchanged healthy-initial-form assertion stops it before the throw
+observer. This does not undo the successful collection or establish a
+vegetable collision bug.
+
+The real collect at448, pull at509 and carry at540 pass, consuming reserve3
+to2. The replay travels to the enemy, enters aim at693/176 on Main778 with
+VX24, settles at703/VX0 on791, faces right for two updates and enters throw
+phase793. It receives contact damage on795 before the native throw event.
+The source run had thrown earlier at695 on784 and defeated its Goomba on789.
+Enemy-relative aiming/earlier throwing is now being qualified separately;
+the frozen controls, health assertion and this negative remain retained.
+
+The root queue is free after1277. All eight throw source routes pass;
+corrected hit routes and a separate native attack approach are under source
 qualification. The expanded roster goal remains active and incomplete.
 GitHub releases remain empty; this controller-only work does not replace the
 already verified12397 nightly.
