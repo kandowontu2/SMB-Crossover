@@ -88,20 +88,26 @@ Mario route resumes beyond the existing gap. The final Toad source job82055
 passed from compiled menu through the full endpoint; source jobs87259 passed
 Peach and Kamikaze. No earlier failed input is relabeled as a pass.
 
-Root actual Downloads421 native batch55152 terminal PASS:
+Root actual Downloads421 native batches55152 (Peach/Kamikaze) and89041
+(Toad) terminal PASS:
 
 | Identity/controller | Physical frames | Main entries/returns including frontend | Flag/castle/entrance Main | Native receipt SHA256 |
 |---|---:|---:|---|---|
+| Toad294b |3221|3204/3204|1967/2030/2607|`e0842cb165a4a70b9ae43fb4bf66ccd4d547ab98cb183f948ce2131ee949333c`|
 | Peach7057 |3202|3183/3183|1943/2006/2586|`f69bb0d622d36b9161c0c7195b46a70000acb6b7c482788f0a61e918c8a35e72`|
 | Kamikaze254b |3239|3179/3179|1944/2006/2586|`2dc27862a658ee74b023a630cce47e8ddff03659b3cbcc2b31cbb3fbd0d231c4`|
 
-Both use genuine title/roster/Select/Start and finish25 completed living grounded
+All three use genuine title/roster/Select/Start and finish25 completed living grounded
 underground1-2 updates atX40/Y176, engine8, lives2, power0, Star0. Peach retains
-variant6/CHR mode131; Kamikaze retains variant3/CHR mode132. Root reports zero
+variant6/CHR mode131; Kamikaze retains variant3/CHR mode132; Toad retains
+variant5/CHR mode131. Toad's first active gameplay isMain251/physical264.
+Root reports zero
 files/images, clean pre/post nightly patch guards and installed bytes equal the
 tested exact421 candidate. These are actual Downloads launch passes, not merely
-private-path runs. Only Peach and Kamikaze are markedC in the expanded checklist;
-Toad294b remains a source pass pending root's separate native run.
+private-path runs. All three identities are now markedC in the expanded checklist;
+the original19 U identities are reduced to16. The source input negatives above
+remain historical failed routes. No new ROM update was needed: these controllers
+tested the already-installed421 nightly.
 All runs use `python -B tools/audit/run_bounded_build_v1.py --output
 build/smb1-alts-route-source-1114 --max-files 1 --timeout 600 -- python -B ...`.
 The named output root remains absent: zero generated build files, ROM writes,
