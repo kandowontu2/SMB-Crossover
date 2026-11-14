@@ -221,7 +221,7 @@ HuGameRoutinesDirect, whose raw24/DragonPower and raw2/RdVariant1 special
 paths return to E033. The repair must select only raw25 and retain the
 original foreign81:A021 fallback, without introducing that recursion.
 
-## Isolated minimal routing proposal; placement not granted
+## Isolated minimal routing proposal before the grant
 
 The checker also contains an isolated instruction-memory unit proposal;
 it does **not** return or modify a ROM. Existing57-byte owned restore/tail
@@ -265,3 +265,104 @@ all exit0 with outputs0. There is no resource grant, ROM patch, new
 RAM/CHR/helper, renderer change or native invocation from this work.
 The unresolved119/120 E037 old cold literals remain untouched and must
 be qualified if a later private movement repair reaches DMC aliases.
+
+## Granted private candidate and closed source gates
+
+Root subsequently granted precisely the57-byte restore/tail and15-byte
+padding request in `allocations/smb2-cheat-owner-1113.json`, SHA256
+`b13857fde91a588fc992acaf86da2a9c2da9ec171e0a055091fc896663d01d33`.
+The earlier no-grant paragraphs above describe the isolated design stage.
+No neighboring byte, E037 operand, audio, RAM, stack allocation or physics
+change is granted. AAFF and all36 service veneers remain exact.
+
+New strict composer `compose_smb2_cheat_owner_1113.proposal(exact12397)`
+returns private image
+`e8cd1e48bdc48412c30e31b2d0f5decf3a86c49aed85890e8452989e34cc1e17`
+and an in-memory layout. `inverse`/`reverse` reconstructs exact12397 and
+requires a forward round-trip. Exactly64 bytes differ within the72 granted
+bytes. Every unowned byte and the complete119/120/125/127 resident/sample
+banks remain exact, including the unresolved E037 operands. Header, CHR,
+source actors and geometry are unchanged. No ROM file is produced.
+
+`tools/reference/smb2_cheat_owner_1113.s`, SHA256
+`fdc5aad5a90308a7ad752e165b7c30d7bf2f9b358b68aa949e42175ff2b72084`,
+assembles entirely in memory to the exact grant-pinned DRAFT_RESTORE and
+DRAFT_TAIL. Public A252 and Restore A2A9 remain fixed; the internal Native
+entry becomes A2CE, owner tail AD40 is reused and AAF0 holds the foreign
+setup. The grant-pinned original diagnosis checker remains SHA2da19919.
+Composer source SHA256 is
+`17d915df6bd6d28e7608d8f644e32294f76cefee38cf3e272994da2422c45fa8`.
+
+New `check_smb2_cheat_owner_1113.py`, SHA256
+`a9ac31386b875bcdc03df4bde6e4c5d4fd3aa9cbc2b3f4c18882718bf8c9124e`,
+closes these source gates on exacte8cd:
+
+- All eight candidate genuine cold/menu/Start constructors pass, with full
+  state matching the all-off parent constructor. Another128 paired actual
+  Main/NMI updates with ordinary inputs retain exact full state, cycles and
+  ordered writes on the no-cheat path.
+- All256 eight-update option/identity cases pass: all248 nonzero masks now
+  execute S2MainGame/MainPlayer/NativeStart eight times, receive actual Right
+  input and move from40; the eight zero masks retain S2BoundaryGame. Menu
+  flags still come only from the explicitly labeled compiled-menu units.
+  Trace SHA256 is
+  `b21e9915d4f1b3d8123c92bf72c0104baa0754db33a881c77982b2d0da74a183`.
+- All93 foreign named identities use genuine parent menu/Start/parser/cold
+  constructors, then authenticated candidate ROM views.104 cheat profiles
+  make832 complete Main/NMI pairs with exact RAM/WRAM/maps/peripherals and
+  ordered writes. This includes800 actual foreign Native/AAF0 calls. Inv1
+  covers every identity; raw0/2/24 families additionally use mask31, including
+  DragonPower/Rogue dispatch exclusions. Digest:
+  `2741a73bd9522e5b7ae9ae19380adedf3ff45445e070e08fbd2c7d3f54bc121b`.
+- 178 IRQ and178 genuine busy-NMI cuts cover every one of34 granted
+  instruction PCs and all pop-loop stack depths. Contexts are actual Mario
+  foreign Main, actual SMB2 Luigi owner Main, and an explicitly directed
+  compiled GuestInjuryStart service after genuine MegaMan cold. That service
+  creates the real legacy frozen swap: kind1/Legacy1/engine9/ticks0. The
+  first draft's modern-ticks assertion was an invalid fixture assumption;
+  no game state was edited to correct it.
+- The actual original parent ISR is the ROM oracle at each same candidate
+  cut, followed by the intended complete candidate Main. AXYP/SP, full
+  RAM/WRAM/peripherals, live stack, SMC, maps and ordered writes match;
+  minimum SP182.61 real source-music advances match without audio masks.
+  Three existing FarCallCommon pending-STA map completions pass only the
+  exact0166/0175 opcode/A/shadow/map exception; no broad mapper relaxation.
+  Only instruction ROM is rebound after RTI for the new foreground;
+  there is no live RAM, audio, SMC or stack repair.
+- 12 corrupted/truncated/mislabelled parent/candidate cases fail closed,
+  including an E037 mutation, sample mutation and retained-AAFF mutation.
+  Exact inverse and all unowned-byte equality pass.
+
+These31-mask cases qualify **movement-owner routing**, not every cheat's
+trigger semantics. A separate observation-only mask16 unit on all8 gives
+source HP31/max0/vegetables0 initially, then HP63/max2/vegetables9 after
+eight genuine NrFullPower and S2FullPower calls. Native Status becomes1
+and Size0; source S2Size stays0. These are actual grant-routine results,
+without source-stat seeds. Wrap and mid-air jump trigger cases remain open.
+The IRQ injury context is a service unit, not a naturally earned injury.
+
+## Frozen private native adapter; root invocation still required
+
+`replay_smb2_cheat_owner_native_1113.controller(exacte8cd)` is a pure
+adapter. It strictly reverses to12397, authenticates frozen6e1a source and
+eb9 Lua, and changes **only** the exact ROM pin. Replacing that pin back
+reconstructs the entire original Lua byte-for-byte, including calibrated
+real title/options/Invincible controls, Luigi route, No240-update softlock,
+all original terrain/25-grounded assertions and64-record causal observer.
+No emulated write, input change, screenshot or file operation is introduced.
+Lua compilation and readonly checks pass.
+
+Adapter source SHA256:
+`2f0a5f42434d161fe5250aa41862e1c37f36d1a809099f15f72d836178bf0ae6`.
+Private Lua SHA256:
+`53055897759c775a4f27c7a27d1b9af437bf4c566b3e1a6058bf8d34a98f4755`.
+It remains explicitly a **cheat-option diagnostic**, not standard stage
+qualification. Root owns any private Mesen execution in the existing
+two-file component; no helper Mesen run occurred.
+
+All source runs use the same empty bounded root/max-files1 with outputs0;
+the root remains absent. There are no ROM copies, captures, expanded trees,
+Downloads changes or release assets. The movement-only candidate remains
+**private and blocked from delivery** pending actual UI-enabled gameplay,
+enemy-contact/protection checks and newly reachable DMC/E037 evidence.
+Any E037 repair still requires a separate source-backed grant.
