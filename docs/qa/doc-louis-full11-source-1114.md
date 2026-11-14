@@ -44,3 +44,22 @@ python -B tools/audit/run_bounded_build_v1.py --output build/doc-louis-full11-so
 
 The output root remains absent: zero build files, ROMs, captures or Mesen runs.
 Doc remainsU pending native. Protected roster progress and Steve QA untouched.
+
+## Actual current421 native closure
+
+Root18076 runs the exact b2e4 controller on actual Downloads421 and passes:
+5209 physical/poll frames,4775 Main entries=returns,3372 movement and3372
+weapon gates,54 next-area movement gates,14 observed punch starts, minimum
+HP96 and maximumX3266. Punch starts are not confirmed kills. Flag is
+Main3610/frame4036, castle3673/4099, entrance4182/4613. The25 living grounded
+1-2 updates finish at40/176/high1/native-state0/engine8/lives2/HP96/hearts15/
+power1/Star0/stars0/MacVariant1/CHR130. Receipt SHA256:
+`b5d2076424783ba0a361d77ea9964d1a3ddc7b4a0862def0ff98c32b174fc395`.
+
+The existing actor28 is observed in slot5 at initial left3096/Y64 when the
+player isX2921/Y71, Main3410/frame3812. No helper_support field/event occurs;
+presence is proven, assistance is not claimed. No helper was added or moved.
+Guards are clean, with zero outputs/images. This closes current native stageC
+and supersedes only the historical pending-native sentences above. Power0→1
+during the stage does not close a complete natural-item/audio collection gate.
+Prince collision remains the active priority; no further Doc work is queued.

@@ -24,7 +24,8 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
 | Celeste Mario | **H**, a7ccbaaa Easy natural clear,3900 frames, both upgrades/earned dash | Natural S/L and remaining original abilities; old small-CHR/route negatives superseded |
 | Mario the Tank | **C**, actual Downloads421 native7856/f6d5, full flag/castle/entrance and25 living grounded1-2; **H** natural M/boots7ec9 toX1212 | Retain historical M/boots receipt; qualify intended powered combat/terrain and natural S/L separately; current stage stays power0 |
 | Mini Mario; Mega Giant Mario | **H**, Mini current12397/f88 full route; Giant677aad54 full clear | Natural item ensemble per alternate; keep Mini's falling1-2 endpoint distinct from25 grounded updates |
-| Rogue Dawn; GB Pit; Doc Louis; Ryan; Mr. Gimmick; Donkey Kong | **U** for each listed name; startup/host/launch proof is not a full clear | Individually qualify first natural pickup and complete M/F/S/L policy; do not transfer sibling receipts |
+| Rogue Dawn; GB Pit; Ryan; Mr. Gimmick; Donkey Kong | **U** for each listed name; startup/host/launch proof is not a full clear | Individually qualify first natural pickup and complete M/F/S/L policy; do not transfer sibling receipts |
+| Doc Louis | **C**, actual Downloads421 root18076/b2e4, full flag/castle/entrance and25 living grounded1-2 at40/176/HP96/lives2 | Natural item/audio ensemble remains separate. Existing actor28 at initial left3096/center3104/Y64 was present; no support event, so assistance is not claimed. See `doc-louis-full11-source-1114.md` |
 | Getsu Fuma | **H**, c6ab5610 full clear plus earned M/F | Natural S/L; full donor arsenal remains later work |
 | Karnov | **H**, current7ef full stage and all five stock pickups/Ladder | Natural S/L; Bomb enemy kill remains distinct from arming/blasting and normal-fire kills |
 | Quick Man | **H**, aa501128 full/grounded1-2 plus four authored items | No uncovered authored stock item in these receipts; physical F is not claimed under the existing no-growth policy |
@@ -60,8 +61,8 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
    later. Close one-way/fractional-sign source/caller/ISR proof before any
    allocation/composition/native candidate. Do not call the older delivered
    clear a failed current run.
-2. Assign individual full routes to the **8 U identities** above, especially
-   Doc Louis and the two Battletoads choices. Shinobi's
+2. Assign individual full routes to the **7 U identities** above, including
+   the two Battletoads choices. Shinobi's
    recovered historicalH corrects the earlier U count; it is not a newC pass.
    Burns root16139 is an independent currentC closure after that correction;
    receipt `ad9e59dbd50f2f5290c39d01540c258aa99e92f497ed2a4b7c02308919016d26`.
@@ -71,6 +72,8 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
    Iron root7285 closes the fourth CF identity, receipt
    `e7546a81bd1a95062b71188bc31dc3cd39856e7594255db763a7d7d6f461fe5b`.
    All4 CF full-stage gates areC; their idle30Hz deficit is a separate open gate.
+   Doc Louis root18076 closes another identity, receipt
+   `b5d2076424783ba0a361d77ea9964d1a3ddc7b4a0862def0ff98c32b174fc395`.
    Use their intended abilities. If assistance is needed, root owns native
    actor placement/allocation and must record the assisted crossing.
 3. Reuse existing natural-item source controllers for **Jay F/S/L, both
