@@ -123,3 +123,28 @@ normalizes to421, and reproduces identical measured handler/copier bytes.
 
 All source producers use bounded absent roots, max-files1, and write zero
 generated files. No emulator, image, backup, patch asset or release is used.
+
+## Active foreign readers close the FF-page search
+
+Source sessionaac9df runs exact82 through actual controller menu selection,
+Start, native parser and scheduled Main/NMI for SMB3 Bowser, SMB1 Bowser,
+Rash and Zitz. All four reach engine8 at epoch167. Both Bowser forms execute
+1024 copy reads and1024 echo-verification reads on **every page927..934**.
+Both Battletoads forms do the same on **every page919..926**. Thus FF review
+pages925,931,932 and933 all have active owner readers; no unchanged-caller
+domain release follows from their blank contents.
+
+The exact current Bowser mapper at raw164:B589 is37 bytes, SHA256
+`b6f3f5b0763b5072a49e4e56897a3825967f63aada3d973f1ad0ea31ed064137`.
+It maps destinationC000..DFFF to927+(destination-C000)/1024. The Battletoads
+mapper at raw221:AF20 is33 bytes, SHA256
+`c605e62dd7ab5a80be1e0a0a4ae29f33c9d38a24d20940b171ce51b2c0df34d4`;
+its corresponding domain is919..926. The checker authenticates both byte
+sequences before execution and counts the real copy/verify loop entries.
+
+`audit_dkjr_review931_readers_1114.py` is source-only. It creates no candidate,
+changes no Bowser/BT bytes, assigns no page and establishes no native replay.
+Root retains931 as a review target only; CD00..CFFF remains unleased. The
+next funding investigation is sharing already-current DK source-pointer
+wrappers, with complete semantics and relocation evidence required before
+any allocation. Active echo-copy alone does not prove copied padding free.

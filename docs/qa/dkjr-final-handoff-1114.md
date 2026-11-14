@@ -542,3 +542,13 @@ by authenticating the current assembled selector before this accepted run.
 Source preimage rejections during that correction are retained as failures.
 This diagnostic uses bounded absent `build/dkjr-auth-lag-1114`, max-files1,
 zero generated output files.
+
+Resource refinement sessionaac9df authenticates exact82 and actual controller
+cold paths for both Bowser and Battletoads forms. Every927..934 Bowser page
+and919..926 BT page is still copied and echo-verified1024 bytes each, including
+FF pages925/931/932/933. No foreign carrier is released. Details and mapper
+preimages are in `dkjr-floor-entry-resource-request-1114.md`; the checker is
+`audit_dkjr_review931_readers_1114.py`. It writes zero files and changes no
+game image. The proposed CD00 lease is still ungranted. Investigation now
+measures smaller existing DK pointer-wrapper funding, with relocation/ABI/
+IRQ and actual layout gates still open.
