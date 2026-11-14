@@ -1,0 +1,80 @@
+{
+  "status": "granted-private-source-proposal-only",
+  "owner": "root",
+  "component": "Prince body-aware world material and equivalent Prepare compaction",
+  "eligible_input_SHA256": [
+    "82ec0446873b28af458e7686fec87938feaf798a0a893b44e4dccfd071ccfd63",
+    "1daca93f837e894a3ee5b3d8cef54622336726f4df243c6bfb997130323f3baa"
+  ],
+  "conditional_owner": 38,
+  "decoded_spans": [
+    {
+      "name": "WorldMaterial",
+      "decoded_stream": 0,
+      "live_RAM_bank": 3,
+      "live_CPU_half_open": [48610, 49059],
+      "decoded_half_open": [7650, 8099],
+      "bytes": 449,
+      "preimage_SHA256": "c4377287449f719ccbc64a2721c9b6039c784566173114080881deced7ef088d",
+      "proposed_SHA256": "18d18cfe53f4942e7658152177634736a984046233c55f0be2846de0538bb3f9",
+      "used_bytes": 446,
+      "owned_padding_bytes": 3,
+      "public_entries": [48610, 48613]
+    },
+    {
+      "name": "Prepare and outlined FirstFoot",
+      "decoded_stream": 2,
+      "live_RAM_bank": 2,
+      "live_CPU_half_open": [50514, 50694],
+      "decoded_half_open": [1186, 1366],
+      "bytes": 180,
+      "preimage_SHA256": "e5e6159d7d7bf7c18b28afa243e549664528a3cd1e338f3ba91348a1d860c29d",
+      "proposed_SHA256": "7b3ddaec5eb963001a7d8143b8fd2f2fb53c914db2641165031e879fa54150f3",
+      "Prepare_bytes": 151,
+      "FirstFoot_CPU_half_open": [50665, 50694],
+      "FirstFoot_bytes": 29,
+      "public_entry": 50514,
+      "cold_staging_CPU_half_open": [50594, 50774],
+      "staging_to_live_delta_decimal": -80
+    }
+  ],
+  "frozen_sources": {
+    "tools/audit/prince_prepare_funding_research_1114.py": "043b3a72c4b199b72e4743992701b1abad1a781cfcecb7089323f14a636d305d",
+    "tools/audit/build_prince_worldmaterial_research_1114.py": "772a63a6bcb23aa55037d8e0c154469f8b2176a8e31751169cc5793a862c5d74",
+    "tools/audit/check_prince_worldmaterial_research_1114.py": "66f5f0855ded049f658f0820e4dff51253ffc176ab97456512235032397a6676",
+    "tools/reference/prince_worldmaterial_research_1114.s": "bfdcbcf6f5a28c8fc138d55bc04c2b3726f1b269cdad5951d61d4f4e60c00c6b"
+  },
+  "root_independent_qualification": {
+    "bounded_run": "prince-worldmaterial-root-flat-1114",
+    "terminal_session": 23949,
+    "expanded_fitted_receipt_SHA256": "c18256d3e17b234723270c45a3c5209113d64052231556cdcf20752c0d39f88b",
+    "World_vectors": 7168,
+    "preservation_vectors": 6144,
+    "Prepare_complete_ABI_and_field_pairs": 1024,
+    "actual_projection_decoder_inputs": 256,
+    "legal_Delta_range": [-64, 63],
+    "mismatches": 0,
+    "former_function_instruction_reads": 0,
+    "World_public_entries_unchanged": true,
+    "Prepare_public_entry_unchanged": true,
+    "outside_literal_and_relative_ingress_classified": true,
+    "cold_staging_copy_ingress_preserved": true,
+    "retired_private_fields_consumer_census_classified": true,
+    "outputs": 0
+  },
+  "constraints": [
+    "Only these two decoded envelopes may change. Three trailing World NOP bytes remain owned, not separately free. No data, script, original actor state or art outside the envelopes may change.",
+    "The exact 45 existing Prince cold carrier pages and its existing 16-byte cookie may be re-encoded only as required by the authenticated existing packet codec; no new physical PRG/CHR/RAM capacity, carrier or ownership is granted.",
+    "Cold staged stream2 begins at C100, then moves to live C0B0. Serialized offsets must use the decoded ranges; do not patch an incorrect live/staging address or overwrite C606..C800 state.",
+    "Prepare's signed7 and baseline equivalence, both World ABIs, caller flags/registers, translated Cell and floor outputs must retain the proven contracts. Existing private scratch ownership is unchanged; altered stack depth requires actual caller/ISR bounds.",
+    "No gravity, movement speed, jump/input mapping, helper, level, palette or private sprite-window change is granted. Hanging/climbing/off-row/valid wide-pipe support must remain intact.",
+    "Every unrelated native byte must remain exact, including all common CHR reset and previously delivered hidden/cheat fixes. Preserve the three classic DK operands if the 1daca parent is used; normalization must be an explicit typed portable inverse, not a relaxed frozen API."
+  ],
+  "authorized_source_qualification": [
+    "In-memory exact packet composition and portable inverse, strict wrong-input/unowned-byte rejection and complete decoded/art preservation.",
+    "Genuine cold construction, code transport/readback, failure/foreign/retirement and actual IRQ/busy-NMI cuts at reached changed instructions, respecting reachable states.",
+    "Ordinary source gameplay with the exact admitted envelopes: repeat the retained Right-only, Up+Right and Right+A first-pipe controls; verify ledge/climb, all four pipes, ordinary floor/pits and full1-1/grounded1-2 behavior.",
+    "Investigate any remaining real failure; a fitted primitive proof does not establish first-try pipe usability or whole-game success. Freeze a controller-only native replay for root only after source qualification."
+  ],
+  "authorization_limit": "Compose and test this exact fitted proposal in memory only. No candidate files, Mesen launch, Downloads write, backup, patch asset or release. Root owns the single emulator queue, candidate staging, cleanup and any delivery. This grant supersedes the 449-byte research restriction only for these two exact envelopes; unrelated research areas remain unallocated."
+}

@@ -47,3 +47,16 @@ No helper geometry changes are made. The existing shared 1-1 horizontal
 actor28 remains initial left X3096 / center X3104 / initial Y64 / width16,
 as listed in `helper-platform-inventory-1101.md`. This controller has no
 support-event observer, so it does not claim a verified assisted crossing.
+
+## Successor delivery regression
+
+Root17738 also repeats the full route on actual Downloads1daca after the
+three-byte DK graphics delivery. The strict adapter uses the portable1daca
+inverse, retains the entire75b5 controller body and binds the actual new ROM
+pin. LF Lua SHA256:
+`b4ac5e21e7fca02bda67764f1ef3ca1e2b3050150f02e41635c42848198ec26a`.
+The actual5589 physical/4386 Main and2822/63 ability counts, all milestones
+and the25 grounded endpoint are identical. New native receipt:
+`f3643c87728b1423f2643287aa807de7807491a13339fd85895683b582562ea2`.
+This is separately verified **C1D** evidence, with no item/audio/visual scope
+extension. See `dk-private-window7-nightly-delivery-1114.md`.

@@ -1,7 +1,7 @@
 # Expanded-roster next native checklist — November 14
 
-Snapshot: latest `LATEST_1114_82EC_DOWNLOADS_VERIFIED` handoff, exact installed
-`82ec0446873b28af458e7686fec87938feaf798a0a893b44e4dccfd071ccfd63`.
+Snapshot: latest `LATEST_1114_1DACA_DOWNLOADS_VERIFIED` handoff, exact installed
+`1daca93f837e894a3ee5b3d8cef54622336726f4df243c6bfb997130323f3baa`.
 Rows retain their explicitly recorded ROMs; the common CHR delivery does not
 silently promote earlier stage receipts to the new image.
 The goal remains incomplete. All101 names start; that is not101 stage clears.
@@ -9,7 +9,7 @@ This checklist covers **all64 additions beyond the37 identities** in the
 read-only October27 progress file. The original37 retain their separately
 versioned stage/item audit; this document does not certify them anew.
 
-**C** = current-line native pass on the exact421/82ec ROM named in its row.
+**C** = current-line native pass on the exact421/82ec/1daca ROM named in its row.
 **H** = native pass on the named earlier ROM;
 retain it, and use its exact preservation/rebinding proof before reuse.
 **U** = no full native stage pass located in the compact evidence reviewed;
@@ -28,7 +28,7 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
 | Mario the Tank | **C**, actual Downloads421 native7856/f6d5, full flag/castle/entrance and25 living grounded1-2; **H** natural M/boots7ec9 toX1212 | Retain historical M/boots receipt; qualify intended powered combat/terrain and natural S/L separately; current stage stays power0 |
 | Mini Mario; Mega Giant Mario | **H**, Mini current12397/f88 full route; Giant677aad54 full clear | Natural item ensemble per alternate; keep Mini's falling1-2 endpoint distinct from25 grounded updates |
 | Rogue Dawn | **C82**, actual Downloads82 root52892/3e8d,6795physical/4734Main, fullflag/castle/entrance then25 living grounded1-2 at40/177, lives2/power1; retained **H** f23af095 is separately authenticated | Natural M/F/S/L and original ability/audio/visual coverage remain separate; the route's power0→1 alone is not complete item proof. See `rogue-full11-current-1114.md` |
-| GB Pit | **C82**, actual Downloads82 root44721/75b5,5589physical/4386Main, fullflag/castle/entrance then25 living grounded1-2 at40/176, lives2/power0 | Natural M/F/S/L, powered abilities/audio and visual review remain open. See `gb-pit-full11-current-1114.md` |
+| GB Pit | **C1D**, actual Downloads1daca root17738/b4ac,5589physical/4386Main, fullflag/castle/entrance then25 living grounded1-2 at40/176, lives2/power0; separate **C82**44721/75b5 | Natural M/F/S/L, powered abilities/audio and visual review remain open. See `gb-pit-full11-current-1114.md` |
 | Ryan; Mr. Gimmick; Donkey Kong | **U** for each listed name; startup/host/launch proof is not a full clear | Individually qualify first natural pickup and complete M/F/S/L policy; do not transfer sibling receipts |
 | Doc Louis | **C**, actual Downloads421 root18076/b2e4, full flag/castle/entrance and25 living grounded1-2 at40/176/HP96/lives2 | Natural item/audio ensemble remains separate. Existing actor28 at initial left3096/center3104/Y64 was present; no support event, so assistance is not claimed. See `doc-louis-full11-source-1114.md` |
 | Getsu Fuma | **H**, c6ab5610 full clear plus earned M/F | Natural S/L; full donor arsenal remains later work |
