@@ -12,6 +12,7 @@ import replay_dkjr_final_board_1113 as Prior
 T,Gate=Prior.T,Prior.Gate
 LUA_PIN='5110d0244f3605d9f844bee3783703540a5c745db3874a5267b4eaa2394c182e'
 EARLY_CYCLE_LUA_PIN='2b3c77495d0b05efedb00909f4d00a9f151c628410eebbb2f30cf20c23af178f'
+DIAGNOSTIC_LUA_PIN='f447b4c0dda02a89e1b7fc678ec8aca5ee207e4bb59956b19556facfcf79b51f'
 
 
 def load_inputs():
@@ -114,15 +115,60 @@ def early_cycle_controller(raw):
     return text
 
 
+def diagnostic_controller(raw):
+    """Passive5110 observer of original landing versus native carry writers."""
+    original=controller(raw);body=T.P.T.payload(raw)
+    assert body[0xa8dd-0xa000:0xa8e0-0xa000]==bytes.fromhex('8d6bc0')
+    assert body[0xb771-0xa000:0xb774-0xa000]==bytes.fromhex('8d6bc0')
+    prefix='local finalCapDiagnostic={}\n'
+    capture='''local function finalDiagnostic(kind)
+ if not active()or x()<3000 or x()>3078 then return end
+ local birth=births['3040'];if not birth then return end
+ local c=emu.getState();local slot=birth.slot
+ local row={event=kind,Main=updates,x=x(),y=read(0xbd),source=ram(2,0x6b),prior=ram(2,0x6c),
+  source_y=ram(2,0x210),native_vy=read(0x8e),native_state=read(0x1e),
+  jump_age=ram(2,0x7e),fraction=ram(2,0x7f),acceleration=ram(2,0x82)+256*ram(2,0x83),
+  impulse=ram(2,0x86)+256*ram(2,0x87),held=ram(2,0x14),phase=phase,
+  top=read(0xbe+slot),passenger=read(0x566+slot),footer=read(0x65b),
+  source_body={ram(2,0x3e),ram(2,0x3f),ram(2,0x40),ram(2,0x41)},
+  pending_A=c['cpu.a'],PC=c['cpu.pc']}
+ if #finalCapDiagnostic>=32 then table.remove(finalCapDiagnostic,17)end
+ finalCapDiagnostic[#finalCapDiagnostic+1]=row
+end
+emu.addMemoryCallback(guarded('final original land writer',function()
+ if mapped(0xa8dd,'nesWorkRam',3*8192+0x8dd)then finalDiagnostic('original-land-A8DD')end
+end),emu.callbackType.exec,0xa8dd)
+emu.addMemoryCallback(guarded('final native carry source writer',function()
+ if mapped(0xb771,'nesWorkRam',3*8192+0x1771)then finalDiagnostic('native-carry-B771')end
+end),emu.callbackType.exec,0xb771)
+emu.addMemoryCallback(guarded('final native LPC sign',function()
+ if not mapped(0xb453,'nesPrgRom',0x1453)then return end
+ local birth=births['3040'];local c=emu.getState()
+ if birth and c['cpu.x']==birth.slot then finalDiagnostic('native-LPC-B453')end
+end),emu.callbackType.exec,0xb453)
+emu.addMemoryCallback(guarded('final native position selection',function()
+ if mapped(0xac18,'nesPrgRom',71*8192+0xc18)then finalDiagnostic('native-position-AC18')end
+end),emu.callbackType.exec,0xac18)
+'''
+    text=prefix+T.P.once(original,'events=events,','events=events,final_cap_diagnostic=finalCapDiagnostic,')
+    text=T.P.once(text,'local function drive()\n',capture+'local function drive()\n')
+    assert text[len(prefix):].replace(capture,'',1).replace('events=events,final_cap_diagnostic=finalCapDiagnostic,','events=events,',1)==original
+    Prior.LuaRuntime().compile(text)
+    if DIAGNOSTIC_LUA_PIN is not None:assert sha256(text.encode()).hexdigest()==DIAGNOSTIC_LUA_PIN
+    return text
+
+
 def main():
-    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--route',action='store_true');ap.add_argument('--early-cycle',action='store_true');args=ap.parse_args()
-    parent,raw=load_inputs();text=early_cycle_controller(raw)if args.early_cycle else controller(raw)
+    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--route',action='store_true');ap.add_argument('--early-cycle',action='store_true');ap.add_argument('--diagnostic',action='store_true');args=ap.parse_args()
+    assert not(args.early_cycle and args.diagnostic)
+    parent,raw=load_inputs();text=diagnostic_controller(raw)if args.diagnostic else early_cycle_controller(raw)if args.early_cycle else controller(raw)
     info=dict(candidate_SHA256=T.PIN,Lua_SHA256=sha256(text.encode()).hexdigest(),compiled=True,
         frozen_stair_prefix_Lua_SHA256=Prior.Previous.LUA_PIN,
         original_backward_jump_acknowledgement=True,actual_native_passenger_required=True,
         helper_left=3040,helper_center=3056,helper_initial_top=192,
         centered_nativeX=3048,departure_top=[160,170],source_or_native_writes=False,outputs_written=0,
         exact_earlier64_start=args.early_cycle,maximum_final_cap_trajectory_rows=32 if args.early_cycle else 0)
+    if args.diagnostic:info.update(passive_original5110_controls_exact=True,maximum_final_diagnostic_rows=32)
     if args.route:
         Q,P,H=Gate.Q,Gate.P,Gate.H;e73=T.Old.reverse(parent)
         _,seed=H.cold(e73,e73[P.B.COOKIE_AT:P.B.COOKIE_AT+16]);m=Q.mounted(seed,raw)
@@ -136,6 +182,7 @@ def main():
         info.update(passed=result['passed'],logical_updates=result['logical_updates'],final=result['final'],
             reason=receipt.get('reason'),last_events=receipt.get('events',[])[-20:],
             final_cap_trace=receipt.get('final_cap_trace'),
+            final_cap_diagnostic=receipt.get('final_cap_diagnostic'),
             receipt_SHA256=sha256(json.dumps(receipt,sort_keys=True,separators=(',',':')).encode()).hexdigest(),
             physical_cadence_claim=False)
     print('DKJR_FINAL_HANDOFF '+json.dumps(info,separators=(',',':')),flush=True)
