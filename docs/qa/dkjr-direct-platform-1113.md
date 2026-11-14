@@ -331,6 +331,9 @@ verifies raw66134-byte trace SHA
 and60 rows; no decoded file is written. AtMain8947 the standing actor
 `[79,95,96,110]` touches query2 cell`[96,96,111,111]`. SourceX72→70 is
 published by B2CA as native2976→2974; native Impede9E12 is not the cause.
+The publisher census30640 refines those Mesen callback PCs: the actual X
+instruction isB2C8 `85 75`, reported after-store atB2CA; Y isB2D4 `85 BD`,
+reported after-store atB2D6. The source-publisher attribution is unchanged.
 Original DA14 records blocked direction4 in78, and original D6B9/D6D0 applies
 the exact2px recoil. The319 ring omits jump ages1..2, so this proves ground
 recoil separately from the subsequent reset. Its extra `kind3_list` was
@@ -363,6 +366,50 @@ corrects that test, without a state repair. These are original/current opening
 control proofs, not SMB stair or physical cadence results. They support one
 separately frozen early backward-facing ordinary-control proposal for odd
 risers; full traversal remains to be qualified.
+
+The new standalone `replay_dkjr_odd_stair_turn_1113.controller(raw769)` is Lua
+`aa926b0cbb63f880652c8dc8ea3d09bfd8a766a36b014934ec8623f4246e8f48`
+(metadata2136 exit0). Only final risers3/5 prepare12px before their anchors.
+It keeps Left pressed until the original motor acknowledges facing0,
+direction3 and actual held Left with A released, then requests Right+A and
+requires original state3/facing0/direction4 acknowledgement. It assumes no
+single-update Left/A pulse. Existing three-update landing, stage, life, flag,
+castle and active1-2 checks remain; no source/native/game geometry changes.
+Its full CPU replay96869 is **negative**:Main7622/2932/112/both lives on the
+120-update preparation bound, receipt
+`ea3dd98b390392ba47be979e2ee47051971e68521034fb07a69689757dcbbb63`.
+It requests no backward jump. The inherited nativeState0 takeoff admission
+can exclude the donor-grounded narrow edge after Left (the same source1/
+native2 distinction present in the genuine Main7499 prefix). The aa926
+default is retained as a rejected controller, not a motor/game failure.
+
+The separate `donor_ground_controller(raw769)` compiles as
+`cd3004a7ffa3cdd4926dff58ab9d501c10339cdc0fae7daa81a17fa214b53487`
+(metadata30562 exit0). Odd-riser preparation may use acknowledged original
+current/prior1 with sourceY=nativeY+15, including native inset-foot state2.
+This changes takeoff control admission only; original settled landing checks
+remain exact. It records native state at the acknowledged Left/request, and
+keeps original input/facing/jump acknowledgement and geometry intact.
+Its full source replay22471 now exits0/**PASS8926**, receipt
+`a8bc5337008d23363d960c4603b3e9b4ebae6d7a859a4bee0ac56c57a19c9708`.
+AtMain7503 it requests3 from2931/112/nativeState2 with actual donor facing0/
+direction3/held2/sample2;7504 acknowledges source3/facing0/direction4/held129/
+sample129. The existing settled landing3 occurs7532 at2948/96. Step5 requests
+7561 from2963/80/nativeState2 with the same Left acknowledgement;7562 confirms
+the accepted backward-right jump and7590 records settled2980/64. These actual
+nativeState2 request events establish why aa926's native-ground admission was
+too restrictive for the donor's edge support. All six pipes/three gaps/final
+stairs/native flag/castle assertions pass. The endpoint remains active falling
+1-2 X40/Y48/high1/source4/engine8/both lives, not25 grounded updates. The full
+CPU result is offered for root's private native test; no new native success,
+ROM update, source physics change or nightly delivery is claimed.
+
+The strengthened primitive unit audit20880 exits0 with all state-reset
+assertions. Its first stricter-PC audit90013 misclassified the owned RAM2
+world-span helper D2D5/D2D8/D2DB/D2DE/D2F6 as native code. Classification now
+uses actual bank mappings: source3 actor code and source2 helper code are
+allowed, while no native BG/ground code executes. The underlying unit
+trajectories and writer identities are unchanged.
 
 `tools/audit/replay_mini_dkjr_direct_1113.py` is a strict read-only factory:
 reverse769→exact14, call root's frozen Mini descending controller (c0e8),

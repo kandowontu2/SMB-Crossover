@@ -30,7 +30,7 @@ def main():
             0x7f:0,0x82:0,0x83:0,0x86:96,0x87:1,0x88:96,
             0x8a:0,0x8b:0,0x8c:0,0x210:95,0x213:x-2896-8,0x591:0,0x8da:1}
         for at,value in fields.items():m.ram[2][at]=value
-        timeline=[];events=[];all_native_pcs=[]
+        timeline=[];events=[];all_native_pcs=[];source_helpers=set()
         for tick in range(36):
             m.ram[2][0x14]=129 if tick<8 else 1
             m.ram[2][0x15]=129 if tick==0 else 1
@@ -41,7 +41,9 @@ def main():
                 if previous is not None and(current[0]!=previous['values'][0]or tick<5 and current[1]!=previous['values'][1]):
                     events.append(dict(tick=tick,writer_PC=previous['pc'],
                         opcode=previous['opcode'],before=previous['values'],after=current))
-                if not(0xa000<=c.pc<0xc000 and mem.rawtags[1]==3):all_native_pcs.append((tick,c.pc,mem.rawtags[1]))
+                tag=mem.rawtags[(c.pc-0x8000)//8192]if c.pc>=0x8000 else-1
+                if tag==2 and 0xc000<=c.pc<0xe000:source_helpers.add(c.pc)
+                elif not(tag==3 and 0xa000<=c.pc<0xc000):all_native_pcs.append((tick,c.pc,tag))
                 if c.pc==land:
                     events.append(dict(tick=tick,event='original-Land',source_y=mem.ram[2][0x210],
                         rect=list(mem.ram[2][0x3e:0x46])))
@@ -55,7 +57,8 @@ def main():
                     source_y=state['source_y'],source_x=state['source_x'],
                     recoil_direction=m.ram[2][0x78],rect=state['source_rect']))
         rows.append(dict(name=name,start_native_x=x,start_facing=facing,timeline=timeline,
-            source_field_writers=events,native_program_cuts=all_native_pcs[:8]))
+            source_field_writers=events,native_program_cuts=all_native_pcs[:8],
+            owned_source_RAM2_helper_PCs=sorted(source_helpers)))
         print('DKJR_STAIR_RESET_UNIT '+json.dumps(rows[-1],separators=(',',':')),flush=True)
     print('DKJR_STAIR_RESET_UNIT_SCOPE '+json.dumps(dict(candidate_SHA256=sha256(raw).hexdigest(),
         unit_field_and_tile_seeds=True,ROM_written=False,native_BG_or_ground_projection_executed=False,

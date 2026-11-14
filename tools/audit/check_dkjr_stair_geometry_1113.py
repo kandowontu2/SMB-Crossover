@@ -35,6 +35,15 @@ def main():
     solid_rect=bytes.fromhex('ade2c88de5c818690f8de7c8')
     solid_at=body.find(solid_rect)
     assert solid_at>=0 and body.find(solid_rect,solid_at+1)<0
+    publish=labels['DkjrNativePublishAnchor'];publish_at=publish-0xa000
+    publish_body=body[publish_at:publish_at+80];publish_writers={}
+    for name in('Player_X_Position','Player_Y_Position'):
+        field=W.address(b,name);pattern=bytes((0x85,field))
+        offsets=[i for i in range(len(publish_body)-1)if publish_body[i:i+2]==pattern]
+        assert len(offsets)==1
+        point=publish+offsets[0]
+        publish_writers[name]=dict(store_PC=point,opcode_hex=pattern.hex(),
+            observed_post_store_PC=point+2)
     print('DKJR_STAIR_GEOMETRY '+json.dumps(dict(candidate_SHA256=sha256(raw).hexdigest(),
         original_SHA256=sha256(donor).hexdigest(),original_geometry=source_lists,
         original_body_PC=0xc379,current_identical_body_PC=matches[0],
@@ -44,6 +53,7 @@ def main():
         current_leaf_preimages=current_leaves,
         current_solid_rect_PC=0xa000+solid_at,
         current_solid_rect_preimage=body[solid_at:solid_at+22].hex(),
+        publisher_position_writers=publish_writers,
         scope='Read-only source/table census. No same-cut runtime equivalence or bug conclusion.',
         outputs_written=0),separators=(',',':')),flush=True)
 
