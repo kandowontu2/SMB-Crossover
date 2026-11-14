@@ -269,6 +269,101 @@ observer and authenticated source PCs remain exact. It is available for root
 to capture a hardware-only clamp/stall if the active native route fails. The
 old991 factory is unchanged and no trace or native run is launched here.
 
+Root's later actual769/active-trace52792 run is **negative** at final riser5,
+receipt `1a30cc819aa41ac08a3e35237227cc9a654a62a5fa5a6454ce2f4783a1309fa8`:
+20447 physical/9083 Main,2974/80,time22,both lives,jump_age0. It preserves all
+earlier pipe/platform/pit crossings. Step2 lands atMain7582/2932/112; step3
+does not press A until8840/2944/112, then lands8846/2946/96. The1258-Main delay
+after step2 is unacceptable navigation cost. Step4 A8868/2960/96 lands8876/
+2963/80. Step5 A8947 at2974/80 and retries8963/9013/9056 gain no useful height
+(jump_age2), finally failing9083. The old trace's2938..2948 window drops6232
+rows and cannot diagnose step5; its absence is not evidence of no contact.
+This is not a full native clear, and active782 is not a general stair repair.
+Frozen default/active/active-trace APIs and hashes remain unchanged. The next
+ordinary-control study compares short ground reorientation before Right+A at
+both genuine odd-riser clamp states; no ROM, motor, physics or helper edit is
+authorized or made. That speculative matrix29943 was stopped only through
+its verified owned child33348/wrapper86552 before any route receipt; its
+unqualified source was discarded. This is a cancelled investigation, not a
+gameplay failure. The initial900-second launch was rejected before starting
+because the bounded runner's maximum is600; the limits were not changed.
+
+`check_dkjr_stair_geometry_1113.py` reads the authenticated original and769.
+All11 original stage1 support rectangles and all8 stage3 supports are
+zero-height lines; stage4's lower floor is2px thick. The actual current
+WorldBuild fragment atB43A is
+`AD E2 C8 8D E5 C8 18 69 0F 8D E7 C8 AD DB C8 C9 02 B0 1A`:
+solid cells have bottom=top+15, shared by kind2 and kind3. This is a real
+adaptation difference, not yet proof of the native stair failure.
+Original body bytesC379..C398 are unchanged in769 atB005. Standing bounds are
+`[7,0,24,15]` for both facings; jumping uses `[9,0,25,15]` facing1 and
+`[5,0,24,15]` facing0, selected by original D2BD..D2EE. With the existing
+source origin nativeX-camera-8/nativeY+15, a right-facing jump's right edge
+is nativeX+17 but the standing edge is+16. The genuine2943/96 upper contact
+can therefore lose its only1px edge after changing pose, matching the observed
+transient drop. A same-cut writer/query proof is still required.
+The current DkNativeAdder D7EE is exact `A0 02 38 60`; its native small
+probe rows remain headX+8/Y+18, feetX+3/+12/Y+32, sidesX+2/+13/Y+24.
+The DkNativeBoxProfile D7F2 remains `A0 01 38 60`. No bounds, adders, physics
+or support rectangle was edited.
+
+Separate `replay_dkjr_stair_projection_trace_1113.controller(raw769)` preserves
+active782 inputs and frozen991/527 APIs. Metadata61515 exits0/compiles Lua
+`319a921e1ef75947b677ea212ff6ab5b5705754bc85a1eb98777999851ef2b82`.
+It observes2968..2984 with at most60 memory rows: attempt buckets0..4 each
+retain their first4/latest8. It includes original query2/fall/support entry,
+both source lists, source/native boxes and actual native X/Y writes with
+code-map/opcode/value/caller-stack evidence. Native ImpedePlayerMove at9DE5
+(`A9 00`), X store9E12 (`85 75`) and after-store9E14 (`A5 5C`) are bound to
+their current physical126 preimages. Native position-write callbacks remain
+passive and preserve values. Preliminary syntax-only proposals were rejected
+before native use; only the compiled319a factory is offered to root. No new
+native trace has run here and no collision repair/grant is proposed yet.
+
+Root92074 has now run exact319 on769 with unchanged active782 controls. It
+reproduces20447 physical/9083 Main/2974/80/time22/both lives and the riser5
+failure. The bounded60 contexts are retained in
+[`dkjr-stair-projection-native-1113.json`](dkjr-stair-projection-native-1113.json),
+receipt `a69e956bfd1ef01990062c65d59d09724db096f33efb5305df69f4bfa0871e67`.
+`audit_dkjr_stair_native_1113.py` decodes that one5044-byte receipt in memory,
+verifies raw66134-byte trace SHA
+`7bc1b4044d127327f925e2cf38991b24db77c50b7d53089e8b6a8c0d7298c50f`
+and60 rows; no decoded file is written. AtMain8947 the standing actor
+`[79,95,96,110]` touches query2 cell`[96,96,111,111]`. SourceX72→70 is
+published by B2CA as native2976→2974; native Impede9E12 is not the cause.
+Original DA14 records blocked direction4 in78, and original D6B9/D6D0 applies
+the exact2px recoil. The319 ring omits jump ages1..2, so this proves ground
+recoil separately from the subsequent reset. Its extra `kind3_list` was
+mislabeled: C840 is vine storage, while support storage isC800 (actual
+ListOffsets=`40,40,80,00,00`). That array is withdrawn from support inference;
+accepted query2 rectangles/writer observations remain valid. Frozen319 is
+unchanged after its native test.
+
+`check_dkjr_stair_reset_unit_1113.py` isolates the missing reset in **explicitly
+seeded primitive fixtures**, not Main or authored-route evidence. It supplies
+the observed61 stair geometry and source fields, executes only compiled source
+phase plus its publisher, and executes no native BG/ground projection. The late
+2974/80 facing1 case enters3, rises79→78, and sourceA321 writes4 at age2 when
+actor`[80,93,96,108]` touches wall`[96,96,111,111]`. Source fall gravity writes
+sourceY95/native80 at tick3; original Land on the previous112 floor and A8DD
+write source1 at tick4. This reproduces3→4→1 and the no-height result without
+a native Y reset. Early2964/facing1 lands64 at2975/tick18, then loses the1px
+edge on standing and falls to80. With the same early position but facing0,
+the original backward-right jump lands2976/64 at tick20 and stays source1/
+2985/64 through tick35. Source-only unit session50938 exits0; none is a natural
+or physical stage pass and no geometry/ROM candidate was changed.
+
+`check_dkjr_original_turn_jump_1113.py` boots the original NROM normally243 NMI
+epochs and uses actual Left→Right+A, confirming state3/facing0/direction4 and
+the original C38D `[5,0,24,15]` selection. Its `--current` proof12540 also passes
+the same compiled bounds (B019) on769 after22 actual neutral opening updates
+and ordinary Left/Right+A. An initial current harness attempted Left while
+the constructor was still falling and was rejected; waiting for real ground
+corrects that test, without a state repair. These are original/current opening
+control proofs, not SMB stair or physical cadence results. They support one
+separately frozen early backward-facing ordinary-control proposal for odd
+risers; full traversal remains to be qualified.
+
 `tools/audit/replay_mini_dkjr_direct_1113.py` is a strict read-only factory:
 reverse769→exact14, call root's frozen Mini descending controller (c0e8),
 verify the5120-byte Mini carrier unchanged, replace only the one ROM identity,
