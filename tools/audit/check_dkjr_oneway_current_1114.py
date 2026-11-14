@@ -52,6 +52,7 @@ print(json.dumps(dict(passed=True,parent_SHA256=M.PARENT,private_SHA256=M.S.PIN,
         cwd=Path(__file__).resolve().parent,timeout=450)
     assert result.returncode==0,(result.returncode,result.stdout.decode(),result.stderr.decode())
     isolated=json.loads(result.stdout)
+    print('DKJR_ONEWAY_ISOLATED_INVERSE '+json.dumps(isolated,separators=(',',':')),flush=True)
     print('DKJR_ONEWAY_CURRENT_GATES '+json.dumps(dict(info,passed=True,
         exact_protected_envelope_bytes=sum(size for _,size in protected),strict_inverse=True,
         isolated_inverse=isolated,corruption_rejections=cases,outputs_written=0),separators=(',',':')),flush=True)

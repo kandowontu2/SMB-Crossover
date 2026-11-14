@@ -106,6 +106,42 @@ def controller(raw,*,diagnostic=False):
     return text
 
 
+def native_controller(raw,*,diagnostic=False):
+    private=private_image(raw);text=S.native_controller(private,diagnostic=diagnostic)
+    assert text.count(S.PIN)==1
+    text=text.replace(S.PIN,PIN,1);LuaRuntime().compile(text)
+    return text
+
+
+def source_projection(raw,*,kind):
+    """Cheap independent construction of the already pinned exact e98.
+
+    Source-route time budgets exclude repeating a full owning inverse. The
+    production proposal above remains the typed normalize/preserve recipe.
+    This explicit421-only projection must produce its identical whole hash,
+    complete DK envelope and protected foreign envelopes; no fallback input.
+    """
+    assert kind=='hidden-421'and isinstance(raw,bytes)and sha256(raw).hexdigest()==PARENT
+    Current.dependencies();_,old=S.Replay.load_inputs();private,_=S.proposal(old)
+    out=bytearray(raw);own=ownership()
+    for at,size in Old.Old.dk_envelopes():out[at:at+size]=private[at:at+size]
+    image=bytes(out);assert sha256(image).hexdigest()==PIN
+    assert all(image[i]==raw[i]for i in range(len(raw))if i not in own)
+    assert all(image[at:at+size]==raw[at:at+size]for at,size in Current.protected_envelopes())
+    return image,private,dict(passed=True,source_projection_only=True,input_kind=kind,
+        input_SHA256=PARENT,output_SHA256=PIN,canonical_private_SHA256=S.PIN,
+        production_typed_proposal_SHA256=PIN,all_protected_envelopes_exact=True,outputs_written=0)
+
+
+def source_controller(raw,*,private,diagnostic=False):
+    assert sha256(raw).hexdigest()==PIN and sha256(private).hexdigest()==S.PIN
+    for at,size in Old.Old.dk_envelopes():assert raw[at:at+size]==private[at:at+size]
+    text=S.native_controller(private,diagnostic=diagnostic)
+    assert text.count(S.PIN)==1
+    text=text.replace(S.PIN,PIN,1);LuaRuntime().compile(text)
+    return text
+
+
 if __name__=='__main__':
     current=Path('C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes').read_bytes()
     image,info=proposal(current)
@@ -113,4 +149,5 @@ if __name__=='__main__':
         assert inverse(image)==current
         info['strict_source_inverse_roundtrip']=True
         info['controller_Lua_SHA256']=sha256(controller(image).encode()).hexdigest()
+        info['native_cookie_bound_Lua_SHA256']=sha256(native_controller(image).encode()).hexdigest()
     print('DKJR_ONEWAY_CURRENT '+json.dumps(info,separators=(',',':')),flush=True)

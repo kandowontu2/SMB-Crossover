@@ -323,6 +323,48 @@ unrun metadata draft usedB5 and was corrected before any execution.
 Frozen5110/63e7 texts remain unchanged. No ROM files or native runs by this
 helper, and no installation/delivery qualification is claimed.
 
+The first fresh-process checker run reached its final receipt formatter but
+failed on a duplicate `outputs_written` argument. It was corrected and rerun;
+session1f1864 is terminal **PASS**. Its isolated child explicitly blocks both
+Downloads and retained metal-slot ROM reads, recovers exact pure421 and
+private09b from source, and verifies forward roundtrip. All453 protected
+bytes retain the176 fixes; eleven unknown/corrupt inputs reject. The earlier
+formatter failure is not counted as a complete gate pass.
+
+Native opening needs a second metadata binding: new09b/e98 have a new
+expected title cookie. Frozen63e7/5f7e deliberately remain unchanged and
+retain the old769 title-cookie literal; their CPU opening bypass is valid
+only for their recorded source scope. Separate `native_controller()`
+factories bind both ROM identity and the new cookie, with a text inverse
+proving that only that expected-cookie literal changes. Private plain native
+Lua is `a8b84e055c1821b22056fdc1c5dbb8a50998ca3564538a2c3a8ed315de9e3e36`.
+The strengthened native factories are private
+`e48dc8c0af9393b603e10c182bbf40b1ed7a69bf39a8be4f2ba54a76101cf7bb`
+and current
+`d9a13fe9158332ddf15ef19228c2cc613d20d8313b6b34a0b0932153027734f6`.
+No native run uses the incompletely bound frozen text as a qualification.
+
+The first strengthened current source invocation hit its600-second bound
+atMain6000 with both lives after expensive repeated normalization/inverse
+preparation. No complete pass is claimed. A source-only independent
+projection then constructs exactlye98 from the complete already-qualified
+private09b DK envelope and exact421, requires the same whole-image hash and
+all453 protected bytes, and starts actual cold in under10s. The production
+composition remains the typed normalize/preserve recipe; this explicit
+known-input projection is neither an input fallback nor a new candidate.
+
+That exacte98/d9a strengthened source run session8ed3d7 is terminal
+**NEGATIVE** after9012 scheduled updates. All1-1 helpers/stairs/flag/castle
+still pass. Actual1-2 returns reach65, but healthy grounded returns remain0.
+AtMain8086/frame9552, X40/Y176/high1/sourceY191, source4 becomes5 (original
+injury), native engine8/lives2/timer398. Receipt SHA256 is
+`1e1bd8513543c57bd5381421dbd72094e6c76c753e6f9b4f4176be2c1fc5d05c`.
+This is the entry-fall failure the stronger endpoint was designed to catch;
+no assertions are weakened and the earlier falling-arrival result does not
+qualify1-2 survival. Full native final3040 handoff, entry-fall cause/repair,
+25 grounded1-2 returns and overwhelming idle/walk cost remain open. All
+source jobs above have terminal results and zero generated files.
+
 ## Authentication cost follow-up
 
 `profile_dkjr_auth_calls_1114.py` sessiona8b804 exits0 on the same exact769

@@ -9,6 +9,8 @@ from check_ff_stdout_controller_source_1110 import LuaRuntime
 
 PRIVATE_LUA_PIN='7cd0d37d0988bd5695bea00783a5d2a62bbcc56032bca411c862a8fda56ab547'
 CURRENT_LUA_PIN='168fe6b3bc0cda81062a470d58872c72bb864c23201454b0797082380fd52f5f'
+NATIVE_PRIVATE_LUA_PIN='e48dc8c0af9393b603e10c182bbf40b1ed7a69bf39a8be4f2ba54a76101cf7bb'
+NATIVE_CURRENT_LUA_PIN='d9a13fe9158332ddf15ef19228c2cc613d20d8313b6b34a0b0932153027734f6'
 
 
 def strengthen(original):
@@ -100,19 +102,35 @@ def current_controller(raw):
     return text
 
 
+def native_private_controller(raw):
+    text=strengthen(S.native_controller(raw))
+    if NATIVE_PRIVATE_LUA_PIN is not None:assert sha256(text.encode()).hexdigest()==NATIVE_PRIVATE_LUA_PIN
+    return text
+
+
+def native_current_controller(raw):
+    import compose_dkjr_oneway_current_1114 as Current
+    text=strengthen(Current.native_controller(raw))
+    if NATIVE_CURRENT_LUA_PIN is not None:assert sha256(text.encode()).hexdigest()==NATIVE_CURRENT_LUA_PIN
+    return text
+
+
 if __name__=='__main__':
-    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--current-421',action='store_true');args=ap.parse_args()
+    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--current-421',action='store_true')
+    ap.add_argument('--native-bound',action='store_true');args=ap.parse_args()
     if args.current_421:
         import compose_dkjr_oneway_current_1114 as Current
         raw,_=Current.proposal(Path('C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes').read_bytes())
-        text=current_controller(raw)
+        text=native_current_controller(raw)if args.native_bound else current_controller(raw)
     else:
-        _,parent=S.Replay.load_inputs();raw,_=S.proposal(parent);text=private_controller(raw)
+        _,parent=S.Replay.load_inputs();raw,_=S.proposal(parent)
+        text=native_private_controller(raw)if args.native_bound else private_controller(raw)
     import compose_dkjr_oneway_current_1114 as Current
     current_adapter=text if args.current_421 else text.replace(S.PIN,Current.PIN,1)
     LuaRuntime().compile(current_adapter)
     print('DKJR_GROUNDED12_CONTROLLER '+json.dumps(dict(ROM_SHA256=sha256(raw).hexdigest(),
         controller_SHA256=sha256(text.encode()).hexdigest(),compiled=True,required_actual_grounded_returns=25,
+        native_cookie_bound=args.native_bound,
         current_ROM_identity_adapter_SHA256=sha256(current_adapter.encode()).hexdigest(),
         maximum_settling_Main_updates=240,all_prior_assertions_preserved=True,source_or_native_writes=False,
         outputs_written=0),separators=(',',':')),flush=True)

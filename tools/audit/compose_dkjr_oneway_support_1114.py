@@ -99,10 +99,24 @@ def controller(raw,*,diagnostic=False):
     return text
 
 
+def native_controller(raw,*,diagnostic=False):
+    """Separate complete opening binding; preserve the frozen63e7 factory."""
+    text=controller(raw,diagnostic=diagnostic);parent=inverse(raw)
+    old=parent[P.B.COOKIE_AT:P.B.COOKIE_AT+16].hex()
+    new=raw[P.B.COOKIE_AT:P.B.COOKIE_AT+16].hex()
+    before=f"cookie=='{old}'";after=f"cookie=='{new}'"
+    assert old!=new and text.count(before)==1
+    bound=P.once(text,before,after)
+    assert P.once(bound,after,before)==text
+    LuaRuntime().compile(bound)
+    return bound
+
+
 if __name__=='__main__':
     _,raw=Replay.load_inputs();out,info=proposal(raw)
     if PIN is not None:
         assert inverse(out)==raw
         info['strict_inverse_and_forward_roundtrip']=True
         info['controller_Lua_SHA256']=sha256(controller(out).encode()).hexdigest()
+        info['native_cookie_bound_Lua_SHA256']=sha256(native_controller(out).encode()).hexdigest()
     print('DKJR_ONEWAY_PRIVATE '+json.dumps(info,separators=(',',':')),flush=True)
