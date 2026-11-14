@@ -9,8 +9,15 @@ the unchanged source proposal. Ryu28/native58/policy9/workers26+25 use no new
 native capacity, RAM, CHR, helper geometry, body or source motor/fall/jump code.
 All unowned bytes, carrier/cookie/head hooks and source caches remain exact.
 
-Downloads is now root-verified SMB2/Bub
+The initial proof parent was root-verified SMB2/Bub
 `3684f3d2a418a484befd80fca351d0dc5f9b472f6f067a0a7894994ea343679d`.
+Root has since delivered
+`12397b1c2557834f6a2b7e23c9915d5dc40c6cabff7a6ee844c1adebf6564c52`.
+The CLI-only loader explicitly applies its strict
+`compose_smb2_postbg_mirror_1113.inverse` to3684 before the unchanged frozen
+chain below. Session71702 verifies12397→3684→f88→7ef in memory. Frozen14,
+769 and the historical8623-over3684 merge APIs remain unchanged; no old DK
+candidate may replace the newer nightly or discard its six alias operands.
 The loader explicitly accepts only known3684→SMB2 inverse→f88→Bub inverse→7ef,
 then retains the frozen e73/14/769 proof recipes. The bounded loader roundtrip
 passed before installation, and exact3684 loading passed afterward. This is
@@ -182,6 +189,21 @@ original input/transition/jump/gravity/query2/head-service/fall PCs; Lua
 compiles. No native result or game defect is claimed for the stale-PC rejection.
 Neutral-A ascent followed by ordinary Right is the next bounded control study;
 no source body, physics, thresholds, tiles or helper geometry is changed.
+
+The neutral-A/late-Right matrix (session14115) is terminal negative in all18
+declared genuine-prefix suffixes. Launches2930..2940 reach at most97 from112;
+late Right at104/100 is consumed only after landing, and the96 threshold is
+never reached. There is no actual original upper-floor landing. This follows
+the donor's intended input rule: exact original NES
+`C:/NES/Donkey Kong Jr. (World) (Rev 1).nes`, SHA
+`1bc7fdc98c29b2c51438c3ce92ca37fac61b939a7cf100c644fed37206cf2cf6`,
+branches atCD9B..CDA3 for states4/3 toCDB2, skipping inputCE6C atCDAF.
+The port's SourcePhase preserves that original air-direction latch. The
+read-only disassembly verified these actual source ROM instructions, not just
+an integration comment. No midair steering or jump-height change is introduced.
+Earlier **latched Right+A** launch2928/2930/2932 versus2944, with zero/four
+neutral release updates, is the next genuine-prefix study; native coverage
+and a new full positive remain pending.
 
 `tools/audit/replay_mini_dkjr_direct_1113.py` is a strict read-only factory:
 reverse769→exact14, call root's frozen Mini descending controller (c0e8),

@@ -15,11 +15,18 @@ PIN='b420e2bee469be38250b24b9925b94e1b56935247f0636384a4fb0c1a49ca45b'
 ENTRY=0xb98e
 BUB_CURRENT='f88cfe5aee15bb3921c691b7f06d905246be9ff88b9b43eea71c2405722724a7'
 SMB2_CURRENT='3684f3d2a418a484befd80fca351d0dc5f9b472f6f067a0a7894994ea343679d'
+SMB2_POSTBG_CURRENT='12397b1c2557834f6a2b7e23c9915d5dc40c6cabff7a6ee844c1adebf6564c52'
 
 
 def normalize_public(raw):
     """Explicit known local successors only; frozen proof pin stays7ef."""
     digest=sha256(raw).hexdigest()
+    if digest==SMB2_POSTBG_CURRENT:
+        import compose_smb2_postbg_mirror_1113 as Post
+        assert Post.CANDIDATE==SMB2_POSTBG_CURRENT and Post.PIN==SMB2_CURRENT
+        raw=Post.inverse(raw)
+        assert sha256(raw).hexdigest()==SMB2_CURRENT
+        digest=SMB2_CURRENT
     if digest==SMB2_CURRENT:
         import compose_smb2_foreground_current_1113 as S
         assert S.CANDIDATE==SMB2_CURRENT and S.PIN==BUB_CURRENT
