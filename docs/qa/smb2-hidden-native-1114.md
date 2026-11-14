@@ -96,10 +96,26 @@ It retains HP31/lives2/Star0 and the original1×6 overlap. Both source scopes
 reject parent, truncation, owned and unowned corruption; mutable Downloads
 reads after input loading, file writes and Mesen calls were blocked.
 
-Guarded installation and actual Downloads launch verification remain pending.
-The delivered nightly is still fa66. Mario's separate native natural Star
-pickup passed; the other seven Star native tests remain open. Star details
-are recorded in `smb2-natural-star-source-1114.md`.
+## Delivered nightly and actual Downloads verification
+
+Root installer2404 finished successfully and directly replaced
+`C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes` with exact421.
+All 2,097,168 installed bytes match the tested candidate. The before/after
+same-name IPS/BPS/UPS guards were clear; no backup, patch or release was made.
+The installer is a one-time fa66-parent operation and must not be rerun on
+already-installed421.
+
+Root61906 then launched the actual Downloads path for both ordinary0705 and
+Mario's natural1UP6576. Both passed and repeated their exact private receipts:
+ordinary4,525 physical/3,768 Main, full1-1 and25 grounded1-2; natural1UP1,389
+physical/951 Main, extra life and30 resumed updates. Installed bytes remained
+equal to the tested candidate and both patch guards remained clear. There
+were no capture files or images. This verifies the delivered file, rather
+than only a build-directory copy.
+
+Mario's separate native natural Star pickup passed, and root40276 also passed
+the remaining seven native Stars on actual Downloads. All eight native Star
+scopes are closed; see `smb2-star-native-1114.md` for their exact receipts.
 
 The bounded producer reuses only `build/smb2-flag-native-1113`'s existing
 candidate/controller slots, max-files2, timeout600. Each Mesen run retains the

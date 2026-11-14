@@ -109,6 +109,10 @@ Exact Lua SHA256 by variant:
 7 1e886fd1e76c40e1d867b0e2d01dced228d49e8a43b4beea7f25a05696948194
 ```
 
-Seven native Star runs remain pending root's single Mesen queue. The
-exact bounded root is `build/smb2-hidden-head-source-1114`, max-files1; tests
+Root's later batch40276 passed the remaining seven native Star routes on the
+actual Downloads421 nightly. All eight native item scopes are now closed;
+`smb2-star-native-1114.md` records the complete native table, receipt hashes
+and scope differences. Lina's native route retains15 after earlier damage,
+where its source route retained31. The
+exact bounded source root is `build/smb2-hidden-head-source-1114`, max-files1; tests
 produce no files. No ROM, patch, capture, backup or release was created.
