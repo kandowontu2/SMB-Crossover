@@ -463,6 +463,53 @@ space and a new root allocation remain required before any game change.
 The unchanged A3F8/A406 sourceY216 control still dies. No thresholds, original
 off-bottom rules, native support claims or delivery status change.
 
+Extended component sessiona72572 also calls the real current native background
+collision. On a declared floor, native179/state2 becomes176/state0 at raw254
+PC9C6C while originalY194/state4 remains unchanged. With no floor, state2/Y179
+remains; collision-disabled also skips the landing. Crucially, an incoming
+native0 is first reset to2 at9B7B when collision is enabled: no-floor ends2,
+while actual floor subsequently writes0 at9C6C. Collision-disabled retains a
+stale0 and cannot qualify a new landing. Pre-move native0 by itself is not a
+fresh landing proof and no such wrapper is allocated.
+
+The existing current wrapped-X protection is intact. An asymmetric declared
+fixture with camera2561/nativeX2569/queryleft255/right16 visits world cells
+2560 and2576 atY208, both on page10. Near-page-only floor produces the two
+208..223 support rectangles; far-page-only floor produces none. This rejects
+an unsigned-page explanation for this specific query and requires no X fix.
+In a complete scheduled native Main, current shared row34/B0F2 and its auth
+AEE2 occur after background collision and9C6C. This is the existing
+after-effects callback, not direct execution of the DkServices JMP row.
+Its current DK target does nothing. Uniform-floor original support already
+lands source1 in that Main, so the callback-order witness is not a source4
+repair pass. A legal caller/context/spring/disabled-collision/area proof and
+private resource proposal are still required for any floor reconciliation.
+
+`check_dkjr_forced_entry_ownership_1114.py` session31949d separately calls
+actual current Entrance_GameTimerSetup and complete scheduled Main on a
+declared ordinary flat floor. Inherited horizontal speed is cleared before
+the real entrance setup; no endpoint Y, source origin or fall threshold is
+seeded after the setup. Control1 starts at40/Y32/engine7 and reaches actual
+engine8/Y48/state2. Current ownership then takes the source actor, captures
+origin63, and reaches unchanged A8DD landing injury at update83 with source
+Y191/origin63/limit22. This reproduces the genuine full-route entry cause.
+
+An explicit CPU-PC counterfactual sending pending airborne AnchorReady to its
+existing reject path freezes at40/Y48/state2/Ready1 for240 scheduled Main
+calls. Returning C0 does not resume native gravity; a grounded-only readiness
+guard alone is therefore insufficient. A separate counterfactual calls the
+existing real MovePlayerVertically34 times while Ready1/engine8/airborne,
+and otherwise keeps that rejection. Native gravity reaches the actual floor,
+then the unchanged ground anchor imports and normal source movement resumes.
+It reaches25 consecutive grounded source/prior1/Y191/native176/high1/lives2
+by update76 without changing original injury code, fall origin or limit.
+Control2 starts atY176 and all three arms reach25 grounded updates by26,
+with zero added gravity calls. These are six declared lifecycle components,
+not native replay, a composed repair, a blanket fall exemption, or a full
+route qualification. A scoped active pending-entry handoff needs measured
+space and a new allocation before implementation. Both component roots stay
+absent/zero files; no emulator or ROM file is produced.
+
 ## Authentication cost follow-up
 
 `profile_dkjr_auth_calls_1114.py` sessiona8b804 exits0 on the same exact769

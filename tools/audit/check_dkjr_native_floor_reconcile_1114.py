@@ -54,6 +54,7 @@ def main():
         m=L.clone(seed)
         N.put(m,Player_X_Position=2569&255,Player_PageLoc=2569>>8,
             ScreenLeft_X_Pos=camera&255,ScreenLeft_PageLoc=camera>>8,
+            ScreenRight_X_Pos=(camera+255)&255,ScreenRight_PageLoc=(camera+255)>>8,
             Player_Y_Position=176,Player_Y_HighPos=1,Player_State=0,
             Player_Y_Speed=0,GameEngineSubroutine=8)
         r=m.ram[2];r[0x6b]=r[0x6c]=4;r[0x210]=source_y;r[0x213]=source_x
@@ -132,6 +133,83 @@ def main():
             assert r[0x213]==0 and r[0x210]==191
         landing_controls.append(dict(original_source_y=source_y,origin=origin,limit=limit,
             original_pre_snap_reject=verdict,after=state(m),original_injury_body_unsnapped=bool(expected)))
+
+    floor_controls=[]
+    for floor,disabled,incoming in ((True,0,2),(False,0,2),(True,1,2),
+                                    (True,0,0),(False,0,0),(True,1,0)):
+        m=fixture(source_y=194);N.put(m,Player_Y_Position=179,Player_State=2,
+            DisableCollisionDet=disabled,SwimmingFlag=0,JumpspringAnimCtrl=0,
+            PlayerSize=0,CrouchingFlag=0,AreaType=1)
+        N.put(m,Player_State=incoming)
+        for name in ('Block_Buffer_1','Block_Buffer_2'):
+            at=W.address(m.bundle,name);m[at:at+208]=bytes(208)
+            if floor:m[at+176:at+208]=bytes((0x54,))*32
+        N.invoke(m,'RelativePlayerPosition',x=0);N.invoke(m,'HuFullBox',x=0)
+        prior=state(m);box=list(m[0x658:0x65c]);floor_writes=[]
+        class FloorProbe(base):
+            def step(self):
+                memory=self.memory
+                if bytes(memory[self.pc:self.pc+2])==bytes((0x85,0x1e)):
+                    tag=memory.rawtags[(self.pc-0x8000)//8192]if self.pc>=0x8000 else -1
+                    floor_writes.append(dict(raw_bank=tag,PC=self.pc,pending_A=self.a,
+                        native_y=N.get(memory,'Player_Y_Position')))
+                return base.step(self)
+        with patch.object(N,'NesMPU',FloorProbe):N.invoke(m,'PlayerBGCollision',x=0)
+        after=state(m)
+        assert after['source_y']==194 and after['source']==4
+        if floor and not disabled:
+            assert after['native_y']==176 and after['native_state']==0,(prior,after,box)
+            assert any(row['pending_A']==0 for row in floor_writes)
+        else:assert after['native_state']==(incoming if disabled else 2)and after['native_y']==179
+        floor_controls.append(dict(static_floor_present=floor,collision_disabled=disabled,
+            before=prior,body_box=box,actual_native_state_writes=floor_writes,after=after))
+
+    asymmetric=[]
+    for near_floor in (True,False):
+        m=fixture(source_y=194)
+        for index,name in enumerate(('Block_Buffer_1','Block_Buffer_2')):
+            at=W.address(m.bundle,name);m[at:at+208]=bytes(208)
+            if (index==0)==near_floor:m[at+176:at+208]=bytes((0x54,))*32
+        m.ram[2][0x3e:0x42]=bytes((255,194,16,209));m.ram[2][0x8db]=3
+        cells=[]
+        def cell_watch(memory,cpu):
+            if cpu.pc==0xb3b7 and memory.rawtags[1]==3:
+                r=memory.ram[2];cells.append((r[0x8de]+256*r[0x8df],r[0x8e2]))
+                assert len(cells)<=3
+        H.call(m,labels['DkjrNativeWorldBuild'],observe=cell_watch)
+        assert cells==[(2560,208),(2576,208)],cells
+        assert bool(m.ram[2][0x8dd])==near_floor
+        asymmetric.append(dict(near_page10_floor=near_floor,far_page11_floor=not near_floor,
+            modular_query=[255,194,16,209],actual_world_cells=cells,
+            static_support_rects=list(m.ram[2][0x800:0x800+m.ram[2][0x8dd]])))
+
+    # Observe the existing after-effects callback in one complete scheduled
+    # native Main. No callback is redirected or given a new implementation.
+    m=fixture(source_y=194);N.put(m,Player_Y_Position=179,Player_State=2,
+        DisableCollisionDet=0,SwimmingFlag=0,JumpspringAnimCtrl=0,
+        PlayerSize=0,CrouchingFlag=0,AreaType=1,TimerControl=0,FamilyMainCommit=1)
+    for name in ('Block_Buffer_1','Block_Buffer_2'):
+        at=W.address(m.bundle,name);m[at:at+208]=bytes(208)
+        m[at+176:at+208]=bytes((0x54,))*32
+    order_points={}
+    for name in ('GameCoreRoutine','HuMovement','PlayerBGCollision','HuAfterEffects'):
+        order_points[(((W.location(m.bundle,name)-16)//8192)|128,W.address(m.bundle,name))]=name
+    order_points[(2,0xd65e)]='DK_Main'
+    order_points[(193,0xb08c+34*3)]='DK_public_row34'
+    order_points[(254,40044)]='native_BG_ground_state_store'
+    callback_order=[]
+    def observe(memory,cpu):
+        if cpu.pc<0x8000:return
+        tag=memory.rawtags[(cpu.pc-0x8000)//8192]
+        name=order_points.get((tag,cpu.pc))
+        if (tag,cpu.pc)==(193,0xaee2):
+            target=memory[0x16c]+256*memory[0x16d]
+            if target==0xb08c+34*3:name='DK_row34_auth'
+        if name:callback_order.append(dict(name=name,raw_bank=tag,PC=cpu.pc,
+            pending_A=cpu.a,state=state(memory)))
+    Q.frame(m,0,observe=observe)
+    assert len(callback_order)<=32
+    assert any(row['name']=='DK_row34_auth'for row in callback_order),callback_order
     print('DKJR_NATIVE_FLOOR_RECONCILE '+json.dumps(dict(passed=True,
         ROM_SHA256=Current.PIN,existing_private_SHA256=S.PIN,
         native_receipt='165ce7e64c854ef8584b13b923d76f261a560dfe4ea378b74621b178ab4bdc55',
@@ -140,6 +218,9 @@ def main():
         offbottom_entry_PC=labels['D_d640'],offbottom_state_store_PC=labels['D_d64d'],
         offbottom_declared_source216_kills=True,controls=controls,
         existing_post_validation_landing_controls=landing_controls,
+        real_native_BG_declared_floor_controls=floor_controls,
+        asymmetric_modular_X_current_regressions=asymmetric,
+        complete_scheduled_Main_callback_order=callback_order,
         outputs_written=0,ROM_written=False,gameplay_change=False,native_claim=False,
         scope='Exact current source CPU postBG path plus declared native-ground split controls. Existing camera shift then anchor import reconciles position while preserving original fall state/origin/limit/velocity; not an allocated repair or route qualification.'),separators=(',',':')),flush=True)
 
