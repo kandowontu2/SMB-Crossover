@@ -92,3 +92,66 @@ neighboring bytes are assumed. In particular$AAF0..$AAFE is already allocated
 to the cheat-owner foreign tail and cannot fund this fix. The frozen96c/8792
 and both negative receipts remain immutable before any fit transformation.
 All-eight natural item success and physical qualification remain open.
+
+## Unplaced measured cache-only proposal
+
+`measure_smb2_hidden_head_1113.py` reproduces the complete current174B probe
+before measuring any transformation. It constructs code bytes in memory only;
+it has no composer, ROM mutation, reserved helper address or candidate ROM PIN.
+The original96c factory,8792 controller and read-only probe trace stay frozen.
+
+A strict inline implementation measures181B and relocates the shared return
+from$B1D5 to$B1DC. It is **not placeable** over the174B lease or live following
+GroundInteraction. No neighboring bytes may be consumed to hide this shortfall.
+
+The alternative main measures173B plus one NOP, retaining the full174B span,
+entry$B128, shared RTS$B1D5 and following$B1D6. It calls an unplaced31B helper
+only for tile$60. All other tiles keep the original logic and no helper call.
+Two source-owned factorizations fund the main: remove two redundant LDA R6
+instructions (4B), then form the identical block-buffer index with ROR while
+preserving original R0 and arithmetic flags (3B). The temporary index PHA/PLA
+does not claim unchanged dead stack bytes; live stack/caller parity remains
+an explicit qualification gate.
+
+The helper requires original X0, negative sourceVY and direction0/1. It writes
+only the existing head X/page/Y cache. Direction3/6/7, non-player and non-rising
+queries remain passable/cache-empty. The caller returns empty with original
+carry1 and Y for tile60. It changes no global tile attributes or motor constant.
+Its31 bytes, before any address is assigned, are:
+
+```text
+8ad01bad2a5c1016ad1e5cc902b00fa5078d7d5ca5088d7e5ca5058d7f5c60
+```
+
+**Resource request, ungranted:**31 qualified source-owned code bytes in the
+same physical PRG118. No available span or preimage is assumed. The helper
+cannot use$AAF0..$AAFE or another owner's lease. The main's helper JSR operand
+at file971189 is deliberately zero/unbound in measurement output; those bytes
+are not runnable code and must never be installed.
+
+Measured main changed ranges within the174B preimage are file971123/1,
+971129/1,971133/19 and971154/83. Local labels move as follows; public entries
+remain fixed:
+
+| Label | Old CPU | Measured new CPU |
+|---|---|---|
+|ProbeOtherTile|B19B|B194|
+|ProbeSolid|B1C9|B1C8|
+|ProbeFlagEmpty|B1CD|B1CC|
+|ProbeEmpty|B1CE|B1CD|
+|ProbeResult|B1D0|B1CF|
+
+Generated unplaced source SHA256 is
+`30784371bf83c36e2e09f0367b866866c630a74c9be593e87cf2df773d87afef`.
+The bounded measurement prints the complete exact174B preimage, unbound main
+hex, helper hex and relocation map to stdout. It writes no files:
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/karnov-equipment-1113 --resume --max-files 1 --timeout 180 -- python -B tools/audit/measure_smb2_hidden_head_1113.py
+```
+
+Independent non60 oracle parity, actual caller continuations, all legitimate
+head/feet/side/object contexts, genuine IRQ/busy-NMI/peripheral behavior and a
+real natural1UP lifecycle are **pending**. No allocation, candidate, synthetic
+reward or native success is inferred from a size measurement. Root must review
+and grant an exact resource before a separately pinned composer is prepared.
