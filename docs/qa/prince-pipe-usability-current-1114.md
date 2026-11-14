@@ -118,9 +118,15 @@ not a ROM recipe or an allocated fix. Source7000 is only the isolated
 primitive arena; it has active host/menu ownership in the real game.
 
 Current RAM3 has no contiguous69B gap. Runtime occupiesA000..BFDF, with only
-BFDF before the cookie atBFE0. Source-proven retired/padded spans are fragmented:
+BFDF before the cookie atBFE0. The padded-byte census is fragmented:
 A487..A490 nineEA, A51E..A527 nineEA, A4A9..A4AF sixFF, A8A7..A8AA threeEA,
-B11D..B11F twozero,29B total pending ingress/reference exclusion. B3E9..B3EF
+B11D..B11F twozero,29B total rather than29B usable funding. Actual current
+flow executes both9EA runs: A484 JSR BDE2 falls throughA487..A490, andA51B
+JSR BDE2 falls throughA51E..A527. A new use would need a preserved/redirected
+continuation. All-stream literal-word scans have mixed-word candidates into
+those spans andA4A9..A4AF, requiring code/data classification; A8A7..A8AA and
+B11D..B11F have no literal-word references but still need relative/fallthrough/
+script ingress proof. B3E9..B3EF
 sixzero andBCFE..BD06 eightzero are data/unknown ownership, not offered as
 free space. A970..A979 andA4C1..A4CD contain active cache repairs; BFA3..BFDF
 contains active reset/constructor code. None is a grant for a new helper.
@@ -130,6 +136,45 @@ The72 explicitly seeded primitive WorldTile vectors cover both faces, both
 without the native body's actual overlap. This isolates translation behavior;
 it is not normal gameplay qualification. Receipt:
 `1c74dba075a94f0ba4c3f422e0c9645b8236ed48ed037c5b515a30a53ee0936c`.
+
+## Genuine feet contexts and naturally powered checkpoint
+
+Normal Right then Left controls, Lua
+`9bcd11ec4fc531f46130002e90231d53a1affd6678cca9d4da38edd627576056`,
+observe100 real facing0/alternate0/sourceX−31 feet queries. The rejected69B
+context is reachable: native147/source155/query124 (mod32=19), action1/
+pose13/phase3/foot208, and native117/source125/query94 (mod21), pose10/foot209.
+The long diagnostic later reaches the locked left camera edge109 and dies
+to the live Goomba at557 Main/HP0/lives2. Keep that navigation negative; the
+earlier live walking records establish the feet context without any overlay.
+
+Frozen tuned pit navigation on actual current code, Lua
+`8c567880dfe9225810deb703d18b0706efd325fafa426dd64dfc2e4216f387f3`,
+passes2029 CPU Main updates through four pipes and both first gaps, final
+1461/176/HP4/lives2. It is a source context witness, not a new native stageC
+or intuitive-pipe success. Actual feet/ahead offsets20/4/12/8/28 retain
+floor1/Surface208 before the gap, then correctly become empty0: native1373/
+source1381/query1377 yields0, while its feet query1361 still yields1;
+native1383/source1391/query1371 yields0 over the gap. Surface is a baseline
+when material0, not a support assertion. No code or gameplay fields changed.
+
+Strict `replay_prince_earned_current_1114.controller(raw)` binds the old
+genuine M→flower/sword controls to421, changing only the authenticated cookie
+and ROM guard. Historical62ba and cache209 images are reconstructed in memory;
+the current complete Prince packet equals cache209. Original factories/default
+pins remain strict. Lua SHA256:
+`2f2384d5b6641e065a34498f0c9c4cb63f433d9214d05ab5aa8d30d25e17a492`.
+Native use would require variant3 and root's queue; none is claimed here.
+
+Current CPU prefix passes2885 Main updates, actually collecting the mushroom
+and mature flower, erasing the flower before sword inventory1 at1260/112,
+HP4/lives2/action91. The original hard third-pipe fall accounts for HP5→4.
+Mushroom-powered sword0 stance reaches the flower's real ledge; its original
+climb reaches action10/foot145 at1289/113, then the mature flower grants the
+sword. This is an executable earned-state checkpoint for follow-up controls,
+not an injected ability fixture or an all-item/audio qualification. Write/
+launch traps pass and both unknown/truncated inputs reject. No new native
+earned-sword or post-sword pipe traversal is claimed.
 
 All bounded source output roots remain absent. No captures, archive recovery,
 ROM outputs, install, patches or releases. Protected user progress and Steve
