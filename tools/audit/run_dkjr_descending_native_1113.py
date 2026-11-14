@@ -27,19 +27,22 @@ DIRECT_PINS = {
     'first-item': '5ef1c7955010c1abebcbefdcdbe6594b76024f123a89117436b5782cde7f1d53',
     'full-enemy-guard': '84161feb7c7d4c6f6eb938e85a0fb2d82aef0600a9132d9946f148f85f1dcec6',
     'full-waiting-guard': '6c6aac8a3d0fdfe334beebcf62b4514014e45d9e044f43926b3ee38e261c8d73',
+    'full-stair-active': '78215151aee3a4bb4309c26b31d18cf50dae9b95a9fd9a2772e7e45b4d8a729d',
+    'full-stair-trace': '52792e0ce5141270c96ec7a40491f29ee9384787705d28dfbe00f34295538963',
 }
 
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--route', choices=tuple(PINS), required=True)
+    p.add_argument('--route', choices=tuple(PINS|DIRECT_PINS), required=True)
     p.add_argument('--metadata', action='store_true')
     p.add_argument('--reuse', action='store_true', help='Reuse the already composed exact14ae private file; no repeated parent build.')
-    p.add_argument('--direct', action='store_true', help='Explicit granted769afe direct-foreign successor; first-item or full-enemy-guard only.')
+    p.add_argument('--direct', action='store_true', help='Use the granted769afe direct-foreign successor and a route from DIRECT_PINS.')
     args = p.parse_args()
     if args.direct:
         import compose_dkjr_direct_platform_1113 as Direct
         assert args.route in DIRECT_PINS
+    else:assert args.route in PINS,'This route requires the explicit direct successor'
     public_now = check(NIGHTLY)['ROM_sha256']
     assert public_now in (PARENT, PUBLIC_BUB, PUBLIC_SMB2, PUBLIC_POSTBG)
     raw = NIGHTLY.read_bytes()
@@ -67,15 +70,19 @@ def main():
         assert C.P.inverse_current(C.reverse(image)) == raw
         assert info['new_RAM_bytes'] == info['new_CHR_bytes'] == 0
     candidate=C.PIN
-    expected=PINS[args.route]
+    expected=DIRECT_PINS[args.route]if args.direct else PINS[args.route]
     if args.direct:
         direct_parent=image
         image,direct_info=Direct.transform(image)
         assert Direct.reverse(image)==direct_parent and direct_info['changed_bytes']==141
         candidate=Direct.PIN
-        full=args.route in ('full-enemy-guard','full-waiting-guard')
-        text=Direct.controller(image,full=full,departure_enemy_guard=full,
-                               approach_enemy_guard=args.route=='full-waiting-guard')
+        if args.route in ('full-stair-active','full-stair-trace'):
+            import replay_dkjr_final_stair_takeoff_1113 as Stair
+            text=Stair.active_trace_controller(image)if args.route=='full-stair-trace'else Stair.active_controller(image)
+        else:
+            full=args.route in ('full-enemy-guard','full-waiting-guard')
+            text=Direct.controller(image,full=full,departure_enemy_guard=full,
+                                   approach_enemy_guard=args.route=='full-waiting-guard')
         expected=DIRECT_PINS[args.route]
     elif args.route == 'first-item':
         text = C.controller(image)
