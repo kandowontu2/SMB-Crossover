@@ -1,7 +1,8 @@
 """Measure source-owned one-way support guard fragments; no ROM composition.
 
-Private retire Selected40 compaction remains conditional on its sole legal
-caller proof. Fragment compilation is not a resource grant or gameplay test.
+The existing Selected40 retirement guard is retained. Omitting jump-age0
+uses the separately checked legal query lifecycle, not standalone query ABI.
+Fragment compilation is not a resource grant or gameplay test.
 """
 from hashlib import sha256
 import json
@@ -20,7 +21,7 @@ def once(text,old,new):
     return text.replace(old,new)
 
 
-def fragments(raw):
+def fragments(raw,*,include_components=False):
     body=T.P.T.payload(raw);frozen,*_=G.H.T.old_source();labels=P.frozen_labels()
     at=labels['EmptyWindow']-0xa000
     assert body[at]==0x20
@@ -45,34 +46,26 @@ def fragments(raw):
     retire=(T.P.B.R/'tools/reference/dkjr_retire_layout_1113.s').read_text()
     retire=retire[retire.index('.segment "SERVICE_HEAD"'):]
     oldr=A(retire,dict(SERVICE_HEAD=(0xcbe0,64),SERVICE_TAIL=(0xcc60,32)))
-    newr=once(retire,'    lda $6002\n    cmp #40\n    bne OriginalBBox\n','')
-    newr=once(newr,'OriginalBBox:\n    jmp $b7ca\n','')
+    newr=once(retire,'OriginalBBox:\n    jmp $b7ca\n','')
     newr=once(newr,'.segment "SERVICE_TAIL"\n','.segment "SERVICE_TAIL"\nOriginalBBox:\n    jmp $b7ca\n')
     newr=once(newr,'DkPrivateRetireHeadEnd:\n','''DkPrivateRetireHeadEnd:
 DkOneWaySupport:
-    ldx #5
     lda $c06b
     cmp #3
     beq DkOneWayJump
     lsr
     rts
 DkOneWayJump:
-    lda $c07e
-    beq DkOneWayNegative
     jmp DkOneWayVelocityLow
 ''')
-    newr+='''DkOneWayNegative:
-    lda #$ff
-    rts
-'''
-    newr='DkOneWayVelocityLow=$d69c\n'+newr
+    newr='DkOneWayVelocityLow=$d69e\n'+newr
     nr=A(newr,dict(SERVICE_HEAD=(0xcbe0,64),SERVICE_TAIL=(0xcc60,32)))
     assert oldr['used']==dict(SERVICE_HEAD=55,SERVICE_TAIL=26)
-    assert nr['used']==dict(SERVICE_HEAD=64,SERVICE_TAIL=32)
+    assert nr['used']==dict(SERVICE_HEAD=64,SERVICE_TAIL=29)
     guard=nr['symbols']['DkOneWaySupport']
-    assert guard==0xcc0d
+    assert guard==0xcc14
     for name,offset,size in(('SERVICE_HEAD',8*1024+736,64),('SERVICE_TAIL',8*1024+864,32)):
-        emit(name,offset,size,oldr['images'][name].ljust(size,b'\xff'),nr['images'][name])
+        emit(name,offset,size,oldr['images'][name].ljust(size,b'\xff'),nr['images'][name].ljust(size,b'\xff'))
     # Reproduce current body including its source-qualified tile alias.
     _,repaired,rotate=Oam.source()
     bsrc=repaired[repaired.index('DkjrNativeDrawBody:'):repaired.index('DkjrNativeBodyEnd:')]
@@ -145,39 +138,52 @@ DkOneWayJump:
  bcc DkMainState
  lsr
 DkMainState:
+ ora #0
  sta Player_State
  sec
  rts
 '''+msrc[stop:]
     nm=A(mdefs+newm,dict(DK_MAIN=(0xd65e,73)))
-    assert nm['used']['DK_MAIN']==62
-    low=A(f'DkOneWayVelocityHigh=${velocity_high:x}\n.segment "LOW"\nDkOneWayVelocityLow:\n lda $c082\n cmp $c086\n jmp DkOneWayVelocityHigh\n',dict(LOW=(0xd69c,11)))
+    assert nm['used']['DK_MAIN']==64
+    low=A(f'DkOneWayVelocityHigh=${velocity_high:x}\n.segment "LOW"\nDkOneWayVelocityLow:\n lda $c082\n cmp $c086\n jmp DkOneWayVelocityHigh\n',dict(LOW=(0xd69e,9)))
     main=nm['images']['DK_MAIN']+low['images']['LOW']
     emit('Source-equivalent Main funding and velocity low',9*1024+0x65e,73,
         oldm['images']['DK_MAIN'],main.ljust(73,b'\xea'))
     # Keep every PC from PlatformLoop onward, including all SMC targets.
     first=frozen.index('NativeObjects:\n');last=frozen.index('PlatformLoop:\n',first)+len('PlatformLoop:\n')
-    wsrc=frozen[first:last]
+    wsrc=re.sub(r'^DkShortCandidate\d+:\n','',frozen[first:last],flags=re.M)
     oldw=A(defs+'.segment "WORLD"\n'+P.expand_branches(wsrc),
         dict(WORLD=(labels['NativeObjects'],labels['PlatformLoop']-labels['NativeObjects'])))
     neww=once(wsrc,' sta WScreenHi\n',' tax\n')
     neww=once(neww,' lda WScreenHi\n',' txa\n')
+    neww=once(neww,' lda Vine_FlagOffset\n jeq ObjectsDone\n cmp #3\n jcs ObjectsDone\n tay\n',
+        ' ldy Vine_FlagOffset\n jeq ObjectsDone\n cpy #3\n jcs ObjectsDone\n')
+    neww=once(neww,' jcs Platforms\n',' jcs PlatformIngress\n')
     neww=re.sub(r'ObjectsDone:\n rts\n(?:(?:;[^\n]*|)\n)*Platforms:\n ldx #5\n',
-        f'Platforms:\n jsr ${guard:x}\n bpl PlatformLoop\nObjectsDone:\n rts\n nop\n',neww)
-    assert neww!=wsrc and neww.count('ObjectsDone:\n')==1 and neww.count(' jsr $cc0d\n')==1
+        f'PlatformIngress:\n jsr ${guard:x}\n bpl Platforms\nObjectsDone:\n rts\nPlatforms:\n ldx #5\n',neww)
+    assert neww!=wsrc and neww.count('ObjectsDone:\n')==1 and neww.count(' jsr $cc14\n')==1
     nw=A(defs+'.segment "WORLD"\n'+P.expand_branches(neww),
         dict(WORLD=(labels['NativeObjects'],labels['PlatformLoop']-labels['NativeObjects'])))
     assert oldw['used']==nw['used']
+    assert nw['symbols']['ObjectsDone']==labels['ObjectsDone']
+    assert nw['symbols']['Platforms']==labels['Platforms']
     emit('Vine scratch factoring and one-way platform ingress',labels['NativeObjects']-0xa000,
         len(oldw['images']['WORLD']),oldw['images']['WORLD'],nw['images']['WORLD'])
     calls=[0xa000+i-1 for i in range(1,8191)if body[i:i+2]==bytes.fromhex('e0cb')]
     assert calls==[0xb651],calls
-    return dict(fragments=result,guard_entry=guard,negative_entry=nr['symbols']['DkOneWayNegative'],
-        velocity_low=0xd69c,velocity_high=velocity_high,sole_current_retire_helper_JSR=calls,
+    report=dict(fragments=result,guard_entry=guard,platform_ingress=nw['symbols']['PlatformIngress'],
+        velocity_low=0xd69e,velocity_high=velocity_high,sole_current_retire_helper_JSR=calls,
         original_BBOX_relocated_to=nr['symbols']['OriginalBBox'],
-        one_way_predicate='source3 and (jump_age0 or signed(C83:C82-C87:C86)<0)',
+        one_way_predicate='source3 and signed(C83:C82-C87:C86)<0',
+        jump_age0_omission_requires_legal_query_lifecycle=True,
+        private_retire_Selected40_guard_preserved=True,
         new_RAM_bytes=0,new_physical_CHR_pages=0,new_native_PRG_bytes=0,
-        conditional_caller_proof_complete=False,full_CPU_or_ISR_qualification=False)
+        full_CPU_or_ISR_qualification=False)
+    if include_components:report['_components']=dict(body_start=start,body_end=end,
+        old_body=oldb['images']['BODY'],new_body=new_body.ljust(end-start,b'\xea'),
+        alias_address=alias,alias=body[alias-0xa000:alias-0xa000+22],
+        rotation_address=0xa000+matches[0],rotation=rb)
+    return report
 
 
 def main():

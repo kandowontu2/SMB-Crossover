@@ -140,6 +140,63 @@ Source-only funding proposals are in
 resources. The one-way gameplay fix takes priority. Any Main/body savings
 in those proposals are alternatives and must not be allocated twice.
 
+The preferred measured layout is now the **no-age0, keep-Selected40**
+proposal, source-fit sessionae43d7. The independent current769 lifecycle
+audit closes the legal Platforms gate: source3 kind3 queries are dominated
+by age>=3. Fresh and repeated age0 queries can have stale positive velocity,
+but are kind0/2 and cannot enter Platforms. This omission does not preserve
+an arbitrary standalone query ABI or poisoned source-state behavior.
+The earlier keep-age0 proposal is retained in Git history; it is superseded.
+
+The five exact existing logical spans are RAM2 CBE0..CC1F (64B), RAM2
+CC60..CC7F (32B), RAM3 BC74..BD3C (201B), RAM2 D65E..D6A6 (73B), and
+RAM3 B4B0..B54D (158B). GuardCC14 calls velocityLowD69E then
+velocityHighBD36. OriginalBBox movesCC14→CC60; old geometryCC60 movesCC63.
+The current character-ownership check is preserved. World ingressB546
+preserves ObjectsDoneB54B, PlatformsLDX5B54C, PlatformLoopB54E and later
+SMC targets. The proposed Main maps legal source1..5 identically and uses
+ORA#0 to restore original N/Z before STA; this consumes its final2B spare.
+The previous arithmetic-only map had correct stored values but wrong N/Z
+for source1..3 and was corrected before any ROM composition.
+
+`measure_dkjr_oneway_fit_1114.py` SHA256
+`a5d10865a81e84e4b15730488884f1ca4b52b7754d79b61d5c15059149cc5854`
+prints every exact preimage and proposed byte string/hash. In the order
+above, proposed fragment SHA256s are
+`e4d4c27f4035b66a3b78a3dd4b610dda5c57e2c39a518e7193e802ce492f4a19`,
+`859cc93de4f9d7aed9abdee3bd3b8f8f1726e3ee3ef6d7d60604d8a526c6db4c`,
+`1c956dad103e76325f16deb0dd8ddb870640e5e915bffb6dc64d95d26423d80f`,
+`8bb465b001621c46c96c1264e506e599dc1b453a407ce1c2ea7d5a7dd3e6d5f2`,
+and `972014974ac16035e514fe0593b447420214bc1239beda34e4062fd52f90d68e`.
+No new RAM, physical CHR pages or native PRG bytes are proposed. Source
+compilation does not grant these resources or qualify a candidate.
+
+`check_dkjr_body_funding_1114.py` session915fb7 passes24,832 exact CPU
+contexts, all256 incoming P (including V1), entrySP64/128/224 and minimumSP56.
+Old/new AXYP/SP, native OAM, and all noncode/nonstack RAM match. Its7B
+funding includes the saved-P RMW epilogue. The separate actual-vector check
+`check_dkjr_body_funding_irq_1114.py` session33a485 passes94 IRQ and94 real
+busy-NMI cuts across94 reached body PCs, including that RMW window, with
+minimum ISR SP197. Every RTI preserves the complete live stack; continuation
+preserves body ABI/private RAM/OAM/SMC/maps. Native ISR side effects are
+reported, and no subsequent body read consumes those changed bytes. These
+are declared body CPU fixtures, with proposed code only overlaid in RAM
+after cold; they do not qualify complete Main/cold/raster/native behavior.
+
+`check_dkjr_oneway_components_1114.py` session80de1d passes the preferred
+fragments: the helper-present rising jump now reachesY97 and lands only on
+descent atstep39/age38, acceleration600>impulse352. The unchanged old arm
+lands while rising atstep6/age5 and reaches onlyY105. With the helper retired,
+the selected48-update ordinary input traces are identical. Native LPC is
+absent from this declared component; it is not a final3040 crossing.
+
+Pending gates include complete Main guard dominance, relocation consumers
+of oldCC14/CC60 and affected Tail labels, all legal World/Vine scratch and X
+contracts, current-fix preservation, full source/ISR/cold gates and native
+replay. Root has not granted or composed this proposal. The fractional native
+velocity follow-up remains separate. All checks used absent bounded output
+roots, max-files1, aggregate stdout, zero generated files.
+
 ## Authentication cost follow-up
 
 `profile_dkjr_auth_calls_1114.py` sessiona8b804 exits0 on the same exact769
