@@ -1,5 +1,10 @@
 # Hidden-head source response, November 14
 
+Latest: the separately granted response successor421379 below passes its
+source gates and all eight natural1UP routes. Native Mesen qualification is
+pending root's queue. The cache-only1dda section preserves its rejected
+predecessor and causal evidence.
+
 The private cache-only candidate is **not qualified**. It repairs the lost
 hidden-block transaction, but does not stop the original SMB2 rising motion.
 No emulator, ROM output, installation, patch or release was created here.
@@ -101,7 +106,83 @@ emptyC1→solidC0 delta; its assertion now names only those changes. No candidat
 was composed from this supplement. A separate pinned behavior supplement
 must supersede the old empty-response clause before placement.
 
-Whole-probe/caller/IRQ/busy-NMI and natural1UP (original kind3 admission,
-erase, popup0B, sound32, delayed lives2→3, retained source stats and30 normal
-updates) remain required for the response successor. All-eight Star remains
-open. Root alone owns Mesen, cleanup and delivery. No helpers were added.
+## Granted response successor421379: source gates closed
+
+Root's separate behavior supplement
+`allocations/smb2-hidden-head-response-1114.json`, SHA256
+`5b881c4e1a28152ce9b4a09c61fe1877e40d86bfb1d01b1ce4795e97462e2358`,
+supersedes only the empty-response requirement for legitimate upward player
+tile60 contacts. Original resource grantfc69 remains unchanged. The new
+`compose_smb2_hidden_response_1114.py` constructs directly overfa66 and reverses
+exactly to it. Exact image SHA256 is
+`421379021e775e6e03357c0aa11d4cab04008452f94bc9e8938f0662cc0c979f`:
+110 changed bytes within the same201 granted bytes, every unowned byte and
+complete cheat-owner/E037 correction retained. No ROM file was written.
+
+The complete response-probe oracle passes117,874 exact pairs plus14 intended
+upward player response/cache changes, minimumSP217, with the same domains as
+the full cache-only oracle. The sole permitted response deltas are Math0FF
+and C0 plus the three head-cache bytes. Every non60 response is exact.
+
+All8 actual menu/Start/constructors and128 complete ordinary Main/NMI input
+pairs compare exact native/source RAM, WRAM, maps, peripherals and live caller
+stack againstfa66. Only temporary stack cells below returnedSP252 are dead
+and excluded; source query scratch is compared.
+
+The instruction/ISR gate passes371 genuine instruction/SP/clock contexts,
+371 actual IRQ and371 busy-NMI cuts. Each compares the originalfa66 ISR with
+the response image, then resumes complete candidateMain to the real stop.
+AXYP/SP/live stack/SMC/native RAM/WRAM/maps/peripherals and ordered writes are
+exact. All new instruction PCs are covered, with an explicit domain split:
+three defensive ABI PCs A63A/A63C/B1A9 use an additional3 IRQ+3 busy-NMI query
+units. These start from a genuine busyMain/audio prefix but explicitly set
+owner1 primitive query coordinates and tile60 buffer; they are **not** natural
+object-contact evidence. Actual current literal callers A92E/AAD8 (decimal
+43310/43736) both force playerX0. Their defensive
+nonplayer branch cannot be claimed as a natural caller path. Combined minimum
+SP170;374 equal source-music advances. No ISR live-state masking or repair.
+
+`replay_smb2_hidden_response_1114.controller(image,variant)` is read-only and
+binds exact421379. It observes actual S2N8F7A before native head, requires
+sourceVY/AY and nativeVY0 at the writer, and forbids continued upward passage
+through the revealed block. Original kind3 admission remains untouched. All
+eight source routes pass native birth, real pickup, popup0B/SFX32/erase,
+delayed lives2→3 and30 resumed updates with source stats retained:
+
+| Variant | Scheduler/Main | Head | Pickup | Award | HP retained |
+|---|---:|---:|---:|---:|---:|
+|Mario|956/955|819|919|925|31|
+|Luigi|1112/1111|974|1075|1081|31|
+|Toad|1060/1059|922|1023|1029|31|
+|Peach|1048/1047|912|1011|1017|31|
+|Imajin|956/955|818|919|925|31|
+|Lina|1144/1143|1008|1107|1113|31|
+|Papa|1244/1243|1106|1207|1213|31|
+|Mama|1200/1199|1063|1163|1169|15|
+
+Mama incurs damage before the head/collector and retains15 through collection
+and resumed play. This is not an all-eight healthy-route claim. All max0,
+reserve0, lives3; all real pickup actors state192. No gameplay-state, actor,
+ability, health or flag seed was used. Each uses the original authored block
+at1-1 world left1024/top128; natural item birth is left1024/top120 (Peach/Lina
+first observed at119/state2). No helper platforms were added or changed.
+
+Exact Lua SHA256 by variant:
+
+```text
+0 657653d27899be1aeaf47216d759620e1066f033d0f40aad1f72d5c375a4f813
+1 a857cbd14c998ef57ba6edf8047bf67a5ba6b4f597279ead90b1952a54adc2b2
+2 4efcbbb527485fbba22a248a03409f2afef487601a2228e49dc2c38c9a2b36ea
+3 20b3a2f4368b4cf6b2d77d80e14861ff6630bb4f9b0f32ad4b97c501ac91b78e
+4 203212dfbefe717e0e0ac9b57a054dbe54acfe35b5515ae608ee6a969061c9af
+5 610206d277d82bc47b7daeffd4816af0a679409fb43036f22d43a2213f551e6b
+6 98ebc28886ae6187b49358efee70fa3e12d9c9be5a53c74c573ecb0a658768d7
+7 a7f38e934ae9327f1d426ac80099a29b2b5d8dc760a2358d371c7ec1e5cfd8cc
+```
+
+The owning composer SHA256 is
+`fe85f2c8acf25905312412d99ccec50767e6c38acf64336cd0eaa820435a84ff`;
+the replay module is
+`6414c152e61ddab7a41233ffec447bcae86ac1116fde925ffdbdbf5783c469aa`.
+All-eight Star remains open. Root alone owns native qualification, cleanup
+and delivery;421379 is private and must not be installed on source tests alone.

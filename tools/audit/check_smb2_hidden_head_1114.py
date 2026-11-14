@@ -102,8 +102,37 @@ def trajectory():
         original_source_ceiling_zero_path_not_entered=True,outputs=0,Mesen_run=False)
 
 
-def probe():
-    raw,image,info=inputs();seed=Family.cold(raw,0)
+def callers():
+    import compose_smb2_hidden_response_1114 as Response
+    parent=C.parent_image();image,info=Response.proposal(parent);counts=Counter()
+    def state(m):
+        s=ISR.full_state(m)
+        # Complete Main is stopped at SP252. Its top three live caller bytes
+        # are compared; all temporary stack cells <=252 are dead at this stop.
+        return(s[0][:0x100]+s[0][0x1fd:],)+s[1:]
+    for variant in range(8):
+        a=Family.cold(parent,variant);b=Family.cold(image,variant)
+        assert state(a)==state(b),('Real cold constructor state',variant)
+        for pad in(0,1,129,1,0,2,0,64):
+            for _ in range(2):
+                a.controller_pad=b.controller_pad=pad
+                Frames.frame(a);Frames.frame(b)
+                assert state(a)==state(b),('Actual unchanged Main/NMI continuation',variant,pad)
+                counts['real_menu_constructor_Main_NMI_pairs']+=1
+    return dict(passed=True,ROM_SHA256=info['ROM_SHA256'],counts=dict(counts),
+        all8_actual_native_menu_Start_constructors=True,
+        all_native_RAM_source_RAM_WRAM_maps_and_peripherals_equal=True,
+        source_scratch_and_live_return_stack_compared=True,
+        dead_stack_below_returned_SP252_explicitly_excluded=True,
+        geometry_actor_health_ability_or_flag_seeds=0,physical_native_claim=False,outputs=0,Mesen_run=False)
+
+
+def probe(response=False):
+    if response:
+        import compose_smb2_hidden_response_1114 as Response
+        raw=C.parent_image();image,info=Response.proposal(raw);assert Response.inverse(image)==raw
+    else:raw,image,info=inputs()
+    seed=Family.cold(raw,0)
     seed.raw_page(1,246)
     memories=[]
     for rom in(raw,image):
@@ -139,15 +168,22 @@ def probe():
         nonlocal minimum
         a=run(memories[0],tile,owner,p,direction,vy,**kw)
         z=run(memories[1],tile,owner,p,direction,vy,**kw)
-        assert a[0]==z[0],('Whole probe AXYP/SP/PC',tile,owner,p,direction,vy,a[0],z[0])
-        minimum=min(minimum,a[3],z[3])
         eligible=tile==96 and owner==0 and vy>=128 and direction<2 and not kw
+        if response and eligible:
+            assert a[0][:3]==z[0][:3]and a[0][4:]==z[0][4:]and a[0][3]^z[0][3]==1
+            assert z[0][3]&1==0
+        else:assert a[0]==z[0],('Whole probe AXYP/SP/PC',tile,owner,p,direction,vy,a[0],z[0])
+        minimum=min(minimum,a[3],z[3])
         if eligible:
             assert z[2]!=(11,22,33)and z[2][1]==0
             # Only these predeclared cache bytes may differ; no blanket mask
             # for source scratch, registers, peripheral or other RAM.
             aa=bytearray(a[1]);zz=bytearray(z[1])
             for at in cache:aa[at-225 if at>=0x1e1 else at]=zz[at-225 if at>=0x1e1 else at]
+            if response:
+                at=addr['S2Math0']-225
+                assert aa[at]==0 and zz[at]==255
+                aa[at]=zz[at]
             assert aa==zz
             counts['intended_upward_player_hidden']+=1
         else:
@@ -169,12 +205,13 @@ def probe():
     return dict(passed=True,ROM_SHA256=info['ROM_SHA256'],counts=dict(counts),minimum_SP=minimum,
         all256_raw_tiles_all256_initial_P_values_covered=True,
         full_cartesian_tiles_owners0to3_directions0to7_VY0and128_P0_65_255=True,
-        all_RAM_and_live_caller_stack_exact_except_declared_hidden_cache=True,
+        all_RAM_and_live_caller_stack_exact_except_declared_hidden_cache_and_response=True,
+        legitimate_upward_hidden_response_FF_C0=response,
         source_GetBlockBufferAddr_executed_without_stub=True,
         synthetic_directed_probe_fixtures=True,gameplay_claim=False,outputs=0,Mesen_run=False)
 
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--mode',choices=('source','probe','trajectory'),default='source')
-    args=p.parse_args();q=dict(source=source,probe=probe,trajectory=trajectory)[args.mode]()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--mode',choices=('source','probe','trajectory','response-probe','callers'),default='source')
+    args=p.parse_args();q=dict(source=source,probe=probe,trajectory=trajectory,callers=callers,**{'response-probe':lambda:probe(True)})[args.mode]()
     print(json.dumps(q,separators=(',',':')),flush=True)
