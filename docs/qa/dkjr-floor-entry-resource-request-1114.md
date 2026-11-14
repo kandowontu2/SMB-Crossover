@@ -148,3 +148,9 @@ Root retains931 as a review target only; CD00..CFFF remains unleased. The
 next funding investigation is sharing already-current DK source-pointer
 wrappers, with complete semantics and relocation evidence required before
 any allocation. Active echo-copy alone does not prove copied padding free.
+
+The active successor proposal is now in `dkjr-floor-entry-fit-1114.md`:
+five existing RAM3 spans totaling1073 bytes,307-byte endpoint bodies and54
+generic helper bytes. It requires no CD00 lease, tenth copied page or foreign
+carrier. The earlier page request above is superseded. Allocation is still
+pending root review; only declared CPU component overlays are authorized.

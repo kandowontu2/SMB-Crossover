@@ -552,3 +552,14 @@ preimages are in `dkjr-floor-entry-resource-request-1114.md`; the checker is
 game image. The proposed CD00 lease is still ungranted. Investigation now
 measures smaller existing DK pointer-wrapper funding, with relocation/ABI/
 IRQ and actual layout gates still open.
+
+The successor existing-span proposal is measured at1073 logical bytes across
+five already-owned RAM3 spans; endpoint bodies307B and shared generic pointer
+helpers54B need no new page/RAM/cold copier. See `dkjr-floor-entry-fit-1114.md`.
+This is still research/unallocated. The earlier304B pending-render gate was
+caught drawing stale pixels; corrected native-gravity→ImportAnchor keeps
+Ready1/source physics suspended while all original body cells track native
+entry height. No ordinary fall threshold or original DA22/DA34 is changed.
+Current Nightly is now root-delivered1daca; future composition must explicitly
+preserve its three classic-DK operands plus29 common reset bytes and all176
+prior fixes. No DK Jr new image, native pass or delivery is claimed.
