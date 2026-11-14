@@ -1,0 +1,84 @@
+{
+  "schema": "root-source-allocation-v1",
+  "date": "2026-11-13",
+  "status": "granted-private-source-proposal-only",
+  "owner": "Game cold-dispatch operands in DMC resident aliases",
+  "parent_ROM_SHA256": "e8cd1e48bdc48412c30e31b2d0f5decf3a86c49aed85890e8452989e34cc1e17",
+  "underlying_installed_ROM_SHA256": "12397b1c2557834f6a2b7e23c9915d5dc40c6cabff7a6ee844c1adebf6564c52",
+  "native_causal_receipt_SHA256": "2aee04ace602e60b535c9dd9719c98654effea0048eab8b2709e52d4e558a519",
+  "native_witness": {
+    "frame": 4240,
+    "Main": 3316,
+    "resident": 120,
+    "DMC_bytes_remaining": [
+      313,
+      309
+    ],
+    "matched_obsolete_targets": 2,
+    "entries": 3155,
+    "canonical_targets_and_farcall_returns_and_resident_returns": 3153,
+    "old_target": "CF:BDDE",
+    "correct_target": "CF:BDF5",
+    "caller": "126:83A4"
+  },
+  "root_preimage_and_canonical_comparison_passed": true,
+  "spans": [
+    {
+      "physical_bank": 119,
+      "CPU_half_open": [
+        57399,
+        57400
+      ],
+      "file_half_open": [
+        974919,
+        974920
+      ],
+      "preimage_hex": "de",
+      "replacement_hex": "f5"
+    },
+    {
+      "physical_bank": 120,
+      "CPU_half_open": [
+        57399,
+        57400
+      ],
+      "file_half_open": [
+        983111,
+        983112
+      ],
+      "preimage_hex": "de",
+      "replacement_hex": "f5"
+    }
+  ],
+  "canonical_source": {
+    "resident_banks": [
+      125,
+      127
+    ],
+    "CPU_gate_half_open": [
+      57387,
+      57430
+    ],
+    "canonical_gate_SHA256": "76a52986b882d0493e46ec662995211833a3d01141ae18d150e72869a1538063",
+    "root_verified_equal_after_only_operand_substitution": true,
+    "frozen_bindings_source": "tools/audit/replay_smb2_cold_gate_native_1113.py",
+    "target": "CF:BDF5 HuGameColdDispatch"
+  },
+  "new_code_or_RAM_or_CHR_or_stack_bytes": 0,
+  "exclusions": [
+    "Only these two existing LDA-immediate operands may change; no opcodes, high/bank operands or broad prefix copying",
+    "Keep previous six post-background operands and the entire granted cheat-owner component exact",
+    "Do not modify any audio payload, mapper policy, physics, helper geometry or unrelated stale-prefix lead",
+    "Do not change installed Downloads or create release/patch assets under this private grant"
+  ],
+  "required_gates": [
+    "Exact inverse to e8cd and complete unowned-byte equality",
+    "All four cold-gate windows equal the canonical source window",
+    "All existing DMC sample payload ranges unchanged",
+    "Actual-caller and IRQ/busy-NMI equivalence against the canonical implementation",
+    "Strict native replay adapter preserves frozen UI, ordinary input and endpoint assertions",
+    "Actual private replay must pass complete next-area endpoint with zero obsolete targets and all caller returns",
+    "Root delivery regression and actual Downloads launch before any nightly replacement"
+  ],
+  "release_policy": "GitHub releases remain empty; no patch assets"
+}

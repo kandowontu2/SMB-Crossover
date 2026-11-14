@@ -32,6 +32,8 @@ DIRECT_PINS = {
     'full-stair-active': '78215151aee3a4bb4309c26b31d18cf50dae9b95a9fd9a2772e7e45b4d8a729d',
     'full-stair-trace': '52792e0ce5141270c96ec7a40491f29ee9384787705d28dfbe00f34295538963',
     'full-stair-projection': '319a921e1ef75947b677ea212ff6ab5b5705754bc85a1eb98777999851ef2b82',
+    'full-stair-turn': 'cd3004a7ffa3cdd4926dff58ab9d501c10339cdc0fae7daa81a17fa214b53487',
+    'full-stair-universal': '80ef49e799e7d59775cc8a81ae7f5ef14207240e4d78b90c7b54f68105261386',
 }
 
 
@@ -79,7 +81,13 @@ def main():
         image,direct_info=Direct.transform(image)
         assert Direct.reverse(image)==direct_parent and direct_info['changed_bytes']==141
         candidate=Direct.PIN
-        if args.route == 'full-stair-projection':
+        if args.route == 'full-stair-universal':
+            import replay_dkjr_stair_geometry_turn_1113 as Universal
+            text=Universal.controller(image)
+        elif args.route == 'full-stair-turn':
+            import replay_dkjr_odd_stair_turn_1113 as Turn
+            text=Turn.donor_ground_controller(image)
+        elif args.route == 'full-stair-projection':
             import replay_dkjr_stair_projection_trace_1113 as Projection
             text=Projection.controller(image)
         elif args.route in ('full-stair-active','full-stair-trace'):
