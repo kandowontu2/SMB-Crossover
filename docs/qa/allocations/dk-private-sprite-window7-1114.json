@@ -1,0 +1,56 @@
+{
+  "status": "granted-private-source-proposal-only",
+  "owner": "root",
+  "component": "classic Donkey Kong private barrel sprite window",
+  "parent_SHA256": "82ec0446873b28af458e7686fec87938feaf798a0a893b44e4dccfd071ccfd63",
+  "conditional_selected_owner": 28,
+  "current_routine": {
+    "name": "DkDraw",
+    "physical_PRG": 12,
+    "CPU_half_open": [56494, 56686],
+    "file_half_open": [105662, 105854],
+    "preimage_SHA256": "37848f72a1194db9c3b1316651c1a310bcc9278a7d2dca21ba75619c9f2dab80"
+  },
+  "operand_spans": [
+    {"file_offset": 105706, "bytes": 1, "preimage_hex": "01", "proposed_hex": "07", "instruction_CPU": 56537, "instruction_preimage_hex": "a001", "instruction_proposed_hex": "a007"},
+    {"file_offset": 105772, "bytes": 1, "preimage_hex": "40", "proposed_hex": "c1", "instruction_CPU": 56603, "instruction_preimage_hex": "0940", "instruction_proposed_hex": "09c1"},
+    {"file_offset": 105780, "bytes": 1, "preimage_hex": "40", "proposed_hex": "c1", "instruction_CPU": 56611, "instruction_preimage_hex": "0940", "instruction_proposed_hex": "09c1"}
+  ],
+  "temporal_sprite_window_lease": {
+    "window": 7,
+    "physical_CHR_page": 823,
+    "unchanged_page_and_pattern_pair_offsets": true,
+    "admission": "Only existing DkDraw calls admitted by its exact SelectedCharacter28 gate; body window0 remains0 and native world windows1..4 remain available.",
+    "retirement": "Preserve and verify actual native-menu/death/restart/area preparation paths and hardware publication. A unit call to FmNativePrepare alone is not complete future-candidate transition proof.",
+    "foreign_owners": "No unconditional private publisher calls under foreign selected owners. Roll/Parodius retain their own temporal6/7 usage; native-world/HUD use is unchanged."
+  },
+  "root_independent_current_source_review": {
+    "bounded_run": "current-private-sprite-root-1114",
+    "terminal_session": 36253,
+    "checker": "tools/audit/check_current_world_sprite_windows_1114.py",
+    "checker_SHA256": "54683a6c557fb022e11a05fae46844f7d290743a593573296b6ef990ebc17f1c",
+    "native_656_cases_and_direct_emitters_receipt_SHA256": "4a29a2ea7c5c733ca1f671a851c55b7adb415e5111852444f61d3d1be0164b8f",
+    "owner_exclusions_receipt_SHA256": "cd685c20ffc6010ad4429e626c98836a179fced0a97b2a2d97a2f4c56f33d882",
+    "current_cold_idle_retirement_HUD_units_receipt_SHA256": "cd74023db5a83136cdb564b1b723d3b2022abdeb4b55a0b3daa10a6b0f0083ce",
+    "private_pose_preimages_receipt_SHA256": "4e5392c0c3cf46b0e5817563fb7a3a81a10f2f9003992fcc1efb560df0fbac36",
+    "native_world5_6_7_consumers": 0,
+    "native_HUD_window": 8,
+    "immutable_DK_body_records": 9,
+    "immutable_DK_barrel_records": 6,
+    "file_and_Mesen_traps": true,
+    "outputs": 0
+  },
+  "required_before_root_native_staging": [
+    "Strict whole-image forward/inverse for exact82 parent; only the three operands may differ; every common reset and previous fix remains intact.",
+    "All body/barrel poses and both facings retain geometry, palette, pattern-pair bytes and caller ABI. Prove changed N/Z from ORA C1 cannot change downstream control flow or returns.",
+    "Actual cold and admitted draw paths, foreign/no-barrel cases, native enemy/powerup coexistence, menu/lives, area/restart/death retirement and cache/publication behavior are qualified with explicit scopes.",
+    "Actual instruction-cut IRQ/busy-NMI/hardware CHR publication checks cover the changed window and the shared HUD/background high latch without invented unreachable states.",
+    "A controller-only native image replay is prepared for the genuine Goomba and mature mushroom plus an actual emitted barrel; root will stage and verify the exact candidate."
+  ],
+  "constraints": [
+    "No code growth, additional RAM or physical CHR capacity, new art, metadata mutation, palette, physics, health, collision, level or helper change is granted.",
+    "All immutable body/barrel records and existing page823 stay byte-exact. This lease does not include Prince's windows5/6 or DK Jr's proposed CD00/page931 storage.",
+    "Full1-1 and natural-item qualification remain overall goal requirements; a corrected image probe must not be relabeled as a full-stage or all-item pass."
+  ],
+  "authorization_limit": "Compose and qualify this exact proposal in memory only. Root owns candidate-file placement, the single Mesen queue, cleanup and any later direct Downloads replacement. No backup, patch asset, release or private candidate publishing is authorized."
+}
