@@ -155,3 +155,99 @@ head/feet/side/object contexts, genuine IRQ/busy-NMI/peripheral behavior and a
 real natural1UP lifecycle are **pending**. No allocation, candidate, synthetic
 reward or native success is inferred from a size measurement. Root must review
 and grant an exact resource before a separately pinned composer is prepared.
+
+## Smaller publisher-sharing resource request (ungranted)
+
+The separate `measure_smb2_hidden_head_split_1113.py` retains the initial5f38
+measurement and frozen96c/8792 negative. It assembles a174B probe and requests
+**27B across three exact declared source padding spans in physical PRG118**.
+It constructs code bytes only: there is no ROM composer, candidate ROM,
+installation, new RAM, geometry change or allocation implied by this request.
+
+| Source span, half open | File | Bytes | Exact preimage SHA256 |
+|---|---:|---:|---|
+|A637..A640|968263|9 FF|71e232cc415bd8287fbb8bf93937d2bab92359c70ca6694f2804effffffa8c68|
+|B86B..B86F|972923|4 EA|1fd71139b09480335a4e8021a653488c189b4f98c04254868a1fc64747522c53|
+|BC96..BCA4|973990|14 EA|66abe8891d9458339c1369f38382726c326d6e0dcba13e80efa26a62b5470805|
+
+All declarations come from the retained Ready85 packet
+`docs/qa/checkpoints/2026-11-01/ready85-doki-native-v1/source.zip`, prefix
+`build/doki-current-component-1101-v1/`. The tool authenticates each entire
+member before using its declaration:
+
+| Member | Line/declaration | Entire member SHA256 |
+|---|---|---|
+|src/smb2_roster.s|5: `.res 9,$ff`|e800627aa1297c7f9503a18c700383bda2fc16b516f30e79c3b379cfba60e057|
+|src/smb2_roster_palette_v2.s|27: `.res 45-(*-OwnStart),$ea`|54b432ff7332181fd092e19a7f5d6a02043bc4ec1c8edece786ff3ef2f1cbe7f|
+|src/smb2_roster_main_v2.s|567: `.res 14,$ea`|605c9db58cea4b18a860b961ad5b34db16dddf4bf09af18cfe3b3c40fcb2f92c|
+
+The9B predicate runs only for tile60. It retains X/Y/V/C, rejects every
+non-player X1..255 with a nonnegative result, and tail-jumps to the4B sourceVY
+load only for X0. Negative sourceVY enters the existing direction0/1 head-cache
+publisher. The ordinary solid path uses temporary X1; hidden uses X0. A14B
+return tail stores FF for ordinary solid or0/C1 for hidden, then consumes the
+probe's original saved X and original caller return. The predicate JSR has
+already returned before this tail is reached. No additional live return is
+discarded and no cache publisher is duplicated.
+
+Measured helper bytes, in the table's order:
+
+```text
+8af003297f604c6bb8
+ad2a5c60
+8af004a9ffd001388d0e5c68aa60
+```
+
+The174B main uses the two original safe factorizations described above.
+Its changed ranges are file971134/18,971154/40 and971203/26. Only internal
+`ProbeOtherTile` moves B19B→B194 and `ProbeSolid` moves B1C9→B1CA. Probe entry
+B128, shared RTS B1D5, following Ground B1D6, Component A640, Main B86F and
+Spawn BCA4 stay fixed. Generated source SHA256 is
+`5302cab40bdc908174b0ae52be9f10e8f09b9940750d28d051d1e852818b12a1`.
+
+The bounded `--readers` audit reproduces the complete current45B palette
+header (SHA256 `4cf03224d0a1439453d784e963f5a8ab6eaaa9ed3bd4b84de1bf0f1b15611256`)
+and74B MainPalette (SHA256
+`270884207301ddcef146df789ee21134e3930d1a5ae79a41cfa9ba1dd7dbe7ba`)
+from those exact members. Header has one literal caller at BC74 and one
+indexed color read at B859, reading its eight-byte table B863..B86B. Its
+live index is BackgroundColorCtrl0..7, or AreaType0..3 when control is0.
+Both actual current bank2 parser writers retain `AND7/CMP4` before storing
+BackgroundColorCtrl; the title/menu use0/2 and the lives screen saves/restores
+that value around temporary2. Out-of-domain RAM corruption is not claimed to
+retain arbitrary table overreads.
+
+The preceding Parodius A625..A637 is the exact18B existing far-JMP tail
+`8d6a01a93e8d6c01a9bf8d6d01a9cd4c5a01`; it terminates at resident015A.
+Header returns at B862 before its eight data bytes and padding; MainPalette
+returns at BC95 before its14 EA. A conservative every-byte literal JSR/JMP
+census finds no inbound target in the three requested spans. Current224
+Rogue page readers all exclude PRG118. The actual eight SMB2 DMC descriptors
+name only119/120, the audio driver is74 and music data117. This request uses
+neither reserved BFFC..BFFF linker fill nor a supposed module-end tail.
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/karnov-equipment-1113 --resume --max-files 1 --timeout 180 -- python -B tools/audit/measure_smb2_hidden_head_split_1113.py
+python -B tools/audit/run_bounded_build_v1.py --output build/karnov-equipment-1113 --resume --max-files 1 --timeout 180 -- python -B tools/audit/measure_smb2_hidden_head_split_1113.py --readers
+python -B tools/audit/run_bounded_build_v1.py --output build/karnov-equipment-1113 --resume --max-files 1 --timeout 180 -- python -B tools/audit/measure_smb2_hidden_head_split_1113.py --units
+```
+
+The synthetic `--units` measurement passed36,720 non60 leaf pairs and144
+hidden leaf pairs at OtherTile, using all256 raw tiles, X0/1/128/255, three
+P states, direction0/1/2/3/6/7 and VY0/128. It compares full return AXYP/SP/PC
+and Math0/head-cache values, allowing only the intended hidden cache delta.
+It also independently executes16,384 old/new index pairs over every page,
+every aligned X and four P states. These are code/stack units, not seeded
+gameplay or an all256-flags/full-probe/caller proof.
+
+The measured shared-publisher leaf costs10 extra cycles for ordinary solids;
+the two prefix factorizations save8 cycles, so the combined ordinary solid
+path costs2 extra cycles. Early C2/C3/5F empty responses save8 cycles; other
+ordinary empty attributes save7. A rising player hidden-head transaction
+costs55 extra cycles including publication; a rising hidden feet/side query
+costs35 extra cycles and remains cache-empty. These are instruction-unit
+costs, not emulator idle/lag or interrupt timings.
+
+The exact27B request is still **ungranted**. Whole-probe/caller/non60 oracle,
+live registers/stack/peripherals, genuine IRQ/busy NMI, strict successor
+inverse and natural hidden1UP lifecycle remain required before any delivery.
