@@ -35,20 +35,146 @@ DIRECT_PINS = {
     'full-stair-turn': 'cd3004a7ffa3cdd4926dff58ab9d501c10339cdc0fae7daa81a17fa214b53487',
     'full-stair-universal': '80ef49e799e7d59775cc8a81ae7f5ef14207240e4d78b90c7b54f68105261386',
 }
+CURRENT_CHEAT_DK = 'a5942300cd677a9c62b1f3ff312552216766de8fcca8d93f8939143f3f650625'
+CURRENT_CHEAT_PINS = {
+    'first-item':'44563259a510e66937c919c8acd6e55b04d17cc5ab7ddc89f47e573be3ccfecf',
+    'full-enemy-guard':'4248a1fc70ff5543942621211eec954373325b57ed9bc8cd718f106b7194f105',
+    'full-waiting-guard':'e453ad753303d304f85015a6ce251b21444b5bf0e2e3382d3814509ec68191f5',
+    'full-stair-active':'e36693a34ca895e639b9de892ac4d42d4c37f7e70c5ff89729875c95ca2e18bf',
+    'full-stair-trace':'4b577fd1e4bd5afd72241506e88af3a6f8927b4371770d72f8308e8a9b066124',
+    'full-stair-projection':'5efce8bb4e74fc372c82517a289b00e2d19edd9608e32da7f6a8891da00b5aab',
+    'full-stair-turn':'66843bd42bf9794da119dbe7ab9cf9ca04dab00a9baaaf5da71fb5239230d8d2',
+    'full-stair-universal':'71ae48c57aa14d691262642906a99e43964adc33191fc16b36bf228db089172c',
+}
 
 
-def main():
+def direct_controller(image, route):
+    """Original strict769 factories and route hashes, unchanged."""
+    import compose_dkjr_direct_platform_1113 as Direct
+    assert route in DIRECT_PINS
+    if route == 'full-stair-universal':
+        import replay_dkjr_stair_geometry_turn_1113 as Universal
+        text=Universal.controller(image)
+    elif route == 'full-stair-turn':
+        import replay_dkjr_odd_stair_turn_1113 as Turn
+        text=Turn.donor_ground_controller(image)
+    elif route == 'full-stair-projection':
+        import replay_dkjr_stair_projection_trace_1113 as Projection
+        text=Projection.controller(image)
+    elif route in ('full-stair-active','full-stair-trace'):
+        import replay_dkjr_final_stair_takeoff_1113 as Stair
+        text=Stair.active_trace_controller(image)if route=='full-stair-trace'else Stair.active_controller(image)
+    else:
+        full=route in ('full-enemy-guard','full-waiting-guard')
+        text=Direct.controller(image,full=full,departure_enemy_guard=full,
+                               approach_enemy_guard=route=='full-waiting-guard')
+    assert sha256(text.encode()).hexdigest()==DIRECT_PINS[route]
+    return text
+
+
+def prepare_current_cheat(raw, *, route, reuse_image=None):
+    """Explicit fa66 input, retained DK ownership, and ROM-pin-only controls."""
+    import current_smb2_cheat_input_1114 as Current
+    import compose_dkjr_direct_postbg_current_1113 as Merge
+    assert route in DIRECT_PINS
+    assert sha256(Path(Current.__file__).read_bytes()).hexdigest()=='f973573e52a2c752da3531ee6bc3706dc8e1096b79cc0fab2740ad4f0fb20f34'
+    assert sha256(Path(Merge.__file__).read_bytes()).hexdigest()=='c5885ac48e48ae21f50fefd7be595fa456b6644ff145b012ef121b2562290f6b'
+    typed=Current.normalize(raw,kind='cheat-fa66')
+    own={i for at,size in Merge.Old.dk_envelopes()for i in range(at,at+size)}
+    if reuse_image is None:
+        legacy,_=Merge.proposal(typed.postbg)
+        private=Merge.private_image(legacy)
+    else:
+        pin=sha256(reuse_image).hexdigest()
+        if pin==CURRENT_CHEAT_DK:
+            legacy=bytearray(reuse_image)
+            for i,(old,new)in enumerate(zip(typed.postbg,raw,strict=True)):
+                if old!=new:
+                    assert legacy[i]==new
+                    legacy[i]=old
+            legacy=bytes(legacy)
+            assert sha256(legacy).hexdigest()==Merge.PIN
+            private=Merge.private_image(legacy)
+        else:
+            if pin==C.PIN:
+                private=Merge.DK.transform(reuse_image)[0]
+            else:
+                assert pin==Merge.DK.PIN,'Reuse requires exact14ae/769/a594, never an unknown candidate'
+                private=reuse_image
+            assert sha256(private).hexdigest()==Merge.DK.PIN
+            legacy=bytearray(typed.postbg)
+            for at,size in Merge.Old.dk_envelopes():legacy[at:at+size]=private[at:at+size]
+            legacy=bytes(legacy)
+            assert sha256(legacy).hexdigest()==Merge.PIN
+        assert Merge.private_image(legacy)==private
+    image,info=typed.preserve(legacy,legacy_result_SHA256=Merge.PIN,allowed_component_offsets=own)
+    assert sha256(image).hexdigest()==CURRENT_CHEAT_DK
+    assert info['component_changed_bytes']==846 and info['current_fix_changed_bytes_preserved']==66
+    original=direct_controller(private,route)
+    assert original.count(Merge.DK.PIN)==1
+    text=original.replace(Merge.DK.PIN,CURRENT_CHEAT_DK,1)
+    assert text.replace(CURRENT_CHEAT_DK,Merge.DK.PIN,1)==original
+    assert sha256(text.encode()).hexdigest()==CURRENT_CHEAT_PINS[route]
+    LuaRuntime().compile(text)
+    return image,text,dict(info,canonical_private_DK_SHA256=Merge.DK.PIN,
+        legacy_controller_SHA256=DIRECT_PINS[route],controller_SHA256=sha256(text.encode()).hexdigest(),
+        original_controls_authentication_and_assertions_exact=True,only_controller_ROM_pin_rebound=True,
+        all_current_fixes_preserved=True,merged_native_qualified=False,private_only=True)
+
+
+def complete(args,image,text,candidate,expected,summary,public_now):
+    assert sha256(image).hexdigest()==candidate and sha256(text.encode()).hexdigest()==expected
+    if not args.metadata:
+        assert OUT.is_dir()
+        assert {p.name for p in OUT.iterdir() if p.is_file()} == {'candidate.nes', 'controller.lua'}
+        rom, script = OUT / 'candidate.nes', OUT / 'controller.lua'
+        rom.write_bytes(image)
+        script.write_text(text, encoding='utf-8', newline='\n')
+        q = run(script, rom, OUT / 'capture', candidate, 240)
+        receipt = {k: v for k, v in q['receipt'].items() if k != 'events'}
+        receipt['last_events'] = q['receipt'].get('events', [])[-12:]
+        summary.update(passed=q['passed'], receipt_SHA256=q['receipt_SHA256'],
+                       receipt=receipt, outputs_written=q['outputs_written'])
+        if args.route == 'full-stair-projection':
+            rows=receipt.pop('final_stair_trace')
+            assert len(rows)<=60
+            encoded=json.dumps(rows,separators=(',',':')).encode()
+            summary.update(trace_rows=len(rows),trace_bytes=len(encoded),
+                trace_SHA256=sha256(encoded).hexdigest(),
+                trace_codec='base64(zlib(UTF-8 JSON)); bounded instruction contexts only',
+                trace_zlib_base64=base64.b64encode(zlib.compress(encoded,9)).decode())
+    print(json.dumps(summary, separators=(',', ':')), flush=True)
+    assert check(NIGHTLY)['ROM_sha256'] == public_now
+    if not args.metadata:
+        assert q['passed'], 'Private native DK component check did not pass'
+
+
+def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--route', choices=tuple(PINS|DIRECT_PINS), required=True)
     p.add_argument('--metadata', action='store_true')
     p.add_argument('--reuse', action='store_true', help='Reuse the already composed exact14ae private file; no repeated parent build.')
     p.add_argument('--direct', action='store_true', help='Use the granted769afe direct-foreign successor and a route from DIRECT_PINS.')
-    args = p.parse_args()
+    p.add_argument('--current-cheat-fa66',action='store_true',help='Explicit exactfa66 current merge preserving all fixes; requires --direct. Defaults stay frozen.')
+    args = p.parse_args(argv)
+    if args.current_cheat_fa66:assert args.direct,'Explicit current fa66 merge requires --direct'
     if args.direct:
         import compose_dkjr_direct_platform_1113 as Direct
         assert args.route in DIRECT_PINS
     else:assert args.route in PINS,'This route requires the explicit direct successor'
     public_now = check(NIGHTLY)['ROM_sha256']
+    if args.current_cheat_fa66:
+        assert public_now=='fa66fa915d91ed125cf947b5c15d517c2919c62941378e10d62b0fdf184cdaae','Explicit current merge requires exactfa66 Downloads'
+        image,text,info=prepare_current_cheat(NIGHTLY.read_bytes(),route=args.route,
+            reuse_image=(OUT/'candidate.nes').read_bytes()if args.reuse else None)
+        assert public_now==info['current_input_SHA256']
+        expected=CURRENT_CHEAT_PINS[args.route]
+        summary=dict(ROM_SHA256=CURRENT_CHEAT_DK,parent_SHA256=public_now,current_Downloads_SHA256=public_now,
+            route=args.route,Lua_SHA256=expected,direct_foreign=True,current_cheat_fa66=True,
+            private_only=True,installed=False,native_run=not args.metadata,reused_exact_private_candidate=args.reuse,
+            current_preservation=info)
+        complete(args,image,text,CURRENT_CHEAT_DK,expected,summary,public_now)
+        return
     assert public_now in (PARENT, PUBLIC_BUB, PUBLIC_SMB2, PUBLIC_POSTBG)
     raw = NIGHTLY.read_bytes()
     if public_now == PUBLIC_POSTBG:
@@ -81,22 +207,7 @@ def main():
         image,direct_info=Direct.transform(image)
         assert Direct.reverse(image)==direct_parent and direct_info['changed_bytes']==141
         candidate=Direct.PIN
-        if args.route == 'full-stair-universal':
-            import replay_dkjr_stair_geometry_turn_1113 as Universal
-            text=Universal.controller(image)
-        elif args.route == 'full-stair-turn':
-            import replay_dkjr_odd_stair_turn_1113 as Turn
-            text=Turn.donor_ground_controller(image)
-        elif args.route == 'full-stair-projection':
-            import replay_dkjr_stair_projection_trace_1113 as Projection
-            text=Projection.controller(image)
-        elif args.route in ('full-stair-active','full-stair-trace'):
-            import replay_dkjr_final_stair_takeoff_1113 as Stair
-            text=Stair.active_trace_controller(image)if args.route=='full-stair-trace'else Stair.active_controller(image)
-        else:
-            full=args.route in ('full-enemy-guard','full-waiting-guard')
-            text=Direct.controller(image,full=full,departure_enemy_guard=full,
-                                   approach_enemy_guard=args.route=='full-waiting-guard')
+        text=direct_controller(image,args.route)
         expected=DIRECT_PINS[args.route]
     elif args.route == 'first-item':
         text = C.controller(image)
@@ -112,29 +223,7 @@ def main():
     summary = dict(ROM_SHA256=candidate, parent_SHA256=PARENT, current_Downloads_SHA256=public_now, route=args.route,
                    Lua_SHA256=expected, direct_foreign=args.direct, private_only=True, installed=False,
                    native_run=not args.metadata, reused_exact_private_candidate=args.reuse)
-    if not args.metadata:
-        assert OUT.is_dir()
-        assert {p.name for p in OUT.iterdir() if p.is_file()} == {'candidate.nes', 'controller.lua'}
-        rom, script = OUT / 'candidate.nes', OUT / 'controller.lua'
-        rom.write_bytes(image)
-        script.write_text(text, encoding='utf-8', newline='\n')
-        q = run(script, rom, OUT / 'capture', candidate, 240)
-        receipt = {k: v for k, v in q['receipt'].items() if k != 'events'}
-        receipt['last_events'] = q['receipt'].get('events', [])[-12:]
-        summary.update(passed=q['passed'], receipt_SHA256=q['receipt_SHA256'],
-                       receipt=receipt, outputs_written=q['outputs_written'])
-        if args.route == 'full-stair-projection':
-            rows=receipt.pop('final_stair_trace')
-            assert len(rows)<=60
-            encoded=json.dumps(rows,separators=(',',':')).encode()
-            summary.update(trace_rows=len(rows),trace_bytes=len(encoded),
-                trace_SHA256=sha256(encoded).hexdigest(),
-                trace_codec='base64(zlib(UTF-8 JSON)); bounded instruction contexts only',
-                trace_zlib_base64=base64.b64encode(zlib.compress(encoded,9)).decode())
-    print(json.dumps(summary, separators=(',', ':')), flush=True)
-    assert check(NIGHTLY)['ROM_sha256'] == public_now
-    if not args.metadata:
-        assert q['passed'], 'Private native DK component check did not pass'
+    complete(args,image,text,candidate,expected,summary,public_now)
 
 
 if __name__ == '__main__':
