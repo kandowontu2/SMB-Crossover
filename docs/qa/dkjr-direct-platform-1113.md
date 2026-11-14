@@ -135,22 +135,53 @@ at851/176 for fourth entry. Real Goomba837/184 is behind the player, outside
 the old front-only nearEnemy helper; both needed lifts exist. No support
 failure or physics change is inferred. A separately optional approach4 guard
 uses current/prior1/1, nativeY176, original A8/rearm47 and live ID2/6 ground
-enemies at absolute distance18..30 on either side. Its native coverage and
-new uninterrupted source qualification remain pending. Old acf/841 stay frozen.
+enemies at absolute distance18..30 on either side. Its native coverage remains
+pending; the uninterrupted source result is below. Old acf/841 stay frozen.
 The new explicit14 controller SHA is
 `36307f8ca293bf558377591a05939ed74d4b5a8cc42152a38cdce1c998cf0fbc`.
 On769 use `controller(raw769, full=True, departure_enemy_guard=True,
 approach_enemy_guard=True)`, Lua
 `6c6aac8a3d0fdfe334beebcf62b4514014e45d9e044f43926b3ee38e261c8d73`;
-source session29300 is active. Only ordinary controller choices and new
+source session29300 supplies the qualification below. Only ordinary controller choices and new
 read-only events differ; no ROM, source/current/prior state or assertions change.
 
 Session29300 is now terminal **PASS**:8926 logical updates, same4 early pipe
 crossings1096/1649/2042/2953, all later terrain/native flag/castle, active1-2
 40/48/source4/engine8/both lives. Exact6c6 Lua above, receipt digest
 `a342bc5e3c6f699ace2994a92389c0a696276a71282e9e23fe31c8e2e832bc13`.
-The behind-player threat in root's actual native cadence remains separately
-pending physical coverage; this source success does not retag d2a4 as a pass.
+The source success does not retag d2a4 as a pass. Root's later physical result
+below qualifies the two enemy guards separately from the final-riser failure.
+
+Root's actual769/6c6 run67625 is retained **negative**, receipt
+`be48c66d88b1a0310cf78bef735bf0115520c7d0b859c24ab5c3b709d8fa1150`.
+Both enemy guards work. All4 opening pipes pass1158/1668/2177/3021, all3 gaps
+pass3281/3885/6253, horizontal native carry73 and restored-footer assertions
+pass, pipe5/6 and early final steps remain healthy/both lives. The failure is
+Main7778/physical17803 at2943/112/time76 on final riser3's unchanged height
+assertion, source/prior1/1 and jump_age2. Four attempts gain at most2px.
+This is not a native full clear or evidence of a new helper admission fault.
+
+A genuine6c6 Main7499 CPU-prefix clone reproduces the riser3 failure with
+ordinary align2942, neutral4 and Right+A8: fresh source3/prior1 is admitted,
+then after2 jump ticks original query2 accepts actor rect[81,125,97,140]
+against solid[97,128,112,143]. OriginalFall A321 writes source4. Takeoff2944
+is projected back to2942 during neutral release. Earlier2934..2940 suffixes
+gain16px but still do not reach the required real upper-floor/anchor; all6
+declared suffixes remain negative. This validates the inclusive side-lip
+diagnosis and rules out a missed A edge in that case. It does not qualify a
+farther-left route. `check_dkjr_final_stair_branches_1113.py`, session35523;
+the later trace extension only adds bounded diagnostic fields/retention.
+
+The first observer proposal incorrectly assumed original D608 still contained
+its STA atA3B9. Exact current preimages reject it before native use. The actual
+hook A3B7 is `20 69 AE 4C 1F A3`: head serviceAE69 then OriginalFallA31F,
+whose STA isA321. Frozen `replay_dkjr_final_stair_trace_1113.controller` keeps
+exact6c6 controls and adds only64 bounded receipt observations at authenticated
+original input/transition/jump/gravity/query2/head-service/fall PCs; Lua
+`99119500edddae146c71a8c9986c37f68cce27e69a0e7399426596c2e1679f6d`
+compiles. No native result or game defect is claimed for the stale-PC rejection.
+Neutral-A ascent followed by ordinary Right is the next bounded control study;
+no source body, physics, thresholds, tiles or helper geometry is changed.
 
 `tools/audit/replay_mini_dkjr_direct_1113.py` is a strict read-only factory:
 reverse769→exact14, call root's frozen Mini descending controller (c0e8),
@@ -159,7 +190,8 @@ and compile. Session3068 returns32600-byte Lua
 `ca91879ddf7745d10d1fb7b9199a6bfd7d1f5bd7ace490070c19fc8afdea3e8d`.
 Every call requires the exact frozen c0e8 input hash, making the output binding
 deterministic. The factory launches no emulator and writes no output. Root
-owns the paired physical timing comparison; no new lag result is inferred.
+owns the paired physical timing comparison recorded below; the factory itself
+makes no lag claim.
 
 Root's actual current3684 Mini baseline91744 passes5279 physical/3495 Main/
 source,3493 eligible/count/input frames, one skipped frame2838 and catch-up2839,
