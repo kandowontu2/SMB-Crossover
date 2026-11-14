@@ -132,6 +132,27 @@ local function skipped()return 0 end
     LuaRuntime().compile(text);return text
 
 
+def donor_ground_controller(raw):
+    """Separate current factory admitting acknowledged donor-ground edge state2.
+
+    Preserve controller() byte-for-byte: root's7307 native idle row remains
+    bound to that frozen text. Original current donor state/prior1 and its
+    native-Y projection remain required through both ordinary walk windows.
+    """
+    text=controller(raw)
+    old="return r('WorldNumber')==0 and r('LevelNumber')==0 and r('Player_State')==0"
+    new="""local native=r('Player_State')
+ return r('WorldNumber')==0 and r('LevelNumber')==0 and
+  (native==0 or native==2)and ram(0x6c)==1 and ram(0x210)==s.y+15"""
+    assert text.count(old)==1
+    text=text.replace(old,new)
+    old="source=ram(0x6b),lives=r('NumberofLives')"
+    new="source=ram(0x6b),prior_source=ram(0x6c),native_state=r('Player_State'),source_y=ram(0x210),lives=r('NumberofLives')"
+    assert text.count(old)==1
+    text=text.replace(old,new)
+    LuaRuntime().compile(text);return text
+
+
 if __name__=='__main__':
     _,raw=T.load_inputs();texts=dict(current=controller(raw),original=original_controller(Donor.donor()))
     print('DKJR_OPENING_CADENCE_METADATA '+json.dumps(dict(

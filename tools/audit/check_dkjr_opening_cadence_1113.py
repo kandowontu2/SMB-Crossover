@@ -1,6 +1,7 @@
 """Exercise cadence factory callbacks/ordinary phases in untimed CPU models."""
 from contextlib import redirect_stdout
 from hashlib import sha256
+import argparse
 import io
 import json
 
@@ -50,7 +51,8 @@ def original(text):
 
 
 def main():
-    parent,raw=F.T.load_inputs();text=F.controller(raw);donor_text=F.original_controller(F.Donor.donor())
+    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--donor-ground',action='store_true');args=ap.parse_args()
+    parent,raw=F.T.load_inputs();text=(F.donor_ground_controller if args.donor_ground else F.controller)(raw);donor_text=F.original_controller(F.Donor.donor())
     Q,P,H=Gate.Q,Gate.P,Gate.H;e73=F.T.Old.reverse(parent)
     _,seed=H.cold(e73,e73[P.B.COOKIE_AT:P.B.COOKIE_AT+16]);m=Q.mounted(seed,raw)
     for _ in range(160):
@@ -61,7 +63,7 @@ def main():
     donor=original(donor_text)
     print('DKJR_OPENING_CADENCE_CPU '+json.dumps(dict(
         Lua_SHA256=dict(current=sha256(text.encode()).hexdigest(),original=sha256(donor_text.encode()).hexdigest()),
-        current=current,original=donor,outputs_written=0,
+        current=current,original=donor,outputs_written=0,acknowledged_donor_ground=args.donor_ground,
         scope='Factory callback/phase tests only. Current harness does not dispatch CPU read hooks; original does. Untimed scheduled model epochs are not native physical frames.'),separators=(',',':')),flush=True)
 
 

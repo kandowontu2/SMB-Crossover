@@ -56,7 +56,39 @@ fixture incorrectly sent title Start to an already-active CPU model and
 paused it; CPU_CONTROLLER_OPENING now skips title input only for that
 already-constructed fixture. Native title input is unchanged.
 
-Actual root idle/walk windows remain pending. No optimization, source
-physics change, ROM output, nightly replacement or release is implied.
+Root's exact current7307 native idle window is now positive, receipt
+`249b3ce24615d741a531736eb0c8e066267d56fef6880a28983f694bb5504a0a`:
+120 physical frames produce60 D65E entries and60 matched returns,
+120 input-polled frames/240 controller reads and90 skipped-NMI increments.
+The neutral state stays X40/Y176/source1/both lives. The first walk frame
+then fails the original factory's overly restrictive native-state0 ground
+predicate. This retains the valid idle row and does not qualify walking or
+the full7307 script.
+
+Root ran exact originalbfadd17b directly from the original NROM path, with
+no copied ROM. Receipt
+`2c1cea372453df49406a3f9fbf4e217f73b8993646c0f4f09f8d4e7d4655278c`
+passes all three physical windows: idle120/120 actual motor entries and
+matched returns; Right32/32 moves X8→28; Left32/32 returns X28→8. Each
+window has one input-polled frame per physical frame and remains healthy
+at Y199/source1. Thus the current opening's measured60/120 rate differs
+from the donor's120/120 and is not explained by an intentional donor30Hz
+motor schedule. The authored opening scenes still differ geometrically.
+
+A separate `donor_ground_controller(raw769)` preserves the frozen7307
+default and originalbfadd factories. It is Lua
+`c49a943f8da7c82e00379386ce6f30e4983217104736550eb4657c654bcbbe50`.
+It admits native states0/2 only with acknowledged donor current/prior1,
+sourceY=nativeY+15, nativeY176, both lives, zero native actors and stage0/0.
+Receipts also record native_state/prior_source/source_y. Bounded source
+38166 exits0: the three ordinary phases and actual return callbacks pass
+185 scheduled calls in each model. Current walking moves87→107→87.
+Those scheduled calls remain a source harness check, not native cadence;
+root's corrected current walking windows are still pending.
+
+No optimization, source physics change, ROM output, nightly replacement
+or release is implied by these measurements.
 Every producer is bounded under `build/dkjr-head-bridge-1113`, max-files1,
 stdout/in-memory only, zero generated files.
+The1114 continuation uses absent output root `build/dkjr-handoff-lag-1114`
+with the same one-file reservation and zero generated output files.
