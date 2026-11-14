@@ -1,13 +1,16 @@
 # Expanded-roster next native checklist — November 14
 
-Snapshot: latest `LATEST_1114_421_DOWNLOADS_VERIFIED` handoff, exact installed
-`421379021e775e6e03357c0aa11d4cab04008452f94bc9e8938f0662cc0c979f`.
+Snapshot: latest `LATEST_1114_82EC_DOWNLOADS_VERIFIED` handoff, exact installed
+`82ec0446873b28af458e7686fec87938feaf798a0a893b44e4dccfd071ccfd63`.
+Rows retain their explicitly recorded ROMs; the common CHR delivery does not
+silently promote earlier stage receipts to the new image.
 The goal remains incomplete. All101 names start; that is not101 stage clears.
 This checklist covers **all64 additions beyond the37 identities** in the
 read-only October27 progress file. The original37 retain their separately
 versioned stage/item audit; this document does not certify them anew.
 
-**C** = native pass on exact421. **H** = native pass on the named earlier ROM;
+**C** = current-line native pass on the exact421/82ec ROM named in its row.
+**H** = native pass on the named earlier ROM;
 retain it, and use its exact preservation/rebinding proof before reuse.
 **U** = no full native stage pass located in the compact evidence reviewed;
 startup/smoke/source results exist, but a full-route assignment is needed.
@@ -24,7 +27,8 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
 | Celeste Mario | **H**, a7ccbaaa Easy natural clear,3900 frames, both upgrades/earned dash | Natural S/L and remaining original abilities; old small-CHR/route negatives superseded |
 | Mario the Tank | **C**, actual Downloads421 native7856/f6d5, full flag/castle/entrance and25 living grounded1-2; **H** natural M/boots7ec9 toX1212 | Retain historical M/boots receipt; qualify intended powered combat/terrain and natural S/L separately; current stage stays power0 |
 | Mini Mario; Mega Giant Mario | **H**, Mini current12397/f88 full route; Giant677aad54 full clear | Natural item ensemble per alternate; keep Mini's falling1-2 endpoint distinct from25 grounded updates |
-| Rogue Dawn; GB Pit; Ryan; Mr. Gimmick; Donkey Kong | **U** for each listed name; startup/host/launch proof is not a full clear | Individually qualify first natural pickup and complete M/F/S/L policy; do not transfer sibling receipts |
+| Rogue Dawn | **C82**, actual Downloads82 root52892/3e8d,6795physical/4734Main, fullflag/castle/entrance then25 living grounded1-2 at40/177, lives2/power1; retained **H** f23af095 is separately authenticated | Natural M/F/S/L and original ability/audio/visual coverage remain separate; the route's power0→1 alone is not complete item proof. See `rogue-full11-current-1114.md` |
+| GB Pit; Ryan; Mr. Gimmick; Donkey Kong | **U** for each listed name; startup/host/launch proof is not a full clear | Individually qualify first natural pickup and complete M/F/S/L policy; do not transfer sibling receipts |
 | Doc Louis | **C**, actual Downloads421 root18076/b2e4, full flag/castle/entrance and25 living grounded1-2 at40/176/HP96/lives2 | Natural item/audio ensemble remains separate. Existing actor28 at initial left3096/center3104/Y64 was present; no support event, so assistance is not claimed. See `doc-louis-full11-source-1114.md` |
 | Getsu Fuma | **H**, c6ab5610 full clear plus earned M/F | Natural S/L; full donor arsenal remains later work |
 | Karnov | **H**, current7ef full stage and all five stock pickups/Ladder | Natural S/L; Bomb enemy kill remains distinct from arming/blasting and normal-fire kills |
@@ -61,9 +65,10 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
    later. Close one-way/fractional-sign source/caller/ISR proof before any
    allocation/composition/native candidate. Do not call the older delivered
    clear a failed current run.
-2. Assign individual full routes to the **7 U identities** above, including
+2. Assign individual full routes to the **6 U identities** above, including
    the two Battletoads choices. Shinobi's
-   recovered historicalH corrects the earlier U count; it is not a newC pass.
+   recovered historicalH and Rogue Dawn's retained native pass correct the
+   earlier U counts; neither recovery alone is a newC pass.
    Burns root16139 is an independent currentC closure after that correction;
    receipt `ad9e59dbd50f2f5290c39d01540c258aa99e92f497ed2a4b7c02308919016d26`.
    Smith/Beans root93241 close two further identities: receipts
