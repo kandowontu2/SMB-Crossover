@@ -13,6 +13,7 @@ T,Gate=Prior.T,Prior.Gate
 LUA_PIN='5110d0244f3605d9f844bee3783703540a5c745db3874a5267b4eaa2394c182e'
 EARLY_CYCLE_LUA_PIN='2b3c77495d0b05efedb00909f4d00a9f151c628410eebbb2f30cf20c23af178f'
 DIAGNOSTIC_LUA_PIN='f447b4c0dda02a89e1b7fc678ec8aca5ee207e4bb59956b19556facfcf79b51f'
+JUMP_DIAGNOSTIC_LUA_PIN='e18c6a6874d60fe52a241775c1a727717aadd74c733428b89e443acfcb3dd937'
 
 
 def load_inputs():
@@ -158,17 +159,33 @@ end),emu.callbackType.exec,0xac18)
     return text
 
 
+def jump_diagnostic_controller(raw):
+    """Preservef447; retain the first jump transition independently."""
+    text=diagnostic_controller(raw)
+    text='local firstFinalJumpTransition\n'+text
+    text=T.P.once(text,"if not active()or x()<3000 or x()>3078 then return end",
+        "if phase~='final-jump'or not active()or x()<3000 or x()>3078 then return end")
+    text=T.P.once(text,'final_cap_diagnostic=finalCapDiagnostic,',
+        'final_cap_diagnostic=finalCapDiagnostic,first_final_jump_transition=firstFinalJumpTransition,')
+    text=T.P.once(text,' if #finalCapDiagnostic>=32 then',
+        " if not firstFinalJumpTransition and row.source==3 and row.pending_A==1 and\n  (kind=='original-land-A8DD'or kind=='native-carry-B771')then firstFinalJumpTransition=row end\n if #finalCapDiagnostic>=32 then")
+    Prior.LuaRuntime().compile(text)
+    if JUMP_DIAGNOSTIC_LUA_PIN is not None:assert sha256(text.encode()).hexdigest()==JUMP_DIAGNOSTIC_LUA_PIN
+    return text
+
+
 def main():
-    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--route',action='store_true');ap.add_argument('--early-cycle',action='store_true');ap.add_argument('--diagnostic',action='store_true');args=ap.parse_args()
-    assert not(args.early_cycle and args.diagnostic)
-    parent,raw=load_inputs();text=diagnostic_controller(raw)if args.diagnostic else early_cycle_controller(raw)if args.early_cycle else controller(raw)
+    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--route',action='store_true');ap.add_argument('--early-cycle',action='store_true');ap.add_argument('--diagnostic',action='store_true');ap.add_argument('--jump-diagnostic',action='store_true');args=ap.parse_args()
+    assert sum((args.early_cycle,args.diagnostic,args.jump_diagnostic))<=1
+    parent,raw=load_inputs();text=jump_diagnostic_controller(raw)if args.jump_diagnostic else diagnostic_controller(raw)if args.diagnostic else early_cycle_controller(raw)if args.early_cycle else controller(raw)
     info=dict(candidate_SHA256=T.PIN,Lua_SHA256=sha256(text.encode()).hexdigest(),compiled=True,
         frozen_stair_prefix_Lua_SHA256=Prior.Previous.LUA_PIN,
         original_backward_jump_acknowledgement=True,actual_native_passenger_required=True,
         helper_left=3040,helper_center=3056,helper_initial_top=192,
         centered_nativeX=3048,departure_top=[160,170],source_or_native_writes=False,outputs_written=0,
         exact_earlier64_start=args.early_cycle,maximum_final_cap_trajectory_rows=32 if args.early_cycle else 0)
-    if args.diagnostic:info.update(passive_original5110_controls_exact=True,maximum_final_diagnostic_rows=32)
+    if args.diagnostic or args.jump_diagnostic:info.update(passive_original5110_controls_exact=True,maximum_final_diagnostic_rows=32,
+        jump_scoped_with_separate_first_transition=args.jump_diagnostic)
     if args.route:
         Q,P,H=Gate.Q,Gate.P,Gate.H;e73=T.Old.reverse(parent)
         _,seed=H.cold(e73,e73[P.B.COOKIE_AT:P.B.COOKIE_AT+16]);m=Q.mounted(seed,raw)
@@ -183,6 +200,7 @@ def main():
             reason=receipt.get('reason'),last_events=receipt.get('events',[])[-20:],
             final_cap_trace=receipt.get('final_cap_trace'),
             final_cap_diagnostic=receipt.get('final_cap_diagnostic'),
+            first_final_jump_transition=receipt.get('first_final_jump_transition'),
             receipt_SHA256=sha256(json.dumps(receipt,sort_keys=True,separators=(',',':')).encode()).hexdigest(),
             physical_cadence_claim=False)
     print('DKJR_FINAL_HANDOFF '+json.dumps(info,separators=(',',':')),flush=True)
