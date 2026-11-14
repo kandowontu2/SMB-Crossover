@@ -29,18 +29,22 @@ a candidate, installed anything or made captures.
 The source checker is `check_dk_private_sprite_window7_1114.py`. Default mode
 is strict composition. Additional modes include `--poses`, `--images`,
 `--interrupts`, `--foreign-menu`, `--death-restart` and `--area`.
+Frozen follow-up checker SHA256:
+`662a320c0677bbdce9f0554ec0030b9cd8069c595ab48dc465cf9042a5d9fbe9`.
+`--parent-parity` qualifies the two diagnostic negatives; `--death-restart`
+and `--area` intentionally retain their original negative route assertions.
 
 Terminal positives so far:
 
--9 body poses×2 facings×8 flags:144 fixtures, actual body-kernel pixels/OAM
-identical. A follow-up expands this to the separate menu pose9.
--6 barrel poses×all256 flags:1536 fixtures. Geometry, attributes, pair offsets
+- 10 body/menu poses×2 facings×8 flags:160 fixtures, actual body-kernel OAM
+identical, including the separate menu pose9. Source units do not render pixels.
+- 6 barrel poses×all256 flags:1536 fixtures. Geometry, attributes, pair offsets
 and valid-barrel leaf A/X/Y/P match. Tiles change only to select window7.
--The ordinary source route passes352 Main with a live Goomba, natural mature
+- The ordinary source route passes352 Main with a live Goomba, natural mature
 kind0 Mushroom and a separately B-emitted barrel. Receipt
 `c2aa6e324716ad48955e92670c3c58dc0e2237f68c7128aa9d8a37454b6c017d`.
 Goomba uses17, Mushroom16, barrel823/window7; terminal382/176/lives2/power0.
--52 genuine instruction-cut IRQ/busy-NMI checks pass: empty draw11 boundaries
+- 52 genuine instruction-cut IRQ/busy-NMI checks pass: empty draw11 boundaries
 and barrel draw15 boundaries, each interrupt kind. These cover before/after
 all three changed instructions plus every actual window7 setter instruction.
 Minimum SP197. Registers, private RAM, mappings, SMC, modes, all hardware CHR
@@ -56,14 +60,58 @@ With a valid barrel, TAY overwrites Y before the copy/kernel. Changed ORA N/Z
 are overwritten by subsequent loads and final loop comparisons; all256 flag
 fixtures return the same actual flags.
 
-Two broader source probes are preserved as negatives pending parent parity:
+Two broader source probes are preserved as negatives:
 the simple post-image pipe continuation stalls at417/176 at the first pipe;
 the natural fatal-contact probe reaches269/engine11 and remains in that
-source state through1600 Main with lives2. Neither result is a repaired route
-or proof that this graphics change caused a gameplay defect. Foreign/menu and
-transition component qualification is ongoing. Root may inspect and stage the
-frozen graphics replay while these comparisons close, as explicitly directed.
+source state through1600 Main with lives2. Exact82 parent parity now passes:
+600 paired normal-control Main have identical gameplay state and shots, with
+fatal contact at210/x269/Y176 and the same600 terminalY67/engine11/lives2.
+Both genuine three-spot openings pass (parent reference receipt
+`2c45d2641326e4c5e50b2704c15003904549983e730869f3874352d597ada009`), then250
+paired pipe-controller Main are identical at417/176/engine8/lives2. Neither a
+restart nor pipe traversal success is claimed. Current source-probe behavior
+is identical to the parent, so these remain separate stage/death goal work.
+
+Explicit finite transition components `DkEnterScene`, `DkConstruct`,
+`DkHostDeathStart`, `DkPortrait` and `FmNativePrepare` return equal registers
+and gameplay state in parent/candidate. The existing prepare retires the lease
+and clears all12 modes. During actual natural death, source shots clear and
+both images retain the same selected28 lease. These component units are not
+substituted for a naturally completed restart/pipe route. Foreign/menu
+retirement qualification now passes below.
+
+Root inspected and staged the frozen graphics replay while those comparisons
+closed, as explicitly directed. The frozen composer checkpoint's metadata
 `source_qualification_complete` remains false at this checkpoint.
+
+Foreign/menu gate is terminal positive:510 defensive foreign-owner/flag units
+(all byte IDs except28, two flag values) preserve overlay, OAM, modes and
+A/X/Y. The rejection prefix is byte-identical and returns before all granted
+instructions, preserving the existing flags ABI too. No unconditional foreign
+publisher was called. A declared carried-old-DK7 lease fixture then uses real
+UI navigation and selected owner publication:
+
+| Destination | Modes6/7 | Actual published sprite banks0..7 |
+| --- | --- | --- |
+| Mario raw0 | 0/0 | `[14,16,17,18,19,20,21,21]` |
+| Roll raw9 | 129/129 | `[364,16,17,18,19,20,366,367]` |
+| Octopus raw18 | 131/131 | `[832,16,17,18,19,20,834,835]` |
+
+The initial test assumed raw18 occupied slot18; actual compiled slot18 is
+Raphael raw19. Corrected slot17 reaches Octopus through genuine Select. This
+was a fixture assumption, with no production or factory change. Mario clears
+all12 modes through the real menu preparation; Roll and Octopus replace the
+retired lease with their own6/7 publication. The continued selected28 death
+case retains its own lease while clearing shots; no foreign old barrel can
+leak through the transition.
+
+Strict explicit loader fixtures also pass for both delivered82ec and
+postdelivery1daca, each exactly one boundary read and no mutable reread from
+composition/inverse. The composer/replay/Lua are immutable after0e329f49;
+checker/QA contain the additional scoped qualification. Current3-byte graphics
+source and private-native gates are closed within these stated scopes. Full
+stage/pipe/restart success remains separate, with the identical parent
+limitations explicitly retained.
 
 ## Frozen ordinary native image API
 
@@ -94,7 +142,29 @@ the expected original pair offsets/geometry/attributes. Private body0 stays
 on its pose page820..823. Root must inspect actual pixels/OAM/pattern bytes;
 source PNG plumbing is only a marked API fixture and has no renderer.
 
+## Root67126 private native result
+
+Exact1daca/cf40 passes Root's actual Mesen three-image observation:747 physical,
+690 Main, lives2/power0. Receipt
+`93758ca3c721d793c2be8708ad90bbf543fd144028603449acc5c12c004f5922`.
+Root visually confirms the correct Goomba and now-visible correct Mushroom,
+coexisting with an emitted barrel. Actual Mushroom7C/7E uses native16;
+GoombaA2/A4 uses native17; barrelDD/DF uses823/window7 at pair offsets448/480.
+All observed pattern bytes match the current immutable pages exactly.
+
+| Image | PNG bytes | SHA256 |
+| --- | --- | --- |
+| Goomba | 2654 | `120a0ebac0c651bc92c4b593f8bc04723f3fdef1018c542d33e6bfb34543c1a3` |
+| Mushroom | 2772 | `4f5848db3c760505a51d5524df028e37fd343c21d4a8c04577b1bb957adb01c9` |
+| Barrel coexistence | 2806 | `43ce86a7fc91c4e36f2bf718a5796d529bb9c3c4f719e6ae911c62ba66b3dc53` |
+
+Goomba banks `[820,16,17,18,19,20,21,823]`, Mushroom
+`[821,16,17,18,19,20,21,823]`, barrel `[820,16,17,18,19,20,21,823]`.
+The Goomba PNG equals the common82 positive. All3 images remained in memory;
+no files/captures, patch-guard problems or Downloads changes. Root's flag slot
+now holds1daca/cf40; actual Downloads remains82ec at this native checkpoint.
+
 This is a graphics observation/qualification scope. Full1-1, every natural
 item and the character's remaining stage/lag goal work are not inherited from
 it. Parent82's corrected Goomba and broken invisible Mushroom are retained as
-the comparison witness. No native1daca or nightly delivery is claimed here.
+the comparison witness. No1daca nightly delivery is claimed here.

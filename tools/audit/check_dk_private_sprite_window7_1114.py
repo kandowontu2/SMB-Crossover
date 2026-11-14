@@ -3,6 +3,7 @@ from hashlib import sha256
 import json
 from pathlib import Path
 from unittest.mock import patch
+from copy import deepcopy
 
 import compose_dk_private_sprite_window7_1114 as C
 import replay_dk_private_sprite_window7_1114 as Replay
@@ -24,7 +25,16 @@ def strict(parent):
             try:method(wrong)
             except AssertionError:rejects.append(name)
             else:raise AssertionError(('Bad image accepted',name))
-    return candidate,dict(info,strict_inverse_roundtrip=True,rejections=rejects,mutable_Downloads_dependency=False)
+    original=Path.read_bytes;loader_cases=[]
+    for label,image in(('delivered82ec',parent),('postdelivery1daca',candidate)):
+        reads=[]
+        def boundary(path):
+            if path.resolve()==Replay.ROM.resolve():reads.append(str(path));assert len(reads)==1;return image
+            return original(path)
+        with patch.object(Path,'read_bytes',boundary):assert C.load_current_image()==candidate
+        assert len(reads)==1;loader_cases.append(label)
+    return candidate,dict(info,strict_inverse_roundtrip=True,rejections=rejects,mutable_Downloads_dependency=False,
+        explicit_single_read_loader_boundary_cases=loader_cases)
 
 
 def cold(raw,key='donkey_kong'):
@@ -230,16 +240,16 @@ def foreign_menu(parent):
             assert before==(bytes(m[0x5c00:0x5c80]),bytes(m[512:768]),bytes(m[0x73e0:0x73ef]))
             cases+=1
     rows=[]
-    for target,cycle in((0,0),(9,1),(18,1)):
+    for target,slot,cycle in((0,0,0),(9,9,1),(18,17,1)):
         with patch.object(N,'Bus',W.ControllerBus):m=W.UI.seed(b,0)
         for bits in Replay.bindings(raw)['navigation']:W.UI.key(m,bits)
         assert N.get(m,'SelectedCharacter')==28
         # A declared resource fixture carries an admitted old DK lease into
         # the real menu transition. All navigation/owner publication is real.
         N.invoke(m,'X5SetPhysicalChr',a=55,x=3,y=7)
-        while N.get(m,'CrossoverMenuIndex')//8>target//8:W.UI.key(m,8)
-        while N.get(m,'CrossoverMenuIndex')%8>target%8:W.UI.key(m,2)
-        while N.get(m,'CrossoverMenuIndex')%8<target%8:W.UI.key(m,1)
+        while N.get(m,'CrossoverMenuIndex')//8>slot//8:W.UI.key(m,8)
+        while N.get(m,'CrossoverMenuIndex')%8>slot%8:W.UI.key(m,2)
+        while N.get(m,'CrossoverMenuIndex')%8<slot%8:W.UI.key(m,1)
         for _ in range(cycle):W.UI.key(m,32)
         assert N.get(m,'SelectedCharacter')==target,(target,N.get(m,'CrossoverMenuIndex'),N.get(m,'SelectedCharacter'),W.UI.menu_name(m)[0])
         N.invoke(m,'X5PublishChr',a=0,x=0,y=0)
@@ -251,6 +261,89 @@ def foreign_menu(parent):
     return dict(composition=info,defensive_foreign_owner_flags_cases=cases,
         defensive_units_not_gameplay=True,real_UI_retirement_with_old_lease_fixture=rows,
         unconditional_foreign_publishers_called=False,outputs=0,Mesen_run=False)
+
+
+def parent_parity(parent):
+    raw,info=strict(parent)
+    class Reference:
+        ROM=Replay.ROM
+        class Frozen:
+            LuaRuntime=Replay.Frozen.LuaRuntime
+            normalize=staticmethod(Replay.Previous.Frozen.normalize)
+        @staticmethod
+        def bindings(image,key):
+            assert image==parent and key=='donkey_kong'
+            c=deepcopy(Replay.bindings(raw,key));c['sha']=C.PIN
+            return c
+        @staticmethod
+        def controller(image,key):
+            c=Reference.bindings(image,key);text=Replay.controller(raw,key)
+            prefix='local C='+Replay.Previous.Previous.Frozen.lua(Replay.bindings(raw,key))+'\n'
+            assert text.startswith(prefix)
+            text='local C='+Replay.Previous.Previous.Frozen.lua(c)+'\n'+text[len(prefix):]
+            old='(tile&1)*4+(tile>>6)==7';new='(tile&1)*4+(tile>>6)==1 and (tile&62)<48'
+            assert text.count(old)==1;text=text.replace(old,new,1)
+            assert text.count('spriteBanks[7]==823')==1;text=text.replace('spriteBanks[7]==823','spriteBanks[1]==823',1)
+            return text
+        @staticmethod
+        def metadata(image,key):
+            return dict(ROM_SHA256=C.PIN,controller_SHA256=sha256(Reference.controller(image,key).encode()).hexdigest(),reference_only=True)
+    fields=('Player_X_Position','Player_PageLoc','Player_Y_Position','Player_Y_HighPos','Player_State',
+        'Player_X_Speed','Player_Y_Speed','GameEngineSubroutine','OperMode','OperMode_Task','NumberofLives','PlayerStatus',
+        'DkAttack','DkAge','DkTier','DkReady','TimerControl','A_B_Buttons','PreviousA_B_Buttons')
+    def view(m):return tuple(N.get(m,n)for n in fields)+tuple(N.get(m,'DkShots',i)for i in range(36))
+    # Genuine cold and a normal leftward throw followed by fatal contact.
+    with patch.object(Source,'Factory',Replay.Previous):old=Source.cold(parent,'donkey_kong')
+    new=cold(raw);pair=[old,new];phase='approach';age=0;death=None;retired=[]
+    for tick in range(600):
+        x=N.get(new,'Player_X_Position')+256*N.get(new,'Player_PageLoc')
+        if phase=='approach'and x>=220:phase='throw-left';age=0
+        if phase=='throw-left'and age>=24:phase='fatal-right';age=0
+        if N.get(new,'GameEngineSubroutine')==11:
+            death=death or dict(Main=tick,x=x,y=N.get(new,'Player_Y_Position'),lives=N.get(new,'NumberofLives'))
+            phase='death'
+        pad=1 if phase in('approach','fatal-right')else 66 if phase=='throw-left'and age<4 else 2 if phase=='throw-left'else 0
+        for m in pair:m.controller_pad=pad;Frames.frame(m,whole_pass=True)
+        assert view(old)==view(new),('Death source parity',tick,view(old),view(new))
+        if death:assert all(N.get(new,'DkShots',i)==0 for i in range(36))
+        age+=1
+    assert death and N.get(new,'GameEngineSubroutine')==11
+    death_terminal=dict(Main=600,x=x,y=N.get(new,'Player_Y_Position'),engine=11,lives=N.get(new,'NumberofLives'))
+    # Independently replay both genuine three-spot openings. The reference
+    # adapter only observes old barrel window1; candidate factory is frozen.
+    held=[];original=Source.cold;receipts=[]
+    def retain(image,key):
+        m=original(image,key);held.append(m);return m
+    for image,factory in((parent,Reference),(raw,Replay)):
+        with patch.object(Source,'Factory',factory),patch.object(Source,'cold',retain):q=Source.run(image,'donkey_kong')
+        assert q['passed'];receipts.append(q['source_receipt_SHA256'])
+    old,new=held;assert view(old)==view(new)
+    phase='approach';age=0
+    for tick in range(250):
+        x=N.get(new,'Player_X_Position')+256*N.get(new,'Player_PageLoc');ground=N.get(new,'Player_State')==0
+        if phase=='approach'and x>=396 and ground:phase='jump';age=0
+        pad=1|(128 if phase=='jump'and age<38 else 0)
+        for m in(old,new):m.controller_pad=pad;Frames.frame(m,whole_pass=True)
+        assert view(old)==view(new),('Pipe source parity',tick,view(old),view(new))
+        age+=1
+    assert x==417 and N.get(new,'Player_Y_Position')==176 and N.get(new,'NumberofLives')==2
+    # Existing transition primitives are also exact; these explicit finite
+    # component calls must not be presented as a natural pipe/restart success.
+    transitions=[]
+    for name in('DkEnterScene','DkConstruct','DkHostDeathStart','DkPortrait','FmNativePrepare'):
+        outcomes=[]
+        for m in(old,new):
+            outcome=N.invoke(m,name,a=83,x=9,y=109,p=0x61)
+            outcomes.append(tuple(outcome[n]for n in('A','X','Y','P')))
+        assert outcomes[0]==outcomes[1]and view(old)==view(new)
+        transitions.append(dict(entry=name,registers_equal=True,gameplay_state_equal=True))
+    assert bytes(new[0x73e0:0x73ec])==bytes(12)
+    return dict(composition=info,parent_candidate_death_parity_Main=600,natural_death=death,death_terminal=death_terminal,
+        restart_success_claimed=False,parent_candidate_first_pipe_parity_Main=250,
+        pipe_terminal=dict(x=x,y=176,engine=8,lives=2),pipe_success_claimed=False,
+        opening_receipts=receipts,transition_component_units=transitions,private_lease_retired_by_existing_prepare=True,
+        scope='Identical preexisting source-probe limitations, preserved as separate stage/death work; no graphics regression',
+        gameplay_seeds=0,component_fixtures_explicit=True,outputs=0,Mesen_run=False)
 
 
 def area_route(parent):
@@ -289,9 +382,9 @@ def area_route(parent):
 
 if __name__=='__main__':
     import argparse
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--poses',action='store_true');p.add_argument('--images',action='store_true');p.add_argument('--interrupts',action='store_true');p.add_argument('--death-restart',action='store_true');p.add_argument('--area',action='store_true');p.add_argument('--foreign-menu',action='store_true');a=p.parse_args()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--poses',action='store_true');p.add_argument('--images',action='store_true');p.add_argument('--interrupts',action='store_true');p.add_argument('--death-restart',action='store_true');p.add_argument('--area',action='store_true');p.add_argument('--foreign-menu',action='store_true');p.add_argument('--parent-parity',action='store_true');a=p.parse_args()
     raw=C.load_current_image();parent=C.inverse(raw)
     def forbid(*args,**kwargs):raise RuntimeError('Memory-only DK qualification attempted file/Mesen')
     with patch.object(Path,'write_bytes',forbid),patch.object(Path,'write_text',forbid),patch.object(Source.Native,'run',forbid):
-        q=foreign_menu(parent)if a.foreign_menu else area_route(parent)if a.area else death_restart(parent)if a.death_restart else interrupts(parent)if a.interrupts else pose_units(parent)if a.poses else image_route(parent)if a.images else strict(parent)[1]
+        q=parent_parity(parent)if a.parent_parity else foreign_menu(parent)if a.foreign_menu else area_route(parent)if a.area else death_restart(parent)if a.death_restart else interrupts(parent)if a.interrupts else pose_units(parent)if a.poses else image_route(parent)if a.images else strict(parent)[1]
     q['file_and_Mesen_traps']=True;print(json.dumps(q,separators=(',',':')),flush=True)
