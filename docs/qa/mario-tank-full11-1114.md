@@ -67,8 +67,18 @@ Historical natural mushroom and boot acquisition remains a separate closed
 build path was restored or claimed live, and those closed donor/pickup suites
 were not rerun. Current natural S/L and powered combat/terrain gates remain.
 
-Root owns the pending native queue. Tank staysU for a current full native stage
-until root reports the separate f6d5 run; the source result alone is insufficient.
+Root actual Downloads421 native7856/f6d5 terminal PASS:3289 physical frames,
+3246 matched Main entries/returns including frontend, first activeMain314/frame330.
+Native flag2016, ordinary castle2079 and next entrance2649 precede25 completed
+living grounded1-2 updates atX40/Y176/engine8/lives2/power0/Star0/variant7/CHR0.
+Native receipt SHA256 is
+`a04e50327da26b854fe34277594e9fc4ff0937cbb9d6b35381cf0e3cf0782be1`.
+Full worker/cookie and mapped movement assertions passed, including the asserted
+minimum25 Tank movement calls in1-2. Root's compact summary did not retain exact
+Tank call counts; source2783/58 counts above are not relabeled as native values.
+Pre/post guard and installed/candidate byte equality checks passed, with zero
+files/images and no ROM replacement required. Tank is nowC for the current
+full native stage; the remaining U count reduces16 to15.
 No helper was added or moved. Both affected stage coordinates in the ordinary
 stair controller are positions earned by normal inputs, not placed actors.
 

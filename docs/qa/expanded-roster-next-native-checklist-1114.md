@@ -22,7 +22,7 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
 | SMB1 Peach; Kamikaze Mario | **C**, actual Downloads421 native55152, full flag/castle/entrance and25 living grounded1-2; independent7057/254b controllers | Individually earn/use M/F/S/L; stage receipts retain power0/Star0 and do not close natural-item gates |
 | SuperMaaa Mario | **H**, Oct29 Easy clear and earned M | F/S/L; Hard is separate, not a failed Easy clear |
 | Celeste Mario | **H**, a7ccbaaa Easy natural clear,3900 frames, both upgrades/earned dash | Natural S/L and remaining original abilities; old small-CHR/route negatives superseded |
-| Mario the Tank | **U** full stage; cold/walking/powered-graphics fixture and **H** natural M/boots7ec9 toX1212 | First full current route; retain historical M/boots receipt, qualify intended powered combat/terrain and natural S/L separately |
+| Mario the Tank | **C**, actual Downloads421 native7856/f6d5, full flag/castle/entrance and25 living grounded1-2; **H** natural M/boots7ec9 toX1212 | Retain historical M/boots receipt; qualify intended powered combat/terrain and natural S/L separately; current stage stays power0 |
 | Mini Mario; Mega Giant Mario | **H**, Mini current12397/f88 full route; Giant677aad54 full clear | Natural item ensemble per alternate; keep Mini's falling1-2 endpoint distinct from25 grounded updates |
 | Rogue Dawn; GB Pit; Doc Louis; Ryan; Mr. Gimmick; Donkey Kong | **U** for each listed name; startup/host/launch proof is not a full clear | Individually qualify first natural pickup and complete M/F/S/L policy; do not transfer sibling receipts |
 | Getsu Fuma | **H**, c6ab5610 full clear plus earned M/F | Natural S/L; full donor arsenal remains later work |
@@ -58,8 +58,8 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
    later. Close one-way/fractional-sign source/caller/ISR proof before any
    allocation/composition/native candidate. Do not call the older delivered
    clear a failed current run.
-2. Assign individual full routes to the **16 U identities** above, especially
-   Mario the Tank/Shinobi and the four Contra Force/two Battletoads choices.
+2. Assign individual full routes to the **15 U identities** above, especially
+   SMB3 Toad/Peach, Shinobi and the four Contra Force/two Battletoads choices.
    Use their intended abilities. If assistance is needed, root owns native
    actor placement/allocation and must record the assisted crossing.
 3. Reuse existing natural-item source controllers for **Jay F/S/L, both
