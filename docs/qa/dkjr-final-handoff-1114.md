@@ -81,6 +81,65 @@ The original cap-clearance guard and all later assertions remain. Native
 qualification is pending; this is a controller timing proposal, not a repair
 to game geometry or physics.
 
+The earlier-cycle2b3 native run is also a retained negative, receipt
+`ae30a4c4a00a56287ce974d23a9c98beb682f8d57bbf84d98acf7702be6c5ed4`.
+Waiting at3027 is unsafe: the overlapping helper automatically boards DK
+at7802/top73, then lowers sourceY56→65 while the left edge still overlaps
+the old cap. The original clearance assertion fires7814 before any jump
+is requested. No further timing variant is promoted from that negative.
+
+The separate passive `diagnostic_controller` is frozenf447b4c0; its window
+starts atX3000 and is superseded for causal use by
+`jump_diagnostic_controller(raw769)`, frozen Lua
+`e18c6a6874d60fe52a241775c1a727717aadd74c733428b89e443acfcb3dd937`.
+The latter preserves the exact5110 controls/assertions, records only
+final-jump (maximum32 rows), and retains the first source3→1 writer in a
+separate un-evicted receipt field. Metadata2878eb compiles and proves the
+passive additions; root owns the physical execution.
+
+Root native17787/e18 reproduces the retained failure and conclusively
+identifies the first incorrect transition, receipt
+`96d66519cf3221a812138bea49a4ce500a3124667e4abe74a83499ee0bfca0ab`.
+AtMain7800, original A8DD has pendingA1 while source/prior3, nativeVY255,
+passenger255, jumpAge6, fraction208, acceleration88<impulse352, sourceY55,
+helperTop72 and nativeX3029/Y41. The first jump abort is therefore an
+original floor landing while still rising, before native carry. LPC later
+that Main still sees VY255/source1;7801 becomes source4/VY0;7802 has LPCVY2,
+then actual AC18 passenger selection and B771 source-ground publication.
+Terminal remains7814/frame17888/X3034/Y50/age6. Platform-plane publication
+into the original rising support query is the first repair target. Integer
+native-VY projection is a separate source lead, not the first actual cause.
+
+`check_dkjr_jump_projection_1114.py --differential` session3f2951 exits0 on a
+declared pipe/helper component. With the actor present, source A8DD lands
+on step6/age5 while nativeVY255 and accel72<impulse352; the last query is
+kind3 with actual plane `[96,137,128,137]`. With the actor retired through
+native EraseEnemyObject and the same ordinary inputs, the jump remains
+source3, reachesY97 instead of105, and has zero-integer rising deltas at
+ages9/13/15/17..22. No native LPC executes in either arm. This is diagnostic
+component evidence, not a genuine final3040 or native crossing. Its initial
+5171bb expectation of a zero-integer rising frame with the helper present
+failed because the source jump had already been aborted; that failure is
+retained. A mislabeled scratch-array print was corrected to the actual
+query list; it did not affect the recorded state writers or contacts.
+
+`check_dkjr_final_oneway_1114.py` session39825 exits0 after a genuine5110
+prefixMain7702/X3026/Y47/source3/age1/top64. It compares enabled actor-plane
+publication with a declared Platforms→ObjectsDone diagnostic return while
+native LPC and actors remain active. In the enabled source arm, the first
+source3→1 write is native carry B771 at suffix8/age9, nativeVY0, accel136<352.
+Thus a source-scheduled earlier helper phase can expose the independent
+fractional projection issue before the native run's original-floor abort.
+The disabled arm does not restore the full jump while native LPC remains
+active; both observed minima areY34. The diagnostic's original verbose
+output has since been made compact; no per-frame files exist or are used.
+
+Source-only funding proposals are in
+`measure_dkjr_oneway_fit_1114.py` and
+`measure_dkjr_shared_epoch_fit_1114.py`. Neither composes a ROM or grants
+resources. The one-way gameplay fix takes priority. Any Main/body savings
+in those proposals are alternatives and must not be allocated twice.
+
 ## Authentication cost follow-up
 
 `profile_dkjr_auth_calls_1114.py` sessiona8b804 exits0 on the same exact769
