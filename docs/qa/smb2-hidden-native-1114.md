@@ -59,9 +59,47 @@ Native receipt SHA256 by variant:
 7 b1afa600a99a33663b981fc10f07b44f8feb40f906e2d07ce554139f7e3eb7ae
 ```
 
-Ordinary full-stage and Inv1 regression, installation and actual Downloads
-launch verification remain pending. The delivered nightly is still fa66.
-Natural Star testing is separate and remains open.
+## Ordinary and invincibility regressions
+
+Root session77682 passed both separate strict ROM-pin-only adapters on exact421.
+`replay_smb2_hidden_ordinary_1114.py` produces frozen Lua
+`0705cb62eb0ee787071d466b8019aa632cea516eee65ee8c0857b0ac2c01cf15`.
+It passed 4,525 physical frames/3,768 Main returns, full non-shortcut1-1,
+flag, castle, entrance and25 grounded1-2 updates at40/176/engine8, HP31/lives2.
+The settled empty opening remained48 frames/48 Main updates/skippedNMI0.
+All350 next-area resident entries, canonical targets, far-call returns and
+resident returns match. Its bounded detail-event buffer reaches its cap;
+the complete chain counters, not an unlimited event transcript, support this
+statement. Receipt:
+`d7f79281f0fd84b420b8280b20e64ebb359fe5481f31c8fbad5c9f33d3501259`.
+The source helper independently reports the same strict ordinary scope PASS,
+3,768 scheduler/3,767 returned Main, receipt
+`31560c5e8db09ffb8238b56e3c7c23c8b5b94b41bfc98fdcc1578dfd59b853fa`.
+
+`replay_smb2_hidden_invincible_contact_1114.py` produces frozen Lua
+`b27a809fc5d7011f8f050a5c7694675c8e73402ce9743578d55934d26b8078cb`.
+Root's separate actual title/options/Inv1 contact test passed728 physical
+frames/255 Main returns, ten carry-confirmed positive native Goomba overlaps.
+First contact is Main176/frame635, player297/176 and Goomba305/184, with
+rectangles `[114,187,124,208]` and `[123,198,133,204]` overlapping1×6.
+HP31/lives2/Star0 persist through376/176 and30 quiet updates; all255 cold-route
+entry/canonical/far-call/resident return counters match. Receipt:
+`aac32967147dfc589bf2d74765262ccac7b8ba01a35f8806dca5c3f639f33f8d`.
+This is ground-Goomba immunity evidence, not all cheat-trigger semantics.
+
+Both adapters restore the exact frozen fa66 controllers when the sole ROM
+literal is reverted; no input, gameplay-state or authentication rewrite is
+hidden in the adapter. The source contact check also passed257 scheduler/
+256 Main returns, ten positive contacts and30 quiet updates, receipt
+`15910e1d95cf7e7d212fd3eb53440ccf0ed13746d70668f7a7c500d8f2d621fd`.
+It retains HP31/lives2/Star0 and the original1×6 overlap. Both source scopes
+reject parent, truncation, owned and unowned corruption; mutable Downloads
+reads after input loading, file writes and Mesen calls were blocked.
+
+Guarded installation and actual Downloads launch verification remain pending.
+The delivered nightly is still fa66. Mario's separate native natural Star
+pickup passed; the other seven Star native tests remain open. Star details
+are recorded in `smb2-natural-star-source-1114.md`.
 
 The bounded producer reuses only `build/smb2-flag-native-1113`'s existing
 candidate/controller slots, max-files2, timeout600. Each Mesen run retains the
