@@ -18,10 +18,10 @@ The CLI-only loader explicitly applies its strict
 chain below. Session71702 verifies12397→3684→f88→7ef in memory. Frozen14,
 769 and the historical8623-over3684 merge APIs remain unchanged; no old DK
 candidate may replace the newer nightly or discard its six alias operands.
-The loader explicitly accepts only known3684→SMB2 inverse→f88→Bub inverse→7ef,
-then retains the frozen e73/14/769 proof recipes. The bounded loader roundtrip
+After that explicit alias inverse, the loader retains known3684→SMB2 inverse→
+f88→Bub inverse→7ef and the frozen e73/14/769 proof recipes. The bounded loader roundtrip
 passed before installation, and exact3684 loading passed afterward. This is
-loader-only normalization. **Bare769 must not overwrite3684**; eventual local
+loader-only normalization. **Bare769 must not overwrite12397**; eventual local
 delivery needs a separately authenticated disjoint current composition.
 GitHub releases remain empty. No private ROM, patch or build file is generated.
 
@@ -204,6 +204,55 @@ an integration comment. No midair steering or jump-height change is introduced.
 Earlier **latched Right+A** launch2928/2930/2932 versus2944, with zero/four
 neutral release updates, is the next genuine-prefix study; native coverage
 and a new full positive remain pending.
+
+The committed runup study was re-established as session97920 after the prior
+94120 process and terminal handle disappeared without recoverable terminal
+stdout. Session97920 exits0 with the same genuine6c6 Main7499 prefix. Exact
+takeoff2944 with **zero neutral updates** passes: ordinary Right+A at suffix22,
+actual original A966 landing on target `[96,128,111,143]` at suffix23, then
+three settled native96/source+prior1/nativeState0 updates, ending2949/96 after
+33 suffix Main. At the same2944 target, four neutral updates project the
+player back to2942 before A; the original kind2 side test cancels at age2 and
+it stays112. The2932 branches briefly reach actual upper contact at2943/96,
+then return112. The2928/2930 branches never press A because this particular
+probe's extra nativeState0 admission guard remains2 despite source+prior1;
+those four cases are harness non-admissions, not qualified jump negatives.
+All use real Main and ordinary inputs; no pose, position, timer, motor or
+terrain writes are made.
+
+`tools/audit/replay_dkjr_final_stair_takeoff_1113.py` preserves an **inactive
+table-only proposal** as its default `controller(raw769)`. It authenticates
+frozen6c6 and replaces only final-riser3's allowed
+takeoffs `{2939,2944,2941}` with `{2944,2944,2944}`. The original A8 hold,
+47-update retries, landing, injury and terrain assertions remain. The frozen
+6c6 and991 observer factories are unchanged. Its compiled Lua is
+`bfa40d77d1e0f7d6b45621589e9e49a2b24ef49fbb702011691de199fa25524f`.
+Session43590 exits0/full source PASS8926 with the same receipt
+`a342bc5e3c6f699ace2994a92389c0a696276a71282e9e23fe31c8e2e832bc13`
+and active falling1-2 endpoint. **That pass does not exercise the intended
+repair:** the retained full factory hardcodes fast=true, which selects the
+anchor and bypasses this table. No bfa native run was made or requested.
+
+The separate `active_controller(raw769)`, compiled metadata19233 Lua
+`78215151aee3a4bb4309c26b31d18cf50dae9b95a9fd9a2772e7e45b4d8a729d`, changes the executed pre-anchor
+fallback condition only: final riser3 cannot turn its2944 anchor into an A
+press at2942/2943 after the12-update wait. Other risers and original controls
+remain unchanged. `check_dkjr_final_stair_active_1113.py` runs the genuine
+Main7499 prefix, walks to2944 then uses four actual neutral inputs to reproduce
+2942/camera2864. It executes the exact emitted old/new final-stair Lua fragment
+against each genuine clone, recording the reached predicates, actual original
+upper landing and settled floor. Script navigation locals are initialized for
+this explicitly partial suffix; native/source game state is never written.
+Session81167 exits0 and reaches the actual changed condition three times at
+2942/2942/2943 with camera2864: old6c's predicate is true, active782's is false.
+**Both** emitted policies nevertheless reach2944 before the12-update fallback
+expires and pass the original A966 upper landing, settling2949/96 after14
+suffix updates. This proves the changed predicate is executed and preserves
+the crossing in this genuine state. It does not reproduce the longer native
+clamp wait or prove that active782 fixes it. The preparation is22 real Right
+updates plus4 neutral updates after Main7499; no camera or position is seeded.
+The active unbroken full source replay is now running; native qualification
+remains pending. No inactive bfa or active782 native success is claimed.
 
 `tools/audit/replay_mini_dkjr_direct_1113.py` is a strict read-only factory:
 reverse769→exact14, call root's frozen Mini descending controller (c0e8),
