@@ -512,6 +512,17 @@ absent/zero files; no emulator or ROM file is produced.
 
 ## Authentication cost follow-up
 
+The subsequent unallocated floor/entry endpoint and storage measurements are
+frozen separately in `dkjr-floor-entry-resource-request-1114.md`. They add
+actual static-floor validation rather than trusting an earlier native0,
+include visible pending-entry body admission, and request conditional
+CD00..CFFF backed by a root-reviewed carrier. Review target931 is not granted.
+The worker measures118/119B with an exact256-byte D000 metadata duplicate;
+isolated copier session7d6c79 and static predicate sessionb4f7fe pass their
+declared component controls. No new game image, allocation, native route or
+delivery is claimed. The new input boundary explicitly normalizes82 to421
+for frozen models and never relaxes the existing421 factories.
+
 `profile_dkjr_auth_calls_1114.py` sessiona8b804 exits0 on the same exact769
 genuine settled empty opening. Current CoCheckCode is **AEE2**, authenticating
 raw37..43; historicalv83's AEE3/raw37..40 must not be reused as current source.
