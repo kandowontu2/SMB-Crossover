@@ -14,7 +14,7 @@ F,P,N=Base.Factory,Base.P,Base.P.N
 def word(s,at,value):s[at:at+2]=(value&65535).to_bytes(2,'little')
 
 
-def invoke(m,pc=0xbde2):
+def invoke(m,pc=0xbde2,observe=None,with_cycles=False):
     m.raw_page(1,3);m.raw_page(2,2)
     N.put(m,CurrentBank=3,CurrentBankC=2)
     c=N.NesMPU(memory=m,pc=pc);c.a,c.x,c.y,c.p,c.sp=83,71,109,0x61,224
@@ -25,11 +25,14 @@ def invoke(m,pc=0xbde2):
             points.append([int.from_bytes(m.ram[3][0x1369:0x136b],'little'),
                 int.from_bytes(m.ram[3][0x136b:0x136d],'little')])
         assert m[c.pc],('Primitive BRK',hex(c.pc),m.rawtags)
+        if observe:observe(m,c)
         c.step()
     else:raise AssertionError('WorldTile primitive bound')
-    return dict(material=c.a,registers=[c.a,c.x,c.y,c.p,c.sp],
+    q=dict(material=c.a,registers=[c.a,c.x,c.y,c.p,c.sp],
         cell=int.from_bytes(m.ram[2][0x7d:0x7f],'little'),points=points,
         surface=int.from_bytes(m.ram[2][0x7f:0x81],'little'))
+    if with_cycles:q['cycles']=c.processorCycles
+    return q
 
 
 def run(raw):

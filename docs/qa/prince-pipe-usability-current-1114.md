@@ -179,3 +179,8 @@ earned-sword or post-sword pipe traversal is claimed.
 All bounded source output roots remain absent. No captures, archive recovery,
 ROM outputs, install, patches or releases. Protected user progress and Steve
 QA are untouched. Prince movement/collision remains open.
+
+The follow-up `prince-worldmaterial-research-1114.md` records the rejected
+ungated floor filter, original hang/climb contexts and current in-place repair
+research. Its complete first design passes1024 isolated flat primitive vectors
+but is551 bytes against a449-byte lease. It is not fitted or mounted in gameplay.
