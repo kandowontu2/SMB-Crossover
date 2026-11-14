@@ -60,17 +60,39 @@ def proposal(raw):
 
 def inverse(raw):
     assert sha256(raw).hexdigest()==CANDIDATE
-    parent=Cache.parent_image();_,spans,_=bindings(parent);out=bytearray(raw)
+    # Recover the exact retained probe from its owning assembly; inverse may
+    # be called after this candidate becomes Downloads. No mutable nightly
+    # image is an inverse dependency.
+    resource=Cache.GRANT.read_bytes();assert sha256(resource).hexdigest()==Cache.GRANT_SHA
+    grant=json.loads(resource)
+    _,owned,_=Cache.Measure.Route.Current.Flag.source_recipe(raw)
+    probe=owned['probe']
+    assert len(probe)==174 and sha256(probe).hexdigest()==grant['spans'][0]['preimage_SHA256']
+    out=bytearray(raw)
+    for index,q in enumerate(grant['spans']):
+        at,end=q['file_half_open'];old=probe if index==0 else bytes.fromhex(q['preimage_hex'])
+        assert len(old)==end-at==q['bytes'];out[at:end]=old
+    original=bytes(out);assert sha256(original).hexdigest()==PIN
+    _,spans,_=bindings(original)
     for at,old,new in spans:
-        assert raw[at:at+len(new)]==new;out[at:at+len(old)]=old
-    original=bytes(out)
-    assert sha256(original).hexdigest()==PIN and proposal(original)[0]==raw
+        assert raw[at:at+len(new)]==new
+    assert proposal(original)[0]==raw
     return original
 
 
 reverse=inverse
 
 
+def load_current_image(path=None):
+    """Explicit CLI boundary: only delivered fa66 or this exact successor."""
+    path=Cache.Parent.Owner.D.C.Owner.NIGHTLY if path is None else Path(path)
+    raw=path.read_bytes();digest=sha256(raw).hexdigest()
+    if digest==PIN:return proposal(raw)[0]
+    assert digest==CANDIDATE,'Current input must be exact fa66 or421379'
+    assert proposal(inverse(raw))[0]==raw
+    return raw
+
+
 if __name__=='__main__':
-    parent=Cache.parent_image();image,q=proposal(parent);assert inverse(image)==parent
+    image=load_current_image();parent=inverse(image);_,q=proposal(parent)
     print(json.dumps(q,separators=(',',':')),flush=True)

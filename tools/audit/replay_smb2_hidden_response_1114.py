@@ -60,7 +60,7 @@ def source_run(raw,variant=0,limit=2800):
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--variant',choices=tuple(map(str,range(8)))+('all',),default='0')
     p.add_argument('--cpu',action='store_true');p.add_argument('--limit',type=int,default=2800);args=p.parse_args()
-    raw=C.proposal(C.Cache.parent_image())[0]
+    raw=C.load_current_image()
     for variant in(range(8)if args.variant=='all'else(int(args.variant),)):
         q=source_run(raw,variant,args.limit)if args.cpu else dict(ROM_SHA256=C.CANDIDATE,variant=variant,
             controller_SHA256=sha256(controller(raw,variant).encode()).hexdigest(),outputs=0,Mesen_run=False)

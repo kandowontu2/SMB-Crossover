@@ -61,7 +61,7 @@ def interrupt(m,c,parent,image,kind,native,stop=None):
 
 
 def vectors():
-    parent=C.Cache.parent_image();image,info=C.proposal(parent)
+    image=C.load_current_image();parent=C.inverse(image);_,info=C.proposal(parent)
     _,spans,_=C.bindings(parent)
     synthetic=bytearray(65536)
     for at,old,new in spans:synthetic[0xa000+(at-16)%8192:0xa000+(at-16)%8192+len(new)]=new

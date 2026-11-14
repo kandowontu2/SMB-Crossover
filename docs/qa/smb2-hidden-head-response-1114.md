@@ -181,8 +181,22 @@ Exact Lua SHA256 by variant:
 ```
 
 The owning composer SHA256 is
-`fe85f2c8acf25905312412d99ccec50767e6c38acf64336cd0eaa820435a84ff`;
+`7d8e2210a38952902694efcbb5334ae9b704902679b6353e43834f361bbee71a`;
 the replay module is
-`6414c152e61ddab7a41233ffec447bcae86ac1116fde925ffdbdbf5783c469aa`.
+`2720cd7e7989988eae7cf20e9390b1c0cef2a4ece373fca56125e917fdb4106a`.
+
+The response inverse is independent of mutable Downloads. It restores the
+source-assembled exact174B original probe and9FF/4EA/14EA source preimages
+directly into421379, verifies exactfa66, then checks bindings/proposal round
+trip. Cache-only inverse and both grants remain frozen. The explicit response
+`load_current_image()` CLI boundary accepts only exactfa66 (compose) or
+exact421379 (strict inverse/roundtrip), so composer/replay and response gate
+CLIs work after delivery too. `check_smb2_hidden_inverse_1114.py` clears cold
+binding caches, forbids actual Downloads reads and mutable-parent lookup
+during inverse/controller generation, and passes all8 unchanged Lua hashes,
+zero attempted Downloads reads, five dirty/unowned/unknown rejections and
+both explicitly mocked installed-version loader cases. No candidate bytes
+or Lua text changed in this portability correction.
+
 All-eight Star remains open. Root alone owns native qualification, cleanup
 and delivery;421379 is private and must not be installed on source tests alone.

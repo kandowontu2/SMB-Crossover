@@ -104,7 +104,7 @@ def trajectory():
 
 def callers():
     import compose_smb2_hidden_response_1114 as Response
-    parent=C.parent_image();image,info=Response.proposal(parent);counts=Counter()
+    image=Response.load_current_image();parent=Response.inverse(image);_,info=Response.proposal(parent);counts=Counter()
     def state(m):
         s=ISR.full_state(m)
         # Complete Main is stopped at SP252. Its top three live caller bytes
@@ -130,7 +130,7 @@ def callers():
 def probe(response=False):
     if response:
         import compose_smb2_hidden_response_1114 as Response
-        raw=C.parent_image();image,info=Response.proposal(raw);assert Response.inverse(image)==raw
+        image=Response.load_current_image();raw=Response.inverse(image);_,info=Response.proposal(raw)
     else:raw,image,info=inputs()
     seed=Family.cold(raw,0)
     seed.raw_page(1,246)
