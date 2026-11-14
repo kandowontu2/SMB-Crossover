@@ -68,6 +68,47 @@ observed at1630/Y145. Thirty resumed updates finish at1666/Y176, HP15/max0/
 reserve0/lives2. Earlier damage remains explicit. This is native controller
 evidence supplied by root, with no gameplay-state seeds or capture files.
 
-Remaining seven source variants and seven native Star runs are pending. The
+## All eight source variants PASS
+
+The frozen replay module SHA256 is
+`532c95177838497c4e7bf354e11629d0a0d750f7a8e63b397a23e2a0bf6f992c`.
+Remaining-variant batch40096 is terminal PASS. All eight execute the same
+authored stream/producer, real native collector, erasure/popup6/sound queue32,
+Star35/music64 grant, actual source import, retained source HP/max/reserve,
+unchanged lives2 and30 subsequent completedMain updates. No high-bit maturity
+assumption or game change was added. All observed collector actors are state128.
+
+| Character | Scheduler/Main | Head / birth | Collect / import Main | Endpoint X/Y | HP retained |
+|---|---:|---|---|---|---:|
+|SMB2 Mario|1328/1327|1211/1212|1296/1298|1666/176|15|
+|SMB2 Luigi|1534/1533|1416/1417|1502/1504|1679/135|31|
+|SMB2 Toad|1467/1466|1349/1350|1435/1437|1665/176|15|
+|SMB2 Peach|1425/1424|1308/1309|1393/1395|1656/176|15|
+|Imajin|1296/1295|1180/1181|1264/1266|1666/176|15|
+|Lina|1552/1551|1433/1434|1520/1522|1664/176|31|
+|Papa|1579/1578|1463/1464|1547/1549|1667/176|31|
+|Mama|1546/1545|1427/1428|1514/1516|1679/139|15|
+
+All max0/reserve0/lives2. Luigi and Mama finish alive airborne; this is a
+natural item/30-update scope, not a grounded full-stage endpoint. Earlier
+travel damage for the five HP15 variants remains explicit. No helper exists
+or was added for any of the eight: the authored Star block is1-1 world
+left1616/top144, and its native Star begins at left1616/top136 (or135/state2
+on the first observed update for Luigi/Peach/Imajin).
+
+Exact Lua SHA256 by variant:
+
+```text
+0 452bbe8ea68a40707b443195796796497cb51cb7c07f72d30fb1bb18c3e63c5d
+1 02bb1bb3c342239aee0a313513297d7d380312253163e61f4712df7498a67e15
+2 f205cdba1d41ff62a5d407690af2521c71c08bad6b991bcbcbc7322702f09245
+3 12e0a5e5da679058a7814e26c0c5d3fceba1ffb683cce28c7dea71f186733b0c
+4 57e6cd121304aa71e04368a64c89bc08a54c4ed26ff7157ec9021e7a77ad451c
+5 c4be02dcc81b42240070c11349f81a0ff72850b065b03fd4461cc3eca0c8459a
+6 91ee3901cb1b34fb1cf9cfffe5117878bf57ce9115a0fed9ff2ee1f0e27cec05
+7 1e886fd1e76c40e1d867b0e2d01dced228d49e8a43b4beea7f25a05696948194
+```
+
+Seven native Star runs remain pending root's single Mesen queue. The
 exact bounded root is `build/smb2-hidden-head-source-1114`, max-files1; tests
 produce no files. No ROM, patch, capture, backup or release was created.
