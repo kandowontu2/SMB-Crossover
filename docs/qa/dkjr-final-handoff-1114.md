@@ -1,8 +1,9 @@
 # DK Jr final cap and descender handoff
 
-This continues the frozen769/80ef native negative without modifying game
-bytes or helper geometry. The private ROM remains
-`769afe8d7fcdb58bed5f9f43109d7aabab3d93b1a7afb0535926e51cffce94ff`.
+This continues the frozen769/80ef native negative. The retained private
+input remains `769afe8d7fcdb58bed5f9f43109d7aabab3d93b1a7afb0535926e51cffce94ff`.
+The later granted one-way support proposal is composed only in memory;
+its source gates are recorded below. No helper geometry changes.
 Root owns native execution, installation, cleanup and the single Mesen queue.
 
 `check_dkjr_final_handoff_1114.py` uses one genuine frozen80ef route prefix
@@ -230,6 +231,61 @@ so legal rectangle-list consumers cannot read scratchC8EE. Manual poisoned
 lists or standalone query states are not included in that legal-caller
 invariant. Finite World/Vine output comparisons and full current/native
 qualification remain pending.
+
+Root granted the exact five-fragment private source proposal in
+`docs/qa/allocations/dkjr-oneway-support-1114.json`, frozen SHA256
+`302d27a4b766bc7c16582c32eca3c52b6f1da9bbf6874bcd804ca539689b22ac`.
+`compose_dkjr_oneway_support_1114.py` session904497 composes memory-only
+private `09b8043cd0c656bb6d983a658434eebb7d2ec04cc35a6e2d1347f237d65e4de5`.
+The544-byte serialized envelope contains only the528 logical bytes and
+the16-byte existing DK cookie;338 actual bytes change. Exact serialized
+spans are2031344/64,2031472/32,1952900/201,2033262/73,1950912/158 and
+cookie534485/16. Cookie is `a72801b85bfe21c8695c6081afac567a`.
+The strict inverse returns769 and forward roundtrip is exact. The separately
+bound controller is Lua63e7c815eace6b499e1b9f8db46cd41de29228ec267123dbf1316fd2fabcd22a;
+its controls/assertions are frozen5110 with only ROM identity changed.
+
+`check_dkjr_oneway_world_1114.py` session4a496d passes1,978 old/new actual
+World query pairs. It covers all256 vine flags/heights/P (includingV1),
+actor and root boundaries, all five query kinds and nonrising source1..5.
+All source data/list/native data/AXYP/SP compare exactly except614 declared
+dead WScreenHi scratch differences. Twelve rising query cases remove only
+the published actor plane and preserve the helper-disabled static-terrain
+control's output. Kind4 is an additional manual ABI fixture, not a new legal
+caller. Initial directed queries used the wrong support bottom144, which
+correctly probed145 instead of the137 plane; the accepted query uses136.
+
+`check_dkjr_oneway_vectors_1114.py` session9eacbb reaches all246 granted
+instruction PCs and passes246 real IRQ plus246 busy-NMI cuts, minimumSP175.
+At every RTI the complete live stack is exact; component continuation
+preserves AXYP (all real C/Z/I/D/V/N flags), SP, private RAM, native OAM,
+SMC, maps, VRAM and CHR. Every changed discarded ISR stack byte is read only
+after a new writer. ISR-changed native data is not read by continuation.
+Fourteen raw py65 P comparisons differ only in its synthetic B bit, which
+is not a physical6502 status latch; those differences are reported, and no
+real flag or saved stack byte is masked. The initial raw-P failure atCC1D
+was this exact B-only difference (A254/X71/Y91/SP224 unchanged).
+
+`check_dkjr_oneway_lifecycle_1114.py --cold-vectors` session5ad589 passes
+actual new cold copy/verify, seven declared read-fault rejection/retry cases,
+three phase rejections, warm no-copy,224 public callbacks rejecting each of
+all32 header bytes, and five shared foreign retire/reentry contexts. Both
+full ready cookies publish after complete verification. Cold vectors pass
+67 masked IRQ and67 real busy-NMI cuts with minimumSP165, with complete
+WRAM/headers/maps/PPU equal. Declared foreign-page seeds are not complete
+foreign-game ingress qualification.
+
+`check_dkjr_oneway_source_1114.py --route` session6aa53f passes8947 genuine
+scheduled source Main updates from actual new cold: all six stairs, actual
+final3040 passenger, cap clearance, flag/castle and active1-2 with both lives.
+Cap clearance remainsMain7733/X3043, bodyLeft3040/bottom76<80. Centered
+passenger is7752/X3048/top96; departure7799/top160; floor3076/Y176 at7888.
+Terminal1-2 is fallingX40/Y48/source4, not25 grounded updates. This is a
+source-model result, not physical cadence or native readiness. Sixteen
+observed original rising floor writes elsewhere are not blanket-rejected:
+static terrain semantics remain intact. Epoch caching and native fractional
+velocity projection are unchanged. Explicit421-preserving merge/inverse,
+physical final crossing and overwhelming idle/walk cost remain open.
 
 ## Authentication cost follow-up
 
