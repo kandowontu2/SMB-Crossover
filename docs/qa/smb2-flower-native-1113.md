@@ -137,7 +137,40 @@ then defeats the real native Goomba at675 on1022 with state0 to34. Both keep
 health31, reserve2 and both lives, and satisfy the unchanged resumed-play
 assertions. No ROM/state writes, added helpers or new build/capture files.
 
-The other six acknowledgement hit variants remain under source qualification.
-These three passes are not an all-eight combat claim.
+## All eight actual native combat passes
+
+The remaining source qualification closed all16 acknowledgement throw/hit
+routes. Root23029 then ran the missing six hit variants through the guarded
+opt-in CLI. All six pass on actual Downloads12397, closing all eight native
+earned Flower, pull/carry, original fresh-B throw and real Goomba-defeat routes.
+Each retains HP31/reserve2/both lives and the original resumed-play assertion.
+The real original BIT observes Fresh64/Holding1 in every case, and each live
+native Goomba changes state0 to34. No game bytes, state or actor fields are
+seeded; new build/capture files and added helpers remain zero.
+
+| Identity | Physical | Main | Fresh B | Thrown | Defeat | Receipt SHA256 |
+| --- | ---: | ---: | ---: | ---: | ---: | --- |
+| Toad |1245|834|803|804|809|`ca964b4d73b816e59acced2da41ea4c873f7b18665bb6d43e40600805f3a0b87`|
+| Peach |1390|976|945|946|954|`c295eb322f03ecec9678b5610a09a0e95e6993aa9e7d416466eb1d5e32a440af`|
+| Imajin |1304|845|814|815|820|`632b803a2d44ae4ded80eb84fee5fc49ddd250ca767a5856f5579843a318f87c`|
+| Lina |1565|1123|1092|1093|1101|`c5457c0ff8dc3837d1bcc4e228831e50cb6dd9a5f9c39ec605bdc50af08d9951`|
+| Papa |1457|985|954|955|960|`7e298ca9ac6ad1b4f0a274cb32e25a8646d06785da74907c2f752950ace2aad5`|
+| Mama |1608|1143|1112|1113|1121|`511dc880125729dad1669986109940869731045b2116eacc280a88250f8dc51a`|
+
+Mario and Luigi's native combat receipts are in the preceding table. Exact
+remaining hit Lua identities are bb1f0040,86310667,3bfe5a90,bf770d75,9bcc1c29
+and137652d8; the full hashes are bound in the acknowledgement factory/QA and
+runner preparation. The runner requires the additional Fresh-B observation
+for acknowledgement passes while frozen default/followup modes stay exact.
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 600 -- python -B tools/audit/run_smb2_postbg_flower_native_1113.py --ack-followup --variants 2,3,4,5,6,7 --scope hit
+```
+
+This closes natural first-Flower acquisition and earned vegetable combat for
+all eight. Natural Star and1UP are separate open item kinds; a read-only
+coverage audit found no all-eight earned receipts for them. The next source
+route targets the hidden1UP at1-1 left1024/top128, followed by the Star at
+left1616/top144, with kind-specific native effects rather than Flower grants.
 GitHub releases remain empty; this controller-only work does not replace the
 already verified12397 nightly.

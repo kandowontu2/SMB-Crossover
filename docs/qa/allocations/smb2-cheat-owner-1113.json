@@ -1,0 +1,84 @@
+{
+  "schema": "root-source-allocation-v1",
+  "date": "2026-11-13",
+  "status": "granted-private-source-proposal-only",
+  "owner": "SMB2/Doki cheat dispatch",
+  "parent_ROM_SHA256": "12397b1c2557834f6a2b7e23c9915d5dc40c6cabff7a6ee844c1adebf6564c52",
+  "diagnostic_native_receipt_SHA256": "86e0977aefd42f0233e3fecee4c2177fefdde315ac51b95f97c2dbe6516fa0e1",
+  "source_checkpoint": "b5df4ff4",
+  "checker_SHA256": "2da1991969af7bfa698815f4532d22df6904fc1665fb3a50f30860a719d9f03a",
+  "root_independent_funding_check_passed": true,
+  "spans": [
+    {
+      "role": "existing owned Cheats Restore/Native gate",
+      "physical_bank": 63,
+      "encoded_rawbank": 191,
+      "CPU_half_open": [
+        41641,
+        41698
+      ],
+      "file_half_open": [
+        516793,
+        516850
+      ],
+      "bytes": 57,
+      "preimage_SHA256": "f0b7b295e1117561595767b6105c2b6a7a203d3044118e020af663c6e55e24b5",
+      "allowed_replacement": "Exact DRAFT_RESTORE of the pinned checker; no other gate bytes"
+    },
+    {
+      "role": "foreign tail in source-declared typed-host padding",
+      "physical_bank": 63,
+      "encoded_rawbank": 191,
+      "CPU_half_open": [
+        43760,
+        43775
+      ],
+      "file_half_open": [
+        518912,
+        518927
+      ],
+      "bytes": 15,
+      "preimage_hex": "ffffffffffffffffffffffffffffff",
+      "allowed_replacement_hex": "a9218d6c01a9a08d6d01a9814c5a01"
+    }
+  ],
+  "padding_evidence": {
+    "source_packet": "docs/qa/checkpoints/2026-11-01/ready85-doki-native-v1/source.zip",
+    "member": "build/doki-current-component-1101-v1/src/smb2_roster_host_v5.s",
+    "member_SHA256": "ec181a33ecc6a7bd74d5f0856ec6cf40f76b00946a71e603cdf8a446f10e3220",
+    "line": 84,
+    "declaration": ".res 223-(*-S2TypedHostBegin),$ff",
+    "padding16_SHA256": "5ac6a5945f16500911219129984ba8b387a06f24fe383ce4e81a73294065461b",
+    "retained_FF_CPU": 43775,
+    "unchanged_service_veneers_CPU": 43776,
+    "preceding_palette_returns_exact": true,
+    "current_Rogue_page_readers_excluding_bank63": 224,
+    "local_literal_JSR_JMP_into_padding": []
+  },
+  "required_semantics": {
+    "route_only_raw_owner": 25,
+    "when_GuestHurtKind": 0,
+    "owner_target": "F6:B86F through existing AD40 farcall",
+    "foreign_target": "81:A021 exactly",
+    "original_injury_route_exact": true,
+    "original_R0_to_R7_pop_and_write_order_exact": true,
+    "additional_stack_or_RAM_writes": 0,
+    "new_RAM_bytes": 0,
+    "new_CHR_bytes": 0
+  },
+  "exclusions": [
+    "Do not modify AAFF, service veneers or the preceding palette routine",
+    "Do not alter any E037 resident or sample-alias operand under this grant",
+    "Do not modify any other ROM, physics, helper geometry, audio payload or mapper register policy",
+    "Do not install or publish the movement-only private proposal"
+  ],
+  "pending_required_gates": [
+    "Exact reversible transform and unowned-byte equality",
+    "Actual Main/NMI owner routing for all eight variants and all supported cheat masks",
+    "Foreign and injury caller/IRQ/busy-NMI equivalence",
+    "Private actual UI-earned cheat replay establishing remaining E037 exposure or absence",
+    "Any additional alias repair needs a separate source-backed grant",
+    "Root delivery regression and actual Downloads validation before a nightly change"
+  ],
+  "release_policy": "GitHub releases remain empty; no patch assets"
+}
