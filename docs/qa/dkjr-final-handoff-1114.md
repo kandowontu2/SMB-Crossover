@@ -197,6 +197,40 @@ replay. Root has not granted or composed this proposal. The fractional native
 velocity follow-up remains separate. All checks used absent bounded output
 roots, max-files1, aggregate stdout, zero generated files.
 
+`check_dkjr_oneway_contracts_1114.py` session87d15d closes additional source
+and declared CPU contracts without changing the frozen five fragments. The
+Main projection matches all AXYP/SP and stored state over1,280 contexts
+(source1..5 × all256 P). Both actual private Main arms execute the real
+scroll/pause/Phase/ScoreFlush chain for all256 source entry bytes; all502
+invalid-state contexts return C0 before the projection, and all10 valid
+contexts reach it with source1..5. The retained source's15 literal source
+state writers write only1..5; current overlay and successful whole-game
+writer coverage remain part of later full-current gates.
+
+The conservative complete logical-payload word census finds two CC60 byte
+pairs. CC12 is the owned Head JMP operand and is reboundCC63. D1C4 is a
+boundary coincidence: current constructor source reassembles byte-exact
+117B D18B..D1FF, SHA256
+`f529966e27f1279d214c79aadd9617ff30b3c0bea0a4a70cb4c32cc8a32ee637`;
+D1C4 is one-byte RTS60 and D1C5 is three-byte CPY C8FD. There are no other
+word candidates into the old Tail body, nor words for oldBBoxCC14,
+HeadEndCC17, oldRetireCC77 or TailEndCC7A. All10 relative oldBBox branches
+and the one relative oldRetire branch are internal to the reassembled owner.
+No published capsule label or native named consumer points into these
+implementation spans. Foreign donor-address keys in TMNT records and Rogue
+Dawn labels are separate source domains. This closes the observed relocation
+consumers; no extra span is needed.
+
+The World scratch proof finds exactly two old WScreenHi store/read pairs,
+both inside World code. The static-terrain pair remains unchanged. Between
+the removed vine pair there is no call or X consumer, and the unchanged
+terrain hook saves/restores the original AXYP around the complete query.
+Ordinary list offsets0/40/80 and60-byte append limit end no later thanC8BF,
+so legal rectangle-list consumers cannot read scratchC8EE. Manual poisoned
+lists or standalone query states are not included in that legal-caller
+invariant. Finite World/Vine output comparisons and full current/native
+qualification remain pending.
+
 ## Authentication cost follow-up
 
 `profile_dkjr_auth_calls_1114.py` sessiona8b804 exits0 on the same exact769
