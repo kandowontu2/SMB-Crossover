@@ -28,7 +28,7 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
 | Getsu Fuma | **H**, c6ab5610 full clear plus earned M/F | Natural S/L; full donor arsenal remains later work |
 | Karnov | **H**, current7ef full stage and all five stock pickups/Ladder | Natural S/L; Bomb enemy kill remains distinct from arming/blasting and normal-fire kills |
 | Quick Man | **H**, aa501128 full/grounded1-2 plus four authored items | No uncovered authored stock item in these receipts; physical F is not claimed under the existing no-growth policy |
-| Shinobi | **U**; startable now, older cartridge/injury/contact work is not a full clear | Current natural combat/first pickup/full stage, then other items; do not reuse old locked-menu wording as current status |
+| Shinobi | **H**, exact6f319d20 native full8924 physical/lives2→2/no helpers; retained packet and all12 current421 carriers inspected | Current421 full rerun remains a separate regression: resident65 changed408bytes. Natural stock items/remaining abilities are open; do not reopen old locked-menu/contact negatives |
 | Thomas | **H**,65ee94ca full M/F/S route plus separate natural L/Downloads repeat | Four stock families covered across separate runs; not one uninterrupted all-item route |
 | Metal Storm | **H**,8fc57b8b full route and natural M/F/upgraded shot | Natural S/L; do not reopen the repaired head/maturity/stream-wait failures |
 | Mike Tyson; Alex | **H**,33d2c7a7 Tyson Hard4861 frames;4cbd0191 Alex6018 | Complete natural stock-item evidence per identity remains unqualified in these route receipts |
@@ -47,7 +47,8 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
 | Hulk Hogan; Ted DiBiase; Bam Bam Bigelow; Honky Tonk Man; Randy Savage; Andre the Giant | **H**,8fc57b8b six separate full routes;d76e070e six natural M | Natural F/S/L per wrestler; original endurance/gear remains separate. Down+B Honky route supersedes failed plain-B experiment |
 | Excitebike | **H**,Nov2 full route; a76 natural M/60-tick resume | Natural F/S/L; first-M freeze was repaired, not a current defect |
 | Prince Persia | **H**,7ef full/grounded1-2;62ba natural M/F sword/combat | Natural S/L are fixture-only so far; invisible automatic entrance is a deferred visual limitation |
-| Burns; Smith; Iron; Beans | **U**,f4767d59 earned pistol kills/camera/art checks only | Full stage and naturally earned source weapon/powerup progression for all4; preserve camera/projectile repairs |
+| Burns | **C**, actual421 root16139/94b,8864physical/4442Main/2818CF, full flag/castle/entrance and25 grounded1-2; no helpers | Natural weapon/container ensemble and remaining abilities are separate; the idle30Hz deficit remains open. Evidence: `contra-force-full11-source-1114.md` |
+| Smith; Iron; Beans | **U**,f4767d59 earned pistol kills/camera/art checks only | Full stage and naturally earned source weapon/powerup progression for each; preserve camera/projectile repairs |
 | Arthur | **H**,d8a87050 full5950 frames and real source-lance/native defeat;379590 flower/torch | Other naturally earned weapons/S/L; original no-weapon-tail negative was repaired |
 | Goku | **H**,22d09909 Hard full5837 frames; later f205 qualification cited by current audit | Natural powerup ensemble and Easy remain separate; retain authenticated helper/camera policy |
 
@@ -58,8 +59,11 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
    later. Close one-way/fractional-sign source/caller/ISR proof before any
    allocation/composition/native candidate. Do not call the older delivered
    clear a failed current run.
-2. Assign individual full routes to the **13 U identities** above, especially
-   Shinobi and the four Contra Force/two Battletoads choices.
+2. Assign individual full routes to the **11 U identities** above, especially
+   Doc Louis and the three remaining Contra Force/two Battletoads choices. Shinobi's
+   recovered historicalH corrects the earlier U count; it is not a newC pass.
+   Burns root16139 is an independent currentC closure after that correction;
+   receipt `ad9e59dbd50f2f5290c39d01540c258aa99e92f497ed2a4b7c02308919016d26`.
    Use their intended abilities. If assistance is needed, root owns native
    actor placement/allocation and must record the assisted crossing.
 3. Reuse existing natural-item source controllers for **Jay F/S/L, both
