@@ -13,6 +13,7 @@ SCRIPT=OUT/'controller.lua'
 NIGHTLY=Path('C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes')
 PIN=Replay.C.CANDIDATE
 ADAPTER_SHA='04577796b7789175fbf8178ee780f116b82888cfec804d1de16d7a295abce01d'
+FOLLOWUP_SHA='f78b68e72ea531df1e0adae1f6e749e31c7fbe2db6d77fbe7434d2a872654153'
 
 
 def prepare(raw,variant,scope):
@@ -25,6 +26,33 @@ def prepare(raw,variant,scope):
     return text,dict(variant=variant,identity=Replay.Flower.Parent.Root.NAMES[variant],scope=scope,
         controller_SHA256=sha256(text.encode()).hexdigest(),parent_controller_SHA256=parent,
         original_inputs_observers_and_assertions_exact=True)
+
+
+def prepare_followup(raw,variant,scope):
+    """Opt in to the separately qualified ordinary Flower-left correction."""
+    import replay_smb2_flower_control_followup_1113 as Followup
+    assert sha256(Path(Followup.__file__).read_bytes()).hexdigest()==FOLLOWUP_SHA
+    before,row=prepare(raw,variant,scope)
+    text=Followup.controller(raw,variant,scope)
+    assert text.replace(Followup.HELPER,'').replace(Followup.NEW,Followup.OLD)==before
+    assert text.count(PIN)==1
+    row.pop('original_inputs_observers_and_assertions_exact')
+    row.update(controller_SHA256=sha256(text.encode()).hexdigest(),
+        frozen_controller_SHA256=sha256(before.encode()).hexdigest(),
+        changed_controls='Flower-left ordinary neutral/predictive horizontal settling only',
+        original_observers_assertions_bounds_and_other_inputs_exact=True,
+        reverse_to_frozen_controller_exact=True)
+    return text,row
+
+
+def variant_list(value):
+    fields=value.split(',')
+    if not fields or any(not part.strip().isdigit()for part in fields):
+        raise argparse.ArgumentTypeError('Use a comma-separated list of variants 0..7.')
+    variants=tuple(int(part.strip())for part in fields)
+    if any(v not in range(8)for v in variants)or len(set(variants))!=len(variants):
+        raise argparse.ArgumentTypeError('Each variant must be 0..7 and appear once.')
+    return variants
 
 
 def table_rows(value):
@@ -111,19 +139,22 @@ def native_case(text,variant,scope,timeout):
 
 def main(argv=None):
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--variant',choices=tuple(map(str,range(8)))+('all',),default='4')
+    selection=p.add_mutually_exclusive_group()
+    selection.add_argument('--variant',choices=tuple(map(str,range(8)))+('all',),default='4')
+    selection.add_argument('--variants',type=variant_list,help='Comma-list, for example 1,2,3,4,5,6,7.')
     p.add_argument('--scope',choices=Replay.SCOPES,default='collect')
+    p.add_argument('--followup',action='store_true',help='Use separate Flower-left neutral/predictive settling; default controls stay frozen.')
     p.add_argument('--metadata',action='store_true',help='Compile and authenticate only; no files or Mesen.')
     p.add_argument('--timeout',type=int,choices=range(1,241),default=180)
     args=p.parse_args(argv)
     assert check(NIGHTLY)['ROM_sha256']==PIN,'Only exact installed12397 is accepted'
     raw=NIGHTLY.read_bytes();assert sha256(raw).hexdigest()==PIN
-    variants=tuple(range(8))if args.variant=='all'else(int(args.variant),)
+    variants=args.variants if args.variants is not None else tuple(range(8))if args.variant=='all'else(int(args.variant),)
     aggregate=dict(ROM_SHA256=PIN,launch_context='actual Downloads',scope=args.scope,
-        metadata_only=args.metadata,Mesen_run=not args.metadata,results=[],outputs_written=0,
+        metadata_only=args.metadata,Mesen_run=not args.metadata,followup_controls=args.followup,results=[],outputs_written=0,
         new_ROM_or_capture_or_receipt_files=0,existing_controller_overwrites=0)
     for variant in variants:
-        text,row=prepare(raw,variant,args.scope)
+        text,row=(prepare_followup if args.followup else prepare)(raw,variant,args.scope)
         if not args.metadata:
             row.update(native_case(text,variant,args.scope,args.timeout))
             aggregate['existing_controller_overwrites']+=1

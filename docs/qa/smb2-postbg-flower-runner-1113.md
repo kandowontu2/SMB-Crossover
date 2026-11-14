@@ -1,7 +1,11 @@
 # Root-only current SMB2 Flower/vegetable runner — November13
 
 Prepared CLI: `tools/audit/run_smb2_postbg_flower_native_1113.py`.
-It accepts `--variant 0..7/all`, `--scope collect/throw/hit` and `--metadata`.
+It accepts `--variant 0..7/all`, or a comma-list such as
+`--variants 1,2,3,4,5,6,7`, plus `--scope collect/throw/hit`, `--metadata` and
+the optional `--followup` control correction. The two variant selectors are
+mutually exclusive; lists preserve order and reject duplicates or values
+outside0..7. Omitting both selectors still selects Imajin4.
 Only exact installed Downloads12397 is accepted:
 `12397b1c2557834f6a2b7e23c9915d5dc40c6cabff7a6ee844c1adebf6564c52`.
 It never constructs or installs a candidate ROM.
@@ -13,8 +17,19 @@ That adapter authenticates the unchanged Flower source SHA256
 `52f1d6f743b0df158f71123e58a39faa195236d45add1b5b515c34d33c4c4890`.
 All eight parent-controller hashes are checked for every scope. The runner
 independently reverses only the expected-ROM literal in the resulting text and
-checks that same parent hash. Original inputs, observers, assertions, bounds
-and endpoints remain byte-exact; no failed assertion is waived.
+checks that same parent hash. By default, original inputs, observers,
+assertions, bounds and endpoints remain byte-exact; no failed assertion is
+waived.
+
+`--followup` explicitly selects the separate ordinary Flower-left
+neutral/predictive horizontal settling correction in
+`replay_smb2_flower_control_followup_1113.py`, authenticated against SHA256
+`f78b68e72ea531df1e0adae1f6e749e31c7fbe2db6d77fbe7434d2a872654153`.
+The runner first applies all default parent guards, then verifies that removing
+the helper and reversing its one call change recovers the exact frozen text.
+Its result labels the changed controls, records the frozen current-controller
+hash, and asserts exact original observers, bounds and other inputs. It does
+not describe the changed horizontal controls as original input parity.
 
 ## Metadata qualification performed
 
@@ -40,6 +55,16 @@ python -B tools/audit/run_bounded_build_v1.py --output build/karnov-equipment-11
 
 The same command was checked for `collect` and `throw`. The helper's existing
 unfinished output root retains zero files. No additional output root was made.
+
+The optional correction's eight collect hashes and source qualification are
+recorded in `smb2-flower-control-followup-1113.md`. All eight corrected collect
+metadata cases passed through this runner, including the explicit1..7 list.
+The default Mario controller remains exact b6; corrected Mario remains exact
+a463. Isolation passed with Path text/byte writers, mkdir, subprocess.Popen
+and `native_case` blocked. The comma-list parser also passed valid ordering and
+whitespace cases and rejected empty, duplicate, out-of-range and invalid lists.
+This bounded check emitted only stdout: zero files, controller overwrites or
+Mesen calls. It did not qualify additional physical variants or throw/hit scopes.
 
 ## Native mode: root's single queue only
 
@@ -82,6 +107,18 @@ carry/launch or native-defeat and resumed-play assertions.
 Only this new CLI and this QA file are owned. Frozen Flower APIs, ROMs, grants,
 controllers, root continuation/inventory and user progress remain untouched.
 GitHub releases remain empty; no patch or release asset is created.
+
+After Mario's corrected collect pass, root can qualify the other seven without
+repeating it:
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 600 -- python -B tools/audit/run_smb2_postbg_flower_native_1113.py --followup --variants 1,2,3,4,5,6,7 --scope collect
+```
+
+The helper never executes this native command. Add `--metadata` and use the
+helper's zero-output bounded root for compilation/authentication only. Scope
+assertions, strict failure behavior, the actual Downloads SHA/sidecar guards,
+queue and file-inventory guards remain unchanged in either control mode.
 
 ## Frozen Mario native negative and receipt-only diagnostics
 

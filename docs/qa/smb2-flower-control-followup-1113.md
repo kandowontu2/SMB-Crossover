@@ -65,10 +65,14 @@ counts are Mario 503/502, Luigi 678/677, Papa 492/491 and Mama 538/537. The tool
 truncated the intermediate receipts; the process completed with exit code zero
 after asserting every variant passed. No missing per-variant count is inferred.
 
-The emitted a463 text is held stable while root tests it physically. Root
-reported starting actual Downloads session 36868; its result is pending here.
-Source results are not physical native proof. Throw/hit successors are not
-inferred from the collect result.
+Root's actual Downloads session 36868 passed with the exact a463 controller:
+849 physical frames / 508 returned Main, receipt
+`c7e77df63edf96365b120a665f6f2a1382b9cea8b5e16e26025c39b4a04f9b3e`.
+The mature Flower at336/119 was physically collected at331/96 on Main448,
+granting reserve0→3 with native erasure, sound32/popup6 and60 resumed updates.
+Health31 and both lives remained. No game changes, state grants, helpers or
+generated outputs were used. This native pass covers Mario collect only;
+other variants and throw/hit successors are not inferred from it.
 
 The separate collect controller identities are:
 
@@ -96,5 +100,9 @@ python -B tools/audit/run_bounded_build_v1.py --output build/karnov-equipment-11
 Use `--variant all` under the existing600-second bounded allowance for the
 source batch, or omit `--cpu` for pure metadata. Root can obtain this separate
 text through `controller` and use its existing `native_case`; the default native
-runner still selects the unchanged frozen controls. No helper Mesen is launched.
+runner still selects the unchanged frozen controls. The root runner's optional
+`--followup --variants 1,2,3,4,5,6,7 --scope collect` selects this correction for
+the seven variants not covered by Mario's native pass. See the runner QA for
+the guarded root-only invocation and metadata isolation checks.
+No helper Mesen is launched.
 No outputs, capture files, ROM copies, patches or releases are created.
