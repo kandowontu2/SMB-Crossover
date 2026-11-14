@@ -46,6 +46,18 @@ def action(row):
     return dict(at=point(row.get('s',{})),item=row.get('item'),source=source_state(row.get('source',{})))
 
 
+def negative_diagnostics(natural):
+    """Expose only already-recorded receipt fields; never sample or alter Lua."""
+    recent=table_rows(natural.get('recent',{}))[-8:]
+    return dict(phase=natural.get('phase'),since=natural.get('since'),hold=natural.get('hold'),
+        previousHealth=natural.get('previousHealth'),opening=natural.get('opening'),
+        birth=natural.get('birth'),launch=natural.get('launch'),
+        heads=table_rows(natural.get('heads',{}))[-4:],prepares=table_rows(natural.get('prepares',{}))[-4:],
+        recent=recent,events=table_rows(natural.get('events',{}))[-8:],
+        latest_recorded_source=None if not recent else recent[-1].get('source'),
+        latest_recorded_at=None if not recent else recent[-1].get('s'))
+
+
 def compact_native(result,scope):
     receipt=result['receipt'];natural=receipt.get('natural',{})
     pickups=[]
@@ -66,10 +78,12 @@ def compact_native(result,scope):
         assert pickups[0]['erased']and pickups[0]['sound']==32 and pickups[0]['popup']==6
         if scope in('throw','hit'):assert evidence['pull']and evidence['carried']and evidence['thrown']
         if scope=='hit':assert evidence['projectile_contact']and evidence['native_defeat']
-    return dict(passed=result['passed'],receipt_SHA256=result['receipt_SHA256'],reason=receipt.get('reason'),
+    summary=dict(passed=result['passed'],receipt_SHA256=result['receipt_SHA256'],reason=receipt.get('reason'),
         physical_frames=receipt.get('physical_frames'),all_returned_Main=receipt.get('all_returned_Main'),
         endpoint=receipt.get('terminal'),evidence=evidence,outputs_written=result['outputs_written'],
         capture_files=receipt.get('capture_files'),runtime_state_writes=receipt.get('runtime_state_writes'))
+    if not result['passed']:summary['negative_diagnostics']=negative_diagnostics(natural)
+    return summary
 
 
 def retained_files():

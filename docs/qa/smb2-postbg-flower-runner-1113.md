@@ -82,3 +82,24 @@ carry/launch or native-defeat and resumed-play assertions.
 Only this new CLI and this QA file are owned. Frozen Flower APIs, ROMs, grants,
 controllers, root continuation/inventory and user progress remain untouched.
 GitHub releases remain empty; no patch or release asset is created.
+
+## Frozen Mario native negative and receipt-only diagnostics
+
+Root's first actual Downloads12397 Flower run81010 is a strict negative before
+collection: Mario collect Lua
+`b6b10f5db8387b6673efb78749b4dc093ae79b02f82f2129750f70c4c09579ce`,
+receipt
+`db83087aa20a8b9a0d6de8abf00f9ca5252f827a1a5900956100ce2c4107e5cd`.
+It reaches2938 physical/2600 returnedMain, X293/Y176, HP31/both lives, timer292,
+then the existing finite-route assertion fails. No pickup/hit/helper/state
+write is observed. Other variants were not run because the runner correctly
+stopped. This is not a demonstrated ROM or source-physics defect.
+
+The runner now exposes negative-only diagnostics from the existing full receipt:
+phase/since/hold, opening, birth/launch, last4 recorded heads/prepares, last8
+recent source/state/pad records and last8 phase events. Source VX/VY/Held/Fresh
+and all other already-recorded fields are retained. `latest_recorded_source`
+is explicitly the latest retained sample, not an invented terminal RAM read.
+The Lua, its observers, assertions, frozen52f source and045 adapter are unchanged.
+Root can repeat the exact Mario negative to display those previously omitted
+fields; no new runtime observer, input, ROM write or diagnostic file is added.
