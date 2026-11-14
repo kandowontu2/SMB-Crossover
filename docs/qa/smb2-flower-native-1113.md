@@ -72,8 +72,72 @@ The source run had thrown earlier at695 on784 and defeated its Goomba on789.
 Enemy-relative aiming/earlier throwing is now being qualified separately;
 the frozen controls, health assertion and this negative remain retained.
 
-The root queue is free after1277. All eight throw source routes pass;
-corrected hit routes and a separate native attack approach are under source
-qualification. The expanded roster goal remains active and incomplete.
+## Direct earned throw: Mario pass, Luigi input negative
+
+Root14373 used the existing source-qualified throw scopes, stopping on the
+first failure. Mario passes912 physical /571 Main, HP31 and both lives:
+Lua `7ffacac34ae161daaf08f45da5691ef8df55f1fa0d35d973d544279f2ac22f52`,
+receipt `c3a8a37f2837e91cb7bca7a09d6bb24a69e3a70b798eeb81afb7ace09202b168`.
+After collect448, pull509 and carry540, the actual thrown actor is observed
+on541 at349/107, kind50/host255, projectile2, lift0, VX48/VY26. Holding clears,
+reserve stays2 and30 ordinary flight updates pass. This covers the original
+earned throw; it does not include enemy contact.
+
+Luigi's exact throw Lua is
+`62338c4a51c3451ddc670498172c58a3ce395831455d9f3b64367a2dbf3b770d`;
+receipt `0d96d023493b5cba482790c56bb95a7dba4f7c9256dc826f3313d93e136e6df2`
+is negative at the unchanged2600-Main bound (2963 physical),332/112,
+HP31/both lives. Pull654 and carry685 pass and spend reserve3 to2, but no
+throw occurs. The frozen replay requests B for only the carry-to-throw
+transition, then releases it immediately; subsequent source Held/Fresh are0
+and Holding stays1. A lost short input pulse is an unresolved lead, not a
+demonstrated game refusal. A separately authenticated source-acknowledged
+button hold is being qualified, retaining this negative and all assertions.
+Variants2 through7 were not run in this stopped batch.
+
+All eight corrected throw and all eight corrected hit source routes now
+pass. Those16 source passes do not imply native success: the Mario attack
+approach and Luigi one-update input negatives above remain open. A separate
+neutral-aim combat controller is also source-qualified for Mario; no native
+success is inferred from it. The expanded roster goal remains active and incomplete.
+
+## Source-acknowledged inputs: three actual native passes
+
+Root90336 uses the separate acknowledgement factory8846c50a. For throw-only,
+its sole control change holds ordinary B until the source reads it, with a
+12-Main bound and release afterward. The hit derivative also retains the
+right-facing neutral aim and waits for an unobstructed target within40 pixels.
+The old factories, failed receipts, health/reserve/defeat assertions and
+game bytes remain intact. A read-only callback authenticates the actual
+original `BIT S2Fresh` instruction and records Fresh64/Held64 with Holding1.
+Root additionally requires that observation on each passing native result.
+
+| Identity / scope | Physical | Main | Fresh B Main | Thrown Main | Defeat Main | Receipt SHA256 |
+| --- | ---: | ---: | ---: | ---: | ---: | --- |
+| Luigi / throw |1080|717|686|687|—|`1d7f0818339c781d4023de27f3ebe4799465c06c3d28cb0c7b60196425c09b91`|
+| Mario / hit |1210|817|786|787|792|`0818f05912661a3bac3d9cef7f201f1f1acb855c8b543b1f431cf66c84f399cd`|
+| Luigi / hit |1445|1044|1013|1014|1022|`c95c698c9fbc4e8b4bb87e0fc5dd20291165e6d9337bda722438504a7d8d534e`|
+
+Exact Lua identities, in the same order:
+
+- `38246a00fa6eda0749bb05c791a6ad13b1a9c48f233dd105157a2190d27547d3`
+- `2bb321529317c4ac0afe3a36e9a1d94cb8c25bce657e09ec0e0db346f6bc722c`
+- `ed1d738b3cf1d5cf5795904f82b9cae6ee55de66d3b350b168ba2e02d95c37ce`
+
+Luigi's direct throw follows the same collector/pull/carry685 path as the
+old negative. Fresh B is now actually observed686 and the actor is thrown687
+at335/104, VX48/VY26, followed by30 normal flight updates. This resolves that
+short-pulse replay failure without changing the game's attack.
+
+Mario approaches at693/176 with enemy719 on778. Neutral braking reaches
+699/VX6 on785; the original throw occurs787. The real native Goomba at713
+changes state0 to34 on792 through original object contact and native defeat.
+Luigi waits at639/176 until the enemy is within the low-arc range, throws1014,
+then defeats the real native Goomba at675 on1022 with state0 to34. Both keep
+health31, reserve2 and both lives, and satisfy the unchanged resumed-play
+assertions. No ROM/state writes, added helpers or new build/capture files.
+
+The other six acknowledgement hit variants remain under source qualification.
+These three passes are not an all-eight combat claim.
 GitHub releases remain empty; this controller-only work does not replace the
 already verified12397 nightly.

@@ -1,8 +1,10 @@
 """Root's private native first-item/first-pipe checks for the pinned successor."""
 import argparse
+import base64
 from hashlib import sha256
 import json
 from pathlib import Path
+import zlib
 
 import compose_dkjr_descending_platform_1113 as C
 import replay_dkjr_descending_platform_1113 as Replay
@@ -29,6 +31,7 @@ DIRECT_PINS = {
     'full-waiting-guard': '6c6aac8a3d0fdfe334beebcf62b4514014e45d9e044f43926b3ee38e261c8d73',
     'full-stair-active': '78215151aee3a4bb4309c26b31d18cf50dae9b95a9fd9a2772e7e45b4d8a729d',
     'full-stair-trace': '52792e0ce5141270c96ec7a40491f29ee9384787705d28dfbe00f34295538963',
+    'full-stair-projection': '319a921e1ef75947b677ea212ff6ab5b5705754bc85a1eb98777999851ef2b82',
 }
 
 
@@ -76,7 +79,10 @@ def main():
         image,direct_info=Direct.transform(image)
         assert Direct.reverse(image)==direct_parent and direct_info['changed_bytes']==141
         candidate=Direct.PIN
-        if args.route in ('full-stair-active','full-stair-trace'):
+        if args.route == 'full-stair-projection':
+            import replay_dkjr_stair_projection_trace_1113 as Projection
+            text=Projection.controller(image)
+        elif args.route in ('full-stair-active','full-stair-trace'):
             import replay_dkjr_final_stair_takeoff_1113 as Stair
             text=Stair.active_trace_controller(image)if args.route=='full-stair-trace'else Stair.active_controller(image)
         else:
@@ -109,6 +115,14 @@ def main():
         receipt['last_events'] = q['receipt'].get('events', [])[-12:]
         summary.update(passed=q['passed'], receipt_SHA256=q['receipt_SHA256'],
                        receipt=receipt, outputs_written=q['outputs_written'])
+        if args.route == 'full-stair-projection':
+            rows=receipt.pop('final_stair_trace')
+            assert len(rows)<=60
+            encoded=json.dumps(rows,separators=(',',':')).encode()
+            summary.update(trace_rows=len(rows),trace_bytes=len(encoded),
+                trace_SHA256=sha256(encoded).hexdigest(),
+                trace_codec='base64(zlib(UTF-8 JSON)); bounded instruction contexts only',
+                trace_zlib_base64=base64.b64encode(zlib.compress(encoded,9)).decode())
     print(json.dumps(summary, separators=(',', ':')), flush=True)
     assert check(NIGHTLY)['ROM_sha256'] == public_now
     if not args.metadata:
