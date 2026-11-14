@@ -419,3 +419,29 @@ and a menu-only negative retains checkpoint scope. These use mocked queue,
 file-write and native functions with memory-only data, not Mesen or runtime
 state. Real component and Downloads hashes remain unchanged. Metadata and
 units use the existing empty bounded helper root/max-files1, outputs0.
+
+## Actual private e8 diagnostic: causal obsolete alias negative
+
+Root96390 ran exact e8cd/53055897, receipt
+`2aee04ace602e60b535c9dd9719c98654effea0048eab8b2709e52d4e558a519`.
+All six genuine UI checkpoints pass. Movement resumes and1-1 flag/castle
+pass; this is a positive for the owner-routing repair, **not** a full-stage
+or next-area pass. The stalled terminal is22001 physical frames/3316 Main,
+X96/Y88, engine0, level1, HP31/lives2; entrance false.
+
+At frame4240/Main3316 in1-2 setup, actual DMC120 sample length321 is live
+with313 bytes remaining. Game-gate entry3154 has SP246/caller83A4; its
+matching RAM SMC has SP245 and reaches CF:BDDE at SP243. Neither its FRC
+nor resident caller returns. Reentry3155 has SP245, then reaches the same
+obsolete target at SP242 with309 sample bytes remaining. Global counters
+are3155 entries versus3153 canonical targets/FRC/resident returns, with
+two causally matched obsolete targets.21 records/zero drops retain the
+witness. This confirms real obsolete E037 exposure; it is not a model-only
+alias, incidental later name/UI execution or a hypothetical stale pointer.
+
+No files/captures were generated. Installed12397 bytes and sidecar guards
+remain exact. The Bub component now contains private e8cd/53055897, and
+those APIs/bytes remain frozen as the negative. The separately granted
+two-operand response is tracked in
+[smb2-cheat-cold-alias-1113.md](smb2-cheat-cold-alias-1113.md); the original
+cheat-owner grant is not expanded and movement-only e8 is not deliverable.
