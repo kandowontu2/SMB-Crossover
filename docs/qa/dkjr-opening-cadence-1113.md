@@ -83,8 +83,19 @@ sourceY=nativeY+15, nativeY176, both lives, zero native actors and stage0/0.
 Receipts also record native_state/prior_source/source_y. Bounded source
 38166 exits0: the three ordinary phases and actual return callbacks pass
 185 scheduled calls in each model. Current walking moves87→107→87.
-Those scheduled calls remain a source harness check, not native cadence;
-root's corrected current walking windows are still pending.
+Those scheduled calls remain a source harness check, not native cadence.
+
+Root's actual Mesen session4481c3 now passes exactc49 on769, receipt
+`22e86790533c5acf3b9175bcffebc18bde6353bec4b946010847f9daeb985ce3`.
+The complete run is530 physical frames. Idle120 frames returns60 complete
+D65E calls, with90 skipped-NMI increments,120 input-polled frames and240
+4016 reads; X40/Y176/current+prior1/native0/sourceY191/both lives. Each
+32-frame walk window returns16 calls with24 skipped-NMI increments. Right
+moves40→49, native2 with donor current/prior1 andY176/sourceY191; Left
+returns49→40/native0. All windows remain healthy with zero native actors.
+This confirms50% motor cadence in both current idle and walking, against
+the donor's120/120 neutral and32/32 walk windows. No source-counter result
+is substituted for these real physical observations.
 
 No optimization, source physics change, ROM output, nightly replacement
 or release is implied by these measurements.
