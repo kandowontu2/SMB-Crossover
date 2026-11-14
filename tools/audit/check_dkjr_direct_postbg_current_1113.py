@@ -42,6 +42,10 @@ def main():
         original=M.Turn.donor_ground_controller(private)if full else M.DK.controller(private)
         assert text.replace(M.PIN,M.DK.PIN,1)==original
         hashes[name]=sha256(text.encode()).hexdigest()
+    import replay_dkjr_stair_geometry_turn_1113 as Geometry
+    text=M.geometry_controller(image)
+    assert text.replace(M.PIN,M.DK.PIN,1)==Geometry.controller(private)
+    hashes['geometry_full']=sha256(text.encode()).hexdigest()
     progress('frozen-controller-ROM-only-adapters')
     # A fresh process gets only the candidate on stdin. No parent image,
     # prior proposal cache or Downloads read can furnish inverse old bytes.

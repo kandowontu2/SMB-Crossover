@@ -119,6 +119,18 @@ def controller(raw,*,full=False):
     return text
 
 
+def geometry_controller(raw):
+    """Separately typed universal staircase controls; legacy full stays frozen."""
+    import replay_dkjr_stair_geometry_turn_1113 as Geometry
+    private=private_image(raw)
+    text=Geometry.controller(private)
+    assert sha256(text.encode()).hexdigest()==Geometry.LUA_PIN
+    assert text.count(DK.PIN)==1
+    text=text.replace(DK.PIN,PIN,1)
+    LuaRuntime().compile(text)
+    return text
+
+
 if __name__=='__main__':
     current=Path('C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes').read_bytes()
     image,info=proposal(current)

@@ -42,7 +42,15 @@ controller, rebinding it to
 `e349756367bcd1bf846bbbb9ea6677c2e6900ebb6cf56e55c2afd6d52007409e`.
 That full control policy has a native riser6 negative on769; its rebinding
 does not repair or qualify traversal. A separate universal staircase
-controller is being source-qualified. No merged native result is claimed.
+controller now passes full source traversal, but its native run fails later
+at final girder boarding, so no merged native full result is claimed.
+
+The separate `geometry_controller(raw16c71)` binds frozen80ef to
+`973aab650c3b5a241fd0197f77d59e66ee18a6c63e94d17ad8f97b38a8cbf75b`.
+Session1753 repeats the complete forward/inverse/disjoint/corruption and
+fresh-process inverse gates with this third identity-only adapter and exits0.
+Default first/full adapters and frozen769/8623 APIs stay unchanged. No source
+or game image bytes changed to introduce this controller adapter.
 
 All producers use bounded `build/dkjr-head-bridge-1113`, max-files1,
 stdout/in-memory only. No ROM, capture, backup, release or IPS is produced.

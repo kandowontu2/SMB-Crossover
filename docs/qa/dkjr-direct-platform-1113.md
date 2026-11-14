@@ -1,5 +1,10 @@
 # Private DK Jr direct-foreign successor
 
+Current status: **private, no DK delivery**. Exact80ef now clears all six
+final stairs physically, but root34756 fails later during the final3040
+girder descent. A separate early-boarding controller is under source replay;
+opening physical cadence and final full native traversal remain required.
+
 Exact private candidate
 `769afe8d7fcdb58bed5f9f43109d7aabab3d93b1a7afb0535926e51cffce94ff`
 is a strict reversible successor of frozen14ae. It changes141 native bytes
@@ -427,9 +432,64 @@ top, derives the takeoff from the original backward body's16px right extent,
 and stages12px before that anchor. It requires actual donor ground, released
 A/acknowledged Left facing and acknowledged backward-right jump. It retains
 all landing, health, stage, flag and castle checks. Full source replay13389
-is still pending; a terminated earlier run lost its exec receipt during the
+exits0/**PASS8926**, receipt
+`b2ddd09afa8fa8f2b56c9458079f551c495e55eb48b71d92f5d42cb7bf2a1bdd`.
+The six actual next-cell left edges are2928/2944/2960/2976/2992/3008, with
+takeoff stages2900/2916/2932/2948/2964/2980. Left/request epochs are7473/7500/
+7530/7560/7590/7620; all acknowledge the accepted backward-right jump one
+update later. Settled landings7499/7529/7559/7589/7619/7649 reach2916/128,
+2932/112,2948/96,2964/80,2980/64 and2996/48. No final-riser retry or long wait
+occurs. All6pipes/3gaps/flag/castle pass with both lives; endpoint remains
+active falling1-2 at40/48, not25 grounded updates. This source result is ready
+for root's private native test, not delivery. A terminated earlier run lost its exec receipt during the
 context handoff and is not counted as evidence. No native run is requested
 from metadata alone.
+
+Root34756 exact80ef is **native negative after all six stairs pass**,
+receipt `3b5b53b501a95b1cc8dfe1d8898ed6e8b9dffdea8ec7db0217a84fbc3f6ed347`.
+Stable landing6 isMain7750/3001/48; cap7792/3027/48 with helperTop68;
+lower7809/3038/46 with helperTop78. Original injury occurs8003/frame18266
+at3039/160/time67/both lives. The complete receipt has134 recorded3040
+carries: first7801/3033/41, last7934/3039/163 (top195). An earlier shorthand
+that no3040 carry was recorded is withdrawn. The requested3067 target was
+never reached, so an overhang at that target is not the observed cause.
+
+`check_dkjr_final_terrain_1113.py` session65498 exits0. This is an explicit
+parser/query component, not a genuine late-route snapshot: actual compiled
+1-1 backloading parses columns176..199. Columns3008/3024 contain solid61
+fromY80through207; columns3040/3056/3072/3088 are empty above floor208.
+At supplied original standing X3039/Y64, query2 body `[94,79,111,94]`
+(camera2944) meets old cap `[80,80,95,95]` **behind the player's left edge**.
+AtY163 the body meets that same cap column's176/192 rows. X3048 atY46/64/
+160 returns no static wall rectangles. The helper is not in this static
+query. This establishes why lateral cap clearance must precede descent into
+the cap's full solid volume; it does not identify an actual native X writer.
+
+`check_dkjr_final_descent_1113.py` session66007 exits0. Its declared944-based
+actor/terrain/motion fixture invokes the actual769 sampler and native
+positioner through top195/196/208/209/213 without an intrinsic sampler cutoff
+at195. This does not cover upstream RunLargePlatform dispatch or actual3040
+motion. With explicit actor removal at195 and a floor208, source1 becomes4
+atA321; the original transition writes fallStart0→178 atA275, then lands
+safely after8 updates atA8DD/nativeY176/sourceY191. Original Land restores
+fallLimit24. An initial test expectation22 was corrected to the original
+Land value; no game bytes changed. This component does not reproduce a stale
+cap-height origin causing injury on the final13px drop.
+
+The separate `replay_dkjr_final_board_1113.early_controller(raw769)` is
+Lua `34bdb799a4bc9c28833997a22e7c94e8454dc5f36969f23159f92a2358eefc2b`
+(metadata11639). It preserves80ef through the stairs, keeps ordinaryRight
+through an actual early71:AC18 selected-passenger event, derives the cap's
+top/right from live native cells, and requires the original bodyLeft to clear
+the cap while bodyBottom remains above it. Lowering starts only at center
+3048 with full player-bbox X coverage and actual native passenger/source
+acknowledgement; the player stays centered until a192..208 departure.
+Full source22097 is pending, no native request. The default34390 late-wait
+proposal is retained as an inactive metadata-only proposal; its wait until
+top80 was contrary to the newly proved cap-clearance requirement.
+
+Opening cycle and read-only physical-window source qualification is in
+[dkjr-opening-cadence-1113.md](dkjr-opening-cadence-1113.md).
 
 The strict source-only merge over delivered12397 is recorded separately in
 [dkjr-direct-postbg-current-1113.md](dkjr-direct-postbg-current-1113.md).
