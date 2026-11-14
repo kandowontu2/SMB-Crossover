@@ -8,6 +8,7 @@ from collections import Counter
 from hashlib import sha256
 import json
 from py65.devices.mpu6502 import MPU
+from verify_native_relocation import NesMPU
 import build_prince_worldmaterial_research_1114 as Build
 import check_prince_world_mapping_1114 as World
 
@@ -24,10 +25,19 @@ class Flat(list):
 def word(m,at,value):m[at:at+2]=(value&65535).to_bytes(2,'little')
 
 
-def run(raw,*,expanded=False):
+def run(raw,*,expanded=False,fitted=False):
     raw=Build.parent(raw);code,_,info=Build.build(raw)
     _,symbols=Build.Old.source()
     virtual,labels,_=Build.assemble(Build.SOURCE.read_text(),symbols,origin=VIRTUAL)
+    funding=None
+    if fitted:
+        import prince_prepare_funding_research_1114 as Funding
+        funding=Funding.plan(raw)
+        standalone=info;info=dict(funding['info'],standalone_unoutlined_assembly=standalone)
+        code=funding['world']
+        info.update(assembled_bytes=len(code),code_SHA256=sha256(code).hexdigest(),fit=True,
+            excess_bytes=0,no_gameplay_qualification=True)
+        virtual,labels,_=Build.assemble(funding['world_text'],funding['symbols'],origin=VIRTUAL)
     old_code,old_labels=Build.Old.assemble(*Build.Old.source())
     base,_=World.Base.cold(raw);base.raw_page(1,3);base.raw_page(2,2)
     # Snapshot only RAM and mapped work/ROM windows. No PPU/APU/MMC I/O reads.
@@ -35,6 +45,11 @@ def run(raw,*,expanded=False):
     for first,last in((0,0x2000),(0x6000,0x10000)):
         for at in range(first,last):image[at]=base[at]
     assert bytes(image[Build.Old.START:Build.Old.END])==old_code
+    prepare_proof=None
+    if funding:
+        assert bytes(image[Funding.PREPARE:Funding.PREPARE+len(funding['original'])])==funding['original']
+        prepare_proof=Funding.primitive(image,funding)
+        assert prepare_proof['Prepare_equivalence_passed'],prepare_proof
     buffer=World.P.W.address(base.bundle,'Block_Buffer_1')
     attrs=World.P.W.address(base.bundle,'MTileAttribute')
     counts=Counter();failures=[];changes=[];costs=[];former_reads=0
@@ -57,7 +72,7 @@ def run(raw,*,expanded=False):
             if top<(m[0xc084]&0xf0)and not any(solid(m,actor+d,top)for d in(-6,5)):
                 c.pc=old_labels['NextColumn'];counts['oracle_higher_floor_rejections']+=1
     def invoke(memory,entry,flags,observer=None):
-        c=MPU(memory=memory,pc=entry);c.a,c.x,c.y,c.p,c.sp=83,71,memory[0xc4b1],flags,224
+        c=NesMPU(memory=memory,pc=entry);c.a,c.x,c.y,c.p,c.sp=83,71,memory[0xc4b1],flags,224
         c.stPushWord(0x5ffe);point_calls=0
         for _ in range(9000):
             if(c.pc,c.sp)==(0x5fff,224):break
@@ -101,7 +116,12 @@ def run(raw,*,expanded=False):
          # from the old instruction addresses would be a relocation failure.
          d[Build.Old.START:Build.Old.END]=[0]*(Build.Old.END-Build.Old.START)
          d[VIRTUAL:VIRTUAL+len(virtual)]=virtual
-         entry_offset=3 if counts['vectors']&1 else 0;flags=(0x20,0x21,0x60,0x61)[counts['vectors']%4]
+         if funding:
+            first=Funding.PREPARE;combined=funding['prepare']+funding['helper']
+            assert len(combined)==len(funding['original'])
+            d[first:first+len(combined)]=combined
+         flag_cases=(0x20,0x21,0x60,0x61,0x28,0x29,0x68,0x69,0x24,0x25,0x64,0x65)
+         entry_offset=3 if counts['vectors']&1 else 0;flags=flag_cases[counts['vectors']%len(flag_cases)]
          old=invoke(a,Build.Old.START+entry_offset,flags)
          reference=invoke(b,Build.Old.START+entry_offset,flags,oracle)
          new=invoke(d,VIRTUAL+entry_offset,flags)
@@ -119,11 +139,12 @@ def run(raw,*,expanded=False):
          costs.append(new['cycles']-old['cycles'])
          counts['new_point_calls']+=new['point_calls'];counts['old_point_calls']+=old['point_calls']
     q=dict(info,flat_primitive_fixture_only=True,virtual_CPU_half_open=[VIRTUAL,VIRTUAL+len(virtual)],
+        Prepare_proof=prepare_proof,
         virtual_code_SHA256=sha256(virtual).hexdigest(),former_function_reads=former_reads,
         counts=dict(counts),failure_examples=failures,change_examples=changes,
         whole_call_added_cycles=dict(minimum=min(costs),maximum=max(costs),total=sum(costs)),
         preserved_ABI='Both entries, caller X/Y/SP/P except final material N/Z, material, Surface/SurfaceRow and Cell.',
-        not_a_fit_or_candidate=True,ordinary_gameplay_overlay=False,seeded_primitives_not_gameplay=True)
+        not_a_candidate=True,not_a_fit=not fitted,ordinary_gameplay_overlay=False,seeded_primitives_not_gameplay=True)
     q['primitive_semantics_passed']=not counts['mismatches']and not counts['preservation_mismatches']and former_reads==0
     q['receipt_SHA256']=sha256(json.dumps(q,sort_keys=True,separators=(',',':')).encode()).hexdigest()
     return q
@@ -131,6 +152,6 @@ def run(raw,*,expanded=False):
 
 if __name__=='__main__':
     import argparse
-    p=argparse.ArgumentParser();p.add_argument('--expanded',action='store_true');a=p.parse_args()
-    q=run(Build.Old.F.ROM.read_bytes(),expanded=a.expanded)
+    p=argparse.ArgumentParser();p.add_argument('--expanded',action='store_true');p.add_argument('--fitted',action='store_true');a=p.parse_args()
+    q=run(Build.Old.F.ROM.read_bytes(),expanded=a.expanded,fitted=a.fitted)
     print(json.dumps(q,separators=(',',':')),flush=True)

@@ -4,20 +4,31 @@ PpWorldTile:
  ldy $c4b1
 PpWorldTileY:
  php
- stx SavedX
- sty SavedY
+ txa
+ pha
  tya
+ pha
  jsr Prepare
  lda #0
  sta Wall
- sta Floor
  sta Sweep
- lda #2
- sta ColumnCount
+ sta BestTop+1
  lda Row
  cmp CurrentRow
  bmi AboveRow
  bne Ready
+ ; Only normal current-row queries need the physical-body refinement.
+ lda $c618
+ and #3
+ cmp #2
+ beq Ready
+ lda $c616
+ cmp #10
+ beq FallingMode
+ cmp #24
+ beq FallingMode
+ inc BestTop+1
+FallingMode:
  lda $c618
  cmp #3
  beq Falling
@@ -30,26 +41,24 @@ Falling:
  sbc OldFoot+1
  bcc Ready
  lda OldFoot
- clc
- adc #15
+ ; The admitted unsigned comparison supplies C1: ADC14 rounds by15.
+ adc #14
  and #$f0
- sta ScanStart
+ tax
  lda OldFoot+1
  adc #0
- sta ScanStart+1
- lda ScanEnd
- cmp ScanStart
- lda ScanEnd+1
- sbc ScanStart+1
- bcc NoBoundary
+ tay
+ cpy ScanEnd+1
+ bcc UseSweep
+ bne Ready
+ cpx ScanEnd
+ bcc UseSweep
+ bne Ready
+UseSweep:
+ stx ScanStart
+ sty ScanStart+1
  inc Sweep
  bne Ready
-NoBoundary:
- lda ScanEnd
- sta ScanStart
- lda ScanEnd+1
- sta ScanStart+1
- jmp Ready
 AboveRow:
  lda ScanEnd
  clc
@@ -60,24 +69,6 @@ AboveRow:
 Ready:
  ; BestTop high is retired: a positive native point has Y high zero.
  ; Its owned byte instead records the current-row ordinary-body policy.
- lda $c618
- and #3
- cmp #2
- beq Unfiltered
- lda $c616
- cmp #10
- beq Unfiltered
- cmp #24
- beq Unfiltered
- lda Row
- cmp CurrentRow
- bne Unfiltered
- lda #1
- bne SetFilter
-Unfiltered:
- lda #0
-SetFilter:
- sta BestTop+1
  lda #$ff
  sta BestTop
 Column:
@@ -92,42 +83,58 @@ Column:
  bcc WallDone
  lda BestTop+1
  beq WallFound
- jsr BodyCell
+ ; CellStart+8 cannot overflow its low byte. Its full-width difference
+ ; from sourceX must lie in -15..15 for the two physical spans to overlap.
+ lda PpQueryX
+ and #$f0
+ ; Hand's positive result still supplies C1: ADC7 adds8.
+ adc #7
+ sec
+ sbc $c60f
+ tax
+ lda PpQueryX+1
+ sbc $c610
+ beq PositiveDistance
+ cmp #$ff
+ bne WallDone
+ cpx #$f1
  bcc WallDone
+ bcs WallFound
+PositiveDistance:
+ cpx #16
+ bcs WallDone
 WallFound:
  inc Wall
 WallDone:
- lda ScanStart
- sta ScanY
- lda ScanStart+1
- sta ScanY+1
+ ; Native PointRead/Hand preserve X/Y. Retire private ScanY memory and
+ ; carry the scan position in registers until a floor has been found.
+ ldx ScanStart
+ ldy ScanStart+1
 Scan:
- lda ScanEnd
- cmp ScanY
- lda ScanEnd+1
- sbc ScanY+1
- bcc NextColumn
- lda ScanY
- sta PpQueryY
- lda ScanY+1
- sta PpQueryY+1
+ cpy ScanEnd+1
+ bcc InScan
+ bne NextColumn
+ cpx ScanEnd
+ bcc InScan
+ bne NextColumn
+InScan:
+ stx PpQueryY
+ sty PpQueryY+1
  jsr PpHostReadPoint
  bcc AdvanceScan
- lda ScanY
+ txa
  and #$f0
  sta Top
 TopLoop:
- lda Top
  cmp #33
  bcc TopDone
- sec
+ ; CMP33 supplies C1, and a positive PointRead supplies it below.
  sbc #1
  sta PpQueryY
  ; PpQueryY high was zero at the positive native point.
  jsr PpHostReadPoint
  bcc TopDone
  lda Top
- sec
  sbc #16
  sta Top
  jmp TopLoop
@@ -136,18 +143,17 @@ TopDone:
  beq KeepTop
  lda Foot+1
  bne KeepTop
- lda Foot
- and #$f0
- cmp Top
- bcc KeepTop
- beq KeepTop
+ lda Top
+ ora #15
+ cmp Foot
+ bcs KeepTop
  ; A higher remote column is a floor only when the current native feet
  ; really have support at that height. PointRead preserves X and Y.
  ldx PpQueryX
  ldy PpQueryX+1
  lda $c60f
- sec
- sbc #6
+ ; The higher-top comparison supplied C0: SBC5 subtracts6.
+ sbc #5
  sta PpQueryX
  lda $c610
  sbc #0
@@ -157,7 +163,6 @@ TopDone:
  jsr PpHostReadPoint
  bcs RestoreProbe
  lda PpQueryX
- clc
  adc #11
  sta PpQueryX
  bcc SecondFoot
@@ -174,19 +179,21 @@ KeepTop:
  bcs Found
  sta BestTop
 Found:
- inc Floor
  jmp NextColumn
 AdvanceScan:
- lda ScanY
+ txa
  and #$f0
- clc
+ ; The empty PointRead supplied C0.
  adc #16
- sta ScanY
+ tax
  bcc Scan
- inc ScanY+1
+ iny
  jmp Scan
 NextColumn:
- dec ColumnCount
+ ; Prepare's Cell is 32px aligned: the original two samples have low
+ ; bits24 then8. Bit4 therefore replaces the private column counter.
+ lda PpQueryX
+ and #16
  beq Decide
  lda PpQueryX
  clc
@@ -196,7 +203,9 @@ NextColumn:
  inc PpQueryX+1
  jmp Column
 Decide:
- lda Floor
+ ; BestTop=$FF means no native floor; all positive tops are32..224.
+ lda BestTop
+ eor #$ff
  beq TestWall
  lda Sweep
  bne SolidFloor
@@ -206,7 +215,8 @@ TestWall:
  lda #20
  bne SaveMaterial
 TestFloor:
- lda Floor
+ lda BestTop
+ eor #$ff
  beq SaveMaterial
 SolidFloor:
  lda BestTop
@@ -222,33 +232,10 @@ SaveMaterial:
  sta Surface+1
  lda Row
  sta SurfaceRow
- ldx SavedX
- ldy SavedY
+ pla
+ tay
+ pla
+ tax
  plp
  lda Material
- rts
-BodyCell:
- ; Native sampled cell intersects sourceX-8 .. sourceX+7. The two-byte
- ; difference rejects page-distant cells rather than assuming 8-bit range.
- lda PpQueryX
- and #$f0
- sec
- sbc $c60f
- sta Top
- lda PpQueryX+1
- sbc $c610
- beq PositiveDistance
- cmp #$ff
- bne OutsideBody
- lda Top
- cmp #$e9
- rts
-PositiveDistance:
- lda Top
- cmp #8
- bcs OutsideBody
- sec
- rts
-OutsideBody:
- clc
  rts

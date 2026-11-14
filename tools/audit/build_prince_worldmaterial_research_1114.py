@@ -24,9 +24,14 @@ def parent(raw):
     return raw
 
 
-def assemble(text,symbols,*,origin=Old.START):
+def assemble(text,symbols,*,origin=Old.START,check_entries=True):
     lines=[q.split(';',1)[0].strip()for q in text.splitlines()]
     lines=[q for q in lines if q and not q.startswith('.')]
+    anonymous=[i for i,q in enumerate(lines)if q==':']
+    for i,q in enumerate(lines):
+        if q==':':q=f'Anonymous{i}:'
+        if ':+'in q:q=q.replace(':+',f'Anonymous{next(j for j in anonymous if j>i)}')
+        lines[i]=q
     sizes=[0 if q.endswith(':')else 5 if q.split()[0]in BRANCHES else 3 for q in lines]
     labels=dict(symbols);asm=Assembler(MPU())
     def render(q):
@@ -53,7 +58,7 @@ def assemble(text,symbols,*,origin=Old.START):
         if sizes==new:break
         sizes=new
     else:raise AssertionError('Assembly did not converge')
-    assert labels['PpWorldTile']==origin and labels['PpWorldTileY']==origin+3
+    if check_entries:assert labels['PpWorldTile']==origin and labels['PpWorldTileY']==origin+3
     for pc,target,size in branches:
         if size==2:
             delta=out[pc-origin+1];decoded=pc+2+delta-(256 if delta&128 else 0)

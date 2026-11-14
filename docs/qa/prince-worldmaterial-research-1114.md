@@ -105,10 +105,105 @@ Receipt SHA256:
 
 PointRead calls are6616→7112 over1024 vectors. Whole-WorldTile added CPU
 cycles are min3/max349/total92834 (about90.7 per vector); this is not a Main
-frame or native lag measurement. Expanded raised-foot, wide-pipe, off-row and
-climb vectors are pending. Query scratch consumer closure, legal code fit,
-ordinary controls, cold/IRQ and native proof remain required. No usable repair
-or renewed first-try pipe success is claimed.
+frame or native lag measurement. The expanded551-byte design subsequently
+passes7168 vectors, including6144 preservation vectors, with no mismatches or
+former-address reads. Receipt:
+`703420c8a8592a1cf8df958797bf447030846ccd690109192d9c96e91b9ecfd7`.
+
+## Fitted two-span source proposal
+
+Equivalent compaction reduces the complete standalone routine to474 bytes,
+still25 over the lease. X/Y hold the scan until a surface is found; PointRead
+preserves both. BestTop's sentinel replaces a floor counter, the original
+two-column sample's invariant bit4 replaces its counter, and the existing CPU
+stack preserves callerX/Y. Carry-sensitive instructions use explicitly proven
+incoming carry. The standalone474 code is
+`db1fb9fb425c6e182f55b11b87ea6644acd94930fa5554fe1e7ff73144eff67d`,
+source
+`bfdcbcf6f5a28c8fc138d55bc04c2b3726f1b269cdad5951d61d4f4e60c00c6b`.
+Its7168-vector flat proof again has zero mismatches; receipt:
+`e81132910a4882ddd2c817d9fac0f0fdc02dd4f5f666b8e105ffedd973063eab`.
+
+Root then authorized research into equivalent compaction of other existing
+Prince code, without granting placement. The following **fitted layout is
+still flat research only**, pending root's exact two-span placement review:
+
+| Envelope | Original | Proposed | SHA256 of proposed complete envelope |
+|---|---:|---:|---|
+| RAM3 BDE2..BFA3, decoded stream0[7650:8099] |449|446 code+3EA|`18d18cfe53f4942e7658152177634736a984046233c55f0be2846de0538bb3f9`|
+| RAM2 C552..C606, decoded stream2[1186:1366] |180|151 Prepare+29 FirstFoot|`7b3ddaec5eb963001a7d8143b8fd2f2fb53c914db2641165031e879fa54150f3`|
+
+The third decoded stream stages atC100 and cold-copies **80 decimal bytes**
+lower to liveC0B0. The second envelope's staging range isC5A2..C656, ending
+nine bytes before the unchanged cold prefixC65F. This is code compaction,
+not a claim that a zero-filled source-state gap is free.
+
+The original180-byte Prepare atC552..C606 rebuilds exactly from the retained
+v8 source, preimage SHA256
+`e5e6159d7d7bf7c18b28afa243e549664528a3cd1e338f3ba91348a1d860c29d`.
+It already calculates QueryFoot=sourceY+Origin+signedDelta+roomOffset.
+Its repeated Baseline arithmetic is identically QueryFoot+signed(3−Delta).
+The actual current signed7 decoder atBD4F executes all256 possible input
+bytes and yields the complete domain−64..63, so3−Delta fits signed8.
+Cold zero0, constructor3 and that decoder are the Delta writers; inherited
+original-source direct/indexed/finite-indirect exclusion protects the owned
+geometry fields. A register-based row shift saves further bytes. Prepare
+still returns X0 and the same Y/A/P, with the unchanged final QueryX arithmetic
+setting its flags; it allocates no temporary field.
+
+The151-byte Prepare hash is
+`9a8c12848c727cc0941f642ca7d847284552a1f53ebef8245220d5809ad98867`.
+The outlined first-foot setup is29 bytes atC5E9..C606, hash
+`cd967b922edcbd3114af1612296a2f368933f9719be0ecf5e542d781e79d5407`.
+It preserves original queryX inX/Y, sets the actual left foot and candidate
+top, then returns to the unchanged actual PointRead call. The446-byte World
+code hash is
+`faf4361953c415b29013dce2d0e51160f9632d89d389a63be7129ffbfad98754`.
+
+Combined flat proof passes1024 Prepare ABI/geometry pairs over all128 signed
+Delta values, source index/row, projection wrap, signed room and world-page
+vectors. It compares every fieldC078..C0A6, QueryX/Y and A/X/Y/P/SP. It also
+passes the7168 World vectors/6144 preservation cases, using both entries and
+C/V/D/I input combinations on a decimal-disabled NES CPU. Former World code
+reads remain0, and all164 intended material/result changes remain unchanged.
+Receipt:
+`684b5516f863e353046407c2d927ce9424f0bd9f48db27cde47c7d4a73b77702`.
+Whole-call added cycles are min−359/max177/total−1078644 over7168 vectors;
+Prepare alone saves57..63 cycles per tested call. These are primitive CPU
+costs, not an idle or physical frame-rate claim. The earlier receipt's top-level
+474/false fields describe the standalone routine; the fitted446/two-envelope
+fields describe the tested layout. The current checker labels them separately.
+
+Prepare's outside-word candidates are classified: only the original JSR to
+C552 is an executable entry. A318/A5E8 are opcode/operand overlaps in
+STA C6C5; D9C3 is BEQ D98A, not a C5F0 pointer. Cold operands copy staged
+code/data and are not execution transfers. MetadataC800..C9DE contains239
+immutable format-tag/relative-offset words whose actual data startsC9DE;
+remaining apparent pointers throughD46E are immutable packed pose data.
+Their existing bounded metadata consumers and data are unchanged. Cell
+C4FF..C552 rebuilds exactly, endsRTS and branches only within itself. The
+upper staging cold prefix is unchanged and has no edge into the changed
+staging span. The following liveC606..C800 region is source state/data outside
+the granted executable slot and remains untouched.
+
+The retired private Floor/ScanY/Top-high/BestTop-high/SavedX/SavedY/counter
+fields have no outside literal data operands. Seven outside C08D-looking
+words are decoded opcode/operand overlaps in STA C4C0 or STA C6C0. The
+inherited complete original indexed/indirect field exclusion and unchanged
+bounded native consumers remain applicable. No caller-visible field used
+outside the function is retired; Prepare's entire geometry field comparison
+also remains exact.
+
+`prince_prepare_funding_research_1114.plan(raw)` returns the exact source,
+assembled two-span bytes, hashes and caller census in memory. Independent
+primitive verification command (root owns any later overlays/native work):
+
+```text
+python -B tools/audit/run_bounded_build_v1.py --output build/prince-worldmaterial-root-flat-1114 --max-files 1 --timeout 600 -- python -B tools/audit/check_prince_worldmaterial_research_1114.py --expanded --fitted
+```
+
+Placement review, ordinary controls, actual cold/IRQ and native proof remain
+required. No usable repair or renewed first-try pipe success is claimed.
 
 All source runs use bounded absent output roots and create zero build files.
 No Mesen, image/capture, candidate, installation, backup, patch or release is
