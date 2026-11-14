@@ -16,6 +16,7 @@ import bub_native_noops_1113 as Bub
 import compose_prince_entrance_current_1113 as Entry
 
 ROM,PIN=Current.ROM,Current.PIN
+LUA_SHA='2f2384d5b6641e065a34498f0c9c4cb63f433d9214d05ab5aa8d30d25e17a492'
 
 
 @lru_cache(maxsize=1)
@@ -44,6 +45,7 @@ def controller(raw):
     text=text.replace(anchor,anchor+f"\nassert(rom=='{PIN}','Explicit current421 earned-sword diagnostic')",1)
     assert not any(s in text for s in('emu.write','emu.setState','io.open'))
     LuaRuntime().compile(text)
+    assert sha256(text.encode()).hexdigest()==LUA_SHA
     return text
 
 
