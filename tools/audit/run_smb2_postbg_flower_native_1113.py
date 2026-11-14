@@ -14,6 +14,7 @@ NIGHTLY=Path('C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes')
 PIN=Replay.C.CANDIDATE
 ADAPTER_SHA='04577796b7789175fbf8178ee780f116b82888cfec804d1de16d7a295abce01d'
 FOLLOWUP_SHA='f78b68e72ea531df1e0adae1f6e749e31c7fbe2db6d77fbe7434d2a872654153'
+ACK_SHA='8846c50a316355f4198471b2cf3d3e62db4b7086c251d88761864d1520f0abc4'
 
 
 def prepare(raw,variant,scope):
@@ -42,6 +43,24 @@ def prepare_followup(raw,variant,scope):
         changed_controls='Flower-left ordinary neutral/predictive horizontal settling only',
         original_observers_assertions_bounds_and_other_inputs_exact=True,
         reverse_to_frozen_controller_exact=True)
+    return text,row
+
+
+def prepare_ack(raw,variant,scope):
+    """Opt in to bounded source acknowledgement and qualified hit aiming."""
+    import replay_smb2_flower_ack_followup_1113 as Ack
+    assert scope in Ack.SCOPES
+    assert sha256(Path(Ack.__file__).read_bytes()).hexdigest()==ACK_SHA
+    before,row=prepare(raw,variant,scope)
+    text=Ack.controller(raw,variant,scope)
+    assert text.count(PIN)==1
+    row.pop('original_inputs_observers_and_assertions_exact')
+    row.update(controller_SHA256=sha256(text.encode()).hexdigest(),
+        frozen_controller_SHA256=sha256(before.encode()).hexdigest(),
+        changed_controls='Flower-left settling and bounded B hold/release'+
+            ('; neutral enemy aim and forward gap<=40'if scope=='hit'else''),
+        original_assertions_bounds_and_observers_retained=True,
+        added_readonly_original_fresh_B_hook=True,source_acknowledgement_bound=12)
     return text,row
 
 
@@ -96,6 +115,8 @@ def compact_native(result,scope):
     hit=natural.get('hit')
     evidence=dict(pickups=pickups,pull=action(natural.get('pull_entry')),
         carried=action(natural.get('carried')),thrown=action(natural.get('thrown')),
+        target=natural.get('target'),aim=natural.get('aim'),aim_target=natural.get('aim_target'),
+        throw_fresh=natural.get('throw_fresh'),throw_input_ack=natural.get('throw_input_ack'),
         projectile_contact=action(natural.get('object_hit')),
         native_defeat=None if not hit else dict(at=point(hit.get('s',{})),before=hit.get('before'),after=hit.get('after')))
     if result['passed']:
@@ -143,20 +164,28 @@ def main(argv=None):
     selection.add_argument('--variant',choices=tuple(map(str,range(8)))+('all',),default='4')
     selection.add_argument('--variants',type=variant_list,help='Comma-list, for example 1,2,3,4,5,6,7.')
     p.add_argument('--scope',choices=Replay.SCOPES,default='collect')
-    p.add_argument('--followup',action='store_true',help='Use separate Flower-left neutral/predictive settling; default controls stay frozen.')
+    controls=p.add_mutually_exclusive_group()
+    controls.add_argument('--followup',action='store_true',help='Use separate Flower-left neutral/predictive settling; default controls stay frozen.')
+    controls.add_argument('--ack-followup',action='store_true',help='Use bounded source B acknowledgement; hit also uses qualified enemy aiming.')
     p.add_argument('--metadata',action='store_true',help='Compile and authenticate only; no files or Mesen.')
     p.add_argument('--timeout',type=int,choices=range(1,241),default=180)
     args=p.parse_args(argv)
+    if args.ack_followup and args.scope=='collect':p.error('--ack-followup requires --scope throw or hit.')
     assert check(NIGHTLY)['ROM_sha256']==PIN,'Only exact installed12397 is accepted'
     raw=NIGHTLY.read_bytes();assert sha256(raw).hexdigest()==PIN
     variants=args.variants if args.variants is not None else tuple(range(8))if args.variant=='all'else(int(args.variant),)
     aggregate=dict(ROM_SHA256=PIN,launch_context='actual Downloads',scope=args.scope,
-        metadata_only=args.metadata,Mesen_run=not args.metadata,followup_controls=args.followup,results=[],outputs_written=0,
+        metadata_only=args.metadata,Mesen_run=not args.metadata,followup_controls=args.followup,
+        acknowledged_controls=args.ack_followup,results=[],outputs_written=0,
         new_ROM_or_capture_or_receipt_files=0,existing_controller_overwrites=0)
     for variant in variants:
-        text,row=(prepare_followup if args.followup else prepare)(raw,variant,args.scope)
+        factory=prepare_ack if args.ack_followup else prepare_followup if args.followup else prepare
+        text,row=factory(raw,variant,args.scope)
         if not args.metadata:
             row.update(native_case(text,variant,args.scope,args.timeout))
+            if args.ack_followup and row['passed']:
+                fresh=row['evidence']['throw_fresh']
+                assert fresh and fresh['source']['S2Fresh']&64 and fresh['source']['S2Holding']!=0
             aggregate['existing_controller_overwrites']+=1
             print(json.dumps(dict(completed_variant=variant,scope=args.scope,passed=row['passed'],
                 receipt_SHA256=row['receipt_SHA256'],endpoint=row['endpoint']),separators=(',',':')),flush=True)

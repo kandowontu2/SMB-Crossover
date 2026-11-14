@@ -3,7 +3,8 @@
 Prepared CLI: `tools/audit/run_smb2_postbg_flower_native_1113.py`.
 It accepts `--variant 0..7/all`, or a comma-list such as
 `--variants 1,2,3,4,5,6,7`, plus `--scope collect/throw/hit`, `--metadata` and
-the optional `--followup` control correction. The two variant selectors are
+the optional `--followup` or `--ack-followup` control corrections. The control
+selectors are mutually exclusive. The two variant selectors are
 mutually exclusive; lists preserve order and reject duplicates or values
 outside0..7. Omitting both selectors still selects Imajin4.
 Only exact installed Downloads12397 is accepted:
@@ -140,3 +141,40 @@ is explicitly the latest retained sample, not an invented terminal RAM read.
 The Lua, its observers, assertions, frozen52f source and045 adapter are unchanged.
 Root can repeat the exact Mario negative to display those previously omitted
 fields; no new runtime observer, input, ROM write or diagnostic file is added.
+
+## Optional source-acknowledged throw and hit
+
+`--ack-followup` authenticates the separate factory SHA256
+`8846c50a316355f4198471b2cf3d3e62db4b7086c251d88761864d1520f0abc4`.
+It supports only `--scope throw` or `hit`; collect is rejected. Its underlying
+f78 retreat and f6a enemy-aim factories remain separately hash-pinned and
+unchanged. The default and `--followup` preparation functions remain exact.
+All original parent hash guards still run before the new text is admitted.
+
+The result labels ordinary B hold/release acknowledgement and, for hit, neutral
+aiming with the qualified close-range wait. It retains every original pickup,
+reserve, health, collision, defeat and resumed-play assertion, adds a12-update
+input acknowledgement bound and a read-only current-ROM-bound original BIT
+Fresh observer. On every successful Ack native case, the CLI additionally
+requires that observer's actual Fresh64 while Holding is nonzero. A default or
+`--followup` pass gains no such new requirement.
+
+Compact evidence now preserves already-recorded target/aim/aim_target and
+throw_fresh/throw_input_ack records, including source velocity and input fields.
+This parser change adds no observer or input to any frozen controller. Source
+qualification and preserved native negatives are in
+`smb2-flower-hit-followup-1113.md` and `smb2-flower-ack-followup-1113.md`.
+Root owns the actual three Ack positives and remaining native qualification.
+
+Root's next guarded command can skip the already-passed Mario/Luigi cases:
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 600 -- python -B tools/audit/run_smb2_postbg_flower_native_1113.py --ack-followup --variants 2,3,4,5,6,7 --scope hit
+```
+
+The helper never executes this native command. New selector metadata,
+dispatch/isolation and exact frozen/current hash checks passed under the same
+zero-output helper root: b6/a463 and priority3824/2bb3 remain exact, selector
+order and conflicts are checked, unknown ROMs reject, and existing receipt
+fields survive unchanged. Path writers/mkdir, Popen and native entry were
+blocked throughout. No controller, ROM, capture or receipt file was written.
