@@ -83,11 +83,13 @@ Root reports no files/images or ROM changes. The source2870 full pass remains
 source-only; it is not relabeled as this native result. The source/native
 navigation difference includes roughly169 added lag frames during gameplay.
 
-Peachbf45 remains source-positive and natively held pending the same early-gap
-calibration. Both identities remainU in the expanded checklist. A separate
-successor will clock navigation from completed Main state, retain post-damage
-form0 behavior, and add bounded actual movement-return/takeoff/button traces.
-Neither frozen text is modified and no ROM bug is inferred.
+Peachbf45 remains source-positive without a native pass for that exact text.
+Separate completed-Main successors52d Toad and30e Peach subsequently pass full
+actual Downloads421 native runs; see `smb3-mainclock-1114.md`. Those new controls
+include genuine post-damage behavior and bounded movement-return/takeoff/button
+traces. Both identities are nowC, while these frozen baseline texts and the c8f
+native negative remain distinct. Neither frozen text is modified and no ROM
+bug is inferred from its failed input route.
 No historical expanded build path was restored or claimed live. No helper was
 added or moved; the controller uses the existing stage's stairs and gaps.
 

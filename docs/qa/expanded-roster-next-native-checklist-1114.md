@@ -34,7 +34,7 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
 | Mike Tyson; Alex | **H**,33d2c7a7 Tyson Hard4861 frames;4cbd0191 Alex6018 | Complete natural stock-item evidence per identity remains unqualified in these route receipts |
 | Jay McCray | **H**,aa501128/62ba full stage, machine gun and authored first health pickup | Natural F/S/L and intended donor upgrade policy; first-pickup clamp negative is superseded by delivered helper route |
 | Steve Hermann | **H**,62ba full stage;7ef four stock pickups | Four-stock route closed by combat chase; do not reopen the earlier death-before-Star controller failures |
-| SMB3 Toad; SMB3 Peach | **U**;360-update SMB3+ movement/hover/kick checks are not full stages | Full stage and individually earned SMB3 powerup ensemble; source-form tests are insufficient |
+| SMB3 Toad; SMB3 Peach | **C**, actual Downloads421 native95857/52d post-damage Toad and33056/30e Peach; full flag/castle/entrance and25 living grounded1-2 | Individually earned SMB3 powerup ensemble remains separate; preserve old c8f second-pit input negative without reopening the now-cleared identity |
 | Popo; Nana | **H**,a7ccbaaa natural clears5190/5285 frames, tier0→1 | F/S/L and additional original abilities; do not reuse the old pipe/route negatives |
 | FF Fighter; FF White Mage; FF Black Mage; FF Thief | **H**,a5c54d76 full routes, earned M/F/tier-two attacks | Natural S/L have CPU routes; complete physical S/L per class remains a native gate |
 | Sunny | **H**,16a9de64 Hard full route and separate M/F/fireballs/full-stage | Natural S/L; delivered palette-deadline fix supersedes earlier late-enable negatives |
@@ -58,8 +58,8 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
    later. Close one-way/fractional-sign source/caller/ISR proof before any
    allocation/composition/native candidate. Do not call the older delivered
    clear a failed current run.
-2. Assign individual full routes to the **15 U identities** above, especially
-   SMB3 Toad/Peach, Shinobi and the four Contra Force/two Battletoads choices.
+2. Assign individual full routes to the **13 U identities** above, especially
+   Shinobi and the four Contra Force/two Battletoads choices.
    Use their intended abilities. If assistance is needed, root owns native
    actor placement/allocation and must record the assisted crossing.
 3. Reuse existing natural-item source controllers for **Jay F/S/L, both
