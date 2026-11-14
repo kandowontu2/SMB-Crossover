@@ -563,3 +563,23 @@ entry height. No ordinary fall threshold or original DA22/DA34 is changed.
 Current Nightly is now root-delivered1daca; future composition must explicitly
 preserve its three classic-DK operands plus29 common reset bytes and all176
 prior fixes. No DK Jr new image, native pass or delivery is claimed.
+
+Auth-order source session63ab10 qualifies32 genuine settled idle Main calls
+on exact769, with zero actors and both lives. Actual private Main6769.0625
+cycles matches the earlier profile; whole scheduled Main is48887.15625.
+The14 full653-cycle auth checks occur in this order: row29, row0, successful
+private Main/ScoreFlush return, then13/16/12/10/14/14/14/14/34/9/1/2.
+Thus12 calls occur after the older proposed Main-end epoch stamp, while
+row29 and row0 precede it. Their gross eligible full-auth cost is7836
+cycles/Main, before the fast path's own costs;9142 is the total full-auth
+cost and cannot be claimed as saved cycles. No cache or bypass was applied.
+
+Measured current exclusive bank193 cost remains16220/Main; unbanked source
+transport costs6702.96875, RAM3 code8630.0625, raw254 native BG3818.28125,
+raw2522364 and raw2072118. Private callback inclusive costs include graphics
+564, draw1845 and full bbox670 cycles/Main, apart from auth/outer dispatch.
+These are source accounting facts on769, not a physical cadence improvement
+or post-floor candidate profile. `profile_dkjr_auth_order_1114.py` reports
+the exact scopes/order and writes zero files under absent bounded
+`build/dkjr-auth-order-1114`, max-files1. Global writer/cold/foreign/wrap/IRQ
+cache proof and any funding remain open and separate from the floor proposal.
