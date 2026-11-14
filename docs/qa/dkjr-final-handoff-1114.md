@@ -365,6 +365,50 @@ qualify1-2 survival. Full native final3040 handoff, entry-fall cause/repair,
 25 grounded1-2 returns and overwhelming idle/walk cost remain open. All
 source jobs above have terminal results and zero generated files.
 
+Passive full-route entry trace sessionf64cc6 reproduces the same1-2 negative
+without changing d9a. Immediately before landing, source4/Y191 has origin63
+and fall limit22. The last floor list contains native static rectangles
+`[32,208,47,223]` and `[48,208,63,223]`. NativeY176/source4 is observed one
+update before source5; the128-pixel fall exceeds22. The long tool response
+was truncated, so this note does not claim a recovered first-writer PC from
+that trace's unprinted middle. The fields and last rows above were retained.
+
+`check_dkjr_entry_fall_predicate_1114.py` session53b22d reassembles unchanged
+42-byte original landing code A8CE..A8F7, SHA256
+`bfa356ecd61413a04705871d5893234e78bf470465a9f345aefe88bd0f8d04fd`,
+byte-exact to769/09b. Original DA34 is runtimeA8E1; DA22 isA8CE and its
+state store isA8DD. Declared CPU calls with the separately observed
+Y191/origin63/limit22 return reject1 and landing state5. Delta21 returns0;
+delta22 returns1. Original fall-entryA272 sets origin63 and prior4 from
+sourceY63. Counterfactual origins191/199 are numeric diagnostic controls,
+not proposed repairs or gameplay qualifications. The original threshold and
+ordinary fall damage remain intact; a forced-area-entry ownership correction
+must be scoped to that lifecycle, and no such correction is yet granted.
+
+Root private nativee98/d9a is a separate **NEGATIVE**, receipt
+`cf38017d3f2d9f1d9e25a995bead66090ab2a15156fbf955a19606c08a225ec6`.
+It fails earlier atpipe5-lower, Main7016/frame15837/X2569/Y176/source4→5,
+nativeState2/engine8/lives2/timer108/jumpAge47/camera2561. Four earlier
+helpers cross; final3040 is not reached. This cause is not equated with the
+forced1-2 entry. Physical partial-Main input decisions and ordinary helper
+support/descent/fall damage remain alternatives requiring observation.
+
+The separately frozen passive observer is
+`replay_dkjr_pipe5_fall_observer_1114.from_text(d9a_text)`, Lua
+`46f1a1418137eadf4b0d162cdbb9f3b7c47da7187cbf77d75e89ff025131fa1f`.
+It requires the exact literal d9a input hash and restores every passive
+addition back to d9a for an equality proof. All controls/assertions and the
+25-return endpoint remain unchanged. It keeps at most32 trajectory records
+plus separately retained first source5 writer, first decision inside a
+pending Main, and first support loss. It records actual native GameCore
+839A/PRG126, private MainD65E/RAM2 and original MoveA2E8/RAM3 return PC/SP
+tokens, decisions/polls occurring while each is pending, intended/native/
+original inputs, fall origin/limit, query and native support boxes, last
+actual AC18 passenger event, and a bounded static terrain grid. Metadata
+sessiond706bf compiles/inverts the text; no native run by this helper.
+The API accepts the already retained d9a text, requiring no ROM reconstruction
+or file writes for root's next private diagnostic.
+
 ## Authentication cost follow-up
 
 `profile_dkjr_auth_calls_1114.py` sessiona8b804 exits0 on the same exact769

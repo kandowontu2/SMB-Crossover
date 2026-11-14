@@ -17,7 +17,8 @@ Q,P,H,N,W,L=G.Q,G.P,G.H,G.N,G.W,G.L
 def main():
     ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--route',action='store_true')
     ap.add_argument('--current-421',action='store_true');ap.add_argument('--grounded-12',action='store_true')
-    ap.add_argument('--qualified-envelope-projection',action='store_true');args=ap.parse_args()
+    ap.add_argument('--qualified-envelope-projection',action='store_true')
+    ap.add_argument('--entry-trace',action='store_true');args=ap.parse_args()
     assert not args.qualified_envelope_projection or args.current_421
     if args.current_421:
         import compose_dkjr_oneway_current_1114 as Current
@@ -48,9 +49,21 @@ def main():
     text=controller(raw)
     if args.qualified_envelope_projection and args.grounded_12:assert sha256(text.encode()).hexdigest()==Ground.NATIVE_CURRENT_LUA_PIN
     m=Q.mounted(seed,raw);ticks=0;counts=Counter();hits=set();output=sys.stdout
+    entry_rows=[];entry_writers=[];first_entry_injury=None;entry_calls=0
+    def entry_state(memory):
+        r=memory.ram[2]
+        return dict(Main=ticks,x=N.get(memory,'Player_X_Position')+256*N.get(memory,'Player_PageLoc'),
+            y=N.get(memory,'Player_Y_Position'),high=N.get(memory,'Player_Y_HighPos'),
+            source=r[0x6b],prior=r[0x6c],source_y=r[0x210],origin=r[0x76],
+            fall_fields=list(r[0x76:0x7e]),fall_limit=r[0x7b],native_vy=N.get(memory,'Player_Y_Speed'),
+            engine=N.get(memory,'GameEngineSubroutine'),lives=N.get(memory,'NumberofLives'),
+            active_query_kind=r[0x8db],rect=list(r[0x3e:0x42]),floor_rects=list(r[0x800:0x80c]))
+    def in_entry(memory):
+        return N.get(memory,'WorldNumber')==0 and N.get(memory,'LevelNumber')==1 and memory.ram[2][0x8fe]==2
     ranges=((2,0xcbe0,0xcc20),(2,0xcc60,0xcc80),(3,0xbc74,0xbd3d),
         (2,0xd65e,0xd6a7),(3,0xb4b0,0xb54e))
     def watch(memory,cpu):
+        nonlocal first_entry_injury,entry_calls
         tag=memory.rawtags[(cpu.pc-0x8000)//8192]if cpu.pc>=0x8000 else-1
         if any(tag==bank and lo<=cpu.pc<hi for bank,lo,hi in ranges):hits.add((tag,cpu.pc))
         if(tag,cpu.pc)==(2,0xcc14):counts['guard_calls']+=1
@@ -60,9 +73,20 @@ def main():
         if(tag,cpu.pc)==(3,0xa8dd)and memory.ram[2][0x6b]==3:
             acc=int.from_bytes(memory.ram[2][0x82:0x84],'little');imp=int.from_bytes(memory.ram[2][0x86:0x88],'little')
             if(acc-imp)&0x8000:counts['rising_original_landings']+=1
+        if args.entry_trace and in_entry(memory):
+            if(tag,cpu.pc)==(2,0xd65e):entry_calls+=1
+            if tag==3 and bytes(memory[cpu.pc:cpu.pc+3])==bytes.fromhex('8d6bc0'):
+                row=dict(entry_call=entry_calls,writer_PC=cpu.pc,pending_A=cpu.a,state=entry_state(memory))
+                if len(entry_writers)>=32:del entry_writers[8]
+                entry_writers.append(row)
+                if cpu.a==5 and first_entry_injury is None:first_entry_injury=row
     def after(memory):
         nonlocal ticks
         ticks+=1
+        if args.entry_trace and in_entry(memory):
+            row=entry_state(memory)
+            if len(entry_rows)>=32:del entry_rows[8]
+            entry_rows.append(row)
         if ticks%1500==0:
             state=P.B.state(memory)
             print('DKJR_ONEWAY_ROUTE_PROGRESS '+json.dumps(dict(Main=ticks,x=state['x'],y=state['y'],lives=state['lives']),separators=(',',':')),file=output,flush=True)
@@ -76,6 +100,8 @@ def main():
         grounded_12_return_count=receipt.get('grounded_12_return_count'),actual_12_returns=receipt.get('actual_12_returns'),
         first_grounded_12_return=receipt.get('first_grounded_12_return'),last_grounded_12_return=receipt.get('last_grounded_12_return'),
         final_events=receipt.get('events',[])[-16:])
+    if args.entry_trace:summary['entry_cause_trace']=dict(returned_model_frames=entry_calls,
+        first_injury_writer=first_entry_injury,state_writers=entry_writers,rows=entry_rows)
     print('DKJR_ONEWAY_SOURCE_ROUTE '+json.dumps(dict(candidate_SHA256=pin,current_421_preserved=args.current_421,
         controller_Lua_SHA256=sha256(text.encode()).hexdigest(),genuine_cold=True,
         controller_result=summary,observed_owned_PC_count=len(hits),query_counts=dict(counts),

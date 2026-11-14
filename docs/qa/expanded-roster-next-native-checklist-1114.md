@@ -49,7 +49,7 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
 | Prince Persia | **H**,7ef full/grounded1-2;62ba natural M/F sword/combat | Natural S/L are fixture-only so far; invisible automatic entrance is a deferred visual limitation |
 | Burns | **C**, actual421 root16139/94b,8864physical/4442Main/2818CF, full flag/castle/entrance and25 grounded1-2; no helpers | Natural weapon/container ensemble and remaining abilities are separate; the idle30Hz deficit remains open. Evidence: `contra-force-full11-source-1114.md` |
 | Smith; Beans | **C**, actual421 root93241,8954/8951physical, full flag/castle/entrance/25grounded1-2 at40/176/lives2; no helpers | Natural weapon/container ensemble and remaining abilities are separate; idle30Hz deficit remains open. Evidence: `contra-force-full11-source-1114.md` |
-| Iron | **U**,f4767d59 earned pistol kills/camera/art checks only | Full stage and naturally earned source weapon/powerup progression; preserve camera/projectile repairs |
+| Iron | **C**, actual421 root7285/db850,10736physical/5243Main/3759CF, full flag/castle/entrance and25 grounded1-2 at40/176/lives2; no helpers | Natural weapon/container ensemble and remaining abilities are separate; idle30Hz deficit remains open. Evidence: `contra-force-full11-source-1114.md` |
 | Arthur | **H**,d8a87050 full5950 frames and real source-lance/native defeat;379590 flower/torch | Other naturally earned weapons/S/L; original no-weapon-tail negative was repaired |
 | Goku | **H**,22d09909 Hard full5837 frames; later f205 qualification cited by current audit | Natural powerup ensemble and Easy remain separate; retain authenticated helper/camera policy |
 
@@ -60,14 +60,17 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
    later. Close one-way/fractional-sign source/caller/ISR proof before any
    allocation/composition/native candidate. Do not call the older delivered
    clear a failed current run.
-2. Assign individual full routes to the **9 U identities** above, especially
-   Doc Louis, Iron and the two Battletoads choices. Shinobi's
+2. Assign individual full routes to the **8 U identities** above, especially
+   Doc Louis and the two Battletoads choices. Shinobi's
    recovered historicalH corrects the earlier U count; it is not a newC pass.
    Burns root16139 is an independent currentC closure after that correction;
    receipt `ad9e59dbd50f2f5290c39d01540c258aa99e92f497ed2a4b7c02308919016d26`.
    Smith/Beans root93241 close two further identities: receipts
    `fe78cd48ce840284206d0a0505c6e1149991e27897e7f6f2d308fb654bcd2c7c` and
    `9ee1738671adab8c32a3542bd8399799dbd6730e10271d4699a73d90721f6b24`.
+   Iron root7285 closes the fourth CF identity, receipt
+   `e7546a81bd1a95062b71188bc31dc3cd39856e7594255db763a7d7d6f461fe5b`.
+   All4 CF full-stage gates areC; their idle30Hz deficit is a separate open gate.
    Use their intended abilities. If assistance is needed, root owns native
    actor placement/allocation and must record the assisted crossing.
 3. Reuse existing natural-item source controllers for **Jay F/S/L, both
