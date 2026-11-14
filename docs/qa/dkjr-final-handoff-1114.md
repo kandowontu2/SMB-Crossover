@@ -409,6 +409,60 @@ sessiond706bf compiles/inverts the text; no native run by this helper.
 The API accepts the already retained d9a text, requiring no ROM reconstruction
 or file writes for root's next private diagnostic.
 
+Root passive46f1 native run58526 reproduces the same earlier pipe5 negative,
+receipt `165ce7e64c854ef8584b13b923d76f261a560dfe4ea378b74621b178ab4bdc55`,
+60.574 seconds, zero files/images. All32 retained near-terminal rows hold
+Right: requested bits, native held bits, original held bits and original
+sample are1; original direction4/facing1. Pending-Main wrapper counts
+include early returns and do not prove a changed input decision. The first
+pending record keeps bits1 and the same approach phase. Input-race blame is
+therefore not supported by this trace.
+
+AtMain6992 nativeY179/source1/sourceY194 has fall origin178. At7000 the
+actual native background collision clamps Y179 to176, while sourceY stays194.
+At7006 source4/Y198 has origin194, then sourceY202/206/212 at7008/7010/7013
+while nativeY stays176. The first original source5 writer is RAM3:A406 at
+Main7016/frame15836, pendingA5, source/prior4, sourceY216/origin194/limit24,
+nativeState0/VY0/Y176. A406 is unchanged original D_d64d, reached from
+A3F8/D_d640 when sourceY>=216: **off-bottom death, not DA22 fall damage**.
+The24-pixel limit in this record is context, not the killing predicate.
+Player box is `[7,191,24,206]`; source query is `[255,216,16,231]`; static
+support rectangles are `[0,224,14,239]` and `[15,224,30,239]`, below the real
+native floor. Last actual AC18 helper support is6910/X2639/pendingY163/
+helperTop195/passenger4; first support loss is6936/X2591/Y163/sourceY180/
+origin178/limit24, with helperTop188/passenger255. This native/source position
+split is separate from forced1-2's genuine DA22 threshold22 injury.
+
+`check_dkjr_native_floor_reconcile_1114.py` session2b666c is a zero-output
+declared source component, not a route or repair. It rebuilds exacte98 in
+memory from typed421 and the granted09b envelope, then follows the actual
+current post-background call: E5CC/raw255 -> B438/raw194 -> BB9E/raw207
+HuAfterTerrainGate -> BEF8 HuQuickAfterProbe -> BBA3 HuQuickAfterOriginal ->
+BAF5 HuLegacyPostBG. All private source bytes C000..C7FF remain unchanged;
+no DK anchor import/publication/camera-sync routine executes. All four
+fixed-bank bridge aliases are byte-exact to the currently qualified49B
+canonical bridge. Public service row29 is UI, not this post-terrain path.
+
+Five declared controls use existing ShiftCamera then ImportAnchor to map
+nativeX2569/camera2561/nativeY176 and originalX255/Y194 or216 to originalX0/
+Y191. Original state/prior4, origin194, limit24 and all jump/velocity fields
+remain byte-exact. Camera deltas0/+1/+8/-8 are reconciled once; a repeated
+ShiftCamera leaves the imported position unchanged. Import alone leaves
+source4 and is not a complete landing repair.
+
+Six additional controls call the existing post-validation CarryAccepted
+continuation, without inventing an enemy or passenger. It compares original
+**pre-snap** Y using the existing fall-distance primitive, then imports and
+executes original Land only for safe falls. Y194/origin170/limit24 still
+injures and leaves the original body unsnapped; origin171 is safe. The
+forced-entry191/63/22 and194/63/22 controls still injure without snapping.
+Pipe5-like194/178/24 and216/194/24 controls land at source1/X0/Y191. Fall
+origin is retained. These controls identify a reusable existing landing
+continuation; actual native-ground admission, caller/ABI closure, measured
+space and a new root allocation remain required before any game change.
+The unchanged A3F8/A406 sourceY216 control still dies. No thresholds, original
+off-bottom rules, native support claims or delivery status change.
+
 ## Authentication cost follow-up
 
 `profile_dkjr_auth_calls_1114.py` sessiona8b804 exits0 on the same exact769
