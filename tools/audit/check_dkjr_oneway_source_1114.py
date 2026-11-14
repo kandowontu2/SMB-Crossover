@@ -16,13 +16,16 @@ Q,P,H,N,W,L=G.Q,G.P,G.H,G.N,G.W,G.L
 
 def main():
     ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--route',action='store_true')
-    ap.add_argument('--current-421',action='store_true');args=ap.parse_args()
+    ap.add_argument('--current-421',action='store_true');ap.add_argument('--grounded-12',action='store_true');args=ap.parse_args()
     if args.current_421:
         import compose_dkjr_oneway_current_1114 as Current
         current=Path('C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes').read_bytes()
         raw,info=Current.proposal(current);controller=Current.controller
     else:
         _,old=F.load_inputs();raw,info=S.proposal(old);controller=S.controller
+    if args.grounded_12:
+        import replay_dkjr_oneway_grounded12_1114 as Ground
+        controller=Ground.current_controller if args.current_421 else Ground.private_controller
     pin=sha256(raw).hexdigest();cookie=raw[P.B.COOKIE_AT:P.B.COOKIE_AT+16]
     opening,seed=H.cold(raw,cookie);body=P.T.payload(raw)
     post_cold_code_differences=[dict(PC=0xa000+i,expected=b,actual=seed.ram[3][i])
@@ -61,6 +64,8 @@ def main():
         receipt_SHA256=sha256(json.dumps(receipt,sort_keys=True,separators=(',',':')).encode()).hexdigest(),
         reason=receipt.get('reason'),terminal=receipt.get('terminal'),flag=receipt.get('flag'),castle=receipt.get('castle'),
         final_helper_birth=receipt.get('births',{}).get('3040'),final_helper_carry=receipt.get('carries',{}).get('3040'),
+        grounded_12_return_count=receipt.get('grounded_12_return_count'),actual_12_returns=receipt.get('actual_12_returns'),
+        first_grounded_12_return=receipt.get('first_grounded_12_return'),last_grounded_12_return=receipt.get('last_grounded_12_return'),
         final_events=receipt.get('events',[])[-16:])
     print('DKJR_ONEWAY_SOURCE_ROUTE '+json.dumps(dict(candidate_SHA256=pin,current_421_preserved=args.current_421,
         controller_Lua_SHA256=sha256(text.encode()).hexdigest(),genuine_cold=True,

@@ -287,6 +287,42 @@ static terrain semantics remain intact. Epoch caching and native fractional
 velocity projection are unchanged. Explicit421-preserving merge/inverse,
 physical final crossing and overwhelming idle/walk cost remain open.
 
+The explicit421 merge is now composed/inverted in memory by
+`compose_dkjr_oneway_current_1114.py`, sessioncc0268. Exact output is
+`e98df463b9376105af9fa699e7e34b1d93fe95b4550e35a1558afdaa9f17cd47`;
+its12397 legacy component is
+`e6c7c82744276690d0e5e6765f9165f8e9d636307fa1cc25556f51c03258fc57`.
+The previous769+421 merge is
+`df130d5dba8d21e74f5bc2899aad4d77b681381c8f8dfa34b72b392131eedada`.
+The typed `hidden-421` normalizer/preserve API retains all110 hidden and66
+cheat changed bytes, including their complete201+252-byte protected
+envelopes. All other421 bytes outside the qualified DK component remain
+exact; the complete DK envelope matches private09b. Both construction
+orders agree. The strict source inverse removes only the new one-way
+fragments, reconstructs foreign preimages from their owning source/grants,
+requires strict16c71→12397, rebuilds pure421 and requires typed preservation
+and forward roundtrip. It does not feed a composed image into a pure421
+normalizer. A separate fresh-process inverse/no-Downloads gate is running.
+Earlier full-route controller for this exact merge is
+`5f7e972f6038f44af1bed429af99297d131201284f8d6e89ed14b0df1a70290d`.
+
+Root additionally requires25 actual returned healthy grounded1-2 updates
+before delivery. The separate `replay_dkjr_oneway_grounded12_1114.py`
+retains every original1-1 input policy and assertion, verified by undoing
+its passive additions back to the original text. It changes the old
+terminal action into neutral waiting, observes actual D65E return PC/SP,
+and requires25 consecutive returns atX40/Y176/high1/native0,
+source/prior1/sourceY191 with both lives in active1-2. It records first/last
+witnesses and bounds waiting to240 Main entries. Private09b Lua is
+`7cd0d37d0988bd5695bea00783a5d2a62bbcc56032bca411c862a8fda56ab547`;
+currente98 identity adapter is
+`168fe6b3bc0cda81062a470d58872c72bb864c23201454b0797082380fd52f5f`.
+Both compile; source/native execution of the strengthened endpoint remains
+pending. Player_Y_HighPos is authenticated asA4 before generation. A first
+unrun metadata draft usedB5 and was corrected before any execution.
+Frozen5110/63e7 texts remain unchanged. No ROM files or native runs by this
+helper, and no installation/delivery qualification is claimed.
+
 ## Authentication cost follow-up
 
 `profile_dkjr_auth_calls_1114.py` sessiona8b804 exits0 on the same exact769
