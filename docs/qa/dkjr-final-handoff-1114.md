@@ -33,7 +33,17 @@ the ordinary full route, requires actual native passenger selection and
 full X overlap at3048 before lowering, and starts Right while top160..170
 is descending. It derives the old cap's right/top from live native cells;
 its clearance guard conservatively uses the original backward body-left5
-throughout, covering the standing body's7. Root's native test is pending.
+throughout, covering the standing body's7.
+
+Root's exact5110 native run is a retained negative, receipt
+`eaf3c1b82b01d57b5cc9d224bb4fbf8632d2132ce7f6df2dfb96b9f6f664feaf`.
+All six stairs pass. Native cap/turn7792/X3027/Y48 occurs at helperTop68,
+jump7793 and original acknowledgement7794/X3027/Y47/top69. The conservative
+clearance assertion fails at7814/frame17888/X3034/Y50/source+prior1/native2,
+jumpAge6/both lives/timer75. That accepted64..68 range starts later than
+the source positive's64px phase, consuming the clearance margin. The ended
+no-file native runner retained no earlier carry trajectory or minY, so no
+claim about those unobserved fields is made.
 
 Full source session34547 exits0/PASS8947; receipt
 `4eab52967b13fa31aa1e9c775954ceb572ef3d45db397624f49de692ecc29554`.
@@ -57,6 +67,19 @@ is bounded at600seconds with a one-file reservation under absent output
 root `build/dkjr-handoff-lag-1114`; actual generated output files are zero.
 The earlier interrupted draft run99876 was stopped before qualification
 after correcting a source diagnostic's field addresses and is not evidence.
+
+The separate `early_cycle_controller(raw769)` retains5110 unchanged and
+requires descending **top64 exactly**, waiting for the next cycle if the
+cap arrival is later. It adds a bounded32-record Main/passenger/position/
+original-body trajectory to the terminal receipt, with no capture files.
+Frozen Lua is
+`2b3c77495d0b05efedb00909f4d00a9f151c628410eebbb2f30cf20c23af178f`.
+Full source62497 exits0/PASS8947 with the same actual source traversal as5110
+and receipt
+`2eeefd8272b54c393e45f13b69dacccec6d2524069be4a717eeeedead9ece6e3`.
+The original cap-clearance guard and all later assertions remain. Native
+qualification is pending; this is a controller timing proposal, not a repair
+to game geometry or physics.
 
 ## Authentication cost follow-up
 

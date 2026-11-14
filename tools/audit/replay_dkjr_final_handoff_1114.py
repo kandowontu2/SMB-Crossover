@@ -11,6 +11,7 @@ import replay_dkjr_final_board_1113 as Prior
 
 T,Gate=Prior.T,Prior.Gate
 LUA_PIN='5110d0244f3605d9f844bee3783703540a5c745db3874a5267b4eaa2394c182e'
+EARLY_CYCLE_LUA_PIN='2b3c77495d0b05efedb00909f4d00a9f151c628410eebbb2f30cf20c23af178f'
 
 
 def load_inputs():
@@ -89,14 +90,39 @@ def controller(raw):
     return text
 
 
+def early_cycle_controller(raw):
+    """Retain5110; wait for the earlier64px descending phase, plus32 rows."""
+    text=controller(raw)
+    text=T.P.once(text,'stairTop>=64 and stairTop<=68','stairTop==64')
+    text='local finalCapTrace,finalCapTraceEpoch={},nil\n'+text
+    text=T.P.once(text,'events=events,','events=events,final_cap_trace=finalCapTrace,')
+    text=T.P.once(text,'local function drive()\n','''local function drive()
+ if (phase=='final-cap'or phase=='final-turn'or phase=='final-jump')and finalCapTraceEpoch~=updates then
+  finalCapTraceEpoch=updates;local birth=births['3040'];local p=finalNativePassenger
+  local row={Main=updates,x=x(),y=read(0xbd),source=ram(2,0x6b),prior=ram(2,0x6c),
+   source_y=ram(2,0x210),native_state=read(0x1e),held=ram(2,0x14),sample=ram(2,0x15),
+   facing=ram(2,0x6d),direction=ram(2,0x54),jump_age=ram(2,0x7e),
+   original_body_left=camera()+ram(2,0x213)+5,original_body_bottom=ram(2,0x210)+15,
+   top=birth and read(0xbe+birth.slot)or nil,passenger=birth and read(0x566+birth.slot)or nil,
+   actual_passenger=p and p.Main==updates and p or nil}
+  if #finalCapTrace>=32 then table.remove(finalCapTrace,5)end
+  finalCapTrace[#finalCapTrace+1]=row
+ end
+''')
+    Prior.LuaRuntime().compile(text)
+    if EARLY_CYCLE_LUA_PIN is not None:assert sha256(text.encode()).hexdigest()==EARLY_CYCLE_LUA_PIN
+    return text
+
+
 def main():
-    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--route',action='store_true');args=ap.parse_args()
-    parent,raw=load_inputs();text=controller(raw)
+    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--route',action='store_true');ap.add_argument('--early-cycle',action='store_true');args=ap.parse_args()
+    parent,raw=load_inputs();text=early_cycle_controller(raw)if args.early_cycle else controller(raw)
     info=dict(candidate_SHA256=T.PIN,Lua_SHA256=sha256(text.encode()).hexdigest(),compiled=True,
         frozen_stair_prefix_Lua_SHA256=Prior.Previous.LUA_PIN,
         original_backward_jump_acknowledgement=True,actual_native_passenger_required=True,
         helper_left=3040,helper_center=3056,helper_initial_top=192,
-        centered_nativeX=3048,departure_top=[160,170],source_or_native_writes=False,outputs_written=0)
+        centered_nativeX=3048,departure_top=[160,170],source_or_native_writes=False,outputs_written=0,
+        exact_earlier64_start=args.early_cycle,maximum_final_cap_trajectory_rows=32 if args.early_cycle else 0)
     if args.route:
         Q,P,H=Gate.Q,Gate.P,Gate.H;e73=T.Old.reverse(parent)
         _,seed=H.cold(e73,e73[P.B.COOKIE_AT:P.B.COOKIE_AT+16]);m=Q.mounted(seed,raw)
@@ -109,6 +135,7 @@ def main():
         receipt=result.get('receipt')or{}
         info.update(passed=result['passed'],logical_updates=result['logical_updates'],final=result['final'],
             reason=receipt.get('reason'),last_events=receipt.get('events',[])[-20:],
+            final_cap_trace=receipt.get('final_cap_trace'),
             receipt_SHA256=sha256(json.dumps(receipt,sort_keys=True,separators=(',',':')).encode()).hexdigest(),
             physical_cadence_claim=False)
     print('DKJR_FINAL_HANDOFF '+json.dumps(info,separators=(',',':')),flush=True)
