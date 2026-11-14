@@ -108,3 +108,21 @@ inverse to3684; candidate and recipe pins are unchanged. Unknown inputs are
 rejected. `--adapter` independently passed that exact known inverse path and
 rejected an unknown mutated image, entirely in memory. GitHub releases stay
 empty; no installation is performed here.
+
+## Delivered-input CLI follow-up
+
+After root reported direct12397 delivery, the actual Downloads bytes read back
+as exact12397. A CLI-only extension in
+`tools/audit/check_smb2_flag_handoff_1113.py::load_input` now authenticates the
+unchanged post-BG composer SHA415ca42d… and strictly reverses known12397 to3684.
+The existing Current inverse then produces exactf88, followed by the existing
+Bub inverse to exact7ef. Digest is recomputed after each stage. No proposal,
+recipe, controller pin, frozen Flower API/observer or grant is changed.
+
+One bounded zero-output known-path check passed the actual Downloads read and
+each of the four exact in-memory inputs independently:
+`12397 → 3684 → f88 → 7ef`. Three unknown mutated12397 images were rejected,
+changing header byte0, the granted-operand position976378 and final ROM byte
+2097167 respectively. This is a loader/source check only; no Mesen was launched,
+ROM installed or native receipt inferred. The only follow-up edits are the
+existing loader and this appended QA section. Output remains zero files.

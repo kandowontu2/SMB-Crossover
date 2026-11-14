@@ -17,6 +17,11 @@ SOURCE=R/'tools/reference/smb2_flag_handoff_1113.s'
 def load_input(path=ROM):
     """CLI adapter only; strict proposal/controller/inverse PINs are unchanged."""
     raw=Path(path).read_bytes();digest=sha256(raw).hexdigest()
+    if digest=='12397b1c2557834f6a2b7e23c9915d5dc40c6cabff7a6ee844c1adebf6564c52':
+        source=R/'tools/audit/compose_smb2_postbg_mirror_1113.py'
+        assert sha256(source.read_bytes()).hexdigest()=='415ca42d6efe1023a56c147a2d1dc0c8e32c75c98fef31b9f1a54e0fb71b7647'
+        import compose_smb2_postbg_mirror_1113 as PostBG
+        raw=PostBG.inverse(raw);digest=sha256(raw).hexdigest()
     if digest=='3684f3d2a418a484befd80fca351d0dc5f9b472f6f067a0a7894994ea343679d':
         source=R/'tools/audit/compose_smb2_foreground_current_1113.py'
         assert sha256(source.read_bytes()).hexdigest()=='3cade46f267ab926384de0687d59670b0fc16f5ea27b821aa683a973936d05f2'
@@ -26,8 +31,8 @@ def load_input(path=ROM):
         source=R/'tools/audit/bub_native_noops_1113.py'
         assert sha256(source.read_bytes()).hexdigest()=='6770cb6c8c9a0fe73eebd8c2c9b4c112ee55dc81def05c9aaf280b5a14e718e6'
         import bub_native_noops_1113 as Bub
-        raw=Bub.combined_reverse(raw)
-    assert sha256(raw).hexdigest()==PIN
+        raw=Bub.combined_reverse(raw);digest=sha256(raw).hexdigest()
+    assert digest==PIN
     return raw
 
 
