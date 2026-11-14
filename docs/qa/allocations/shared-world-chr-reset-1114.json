@@ -1,0 +1,53 @@
+{
+  "status": "granted-private-source-proposal-only",
+  "owner": "root",
+  "component": "native area logical CHR-mode reset",
+  "parent_SHA256": "421379021e775e6e03357c0aa11d4cab04008452f94bc9e8938f0662cc0c979f",
+  "measurement_tool": "tools/audit/measure_shared_world_chr_reset_1114.py",
+  "measurement_tool_SHA256": "599a6213847c3726a18b1894586c151f47c5ab7e53f51e75a42bbf50dd831e64",
+  "span": {
+    "PRG_bank": 126,
+    "CPU_half_open": [35427, 35456],
+    "file_half_open": [1034867, 1034896],
+    "bytes": 29,
+    "preimage_hex": "a2148e4801e88e4901e88e4a01e88e4b01e88e4c01e88e4d01e88e4e01",
+    "preimage_SHA256": "f4efbe278fe85632f7582264e8413fbe9e8e144f84ee9953b9c4eaf2822ee229",
+    "proposed_hex": "a20ba9009de073cad0faa206bdc7e09d4801ca10f7a21aeaeaeaeaeaea",
+    "proposed_SHA256": "2f917519169bf443bb9d051d20d65fc6baefc175d2304ac84e54890cf9076ce2"
+  },
+  "retained_suffix": {
+    "CPU": 35456,
+    "hex": "ee4601ad530760",
+    "SHA256": "a03b181d506a269bdcad588aa177b097c74261970c2d09742953a19c8fd2e493"
+  },
+  "contract": {
+    "clear_modes": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+    "preserve_private_mode_window": 0,
+    "preserve_wide_special_HUD_state": true,
+    "restore_existing_logical_CHR_windows": [1, 2, 3, 4, 5, 6, 7],
+    "restore_original_exit_X": 26,
+    "A_X_Y_P_SP_exact_at_existing_return": true,
+    "new_stack_RAM_CHR_storage_bytes": 0,
+    "used_bytes": 23,
+    "owned_NOP_bytes": 6,
+    "original_cycles_including_suffix": 58,
+    "proposed_cycles_including_suffix": 242
+  },
+  "root_independent_verification": {
+    "bounded_run": "shared-world-chr-reset-root-measure-1114",
+    "CPU_cases": 4096,
+    "all_256_input_flags": true,
+    "all_four_legal_area_types": true,
+    "four_state_patterns": true,
+    "registers_and_unowned_RAM_exact": true,
+    "outputs": 0
+  },
+  "required_before_root_native_staging": [
+    "Strict whole-image forward and source inverse; reject wrong inputs and preserve every unowned byte and protected current fix",
+    "Authenticate actual caller, changed-area and unchanged-area ingress, immutable CHR table, and live exit contract",
+    "Cold Start after contaminated preview, pipe-area, next-level, same-pose and cache/publication source checks",
+    "Actual NMI and busy/publication interleavings at every new instruction; expected CHR-mode differences must be explicit"
+  ],
+  "remaining_scope": "Private Prince window1 page383 and Donkey Kong barrel window1 page823 conflicts are not repaired by this grant. No player, projectile, level, helper, palette or gameplay-physics change is granted.",
+  "authorization_limit": "Compose and test this exact proposal in memory only. Root owns candidate-file placement, the sole Mesen queue, cleanup and any later nightly delivery. No Downloads write, backup, patch asset or GitHub release is authorized. The six NOP bytes remain owned and are not separately free."
+}
