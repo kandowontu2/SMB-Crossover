@@ -18,6 +18,7 @@ PUBLIC_BUB='f88cfe5aee15bb3921c691b7f06d905246be9ff88b9b43eea71c2405722724a7'
 WITH_PRIORITY='dadb9d80702148fe40b1a64d1cfff7ff2df65248b9c72e7c167d32e3589670be'
 WITH_FOREGROUND='2448c558298d9f1b6d178dcdc00e90db90ae7d85b95e37c0101130701aab261a'
 CURRENT_FOREGROUND='3684f3d2a418a484befd80fca351d0dc5f9b472f6f067a0a7894994ea343679d'
+WITH_POSTBG='12397b1c2557834f6a2b7e23c9915d5dc40c6cabff7a6ee844c1adebf6564c52'
 NIGHTLY=Path('C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes')
 
 
@@ -33,17 +34,23 @@ def main():
     p.add_argument('--foreground',action='store_true',help='Explicit separately pinned normal-play foreground successor; requires --pipe-priority.')
     p.add_argument('--current-bub',action='store_true',help='Merge the exact foreground repair with delivered Bub/Bob optimizations; requires --foreground.')
     p.add_argument('--downloads',action='store_true',help='Launch exact installed merged candidate in its actual Downloads context; requires --current-bub.')
+    p.add_argument('--postbg',action='store_true',help='Explicit six-operand sample-bank fallback repair; requires --current-bub.')
     args=p.parse_args()
     if args.terrain_profiles:
         assert args.pipe_priority and not args.next_area_diagnostic and not args.visual
     if args.foreground:
         assert args.pipe_priority and not args.next_area_diagnostic
     if args.current_bub:assert args.foreground
+    if args.postbg:assert args.current_bub
     if args.downloads:assert args.current_bub
     public_now=check(NIGHTLY)['ROM_sha256']
-    assert public_now in(PARENT,PUBLIC_BUB,CURRENT_FOREGROUND)
+    assert public_now in(PARENT,PUBLIC_BUB,CURRENT_FOREGROUND,WITH_POSTBG)
     public_image=NIGHTLY.read_bytes()
-    if public_now==CURRENT_FOREGROUND:
+    if public_now==WITH_POSTBG:
+        import compose_smb2_postbg_mirror_1113 as PostBG
+        public_image=PostBG.inverse(public_image)
+        assert sha256(public_image).hexdigest()==CURRENT_FOREGROUND
+    if sha256(public_image).hexdigest()==CURRENT_FOREGROUND:
         import compose_smb2_foreground_current_1113 as Current
         public_image=Current.inverse(public_image)
         assert sha256(public_image).hexdigest()==PUBLIC_BUB
@@ -85,6 +92,13 @@ def main():
         assert sha256(image).hexdigest()==CURRENT_FOREGROUND
         assert Current.inverse(image)==public_image and current_info['changed_bytes']==516
         candidate=CURRENT_FOREGROUND
+    if args.postbg:
+        import compose_smb2_postbg_mirror_1113 as PostBG
+        postbg_parent=image
+        image,postbg_info=PostBG.proposal(postbg_parent)
+        assert sha256(image).hexdigest()==WITH_POSTBG
+        assert PostBG.inverse(image)==postbg_parent and postbg_info['changed_operand_bytes']==6
+        candidate=WITH_POSTBG
     if args.downloads:
         assert public_now==candidate and NIGHTLY.read_bytes()==image
     variants=range(8)if args.variant=='all'else(int(args.variant),)
@@ -120,11 +134,15 @@ def main():
             assert text.count(WITH_FOREGROUND)==1
             text=text.replace(WITH_FOREGROUND,CURRENT_FOREGROUND)
             Replay.Root.Base.LuaRuntime().compile(text)
+        if args.postbg:
+            assert text.count(CURRENT_FOREGROUND)==1
+            text=text.replace(CURRENT_FOREGROUND,WITH_POSTBG)
+            Replay.Root.Base.LuaRuntime().compile(text)
         summary=dict(ROM_SHA256=candidate,parent_SHA256=PARENT,current_Downloads_SHA256=public_now,
             identity=Replay.Root.NAMES[variant],variant=variant,
             script_SHA256=sha256(text.encode()).hexdigest(),
             controls_unchanged_from_public_diagnostic=not args.terrain_profiles,terrain_profiles=args.terrain_profiles,normal_foreground=args.foreground,next_area_diagnostic=args.next_area_diagnostic,all_fixed_mirrors=args.mirrors,pipe_priority=args.pipe_priority,
-            current_Bub_preserved=args.current_bub,
+            current_Bub_preserved=args.current_bub,postbg_sample_aliases=args.postbg,
             private_only=not args.downloads,installed=args.downloads,native_run=not args.metadata)
         if not args.metadata:
             script=OUT/'controller.lua'
