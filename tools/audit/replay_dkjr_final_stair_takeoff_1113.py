@@ -13,6 +13,7 @@ from check_ff_stdout_controller_source_1110 import LuaRuntime
 BASE_LUA='6c6aac8a3d0fdfe334beebcf62b4514014e45d9e044f43926b3ee38e261c8d73'
 LUA_PIN='bfa40d77d1e0f7d6b45621589e9e49a2b24ef49fbb702011691de199fa25524f'
 ACTIVE_LUA_PIN='78215151aee3a4bb4309c26b31d18cf50dae9b95a9fd9a2772e7e45b4d8a729d'
+ACTIVE_TRACE_LUA_PIN='52792e0ce5141270c96ec7a40491f29ee9384787705d28dfbe00f34295538963'
 
 
 def controller(raw):
@@ -41,15 +42,32 @@ def active_controller(raw):
     return text
 
 
+def active_trace_controller(raw):
+    """Same active inputs plus the frozen bounded991 causal observer."""
+    import replay_dkjr_final_stair_trace_1113 as Trace
+    text=Trace.controller(raw)
+    assert sha256(text.encode()).hexdigest()=='99119500edddae146c71a8c9986c37f68cce27e69a0e7399426596c2e1679f6d'
+    text=T.P.once(text,
+        'if (fast or finalRiser==1) and player>=takeoff-2',
+        'if ((fast and finalRiser~=3)or finalRiser==1) and player>=takeoff-2')
+    assert sha256(text.encode()).hexdigest()==ACTIVE_TRACE_LUA_PIN
+    LuaRuntime().compile(text)
+    return text
+
+
 def main():
     ap=argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--route',action='store_true')
     ap.add_argument('--active',action='store_true')
+    ap.add_argument('--trace',action='store_true',help='Use active controls with the frozen bounded causal observer.')
     a=ap.parse_args()
-    parent,candidate=T.load_inputs();text=active_controller(candidate)if a.active else controller(candidate)
+    assert not a.trace or a.active
+    parent,candidate=T.load_inputs()
+    text=active_trace_controller(candidate)if a.trace else active_controller(candidate)if a.active else controller(candidate)
     row=dict(candidate_SHA256=T.PIN,base_controller_SHA256=BASE_LUA,
         Lua_SHA256=sha256(text.encode()).hexdigest(),Lua_compiled=True,
         proposal='active-fast-fallback'if a.active else'inactive-table-only',
+        bounded_causal_observer=a.trace,
         third_riser_takeoffs=[2944,2944,2944]if not a.active else[2944],ordinary_inputs_only=True,
         source_physics_and_native_geometry_unchanged=True,outputs_written=0)
     if a.route:

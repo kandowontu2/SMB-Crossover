@@ -254,6 +254,14 @@ updates plus4 neutral updates after Main7499; no camera or position is seeded.
 The active unbroken full source replay is now running; native qualification
 remains pending. No inactive bfa or active782 native success is claimed.
 
+`active_trace_controller(raw769)` derives the frozen991 bounded causal
+observer, changes the same one executed fallback condition, and compiles as
+`52792e0ce5141270c96ec7a40491f29ee9384787705d28dfbe00f34295538963`
+(metadata45817 exit0). Its ordinary inputs match active782; the existing64-row
+observer and authenticated source PCs remain exact. It is available for root
+to capture a hardware-only clamp/stall if the active native route fails. The
+old991 factory is unchanged and no trace or native run is launched here.
+
 `tools/audit/replay_mini_dkjr_direct_1113.py` is a strict read-only factory:
 reverse769→exact14, call root's frozen Mini descending controller (c0e8),
 verify the5120-byte Mini carrier unchanged, replace only the one ROM identity,
