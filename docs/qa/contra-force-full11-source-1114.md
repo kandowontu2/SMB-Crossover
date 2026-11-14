@@ -3,8 +3,10 @@
 Four separate normal-control full1-1 controllers are prepared for exact current
 `421379021e775e6e03357c0aa11d4cab04008452f94bc9e8938f0662cc0c979f`.
 Strict metadata, Lua compilation and local controller components pass for each
-choice. Use the **v2 observer successor** below; the original v1 cookie observer
-is an explicitly retained negative. Full source routes and root's native routes remain pending below.
+choice. Current full controls are **grounded-v3 for Burns/Smith/Beans and the
+explicit Iron far-landing successor** below. The older v1/v2 controllers and
+their negatives remain frozen. Current source passes and native limits are
+recorded separately below; a sibling's result does not close another choice.
 Preparation is not a stage-clear receipt.
 
 The retained f476 report at
@@ -16,7 +18,7 @@ positives are retained; they are not transferred into new full-stage results.
 
 ## Exact interface and separate identities
 
-`tools/audit/replay_contra_force_full11_1114.py` exposes
+The initial frozen v1 `tools/audit/replay_contra_force_full11_1114.py` exposes
 `controller(raw421, key) -> Lua text` and `metadata(raw421, key) -> dict`.
 It rejects unknown/dirty ROMs and preserves the frozen SMB1 route factory.
 All existing factories/defaults and root's CLI remain unchanged.
@@ -130,8 +132,123 @@ including76 in1-2, plus13 source impact calls (not a separate13-kill claim).
 The complete C2 cookie, zero C3 tail and source class0 assertions passed. Burns
 crossed all ordinary obstacles with its intended source jump, without a helper.
 
-Smith/Iron/Beans full v2 source processes remain active; all four native results
-are pending in root's serial batch24556. Source
+The v2 source arms also passed individually for Smith (4045 Main, receipt
+`948521d35b8c6f54ee53efb72f1ef99865b602b4ec111e380bddfa5fc94bfe06`)
+and Iron (4908 Main, receipt
+`6cac13b8caad9030eae8c0da0b7795ca7c6d4852754840f32ed060457ac51d0a`).
+These remain source results on those exact earlier controls.
+
+V2 Beans failed its controller at Main2090/X2177/Y128, life2/power0/Star0:
+receipt `f6d82fc487653e044de391907ed02985ffbe5f772cbd93754a82ba422a4d3169`.
+Its recorded phase entered `stair-1-land` while falling at Main1838/X2173/Y105,
+native state2, then landed a step low and never requested another jump. The
+waiting phase had mistaken an airborne Y coordinate for a successful landing.
+
+**Actual native v2 negative, root24556:** Burns93028 on actual Downloads421
+stopped at16000 physical frames,7936 Main entries/7935 returns, alive with
+life2/power0/Star0 at X2177/Y128 (max2179). Its complete CF cookie passed;
+7601 actual movement entries and11 source impact calls were observed. Those
+are not11 independently verified kills. The source endpoint was contact1,
+input3, jump age0, localX118/Y144, with no1-2 progress. Native receipt:
+`3e2513593c03244744d25d52931ef6cdce3b3ce0d0c14f15ed9bb92df016ea7a`.
+Smith/Iron/Beans v2 were **not launched** because the batch stopped on Burns.
+This agrees with the same lower-stair controller stall; no geometry, intended
+jump deficit or game defect is inferred.
+
+## Completed source ground and current full controllers
+
+Retained host source `tools/reference/contra_force_host_runtime_v8.s`, SHA256
+`50b186659b04247ec14ed4aa1f3ba31464fafd9f813b2df8de04f5fe1da0c046`, defines
+the real ground semantics. `CfHostExport` maps original C4AA air bit40 to native
+state1 when rising or2 when falling, otherwise0. After accepted native floor
+collision, `CfHostAfterBG` clears that air bit, zeroes C4B4 jump age/fraction and
+writes C4D2 contact1. Its air path writes contact0. The current full carrier
+remains byte-exact to the retained kernel containing that host.
+
+The separate `replay_contra_force_grounded_full11_1114.controller(raw421,key)`
+samples physical C2 only after a complete actual Main return, tagged with the
+same Main and movement count. Ground requires native state0, contact1, age0
+and a clear original air bit. The stair controller now requires that actual
+ground before entering its landing wait. Decision and phase clocks advance on
+the actual CF movement count completed by the matching full Main return;
+repeated physical polls do not advance the policy. All cookie, worker, scene,
+life and success guards remain. No game instructions change.
+
+Grounded-v3 factory SHA256:
+`0d55648f367bfec47f5b272eb4eeff3efcfe86787b112a92dae7a3422c7bcd14`.
+Checker `check_contra_force_grounded_full11_1114.py`:
+`127a45bea18a293e2c2c679431c5de12595494fe282daa278d3c8796b4563448`.
+
+| Choice | Frozen grounded-v3 Lua | Full source result |
+| --- | --- | --- |
+| Burns | `3d3c358cc5f2b8b85f89fe48f88cf93133b4b27f0b892f9a67217d23fd7db3fa` | PASS3939 Main, receipt `0df210379382a8c4f0a9d6cac31166492ea473245b3ac255d5bb0a829b431445` |
+| Smith | `fc182145cb64cc1ccc26d6b4fe3bed769d22131773e1c3590953548e0c7316e5` | PASS4066 Main, receipt `bcef8a858174955146c42dafc49d23c0b6c31f68f0e927490e21c49773f0c4ed` |
+| Iron | `1d90fde89b3752da52cf3d7d8e809382e961453e4c357e6770e4e71a6cf36082` | Controller negative below; explicit successor required |
+| Beans | `83b164a83934bded1575b330a15173ab92a0322e294eab4a15038250de03475d` | PASS3939 Main, receipt `d6921015e6c35138028367129cb6d7c5437ae1f7e48febd3ae9f90e6e9e8910c` |
+
+Each of those three positive source arms individually completed flag/castle/
+entrance and25 consecutive living grounded1-2 updates at X40/Y176. All retained
+life2/power0/Star0. Burns observed2807 actual movements (76 in1-2), Smith2938
+(77) and Beans2795 (76); each had13 source impact calls without a separate
+13-kill claim. Their final completed-source snapshots were contact1/input0/
+age0/native state0. No helper was needed in these source routes.
+
+Iron-v3 genuinely landed on the **far** ledge at Main2617/X2229/Y112. The generic
+landing phase then steered backward toward the near peak2192, walked into the
+gap and stalled at2207/Y176. Receipt
+`760e7716a1679e68d1f5cf4967526af1a044a4e9029dbec3be6d016f975b995c`,
+Main2894, retains life2/power0/Star0. Its ground snapshot was valid; the route
+misclassified which ledge had been reached. This is separate from v2's
+airborne-to-landing error, and does not establish an ability deficit.
+
+The explicit `replay_contra_force_iron_full11_1114.controller(raw421,'iron')`
+successor retains grounded-v3 and adds only: after genuine ground at Y<=112,
+X>=far-15 overlaps the far ledge with the original body box's right extent15,
+so continue Right instead of backing toward the near peak. The measured
+2229/Y112 counterexample is a passing policy component fixture. Factory
+SHA256 `67e90e1ea8cf217e47b759fc4f8ddc8cf3fae92ad744daf69a0e14321b31b296`;
+Lua `41b214df5fd7a8ffd5b8f5fba048b3cb10280ecf5fb6136fddfa7ca67f225b82`;
+checker `6f3bfb7978c3c2191ac2de0e3567e5e38ac068785493b975d409e8b453d0b15d`.
+Its strict metadata/components pass and full source is active. Other three
+grounded-v3 controllers stay unchanged. The earlier Beans-only grounded
+predicate experiment (`replay_contra_force_beans_full11_1114`, Lua`ef3bff39831d008c967b0da0dd946e869798df743b1c4849be4e281a96b29b21`)
+is retained as a source-only intermediate, not the current native route.
+
+## Separate bare idle/walk clock
+
+`replay_contra_force_clock_1114.controller(raw421,key='burns')` is independent
+of stage navigation. It uses genuine compiled UI and complete CF cookie guards,
+then requests idle120/Right32/Left32 **physical** frames. Each phase waits for a
+full Main and original CF movement return before closing, and reports its
+actual physical duration. It records physical frames, input polls, full Main
+entries/returns and original movement entries/returns separately. At each
+movement entry it captures the real stack return PC/SP and current return
+mapping; only an execution at that exact PC/SP/mapping acknowledges completion.
+
+Measurement never presses B/A and requires all six native actor flags and all
+twelve source shot-slot flags naturally zero throughout. It erases or seeds
+nothing. Factory SHA256:
+`9637e055765d51948aded6f0bad44882138949393e977679baae587552911c63`;
+checker `aef5023f63943cce2a7c6f8d93860129b44c4fe2776e23aad6a6b46818e6f670`.
+
+| Choice | Frozen bare-clock Lua SHA256 | Scope so far |
+| --- | --- | --- |
+| Burns | `3cd35204a49659efb1a6343e57e782a5427d358b55127718ee8cd78f396e728a` | Strict metadata and source controller PASS |
+| Smith | `e392d01822b80722683c3645534d9d27699eac41c21ff83383e37e1c5eb2a793` | Strict metadata only |
+| Iron | `64a00b964c81830759eeb79988d5913c19864742a6e0173724fd19743bbcaad0` | Strict metadata only |
+| Beans | `bd8ef108637197e4caf8a230015c8b16101c16882c7a1158f16a680523ddc20f` | Strict metadata only |
+
+Burns source receipt
+`88b5b3dafc83febb2744db488b63db778e39f4ef2b1a503a31732a9661380cd1`
+passed with186 model frames/polls/full Main returns,185/185 original worker
+entries/returns including one warm return. Its actual caller was C2:CA2B,
+physical Work RAM offset18987, return SP212. The measured phase deltas were
+120/32/32 model frames and120/32/32 full Main and worker returns. X went
+40→40→79→40 at Y176; life2/power0/Star0 remained. All186 actor/shot and complete
+cookie checks passed. These CPU-model counts establish no native60Hz or
+optimization claim; root owns the physical measurement.
+
+Source
 execution uses the compiled cold-menu/Select/Start/parser/constructor arena and
 normal controller/Main/NMI scheduling; it does not establish physical video/APU
 timing or cold-title authority. Root owns those actual native checks.
