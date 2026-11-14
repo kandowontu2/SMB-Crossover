@@ -55,6 +55,19 @@ Main updates retain the item effect and source stats. Endpoint1666/176, alive.
 State128 is an observed value, not an added admission rule. Earlier travel
 damage means this is not a damage-free route.
 
-Remaining seven source variants and all native Star runs are pending. The
+## Mario native PASS, root queue55653
+
+Root reports a terminal Mesen PASS on exact421379 and frozen Mario Lua452bbe8e:
+receipt SHA256
+`0db25417dcb342f1ce59143f6f6af2a7981d3781899782581f9761cb48f3113e`,
+1894 physical frames/1335 returnedMain. Actual head1218/physical1729 is at
+1609/Y150, kind2 birth1219. Native collector1304/physical1860 sees player
+1628/Y148 and item1636/Y139/state128/kind2/flag1/id46, erases it and publishes
+popup6/sound queue32/nativeStar35/music64. Source import1306/physical1862 is
+observed at1630/Y145. Thirty resumed updates finish at1666/Y176, HP15/max0/
+reserve0/lives2. Earlier damage remains explicit. This is native controller
+evidence supplied by root, with no gameplay-state seeds or capture files.
+
+Remaining seven source variants and seven native Star runs are pending. The
 exact bounded root is `build/smb2-hidden-head-source-1114`, max-files1; tests
 produce no files. No ROM, patch, capture, backup or release was created.
