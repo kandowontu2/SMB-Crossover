@@ -111,6 +111,9 @@ def main():
         active_crossing_passed=rows[1]['passed'],ordinary_inputs_only=True,
         actual_emitted_Lua_fragment=True,source_or_native_state_writes=False,
         outputs_written=0,physical_cadence_claim=False),separators=(',',':')),flush=True)
+    assert rows[1]['predicate_event_count']>0,'Executed active predicate was not reached'
+    assert all(not q[3]for q in rows[1]['predicate_events']),'Active early fallback was not suppressed'
+    assert rows[1]['passed'],'Active emitted policy did not reach a settled actual upper floor'
 
 
 if __name__=='__main__':main()

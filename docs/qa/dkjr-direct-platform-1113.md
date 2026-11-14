@@ -251,8 +251,15 @@ suffix updates. This proves the changed predicate is executed and preserves
 the crossing in this genuine state. It does not reproduce the longer native
 clamp wait or prove that active782 fixes it. The preparation is22 real Right
 updates plus4 neutral updates after Main7499; no camera or position is seeded.
-The active unbroken full source replay is now running; native qualification
-remains pending. No inactive bfa or active782 native success is claimed.
+The active unbroken full source replay9391 now exits0/PASS8926. Exact active
+Lua782 above reaches third A atMain7521/2944/112 and settled third landing at
+7530/2948/96, traverses all six pipes/three gaps/final steps/native flag and
+castle, and ends at active falling1-2 X40/Y48/high1/source4/engine8/both lives.
+Receipt `a342bc5e3c6f699ace2994a92389c0a696276a71282e9e23fe31c8e2e832bc13`
+matches6c's CPU trajectory. The endpoint is not25 grounded updates, and the
+CPU result does not reproduce the longer hardware clamp wait. Native
+qualification remains pending; no inactive bfa or active782 native success,
+installed DK change or new helper placement is claimed.
 
 `active_trace_controller(raw769)` derives the frozen991 bounded causal
 observer, changes the same one executed fallback condition, and compiles as
