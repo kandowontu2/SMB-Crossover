@@ -256,3 +256,29 @@ binding is supplied; no game byte beyond the six-operand proposal or
 peripheral status/timing is changed. This closes the measured A176/9139
 source replay failure while retaining the driver's documented timing
 limits. It does not replace root's native sample/return qualification.
+
+## Repaired native return proof and independent source closure
+
+Root's private repaired scene replay now passes, Luaff9bc7b3, receipt
+`ee83d3ff715123320be9bda561dcae4984158d931eb8c46029d128dbc0686ada`.
+All350 resident entries match350 tails/gateways/SMCs,350 canonical targets,
+350 FRC returns and350 original resident returns. Matched stale targets
+are zero. The first three actual active120 sample contexts still contain
+247/197/143 bytes but correctly route B438/rawC2 and return to bank1 A176,
+bankA129/SP237. The old141 wrong routes are removed. Full route completes
+in4521 physical frames/3768 Main, lives2, with25 grounded1-2 updates.
+All15 detailed native snapshots fit; only ancillary audio changes exceed
+the64-record budget. The350 chain counters are uncapped.
+
+The independent source checker/QA checkpoint `ab1a5163` also closes64 real
+A173/A176 caller pairs over all8 actual constructors,256 actual Main/NMI
+pairs and312 IRQ/busy-NMI cuts. All six changed operand PCs/two aliases
+are covered, with156 paired music advances, minSP182 and16 valid pending
+A-map commits. Genuine119 is earned through the original B-lift; genuine
+120 through original injury. Canonical125/127 instruction oracles retain
+the actual sample mapping; no live RAM/audio/SMC/SP masks or repairs are
+used. See `docs/qa/smb2-postbg-irq-1113.md` for that independent scope.
+Root also reports all eight repaired native full-stage profiles passing;
+their individual receipts and local delivery verification are root-owned.
+This source report does not assert an installed replacement before those
+Downloads checks occur.
