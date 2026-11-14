@@ -1,0 +1,39 @@
+{
+  "status": "granted-source-research-and-fit-only",
+  "owner": "root",
+  "component": "Prince current WorldMaterial",
+  "parent_SHA256": "421379021e775e6e03357c0aa11d4cab04008452f94bc9e8938f0662cc0c979f",
+  "conditional_owner": 38,
+  "decoded_stream": 0,
+  "mapped_work_RAM_bank": 3,
+  "CPU_half_open": [48610, 49059],
+  "decoded_half_open": [7650, 8099],
+  "bytes": 449,
+  "preimage_SHA256": "c4377287449f719ccbc64a2721c9b6039c784566173114080881deced7ef088d",
+  "reconstruction_source": "tools/reference/prince_host_world_1102_v8.s",
+  "reconstruction_source_SHA256": "b696f076030f1be21ad85152fe3c86ecfc6d0c204cc65523ab73afcb301614e6",
+  "inspection_tool": "tools/audit/prince_worldmaterial_fit_1114.py",
+  "inspection_tool_SHA256": "da328cf24b42ddd5d08c6acd4b50403d82e7f2d3a88c0cf77cf3bd21ef05f248",
+  "root_independent_inspection": {
+    "bounded_run": "prince-worldmaterial-root-inspect-1114",
+    "exact_449_byte_rebuild": true,
+    "real_external_literal_entries_only": [48610, 48613],
+    "nine_internal_word_candidates_classified_as_opcode_overlaps": true,
+    "incoming_external_relative_branches": 0,
+    "renderer_RTS_at_BDA1_and_data_BDA2_to_BDE2_preserved": true,
+    "cold_boundary_BFA3_JMP_C65F_preserved": true,
+    "scripts_B400_to_BAE5_SHA256": "f51db5390a1313907148089480d5875b99409b2a64a72fe9b059c0d4f0dd03a0",
+    "all_15_current_indirect_command_targets_outside_span": true,
+    "outputs": 0
+  },
+  "constraints": [
+    "Preserve public entries BDE2 and BDE5 and their complete current caller ABI; preserve every byte outside the 449-byte decoded envelope.",
+    "No new RAM, CHR pages, resident-ROM bytes, borrowed native scratch or unallocated 7000 code arena is granted.",
+    "Existing declared WorldMaterial runtime scratch and outputs retain their current ownership and caller contract; the outside-envelope restriction concerns immutable decoded bytes, not legitimate runtime result writes.",
+    "Normal-body wall refinement must preserve genuine donor foot queries, original above-row/ledge queries, hanging and climbing contexts, own-feet floors and pits, and valid raised support beneath the body.",
+    "The rejected 63-byte, 69-byte and ungated 93-byte filters are not approved implementations.",
+    "Use in-memory assembly, primitive fixtures and explicit semantic references only until a bounded assembled fit and reviewable primitive proof exist. Ordinary gameplay overlays require a subsequent root review.",
+    "No ROM reconstruction, candidate files, Mesen launch, Downloads write, backup, release or patch asset is authorized by this research lease.",
+    "Any later serialization must authenticate the source packet, preserve all other decoded streams and art, retain the delivered common CHR reset, and receive separate source/cold/IRQ/native qualification."
+  ]
+}
