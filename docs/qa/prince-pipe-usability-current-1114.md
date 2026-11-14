@@ -99,6 +99,32 @@ it must use current sourceActorX before export rather than a stale nativeX.
 No production funding, mounted change, caller/IRQ closure, natural-powered
 stance comparison or repaired native traversal is claimed yet.
 
+The63B wall-only primitive proposal is rejected: removing a far-half wall
+while leaving coarse floor selection unchanged promotes Surface208→160 from
+that distant pipe. The69B coupled wall/floor/top prototype avoids that case
+and passes7168 actual reader pairs (1728 intended carry rejections), including
+both entries, flag25/actions1/4, page positions, C/V input combinations and
+exact above-row architectural flags. The modeled PHP/PLP B bit is not an
+architectural flag; the enclosing WorldTile restores callerP. The69B code is
+`981add10149828f013ce3a97e1d44540f64c374955e7eeac4d31c885f53a6286`.
+
+That69B proposal is **also semantically unqualified**:256 explicit own-feet
+flat-floor/pit vectors catch seven left-facing/non-alternate offsetsX240..246,
+raw query217..223, where clipping both logical columns to the16px body yields
+empty0 on uninterrupted floor. Real walking contexts must establish the
+reachable facing/animation rules. No arena was mounted in ordinary gameplay.
+The source file and checker are retained as a rejected primitive proposal,
+not a ROM recipe or an allocated fix. Source7000 is only the isolated
+primitive arena; it has active host/menu ownership in the real game.
+
+Current RAM3 has no contiguous69B gap. Runtime occupiesA000..BFDF, with only
+BFDF before the cookie atBFE0. Source-proven retired/padded spans are fragmented:
+A487..A490 nineEA, A51E..A527 nineEA, A4A9..A4AF sixFF, A8A7..A8AA threeEA,
+B11D..B11F twozero,29B total pending ingress/reference exclusion. B3E9..B3EF
+sixzero andBCFE..BD06 eightzero are data/unknown ownership, not offered as
+free space. A970..A979 andA4C1..A4CD contain active cache repairs; BFA3..BFDF
+contains active reset/constructor code. None is a grant for a new helper.
+
 The72 explicitly seeded primitive WorldTile vectors cover both faces, both
 16px tile halves and page-boundary placements240/256/448/464.18 return wall20
 without the native body's actual overlap. This isolates translation behavior;
