@@ -18,7 +18,8 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
 
 | Added identities — each named choice is in scope | Best native1-1 evidence | Genuine remaining natural-item/native gate |
 |---|---|---|
-| SMB1 Toad; SMB1 Peach; Kamikaze Mario | **U**; ready64/74 movement/menu regressions are not full stages | Individually earn/use M/F/S/L; do not infer a skin's whole route from Mario |
+| SMB1 Toad | **U**; strict421 full source route294b passes; root native pending | Individually earn/use M/F/S/L; source is not a native stage pass |
+| SMB1 Peach; Kamikaze Mario | **C**, actual Downloads421 native55152, full flag/castle/entrance and25 living grounded1-2; independent7057/254b controllers | Individually earn/use M/F/S/L; stage receipts retain power0/Star0 and do not close natural-item gates |
 | SuperMaaa Mario | **H**, Oct29 Easy clear and earned M | F/S/L; Hard is separate, not a failed Easy clear |
 | Celeste Mario | **H**, a7ccbaaa Easy natural clear,3900 frames, both upgrades/earned dash | Natural S/L and remaining original abilities; old small-CHR/route negatives superseded |
 | Mario the Tank | **U**; cold/walking/powered-graphics fixture qualified | First full route plus natural upgrades/S/L; status fixture is not acquisition |
