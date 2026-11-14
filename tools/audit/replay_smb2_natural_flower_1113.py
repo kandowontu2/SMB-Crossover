@@ -34,6 +34,16 @@ THROW_SHA={
     6:'3e0b555eb58728a82cd8a96b998dc5aedb8f2e65c4142f85dc0693b8063b0213',
     7:'c80525a4570a0c57f9d2f9f199bbb55ecf39edb7c024de46bf68b579ec1f10ab',
 }
+HIT_SHA={
+    0:'7359a05bc3114c41010296627240d0841358a966a5bac68de42e05a0fb39726a',
+    1:'25876acd097d575184e903c8cfbcd517adbf48a88b6cf003bde890a965660ecc',
+    2:'6c3ae2dfbc6af19651041350008fb4b59615b3dcf76d793736c358764691e8d1',
+    3:'4358dd944467f822f9bbb6b992e76e5cd1d6a91d7b5308a77dcb6e1397a35326',
+    4:'ad0d1557b0881a619a14504346c42f9048fb713638a9ec4cde8f077abf977568',
+    5:'c730b90f98fa502331032d677fd5c61c42495d01506c185c5868d44e2258f24b',
+    6:'f26f0f18a0d4c9c39a603fa87f4df0b875b28118ff3851b7a776a4be6cab4696',
+    7:'9b3a8985712844d4dc40d2e68ae9df325a1a18d22ba7281262fed34e3a141357',
+}
 
 OBSERVERS=r'''
 emu.addMemoryCallback(guard(function()
@@ -191,6 +201,12 @@ def controller(raw,variant=4,scope='collect'):
         callbacks=Parent.Root.once(callbacks,before,after)
     driver=DRIVE
     if scope=='hit':
+        if variant in(1,3,5,7):
+            driver=Parent.Root.once(driver,'  traversalDrive();pad=pad&191',r'''
+  if not natural.luigi_landing and s.x>=616 and s.x<736 then
+   pad=settle(642)
+   if own.S2Air==0 and s.y>=176 and own.S2VX==0 and math.abs(s.x-642)<=1 then natural.luigi_landing={s=s,source=own}end
+  else traversalDrive();pad=pad&191 end''')
         driver=Parent.Root.once(driver,"natural.target={item=a,s=s,source=own};newPhase('vegetable-throw');pad=64;break",
             "natural.target={item=a,s=s,source=own};newPhase('vegetable-aim');pad=2;break")
         driver=Parent.Root.once(driver," elseif natural.phase=='vegetable-throw'then",r'''
@@ -202,6 +218,17 @@ def controller(raw,variant=4,scope='collect'):
   pad=1
   if own.S2Held&1~=0 and own.S2VX<8 then newPhase('vegetable-throw');pad=64 end
  elseif natural.phase=='vegetable-throw'then''')
+        if variant in(1,3,5,7):
+            driver=Parent.Root.once(driver,"  if vx==0 then natural.aim={s=s,source=own};newPhase('vegetable-face');pad=1 end",r'''
+  if vx==0 then
+   natural.aim=natural.aim or{s=s,source=own}
+   for slot=0,5 do local a=actor(slot);local gap=a.x-s.x;local blocked=false
+    if a.flag==1 and a.id==6 and a.state<32 and gap>=24 and gap<=40 and math.abs(a.y-s.y)<=16 then
+     for xx=s.x+14,a.x,8 do if solid(xx,s.y+16)or solid(xx,s.y+28)then blocked=true;break end end
+     if not blocked then natural.aim_target={item=a,s=s,source=own};newPhase('vegetable-face');pad=1;break end
+    end
+   end
+  end''')
     if scope!='collect':driver=Parent.Root.once(driver,'local function drive()',OBSERVERS+'\nlocal function drive()')
     text=Parent.Root.once(text,old,callbacks+driver)
     names=('S2Charge','S2HeldIndex','S2X','S2Y','S2Page','S2ObjectState','S2ObjectType',
@@ -224,6 +251,7 @@ def controller(raw,variant=4,scope='collect'):
     assert not any(word in text for word in('emu.write','emu.setState','io.open','loadState','saveState','takeScreenshot'))
     if scope=='collect':assert sha256(text.encode()).hexdigest()==COLLECT_SHA[variant]
     if scope=='throw':assert sha256(text.encode()).hexdigest()==THROW_SHA[variant]
+    if scope=='hit'and variant in HIT_SHA:assert sha256(text.encode()).hexdigest()==HIT_SHA[variant]
     return text
 
 
@@ -283,13 +311,14 @@ def compact(q):
         opening=natural.get('opening'),heads=natural.get('heads'),prepares=natural.get('prepares'),birth=natural.get('birth'),
         original_charge_launch=natural.get('launch'),pickups=natural.get('pickups'),
         pull_entry=natural.get('pull_entry'),lift=natural.get('lift'),carried=natural.get('carried'),
-        target=natural.get('target'),aim=natural.get('aim'),thrown=natural.get('thrown'),object_hit=natural.get('object_hit'),hit=natural.get('hit'),
+        target=natural.get('target'),aim=natural.get('aim'),aim_target=natural.get('aim_target'),
+        landing=natural.get('luigi_landing'),thrown=natural.get('thrown'),object_hit=natural.get('object_hit'),hit=natural.get('hit'),
         recent=natural.get('recent')if not q['passed']else None,
         natural_scene_unmodified=q['natural_scene_unmodified'],physical_native_claim=False)
     if q['passed']:
         def position(row):
             return {k:row[k]for k in('x','y','updates')if k in row}
-        for key in('opening','original_charge_launch','pull_entry','lift','carried','target','aim','thrown','object_hit','hit'):
+        for key in('opening','original_charge_launch','pull_entry','lift','carried','target','aim','aim_target','landing','thrown','object_hit','hit'):
             row=result.get(key)
             if row and's'in row:row=dict(row,s=position(row['s']));result[key]=row
             if row:
@@ -305,6 +334,7 @@ def compact(q):
 
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--variant',choices=tuple(map(str,range(8)))+('all',),default='4')
+    p.add_argument('--variant-list',help='Explicit comma-separated source cases; reports every requested case before failing.')
     p.add_argument('--scope',choices=SCOPES,default='collect');p.add_argument('--cpu',action='store_true')
     p.add_argument('--semantics',action='store_true')
     p.add_argument('--limit',type=int,default=2600);args=p.parse_args()
@@ -312,8 +342,12 @@ if __name__=='__main__':
     if args.semantics:
         print(json.dumps(semantics(raw),separators=(',',':')),flush=True)
         raise SystemExit(0)
-    for variant in(range(8)if args.variant=='all'else(int(args.variant),)):
+    variants=tuple(map(int,args.variant_list.split(',')))if args.variant_list else tuple(range(8))if args.variant=='all'else(int(args.variant),)
+    assert variants and len(set(variants))==len(variants)and all(0<=v<8 for v in variants)
+    failed=[]
+    for variant in variants:
         q=compact(source_run(raw,variant,args.scope,args.limit))if args.cpu else dict(ROM_SHA256=PIN,variant=variant,scope=args.scope,
             controller_SHA256=sha256(controller(raw,variant,args.scope).encode()).hexdigest(),outputs=0,Mesen_run=False)
         print(json.dumps(q,separators=(',',':')),flush=True)
-        if args.cpu:assert q['passed'],'Natural Flower controller must satisfy its actual collector scope'
+        if args.cpu and not q['passed']:failed.append(variant)
+    assert not failed,('Natural Flower controller cases did not meet their actual scope',failed)

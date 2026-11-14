@@ -9,7 +9,7 @@ Root owns all native runs and installation; this task creates no output files.
 
 All eight variants naturally collected the mature healthy first Flower from the
 authored question at336. Each actual C1 head writer prepares/births kind1, the
-flower reaches mature state128 at336/119, and physical native collection erases
+flower reaches mature state128 at336/119, and the actual native overlap/collector erases
 it, writes SFX32/popup6, grants reserve0→3 and resumes60 updates. Health remains31,
 max-health0, large source size0 and both lives. This confirms the documented
 healthy-Flower adaptation; the frozen eight injured-Mushroom routes remain
@@ -92,9 +92,28 @@ Returned Main is again one fewer than the logical iteration count below.
 | Papa6 |603|`3e0b555eb58728a82cd8a96b998dc5aedb8f2e65c4142f85dc0693b8063b0213`|
 | Mama7 |668|`c80525a4570a0c57f9d2f9f199bbb55ecf39edb7c024de46bf68b579ec1f10ab`|
 
-Further per-variant hit probes remain pending at this checkpoint.
-`scope='throw'` and `'hit'` are separate text variants; they do not alter the
-frozen collection factory. No native Flower/vegetable proof is claimed here.
+All eight `scope='hit'` routes then passed unbroken from the genuine menu through
+earned collection/pull/carry, ordinary first-two-pipe traversal, standing freshB
+throw, actual source projectile/native bounding-box admission and native Goomba
+defeat state0→34. Each retains HP31/max0/reserve2/both lives and30 normal resumed
+updates. Longer jumpers countersteer before the third pipe, then wait for a
+nearby target in a clear native-tile corridor; movement constants are untouched.
+
+| Variant | Logical iterations / returned Main | Hero at throw | Native defeated Goomba X | Hit Lua SHA256 |
+|---|---:|---|---:|---|
+| Mario0 |869/868|695/176|712|`7359a05bc3114c41010296627240d0841358a966a5bac68de42e05a0fb39726a`|
+| Luigi1 |1140/1139|637/176|672|`25876acd097d575184e903c8cfbcd517adbf48a88b6cf003bde890a965660ecc`|
+| Toad2 |850/849|693/176|713|`6c3ae2dfbc6af19651041350008fb4b59615b3dcf76d793736c358764691e8d1`|
+| Peach3 |984/983|645/176|680|`4358dd944467f822f9bbb6b992e76e5cd1d6a91d7b5308a77dcb6e1397a35326`|
+| Imajin4 |869/868|695/176|712|`ad0d1557b0881a619a14504346c42f9048fb713638a9ec4cde8f077abf977568`|
+| Lina5 |984/983|645/176|680|`c730b90f98fa502331032d677fd5c61c42495d01506c185c5868d44e2258f24b`|
+| Papa6 |850/849|693/176|713|`f26f0f18a0d4c9c39a603fa87f4df0b875b28118ff3851b7a776a4be6cab4696`|
+| Mama7 |996/995|646/176|681|`9b3a8985712844d4dc40d2e68ae9df325a1a18d22ba7281262fed34e3a141357`|
+
+`scope='throw'` and `'hit'` are separately pinned text variants. Their qualified
+hashes are asserted, and they do not alter the frozen collection factory. These
+are source/controller qualifications only; no physical Mesen Flower/vegetable
+proof is claimed here. Root can run any of the three exact factories next.
 
 ## Development negatives and limits
 
@@ -105,6 +124,12 @@ throw used the original upward VY and passed above the Goomba, eventually taking
 damage; the later ordinary brake/standing throw uses original downward VY24 and
 hits. Neither negative establishes a game-code defect or authorizes physics
 changes. All health, maturity and defeat assertions remain strict.
+The first longer-jumper hit suffixes selected a Goomba across the third pipe at
+736 and reached the finite flight bound while healthy. A first earlier-landing
+Luigi attempt threw at excessive range and later took damage. The qualified
+suffix instead brakes through ordinary input, waits for24..40px gap and verifies
+the intervening native corridor before throwing. These remain controller
+negatives, retained by the source checkpoint history; they establish no ROM bug.
 
 Only this new factory and this QA file are owned. Prior Mushroom/full-stage,
 root continuation/inventory and user progress files remain untouched. No custom
