@@ -1,5 +1,11 @@
 # Classic DK functional 1-1 source investigation
 
+Latest source outcome: exactf11/full controllerf875 passes full nonshortcut
+1-1 and25 living grounded1-2 updates, with both lives and tier0. Root's native
+Mesen verification remains pending. No ROM code, physics, helper placement,
+health or power grant changes are needed for this source clear. Earlier
+controller negatives below retain their scope.
+
 The initial proofs used delivered exactcf7
 `cf7b6d2964ae0ef18d08c726f66afe9bf5be3dc6f3ec9c7a43279121ee09d968`.
 Current input is now exactf11, using the separately typed boundary below.
@@ -203,7 +209,32 @@ screen body is `[63,128,105,160]`, camera2141, preserving its42px width.
 This establishes a controller lookahead miss. The separate near/far successor
 retains f02 and adds30/38/46 samples alongside48 only after2100, while keeping
 native A, the true earlier floor/head guards and the25-grounded endpoint.
-Full source22082 is pending; no helper or game-code fix is proposed.
+Full source22082 is terminal PASS; no helper or game-code fix is proposed.
+
+## Full current source clear and native handoff
+
+`replay_dk_full11_near_current_1114.controller(raw, 'donkey_kong')` accepts
+only owning exactf11 through the explicit typed inverse chain. Lua SHA256:
+`f875e53023f1cdbbd75b55b6a823256d80afd2983bfe2eaa8c8f02968ae6016f`.
+Full source receipt:
+`6ae546553669415c3acf9c6a356e6bc0a3a915cb3e16b76bae7bcd654bed7aff`.
+
+Session22082 completes3142 source Main entries and matching returns in68.23
+seconds, with2005 actual DkMovement calls (58 in1-2). Actual native flag entry
+is Main1946/x3161, castle Main2008, entrance Main2566. The endpoint has25
+actual returned living grounded1-2 movement updates at world40/Y176/high1,
+state0/engine8, lives2, power/tier0 and Star0. No injury or death callback is
+observed. These are CPU-source scheduler figures, not physical frame-rate or
+native Mesen evidence.
+
+The final controller retains the original full-route acceptance assertions,
+actual compiled menu/owner checks, completed-DK-movement input snapshots,
+and all true far-floor/coin-brick head guards. The changes are ordinary inputs:
+supported early jump past the low ceiling, A release during native descent,
+and a terrain scan that includes the real body front. The same native game
+code and all delivered BT52/Gimmick192/classic3/common29/prior176 bytes remain
+exactf11. Root owns the sole native queue and has the API/hash for testing the
+already delivered ROM; this lane creates no candidate ROM or install.
 
 No full1-1 clear, native playtest, new helper, game change or delivery is
 claimed. Source jobs use absent `build/dk-full11-current-1114`, max-files1,
