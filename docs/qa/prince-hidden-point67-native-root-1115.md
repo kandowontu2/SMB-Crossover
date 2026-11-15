@@ -44,9 +44,21 @@ The real Star collector/erase/cue/credit and25 subsequent returned Prince
 updates pass at the authenticated Main return. Terminal1696/176,HP4/lives2,
 native tier2/Sword1/Star33. Both runtime readbacks pass. No files or captures.
 
-Both private source-qualified controllers now pass. Direct delivery and actual
-Downloads repeats are pending. Natural 1-UP acquisition and broader abilities/audio/performance
-remain open. This is not a claim of constant 60 Hz or a full-roster review.
+## Delivered and verified in Downloads
+
+Source pushed as `d56d2df1` before installer84671 directly replaced the single
+Downloads nightly. Installed bytes equal the exact tested candidate. CLI
+sidecar guards before and after installation and after both replays all pass
+with no matching patches. No backup or release asset was created.
+
+Root97939 is terminal PASS for both exact controllers launched from Downloads.
+Full and Star receipt hashes, counts, runtime readbacks and endpoints match
+their private runs exactly. The other project's emulator processes were left
+untouched. The native slot still contains only candidate.nes and controller.lua;
+all four native runs created zero output files and zero images.
+
+Natural 1-UP acquisition and broader abilities/audio/performance remain open.
+This is not a claim of constant 60 Hz or a full-roster review.
 
 Workspace inventory: 6178831069 bytes,57852 files,0 links; build outputs remain
 under the bounded runner. The shared native slot retains exactly two files.
