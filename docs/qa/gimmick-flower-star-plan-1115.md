@@ -93,3 +93,20 @@ Downloads subsequently becomes exact590 through root's Prince graphics-only
 delivery. The successful ae66 source receipt is retained version-scoped.
 A new strict590→Prince.inverse→ae66 config adapter and actual590 source
 qualification are required before using the new Downloads context.
+
+The NEW590 wrapper/source check40606 is TERMINAL PASS on actual current
+590e0ae60414d98d4b0a4d74874af58b93c6e720e8156220e0648966128b5f1f,
+receiptb9baa3af470197f85b3b315cc1ade7cb111a7560eb882f01c0a788b82c99e7c5.
+Use replay_gimmick_flower_board_prince_current_1115.controller(raw590,'mr_gimmick'),
+Lua061b6d454717b97643f894b3cc22c79d402c7e27c58008ad0e3901beeeb3325c.
+Factory4d275416f5eca9162260747b6314cb48333745bac7aa8e1680b942916488eef2;
+checkerfb72134a3451d2fe1d78f5df6635b337f3ff12ffada5a0535c99589350336564.
+It strictly inverts Prince590 to exactae66, rebinds ROM/hook-bank SHA fields
+after exact hook-byte checks, and asserts the complete frozen f358 control/
+observer body is unchanged. It then executes actual590 in the original CPU
+arena. Both1879 Main/1878 Gm movement counts and every pickup/support witness
+match the ae66 source run above;112.07seconds. The checker additionally
+asserts ordered new launch→reflection→support→fresh jump→physical collector
+and support_count greater than its launch baseline. All source output roots
+are absent/zero files; no native Flower proof is claimed before root's queue.
+Defaults30ba/0a665 source and59505 checker remain byte-identical.
