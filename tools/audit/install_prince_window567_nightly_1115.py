@@ -38,7 +38,7 @@ def install():
         script=OUT/'controller.lua';script.write_bytes(text.encode())
         q=run(script,ROM,OUT/'capture',C.CANDIDATE,240)
         assert q['passed']and q['script_SHA256']==grant['Lua_SHA256']and q['receipt_SHA256']==grant['receipt_SHA256']
-        assert[q['SHA256']for q in q['images']]==grant['PNG_SHA256']and q['outputs_written']==0
+        assert[im['SHA256']for im in q['images']]==grant['PNG_SHA256']and q['outputs_written']==0
         r=q['receipt'];first=r['first_publish_readback'];pickup=r['accepted_pickup']
         assert first['both16byte_cookies']and sorted(v['bytes']for v in first['static_graphics_extents'])==[2,3,3174]
         assert pickup['accepted']and pickup['carry']==1 and pickup['erased']and pickup['floatey_control']==6
