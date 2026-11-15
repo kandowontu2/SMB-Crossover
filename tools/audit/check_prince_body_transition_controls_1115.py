@@ -28,7 +28,9 @@ def run(parent,*,scope='four-caps',source=False):
                 value=loads(*args,**kwargs)
                 if isinstance(value,dict)and'later_route'in value:receipts.append(value)
                 return value
-            with patch.object(Candidate.Game,'controller',lambda image:text),patch.object(Candidate.Game.json,'loads',capture):
+            complete=Candidate.Frames.frame
+            def frame(model,*args,**kwargs):return complete(model,whole_pass=True)
+            with patch.object(Candidate.Game,'controller',lambda image:text),patch.object(Candidate.Game.json,'loads',capture),patch.object(Candidate.Game.Frames,'frame',frame):
                 proof=Candidate.Game.route(m,raw,2400 if scope=='four-caps'else 5100)
             assert len(receipts)==1;receipt=receipts[0];proof.pop('events',None);proof.pop('sword_trace',None)
             q.update(passed=bool(proof['passed']),opening=opening,proof=proof,
@@ -37,6 +39,7 @@ def run(parent,*,scope='four-caps',source=False):
                 first_fourth_cap=receipt.get('later_route',{}).get('fourth_practical_cap'),
                 exact_native_receipt_SHA256=sha256(json.dumps(receipt,sort_keys=True,separators=(',',':')).encode()).hexdigest(),
                 actual_CPU_ROM_SHA256=C.digest(m.bundle['raw']),no_source_array_mounts=True,
+                source_frames_return_complete_Main=True,
                 source_binding_limit='Actual16a CPU; source peripheral does not establish native physical cadence; first boot consumer transport is a separate proof')
             if proof['passed']:
                 assert receipt['new_candidate_readback']['bytes']==4027

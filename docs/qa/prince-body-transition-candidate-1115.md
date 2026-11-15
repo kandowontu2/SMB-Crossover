@@ -92,3 +92,91 @@ Original F090 equal-facing drawn-sword disappearance remains open. Fresh
 no-target Sword1 control compatibility does not close that state. Neither
 these source units nor historical e418 four-cap native proof53782 establishes
 a current16a native or full1-1 clear, or constant60Hz behavior.
+
+## Actual16a source closures
+
+Four-cap source37852 passes unchanged Lua5fa2ac0c, receipt
+`2f3826220f7328633ac708665106b53d7d95b695e1c96e06a69f68fbbf746da1`;
+underlying controller receipt
+`f94e431495534405c30f818338557c1bd4b75104f6ff60d8aedd5b49e17e7e55`.
+Actual1909 source commits reach fourth cap899/112/HP4/lives2/action10.
+The single earlier hard landing reduces HP5→4. First observed BBC1/SP203
+reads both full cookies and all4027 static bytes. No source arrays mount.
+
+Actual16a paired interrupt source78787 passes, receipt
+`782c84c6a6ae26bd5d0dc71e0a28651c1749e6bcda40e2af6dbce7cbe304ae21`;
+paired assertion receipt
+`58e504d01f0af104e8eede699d8f47b0262f5a0595a6222b5f9b26578dc84ac4`.
+There are189 genuine contexts,96 foreground PCs,189 IRQs and189 busy NMIs,
+minimum ISR SP179. Entries8000/E33C and instruction-path hash
+`993b4931d6099b827905f49e7102e0d45acde7a3725f8f1d8d9098a0dd658660`
+match the earlier590-array-model result. Only original219 is restored on
+the comparison clone; all native RAM/audio/used-stack effects match exactly.
+No219 ISR read/execution, private game write or audio mask is admitted.
+Actual checkpoint Main4679 is1882/176/HP4/lives2/sword2/request0/guard1
+UID128. This executes newly decoded16a, not mounted source arrays.
+
+The first direct opposed-loss source23439 stops after two Main entries with
+`Previous complete Main returned`, receipt
+`1f09edf47dfbcbf3080025ee38f8958483eaf884ac5e0e0b9a0b93674635bb8c`.
+Its default source frame driver stops at IdleLoop+12/SP252 before stepping
+the return-PC execute callback. Main has returned, but the Lua observer
+misses that hook. The successor source binding runs the complete outer
+pass through IdleLoop/SP253. This fixes the source observer fixture only;
+both frozen Lua texts remain byte-identical.
+
+Corrected source38420 passes unchanged ae355c, receipt
+`c2ec91e25683b5f94137f021159cdea2fd3473cc65499999d0baa68c6ab20194`;
+underlying controller receipt
+`7dbd8e166c178486cb2e2b84ab027325ec6c28c95ce7f492be1ecee0e2facb42`.
+It reaches the same fourth cap at1909 and genuinely earns Flower/sword1 at
+2833. At4506 the opposed-facing player has sword2/guard1/UID129 at1729/143.
+At4507 the real loss requests1 and original sheathing reaches sword1.
+Movement resumes to1737/176 at4541. Main4679 admits real UID128 at1882/176,
+clears request0 and draws sword2, with HP4/lives2. The declared endpoint
+finishes at its authenticated Main return. This is four caps plus the
+specified opposed loss/sheath/movement/re-admission, not a full-stage clear.
+
+## Current retirement binding and lifecycle
+
+Initial lifecycle15527 reached its final retirement component only after
+same-area, death/respawn and two exact foreign cold pairs, then failed using
+the historical internal address193:AE0B. Paired diagnostic41420, receipt
+`29e94f6b16cf3a6c6e3423d1c56b7aad5fb00beb0b9404b2ea76dbe39e4094d7`,
+shows identical parent590/candidate16a failure:673 instructions, return into
+PRG73:D702 data and BRK atD733/SP212. Live RAM2:D733 remains correct in both.
+Its `current_retire_targets` field actually reads the stale historical
+ABCB/ABCF table locations and is not accepted as a current target census.
+
+Actual current native bank65 SHA256 is
+`2099bdde65a60fcd4046a610fb0aaebf92e1eb2aa9e27e56414ec634c9e1dbde`.
+Cold entry AE00 now uses BEQAE12, compacting the prologue by one byte.
+CoRetire therefore begins atAE0A. Historical AE0B skips PHP and unbalances
+the caller stack. Current published row19 B0C5 JMPs toB100, whose exact
+instructions are JSR AE0A / SEC / RTS. The public B026 veneer also JMPs to
+AE0A. The successor enters the actual current published row19, rather than
+assuming that old internal symbol remains live.
+
+Source76916 now passes, receipt
+`ac9b0e56c7b489c6f2ff55b5ec72ecf76d38328e04f1334460a1e033b6c57609`.
+Current row19 retires both cookies and Ready/Epoch, returns A83/X71/Y109,
+carry1 and SP224. Bad-header components also now use actual AEE2 header
+core, reached by a literal JSR in the published A740 router. A valid-header
+positive control first returns carry1 without private-RAM writes; all32
+single-byte corruptions then return carry0 with private RAM unchanged.
+The old unused-row0 C0 checks alone are not accepted as cookie proof.
+
+Actual same-area LoadAreaPointer retains native world windows1..4=
+16/17/18/19. Explicit compiled KillPlayer entry reaches engine11,
+then328 complete source Main passes respawn at lives1/engine8/HP5. This is
+an explicit death-entry unit, not a naturally earned injury. Actual compiled
+Select cycles0 and2 choose Shinobi; parent590 and16a have identical complete
+private/native RAM, mapper and CHR after their cold ingress. The corruption
+and selector-retirement cases are explicitly directed components, not
+ordinary switching gameplay or native cadence qualification.
+
+All source jobs are terminal with zero generated build files. The source
+qualification remains narrow: cold/transport, declared code and graphics
+preservation, four pipes, opposed loss, reached ISR and declared lifecycle
+units. Native candidate staging, fresh native four pipes/opposed-loss,
+delivery and full1-1 remain unqualified. Equal-facing F090 remains open.

@@ -67,20 +67,36 @@ def run(parent):
     # not ordinary gameplay or natural death/character-switch episodes.
     bank=193;table=0xb08c;physical=16+(bank&127)*8192+(table&8191)
     assert raw[physical:physical+111]==parent[physical:physical+111]and raw[physical]==0x4c
+    # Authenticate the current core through its exact owning bytes and a
+    # literal caller in the published A740 router. Do not use an inactive
+    # callback row's C0 as evidence that its cookie check actually ran.
+    core=0xaee2;core_at=16+65*8192+(core&8191)
+    assert raw[core_at:core_at+9]==bytes.fromhex('ad026038e925c907b0')
+    router=raw[16+65*8192+0x740:16+65*8192+0x7e4]
+    assert bytes.fromhex('20e2ae')in router
+    positive=N.fork(m);before=[bytes(row)for row in positive.ram];valid_regs=farcall(positive,bank,core)
+    assert valid_regs[3]&1 and before==[bytes(row)for row in positive.ram],'Valid current headers must pass exact core first'
     rejected=[]
     for ram_bank in(2,3):
         for index in range(16):
             clone=N.fork(m);clone.ram[ram_bank][0x1fe0+index]^=1;before=[bytes(row)for row in clone.ram]
-            regs=farcall(clone,bank,table)
+            regs=farcall(clone,bank,core)
             assert not regs[3]&1 and before==[bytes(row)for row in clone.ram],('Bad cookie entered private callback',ram_bank,index)
             rejected.append([ram_bank,index])
-    retired=N.fork(m);N.put(retired,SelectedCharacter=0);retire_regs=farcall(retired,193,0xae0b)
+    # The current published row19 JMPs to B100, whose actual JSR enters
+    # AE0A. Old AE0B skips PHP after a historical one-byte compaction.
+    retirement=table+3*19;at=16+65*8192+(retirement&8191)
+    assert raw[at:at+3]==bytes.fromhex('4c00b1')
+    assert raw[16+65*8192+0x1100:16+65*8192+0x1105]==bytes.fromhex('200aae3860')
+    retired=N.fork(m);N.put(retired,SelectedCharacter=0);retire_regs=farcall(retired,193,retirement)
     assert retire_regs[3]&1 and retire_regs[:3]==[83,71,109]
     assert retired.ram[2][0x1fe0]==retired.ram[3][0x1fe0]==0 and retired.ram[2][0xaa]==retired.ram[2][0xab]==0
     q=dict(passed=True,composition=info,opening=opening,actual_cold_world=initial,same_area_LoadAreaPointer=area,
         explicit_compiled_death_entry=death_entry,explicit_compiled_death_respawn=death_end,death_Main=tick+1,
         compiled_foreign_Select_cycles=foreign,bad_header_component_cases=len(rejected),both16byte_headers_rejected=True,
+        valid_header_positive_control=True,actual_header_core=core,current_header_core_caller='Published A740 router JSR AEE2',
         explicit_foreign_selector_retirement=True,native_public_callback_table_exact590=True,
+        current_retirement_path=[retirement,0xb100,0xae0a],old_AE0B_failure_retained=True,
         actual_CPU_ROM_SHA256=C.digest(m.bundle['raw']),source_array_mounts=0,
         scope='Actual16a compiled cold/same-area/death/Select units; corruption and selector-retirement are explicit components, not natural gameplay',
         native_cadence_qualified=False,full_stage_qualified=False,outputs=0,Mesen=False)
