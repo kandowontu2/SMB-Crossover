@@ -37,9 +37,13 @@ def prepare():
     parent=C.inverse(image);assert C.proposal(parent)[0]==image and digest(parent)==C.PIN
     before=check(DESTINATION);assert before['ROM_sha256']in(C.PIN,C.CANDIDATE)
     Storage.preflight(private_root=OUT,reserved_bytes=0,reserved_files=0,fresh=True)
-    scripts=(('images',F.image_controller(image),IMAGE_LUA,IMAGE_RECEIPT),
-             ('stage',F.controller(image),STAGE_LUA,STAGE_RECEIPT))
-    for _,text,pin,_ in scripts:assert digest(text.encode())==pin
+    # The frozen image recipe extends its parent's cached RAM metadata.
+    # Freeze the stage text first, as in its independent native qualification;
+    # do not let image-only addresses change the stage's config prefix.
+    stage=F.controller(image);images=F.image_controller(image)
+    scripts=(('images',images,IMAGE_LUA,IMAGE_RECEIPT),
+             ('stage',stage,STAGE_LUA,STAGE_RECEIPT))
+    for kind,text,pin,_ in scripts:assert digest(text.encode())==pin,(kind,digest(text.encode()),pin)
     return image,parent,before,scripts
 
 

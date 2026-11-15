@@ -41,7 +41,19 @@ no images, video, state dumps, backups, patches or releases are written.
  Source physics, ordinary controls and full-stage assertions are the exact
  previously qualified route body; only ROM provenance/bank hashes are rebound.
 
+The full candidate also repeats6120 actualGmMovement calls/56 in1-2 and
+eight real star-support events. First support remains Main3469/frame4350,
+player721/Y162, star726.8125/Y208/status1/flags64. Flag Main6356, castle6418,
+entrance6807. No helper geometry changes occur.
+
 The installed1daca bytes and sidecar guards were checked unchanged before
 and after both private runs. The new delivery installer pins these exact
 controllers, receipts and PNG hashes. Actual Downloads verification follows;
 this section alone is not a delivery claim.
+
+First delivery attempt18861 stopped in preparation before any Downloads write:
+calling the frozen image factory first extends its parent's shared cached RAM
+metadata, which changes the later stage config prefix/hash. The installer now
+freezes stage text before image text and still asserts both independently
+qualified hashes. Frozen factories, Lua bodies and candidate bytes stay exact.
+This is an installer metadata-cache correction, not a ROM behavior change.
