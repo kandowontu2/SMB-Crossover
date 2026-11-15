@@ -1413,8 +1413,10 @@ ScoreUpdateAmount:
   .byte $01, $02, $04, $05, $08
   .byte $01, $02, $04, $05, $08, $00
 ScoreUpdateDigit:
-  .byte $04, $04, $04, $04, $04
-  .byte $03, $03, $03, $03, $03, $00
+  ; Six displayed digits: index3 is hundreds, index2 is thousands.
+  ; Match controls1..10 to their100..8000-point popup labels.
+  .byte $03, $03, $03, $03, $03
+  .byte $02, $02, $02, $02, $02, $00
 
 .endproc
 
