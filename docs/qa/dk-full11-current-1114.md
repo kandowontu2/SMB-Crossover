@@ -2,11 +2,10 @@
 
 Latest source outcome: exact571/controller06fc passes full nonshortcut1-1
 and25 living grounded1-2 updates. Root is running the same frozen controller
-against actual Downloads571; native verification remains pending. Its
-delayed-two-poll source fixture is still running. The controller uses a
-measured first-roof takeoff1506..1510, with actual native ground required
-again after a brief foot-query gap. The delayed-two-poll source fixture also
-passes. Earlier F11 source passes and actual
+against actual Downloads571; native verification remains pending. Both normal
+and delayed-two-poll source fixtures pass. The controller uses a measured
+first-roof takeoff1506..1510, with actual native ground required again after
+a brief foot-query gap. Earlier F11 source passes and actual
 native negatives retain their scope below. No DK ROM code, physics, helper
 placement, health or power grant change is needed for this source clear.
 
