@@ -155,3 +155,80 @@ IRQ successor allows an additional07D8 difference only when its one exact
 authenticated A19B instruction performs the positive N→N−1 decrement under
 busy NMI; all other RAM and caller-stack comparisons stay strict. These
 successors do not modify game bytes or qualify a ROM composition.
+
+## Fresh idle and paired interrupt results
+
+Source16989 now passes the fresh-idle successor, receipt
+`4e6b85569ac554a93a76fe438ecfa2fd3d75533c3e3f88c0d53c38bb7fab0f75`.
+Both genuinely earned Flower prefixes reach Main2833. Another234 neutral
+updates reach actual action0/pose15/mode0/unlocked at1260/112/HP4/lives2.
+Six96-update cases (idle, B, A, Down, B then A, B+Down) cross actual original
+input decoder A097 with the requested source bits. Their complete recorded
+control traces match baseline versus transition except for the retained
+request marker. B takes original action41; A admits the original jump and
+causes the same later hard-landing HP4→3 in both models. All cases keep
+sword1. Pinned original donor5:8992/8999 and7:F0CF require an active opponent
+for automatic drawing. This closes compatibility of the actual no-target
+controls; it does not invent or qualify free draw, attack or manual sheath.
+Real armed combat/loss/sheath/re-admission is the separate92478 scope.
+
+The one-writer interrupt successor remains negative. Failure tracer27025
+receipt `17ede2e6f3b1fe8889d8c242fe79a23c5b345ee3f882e9333566380244aba5df`
+records the authentic07D8 8→7 at PRG29:A19B plus07DB
+Sfx_SecondaryCounter2→3 at authentic PRG29:A307, opcode EE DB 07.
+Foreground is DDE1/SP202/P31,342/173/HP5/action14. There is no upper caller
+stack difference. No broader native-RAM or audio acceptance mask was added.
+
+Instead source78003 passes exact paired interrupt fidelity, receipt
+`bb7eac550efbcd1ac9308c30f1d19d388ceba26654d9b39f724219c0cd168716`.
+There are189 actual contexts,96 distinct foreground instruction PCs within
+DDBE..DE98,189 IRQs and189 busy NMIs. Actual entry routes are8000 andE33C;
+minimum ISR SP is179. Each pair starts with identical live CPU, native RAM,
+private state and caller stack; its baseline restores only the original219B.
+Both execute the identical current ISR instruction path and produce exactly
+the same native RAM, audio and used-stack effects. Neither ISR reads nor
+executes the changed219B. Private game RAM, R0/SMC, mappings, CHR, caller
+AXYP/PC/SP, above-entry stack and critical gameplay fields remain unchanged.
+There is no native-RAM/audio allowlist. Identical-path SHA256 is
+`993b4931d6099b827905f49e7102e0d45acde7a3725f8f1d8d9098a0dd658660`.
+The underlying model receipt is
+`16d04760a20acaa86d80c845ea8b1b9c7addd5c1163ede6182f598a6d8f329ef`;
+actual checkpoint1882/176/HP4/lives2/sword2/request0/guard1 UID128,
+pose8/action56, facing255 versus0. This is reached interrupt fidelity,
+not a native or complete-stage result.
+
+## Strict590 three-span encoding plan
+
+Source13320 pure plan passes, receipt
+`ee7a4b6094050acf6de6a8b15d290d7f3a488aa041dde594f7a00a32f82ee1bf`.
+The exact590 parent is authenticated. Only the following decoded extents
+are proposed (end addresses and offsets are exclusive):
+
+| Stream / offset | Live extent | Bytes | Existing SHA256 | Proposed SHA256 |
+| --- | --- | ---: | --- | --- |
+| runtime0 /7650..8099 | RAM3 BDE2..BFA3 |449|`c4377287449f719ccbc64a2721c9b6039c784566173114080881deced7ef088d`|`18d18cfe53f4942e7658152177634736a984046233c55f0be2846de0538bb3f9`|
+| state2 /1186..1366 | RAM2 C552..C606 |180|`e5e6159d7d7bf7c18b28afa243e549664528a3cd1e338f3ba91348a1d860c29d`|`7b3ddaec5eb963001a7d8143b8fd2f2fb53c914db2641165031e879fa54150f3`|
+| metadata1 /5566..5785 | RAM2 DDBE..DE99 |219|`eeb1fca1f05730c593361cc965d2916c624c79be1ef136c439251a47eaa41145`|`6b497c065c93baaea7bc525fba89bfd20dec48dfeb38d36b797a205147c22bb9`|
+
+The180B state extent is staged atC5A2..C656 before the original80-byte
+down-copy. Total ownership is848B, of which698 decoded bytes differ.
+Packed streams become6469/5995/1259 instead of6441/5991/1231. The unchanged
+31776-byte header plus streams occupies45499 of the existing45×1024
+carrier bytes, leaving581. Runtime6469≤6528, metadata sourceC995≥C900,
+state1259≤1280. Proposed cookie is `a72602f500568d4abe180ca781f46169`
+at the existing file535471..535487 extent.
+
+Unlike the earlier graphics-only encoding, this combined plan needs four
+existing configuration words changed: index2 6441→6469; index4
+C999→C995; index6 5991→5995; index10 1231→1259. No decoder/loader
+instruction, page table, immutable31072-byte header/art, other decoded byte
+or current590 graphics extent changes. The prospective physical domain is
+only the existing45 carriers and16-byte cookie. BT160, score10, Gimmick192
+and all other physical bytes must remain exact in any future composition.
+
+This plan builds compressed arrays only. It constructs no combined ROM,
+assigns no candidate ROM hash, runs no emulator and creates zero outputs.
+Root composition/native/delivery authorization remains separate. The F090
+equal-facing early return is still open: fresh no-target sword1 controls
+do not prove drawn sword2 disappearance escape for both facing relations.
+The full-route4874 original-injury negative remains retained.
