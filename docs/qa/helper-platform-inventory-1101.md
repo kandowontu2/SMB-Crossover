@@ -460,6 +460,18 @@ change is made. See wwf-natural-stock-7a80-source-1115.md for the qualified
 controls and the retained early-jump death; mere helper presence is not carry.
 The historical full stages above are not promoted to7a80 by this stock check.
 
+Root13423 and81206 subsequently close current7a80 natural-Star helper carries
+for Honky and Bigelow: ten actual carries each, first native player1412/176
+(Honky) and1413/176 (Bigelow), helper left1401/1400 atY208, passenger5,
+PCB683/SP237. Bigelow receipt97d1f350bc734c4ba2a80949e6056756ef23f08437550bf00855db0b2541eb24;
+Honky965b8ed28cfeb945efc398d2f88e7eb7bf151530edb6a10fb065179a15ccb000.
+Same initial left1376/center1400/Y208/width48, no actor or geometry changes.
+New source-only Savage/Andre late-edge replays also record40/36 actual
+carries, receipts0a4fbbeb5e89d6c0511e965c62d270d87d13125875f279feb9d5853a42ee70b4
+and330fe0d0c826f0973e9b7864cd2b859c5ae21d09694f87aa7dcebf14dfcd4c9a.
+Their native successor Star gates remain pending root; the generic early-gap
+native negatives remain retained. Stage-clear versions above are unchanged.
+
 ## Later-stage shared placements
 
 **H** means every named character/alternate in the first table row above.
