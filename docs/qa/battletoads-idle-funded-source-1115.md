@@ -24,6 +24,14 @@ source preimages, checks the complete 7a80 hash, and validates the proposal
 roundtrip without reading mutable Downloads. `load_current_image()` accepts only
 exact installed 7a80.
 
+Frozen new source module SHA256 values:
+
+| Module | SHA256 |
+| --- | --- |
+| compose_battletoads_idle_funded_1115.py | `2ecaff26b204a7969878f18775369806a9ec3ed267d6f41c8e4fcf691f069856` |
+| replay_battletoads_idle_funded_1115.py | `401a6b933a9fe84996a4070c92f56da2eb9c8a8f1cfd17287adc9eea9b82cb68` |
+| check_battletoads_idle_funded_1115.py | `4e11a94ecd6d33387accb7beb9551761116ad28d971622057c4491c8a75733c8` |
+
 The accepted source contract allows only residual farcall operand differences
 at `$0162/$016C/$016D` at the native getter return. Their owning callers publish
 fresh arguments before use; snapshot tails transport them opaquely. Main
@@ -38,7 +46,7 @@ python -B tools/audit/run_bounded_build_v1.py --output build/battletoads-remaini
 ```
 
 The same absent output root is reused; every invocation has zero generated
-files. Modes are `strict`, `foreign`, `units`, `constructors`, `profile`,
+files. Modes are `strict`, `foreign`, `normalizer`, `units`, `constructors`, `profile`,
 `profile-short`, `lifecycle`, `interrupts`, `rash`, `zitz`, and `metadata`.
 
 Terminal gates so far:
@@ -53,6 +61,23 @@ Terminal gates so far:
 | mounted profile 18140 | 48 idle and32 Right;one actual GameLoop entry/return per iteration;Main RAM/SMC/VRAM/maps exact;AudioUpdate once/Main,minSP192 | `b3ac8e201568bd48d08f61ce48ead65ca7da6fa76ede6c52e8360c5b0683ab52` |
 | lifecycle 71542 | actualcold/walk8/pauseedge/64paused/resumeedge/resume8;actualBtRetire;34 native getter admissions and68 private/NoOp invalid-cache rejection parity cases;owning DeathStart+8Main engine11/lives2 parity | `d59bb3707de6b486860091ee4a6f04c0e8409b3051955673b474e6bdcff1087e` |
 | Rash full route 57244 | ordinary frozen Luae470;4003 actualMain entries=returns;2863 BTsteps/58 next;flag2805/castle2868/entrance3406+25 grounded1-2;HP43/lives2 | `8ea7948cd8ba8096f7023d2ded7fb13d5fb37eb4dfdc48244acd7fe2acdc4a1c` |
+| Zitz full route 88429 | ordinary frozen Luac7d2;4003 actualMain entries=returns;2863 BTsteps/58 next;flag2805/castle2868/entrance3406+25 grounded1-2;HP43/lives2 | `b9b784279ffdd2543f58c05a49a1e36ca1a7f1429999c67fbd13f8969c37d662` |
+| normalizer 48797 | 54,720 mounted raw10 selector pairs;all256 FmAlts/fourP plus all128 validP/four predicate classes/all36services;exact endpoint AXYP/SP/RAM/SMC/maps,minSP219 | `97d2a26bd83b30ac57c68324ce246b5a396df0a3fd7cf1e40eb4397d5a4e7210` |
+| reached ISR 19182 | 334 actualcandidate instruction/context cuts;334 IRQ+334 busyNMI;currentRashcold/idle/right,Gm/DKmenus,actualThomas Select2/Start/cold+ThCheck;exact ISR and equally interrupted mounted continuation versus parent handler oracle,minSP152 | `ce778dc74a8290b56fd439dd872eb3a37dc56d1dd2b00d913eb59549ffbc2e43` |
+
+The final ISR gate includes all actually reached changed instructions, including
+operand-intersection sites and the transient first-PLP state. The Thomas fixture
+is the actual compiled name at slot10/raw10/FmAlts64 after two Select presses,
+not the unrelated FF Thief owner22. The nine-byte BIT normalizer is fetched from
+the mounted ROM. Earlier334-free result90420 passed302 IRQ+302 busyNMI cuts for
+the other contexts (receipt
+`0264117c34eeaccb476d39305903fbec5f4174ad6fa042271389ce56be183203`).
+Final19182 adds the actual Thomas current-image context. All sampled owning
+components are genuinely NMI-busy, so no forced regular-NMI arm is claimed.
+Native busy-NMI effects, including initial world CHR publication in16 cuts,
+match the unmodified parent handler oracle exactly. No physical WRAM ISR change
+was observed. Ordinary scheduled regular NMIs also execute in the cold,
+profile, lifecycle and both full-route gates.
 
 The actual mounted profile saves exactly1966 source cycles on every sampled
 Main: idle27528.0625→25562.0625 and Right27788.5625→25822.5625. Each Main still
@@ -88,7 +113,10 @@ Rash's source controller receipt is
 `de765e6a5d1b79a780680e2f4ae01e3bf873c9a0581c3798adf23500628c78c3`.
 Its source-only terminal is40/176/high1/native0/engine8/HP43/lives2/power0/Star0.
 The scheduler's4002 frame labels are model callbacks, not physical Mesen frames.
-No source timing or HP outcome is transferred to a native run.
+No source timing or HP outcome is transferred to a native run. Zitz's separate
+source controller receipt is
+`b88b1d7aede52d5c63369e2f138dffe6f15a2909c67ee31f15e56920559e12f3`;
+it independently reaches the same source milestones with BtVariant32/Select1.
 
 The root-only replay API is `replay_battletoads_idle_funded_1115.controller(image,
 key)` (`rash`/`zitz`) and `.cadence_reads(image)`. It preserves the frozen ordinary
@@ -100,6 +128,9 @@ route/read-observer body and replaces only the pinned configuration. LF Lua pins
 | Zitz full1-1/25 grounded1-2 | `c7d217eafbf91a673864dc89e36dcd9b9d40a319c4fac7671082f67fa6b82220` |
 | literal4016/4017 reads, idle48/Right32 | `bbee821d0038d4074b36747ce743636b2fc643e946f25dd659538294e131963e` |
 
-Actual mounted reached ISR and the Zitz source full route remain pending.
-No native speed, cadence, zero-lag,
-natural-death/respawn or delivery claim is made.
+All requested source gates are terminal PASS. The current four source paths
+are checkpointed with exact ownership; the frozen proposal and prior APIs are
+unchanged. No owned source child remains, and the bounded output root is absent.
+Root review and a separate physical/native authorization are still required
+before staging. No native speed, cadence, zero-lag, natural-death/respawn or
+delivery claim is made.

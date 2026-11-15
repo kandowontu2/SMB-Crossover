@@ -113,6 +113,32 @@ def foreign(parent,image):
         canonical_raw33_getters_separately_tested=True,exact_endpoint_AXYP_SP_RAM_maps_SMC=True,endpoints=dict(ends))
 
 
+def normalizer(parent,image):
+    ms=[]
+    for raw in(parent,image):
+        m=N.Bus(symbols(raw));m.raw_page(1,207);N.put(m,CurrentBank=207,CurrentBankC=m.rawtags[2]);ms.append(m)
+    vectors={(fm,p)for fm in range(256)for p in(0x20,0x31,0x69,0xe5)}
+    vectors.update((fm,p)for fm in(0,4,64,68)for p in range(256)if p&32)
+    cases=0;domain=Counter();minimum=255
+    for fm,p in sorted(vectors):
+        for slot in range(36):
+            pair=[]
+            for side,m in enumerate(ms):
+                N.put(m,SelectedCharacter=10,FmAlts=fm,RdVariant=0)
+                c=N.NesMPU(memory=m,pc=0xb600+16*slot);c.a=85;c.x=7;c.y=91;c.p=p;c.sp=224;c.stPushWord(0x5aff)
+                for _ in range(1000):
+                    if c.pc in(0x15a,0x15d,0x5b00):break
+                    if side and c.pc==0xb85c:assert c.a<=33;domain[c.a]+=1
+                    minimum=min(minimum,c.sp);assert m[c.pc];c.step()
+                else:raise AssertionError(('Mounted Thomas selector bound',fm,p,slot))
+                pair.append((c.pc,c.a,c.x,c.y,c.p&0xef,c.sp,bytes(m[:0x17b]),bytes(m[0x200:0x800]),
+                    bytes(m[0x100+c.sp+1:0x200]),tuple(map(bytes,m.ram)),tuple(m.rawtags)))
+            assert pair[0]==pair[1],('Mounted normalizer endpoint',fm,p,slot,pair[0][:6],pair[1][:6]);cases+=1
+    return dict(actual_mounted_Thomas_selector_cases=cases,all256_FmAlts_four_P=True,
+        all128_valid_P_four_predicate_classes=True,all36_services=True,minimum_SP=minimum,
+        exact_endpoint_AXYP_SP_RAM_maps_SMC=True,AfterSelected_A_domain=dict(domain))
+
+
 def units(parent,image):
     seeds=[cold(raw)for raw in(parent,image)];compare_memory(seeds);rows=[];minimum=255
     for name in('MegaManCollisionAdder','MegaManCollisionBox'):
@@ -162,6 +188,23 @@ def reimage(seed,raw):
     tags=list(m.rawtags)
     for slot,tag in enumerate(tags):
         if tag&128:m.raw_page(slot,tag)
+    return m
+
+
+def thomas_cold(raw):
+    with patch.object(N,'Bus',W.ControllerBus):m=W.UI.seed(symbols(raw),0)
+    for pad in(4,1,1,32,32):W.UI.key(m,pad)
+    assert(W.UI.menu_name(m)[0],N.get(m,'CrossoverMenuIndex'),N.get(m,'SelectedCharacter'),N.get(m,'FmAlts')&0x44)==('THOMAS',10,10,64)
+    start=W.UI.key(m,16)
+    N.invoke(m,'NativeRareGameMenuRoutineCore::ChkContinue',a=start['A'],x=start['X'],y=start['Y'],p=start['P'])
+    N.invoke(m,'PauseRoutine',a=0)
+    for _ in range(700):
+        if tuple(N.get(m,n)for n in('OperMode','OperMode_Task','GameEngineSubroutine'))==(1,3,8):break
+        m.controller_pad=0;Frames.frame(m,cold=True)
+    else:raise AssertionError('Actual mounted Thomas constructor bound')
+    assert N.get(m,'NumberofLives')==2 and N.get(m,'CheatInvincible')==N.get(m,'CheatStartLevel')==0
+    assert N.invoke(m,'ThCheck')['P']&1
+    m.controller_pad=0;Frames.frame(m,whole_pass=True)
     return m
 
 
@@ -283,6 +326,9 @@ def interrupts(parent,image):
         with patch.object(N,'NesMPU',Capture),patch.object(W.UI.F,'NesMPU',Capture),patch.object(N,'Bus',W.ControllerBus):
             z=W.UI.seed(symbols(image),0)
             for pad in nav:W.UI.key(z,pad)
+    phase='thomas'
+    with patch.object(N,'NesMPU',Capture),patch.object(W.UI.F,'NesMPU',Capture):thomas_cold(image)
+    assert any(key[0]=='thomas'and key[1]==207 and key[2]==0xb84b for key in captures),'Mounted Thomas prefix not reached'
     rows=[];counts=Counter();effects=Counter();physical_effects=Counter();chr_effects=Counter()
     def finish(seed,regs,endpoint):
         z=reimage(seed,image);c=base(memory=z,pc=regs['pc'])
@@ -347,10 +393,10 @@ def stage(parent,image,key):
 
 
 def main():
-    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('mode',choices=('strict','foreign','units','constructors','profile','profile-short','lifecycle','interrupts','rash','zitz','metadata'))
+    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('mode',choices=('strict','foreign','normalizer','units','constructors','profile','profile-short','lifecycle','interrupts','rash','zitz','metadata'))
     args=ap.parse_args();parent=C.load_current_image();image,info=C.proposal(parent)
     def forbid(*a,**kw):raise RuntimeError('Source checker attempted file or native output')
-    fn={'strict':strict,'foreign':foreign,'units':units,'constructors':constructors,'profile':profile,'profile-short':lambda p,z:profile(p,z,(2,2)),'lifecycle':lifecycle,'interrupts':interrupts,
+    fn={'strict':strict,'foreign':foreign,'normalizer':normalizer,'units':units,'constructors':constructors,'profile':profile,'profile-short':lambda p,z:profile(p,z,(2,2)),'lifecycle':lifecycle,'interrupts':interrupts,
         'rash':lambda p,z:stage(p,z,'rash'),'zitz':lambda p,z:stage(p,z,'zitz'),'metadata':lambda p,z:F.metadata(z)}[args.mode]
     with patch.object(Path,'write_bytes',forbid),patch.object(Path,'write_text',forbid),patch.object(R.Frozen.Cold.Runner.Native,'run',forbid):q=fn(parent,image)
     q.update(mode=args.mode,parent_SHA256=C.PIN,source_image_SHA256=C.CANDIDATE,source_only=True,outputs=0,Mesen_run=False)
