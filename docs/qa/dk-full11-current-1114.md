@@ -1,12 +1,17 @@
 # Classic DK functional 1-1 source investigation
 
-Latest full-source outcomes: exactf11/controllersf875 andbb51 pass full nonshortcut
-1-1 and25 living grounded1-2 updates, with both lives and tier0. Root's native
-f875 run found an input-admission harness race; the actual game remained alive.
-The all-request latchbb51 passes the normal full-source gate and awaits native
-verification; its delayed-poll scope is stated below. No ROM code, physics, helper placement,
-health or power grant changes are needed for this source clear. Earlier
-controller negatives below retain their scope.
+Latest source outcome: exactf11/controllerb68 passes full nonshortcut1-1 and
+25 living grounded1-2 updates even with the two omitted input polls that
+previously exposed the roof/Koopa negative. The first request latch works;
+the practical first-roof takeoff is1506..1510, before measured support loss.
+Normal source53352 stops on the successor's overly strict support assertion
+before the takeoff; the actual game remains alive. A separate exact571 wrapper
+now qualifies the measured short native foot-query gap as described below.
+Earlier f875 and
+bb51 normal source passes remain valid; their actual native negatives retain
+their scope below. No ROM code, physics, helper placement, health or power
+grant changes are needed for the new source clear. Native verification of
+the successor remains pending.
 
 The initial proofs used delivered exactcf7
 `cf7b6d2964ae0ef18d08c726f66afe9bf5be3dc6f3ec9c7a43279121ee09d968`.
@@ -323,3 +328,47 @@ support remains, after the actual leading head probe clears the upper brick.
 The repeat source process30610 ended with zero files in the absent
 `build/dk-launch-latch-current-1114` root; a prior process result was lost at
 compaction, so no result is inferred from its disappearance.
+
+The passive frozen-bb51 source observer86304 reproduces the exact4663 negative
+without changing controls. Actual upperY80 cells are1456/1472/1488 tile81 and
+1504 tileC0; the first lower roof is1504/Y144 tile88, with next roof cells
+1600/1616/Y144. Immediate re-jump1501/108 bumps the upper1504 cell at1507/93,
+lands1522/112, re-jumps1524 and drops to ground1564/176. A later jump1619
+head-stops1627/156 below the next row; the Koopa corner contact at1652/166
+uses actual player box[99,166,141,198] and enemy[141,193,153,205].
+
+The separate measured takeoff controller is
+`b68be24df93f6f56668cccf00beeb79e8d732a7536e2daf2a957837d99a99176`.
+It walks A-released on actual first-roof support to1506..1510, then requests
+the ordinary A jump with the existing real-admission latch. Delayed source
+23820 is TERMINAL PASS:3247 returnedMain,2106 actual DK calls,58 in1-2,
+18 jump requests/admissions, flag2047/castle2110/entrance2671,25 actual living
+grounded1-2 updates40/176/high1/state0/engine8/lives2/tier0. Receipt
+`7762b6e3ee54bb975b1adb7d84852e9d65d0dc85a23df3a544ede5a4b4577ead`.
+The actual route includes a genuine upper-left head bump1513/93; it then
+lands1528/112 and fresh-jumps1530, reaching1615/112 and later1702/112 above
+the Koopa. It does not assume that every head probe clears at the first
+request, and it does not suppress a real ceiling response. No injury occurs.
+The source-only observer in this first successor run retained an old
+`unchanged_bb51_controls` label; actual metadata and receipt identifyb68.
+The observer now names the selected controller explicitly; this label never
+affected controls or game state. Zero output files; source root remains
+`build/dk-launch-latch-current-1114`, bounded max-files1/600s.
+
+Normal F11 source53352 first lands1487/112 and then reports native state2 at
+1491/112, engine8/lives2, tripping the continuous-ground assertion atMain1070.
+The real body still overlaps the single1504..1519/Y144 roof tile. This is a
+controller assertion negative, not an injury or a full-route normal pass.
+The full stdout receipt was truncated; no missing receipt hash is invented.
+
+Root's later ten-byte score-table correction changes F11 to exact571
+`5715bb7e3c772350a2a7420ec9061eabd948964a8789e5d348c49d3cfb3c57ee`.
+The new `replay_dk_full11_roof_score_current_1114.py` strictly inverts it with
+the root-owned score composer to exactF11. Its explicit
+`rebound_b68_controller()` preserves the frozenb68 body byte-for-byte while
+deep-copying and rebinding only the ROM SHA and changed bank hash. The final
+controller separately corrects the false support assertion: ordinary walk
+may cross native state2 only insideY112..116, with actual tile58 at1504/144
+and real full-body overlap. It still requires actual grounded0 and fresh A
+for takeoff1506..1510, retains every genuine landing/head/admission guard,
+and keeps16 passive roof-walk rows. No floor, terrain or game state is changed.
