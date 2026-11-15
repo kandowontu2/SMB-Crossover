@@ -18,6 +18,7 @@ def policy():
     travel=Previous.Previous.Base.Stage.POLICY
     return "local opening=(function()\n"+opening+"\nend)()\nlocal travel=(function()\n"+travel+"\nend)()\n"+r'''
 local phase,age='travel',0
+local previousA=false
 return function(c)
  if not firstMReady then return opening(c)end
  if flower.after then return{}end
@@ -30,17 +31,34 @@ return function(c)
  end
  if item then
   if item.state<128 then return{}end
-  if phase~='side-jump'and phase~='jumping'then phase='retreat'end
-  if phase=='retreat'then
-   if c.x<=1216 and c.grounded then phase='side-jump';age=0;return{}end
-   return{left=true}
-  elseif phase=='side-jump'then
-   if c.grounded and not c.lastA then phase='jumping';age=0;return{right=true,a=true}end
-   return{}
+  if phase~='star-align'and phase~='star-face'and phase~='charge'and phase~='board'and phase~='flower-jump'then phase='star-align'end
+  local v=c.r('GmRam00CC');if v>=128 then v=v-256 end
+  local stopping=c.x+v*math.abs(v)/32
+  local status=c.r('GmRam0091')
+  if phase=='star-align'then
+   if c.grounded and c.x>=1208 and c.x<=1212 and math.abs(v)<=2 then phase='star-face';return{right=true}end
+   return{right=stopping<1209,left=stopping>1212}
+  elseif phase=='star-face'then phase='charge';age=0;return{b=true}
+  elseif phase=='charge'then
+   age=age+1;assert(age<180,'Bounded original star charge')
+   if status>=169 then phase='board';age=0;return{}end
+   return{b=true}
+  elseif phase=='board'then
+   age=age+1
+   if c.r('GmRam00D7')&64~=0 and c.grounded and not c.lastA then
+    flower.real_support={state=state(),age=age};phase='flower-jump';age=0
+    return{left=c.x>item.x-8,right=c.x<item.x-8,a=true}
+   end
+   if status==0 then phase='star-align';return{}end
+   local sx=(c.r('GmRam00AF')+256*c.r('GmRam00B9'))/16-8
+   local pad={right=stopping<sx-1,left=stopping>sx+2}
+   if c.grounded and not c.lastA and math.abs(c.x-sx)<40 then pad.a=true
+   elseif not c.grounded then pad.a=c.r('GmRam00C2')>=128 end
+   return pad
   else
    age=age+1
-   if age>100 and c.grounded then phase='retreat'end
-   return{right=c.x<item.x+2,left=c.x>item.x+10,a=age<40}
+   if age>100 and c.grounded then phase='star-align'end
+   return{left=c.x>item.x-4,right=c.x<item.x-8,a=age<40}
   end
  end
  if phase=='travel'then

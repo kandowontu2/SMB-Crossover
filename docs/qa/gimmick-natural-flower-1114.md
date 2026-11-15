@@ -29,3 +29,13 @@ receipt0587892a3dba65c8138fdb2c96fee5828276fc5cdef7cb256051f9a8587045f0.
 The next approach uses the character's actual star platform instead of
 assuming his short ordinary jump can reach a Flower on the block. Neither
 negative changes gameplay or authorizes a new helper platform.
+
+The first star-platform draft25826 stops atMain1823 on a harness observer
+scope error (a `state()` call inside the earlier policy closure). Lua418e6505…,
+receipt a75223259de78a21c3c9c197827f173f430e55290ef4a986fa6f60bf7a4e5332.
+The draft also mistook the star's solid flag plus grounded hero for support;
+those are insufficient when the star is far ahead. No boarding or pickup is
+qualified by this failure. The successor observes the actual GmRideStar
+ground transition already used in the qualified full-stage controller, and
+reads that published witness from the policy instead of calling a later
+local observer function.
