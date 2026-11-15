@@ -11,4 +11,5 @@ if __name__=='__main__':
     print('FACTORY_SHA256 '+sha256(Path(F.__file__).read_bytes()).hexdigest(),flush=True)
     for key in a.identity:
         q=Runner.execute(key);print('RESULT '+json.dumps(q,separators=(',',':')),flush=True)
+        Runner.validate(q,key)
         assert q['passed'],('Natural per-role M/F remains native-unqualified',key)

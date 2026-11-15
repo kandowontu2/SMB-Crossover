@@ -42,3 +42,30 @@ printed before that wrapper exception, so no receipt hash or complete
 M/F native qualification is claimed from85386. The successor must preserve
 numeric-key0 tables and print the result before post-run validation. No ROM
 patch follows from this reporting bug.
+
+## Current16a native M/F passes
+
+After preserving the initial formatting failure, the successor keeps the
+same controls and correctly encodes tables containing numeric key0. Its
+factory is6203ea553d475bccf812e421779a25f7a09b7b73c709650fce55df6df9a181d7.
+Root64263 independently passes the complete natural M/F checks for five
+roles on the actual installed16a path. Each real pickup matures, is
+physically collected with erase/popup6/cue32, completes60 guest updates
+and25 later WfMovement calls. Both lives remain; final power is2.
+
+| Identity | Main / video frames | Receipt SHA256 |
+| --- | ---: | --- |
+| Hogan | 2426 / 4458 | 071e322ef9fc65b06e86c1a3f351787f8e6bd2d18cf991799c1b048a6986509c |
+| DiBiase | 2555 / 4694 | 575b0a405dc46e7141121e3f9e29b4a9637f25041dbe8057b7a68b73e38442b5 |
+| Bigelow | 2515 / 4646 | e449b5a18b1db0a929dcbac2c41b75bc0281cabfcafe43f4c1d31c1198cbaec1 |
+| Honky Tonk Man | 2736 / 5041 | 708f49c157da5a9effa5671cc2969089dd4bf1542d5268824dc45092cce6eeeb |
+| Savage | 2549 / 4645 | 03d2814decaa199f0502499d6b3ceeed2253e1028ec784ca659766aa4a51f186 |
+
+André is a separate terminal negative in that batch, receipt
+24a09fc1f0c4ba8d6fa71c21dddc906d6e9b0c150e777eda96cf2c3f5778b903,
+Lua54b824a2,1034Main/1691physical. His real Mushroom reaches the collector,
+which returns with erase/popup6/engine9/active1/age0, but the assertion
+reading Square2SoundQueue at return sees no cue32. That observation alone
+does not distinguish an absent producer from NMI consumption before return.
+A new passive write observation must resolve it; André's60/+25 and Flower
+remain unqualified. No game byte is changed by these controller tests.

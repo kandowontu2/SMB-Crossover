@@ -12,6 +12,7 @@ PARENT='d5b646d9b30ee7e2af50436a43aa591a2a15a18f3537794f50521a94446c43ab'
 def controller(raw,key):
     assert sha256(Path(Previous.__file__).read_bytes()).hexdigest()==PARENT
     text=Previous.controller(raw,key)
+    text=Previous.once(text,"local out={};if#v>0 then", "local out={};if#v>0 and v[0]==nil then")
     text=Previous.once(text,"local combatStart", "local combatStart\nlocal previousPower,powerChanges=nil,{}")
     text=Previous.once(text,"local function punch()return completed%18<3 and(C.role==3 and 68 or 64)or 0 end", "local function punch()local age=(completed-(combatStart or completed))%18;return age>=2 and age<5 and(C.role==3 and 68 or 64)or 0 end")
     text=Previous.once(text," if not active()then return end\n if phase=='first-M'then", " if not active()then return end\n if s.native==0 and near(s)then combatStart=combatStart or completed else combatStart=nil end\n if phase=='first-M'then")

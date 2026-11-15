@@ -18,15 +18,18 @@ def execute(key):
     q=run(script,F.ROM,OUT/'capture',F.PIN,180)
     assert q['script_SHA256']==lua and not q['images']and q['outputs_written']==0
     assert F.ROM.read_bytes()==raw and check(F.ROM)==before and(OUT/'candidate.nes').read_bytes()==candidate
+    return q
+
+def validate(q,key):
     if q['passed']:
         r=q['receipt'];assert r['identity']==key and r['terminal']['power']==2 and r['terminal']['lives']==2
         for k in ('0','1'):
             item=r['items'][k];assert item['ticks']==60 and item['resumed']==25 and item['collected']['cue']&32
-    return q
 
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--identity',nargs='+',choices=F.IDENTITIES,required=True);a=p.parse_args()
     print('FACTORY_SHA256 '+sha256(Path(F.__file__).read_bytes()).hexdigest(),flush=True)
     for key in a.identity:
         q=execute(key);print('RESULT '+json.dumps(q,separators=(',',':')),flush=True)
+        validate(q,key)
         assert q['passed'],('Natural per-role native M/F defense route remains unqualified',key)
