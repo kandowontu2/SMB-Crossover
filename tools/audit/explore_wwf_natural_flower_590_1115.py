@@ -154,9 +154,11 @@ def explore(raw,key,limit=3200):
                                     travel_jump=tick;bits|=128
                                 elif nearby(s,aa):bits=punch()
                     elif p=='flower-align':
-                        if s['x']<1239:bits=1
-                        elif s['x']>1241:bits=2
+                        if nearby(s,aa):bits=punch()
+                        elif s['x']<1242:bits=1
+                        elif s['x']>1245:bits=2
                         elif s['native']==0:
+                            assert s['power']==1,('Powered head approach to authored Flower',s)
                             jump=tick;bits=128;phase('flower-spawn')
                     elif p=='flower-spawn':
                         if 1 in items:phase('flower-mature')

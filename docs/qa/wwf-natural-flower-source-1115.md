@@ -46,3 +46,12 @@ at1194, then tries a head jump at1239 beside the target's left edge. No
 authored Flower appears before the120-update bound. The next ordinary
 policy retains enemy defense during alignment and moves the head probe
 inside the Flower tile. Neither input-policy defect authorizes game changes.
+
+Source90308/179c4de3b26beba2d1086ab0355b1a586667b01ddd7e656deae41baddd93bfce
+retains power1 and genuinely produces Flower kind1 at1248/135, Main2062.
+It matures normally at Main2126/1248/119. Receipt
+5c27366b9e8c489a751b3294dacf2a53b90ac5cb982fba06636f37aeb7486165
+is still a terminal negative: the retreat-to-roof input sequence never
+establishes its intended jump, ending alive at1246/176/power1. The next
+ordinary attempt adds an explicit right-facing run-up before requesting A;
+no Flower collector or power2 is claimed from this attempt.
