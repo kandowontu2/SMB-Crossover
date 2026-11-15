@@ -295,3 +295,37 @@ Actual writer PC/map/nearby instruction bytes/registers/SP/stack/scratch and
 source/native positions are read without changing memory or buttons. Its
 Mesen write callbacks are not claimed to execute in the exec-only source
 shim. Root's next native diagnostic must locate the first lasting write.
+
+Root43924 actual590/04f0 is TERMINAL diagnostic complete/gameplay false,
+receipt55bc8f9fa852adf0b613bac6ed98d8dadbc2cc8fb1f166ac71110a51dd7e79dd.
+Same1644 Main/2189 physical negative. Exactly two relevant first-writer rows:
+native CPU$75 changes CF toDF at actual bank10:A2E6 STA$75 (Mesen reports the
+post-instruction PC A2E8), while source heroX16 is still correct19837. Only
+afterward GmImport writes source high byte$5C14 from77 to78 at bank122:BBEF
+STA$5C14 (reported BBF2), correctly mirroring the already shifted native X.
+Thus the first cause is native horizontal separation, not direct source-X
+high-byte corruption.
+
+The complete current shared215-byte SamusStopAtWallBanked reassembles exactly
+from tools/reference/arthur_side_clamp_1101_v8.s, source SHA
+9957d3aef59fa791fb9e0bed47874e39393ed86951302f192fa0e91f0e37090a,
+code SHA f99f20396c4bfc2af5dadc58efcb94530ee066ae22d5294f265768666d36ccc5.
+Its LeftClamp A2E4/A2E6 computes ((nativeX+1)&F0)|15, exactly1231 to1247.
+No shared wall change is proposed. The actual symbol-bound R0..R7 addresses
+are3..10; earlier arrays called scratch read CPU$0000..0007, including NMI
+scratch, and must not be interpreted as R0..R7. The retained row already
+implies actual R0=2, R2=$70 (row144), R3=$23 and R4=15. Native collision.s
+writes$23 as a blank block-bounce marker; GmReadPoint treats it empty, while
+GmBodyProbe returns raw metatiles to the generic side consumer. This is a
+specific empty-marker lead, pending the actual query/branch witnesses.
+
+NEW passive side/probe metadata45299 is TERMINAL PASS, receipt
+fb61ccf257296a2634b8340c33d5a626f2ae99d0210aa23c97a5d81080e58907,
+Lua105ffbc04e94af3f5ff41d833f372398ff52f4413099896ecb69ff454e9c43c3.
+It retains exact04f0 controls/assertions after removing one passive insertion.
+At most32 rows in the admitted jump window record actual GmSide entry/return
+PC/SP, query world X/Y, returned raw cell/pointer and named R0..R7, plus the
+native StopPlayerMove/shared wall/LeftClamp entries. The shared215B source
+and all five actual hook bytes/banks are authenticated. No ordinary gameplay,
+Mesen execution, game repair or new source allocation is claimed by this API/
+compile result. Original0a644/ff47/04f0 remain frozen.
