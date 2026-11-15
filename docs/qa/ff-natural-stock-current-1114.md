@@ -81,3 +81,26 @@ charges0. This closes Fighter's natural life gate on571; each sibling remains
 source-only until its own native replay. No Star, complete abilities or
 visual/audio claim is added. No images/files/state writes; guard/hash and
 the separate private BTae66 candidate remain unchanged.
+
+Separate Fighter Star source84739 is TERMINAL PASS on captured571,
+receiptb1d816dfd5b7328f0903216861b509ae35d79e8bf88c488e4176758d1f02579a.
+Factory replay_ff_natural_star_current_1114.py is frozen
+aa2a57ba2e9ab0be56f3e0afaa75e0416b30757df47b31e2274d4d04b7ce0ca7;
+controller(raw571,'fighter-star') yields
+658864f30c88838e45f26bb5f11375a6a9b9578a52d08c29801a36ba22afe507.
+It genuinely earns M and F with two60-tick hosted freezes, then ordinary
+kind2 birth1364 at1616/136, mature1430 at1616/119 and physical collector1490
+at1672/140 versus actor1676/130. Actual Star timer35/music64/cue32/control6/
+erase preserves tier2 without freeze; score2420→3420 follows the normal
+popup delay. It requires25 actual FF entries strictly after the collector,
+ending1515 returnedMain/1395 FF entries at1672/111/lives2/tier2/Star34.
+139.66seconds; no native Star, expiry or protected-hit claim is implied.
+
+The incoming native-serviceae66 image has a separate strict FF adapter,
+replay_ff_natural_stock_service_current_1114.py. Its owning inverse must
+recover exact571; it authenticates the entire unchanged FF8192-byte worker,
+full16-byte cookie and native hook banks/bytes. It changes only the config
+prefix and verifies the frozen ordinary-control body is byte-identical.
+The actualae66 runtime source checks are pending; no571 API is relaxed and
+no571 receipt is relabelledae66. No helper or game/ROM byte change belongs
+to this stock lane.
