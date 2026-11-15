@@ -215,8 +215,9 @@ Downloads writes, capture/asset files, broad dependency restoration or helper
 change was performed by this agent. Star expiry/protected hits, Hard, complete
 abilities, audible audio, art and performance remain separately open.
 
-Every producer uses the exact absent root build/wwf-natural-stock-7a80-1115,
-max-files1/600s and no generated artifacts. Prototypes and receipts stay in
+Every producer uses the exact absent stock, Star or Honky-gap output root
+named in its bounded invocation, max-files1/600s and no generated artifacts.
+Prototypes and receipts stay in
 memory/stdout. Frozen Gimmick/WWF factories, current ROM and protected user
-progress/Steve documents are unchanged. New stock/native/fullstage/Hard/audio,
+progress/Steve documents are unchanged. Current Star native/fullstage/Hard/audio,
 expiry/protected-hit and performance claims remain open.

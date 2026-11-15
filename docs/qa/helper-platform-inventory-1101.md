@@ -438,6 +438,16 @@ Andre now also reaches active 1-2 without losing a life in 11,172 physical
 frames, defeating 13 enemies and recording 64 native platform-carry calls.
 His original walking action must retire before a fresh punch press; two
 neutral source updates fixed the test controller, with no ROM change.
+All six wrestlers have full-route evidence on this exact nightly. Both modes
+admit the platform; these route checks do not establish both-mode qualification.
+The actual Downloads launch repeats Hogan's full clear in 12,277 frames.
+Karnov's separate lifts still cross both tall pipes and the first gap,
+grounded at X1156 with no life loss; this is not a full Karnov clear.
+Evidence: `build/wwf-helper-stable-1102-v2/native-hogan3/capture/`.
+Native death recovery is verified for all six wrestlers. The earlier unfinished
+gap diagnostic in `docs/qa/checkpoints/2026-11-02/hogan-gaps-v5/receipt.json`
+is superseded by the complete routes described above.
+
 November15 current7a80 natural-Star source recheck keeps this same geometry
 for Hulk Hogan, Ted DiBiase, Bam Bam Bigelow, Honky Tonk Man, Randy Savage and
 Andre:1-1/area25, initial **left1376 / center1400 / Y208 / width48**. A new
@@ -448,15 +458,7 @@ Receipt9bcf119635984bf9e5faa6a15eac469daa010102f5446cc06a89e27583299458
 is source-only; current native stock replay is pending. No placement or actor
 change is made. See wwf-natural-stock-7a80-source-1115.md for the qualified
 controls and the retained early-jump death; mere helper presence is not carry.
-All six wrestlers have full-route evidence on this exact nightly. Both modes
-admit the platform; these route checks do not establish both-mode qualification.
-The actual Downloads launch repeats Hogan's full clear in 12,277 frames.
-Karnov's separate lifts still cross both tall pipes and the first gap,
-grounded at X1156 with no life loss; this is not a full Karnov clear.
-Evidence: `build/wwf-helper-stable-1102-v2/native-hogan3/capture/`.
-Native death recovery is verified for all six wrestlers. The earlier unfinished
-gap diagnostic in `docs/qa/checkpoints/2026-11-02/hogan-gaps-v5/receipt.json`
-is superseded by the complete routes described above.
+The historical full stages above are not promoted to7a80 by this stock check.
 
 ## Later-stage shared placements
 
