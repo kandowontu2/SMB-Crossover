@@ -232,3 +232,29 @@ Bounded phase snapshots retain real saved pads/Fresh/Previous, PC/SP, polls,
 source input consumption and completed-Main decision epochs. No native
 Flower, full-stage, audible-output or visual claim is made before root's
 independent queue. All source output roots remain absent/zero files.
+
+Root5962 actual Downloads590/0a644 is TERMINAL native NEGATIVE, receipt
+777ba4c422f56f8e1342d129e98cb372652866ca5bc7b78ce9e8c84fcf03cbe3.
+1644 returned Main/2189 physical/1351 Gm movements, HP2/lives2 remain alive.
+The real Flower is born1374/mature1441. Takeoff1553 at1245/VX232 and actual
+launch1561 at1232/143/A28/heroVX233 match the measured source setup; real
+wallA229 at1564 also matches star1244.0625/164.625. No true support occurs;
+the ordinary route loses the star/support bound at1163/176. Restored decision
+1562 sees1231/140/VY208 and1563 sees1231/137/VY0/VX0, triggering A release.
+This supersedes source-only Flower acceptance for the native route. Mid-star
+collision's borrowed PlayerX/power fields must not be called a restored
+teleport. The retained source and native control-event snapshots do not
+include the needed complete later trajectory; no geometry repair is inferred.
+
+A NEW passive trajectory facade preserves every0a644 control/behavior gate
+byte after removal of its two declared observer insertions. Metadata/compile/
+binding source90513 is TERMINAL PASS (no gameplay run), receipt
+0c82bd40a9a2c481868dd54f623a151c5c3e46bb89d9572e87d81f0fe156dd32,
+Lua ff47b6e21d5275af199b38f61d0975c8b581c3e5d2d5841e804d1958662c893b.
+It authenticates24 actual hooks and strict590/unknown-input rejections. The
+observer arms during the admitted left jump's real VY196..215 and retains
+24 completed Main returns,24 actual GmRideStar PC/SP entry/return pairs after
+launch, and at most four explicitly labeled borrowed star-side-collision
+snapshots. Fixed-point hero/star positions, velocities/flags, current native
+body bounds, saved pads/Fresh/Previous, poll/read/decision epochs are bounded
+inside the receipt. No PNG/state/ROM files or gameplay qualification added.
