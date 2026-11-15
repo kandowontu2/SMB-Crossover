@@ -1,14 +1,20 @@
 # Classic DK functional 1-1 source investigation
 
-Latest native outcome: root40016 exact571/controller06fc is TERMINAL NEGATIVE
-at the later Koopa, Main1493/1930physical/x1659/Y161/engine11/lives2/tier0.
-Receipt `3ad0097a8f3e81ea62ce33d9b390d0a2daa187c2d822cbdc9e2a7d5765de487a`.
-The actual first jump admission and real roof run-up1497..1506 succeed; four
-later requests were admitted. Both source fixtures remain passes within
-their stated model scope; they do not predict this native encounter. The
-06fc dependency chain is frozen. Current work earns the first real mushroom
-and uses DK's intended abilities for a practical clear. No game/helper/health
-seed or physics change follows from the retained tier0 native negative.
+Latest native outcome: root93535 exact Downloads571/controller4601 is
+TERMINAL FULL PASS after earning the first real mushroom. It completes
+flag/castle/entrance and25 living grounded1-2 updates at40/176, lives2,
+tier1/power1/Star0, with8 actual barrel spawns and0 injuries. Receipt
+`b7df22aa134728c6e98d656506de37573b5c00df268e058d005454ab2665956d`.
+See `dk-natural-mushroom-1114.md` for the earned-state/native scope. No game,
+helper, health seed or physics change was needed. Natural F/S/L, complete
+abilities and idle-performance coverage remain separate open gates.
+
+Retained root40016 exact571/controller06fc tier0 negative is the later
+Koopa atMain1493/1930physical/x1659/Y161/engine11/lives2/tier0, receipt
+`3ad0097a8f3e81ea62ce33d9b390d0a2daa187c2d822cbdc9e2a7d5765de487a`.
+Its real first jump and roof run-up1497..1506 succeeded; four later requests
+were admitted. Both source fixtures remain model-scope passes and do not
+predict that native encounter. All frozen06fc dependencies are preserved.
 
 The initial proofs used delivered exactcf7
 `cf7b6d2964ae0ef18d08c726f66afe9bf5be3dc6f3ec9c7a43279121ee09d968`.

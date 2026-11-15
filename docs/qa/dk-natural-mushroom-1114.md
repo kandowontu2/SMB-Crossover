@@ -68,5 +68,16 @@ replay_dk_earned_mushroom_full11_1114.controller(exact571).
 Lua4601d3a2e38181a865436dda92101aa47f15bac56b58c382aaaacc3bea50289f.
 Factory0e676063ef8bbf7cc8f2ab576662eb3aac697286a29326034f52788891d21438;
 checker65b1c695e524d02a28e35220439c209ae0229febde6ec84b7fce983ec00a912c.
-Native full-stage verification is pending. The checklist's U and F/S/L
-remain open; no full-stage acceptance is inferred from source alone.
+Root93535 actual Downloads571/4601 is TERMINAL FULL PASS, receipt
+b7df22aa134728c6e98d656506de37573b5c00df268e058d005454ab2665956d.
+It has3873 returnedMain/4717 physical/2362 actual DK calls/58 in1-2 and
+18 requests/admissions. Flag2677/frame3505, castle2741/frame3569,
+entrance3298/frame4139, then25 living grounded1-2 updates at
+40/176/high1/native0/engine8/area2/lives2/tier1/power1/Star0. It retains
+the exact40bc real first-M prefix and resumed score1100, with8 real Cset
+barrel spawns including the earned second slot and0 injuries. No helper,
+seed, capture or output file; Downloads571 bytes and guards are unchanged.
+This closes only DK's full-stage U→C571, making the checklist U0. Natural
+F/S/L and complete abilities/audio/visual/performance remain open. The whole
+goal is not complete. No new ROM change or nightly replacement was required
+for this playability qualification of the already installed571 bytes.

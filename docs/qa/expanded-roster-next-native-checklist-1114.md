@@ -31,7 +31,7 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
 | GB Pit | **C1D**, actual Downloads1daca root17738/b4ac,5589physical/4386Main, fullflag/castle/entrance then25 living grounded1-2 at40/176, lives2/power0; separate **C82**44721/75b5 | Natural M/F/S/L, powered abilities/audio and visual review remain open. See `gb-pit-full11-current-1114.md` |
 | Ryan | **C1D**, actual Downloads1daca root37312/8b18,6415physical/5800Main, full flag/castle/entrance then25 living grounded1-2 at40/176, HP64/tier1/power1/lives2 | Natural M/F/S/L policy and ability/audio/visual coverage remain separate. The route's tier increase is not complete item proof. See `ryan-full11-current-1114.md` |
 | Mr. Gimmick | **CCF7**, actual Downloadscf7 root60011/8483,8959physical/7402Main, full flag/castle/entrance then25 living grounded1-2 at40/176, HP2/power0/lives2; eight genuine native star-support events | Natural complete M/F/S/L and remaining abilities remain separate. Actual Downloads60011/d3bd verifies repaired natural mushroom, unchanged Goomba and exact private sprite art. See `gimmick-private-window7-nightly-delivery-1114.md`; parent1daca's corrupt mushroom is superseded |
-| Donkey Kong | **U** full stage; actual571/06fc root40016 later-Koopa negative retained | **M C571**, actual Downloads571 root73346/40bc: real mature kind0 collector, tier0→1, erase/score1000/cue32/hosted freeze and25 resumed DK calls, terminal408/176/lives2/tier1; receipt1091e68d366ca59cac49d656066c0154e47e30ded311c5b325fe95f8a0f2d390. F/S/L and full-stage/remaining ability gates stay open; see `dk-natural-mushroom-1114.md` |
+| Donkey Kong | **C571**, actual Downloads root93535/4601: earned first M, full flag/castle/entrance and25 living grounded1-2 at40/176/lives2/tier1/power1/Star0;3873Main/4717physical,8 real barrel spawns/0 injuries; receiptb7df22aa134728c6e98d656506de37573b5c00df268e058d005454ab2665956d. Earlier tier0 native negatives retained | **M C571**, independent root73346/40bc mature collector/tier0→1/erase/score1000/cue32/hosted freeze/+25 resume, retained by full route. Natural F/S/L and complete abilities/audio/visual/performance remain open; see `dk-natural-mushroom-1114.md` |
 | Doc Louis | **C**, actual Downloads421 root18076/b2e4, full flag/castle/entrance and25 living grounded1-2 at40/176/HP96/lives2 | Natural item/audio ensemble remains separate. Existing actor28 at initial left3096/center3104/Y64 was present; no support event, so assistance is not claimed. See `doc-louis-full11-source-1114.md` |
 | Getsu Fuma | **H**, c6ab5610 full clear plus earned M/F | Natural S/L; full donor arsenal remains later work |
 | Karnov | **H**, current7ef full stage and all five stock pickups/Ladder | Natural S/L; Bomb enemy kill remains distinct from arming/blasting and normal-fire kills |
@@ -69,8 +69,11 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
    Current-parent composition and full ordinary source route are in progress;
    no successor is installed. Do not call the older delivered clear a failed
    current run or claim an idle-performance improvement from this repair.
-2. Assign a full route to the **one U identity**, classicDonkeyKong. The
-   two Battletoads choices now have actual f11 full passes. Shinobi's
+2. **U0 (previously U1):** classicDonkeyKong now has the actual571 full
+   earned-M route93535/4601, including25 living grounded1-2 updates. Natural
+   F/S/L, complete ability coverage and idle-performance gates remain open;
+   the whole goal is not complete. The two Battletoads choices have actual
+   f11 full passes. Shinobi's
    recovered historicalH and Rogue Dawn's retained native pass correct the
    earlier U counts; neither recovery alone is a newC pass.
    Burns root16139 is an independent currentC closure after that correction;
