@@ -269,3 +269,21 @@ This hanging-mode result is a terrain/control-admission lead, not evidence
 of an incorrect writer. Separate read-only89253 preserves identical inputs,
 records the first C618→2 writer with its actual PointRead calls and a small
 current cap tile census, and stops diagnostically before any item claim.
+
+Read-only89253 completes its diagnostic atPrince1957, receipt
+`ad4f56a5336b05bc54664cc4f737388ba589c4ec3c274ee214e9a6cde7f77202`,
+Lua `f889e7fad52e0988f0c5ea882bec05a7874eb17dfa4ecd5ab9eccb39f20d1ecc`.
+RAM3:A263 writes mode1→2 with X0/A2, opcode9D18C6. Retained exact source
+identifies this as original bank5:8557, the generic animation-script mode
+store, not a terrain-result writer. Actual point reads see pipe16/17 atY147
+and air atY143/123. The cap census is air at912/928/944 forY96/112/128,
+pipe16/17 at912/928/Y144, air944/Y144, hidden96 at1024/128. No bad native
+solid query or geometry defect is demonstrated by entering mode2.
+
+The retained donor F747..F751 hanging handler tests maskC8 (A/B/Up) to keep
+holding. Thus an A queue during mode2 is an invalid idle-queue assumption.
+Separate50759 captures exact40a once in memory before imports, waits with
+neutral for true source action0, then presses fresh A. Its actual cap-edge
+admission and raw foot cells are required; the earlier two-foot fixture
+negative is retained and no item/INC/25-return gate is weakened. A later
+nightly requires a separate typed adapter; frozen40a APIs remain strict.
