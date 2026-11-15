@@ -37,7 +37,9 @@ receipt `c582ed81be4a14443894542d016a7a629677ab4d8a0e91095fd812d74020646c`.
 Native PRG254 PC8DC7 writes VY252→0 at Main32/x402/Y157. The actual
 BillBGHeadConsumer return at9BC5 reads tile81, R2=112 (world row144),
 R5=133 (the left probe at world389), pointer03D8. By the later VY writer,
-world384/Y144 is tile35: the native head transaction has cleared that brick.
+world384/Y144 is tile35: the native head transaction has temporarily cleared
+the contacted cell. This is an ordinary bump transaction, not proof of
+permanent brick destruction.
 Later empty-cell sampling alone would have missed the genuine head contact.
 
 ## Ordinary first-pipe retry passes in source
@@ -61,7 +63,19 @@ policy SHA256 is
 It bases decisions on actual DkMovement followed by authenticated Main
 return, caches buttons for input polling, releases A after a real early
 landing and requires flag/castle plus25 actual living grounded1-2 movement
-updates at40/Y176. Full source session43163 is pending at this checkpoint.
+updates at40/Y176.
+
+## First full-route source negative
+
+The frozen initial controller above completes1058 genuine source Main returns
+in session43163, with1058 actual DkMovement calls. It crosses the four opening
+pipes and first two gaps, reaching maxX1522. The first terminal death is at
+Main1058, x1524/Y166/state1/engine11, lives2/tier0. Receipt:
+`38cf09c00be4151ebcfa9708c1efc63d53586b458503999c81eb08fe61efb549`.
+The last retained waypoint is Main955/x1282/Y176 grounded. There is no
+flag/castle/1-2 proof. A passive injury/contact observer is required to classify
+the next interaction before changing controls or game code. This source
+negative is retained; the initial full controller/policy remain frozen.
 
 No full1-1 clear, native playtest, new helper, game change or delivery is
 claimed. Source jobs use absent `build/dk-full11-current-1114`, max-files1,
