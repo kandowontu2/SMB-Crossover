@@ -48,6 +48,9 @@ def controller(raw,key):
     assert sha256(Parent.Frozen.TEMPLATE.read_bytes()).hexdigest()==Parent.Frozen.ROUTE_PINS[Parent.Frozen.TEMPLATE]
     assert sha256(Parent.BASE.read_bytes()).hexdigest()==Parent.BASE_SHA
     policy=Parent.BASE.read_text();body=Parent.Frozen.TEMPLATE.read_text()
+    # The generic8-tick B cadence continually restarts the donor's stationary
+    # punch. Preserve normal walking and attack only within reaction distance.
+    policy=once(policy,'b.b=c.poll%8<2','b.b=near and e.dx<48 and c.poll%32<2')
     body=once(body,"local function r(n,i)return emu.read(assert(C.ram[n],n)+(i or 0),emu.memType.nesDebug)end",
         "local function r(n,i)local at=assert(C.ram[n],n)+(i or 0);if n:sub(1,2)=='Bt'then return emu.read(3*8192+(at&8191),emu.memType.nesWorkRam)end;return emu.read(at,emu.memType.nesDebug)end")
     body=once(body,"r('SelectedCharacter')==0 and r('MarioVariant')==C.variant",
