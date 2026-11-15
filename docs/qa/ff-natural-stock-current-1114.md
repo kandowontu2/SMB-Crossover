@@ -137,3 +137,34 @@ actual entries. Terminal1055/176/native0/engine8/lives3/FFlease3/power1/
 earned1/charge1, with the genuine60-tick mushroom freeze retained. This
 closes White Mage M/L Cae66 only. No ROM changes, images or files; guards
 unchanged. Black/Thief native and all native Star gates remain separate.
+
+Root14546 actual Downloads ae66 Black Mage/83b8abdd is TERMINAL native
+PASS, receiptf85e5eb71ffa0f486bf99f9ef57204719f39c9ce7facc7c72a87a374341a358f.
+1283 returned Main/2158 physical/888 actual FF entries. Genuine hidden
+birth1155/frame1917, mature1220/2046, physical collector1253/2112 at1055/176
+versus actor1057/161; writer1258/2120 gives life2→3/timer42/cue64, counter
+863→888 and25 actual post-writer entries. Terminal1055/176/native0/engine8/
+lives3/FFlease3/power1/earned1/charges0; the real60-tick mushroom freeze
+remains retained. Black Mage M/L Cae66 is closed, with no transfer to Thief
+or native Star. No ROM/images/files/guard changes.
+
+Sibling Star batch24610 is TERMINAL source PASS on actualae66 bytes, with
+fresh compiled cold menu/Start per class. Each genuinely earns M and F,
+both60-tick freezes, then the ordinary kind2 born1364 at1616/136, mature1430
+at1616/119 and physical collector1490 at1672/140 versus1676/130. Native
+timer35/music64/cue32/control6/erase and delayed1000 score are observed;
+25 strictly post-collector actual FF entries finish1515 Main/1395 FF at
+1672/111/lives2/power2/earned2/Star34. White preserves all3 charges; Black
+and Thief preserve0. This does not certify native timing, expiry, protected
+enemy contact or full ability/audio/art coverage.
+
+| Actualae66 key | Exact controller SHA256 | Source receipt SHA256 |
+| --- | --- | --- |
+| white-star | 707b24a892b630825b2d789cdf3644dcd139aaba54ccfb2072ce2de97fe63bc9 | 1a03c3f04863bafc514f5da4d301cc6c4669d22a4d5ff59ac7c398ec55f54107 |
+| black-star | 44d7f2f065e2c558878f32f70636051e20ce096b66655dfcd3c6e831a34cbab3 | ca2ab05e2e5f7bc1d494e1156a9197ad060cb602529ba381df2f888fcbe2eb68 |
+| thief-star | c2e9b16ecac18491706fa35e1f3a82055a22b6fdcef42e820dd9c0a0430e5a37 | 4d712a27630a3154f0243368db7637383eb7c637a3cdb7c6c784cf2e849977cf |
+
+Same frozen0ce579 service factory and42b6f8 checker; per-class runtimes
+151.49/81.31/79.95seconds. Root's actual native queue remains the only
+emulator. All helper source handles are terminal and the output root is
+absent/zero files after these checks. No helpers or ROM/game changes.
