@@ -30,3 +30,25 @@ validation and farcall overhead merit investigation. Model CPU counts are
 not hardware timing proof. No caching, dispatch bypass or performance patch
 is allocated here; existing cookie, foreign, SMC and ISR contracts must be
 preserved by any proposed optimization. Source profile has its own owned QA.
+
+## Current571 baseline
+
+Root91651 repeats the same neutral48-return observation using the actual
+installed571 Downloads path. New strict adapter
+`replay_battletoads_score_idle_1114.py` explicitly recovers F11 with the
+ten-byte score inverse and rebinds only ROM provenance/bank fingerprints.
+The frozen f6cc controller body, including its historical F11 scope caption,
+is byte-identical; the actual receipt ROM hash is571. No game code changes.
+
+Lua `b5617b7ba05020eea8d8859d39c611c9827e7a221878e6a4774b9e9d5669d359`,
+receipt `62e06802848fb88f13c841f94626fa1e03ffe229f355eb3307e9666ce12c5bce`.
+All counters match the F11 baseline: Main273/frame297/source1/skips22 to
+Main321/frame369/source49/skips70,48Main over72physical and48 skipped-NMI
+increments. Zero active actors;40/176/HP47/lives2/Ready1/power0/Star0.
+Downloads bytes and pre/post sidecar guards stay exact. No captures/files.
+
+The separately granted source-only dispatch overlay reports9,076 cycles
+saved per completedMain (36,604.0625→27,528.0625 idle;36,864.5625→27,788.5625
+walking). Those model counts are not an installed change or a native cadence
+result. The actual571 measurement above is the comparison baseline for a
+future qualified performance candidate.
