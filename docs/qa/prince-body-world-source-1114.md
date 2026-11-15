@@ -395,6 +395,28 @@ This preserves a live input/stance negative. A separate bounded component
 continues ordinary controls from the genuinely earned late-brick state;
 none of its actor, health, item, position or terrain outcomes are installed.
 
+The compact component50498, receipt
+`d9b6a2840b7301c20521ae6a653f91d396c18a1da51dd3476debd8aef837b597`,
+retains standing-Up death369/x1676 and walking-Up death409/x1661. Running-Up
+and held-A/Up finish the bounded observation421 at1729/143/HP4/sword2, with
+hang/top=false. Their diagnostic-complete statuses are not traversal passes.
+The earlier verbose12941 result exceeded the tool-output budget; its full
+receipt400a4198 is retained only as historical context and missing middle
+trace fields are not invented. The compact successor records capped traces.
+
+The separate combat-enabled full controller reuses the already qualified
+original sword behavior: first idle pose171→B parry; observed action62 arms
+the approach; ordinary direction until actual target gap38/32; then A attack.
+Source93173/Lua
+`3cbb428c79b3223025373d30ce8188a8e32afba6000423e99a8e94baef3324b1`
+defeats a real Goomba at3503 and native Koopa at3747 while retaining HP4. It
+ends3954 in a live climb, action10/157Y, after hang admission3941, when the
+legacy165-update total-Up observer expires. Source receipt:
+`d319b1cee7303655161a36f0c2ffdd934410b70cc6c08de6cb3151d064928eca`.
+The next source replay bounds an already admitted climb from its actual hang
+commit. That observer correction changes no navigation input or game byte;
+full-stage qualification remains pending.
+
 ## Read-only private sprite remap census
 
 `audit_prince_sprite_window_options_1114.py` only inspects current f11 bytes,

@@ -1,8 +1,13 @@
 # Prince private-window proposal, not mounted
 
-Current exact f11 is the read-only input. No graphics allocation, CPU overlay,
-game candidate, ROM output, native test or installation is claimed here.
-The earlier body-world e418 packets and four-cap controllers remain frozen.
+Root has granted conditional source-model research in
+`allocations/prince-window567-research-1114.json`, SHA256
+`b764a508c3115cadeadb8ad21dfbc406cf8f392ae2c95b5854ae6f247cf2d6a6`.
+Only the three exact spans below may be mounted for the declared source
+renderer/ABI/IRQ/lifecycle checks. ROM composition, native execution and
+delivery remain unauthorized. The body-world e418 packets, four-cap controls
+and math sourcecd82f437 remain frozen. The following proposal history is
+retained; the later source results supersede its initially unmounted status.
 
 `tools/audit/plan_prince_window567_1114.py` derives all239 pose tags,170 unique
 formatted packets and1069 unique tile bytes (873 compact,153 wide,43 raw).
@@ -48,3 +53,59 @@ No claim is made that this is a complete current graphics or gameplay fix.
 Root review/lease is required before in-memory renderer fixtures; current
 caller/reference domains, all408 CPU renders, interrupt cuts and private
 window owner/retirement guards remain to be qualified under that lease.
+
+## Leased renderer and ABI results
+
+`check_prince_window567_render_1114.py` mounts exactly the three leased spans
+after genuine original compiled Select/Start/cold ingress. These are explicitly
+finite renderer fixtures, not a cold-loaded ROM candidate or gameplay proof.
+The actual renderer is invoked for all204 present poses and both faces:408
+cases/2578 parts. Every non-tile packet byte, projection/height/width field,
+pattern physical page and pattern-pair offset matches the original. Tiles
+change by65 and publishers by5. Hardware publication uses the compiled native
+X5PublishChr, rather than treating software selections as already latched.
+
+The final source44322 receipt is
+`6cefa027dcedcf59c4b4f456d013310cb46b5136cecd780d63117977ac68403e`.
+It also covers384 additional ABI cases: all64 U1/B0 hardware-flag combinations,
+both faces and the three present packet formats. Baseline/new A/X/Y/P/SP match;
+the nonphysical B bit's standard PHP/PLP normalization is excluded explicitly.
+There are zero file-write or subprocess attempts under traps.
+
+Source8 warm Main updates produce5 genuine busy-NMI cuts plus5 Main IRQ cuts;
+finite renderer contexts add55 IRQ cuts. Minimum ISR SP160. Private RAM,
+scratch, SMC, mapper and CHR state remain exact; native RAM differs only in the
+declared busy-NMI skip/audio-duration fields. No busy flag is supplied by the
+fixture. The three observed pose-data readers are Byte atBCF4 and pose-tag
+loads atD906/D90C. The complete pose extent receives zero writes. Static
+consumer closure is still pending; observed-reader coverage alone is not
+being treated as that proof.
+
+No current pose emits255. A separate declared native-renderer boundary unit
+uses the existing five-byte C200 one-part packet containing tile255; the actual
+MetaspriteRenderLoop emits exactly one sprite with tile255, confirming it is
+valid 8x16 data rather than a terminator. This is a kernel fixture, not an actor
+or gameplay seed.
+
+The original renderer first publishes a real private window0. The compiled
+FmNativePrepare then clears all12 modes and restores the native table. After
+actual X5PublishChr, native windows0..4 are[14,16,17,18,19]. The leased renderer
+preserves all five software modes, banks and physical latches. This closes the
+explicit retirement unit, including former private0; complete current cold,
+lives/menu-alternate and area-transition paths remain pending.
+
+Encoding the leased streams gives6441/5991/1231 bytes,641 bytes of the existing
+45-page carrier remaining. Runtime staging6528 and metadata sourceC900 bounds
+pass. This is pure encoding measurement, without a composed ROM. The eventual
+body-world plus graphics merge must also be measured separately.
+
+Measured renderer-cycle changes range−16..+19, because relocated pose records
+alter byte-reader page crossings.264 of408 cases add2 cycles. The local
+publisher change is still2 cycles per page, but that local number is not the
+whole measured render cost. No frame-rate or lag-improvement claim is made.
+
+Current Downloads is now571. The separate explicit
+`current_prince_body_research_571_1114` boundary invokes the frozen score
+inverse to recover exact f11, retaining original571 and the10 score bytes for
+future preservation checks. The frozen f11 and historical Prince APIs remain
+strict. No current merged image has been composed.
