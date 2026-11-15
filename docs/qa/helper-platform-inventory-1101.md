@@ -472,6 +472,13 @@ and330fe0d0c826f0973e9b7864cd2b859c5ae21d09694f87aa7dcebf14dfcd4c9a.
 Their native successor Star gates remain pending root; the generic early-gap
 native negatives remain retained. Stage-clear versions above are unchanged.
 
+Root85489/88422 later close the exact Savage/Andre current7a80 Star successor
+gates too: ten/42 actual native carries respectively, real Star and25 later
+movement calls, lives2/power2. Receiptsad6aeece235afc629bd91b880ea08026d200047aa4d73f9a4817f6855ef52e7b
+andf0e396a44c3e403201ea00efd280dadd8802429d46ef6dbe2955a36cdf5bae32.
+Their native timing differs from source40/36 counts; geometry stays the same
+initial left1376/center1400/Y208/width48 in1-1/area25. No helper was added.
+
 ## Later-stage shared placements
 
 **H** means every named character/alternate in the first table row above.

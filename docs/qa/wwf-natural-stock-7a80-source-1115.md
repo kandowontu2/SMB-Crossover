@@ -286,3 +286,18 @@ are player1648/176 and1651/176 respectively versus Star1645/164. Both erase,
 popup6, timer35, actual music64/cue32 producers,2800→3800 and exactly25 later
 WfMovement calls pass, with lives2/power2 retained. Native remains pending
 for these exact two successor controllers. Root owns the single queue.
+
+Root85489 and88422 now close those two exact native successor Star gates on
+actual Downloads7a80/defaultEasy. Savage receipt
+`ad6aeece235afc629bd91b880ea08026d200047aa4d73f9a4817f6855ef52e7b`
+passes3222 Main/6025 physical with ten actual helper carries, Star born3103,
+mature3168, collector3196,3000→4000 and25 later calls, terminal1651/176,
+power2/lives2. Andre receipt
+`f0e396a44c3e403201ea00efd280dadd8802429d46ef6dbe2955a36cdf5bae32`
+passes3252/6070 with42 actual native helper carries, Star3133/3198/3226,
+3000→4000/+25, terminal1655/176/power2/lives2. The Star routes re-earn real M/F,
+both60 freezes and25 later movement calls. Together with the separate current
+1UP native cohort, all six M/F/S/L natural-stock gates are now native-qualified
+on7a80/defaultEasy. Root's `wwf-natural-star-native-1115.md` owns native detail.
+This does not close later-stage/full-current-route, Hard, protected-hit/expiry,
+complete ability, audible audio, graphics beyond opening or performance gaps.

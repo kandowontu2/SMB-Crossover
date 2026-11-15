@@ -47,3 +47,23 @@ Producers are bounded max-files1/600s with absent roots
 Receipts and prototypes stay in RAM/stdout. Frozen Bub, WWF, Gimmick and
 current ROM dependencies remain unchanged. Bob and F/S/L/native scopes stay
 open until their own actual evidence is recorded.
+
+The first Flower exploration60622 is a retained controller negative:
+factorySHA `5ac94fc68a9478332fdd75a7152d23a2561189b46981cfdf9b5f63cb7f639638`,
+Lua `1962dc11bd4388d0611ffad225de9f7c7d45751bca14bace753f04a771399b54`,
+source receipt `9e01bccce5e04f3b00e9306edcb296e923a6cc5f69e4c6049e466a8c55619f4f`.
+It genuinely earns M and25 later source calls, then takes off Main585 from
+387/176 with real static floor/zero nativeDY/source selector0/fresh A and a
+real type2 bubble dx34/dy−16. It earns one actual original bubble support
+restart. After landing before the first pipe, it enters `cross` and keeps
+Right+A at432/176, so no fresh supported jump occurs. The retained guard
+rejects after1086 Main at432/176, lives2/flags1/power1; no Flower reached.
+The former retry handled only pre-ride `jump`, excluding the later `cross`
+landing. This is a control error, not a demonstrated game or helper defect.
+
+The separate `explore_bub_flower_rearm_7a80_1115` successor applies actual
+ground support/readiness to both states. It releases A through two real
+source-clock consumptions, then holds the fresh press until the actual
+original jump entry counter acknowledges it. It records bounded transition
+events and retains all old actual support/crossing/Flower assertions. No
+blind timing matrix or game-state edits are introduced; source result pending.
