@@ -109,3 +109,15 @@ next1, score1400 preserved. Earlier ordinary injury remains: no HP3 or injury-
 free native claim. This closes natural M/L C590 together with root50165's
 qualified first-M/+25 prefix. Native F/S, expiry/protected hit and full ability/
 audio/art/performance remain separate. Old cf7 full-stage proof is not promoted.
+
+Root51603 actual Downloads590/6c112 is TERMINAL native Star PASS, receipt
+dcfdad07e448ad7775277c3e9fa0504004fd795933febbaf1828c0afce0ec4ca.
+1948 completed Main/2638 physical. The real1616 Star block produces kind2 on
+1630 and a mature Star on1697. Physical collector1922 sees hero1840/146 and
+actor1842/146, followed by real erase/popup6/timer35/music64/cue32, no freeze.
+Score1740 to2740 by1928 and exactly25 actual post-collector GmMovement calls
+are observed. Final1868/176/HP1/capacity3/lives2/power1/Star34, inventory0/
+next1 preserved. Two ordinary injuries occurred; source HP2 is not the native
+endpoint. M/S/L are now current590 native-closed in separate real runs; F is
+still open. Star expiry/protected hit and complete abilities/audio/art/
+performance remain separate. No source or ROM change was used for this proof.
