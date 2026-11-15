@@ -43,3 +43,17 @@ zero capture files, one existing candidate/Lua slot. Installed Downloads is
 stillae66 at this private checkpoint. Pipe/collision, sword transition,
 full-stage, all-pose physical pictures and performance are separate work;
 the historicale418 body and either opponent-marker proposal are excluded.
+
+## Actual Downloads delivery
+
+Root82701 subsequently installs this exact590 image directly at
+`C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes`, replacing ae66
+without a backup. Both CLI patch guards are clear. Installed bytes equal
+the private tested candidate, and a new run launched from the actual
+Downloads path reproduces the complete Lua, receipt and both PNG hashes
+above, including the first-publication readback and natural pickup.
+The actual route again completes990 Main/1840 physical/613 Prince commits.
+
+Source push801d9e88 precedes delivery. No release, patch asset, video or
+capture file is created. The authoritative handoff now records590;
+remaining collision, sword transition and performance work stays open.
