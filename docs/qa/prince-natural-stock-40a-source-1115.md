@@ -158,3 +158,38 @@ cookies and all4193 static owning bytes. There are no gameplay state writes,
 helpers, ROM files, images or Mesen runs; this is native-ready source proof,
 not an actual native acquisition claim. Source frontend uses compiled menu
 components and lacks physical vblank/cadence as already noted.
+
+Root actual Downloads native72722, frozen48097, is an **endpoint-observer
+negative**, receipt
+`79ba869563e7336baa66edf77b9f027a8f403940f7d5c433500da3612252f3ca`.
+Actual Prince birth3849, mature3914 and physical collector3985 reproduce the
+same4x2 overlap, C7B3/SP219. Timer43 at897C/SP245 onPrince3990 returns83D6/SP247,
+score2600 to3600, lives2; actual Star/power2/Sword1 acquisition succeeds.
+The frame-end completion condition never fires despite resume730; terminal
+Main5413entries/5412returns, Prince4721,1704/176/HP4/lives2. Frame end can
+occur inside Main, so pendingMain is unsuitable as a frame-end finish gate.
+Separate successor49196 evaluates the same +25 returned-Prince requirement
+immediately after the existing authenticated Main caller-return witness
+clears pendingMain and increments Main_returns; it records exact PC/SP and
+both completed counters. It changes no acquisition controls or game bytes.
+The old48097 source and native results remain frozen separately.
+
+The corrected full-cap hidden1UP experiment19277 is an input negative,
+receipt `3d486b0c238c6a74465ca3633e6bc378bca1dd29e6f42a1b249668033ca7ff56`,
+Lua81664520. AtMain1962, actual both-feet support is928/112/HP4/lives2,
+but source action42 is still active. Right continues that careful step to
+946/115; its finite runway guard stopsMain1981 before jump admission or any
+head query. Goombas866/843 are behind, movingRight, and no new injury occurs.
+Source17300, Lua c9a76239, releases to neutral and waits for actual action0:
+the remaining action42 completes at973/176 onMain2067, so its fresh-cap
+support assertion correctly rejects the launch. Receipt
+`1192b86af2b96b921236b1dd914baea7e57447342d1983d5b6d7941aa921c41a`.
+Thus the prefix's fourth_full_cap is supported intermediate state, not an
+action42 completion. Neither experiment reaches an item attempt. A new
+control admission or legitimate launch point must be authenticated before
+another cap attempt; this does not establish universal item impossibility.
+
+Read-only current pose records measure tile Y offsets down to-48 in pose78,
+versus-37 standing. Together with the measured head row144, these give no
+evidence for changing the head worker or donor jump constants. No collision,
+ability, helper, ROM or allocation change is proposed for hidden1UP here.
