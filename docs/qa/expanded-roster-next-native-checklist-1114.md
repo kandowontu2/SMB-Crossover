@@ -1,7 +1,7 @@
 # Expanded-roster next native checklist — November 14
 
-Snapshot: latest `LATEST_1114_F11_DOWNLOADS_VERIFIED` handoff, exact installed
-`f11a25b892779cb0d5192457f7feff548f35019818cd75dfef5bdf3f2419b865`.
+Snapshot: latest `LATEST_1114_571_DOWNLOADS_VERIFIED` handoff, exact installed
+`5715bb7e3c772350a2a7420ec9061eabd948964a8789e5d348c49d3cfb3c57ee`.
 Rows retain their explicitly recorded ROMs; the common CHR delivery does not
 silently promote earlier stage receipts to the new image.
 The goal remains incomplete. All101 names start; that is not101 stage clears.
@@ -9,7 +9,7 @@ This checklist covers **all64 additions beyond the37 identities** in the
 read-only October27 progress file. The original37 retain their separately
 versioned stage/item audit; this document does not certify them anew.
 
-**C** = current-line native pass on the exact421/82ec/1daca/cf7/f11 ROM named in its row.
+**C** = current-line native pass on the exact421/82ec/1daca/cf7/f11/571 ROM named in its row.
 **H** = native pass on the named earlier ROM;
 retain it, and use its exact preservation/rebinding proof before reuse.
 **U** = no full native stage pass located in the compact evidence reviewed;
@@ -103,8 +103,10 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
   421 changes are exactly110 owned hidden-head bytes overfa66;fa66 adds66
    granted cheat bytes. The new hidden behavior intentionally changes SMB2
    host probing. It does not retest every old route automatically. Kirby's
-   explicit **current421 whole-PRG74 equality and normal-controls shell hit**
-   are in `kirby-shell-current-audit-1114.md`; Mini's exact retained carrier/
+   **actual571 four close-inhale runs plus green-shell/full1-1 and red catch**
+   are now in `kirby-current-native-1114.md`; green's falling1-2 endpoint
+   is kept distinct from25 grounded updates. The earlier current421 source
+   preservation remains in `kirby-shell-current-audit-1114.md`. Mini's exact retained carrier/
    hooks and Bub/Bob's disjoint preserved carrier have their own proof notes.
    Do not extrapolate that evidence into101 new native passes.
 
