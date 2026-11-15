@@ -1,8 +1,9 @@
 # Classic DK functional 1-1 source investigation
 
-Latest source outcome: exactf11/full controllerf875 passes full nonshortcut
+Latest full-source outcome: exactf11/controllerf875 passes full nonshortcut
 1-1 and25 living grounded1-2 updates, with both lives and tier0. Root's native
-Mesen verification remains pending. No ROM code, physics, helper placement,
+f875 run found an input-admission harness race; the actual game remained alive.
+The separate latch successor below is under source qualification. No ROM code, physics, helper placement,
 health or power grant changes are needed for this source clear. Earlier
 controller negatives below retain their scope.
 
@@ -235,6 +236,36 @@ and a terrain scan that includes the real body front. The same native game
 code and all delivered BT52/Gimmick192/classic3/common29/prior176 bytes remain
 exactf11. Root owns the sole native queue and has the API/hash for testing the
 already delivered ROM; this lane creates no candidate ROM or install.
+
+## Native f875 input-admission negative
+
+Root actual Downloads33997 is terminal negative, receipt
+`ec1d39d20b298ff35a64b672fe7a70e6daf809bddd73bc5b8908f881e4392f2f`.
+At Main1384/frame1754, x1448/Y176/state0/lives2/tier0, the real landing guard
+fires before any jump was admitted. A requested jump was treated as rising
+immediately; a catch-up Main before a new input poll still had ground/VY0,
+so the apex-release code cleared the queued A. The following ground snapshot
+was then misclassified as a landing. No game death or weakened floor/ceiling
+requirement is inferred. The old source pass and native negative retain
+their distinct scopes; f875 is frozen.
+
+The separate947 controller keeps requested A until native state1/negative VY,
+actual upward displacement and SavedJoypadBits/A_B_Buttons/PreviousAB/
+DkPrevious all carry A. It separately retains the request/admission/landing
+witnesses and at most32 Main/movement/poll trace rows. Source fixture50456
+omits exactly two normal controller-delivery callbacks at the real grounded
+launch, leaving CPU/NMI scheduling and all game state unchanged.
+
+That fixture proves the latch: request Main1025/x1447 with Saved2/AB0/Prev0/
+DkPrev2 survives1026/1027 without a poll. After delivery, actual admission is
+Main1028/x1451/Y172/state1/VY252, Saved193/AB192/Prev192/DkPrev193. The
+real guarded roof landing is Main1069/x1500/Y112. Whole-route receipt
+`07b1b32a3e4776539c61ae352e2ff3cd799b7684d7f44a29f6f3a1f1137629c8`
+remains negative at a later Koopa contact Main1150/x1652/Y166. This proves
+the first admission contract, not a full or native clear. The next separate
+controller applies the same admission/actual-ascent hold to subsequent
+ordinary ground requests after1408, keeping the proven opening and all
+actual floor/head/roof guards intact.
 
 No full1-1 clear, native playtest, new helper, game change or delivery is
 claimed. Source jobs use absent `build/dk-full11-current-1114`, max-files1,
