@@ -228,3 +228,25 @@ success is claimed. The next unqualified revision permits turning at20px and
 firing at16px or more with actual disjoint boxes, retaining the original
 16px unsafe bound and all health/real-capture/pop requirements. This is a
 measured ordinary-control correction to excessive retreat, not a game fix.
+
+Revised close-defence90407 now **SOURCE PASS** with its danger branch actually
+executed. Frozen factorySHA256
+`17f9eb47e1d2aa964c154994c704c015809a6bfb051a750bb143e2908b4ba154`,
+API `replay_bub_flower_close_defence_40a_1115.controller(raw40a,0)`, Lua
+`c8e483d60fdd050f97568fdd473220b4aa59ba0b6bd93c3a74dded79b31e77ba`.
+Receipt `7f3103eb507c064208a7ac094783e2716aa6ff7adfc7d973e418a615546d35e5`
+passes1824 Main/actual Bub entries and the complete M/F/60/+25 evidence.
+Main859 fires fresh B from656/176 with body[656,192,671,207], actual Goomba
+675/184/slot0 box[678,198,688,204], gap19, cooldown0 and sourceheld1. It
+actually traps/pops by864, one each, then continues without injury to real
+F grant1799 and actual movement1824, terminal1245/112/lives2/power2/flags7.
+This is not inferred from the earlier unexecuted generic policy: actual source
+NPC coordinates, disjoint body boxes and real projectile capture/pop are
+observed. Root2797 is testing this exact frozen controller natively; no native
+success is claimed yet. Bob's ed411 text remains unchanged in this facade.
+
+The separately owned `replay_bob_flower_close_defence_40a_1115` now binds the
+same frozen danger declaration/call to Bob's exact original controller and
+proves removing only those additions restores the old Bob text. It preserves
+all Bub ed411/17f9 dependencies during root's native run. Bob source is a new
+independent cold case, with no automatic qualification from Bub.

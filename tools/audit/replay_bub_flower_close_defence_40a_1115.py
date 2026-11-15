@@ -53,8 +53,9 @@ local function closeThreat(q,actor,x,y,grounded)
  assert(disjoint,'Close-defence begins while actual native body/enemy boxes are disjoint')
  local aligned=math.abs(target.y-(y+8))<=8
  local ready=full_state(actor+8)==0 and full_state(0x301)&64==0
- if grounded and full_normal_jump_ready(actor)and aligned and ready and target.dx>=28 and target.dx<=40 then
-  if full_state(0x102+(identity==1 and 8 or 0))&64==0 then full_pad={right=true};return true end
+ local right=full_state(0x102+(identity==1 and 8 or 0))&64~=0
+ if grounded and full_normal_jump_ready(actor)and aligned and ready and target.dx>=16 and target.dx<=40 and(right or target.dx>=20)then
+  if not right then full_pad={right=true};return true end
   closeFight={Main=q.completed_Main,slot=target.slot,captures=q.captures,pops=q.pops}
   flower.close_shots=flower.close_shots or{}
   flower.close_shots[#flower.close_shots+1]={Main=q.completed_Main,x=x,y=y,body=body,target=target,held=full_state(0x301),cooldown=full_state(actor+8)}
