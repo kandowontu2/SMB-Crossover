@@ -116,13 +116,17 @@ hardware-P contract; full saved stack bytes are independently checked.
 The cold constructor's ten live code differences are admitted only at the
 34 known old SMC operand cells; all1073 serialized preimages are exact09b.
 
-Root still must review/freeze a source allocation before any composition.
-Then required gates include real constructor/death/foreign/cold behavior,
+The subsequent root allocation is frozen at SHA256
+`3ba6f0b10fe1e91265991a9240ee78fd41cef6a04a1c4b596bc6ebd9ddaeaaa7`.
+See [the source qualification checkpoint](dkjr-floor-entry-source-1114.md)
+for private60d4/currentCAB composition, the retained flag negative and the
+bounded first-abort evidence. Remaining gates include death/foreign/cold behavior,
 service34 caller/area lifecycle, strict portable inverse, preservation of
 all176 previous fixes plus29 common reset bytes and the three newly delivered
 classic-DK operands, full source and native routes through25 living grounded
-1-2 updates, and the separate idle/walk cost work. Current Downloads is1daca;
-frozen421/82 APIs are unchanged and will need an explicit preserving wrapper.
+1-2 updates, and the separate idle/walk cost work. The frozen421/82/1daca APIs
+are unchanged. Downloads has advanced to cf7 and needs a new typed preserving
+wrapper before any future current merge. No private Jr. result is delivered.
 
 ## Frozen source hashes for root review
 
