@@ -30,11 +30,11 @@ def explore(raw,key,limit=3200):
     factory=SimpleNamespace(bindings=lambda image,k:config(image,k))
     with patch.object(Cold,'Factory',factory):m=Cold.cold(raw,key)
     current=dict(Main=0,phase='first-M',moves=0)
-    events=[];recent=deque(maxlen=16);items={};pending=None;calls=Counter()
+    events=[];recent=deque(maxlen=16);items={};pending=None;calls=Counter();jump_inputs=[]
     jump=None;pipe=0;travel_jump=None;cooldown=0;cross_start=None;retreat_settle=0
     original=N.NesMPU
     hooks={name:((W.location(b,name)-16)//8192|128,W.address(b,name))for name in
-        ('WfMovement','HandlePowerUpCollision','GuestPowerupUpdate')}
+        ('WfMovement','HandlePowerUpCollision','GuestPowerupUpdate','PlayerPhysicsSub')}
     def score():
         digits=[N.get(m,'Player1ScoreDisplay',i)for i in range(6)]
         assert all(0<=x<10 for x in digits)
@@ -46,7 +46,8 @@ def explore(raw,key,limit=3200):
             native=N.get(m,'Player_State'),vy=N.get(m,'Player_Y_Speed'),
             engine=N.get(m,'GameEngineSubroutine'),power=N.get(m,'PlayerStatus'),
             active=N.get(m,'GuestPowerupActive'),age=N.get(m,'GuestPowerupAge'),
-            lives=N.get(m,'NumberofLives'),score=score())
+            lives=N.get(m,'NumberofLives'),score=score(),facing=N.get(m,'PlayerFacingDir'),
+            vx=N.get(m,'Player_X_Speed'),buttons=N.get(m,'A_B_Buttons'),previous_AB=N.get(m,'PreviousA_B_Buttons'))
     def actor(i):
         return dict(slot=i,flag=N.get(m,'Enemy_Flag',i),id=N.get(m,'Enemy_ID',i),
             state=N.get(m,'Enemy_State',i),kind=N.get(m,'PowerUpType',i),
@@ -82,6 +83,9 @@ def explore(raw,key,limit=3200):
                 note('actual-collection-return',pickup_kind=p['kind'])
             if(tag,self.pc)==hooks['WfMovement']:
                 current['moves']+=1;calls['WfMovement']+=1
+            elif(tag,self.pc)==hooks['PlayerPhysicsSub']and current['phase']=='flower-cross'and current['Main']-cross_start<12:
+                assert len(jump_inputs)<16
+                jump_inputs.append(dict(state=state(),PC=self.pc,SP=self.sp,pad=N.get(m,'SavedJoypadBits')))
             elif(tag,self.pc)==hooks['GuestPowerupUpdate']and N.get(m,'GuestPowerupActive'):
                 kind=0 if current['phase']=='freeze-M'else 1
                 item=items[kind];assert item.get('collected')
@@ -172,7 +176,12 @@ def explore(raw,key,limit=3200):
                         elif s['native']==0:
                             retreat_settle+=1
                             if retreat_settle>=4:
-                                cross_start=tick;bits=129;phase('flower-cross')
+                                bits=1;phase('flower-runup')
+                    elif p=='flower-runup':
+                        assert s['x']<1220,('Flower right-facing run-up',s)
+                        bits=1
+                        if s['native']==0 and s['facing']==1 and s['x']>=1206:
+                            cross_start=tick;bits=129;phase('flower-cross')
                     elif p=='flower-cross':
                         assert tick-cross_start<160,('Flower roof approach',s)
                         bits=1 if s['x']<1245 else 2 if s['x']>1253 else 0
@@ -182,7 +191,7 @@ def explore(raw,key,limit=3200):
                 m.controller_pad=bits;Frames.frame(m,whole_pass=True);steps=tick+1
     except AssertionError as e:failure=str(e)
     result=dict(passed=passed,identity=key,ROM_SHA256=PIN,role=cfg['role'],source_Main=steps,
-        final=state(),items=items,events=events,recent=list(recent),calls=dict(calls),failure=failure,
+        final=state(),items=items,events=events,recent=list(recent),calls=dict(calls),failure=failure,jump_inputs=jump_inputs,
         all6_cookie_SHA256=sha256(expected).hexdigest(),outputs=0,gameplay_seeds=0,Mesen_run=False,
         scope='Ordinary source exploration of real M then Flower/60-tick transactions/+25 moves; no native or full-stage claim')
     result['receipt_SHA256']=sha256(json.dumps(result,sort_keys=True,separators=(',',':')).encode()).hexdigest()

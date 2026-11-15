@@ -55,3 +55,26 @@ is still a terminal negative: the retreat-to-roof input sequence never
 establishes its intended jump, ending alive at1246/176/power1. The next
 ordinary attempt adds an explicit right-facing run-up before requesting A;
 no Flower collector or power2 is claimed from this attempt.
+
+The next ordinary run-up succeeds. Source4884 is terminal PASS on exact590,
+prototype de035643e747c8bde10c77c28afe12eddbd6e17422c4b793ebcbb01ca21a26e5,
+receipt3450a1726f9622fb3a8804f25ee464a3d53f3038af5e0380e387368952e928fc.
+It walks right from1200, reaches right-facing1206, and then requests A.
+Twelve actual native PlayerPhysicsSub entries at A7F4/SP211 witness the
+fresh A/previous0 admission and genuine rising motion. This corrects the
+input sequence without changing the game.
+
+Hogan physically collects the mature kind1 actor atMain2276, player1236/109
+versus1248/119. The real collector returnsB809/SP245/C1, erases the actor,
+sets floatey6/cue32 and begins engine9/active1/age0. Exactly60 actual native
+powerup-update calls restore engine8 with power2 and score1500→2500 at2337.
+The next25 WfMovement calls finish2362Main/2242moves at1236/112, native0,
+power2, both lives. The earlier Mushroom's independent60/+25 gates also
+pass. The armor tier stays1 through Flower birth and approach.
+
+This closes a genuine source M/F route for Hogan only. No native run,
+other wrestler, Star,1UP, all abilities, artwork, audio output or full-stage
+claim follows. All six complete cookies are authenticated; their common
+aggregate28d3347a5571d64d51f16027c2fa4c43def63b8b2c385b24c3856d0d1ba4bc7c
+does not substitute for per-identity play. Native conversion and the five
+other identities remain required before broader qualification.
