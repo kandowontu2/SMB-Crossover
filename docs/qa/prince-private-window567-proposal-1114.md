@@ -194,3 +194,18 @@ The Prince array hook never runs for those alternate owners.
 Ordinary new-ROM cold transport, combined body/graphics encoding and native
 graphics/transition qualification remain pending. The current installed ROM
 still contains the original Prince graphics and body behavior.
+
+## Combined existing-carrier measurement
+
+`measure_prince_body_window567_fit_1114.py` SHA256
+`fbe30ddd33b0e82e12b21c698314ca2ab230404bbb43f66ccc80871fa13e7221`
+passes source84232, receipt
+`573453c58c88f6c64240ff38db5508ffaae7df13b9d13394b8e6a2ddceab3888`.
+The two allocated body arrays and three leased graphics extents together
+encode to6469/5991/1259 bytes, with585 bytes of the same45-page carrier
+remaining. Runtime staging≤6528 and metadata source≥C900 pass. All other
+decoded bytes remain exact. The only ROM reconstructed in memory is the
+already-frozen historical bodye418 dependency; no combined ROM is rebuilt,
+serialized or mounted. This measure excludes the separate importer proposal.
+Current ae66/native-service changes remain outside this historical array
+measurement and must be retained by an eventual explicitly typed composition.
