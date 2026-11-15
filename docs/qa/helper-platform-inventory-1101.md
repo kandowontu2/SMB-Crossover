@@ -438,6 +438,16 @@ Andre now also reaches active 1-2 without losing a life in 11,172 physical
 frames, defeating 13 enemies and recording 64 native platform-carry calls.
 His original walking action must retire before a fresh punch press; two
 neutral source updates fixed the test controller, with no ROM change.
+November15 current7a80 natural-Star source recheck keeps this same geometry
+for Hulk Hogan, Ted DiBiase, Bam Bam Bigelow, Honky Tonk Man, Randy Savage and
+Andre:1-1/area25, initial **left1376 / center1400 / Y208 / width48**. A new
+Honky-only later-edge controller records10 actual native horizontal carry
+calls, first Main2520 at player1412/176 versus helper40/slot5 at1401/208,
+passenger5, PCB683/SP237, and then genuinely collects Star with both lives.
+Receipt9bcf119635984bf9e5faa6a15eac469daa010102f5446cc06a89e27583299458
+is source-only; current native stock replay is pending. No placement or actor
+change is made. See wwf-natural-stock-7a80-source-1115.md for the qualified
+controls and the retained early-jump death; mere helper presence is not carry.
 All six wrestlers have full-route evidence on this exact nightly. Both modes
 admit the platform; these route checks do not establish both-mode qualification.
 The actual Downloads launch repeats Hogan's full clear in 12,277 frames.

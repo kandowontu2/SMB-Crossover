@@ -154,6 +154,67 @@ helper-platform-inventory-1101.md. No new helper or actual carry claim is made
 by the stock observers; geometry and the earlier full-route assistance proofs
 remain unchanged.
 
+The complete source task is now **PASS for all six hidden1UPs and all six
+Stars on actual7a80 CPU bytes**. Root subsequently closed all six actual
+Downloads1UP native gates in `wwf-hidden-oneup-native-1115.md` (31276/45131).
+Those native receipts retain their own timings and terminals; source values
+above are not substituted for console observations. Current Star native gates
+are pending root's single queue.
+
+Unchanged Star factory15ec4146 passes the remaining DiBiase, Bigelow, Savage
+and Andre cases. Each has real M/F/two60-freeze/+25 prefixes and a real
+1616/Y144 Star; all actual physical collectors use actor1645/Y164. Each sees
+erase/popup6, native timer35/music64/cue32 producers,1000-point credit and25
+later WfMovement calls, finishing grounded/lives2/power2 with a positive Star.
+
+| Role | Main / Wf entries | Collector Main / playerX | Post-collector counter | Source receipt SHA256 |
+| --- | ---: | ---: | --- | --- |
+| Hogan | 2716 / 2596 | 2690 / 1644 | 2571→2596 | c38b7ef784dc2dce6aa34c0528a30764b30e4c9bd223d84580c0c8a7c0c3e5ba |
+| DiBiase | 2664 / 2544 | 2638 / 1657 | 2519→2544 | 8c7924f74701c57a06315c06256ee3ea82c927f403ae941ace7f802f195ae167 |
+| Bigelow | 2676 / 2556 | 2650 / 1652 | 2531→2556 | 3b01ed4516757fea5908c07d893481d6a1e10592b8d7ac5001f46a7e5a536ea4 |
+| Honky successor | 2976 / 2856 | 2950 / 1647 | 2831→2856 | 9bcf119635984bf9e5faa6a15eac469daa010102f5446cc06a89e27583299458 |
+| Savage | 2696 / 2576 | 2670 / 1649 | 2551→2576 | 0b85ec1a1b7b49e1df21fe175d511005eaa0a540379bc9f473b5b1ae07e7b5ce |
+| Andre | 2680 / 2560 | 2654 / 1652 | 2535→2560 | 2e6442cf910a576ae6d221fced7be87f97c26bd6135b6fe594027a4c72305ff8 |
+
+Honky's original early-jump Star variant is preserved as a separate negative,
+receipt `395b66ab6432bd3cde374c42c4446e07d709ac49187785f9e6769e00b866df70`,
+Lua `5d56241a853eb3495f315b5580d79bccf369b3cab7b06fe07cb8767e270bbc4f`.
+It finishes real M/F but jumps at1346, descends into the authored1376..1424
+gap and dies at1398/Y241, lives1 by Main2657. No Star was spawned. The existing
+helper40 is present1406/208; presence alone does not rescue the early takeoff.
+
+The new Honky-only successor removes that hardcoded early trigger and uses
+the existing real-floor x+8 later-edge rule documented in the retained full
+route. Source1642 passes with **10 actual PositionPlayerOnHPlat calls**.
+First is Main2520/PCB683/SP237, player1412/176, helper40/slot5 at1401/208 with
+actual passenger5. This is actual source-native support/carry, not an inferred
+overlap. The same unchanged helper has initial left1376, center1400, Y208,
+width48 in1-1/area25. No geometry, new actor or game byte was changed.
+Honky then physically collects Star2950 at1647/176, cue32/music64/timer35,
+score2900→3900 and25 later entries; terminal1647/176/lives2/power2.
+
+Uniform root-native API for all six Stars is
+`replay_wwf_honky_star_gap_7a80_1115.controller(raw7a80, role)`;
+factorySHA `2cfb4f215c16b53e466c23c2f0339f9d9d0d5e85d964316ede5de4a48525e8c8`.
+For the other five roles this returns the exact frozen15ec4146 parent text;
+for Honky it includes only the later-edge controls and bounded actual-carry
+observer. This wrapper and all dependencies are frozen for root's native run.
+
+| Role | Qualified Star Lua SHA256 |
+| --- | --- |
+| Hogan | 1cec78bb2230892d4debfdf78b7f2d679135c45d3aeb0b23e9122ca429081ae6 |
+| DiBiase | 732bcbcf612e74e48c44a5f9bd1b67fafc3108419a2d6f0c7d5ea636d7940708 |
+| Bigelow | 7f9e270ff5527ab350e2beea4602b399cbf55c908a95cd64b8cc22f089d1b04f |
+| Honky successor | 8e38a59595da3bb9e83929f6a7abf3a1a53c18a78be952160a45958180ba7271 |
+| Savage | eec0d3c67d3e4cb8e318c89830cf6c24dbc27610bbadea69175956b274b35c9d |
+| Andre | 1af9d09b30e188a56aaffd446759b80d1fcb5ddf80d23882abc96bbd40d15771 |
+
+All source handles are terminal and all task output roots are absent/zero
+files. Source/QA commits use --only exact owned paths. No Mesen, ROM staging,
+Downloads writes, capture/asset files, broad dependency restoration or helper
+change was performed by this agent. Star expiry/protected hits, Hard, complete
+abilities, audible audio, art and performance remain separately open.
+
 Every producer uses the exact absent root build/wwf-natural-stock-7a80-1115,
 max-files1/600s and no generated artifacts. Prototypes and receipts stay in
 memory/stdout. Frozen Gimmick/WWF factories, current ROM and protected user
