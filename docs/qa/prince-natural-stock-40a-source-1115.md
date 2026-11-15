@@ -287,3 +287,38 @@ neutral for true source action0, then presses fresh A. Its actual cap-edge
 admission and raw foot cells are required; the earlier two-foot fixture
 negative is retained and no item/INC/25-return gate is weakened. A later
 nightly requires a separate typed adapter; frozen40a APIs remain strict.
+
+Fresh-A50759 genuinely admits action3 atPrince2023,937/112/HP4/lives2,
+left foot939/tile17 and right950/air, native ground0. The donor therefore
+accepts this one-foot cap launch. It terminates after landingMain2247 at
+1078/176/HP3/lives2 with no item, receipt
+`54b7489c7748b9f889011ff4bbb642103ff2ae73732539533a05774427c1eb5f`,
+Lua `90a0139a2e23bb91d19c774f8bcf5b2c7a45aebe8a959dc1b27b1f74f190290a`.
+Airborne head cells are112/96, then128 only after an actual backtrack.
+The final ordinary hard landing4→3 is visible in the head trace; the inherited
+receipt's injury monitor records only its earlier5→4 fall, so it is not a
+complete injury ledger for this branch. No injury-free claim is made.
+
+New exact typed `current_prince_stock_174fa_1115.py` uses the authenticated
+Bub palette inverse174fa→40a for controller binding only. It requires all
+Prince decoded streams/descriptors/cookie identical and round-trips every
+52 owned Bub byte. The CPU always receives actual174fa. Old40a APIs and
+their full/Star receipts remain unchanged and versioned.
+
+Initial current trace11556 stopsMain3 because an8-byte RTS hook crosses
+the WorldMaterial BFA3 boundary into a different runtime neighbor. Its
+firstBBC1/4193 readback passes. A short actual174fa cold inspection proves
+BF9F..BFA2 is exactly60EAEAEA; only the following neighbor differs. The
+corrected hook authenticates those four owned bytes and preserves the
+initial observer failure. No runtime neighbor was altered.
+
+Actual174fa trace80091 stops at the first cap-flight backtrack, receipt
+`24516954be6caf533c7ddd72cadebe2752f496d3b94eef63a3c5af0d52149578`,
+Lua `7e9ff5d67463e071556fbae13b42c0449d0b097eefe999238145faf3b74138e3`.
+AtPrince2071,1011/125, WorldMaterial returns kind20 for sourcecell992/row0.
+The first large source-X write is RAM2:C427/SP196, STA C60F,1012→996;
+native export becomes988, action47→45. HP4/lives2 remain intact. The hidden
+tile is96 and actual attribute65. Later clear point reads overwrite the
+last-eight ring before this writer, so this receipt alone does not retain
+the causal hidden-solid query or confirm a false wall. A separate latch
+must preserve first5F/60 point/consumer and matchingkind20 before a proposal.
