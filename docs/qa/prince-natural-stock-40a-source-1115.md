@@ -333,3 +333,22 @@ cap fills before the later same-update matching condition, so that causal
 field is still absent. The next observer uses a material-invocation serial
 at common entryBDE5 and immutable first matching Wall-write/kind20 snapshots,
 while keeping these first reads and every earlier negative unchanged.
+
+Per-call actual174fa trace58444 closes the causal source chain, receipt
+`f88cbccc70d9cf983ed98e7a280338a7cd61f19e091a6234b689f4406b6cb5d0`,
+Lua `37c0dd6e2bfb06a757f9745b2df9726ab1cad51839419e31f8456418823efd67`.
+Invocation23, Prince2071/player1011/125: B310/SP189 queries1032/133 in
+cell1024/128 and returns raw60/C1/P31 toA49D/SP191. Attribute41 is read
+from actual PRG127:EF96. In that same invocation, RAM3:BEA9/SP193 executes
+EE8CC0, Wall0→1; BF9F/SP196 then returns material20 toAD33. Next update
+RAM2:C427/SP196 writes sourceX1012→996, and native export is988/action45.
+HP4/lives2 remain unchanged. First point, wall increment, material consumer
+and position writer are immutable latched objects, not a posthoc ring match.
+
+This is a source-proven hidden-block false wall: native side and foot paths
+call ChkInvisibleMTiles and ignore5F/60, whereas the private Prince body
+point reader accepts attribute&1, including hidden60/attribute41. The
+separate native head consumer remains responsible for revealing the block.
+No native reproduction of this particular cap-flight wall, game patch,
+composition, helper or natural1UP qualification is claimed. The next step
+is an exact in-place point-reader funding/ABI proposal for root review.
