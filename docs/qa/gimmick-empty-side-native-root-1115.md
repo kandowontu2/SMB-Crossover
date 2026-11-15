@@ -61,3 +61,18 @@ The separate delivery recipe requires exact installed bytes, sidecar guards
 and reproduction of34274's Flower receipt from the actual Downloads path.
 Installation is pending until that recipe succeeds. No backup, capture
 files, video, patch assets or releases are created by these private tests.
+
+## Actual Downloads delivery
+
+After source push889c2307, root29773 directly replaces16a with the exact
+tested7a80 candidate. The same frozen15d21220 route is replayed from the
+actual Downloads path. It reproduces the privatec1e45e1b receipt exactly,
+including the real reflected support, physical Flower pickup, inventory
+code2/next2/cue1C/score+1000 and25 resumed movements:1622Main/2152frames,
+1266/112/HP2/lives2. Installed bytes equal the tested candidate. Pre/post
+CLI sidecar guards are clear. No backup files, capture files, patch assets
+or releases are created. The current official nightly is7a80f0f3.
+
+The private scope and open limits above remain unchanged. The new ordinary
+Flower control corrects its earlier leftward momentum; it is not another
+game-byte change or a source of granted upgrades.

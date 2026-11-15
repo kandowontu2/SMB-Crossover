@@ -1,5 +1,8 @@
 # Current590 WWF ordinary powerup checks
 
+These checks use the default Easy setting. Hard-mode behavior and audible
+audio output are not certified here; each later section keeps its ROM pin.
+
 Root79649 runs Hogan on actual Downloads590 with Lua
 2ea835ed05463ddefe8e907dc464a77822ee457160a2aeb894d74072cf823165.
 Factory ce286247d8663878373fd144a0053d8a698e9b4f35fd049fd86fb855738bfe37
