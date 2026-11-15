@@ -211,3 +211,35 @@ Main306 hero333/176, actor336/119. Both actual model bank lists are
 [816,16,17,18,19,20,21,818]. The model's marked PNG is only an API fixture,
 explicitly not a native raster/art witness. Root's native two images remain
 pending at this checkpoint;116 complete renderer CPU pairs remain qualified.
+
+A separate ordinary-input Flower successor now passes source24689, receipt
+`71f18c5a3f091119050cdcb453a82860eeaa2c7b61e3f005119cdd729ab78f5d`.
+The old native/source fresh support jump is genuinely admitted, not a lost A
+edge. Both old source and private native ride at1214/151 with residual VX232
+(−24). The new controller changes one navigation choice: after the actual star
+wall reflection, hold Right instead of Left while still waiting for the same
+current actual RideStar/released-A/poll-consumption gate. This brakes existing
+left momentum; it does not change game physics, support or terrain.
+
+New source reflection1288 leads to braking1289 at1226/138/VX231. Current real
+ride1296 is1218/151; the next actual freshA172 jump1297 has VX248 (−8), preserving
+enough room to rise beside the existing brick. Actual mature Flower collector
+1320 is hero1239/100 versus real actor1248/119/kind1. GmPickup yields inventory
+count1/code2/next2, actual cue1C and erase; the unchanged finish gate requires
+score at least1405+1000 and25 strictly later GmMovement entries. Endpoint is
+1346 returned Main/1345 Gm entries,1266/112/HP3/cap3/lives2/power1. These HP and
+timing values are source-only; the actual private native route had HP2.
+
+New API `replay_gimmick_empty_side_flower_current_1115.controller(raw7a80,
+'mr_gimmick')`, factorySHA
+`7ad1efcba9b8a6c992e6e538811b2d6d47b46db6a67d68b9d640f1a68e546d73`,
+LuaSHA `15d21220bc91a5f3ee24e4fd3e1253587ea088f2755bc55e6076076f82345093`.
+The only post-run file change fixes inherited diagnostic metadata to describe
+the actual7a80 hook-bank hashes and removes an unused import; generated Lua is
+unchanged. Separate source API69492 is terminal PASS with the final factorySHA
+and same15d212 Lua: strict truncated/dirty/old-parent rejections, zero mutable
+nightly rereads/file/native traps, actual bank24 SHA
+`f9007727c468bc8713894bdafb88519f7661b1c3118a6a9fb4ee4128b471cebe`.
+Original53f0/0a644/cce79 bodies
+and their negative receipts remain frozen. Root native qualification remains
+pending; this source pass does not close the native Flower stock cell.
