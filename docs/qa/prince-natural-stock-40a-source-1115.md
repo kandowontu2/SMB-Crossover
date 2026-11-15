@@ -352,3 +352,9 @@ separate native head consumer remains responsible for revealing the block.
 No native reproduction of this particular cap-flight wall, game patch,
 composition, helper or natural1UP qualification is claimed. The next step
 is an exact in-place point-reader funding/ABI proposal for root review.
+
+Detached current67-byte funding/flat proof is now recorded in
+`prince-hidden-point-proposal-174fa-1115.md`, final receipt41729078. The
+existing sweep probe and shared return anchor stay fixed; no game array or
+ROM has been mounted/composed. Natural1UP remains open. Root must review and
+grant the exact point span before source gameplay qualification of a fix.
