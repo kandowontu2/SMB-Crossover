@@ -1,5 +1,10 @@
 # Prince earned-sword persistence, current7a80
 
+Latest source candidate is the separate four-span `40a11ffb…de4d20e`.
+Its actual encoded cold passes. Earlier three-span `5cfa2a0f…914df` is a
+retained cold negative, never a native/staged/delivered candidate. The
+historical preparation below records that progression without erasing it.
+
 Source-only implementation of the reproduced `effff079` upgrade loss. The
 current full1-1 native53c1/source clear remains frozen. This candidate has no
 native, delivery or full-route qualification yet.
@@ -85,3 +90,47 @@ cold bytes and explicit public component clones of genuinely earned Flower;
 no actor, health, position or upgrade outcome seeds. Equal-facing F090 exit,
 all abilities/items/audio and idle lag remain separate open gates. No Mesen,
 ROM files, patches, backups, releases or generated build files were created.
+
+## Actual cold failure and exact Fresh successor
+
+Both5cfa source invocations are now terminal negatives before gameplay:
+the callback-dispatch cold and full-source81116 BRK at C0F9. The separate
+`trace_prince_tier2_cold_negative_1115.py` proves transport initially copies
+the79 meaningful constructor bytes exactly. First HostInit/SP204 succeeds;
+unchanged Fresh RAM3:B3F3/SP221 then STA C0F8,X clears the appended suffix;
+second HostInit/SP219 executes the erased code. The initial copy-length
+hypothesis was disproven. No source or native full-pass claim for5cfa.
+
+Root's successor source-only grant
+`allocations/prince-sword-tier2-fresh-source-1115.json`, SHA
+`83d9411c7a60dcf17f272dc8d4ae5fea090e867ed8241908b7682041c1a4d477`,
+adds exactly stream0[5105,5113), liveB3F1..B3F9:
+`A2079DF8C0CA10FA`→eight NOPs. It retires only this gap clear, reassigning
+the8 bytes to code while retaining all other Fresh clears and state storage.
+LDA0 precedes it; JMP DEE7 follows; ResetTail LDX#AF overwrites X/N/Z.
+The current authenticated streams have only that real C0F8..FF operand and
+one raw pose-data alias. Original core/host source has no other gap consumer.
+Detached128 Fresh boundary cases match registers/flags/stack and every
+nonowned byte,88→23 cycles. Frozen plan2d4f2be9 receipt
+`d53fd20cd7eb69aadbc28f81ef5a2215e22d48298225246a59ac65d857587d02`.
+
+Successor strict composer `compose_prince_sword_tier2_fresh_1115` yields
+`40a11ffb8452c3b54caef56ddd5912e2bdda2c276545f20a589baa053de4d20e`;
+inverse reconstructs exact7a80 from166 inline preimage bytes. Four spans,
+166 owned/87 changed decoded bytes,9839 physical changes within the existing
+45 carriers/cookie. Packed6461/5995/1263; headerwords2 and10 only;
+cookiea7260209e6eb04c8dbe70c3197b0cb4b; spare585. All unrelated current
+bytes and graphics remain exact.
+
+`check_prince_sword_tier2_fresh_cold_1115.py` actual encoded cold PASS,
+receipt `b80331cf14da7ec4ea7fd4871e8773425aee65e37a74bd615a44e979fcfa65ec`.
+Three actual C0B0 calls/SP204,219,200 retain all79 meaningful bytes, including
+after Fresh B3EF/SP221. First BBC1/SP203 has both complete cookies/all166
+new static bytes exact. Eight warm complete Main returns end40/176,HP5,
+native075B0/Sword0/lives2. No source arrays are mounted for this proof.
+
+New successor metadata55843 and full-earned/paired-ISR41018 are pending.
+The direct Star/1UP callback fixture initially lacked the resident bridge's
+RAM2 map precondition, then found a strict native-RAM comparison difference;
+that difference is being instrumented rather than labeled a game defect.
+No candidate staging, native, installation or delivery grant is inferred.
