@@ -120,3 +120,29 @@ actual palette/bank writes,4 and5 physical ROM pattern records and visible
 OAM. The PNGs stay in stdout/memory; zero image files are written. The
 compiled source asserts removing only observer additions restores exact
 functional e140 controls. Installed40a bytes and sidecar guard are unchanged.
+
+## Third rendered scene exposes shared enemy-palette corruption
+
+Root21455 repeats the functional pass with the separate three-image observer
+`replay_bub_three_images_40a_1115.py`, SHA256
+`59fa9dbff4b9aa9d13759651c0baf30ed3ee9b116244093f84a1148019293526`;
+Lua `e94c064b313bb108c943b89c5e800276ed819e283b21c4ffc178ab25efacf11c`.
+Native receipt
+`18f3d6e20c52adc442f3839907715376fd2f157b90a24c489fcf1ed4fe42e055`
+passes1844 completed Main/4071 video frames and both genuine upgrades.
+The M/F images are byte-identical to the two scenes above. The additional
+actual live opening Goomba scene is visibly wrong: its body uses Bub's
+green/pink/white colors. This is an open game defect, not a passing enemy-art
+check. Root inspected all three images, and re-viewed the Goomba image.
+
+At rendered frame601 (last completed Main135), live Goomba329/184 has
+hardware OAM tiles A2/A4, bank17, pattern offsets544/576 and attribute43hex
+(horizontal flip, sprite palette3). Bub also uses palette3. The actual slot
+is0F/2A/26/30, so the player colors overwrite a palette used by the native
+enemy. PNG2450 bytes, SHA256
+`c3b661abe29ae04d9dac2b629478bca3a9429c10e02adc17229a1d164be17631`.
+The new tag requires the enemy live/visible across two completed Main
+snapshots and matching hardware OAM. All PNGs remain in stdout/memory;
+zero capture files or ROM changes. A source ownership audit is in progress
+before choosing an exact palette/OAM repair; Bob and water/outline consumers
+must also be accounted for. The official Downloads40a remains unchanged.
