@@ -162,3 +162,35 @@ This is a leased source-model result, without a ROM composition or native
 graphics result. Complete pre-publication cold, death/lives, alternate-menu
 and same-area reload paths remain pending. The static consumer proof above
 is complete; it is not reopened by the older checker's pending-label text.
+
+## Source lifecycle closure
+
+`check_prince_window567_lifecycle_1114.py` SHA256
+`a4ec0f5b6c123caf9af85b08c8c58337888f8fbbf1d555dfefbc548bdca7ae81`
+passes source98065, receipt
+`c95ef4a92f0a4ddb0c4fbdd53f2679ce2b7b7ba1aad995fe6e033d8179212944`.
+It uses the explicit ae66→571→F11 input boundary. Only the three leased
+arrays are mounted, immediately before the first real BBC1 renderer entry
+and again if original cold code reloads the arrays. This is not new packed
+ROM cold transport.
+
+Compiled Prince Select/Start cold and eight whole Main returns preserve the
+incoming native portrait0 at physical568 while actual Prince pose15 uses
+physical341 in private5. Native world windows1..4 remain16/17/18/19. The
+same-area compiled LoadAreaPointer plus eight returns preserves these facts.
+The earlier explicit FmNativePrepare unit independently restores the canonical
+native0..4 table14/16/17/18/19; real cold's portrait0 is a distinct legitimate
+owner, not an excuse to force window0=14 or restore Prince private0.
+
+A declared compiled KillPlayer entry unit, without health/actor/position
+seeds, traverses engine11, life2→1, original cold reload and engine8. This
+qualifies lifecycle handling rather than an earned injury. The cold-reload
+frame requires the established four-million-instruction cold budget; the
+initial normal-frame budget refusal was a test bound, not a game defect.
+Compiled Select cycles0 and2 independently reach Shinobi37 through actual
+Start/parser, with its legitimate independent736/737/738 private pages.
+The Prince array hook never runs for those alternate owners.
+
+Ordinary new-ROM cold transport, combined body/graphics encoding and native
+graphics/transition qualification remain pending. The current installed ROM
+still contains the original Prince graphics and body behavior.
