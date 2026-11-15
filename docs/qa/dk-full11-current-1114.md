@@ -110,6 +110,25 @@ Root directs a simpler separate all-live-forward64px danger-jump successor
 from the already pipe-crossing baseline. No game fault is inferred from this
 barrel-wait stall.
 
+## F11 global danger-jump negative
+
+Downloads advanced to exactf11
+`f11a25b892779cb0d5192457f7feff548f35019818cd75dfef5bdf3f2419b865`.
+A new strict typed input authenticates the owning BT inverse to exactcf7;
+the older cf7/1daca/Jr. APIs remain unchanged. Its first global danger64
+controller is frozen at Lua SHA256
+`f22845fc6ab354bb171f79b2c646dc6c7d7ba2e3fc8cd586738ad29563871906`.
+Session82724 strict metadata passes, but the source route is negative after127
+Main updates, receipt
+`2865a031fba5303b2ac565cc7c8b685cdd84ee9ab784f2e543a6db72f71e441e`.
+Replacing the neutral wait globally disturbs the previously successful opening:
+first injury x299/Y176/state0 versus live Goomba x325/Y184, again at gap26
+and actual boxes `[99,176,141,208]` / `[141,198,151,204]`. A is released
+after an early landing. No head cause was retained for this early interaction,
+so no ceiling/collision defect is inferred. The next separate controller must
+preserve the proven baseline prefix through1440 and scope its reaction to the
+measured paired-Goomba encounter, with a passive head-response witness.
+
 No full1-1 clear, native playtest, new helper, game change or delivery is
 claimed. Source jobs use absent `build/dk-full11-current-1114`, max-files1,
 timeout600 seconds, and zero output files. Root owns the single Mesen queue.
