@@ -95,3 +95,17 @@ sourceground128/native0/engine8/lives2/HP2/capacity3/power1/Star34. Source-only
 until root native validation; expiry, protected hit, Flower and all abilities/
 audio/art/full-stage remain separate. The unchanged genuine M prefix remains
 part of this route, and all output roots remain absent/zero files.
+
+Root6188 actual Downloads590/8c14 is TERMINAL native1UP PASS, receipt
+8413a8d394b73e10ddf397b5589583c18aa3a033d623d37210a5d31c7a25d95a.
+1356 returned Main/1691 physical/1063 actual GmMovement entries. Real hidden
+metatile96 at1024/Y128 is bumped normally. Kind3 birth1224 at1024/120,
+maturity1289 at1024/103, and physical collector1325 (hero1053/176 versus
+actor1061/174) precede real erase/popup11/timer48. Actual delayed INC at1330/
+physical1666/timer42 raises lives2 to3 and queues64 at1059/176. Writer counter
+1038 to final1063 is exactly25 actual post-writer GmMovement entries; finish
+also asserts GmLife3. Final1069/176/HP2/capacity3/lives3/power1/inventory0/
+next1, score1400 preserved. Earlier ordinary injury remains: no HP3 or injury-
+free native claim. This closes natural M/L C590 together with root50165's
+qualified first-M/+25 prefix. Native F/S, expiry/protected hit and full ability/
+audio/art/performance remain separate. Old cf7 full-stage proof is not promoted.
