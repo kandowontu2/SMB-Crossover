@@ -123,3 +123,50 @@ without position, health, ability, actor or terrain seeds. The source menu
 peripheral does not supply real vblank or physical Mesen cadence. Root owns
 the single native queue and all staging. The first-pipe diagnostic is ready
 for root's investigative native test; it is not a nightly delivery claim.
+
+## Root native first-pipe observation
+
+Root23025 actually ran the private exact e418 image with unchanged frozen
+Lua89fa7b. The first ordinary Up-only approach has **hang=true and top=true**:
+469 admitted source commits over855 gameplay physical frames, endpoint460/144,
+native ground2/action49, HP5 and both lives retained. Receipt SHA256:
+`3073a3f33d14237faabe6311252b6f89fcaea8cfb6a1b5a7967dcfe76d1e80b2`.
+This is practical first-pipe proof, not a full1-1 clear. Root produced no
+images. Downloads stays exact1daca; the flag slot's e418 is private.
+
+Fresh Right+A from actual432 admits action4 but has no hang/top, terminal
+413/176/HP5 after469 CPU frame iterations. Its input negative is retained:
+`7e48135df4296e5ba2481abd89f91f48ea82bd87541ed1b161a07671405b2282`.
+The434 trigger is never reached by end-frame sampling before the ordinary
+bump recoil, so no freshA is actually sent in that case; it is an approach
+gate negative, not a jump failure at434. Receipt:
+`b16315943b5290ddf1e8731757fa08b78a7e7fa4dcf9d02ffc7dd16486f3af07`.
+The legacy earned-item controls traverse three pipes, then die at fourth-up
+897/176/HP0 after1985 CPU frames, with one earlier HP5→4 hard landing. That
+does not qualify flower/sword collection on e418. Receipt:
+`a3f019bd282cf0cdec1a4caf77193682cc04f28739d1a7a983a067f8b20dbe6f`.
+
+## Preserved unarmed contact sequence
+
+The passive corrected-symbol trace closes the five-write question. At Main913,
+native PlayerEnemyCollision9659 and InjurePlayer976C process a real live slot0,
+ID6 Goomba at699/184 against Prince699/176. ObjectOffset0, power0, Star0,
+source sword0 and guardUID128 are observed. Current IncomingDAEB enters with
+Y0. The first A342 HP store has A4/X0/Y0/P31 (carry1), SP201 and return bytes
+5C/AB, identifying the first call returning atAB5D. Five HP writes5→0 occur in
+that single Main; native engine8 and lives2 remain unchanged at the observer.
+
+The source original4:AD08 selects original7:E9A4 when Y0 is unarmed rather
+than sword-mode2. E9A4 explicitly invokes original5:8710 five times;8710
+subtracts exactly1 HP. This is the retained unarmed incoming-contact behavior,
+not five independent collision ticks or evidence of WorldMaterial scratch
+corruption. No battle change is proposed. All battle bytes lie outside the
+two granted spans and remain exact. Corrected full-trace SHA256:
+`77e2b4887beead915a2a02b561b72f0c6d96f579b19f0b3acb2c372153243611`.
+
+Replacing the fourth careful-step approach with continuous ordinary Right
+to897 followed by Up also remains negative: HP4→0 near893/176 in fourth-up,
+1977 source frames, after the earlier hard landing5→4. Receipt:
+`20fb51aff599d70dcace38554b948a415f66ec8e2c1e232abe3b718bafe95153`.
+The first three pipes remain crossed in that replay. This input negative
+does not authorize new battle, physics or automatic-climb behavior.

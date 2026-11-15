@@ -17,7 +17,7 @@ def run(parent):
             targets[P.W.address(model.bundle,name),((P.W.location(model.bundle,name)-16)//8192)|128]=name
     labels=json.loads((C.R/'build/prince-actor-1101-v1/native-labels-v153.json').read_text())
     for name,pc in labels.items():
-        if any(k in name.lower()for k in('kill','hurt','damage','fatal','death')):
+        if any(k in name.lower()for k in('kill','hurt','damage','fatal','death'))or name in('PpNativeContact','PpOriginalDefenderContact','PpOriginalIncoming'):
             pc=int(pc,0)if isinstance(pc,str)else pc
             if 0xa000<=pc<0xe000:targets[pc,3 if pc<0xc000 else 2]=name
     def state(m):
@@ -29,13 +29,15 @@ def run(parent):
             stack=[m[0x100+((c.sp+i)&255)]for i in range(1,17)])
         return dict(frame=context['frame'],PC=hex(context['pc']),maps=m.rawtags[:],
             registers=regs,engine=N.get(m,'GameEngineSubroutine'),ObjectOffset=N.get(m,'ObjectOffset'),
+            lives=N.get(m,'NumberofLives'),power=N.get(m,'PlayerStatus'),star=N.get(m,'StarInvincibleTimer'),
             x=N.get(m,'Player_X_Position')+256*N.get(m,'Player_PageLoc'),y=N.get(m,'Player_Y_Position'),
             sx=int.from_bytes(s[0x60f:0x611],'little'),sy=s[0x611],action=s[0x616],pose=s[0x617],mode=s[0x618],
             foot=int.from_bytes(s[0x84:0x86],'little'),old_foot=int.from_bytes(s[0x86:0x88],'little'),
             delta=s[0x88],origin=int.from_bytes(s[0x89:0x8b],'little'),
             fall_raw=list(s[0x6c0:0x6d0]),query=int.from_bytes(s[0x78:0x7a],'little'),
             surface=int.from_bytes(s[0x7f:0x81],'little'),row=s[0x7c],current_row=s[0x83],
-            baseline=int.from_bytes(s[0x9b:0x9d],'little'),health=s[0x6cf],actors=actors)
+            baseline=int.from_bytes(s[0x9b:0x9d],'little'),health=s[0x6cf],sword=s[0x6ee],
+            guard_uid=s[0x61c],guard_hp=s[0x6d0],guard_dead=s[0x6de],actors=actors)
     class Bus(bus):
         def __setitem__(self,at,value):
             if self is model and at==0xc6cf and self.rawtags[2]==2 and value!=self.ram[2][0x6cf]:
@@ -68,4 +70,13 @@ def run(parent):
         passive_observer=True,gameplay_seeds=0,outputs=0,Mesen=False)
 
 
-if __name__=='__main__':print(json.dumps(run(Game.Factory.ROM.read_bytes()),separators=(',',':')),flush=True)
+if __name__=='__main__':
+    q=run(Game.Factory.ROM.read_bytes());digest=sha256(json.dumps(q,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+    first=q['health_writes'][0];frame=first['state']['frame']
+    events=[x for x in q['native_damage_events']if x['state']['frame']==frame and x['name']not in('PpNativePitDeath','PpNativeDeferredKill')]
+    result=q['result']
+    print(json.dumps(dict(ROM_SHA256=q['composition']['candidate_SHA256'],
+        passed=result['passed'],phase=result['phase'],updates=result['logical_updates'],terminal=result['terminal'],
+        route_receipt=result['receipt_SHA256'],first_HP_write=first,total_HP_writes=len(q['health_writes']),
+        same_Main_native_contact_entries=events,full_trace_SHA256=digest,
+        passive_observer=True,gameplay_seeds=0,outputs=0,Mesen=False),separators=(',',':')),flush=True)

@@ -23,7 +23,7 @@ def authenticate(raw):
 
 def controller(raw,*,mode='direct',pad=9,hold=240,edge=432):
     typed,info=authenticate(raw)
-    assert mode in('direct','contact','pits','edge','pits-intuitive','earned')
+    assert mode in('direct','contact','pits','edge','pits-intuitive','earned','earned-intuitive-fourth')
     if mode in('direct','edge'):
         assert pad in((8,129)if mode=='edge'else(1,9,129))
         text=Direct.controller(typed.reference421,pad=9 if pad in(1,8)else pad,hold=hold)
@@ -44,9 +44,15 @@ def controller(raw,*,mode='direct',pad=9,hold=240,edge=432):
 """
             assert text.count(before)==1;text=text.replace(before,after,1)
     elif mode=='contact':text=Contact.controller(typed.reference421,target=1,pad=8,hold=180,approach='contact')
-    elif mode=='earned':
+    elif mode in('earned','earned-intuitive-fourth'):
         import replay_prince_earned_current_1114 as Earned
         text=Earned.controller(typed.reference421)
+        if mode=='earned-intuitive-fourth':
+            lo=text.index("  elseif progress=='fourth-recovery' and s.x>=897 then")
+            hi=text.index("  elseif progress=='fourth-up' then",lo)
+            text=text[:lo]+"""  elseif progress=='fourth-recovery' then
+    if s.x>=897 then switch('fourth-up',8)else pad=1 end
+"""+text[hi:]
     else:
         text=Pits.controller(typed.reference421)
         if mode=='pits-intuitive':

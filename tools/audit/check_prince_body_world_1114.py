@@ -59,7 +59,7 @@ def run(parent,*,mode='direct',pad=9,edge=432):
 
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--mode',choices=('direct','contact','pits','edge','pits-intuitive','earned'),default='direct')
+    p=argparse.ArgumentParser();p.add_argument('--mode',choices=('direct','contact','pits','edge','pits-intuitive','earned','earned-intuitive-fourth'),default='direct')
     p.add_argument('--pad',type=int,choices=(1,8,9,129),default=9);p.add_argument('--matrix',action='store_true');p.add_argument('--followups',action='store_true');p.add_argument('--edge',type=int,default=432);a=p.parse_args()
     if a.matrix or a.followups:
         parent=Factory.ROM.read_bytes();raw,info=C.proposal(parent);assert C.inverse(raw)==parent
