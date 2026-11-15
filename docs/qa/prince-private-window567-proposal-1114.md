@@ -109,3 +109,35 @@ Current Downloads is now571. The separate explicit
 inverse to recover exact f11, retaining original571 and the10 score bytes for
 future preservation checks. The frozen f11 and historical Prince APIs remain
 strict. No current merged image has been composed.
+
+## Decoded pose-consumer closure
+
+`audit_prince_pose_consumer_roots_1114.py` SHA256
+`a84fc6958dc981c279129452f378e53fb66b99562f4bf425ff9758b65cd78a56`
+passes on exact571→f11, receipt:
+`447f9991a7d32e4fb8cb40c4ea6ab2851f94ae07dc5a3528c67f897653d0aa2e`.
+The complete list contains58 opcode-like words, including five in original
+script bytes and two in action/command table data. All remaining aliases are
+covered by current reachable instruction boundaries. Only D906/D90C directly
+load the pose table; the actual mutable Byte reader atBCF4 supplies bounded
+packet data. The exact current original sequence reader remains separate and
+maps94 original action pointers into the unchanged1765-byte B400..BAE5 script
+image. All15 command targets remain known translated code entries.11 original
+indirect sites retain only the sequence-read and command-jump roles.
+
+All2485 original graph instructions are considered. The only three conservative
+indexed ranges crossing C800 are the already proven unreachable guard-ledger
+sites4:B8DB/7:E991/E996. The current guard importer matches the retained proof
+byte-for-byte after accounting for its sole later three-byte box3/9 adaptation.
+That adaptation calls the preserved eight-byte D466..D46E helper, immediately
+after this proposal's pose-data extent. It changes admitted box types while
+preserving the HP1 importer invariant. The original player-Y0 bypass and
+guard-HP1 death-before-ledger invariant are reused explicitly.
+
+The current sweep core and the relocated cold/audio prefix are independently
+assembled from retained source and compared with actual decoded bytes. This
+classifies the old cold/state-copy view as well as live code. TileOut's only
+current code consumers are STA D77B and LDA D7A1. No archive is restored and no
+ROM is composed. Native shared-caller mapping and complete lifecycle/new-cold
+transport remain separate gates; this result closes the decoded private data
+and preserved original reader domains.
