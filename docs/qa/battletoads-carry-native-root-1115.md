@@ -74,3 +74,27 @@ Prince/cache/code/assets and helpers are preserved.
 The separate delivery decision permits this useful partial gain while keeping
 the remaining cadence work open. Source push, direct Downloads replacement,
 sidecar guards and all three actual Downloads repeats remain required.
+
+## Verified actual Downloads delivery
+
+Source push50f7968e precedes installer41682's direct no-backup replacement
+with exact acee,2,097,168 bytes. The installer is terminal PASS; its own
+before/after sidecar guards are clear. Root initially started verification
+38059 before that installer completed. Its exact-byte precondition rejects
+the still-old174fa snapshot before Mesen launches. This is retained as an
+orchestration negative; no game test or ROM failure is inferred.
+
+After confirming installer completion, root reruns the CLI guard on acee and
+starts32707. All three actual Downloads replays **pass**, and each complete
+receipt SHA256 and Lua SHA256 exactly matches its private83713 counterpart
+above. The partial cadence counts and both full grounded1-2 endpoints are
+identical. Final CLI guard is clear, and installed bytes equal the candidate.
+
+The improvement is delivered; remaining skipped/doubled updates stay open.
+No other character receipt is silently promoted to acee. Source cycle savings
+and two full routes do not establish whole-roster smooth60Hz. Helpers, levels,
+all52 prior Bub palette bytes and every unowned byte are preserved.
+Root's queue is free after32707. The existing slot contains candidateacee and
+Zitz controller93bcd70b only. Build preflight is2,873,625,401 bytes/19,996 files;
+protected user files retain bd99b4ee/963a9ef0 hashes. Zero capture files,
+backups or release assets are created.

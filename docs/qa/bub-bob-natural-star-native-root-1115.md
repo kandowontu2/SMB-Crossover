@@ -42,3 +42,32 @@ per-enemy control logic remain in the helper's versioned Star QA. The game
 was not changed to accommodate failed controls. Natural M/F/S/L are now
 covered for both identities on174fa across separate native runs; earlier
 full1-1 evidence retains its older tested ROM scope.
+
+## Actual rendered scenes confirm missing Star flashing
+
+Root77929 repeats Bub's functional run with the separately frozen passive
+image facade6b82feeb and Lua02bead55. Native receipt
+`de72d03e4f7126f7e250d52cbc25dfdfb56b070de0bac264b401a2ca04773d69`
+passes the same2979 Main/6339 video frames and all score/return assertions.
+Root views all three real in-memory PNGs. The mature Star and world artwork
+look correct, but the player remains green during both active phases.
+
+| Scene / frame | Native0587 | Actual hero OAM attrs | Actual P0 | PNG SHA256 |
+| --- | ---: | --- | --- | --- |
+| Mature Star /6128 |0|64/64|22/2A/26/30|95fd6bbee5e6f76275045a1a4a658cc0e1f1a92008a7d8d1ec6e5cb385041923|
+| Active A2 /6294 |2|64/64|22/2A/26/30|3ed7bbfd60b3a8a0d806db16ae6aa960eab2f8800aa511660d2839febc1519b1|
+| Active A0 /6302 |0|64/64|22/2A/26/30|4b5a1071056d004a575ddb3ef7e29385f0680bd4e303e4a7aa2f673ef7881447|
+
+All scenes retain native P3=0F/0F/36/17; original private hero attrs remain
+67/67. The hardware uses palette0 even when the real native cycle requests2.
+Thus functional Star acquisition is closed, while its player flash effect
+is an actual open graphics defect. No ROM was changed by these pictures.
+The three PNGs total8,222 bytes and stay in memory; zero image files.
+
+A separate exact source-only72-byte mapper/cookie proposal over the later
+acee nightly is allocated in `bub-selected-star-palette-ace-source-1115.json`.
+It must preserve private owner/status bits, bubbles, upper attributes and
+native world colors. No native graphics fix or installation is claimed yet.
+Earlier wording calling C030/C044 button inputs is corrected: they are the
+owner-specific upgrade/status fields; held buttons are at actor+1. The
+palette repair preserves all of these fields, so its code validity is intact.
