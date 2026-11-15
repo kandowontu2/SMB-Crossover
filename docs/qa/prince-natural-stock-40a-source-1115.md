@@ -257,3 +257,15 @@ was corrected after45123 terminated; Lua and all functional code remain
 using the genuine8871 standing handler (A held, lock0, mode0/pose15) and
 requiring actual action3; it records both raw native foot tiles and every
 actual nearby head-query cell. It retains all item/INC/25-return gates.
+
+Queued standing-A22122 is an admission negative, receipt
+`999061ec478dfd43353dab946e0a2f4390f160aeb98aea08c452f4a303904c5a`,
+Lua `4a688b113347ece350f16526cc37874eea3aa6d38a5668ba0701055335d53d0b`.
+Actual mount1911 is920/112/action8. HoldingA after that never admits action3;
+its200-update bound reachesPrince2111 at920/108/action8/mode2/pose93,
+HP4/lives2/native1/Sword0. No head query/actor/collector is qualified. The
+inherited injury list contains only the earlier hard landing5→4 atPrince1761.
+This hanging-mode result is a terrain/control-admission lead, not evidence
+of an incorrect writer. Separate read-only89253 preserves identical inputs,
+records the first C618→2 writer with its actual PointRead calls and a small
+current cap tile census, and stops diagnostically before any item claim.
