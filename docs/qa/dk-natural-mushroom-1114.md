@@ -47,3 +47,26 @@ real barrel-spawn and injury witnesses. Source producer uses the absent
 build/dk-launch-latch-current-1114 root, max-files1/600seconds, zero files.
 No emulator, ROM output, capture, backup, patch, release or install is done
 by this helper.
+
+Earned-state full source94484 is TERMINAL PASS on exact571:
+3622 returnedMain/2423 actual DK calls/58 in1-2, full flag/castle/entrance
+and25 living grounded updates at40/176/high1/state0/engine8/area2/lives2,
+tier1/power1/Star0. Receipt
+c257bd21b4f72118a3ada46b98c1f7faff4774ca22eae27fbb32be368a277160.
+The first actual item/collector/freeze/+25 movement prefix is retained;
+resumed native score is1100. Nine successful native Cset barrel spawns are
+observed, including real use of the second slot at earned tier1. This does
+not claim that every shot hits or that source timings predict native play.
+No new roof policy, physics or helper alteration is introduced: existing
+06fc controls resume after the earned first-M component, ordinary nonfatal
+injury and later natural pickups are allowed, and all real stage endpoints
+remain required. The source stdout was truncated, so only retained values
+are reported; no missing milestone indices or injury counts are invented.
+
+Root-only full API:
+replay_dk_earned_mushroom_full11_1114.controller(exact571).
+Lua4601d3a2e38181a865436dda92101aa47f15bac56b58c382aaaacc3bea50289f.
+Factory0e676063ef8bbf7cc8f2ab576662eb3aac697286a29326034f52788891d21438;
+checker65b1c695e524d02a28e35220439c209ae0229febde6ec84b7fce983ec00a912c.
+Native full-stage verification is pending. The checklist's U and F/S/L
+remain open; no full-stage acceptance is inferred from source alone.
