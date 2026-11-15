@@ -21,7 +21,7 @@ def load_current():
 @lru_cache(maxsize=1)
 def bindings(raw):
     C.inverse(raw);b=dict(W.Symbols.bundle(),raw=raw)
-    fields={n:W.address(b,n)for n in('StarInvincibleTimer','AreaMusicQueue','Square2SoundQueue','GuestPowerupActive')}
+    fields={n:W.address(b,n)for n in('StarInvincibleTimer','AreaMusicQueue','Square2SoundQueue','GuestPowerupActive','NumberofLives','FloateyNum_Timer','FloateyNum_Control','Player1ScoreDisplay')}
     hooks={}
     for name in('MarioSourcePowerupCollision','EraseEnemyObject','SetupFloateyNumber'):
         at=W.location(b,name);pc=W.address(b,name)
@@ -32,10 +32,19 @@ def bindings(raw):
     hits=[i for i in range(128-len(pattern))if raw[at+i:at+i+len(pattern)]==pattern];assert len(hits)==1
     delta=hits[0]+len(pattern)-1
     hooks['StarReturn']=dict(pc=pc+delta,offset=at+delta-16,data=raw[at+delta:at+delta+8].hex())
+    at=W.location(b,'FloateyNumbersCore');pc=W.address(b,'FloateyNumbersCore');life=fields['NumberofLives']
+    inc=bytes((0xe6,life))if life<256 else bytes((0xee,life&255,life>>8))
+    pattern=inc+bytes((0xa9,64))+sta(fields['Square2SoundQueue'])
+    hits=[i for i in range(128-len(pattern))if raw[at+i:at+i+len(pattern)]==pattern];assert len(hits)==1
+    delta=hits[0]+len(pattern);assert raw[at+delta]==0xbe
+    hooks['ScorePrepare']=dict(pc=pc+delta,offset=at+delta-16,data=raw[at+delta:at+delta+8].hex())
+    at=W.location(b,'AddToScore');pc=W.address(b,'AddToScore')
+    hooks['AddToScore']=dict(pc=pc,offset=at-16,data=raw[at:at+8].hex())
     return dict(ram=fields,hooks=hooks)
 
 WITNESS=r'''
-local starWorker=nil;local starReturnSites={};local completedBubReturns=0
+local starWorker=nil;local starReturnSites={};local completedBubReturns=0;local enteredBubSerial=0
+local scoreReturnSites={}
 local function starState()
  local s=itemState();s.actual_returns=completedBubReturns;s.star=read(Star.ram.StarInvincibleTimer)
  return s
@@ -55,16 +64,18 @@ local moveHook=Stock.hooks.BbNativeUpdate
 emu.addMemoryCallback(guard(function()
  if not game or not active()or not mapped(moveHook.pc,emu.memType.nesWorkRam,moveHook.offset)then return end
  assert(not starWorker,'One outstanding actual original movement worker')
- local sp,ret=starCaller();starWorker={sp=sp+2,ret=ret,entry=actualMoves}
+ enteredBubSerial=enteredBubSerial+1
+ local sp,ret=starCaller();starWorker={sp=sp+2,ret=ret,entry=enteredBubSerial}
  if not starReturnSites[ret]then
   starReturnSites[ret]=true
   emu.addMemoryCallback(guard(function()
    if not starWorker or starWorker.ret~=ret or emu.getState()['cpu.sp']~=starWorker.sp then return end
    local token=starWorker;starWorker=nil;completedBubReturns=completedBubReturns+1
-   if star and star.collected and token.entry>star.collected.state.moves then
-    star.post_returns=(star.post_returns or 0)+1
+   if star and star.collected and token.entry>star.collected.entry_serial then
+    star.post_collector_returns=(star.post_collector_returns or 0)+1
     star.first_post=star.first_post or starState();star.last_post=starState()
    end
+   if star and star.credit and token.entry>star.credit.entry_serial then star.post_credit_returns=(star.post_credit_returns or 0)+1 end
   end),emu.callbackType.exec,ret)
  end
 end),emu.callbackType.exec,moveHook.pc)
@@ -84,10 +95,32 @@ for name,h in pairs(Star.hooks)do
    assert(star.erase and star.popup and read(L.Enemy_Flag+star.collector.actor.slot)==0,'Real Star erase and popup')
    assert(read(Star.ram.StarInvincibleTimer)==35 and read(Star.ram.AreaMusicQueue)==64 and read(Star.ram.Square2SoundQueue)&32~=0,'Actual Star35/music64/cue32')
    assert(read(Star.ram.GuestPowerupActive)==0,'Star has no hosted M/F freeze')
-   star.collected={state=starState(),timer=35,music=64,cue=read(Star.ram.Square2SoundQueue)};star.post_returns=0
+   star.collected={state=starState(),entry_serial=enteredBubSerial,timer=35,music=64,cue=read(Star.ram.Square2SoundQueue)};star.post_collector_returns=0
    assert(star.collected.state.flags==star.collector.state.flags and star.collected.state.power==star.collector.state.power,'Native Star preserves actual earned original gear')
+  elseif name=='ScorePrepare'and star.collected and not star.credit and slot==star.collector.actor.slot then
+   local cpu=emu.getState()
+   assert(cpu['cpu.a']==43 and cpu['cpu.y']==6 and read(Star.ram.FloateyNum_Timer+slot)==42,'Actual oldtimer43 score branch, postDEC42/control6')
+   star.credit_pending={state=starState(),old_timer=43,post_dec_timer=42,slot=slot,writes={}}
+  elseif name=='AddToScore'and star.credit_pending then
+   local sp,ret=starCaller();star.credit_pending.ret=ret;star.credit_pending.sp=sp+2
+   if not scoreReturnSites[ret]then
+    scoreReturnSites[ret]=true
+    emu.addMemoryCallback(guard(function()
+     local p=star and star.credit_pending
+     if not p or p.ret~=ret or emu.getState()['cpu.sp']~=p.sp then return end
+     assert(#p.writes>0 and itemScore()==star.collector.state.score+1000,'Actual decimal score writes complete Star1000')
+     star.credit={state=starState(),entry_serial=enteredBubSerial,writer=p};star.credit_pending=nil;star.post_credit_returns=0
+    end),emu.callbackType.exec,ret)
+   end
   end
  end),emu.callbackType.exec,h.pc)
+end
+for digit=0,5 do
+ local address=Star.ram.Player1ScoreDisplay+digit
+ emu.addMemoryCallback(guard(function(at,value)
+  local p=star and star.credit_pending
+  if p then assert(#p.writes<12,'Bounded real decimal score writes');p.writes[#p.writes+1]={address=at,old=read(at),new=value,PC=emu.getState()['cpu.pc']}end
+ end),emu.callbackType.write,address)
 end
 '''
 
@@ -106,13 +139,13 @@ local function full_tick(finish)
  end
  assert(star.age<1800,'Bounded ordinary Star phase '..star.phase)
  if star.collected then
-  full_pad={};assert(star.post_returns<=25,'Exactly25 completed later original workers')
-  if itemScore()>=star.collector.state.score+1000 then star.score=star.score or starState()end
-  if star.post_returns==25 then
-   assert(star.born and star.mature and star.collector and star.erase and star.popup and star.score,'Complete natural Star lifecycle and delayed1000')
+  full_pad={};assert((star.post_credit_returns or 0)<=25,'Exactly25 completed workers after actual score writer')
+  if star.credit and star.post_credit_returns==25 then
+   assert(star.born and star.mature and star.collector and star.erase and star.popup and star.credit,'Complete natural Star lifecycle and actual timer43/1000 writer')
    assert(read(Star.ram.StarInvincibleTimer)>0 and r('GuestPowerupActive')==0,'Real Star remains active without M/F freeze')
    assert(itemScore()==star.collector.state.score+1000,'Exactly1000 actual native score from Star')
-   finish(true,'Genuine M/F then natural Star and25 completed later original movement returns');return
+   assert(star.post_collector_returns>=25,'Retain postcollector completion count separately')
+   finish(true,'Genuine M/F then natural Star1000 and25 completed new original workers after credit');return
   end
   return
  end
@@ -121,6 +154,25 @@ local function full_tick(finish)
   if not star.born then assert(a.x==1616,'Authored real Star block1616');star.born={state=starState(),actor=a}end
   if a.state>=128 then star.mature=star.mature or{state=starState(),actor=a}end
   star.phase='intercept'
+ end
+ if star.phase=='floor-runup'then
+  if not star.floor_ready then
+   full_pad={right=x<1306}
+   if x>=1304 and y==176 and full_normal_jump_ready(actor)then star.floor_ready=starState()end
+   return
+  end
+  assert(full_solid(1268,208),'Actual safe floor below Flower roof, before second pit')
+  if y~=176 or not full_normal_jump_ready(actor)then full_pad={};return end
+  full_pad={left=x>1266,right=x<1262}
+  if x>=1262 and x<=1266 then
+   if full_state(0x102+(identity==1 and 8 or 0))&64==0 then full_pad={right=true}
+   elseif full_launch_ready(actor)and full_state(0x301)&192==0 then
+    star.phase='travel';star.age=0;star.fast_launch=starState();obstacles[6].lead=112
+    full_part='grow';full_step=0;full_last=q.completed_Main;full_ride_base=q;full_start_y=y;full_min_y=y
+    flower.phase='grow';full_pad={right=true,b=true}
+   else full_pad={}end
+  end
+  return
  end
  if star.phase=='travel'then
   if x>=1570 and full_normal_jump_ready(actor)then
@@ -154,7 +206,7 @@ def controller(raw,identity=0,mode='mushroom'):
     text=once(text,'local function finish(','local star=nil\nlocal function finish(')
     text=once(text,'natural_flower=flower','natural_flower=flower,natural_star=star')
     text=once(text,"   finish(true,'Genuine earned Mushroom then Flower and25 actual movement calls');return",
-        "   star={phase='travel',age=0,last=q.completed_Main,rows={},F_ready=itemState()};currentPickup=nil\n   flower.phase='stock-star';full_part='approach';full_step=0;full_last=q.completed_Main;full_pad={};return")
+        "   star={phase='floor-runup',age=0,last=q.completed_Main,rows={},F_ready=itemState()};currentPickup=nil\n   flower.phase='stock-star';full_part='approach';full_step=0;full_last=q.completed_Main;full_pad={};return")
     text=once(text,'local function full_tick(finish)',WITNESS+'\nlocal function flower_tick_preserved(finish)')
     text=once(text,'local routeStarted=false',ROUTE+'\nlocal routeStarted=false')
     from check_ff_stdout_controller_source_1110 import LuaRuntime
