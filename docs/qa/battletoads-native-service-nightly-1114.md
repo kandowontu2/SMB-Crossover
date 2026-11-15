@@ -49,3 +49,23 @@ The only active output is the existing two-file flag slot. No captures,
 videos, logs, states, patches, backup ROMs or releases are created. Other
 project Mesen sessions remain untouched. Candidate native gates and any
 Downloads delivery must be recorded below before claiming installation.
+
+## Native candidate
+
+Root5301 terminal PASS on privateae66. Lua
+479809a4e16588a7ae78c89b1ef004437fcf8130d4183463118469297e5b00e7;
+receipt0e7f05b9257771ae95459d624c87b509fa020760ce3bfb0a5e3cdd7c62734988.
+Idle48Main/48physical/NmiSkipped24; Right32/32/16. Same zero actors, HP47,
+lives2/X81/Y176. This is an **average** of one update per physical frame,
+not yet proof of zero missed controller-read frames: the engine can perform
+one immediate catch-up. A targeted read/per-frame histogram observer follows.
+
+Root14089 terminal full Rash PASS onae66. Lua
+b178e16d40681ffa08e4fc24f7fcd3c6df247a4aa490544e0efd400b368c8a80;
+receipt a57a3339a6c5e42e777f9b1b0368e3a6c27ba35d5fce71417afca1ec13d63652.
+4,359Main entries=returns/5,152physical,2,799actualBTsteps/58in1-2,
+HP35/lives2, flag3012/frame3761,castle3075/3827,entrance3762/4529,then25
+living grounded1-2 at40/176/high1/native0/engine8/area2/power0/Star0.
+The input body is identical to the previously qualified route. Parent571's
+preserved full receipt used6,464physical for the same4,359Main and HP35.
+Zitz and actual Downloads delivery remain pending at this checkpoint.

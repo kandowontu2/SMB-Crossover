@@ -17,14 +17,15 @@ def execute(mode):
     assert{p.name for p in OUT.iterdir()if p.is_file()}=={'candidate.nes','controller.lua'}
     guard=check(DESTINATION);raw=DESTINATION.read_bytes();assert sha256(raw).hexdigest()==C.PIN
     image,composition=C.proposal(raw);assert C.inverse(image)==raw
-    # Compile every controller before replacing either disposable slot file.
-    texts={'baseline':F.cadence(raw,baseline=True),'cadence':F.cadence(image),
-           'rash':F.controller(image,'rash'),'zitz':F.controller(image,'zitz')}
-    assert mode in texts
+    # Compile the owning controller before replacing either disposable slot file.
+    factories={'baseline':lambda:F.cadence(raw,baseline=True),'cadence':lambda:F.cadence(image),
+               'cadence_reads':lambda:F.cadence_reads(image),
+               'rash':lambda:F.controller(image,'rash'),'zitz':lambda:F.controller(image,'zitz')}
+    text=factories[mode]()
     Storage.preflight(private_root=OUT,reserved_bytes=0,reserved_files=0,fresh=True)
     target=DESTINATION if mode=='baseline'else OUT/'candidate.nes'
     if mode!='baseline':target.write_bytes(image);assert target.read_bytes()==image
-    text=texts[mode];script=OUT/'controller.lua';script.write_bytes(text.encode())
+    script=OUT/'controller.lua';script.write_bytes(text.encode())
     expected=C.PIN if mode=='baseline'else C.CANDIDATE
     q=run(script,target,OUT/'capture',expected,240)
     assert q['script_SHA256']==sha256(text.encode()).hexdigest()
@@ -34,6 +35,6 @@ def execute(mode):
 
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('mode',choices=('baseline','cadence','rash','zitz'));a=p.parse_args()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('mode',choices=('baseline','cadence','cadence_reads','rash','zitz'));a=p.parse_args()
     q=execute(a.mode);print('RESULT '+json.dumps(q,separators=(',',':')),flush=True)
     assert q['passed'],'Native candidate gate remains unqualified'

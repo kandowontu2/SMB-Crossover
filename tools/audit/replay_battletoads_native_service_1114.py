@@ -91,3 +91,27 @@ def metadata(raw,key):
     q=bindings(raw,key)
     return dict(ROM_SHA256=C.CANDIDATE,identity=key,controller_SHA256=sha256(controller(raw,key).encode()).hexdigest(),
         stage_body_unchanged_from_verified_camera_route=True,normal_controls_only=True,gameplay_seeds=0,outputs=0)
+
+
+def cadence_reads(raw):
+    """Native-only read observer; excludes the first partial physical frame."""
+    text=cadence(raw)
+    text=replace(text,'local idleActors=0',
+        "local idleActors=0\nlocal portRead=false\nlocal priorFrameMain=0\nlocal readCounts={idle={frames=0,missed=0,Main_histogram={}},walk={frames=0,missed=0,Main_histogram={}}}")
+    text=replace(text,'walk_start=walkStart,','controller_read_observations=readCounts,walk_start=walkStart,')
+    point='emu.addMemoryCallback(guard(function()\n local h=C.private_hook;'
+    observe=r'''
+emu.addMemoryCallback(guard(function()portRead=true end),emu.callbackType.read,0x4016)
+emu.addMemoryCallback(guard(function()portRead=true end),emu.callbackType.read,0x4017)
+emu.addEventCallback(guard(function()
+ if idleStart and frame>idleStart.frame and not walkEnd then
+  local q=readCounts[walkStart and'walk'or'idle'];q.frames=q.frames+1
+  if not portRead then q.missed=q.missed+1 end
+  local key=tostring(updates-priorFrameMain);q.Main_histogram[key]=(q.Main_histogram[key]or 0)+1
+ end
+ portRead=false;priorFrameMain=updates
+end),emu.eventType.endFrame)
+'''
+    text=replace(text,point,observe+point)
+    Frozen.LuaRuntime().compile(text)
+    return text
