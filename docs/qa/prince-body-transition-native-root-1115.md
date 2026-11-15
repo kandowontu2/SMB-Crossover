@@ -55,3 +55,19 @@ are clear; no IPS/BPS/UPS, capture files, releases or backup files are made.
 The official nightly is now16a385654e80105f83470e14cd328d8bbceaa659730f4a81a2f36ca039cfbcfb.
 The earlier statements preserving Downloads590 describe the private runs.
 The open limits above still apply after delivery.
+
+## Full-route control investigation
+
+Root82767's new ordinary chain-handoff controller41925405 independently
+passes the formerly fatal late opponent cluster. It preserves the same16a
+game bytes and firstBBC1/SP203 full4027-byte/cookie witness. The full route
+still ends with a terminal negative at the final pipe:7011 completed Main,
+6320 Prince updates/12830 physical frames,2593/176, HP3/lives2/action35.
+Receipt59c3ccf0a723138833e847cb137c744eb9cd20353ae33af92bedce74dad55645.
+
+The source audit subsequently establishes that35 is a legitimate partial
+careful-step action. The replay accepted only actions30 and42, so this
+failure is not evidence that the game failed to admit the move. The
+separate d330 source successor recognizes30..42 but later stalls alive
+at2589/176; it has no native run. A fresh-selector observer is in progress.
+Neither experiment qualifies the full current level or changes game bytes.
