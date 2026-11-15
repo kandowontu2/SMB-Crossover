@@ -1,12 +1,14 @@
 # Gimmick natural stock on strict current590
 
 Scope: ordinary compiled Select/Start and normal controller inputs. Actual
-nightly input is590e0ae60414d98d4b0a4d74874af58b93c6e720e8156220e0648966128b5f1f.
+input for the retained stock proofs is590e0ae60414d98d4b0a4d74874af58b93c6e720e8156220e0648966128b5f1f.
 No health, actors, power, inventory, terrain or life seeds; no ROM/game/helper
 changes. Root owns the only Mesen queue. Source tests use absent bounded roots,
-max-files1/600seconds and no generated files. Natural Star and native1UP remain
-open until separately qualified; Flower's current native route remains negative
-as recorded in gimmick-flower-star-plan-1115.md and root native QA.
+max-files1/600seconds and no generated files. Natural M/S/L are native-qualified
+on590 by the separate receipts below; Flower's native route remains negative
+as recorded in gimmick-flower-star-plan-1115.md and root native QA. Official
+nightly is now16a; the590 receipts retain their tested version and are not
+automatically promoted by the later unrelated Prince transition delivery.
 
 The read-only source census finds dedicated Gimmick M/F controllers, but no
 previous Gimmick Star/hidden1UP controller. GmPickup accepts only actual kinds0/1.
