@@ -1,7 +1,8 @@
 # Prince earned-sword persistence, current7a80
 
 Latest source candidate is the separate four-span `40a11ffb…de4d20e`.
-Its actual encoded cold passes. Earlier three-span `5cfa2a0f…914df` is a
+Its actual encoded cold, earned full route and reached ISR checks pass.
+Earlier three-span `5cfa2a0f…914df` is a
 retained cold negative, never a native/staged/delivered candidate. The
 historical preparation below records that progression without erasing it.
 
@@ -162,3 +163,54 @@ public ChgAreaMode component passes243 Main including25 active at40/176,
 HP5/lives2/native075B2/Sword1. Actual earned-state clones demonstrate explicit
 KillPlayer/Continue/menu-entry clearing075B0; this is not a natural death or
 menu episode, nor a death-respawn proof. Full/ISR terminal receipt is pending.
+
+## Terminal source qualification
+
+Source41018 is now terminal **PASS**, receipt
+`e9ae29cf6077f9a5d5a12a8ef3c0566d4d3c28d4118c1b46e6e2154c00f2d756`.
+Exact40a/e161 completes full1-1 and25 living grounded completed Main returns
+in actual1-2. Main8644 entries=returns, no pending return;7761 Prince updates.
+Terminal40/176,engine8/world0/level1,HP5/lives2/native075B2/privateSword1.
+Source counts are distinct from native physical timing. FirstBBC1/SP203
+checks both cookies and4193 static bytes. Natural Mushroom then Flower is
+the ordinary frozen navigation, with Flower atMain2833; no upgrade, health,
+actor, position, terrain or ability outcome is seeded in this route.
+
+The same run's genuine-earned public area component passes243 Main/+25
+active, and its earned KillPlayer/Continue/menu-entry components clear075B0.
+The private sword remains1 immediately at death entry; no instantaneous
+private sheath erasure or natural death-respawn proof is claimed here.
+Actual constructor units independently map native0/1/2 to Sword0/0/1,
+each501 cycles/same returned registers. Public InitializeMemory with real
+new-game limit076F clears tier2. These declared diagnostic native-tier units
+receipt `279ab1d487993be8d7e3d3be78fbe6cf347d45f4e065359c9a821acc811d7a65`
+are separate from earned acquisition; they seed no private HP/Sword/actors.
+
+Reached paired ISR proof passes13 contexts,11 IRQ and13 busy NMIs, minimum
+ISR SP145. Baseline restores only166 old owned bytes on otherwise identical
+actual foreground cuts. All register/flag/mapper/scratch/live-stack effects
+and native RAM/audio effects match; no private ISR writes or broad RAM masks.
+Trace SHA `ad364ec81154431966fa63a87f2e0f2ec09c2731ab53cc63671fe138285ee1d7`.
+Actual reached PCs: C0F6,C0FA,B3F1,C7B3,C7BA,C7F4,C7D3,C7D7.
+This covers genuine Mushroom/Flower and real constructor/Fresh execution.
+
+Ordinary Main maximum40821 instructions. Three authenticated cold Main
+passes (including the explicit area clone) use1966646/1966628/1966646
+instructions and8114575/8114527/8114575 model cycles. Each uses exactly three
+C000/SP204 entries, forced blank/retired old headers/SEI,224 immutable decoder
+bytes and only six original self-modified operand exceptions. Route and
+component cold labels share the8919-call budget counter, not Main8644.
+No ordinary budget increase; existing4M allowance is admitted only after
+reached authenticated decoder ingress. Decoder SHA
+`f8d6d9707d38546e8030297c64f5479120b141590e6b6bb9cb6e9d8cc45c7575`.
+
+Strict binding/inverse check PASS, receipt
+`b126842690dd97f7e235337014b5a6795793553497c8d1650b322036851383e7`:
+inverse reconstructs exact7a80 without mutable nightly reads; parent as
+candidate, candidate as parent, truncated and dirty images all reject.
+
+All source jobs are terminal and generated no build files. Root owns private
+native45813 and any separate delivery decision. No helper Mesen, ROM files,
+installation or releases were performed. Frozen5cfa cold negatives and older
+route/driver negatives remain retained. Equal-facing F090, natural Star/1UP,
+all abilities/audio and idle performance retain their separate open scopes.
