@@ -1,8 +1,8 @@
 Latest work targets exact40a. Root79822/44512 close actual natural M/F for
-Bub/Bob;32315 closes Bub hidden1UP. Root16681 views two clean Bub item PNGs;
-the new third-Goomba image and Bob1UP are separate pending gates. Star remains
-open for both. Earlier7a80/source/pending statements below are historical and
-are not silently promoted.
+Bub/Bob;32315/98201 close each identity's hidden1UP. Root16681 views two clean
+Bub item PNGs, but21455's added Goomba frame exposes a real shared-palette
+conflict. Star remains open for both. Earlier source/pending statements below
+are historical and are not silently promoted.
 
 Original source work uses exact Downloads7a80
 `7a80f0f37e316436be0825bbd6fd9d372af6b0b7741f84ea87356282033d9b79`.
@@ -391,4 +391,29 @@ real hiddenkind3 born1453/mature1520. Physical collector1556 at1059/176
 versus1060/171, erase/setup6→popup11/timer48; actual INC1561 at42/cue64,
 native2→3, exact1561→1586 post25. Score1500 unchanged, flags1/power1/lives3.
 No extra-life death/respawn or total-life convention is inferred. Bob1UP is
-an independent fresh source/native gate; Star is still open for both.
+an independent fresh source/native gate at that checkpoint; Star is still open.
+
+Bob source21696 separately passes, receipt
+`4c2526a5110c2465cdc57aedff80b9e078a4bf3e82910f3061760645ef5ce7e6`,
+Lua `1dd544076ff306a9e179d8ef2abc9b1d5d651843585068fc73f6888422687858`.
+1571 actual Main/Bob entries; real collector1541, delayed life writer1546,
+exactly25 later movement entries, life3/lease3/power1/score1500 unchanged.
+Root98201 independently **NATIVE PASS** on actual40a, receipt
+`00bb5ca1d32c5dbf0126e36cad9866dd3003b47de93e76d35571429065ed7125`:
+1585 returned Main/Bob entries,3521 physical. Collector1555 at1059/176;
+actual INC1560/timer42/cue64 native lives2→3, exact1560→1585 post25.
+Terminal1059/176/lives3/flags1/power1, score1500 unchanged. Both M/F/L scopes
+are now current40a native; natural Star and life loss/respawn remain separate.
+
+Root21455's three-image replay completes the same1844 Main/4071 physical,
+receipt `18f3d6e20c52adc442f3839907715376fd2f157b90a24c489fcf1ed4fe42e055`.
+The newly visible opening Goomba is incorrectly green/pink/white. Frame601,
+Main135, actor329/184: actual OAM A2/A4 uses physical page17 offsets544/576,
+attributes67 (palette3 and horizontal flip). Bub also uses palette3, with
+observed paletteRGB0F/2A/26/30. Thus the correct native pattern is recolored
+by the guest palette; earlier two-PNG item-only evidence never closed this
+enemy case. G PNG SHA256
+`c3b661abe29ae04d9dac2b629478bca3a9429c10e02adc17229a1d164be17631`
+(2450 bytes); M/F PNGs remain the two hashes recorded above. Root owns the
+native observation and images. New palette work is read-only source ownership
+and a measured proposal; no game bytes have been mounted or changed.
