@@ -27,3 +27,18 @@ run for DiBiase, Bigelow, Honky, Savage or André occurs in79649. The native
 collector result here qualifies Hogan's Mushroom lifecycle only. General
 abilities, artwork, audible SFX, performance and full-stage gates remain open.
 Zero images/capture files and no ROM changes are produced.
+
+The typed16a landing-defense successor, factoryd5b646d9/Lua360b1478,
+also stops before the Flower collector: root60935 terminal negative
+af6d88188406835f9662f1800cc31ab541dcf2fed0d2e2ecece7ab1cbb49c4be,
+2186Main/3993physical at1242/176 in flower-align, power0/lives2. Its Mushroom
+60/+25 gates pass. It retains armor longer but does not qualify the Flower.
+
+Root85386's next ordinary policy, initial factory7e6149b7, completes its
+Lua pass condition, but the Python wrapper fails while validating the
+receipt: the custom Lua JSON encoder serializes its numeric-key0/1 item
+table as an array containing only entry1. The raw native result is not
+printed before that wrapper exception, so no receipt hash or complete
+M/F native qualification is claimed from85386. The successor must preserve
+numeric-key0 tables and print the result before post-run validation. No ROM
+patch follows from this reporting bug.
