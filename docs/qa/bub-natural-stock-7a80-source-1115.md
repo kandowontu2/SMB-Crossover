@@ -107,3 +107,32 @@ That run already observes the real M collector411/176 versus415/171, original
 actor46 flags0→1, erasure, popup6/timer47, actual cue32 and60 hosted updates
 with ages0..59. The missing setup snapshot is an observer error; no pickup
 assertion is weakened. Corrected source92378 is pending, not native-ready yet.
+
+Corrected source92378 passes the full physical M bookkeeping/60 hosted
+updates/+25 movement witnesses, then traverses all four pipes and the first
+pit with five actual original support restarts. It observes actual final
+kind1 Flower born1629 at1248/135 and mature1693 at1248/119. It remains a
+navigation negative: during the return to the ordinary launch run-up it
+enters source injury128 at1197/176, then engine11 by Main1756. No Flower was
+collected. Receipt `decaf84e0c1ac143888e05c522926ba55641137e3c5b12605fab480d17062d52`,
+Lua `0dd52ca426992049448e23cc176fc7e9f5e95396b819362fd289743168f1ff61`.
+Source injury is not treated as a geometry defect or bypassed.
+
+Root53400 subsequently began installing Prince40a. All7a80 results above stay
+historical/versioned. New `replay_bub_flower_combat_40a_1115` accepts only
+`40a11ffb8452c3b54caef56ddd5912e2bdda2c276545f20a589baa053de4d20e`.
+It authenticates `compose_prince_sword_tier2_fresh_1115` SHA256
+`6d2cbeb8bcf6b9a32d85c08ef158bb4dbe67e890831bbdb8dd203359e61b1afc`,
+uses its strict portable inverse to exact7a80, checks the full Bub resources
+and native hooks equal, then executes the actual40a bytes. The generated old
+controller's two explicit ROM pins are rebound; old strict APIs remain intact.
+It suppresses partial-state drive decisions while Main is pending and adds
+ordinary proximity-based defense during the mount return. Real live enemy
+coordinates/height/facing/cooldown/fresh B select the input, with actual
+trap/pop acknowledgment required. No enemy or ability state is fabricated.
+Bounded defense observations can falsify the navigation hypothesis.
+
+Initial40a run87181 rejects a Lua `or24` spacing error before gameplay;57872
+runs the corrected text under absent `build/bub-flower-40a-1115`, max-files1,
+600s and zero outputs. There is no current40a Flower or native qualification
+yet, and root alone owns delivery and its installed-context result.
