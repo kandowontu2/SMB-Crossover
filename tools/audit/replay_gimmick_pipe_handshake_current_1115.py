@@ -168,7 +168,11 @@ hook('GmRideStarReturn',function()
 end)
 '''
     body=once(body,"hook('GmMovement',function()",observe+"hook('GmMovement',function()")
-    body=once(body,'gmInput=controls(context())',"gmInput=controls(context());gmTravel.decision_Main=updates;gmTravel.requested_bits=(gmInput.right and 1 or 0)|(gmInput.left and 2 or 0)|(gmInput.a and 128 or 0)|(gmInput.b and 64 or 0);if gmTravel.done then finish('four-pipes-and25-grounded-input-consumptions');return end")
+    body=once(body,'gmInput=controls(context())',"""gmInput=controls(context())
+  gmTravel.decision_Main=updates
+  gmTravel.requested_bits=(gmInput.right and 1 or 0)|(gmInput.left and 2 or 0)|(gmInput.a and 128 or 0)|(gmInput.b and 64 or 0)
+  if gmTravel.done then finish('four-pipes-and25-grounded-input-consumptions');return end
+ """)
     body=once(body,'lastA=not not b.a;emu.setInput(b,0)',r'''
  if firstMReady then
   gmTravel.polls=gmTravel.polls+1;gmTravel.last_polled_bits=(b.right and 1 or 0)|(b.left and 2 or 0)|(b.a and 128 or 0)|(b.b and 64 or 0)
@@ -189,5 +193,7 @@ def metadata(raw,key='mr_gimmick'):
     q=Previous.metadata(raw,key)
     q.update(controller_SHA256=sha256(controller(raw,key).encode()).hexdigest(),parent_frozen061b_source_SHA256=PARENT_SOURCE,
         parent_frozen061b_Lua_SHA256=PARENT_LUA,
+        exact_frozen_control_and_observer_body=False,first_mushroom_prefix_unchanged=True,
+        diagnostic_hooks={label:bindings(raw,key)['hooks'][label]for label in('TravelPadRead','TravelFreshRead','TravelJumpAccepted','GmRideStar','GmRideStarReturn')},
         scope='Diagnostic only: genuine M then four ordinary pipes and25 living grounded original input consumptions.2physicalpoll/source-consumption A/B handshake, actual current star PC/SP and original jump admission; no Flower/fullstage claim')
     return q

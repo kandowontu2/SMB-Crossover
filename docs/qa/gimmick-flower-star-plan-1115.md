@@ -126,3 +126,26 @@ fef04cfdd94bc85e8a259356e21a3ec3603d9bea19a6d6b8ff4b0890c0c7a05d;
 checker6279436ec05c01b2205afa497d34af582865ffca6cfa13ab37c01e3417187e97.
 It adds no gameplay evidence. The generated text is being inspected in RAM
 and its new files corrected; old061b/default factories remain unchanged.
+
+The generated line513 actually contained `return endelse gmInput`: the new
+inner end and inherited else were concatenated. A multiline boundary fixes
+only this prototype syntax. Source21576 then TERMINAL PASS on actual590,
+Lua a3e7f6b318154b046674f061ba6a54b815d6934d1e783e91a88588787fce17b3,
+receiptc7bc5ab4bc95fcf20a17e1df2e0dd864910311f3e42ea6d04a0f85a53986d5fd.
+920 returned Main/92.13seconds. Genuine M readiness remains407 at418/176.
+New route reaches976/176 at895, then25 living grounded original input reads;
+final992/176/native0/engine8/HP3/capacity3/lives2. It sees513 original input
+reads/polls after M,8 requests/8 actual jump admissions and zero A/B retries.
+This model route has zero actual star rides; no support branch execution is
+claimed. Every GmRideStar caller/return PC/SP is still checked even on its
+non-support returns. Source traces capture GmFresh/GmPrevious/real saved pads,
+pending Main and the completed-Main decision epoch in the640..760 window.
+
+The new factory is a pipe-only diagnostic, not a Flower/full-stage pass. It
+requires2 actual polls and real Gm input consumption around release/press,
+holds press until original jump admission, releases by actual apex and only
+uses a current real support edge as a star-jump trigger. Original061b and
+default30ba/checker59505 remain immutable. The inherited metadata's body-
+unchanged flag is corrected for this new policy, with the five exact native
+hook records exposed; the qualified Lua body remains a3e7f6b3 unchanged.
+No physics, terrain, helpers, ROM, captures or generated files changed.
