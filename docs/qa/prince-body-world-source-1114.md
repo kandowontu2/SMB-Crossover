@@ -1,7 +1,9 @@
 # Prince body-world source proposal, November 14
 
-This is an in-memory private proposal. Downloads remains root's delivered
+This is an in-memory private proposal originally built against root's delivered
 `1daca93f837e894a3ee5b3d8cef54622336726f4df243c6bfb997130323f3baa`.
+Root has since advanced the current input to Gimmick-window7 cf7 (see below).
+The private e418 image must not replace that newer input.
 No candidate file, Mesen run, install, backup, patch or release is produced here.
 
 Root's exact placement grant is
@@ -170,3 +172,92 @@ to897 followed by Up also remains negative: HP4→0 near893/176 in fourth-up,
 `20fb51aff599d70dcace38554b948a415f66ec8e2c1e232abe3b718bafe95153`.
 The first three pipes remain crossed in that replay. This input negative
 does not authorize new battle, physics or automatic-climb behavior.
+
+## Genuine fourth-pipe input components
+
+`check_prince_body_world_fourth_inputs_1114.py` first executes the complete
+ordinary earned-mushroom/three-pipe prefix. Its actual Main-return checkpoint
+is1724 updates at844/176, HP5/lives2, naturally earned native power1 and source
+sword0. The following branches clone only that executed state; no position,
+health, item, enemy, terrain or ability is installed.
+
+Right→Up at880/888/892/896 all remain negative before a fourth hang/top. Each
+ends at893/176/HP0 after253 additional source frames, after the retained hard
+landing5→4 and eventual live trailing Goomba contact. Their trace digests are
+989f8ff6f6045c3eb1d0488e847236ced76fdbfe9a5dbfec0679e42b1ff2c818,
+79fd60084004139a886e68ff3caaf48aaf8f77620645b929a3201e781e61c578,
+and adada0d7017b6373e8c83691b330b9c2fba13651a1452542cf6095771b60c108
+(the latter two inputs have the same trace). An early diagnostic mislabeled
+C07A/B as QueryY; those are base-column/index bytes and are removed from the
+successor observer. This does not change any control or gameplay result.
+
+Earlier Up864/868/872/876 is also negative. Actual animation advances from861
+to877 in one update, so the latter three triggers produce the same subsequent
+deceleration and action28 sequence. Source component receipt:
+`05dda6b909f6441c6343f8244102fc0577b96a66aaa785ab15f5083e4c9e2696`.
+
+Right+A from recovery844 admits standing action3. Fresh Right+A from868 admits
+running action4, then action47; neither catches/tops the fourth pipe before
+the real contact. Only Up after an actual hang is requested in these branches.
+These are retained input negatives, not a proof of a new geometry fault.
+Receipt:
+`466a6420f36cc9835b1a8265e5ca5f423d263d96e16e7a9178a2e1dd4a6d2131`.
+
+## Later current-input boundary
+
+Root's next current input is
+`cf7b6d2964ae0ef18d08c726f66afe9bf5be3dc6f3ec9c7a43279121ee09d968`.
+The new `current_prince_body_research_input_1114` adapter accepts only explicitly
+typed exact1daca or exactcf7. For cf7 it applies the frozen Gimmick inverse to
+recover1daca only as the labeled reference for unchanged private e418 research.
+It retains the original cf7 bytes and all192 Gimmick sites and provides a
+preservation guard. It does not compose an installable merged image. Both
+frozen Prince proposal/inverse functions continue rejecting cf7 directly.
+Any future current merge must preserve the192 Gimmick sites as well as the
+DK3, common29 and prior176 fixes; e418 is not an eligible replacement for cf7.
+
+Bounded metadata7401 passes against exactcf7:192 protected sites verified,
+six wrong-image/kind/preservation/frozen-boundary cases rejected, and zero
+write or subprocess attempts under traps. This is source metadata only.
+
+## Fourth running-jump returned queries
+
+Passive trace4878, receipt
+`c2e8a8338ef416fe27cef5e6d2156c186c8876989e635d845be86646284b0a04`,
+observes actual caller-return PC/SP and closes with zero pending calls.
+It loaded1daca before root advanced Downloads to cf7; its e418 recipe and
+gameplay bytes match the earlier private tests. The current-input wrapper
+records that distinction explicitly.
+
+During action4 the genuine head index51 returns air0 at sampled native
+891/179,901/180 and906/179. The same public collision entry also receives
+feet indices52/53, which return actual ground54; those positive feet reads
+must not be mislabeled ceiling hits. At sourceX905 (physical body897..912),
+WorldMaterial returns20 for the real pipe face912, callerAD3E. Action47 follows
+at component commit104. This trace shows a late takeoff meeting the real wall;
+it does not show a phantom head collision. No additional game change is made.
+
+## Fourth Up half-cell observation
+
+Returned-call trace27898 runs the unchanged e418 recipe through the explicit
+cf7→1daca research boundary. Receipt:
+`93d897a3d01b221e2b97729e35cd0a397a0511ca6ffb301477f87ebcd8dbf717`.
+It ends with zero pending observed calls. At native894/source902, original
+action28/pose15, callersA484/A490 query Y9 (row0), raw890 (sourceX−12), and
+receive material0/C1. Their donorCell864 samples888/904, both before the real
+fourth pipe face912. The current-row forward callerAD3E raw898 reaches the
+real cap144 (last point936/144) but returns0 while neither current foot is on
+that higher floor; that body/floor refinement remains intentional.
+
+The first three pipe faces448/608/736 are0 mod32, while912 is16 mod32. This
+is a concrete half-cell admission lead. The matched original caller contract,
+first-three actual above-row points and any fitted correction still require
+research and review. No global origin shift, wider reach, automatic climb,
+additional code placement or revised candidate is approved/produced here.
+
+A separate third-cap running-jump component starts from actual1409-Main
+723/112/HP5/power1. Takeoff744 reaches fourth wall897 aliveHP4 but without a
+hang/top; takeoff752 is contact-negative there. Receipt:
+`1bfd23dc3bacbe1bd7ff3a81413acb2be8ba1170ed3956e4330deef1c2e3cca4`.
+These controls do not supersede the preserved first-three and native first-pipe
+positives, and do not constitute a full-stage qualification.
