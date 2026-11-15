@@ -66,3 +66,29 @@ The closer launch successor75793 is likewise a bounded control negative,
 receipt475f42e5c618e302e0b0373a455a6dfe9240b53043dc2ed9da50b1693363e283.
 Its tool output was truncated in the middle, so no unobserved trajectory
 details are asserted. This checkpoint remains source-only and unqualified.
+
+Transferred source investigation90353 captures the first actual mature Flower
+once in RAM atMain1694, slot5,1248/119/state128. The compiled30ba prefix has
+actually earned HP/capacity3, two lives and score1500; inventory is empty,
+next special1. Hero1244/176 has zero velocity, sourceground128, no active
+star. No game state is changed to construct the branch fixture: each branch
+is a memory clone of that genuine reached state, advanced only by ordinary
+controller input and the normal Main/NMI scheduler.
+
+Three65-update branches hold A for35 updates with neutral, Right or Left
+horizontal input. All retain HP3/lives2 and produce no GmPickup call or actual
+GmRideStar transition. Four-update samples have minimum nativeY141,141,138
+respectively; these are sampled bounds, not a complete jump-height proof.
+The Left branch also has an observed horizontal correction between sampled
+X1240 and1263; its cause is not qualified here. Direct jumping from directly
+under the used block does not collect this Flower. This does not establish
+that intended star boarding or another ordinary approach cannot reach it.
+
+The checker now exposes `--explore`, which captures this earned state and
+runs those three short branches with actual bound GmRideStar entry/return
+and GmPickup observers. Default controller text remains frozen30ba. Source
+job90353 terminated normally, with zero files/Mesen/captures; the output
+root stays absent. This is an open Flower route, not a collector pass. The
+next source priority is the remaining BT idle/input-poll overrun; future
+Flower research must explicitly recover571 from any subsequently delivered
+BT successor rather than relaxing this frozen factory's input contract.
