@@ -82,3 +82,34 @@ collision defect is established. The inherited fight uses global capture/pop
 counts to approach, which can make another captured actor look like the
 nearer target is protected. Next controls bind to actual per-slot C320 owner
 association and target retirement, and require a real grounded/aligned shot.
+
+Per-target successor61386 **SOURCE PASS** on actual174fa. Frozen factory
+`replay_bub_star_174fa_1115.py` SHA256
+`e3e7d0fed866697dcc1705e4385bcff1ff98556c32074790d4a2f068507f9e7a`,
+LF Lua `2b6a634f89912ebca64dbdfa8faa1ce67635c3547468ce92e7399631849a826d`,
+receipt `cc420b5c97f31bee503e3269c79b1b4288a9678674ff5baf8503ad598651c935`.
+2960 returned Main/actual worker entries/returns, zero HurtChoose observations.
+The complete M/F/60/+25 prefix is preserved. The seventh original bubble
+support crosses the real second pit. Actual per-slot capture/pop retires
+slot0 at2273 and slot1 at2712, without approaching an unprotected nearer actor.
+
+Real authored tile87 at1616/Y144 is bumped2785 from1617/176. Star kind2 is
+born2793 at1616/135 and matures2857 at1616/119. Native physical collector2930
+is hero1685/176 versus Star1689/172, actual player box[80,192,95,207] and
+item box[86,181,98,193]. Actual erase/popup6/timer35/music64/cue32, no hosted
+freeze; original flags7/nativepower2 are retained.
+
+The actual timer43 score branch (memory42 after DEC) enters AddToScore2935.
+Six real decimal writes include Player1ScoreDisplay+2 changing2→3, proving
+2900→3900. Its authenticated actual return PC016E/SP244 records entry serial2935;
+only workers with later entry serials and their actual matching PC/SP returns
+count. Exactly25 such postcredit workers finish2960; postcollector count30
+is retained separately. Terminal1685/176/engine8/lives2/flags7/power2/Star34.
+This is source evidence only, not native, Star expiry/protected-hit or stage
+completion. Native callbacks/controllers perform no state writes or captures.
+
+API: `controller(raw174fa, identity=0|1)` returns read-only LF Lua;
+`source_check(raw174fa, identity)` executes actual174fa. `load_current()`
+accepts exact174fa directly or composes it in memory from exact40a with the
+strict existing composer, records the actual input hash, and never widens
+the frozen parents. Bob's independent source5185 is pending at this checkpoint.

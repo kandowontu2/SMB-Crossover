@@ -108,7 +108,7 @@ for name,h in pairs(Star.hooks)do
     emu.addMemoryCallback(guard(function()
      local p=star and star.credit_pending
      if not p or p.ret~=ret or emu.getState()['cpu.sp']~=p.sp then return end
-     assert(#p.writes>0 and itemScore()==star.collector.state.score+1000,'Actual decimal score writes complete Star1000')
+     assert(#p.writes>0 and itemScore()==p.state.score+1000,'Actual decimal score writes complete Star1000')
      star.credit={state=starState(),entry_serial=enteredBubSerial,writer=p};star.credit_pending=nil;star.post_credit_returns=0
     end),emu.callbackType.exec,ret)
    end
@@ -143,7 +143,7 @@ local function full_tick(finish)
   if star.credit and star.post_credit_returns==25 then
    assert(star.born and star.mature and star.collector and star.erase and star.popup and star.credit,'Complete natural Star lifecycle and actual timer43/1000 writer')
    assert(read(Star.ram.StarInvincibleTimer)>0 and r('GuestPowerupActive')==0,'Real Star remains active without M/F freeze')
-   assert(itemScore()==star.collector.state.score+1000,'Exactly1000 actual native score from Star')
+   assert(star.credit.state.score==star.credit.writer.state.score+1000,'Exactly1000 actual native score at Star writer')
    assert(star.post_collector_returns>=25,'Retain postcollector completion count separately')
    finish(true,'Genuine M/F then natural Star1000 and25 completed new original workers after credit');return
   end
@@ -155,6 +155,7 @@ local function full_tick(finish)
   if a.state>=128 then star.mature=star.mature or{state=starState(),actor=a}end
   star.phase='intercept'
  end
+ if star.phase~='floor-runup'and closeThreat(q,actor,x,y,r('Player_State')==0)then return end
  if star.phase=='floor-runup'then
   if not star.floor_ready then
    full_pad={right=x<1306}
@@ -203,7 +204,33 @@ def controller(raw,identity=0,mode='mushroom'):
     assert sha256(Path(Previous.__file__).read_bytes()).hexdigest()==PARENT
     text=Previous.controller(raw,identity,mode,stock='flower')
     text=once(text,'if x<600 or x>=720 or(full_index~=2 and full_index~=3)then return false end',
-        "local early=x>=600 and x<720 and(full_index==2 or full_index==3)\n local afterF=star and star.phase=='travel'and x>=1450 and x<1610\n if not(early or afterF)then return false end")
+        "local early=x>=600 and x<720 and(full_index==2 or full_index==3)\n local afterF=star and not star.collected and x>=1424 and x<1900\n if not(early or afterF)then return false end")
+    text=once(text,'and dx>0 and dx<=80 and math.abs(ey-y)<=48 and(not target or dx<target.dx)then',
+        'and dx>0 and dx<=80 and math.abs(ey-y)<=48 and(not star or full_state(0x320+16*i)==0)and(not target or dx<target.dx)then')
+    text=once(text,'and dx>0 and dx<gap and math.abs(ram(L.Enemy_Y_Position+i)-r(\'Player_Y_Position\'))<=32 then',
+        'and dx>0 and dx<gap and(not star or full_state(0x320+16*i)==0)and math.abs(ram(L.Enemy_Y_Position+i)-r(\'Player_Y_Position\'))<=32 then')
+    text=once(text,' if closeFight then\n  local c=closeFight;local age=q.completed_Main-c.Main',r''' if closeFight and star then
+  local c=closeFight;local age=q.completed_Main-c.Main
+  local association=full_state(0x320+16*c.slot)
+  local retired=read(L.Enemy_Flag+c.slot)==0 or read(L.Enemy_State+c.slot)&32~=0
+  if retired then
+   star.defence_retired=star.defence_retired or{};star.defence_retired[#star.defence_retired+1]={Main=q.completed_Main,slot=c.slot,captures=q.captures-c.captures,pops=q.pops-c.pops}
+   closeFight=nil;full_pad={};return true
+  end
+  if association>0 then
+   if target and target.slot~=c.slot and target.dx<=48 then closeFight=nil;full_pad={};return true end
+   full_pad={right=true};return true
+  end
+  local safe=full_solid(x-8,208)and full_solid(x+7,208)
+  if age>=8 then
+   star.defence_retries=(star.defence_retries or 0)+1;assert(star.defence_retries<=6,'Bounded genuine untrapped-target retries')
+   closeFight=nil;full_pad={left=safe};return true
+  end
+  full_pad={b=age<4,left=age>=4 and safe};return true
+ elseif closeFight then
+  local c=closeFight;local age=q.completed_Main-c.Main''')
+    text=once(text,'local aligned=math.abs(target.y-(y+8))<=8',
+        "local aligned=math.abs(target.y-(y+8))<=8\n if star then aligned=target.y==y+8 and read(L.Enemy_Y_Speed+target.slot)==0 end")
     at=text.index('\n')+1;text=text[:at]+'local Star='+Previous.Witness.Base.Previous.lua(bindings(raw))+'\n'+text[at:]
     text=once(text,'local function finish(','local star=nil\nlocal function finish(')
     text=once(text,'natural_flower=flower','natural_flower=flower,natural_star=star')
