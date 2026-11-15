@@ -77,6 +77,31 @@ flag/castle/1-2 proof. A passive injury/contact observer is required to classify
 the next interaction before changing controls or game code. This source
 negative is retained; the initial full controller/policy remain frozen.
 
+The unchanged-controller passive arm5814 reproduces that exact source receipt.
+Its first actual InjurePlayer entry is PRG254:976C, Main1058, X/ObjectOffset2.
+DK is x1524/Y166, VY251 (rising), speed39, source tier0. Live Goomba2 is
+x1550/Y184/state0. The actual screen boxes are DK `[99,166,141,198]` and
+Goomba2 `[141,198,151,204]`, with camera1412: inclusive corner contact occurs
+while DK's feet are still at its head. This is contact during rising, not
+evidence of a bad stomp response. DkHostDeathStart follows at PRG164:BE4D.
+
+The preceding approach is consequential. At Main1034, x1477, DK still moves
+33/16 pixels per update despite neutral input, with two live Goombas x1538
+and1562. A fresh B begins Main1037; the first Goomba is defeated at Main1053
+on the barrel's age16 publication. DK lands at x1517 on1055, releases A on
+1056, and requests a fresh jump on1057 atx1522, when the second Goomba is
+only28 pixels ahead. The next update reaches contact at26 pixels ahead.
+The neutral wait therefore provides insufficient braking/reaction distance
+for this42px body and16-update barrel windup.
+
+A separate controller-only successor keeps the frozen baseline intact. It
+countersteers, retreats to112px front gap, establishes actual right-facing,
+then uses fresh ordinary grounded B throws while stationary against all live
+front Goombas. The measured fatal overlap corresponds to DK right29 and
+Goomba left3; no engine, collision size, health or helper change is proposed.
+Source successor2721 is pending at this checkpoint; no passing result is
+inferred from the new control text.
+
 No full1-1 clear, native playtest, new helper, game change or delivery is
 claimed. Source jobs use absent `build/dk-full11-current-1114`, max-files1,
 timeout600 seconds, and zero output files. Root owns the single Mesen queue.
