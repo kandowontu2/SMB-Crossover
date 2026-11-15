@@ -96,7 +96,7 @@ popup delay. It requires25 actual FF entries strictly after the collector,
 ending1515 returnedMain/1395 FF entries at1672/111/lives2/tier2/Star34.
 139.66seconds; no native Star, expiry or protected-hit claim is implied.
 
-The incoming native-serviceae66 image has a separate strict FF adapter,
+The delivered native-serviceae66 image has a separate strict FF adapter,
 replay_ff_natural_stock_service_current_1114.py. Its owning inverse must
 recover exact571; it authenticates the entire unchanged FF8192-byte worker,
 full16-byte cookie and native hook banks/bytes. It changes only the config
@@ -136,7 +136,7 @@ gives life2→3/timer42/cue64 and counter863; final888 is25 strictly later
 actual entries. Terminal1055/176/native0/engine8/lives3/FFlease3/power1/
 earned1/charge1, with the genuine60-tick mushroom freeze retained. This
 closes White Mage M/L Cae66 only. No ROM changes, images or files; guards
-unchanged. Black/Thief native and all native Star gates remain separate.
+unchanged. Later native class scopes are recorded separately below.
 
 Root14546 actual Downloads ae66 Black Mage/83b8abdd is TERMINAL native
 PASS, receiptf85e5eb71ffa0f486bf99f9ef57204719f39c9ce7facc7c72a87a374341a358f.
@@ -147,6 +147,19 @@ versus actor1057/161; writer1258/2120 gives life2→3/timer42/cue64, counter
 lives3/FFlease3/power1/earned1/charges0; the real60-tick mushroom freeze
 remains retained. Black Mage M/L Cae66 is closed, with no transfer to Thief
 or native Star. No ROM/images/files/guard changes.
+
+Root75126 actual Downloads ae66 Thief/afe41faf is TERMINAL native PASS,
+receiptf2998948cce9efe49af5ffdd4b3fdef1ad91fb2071241d15f159a2fef126c0d1.
+1295 completed Main/2138 physical/880 observed FF entries. Real hidden
+kind3 birth1176/frame1917 at1024/119/state2, mature1240/2041 at1024/103,
+physical collector1265/2091 at1045/150 versus actor1049/135; actual writer
+1270/2099 gives life2→3/timer42/cue64, with entry counter854. The returned
+Main endpoint records stock.resume25, proving at least25 actual post-writer
+entries. The final880 count also includes the next entered Main1296 before
+the endFrame completion snapshot;854→880 must not be labelled25. Terminal
+1045/176/native2/engine8/lives3/FFlease3/power1/earned1/charges0, with genuine
+60-tick mushroom freeze retained. This closes Thief M/L Cae66, with no
+full-stage or25-grounded-update claim. No ROM/images/files/guard changes.
 
 Sibling Star batch24610 is TERMINAL source PASS on actualae66 bytes, with
 fresh compiled cold menu/Start per class. Each genuinely earns M and F,
