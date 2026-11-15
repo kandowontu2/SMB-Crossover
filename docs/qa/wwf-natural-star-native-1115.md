@@ -1,4 +1,4 @@
-# WWF natural Stars: current Downloads checks
+# All six WWF natural Stars: current Downloads checks
 
 These ordinary-controller Mesen runs use the installed Downloads ROM
 `7a80f0f37e316436be0825bbd6fd9d372af6b0b7741f84ea87356282033d9b79`,
@@ -19,6 +19,8 @@ The frozen uniform source factory is
 | Honky Tonk Man, later edge | 3424 / 6453 | 965b8ed28cfeb945efc398d2f88e7eb7bf151530edb6a10fb065179a15ccb000 | PASS |
 | Savage, original policy | 2917 / 5236 | 24f6fe8def09aa61f0b0f485a0896e7e126608107f312a683537996abb2a9396 | Retained negative: gap death before Star |
 | Bigelow, later edge | 3182 / 6022 | 97d1f350bc734c4ba2a80949e6056756ef23f08437550bf00855db0b2541eb24 | PASS |
+| Savage, later edge | 3222 / 6025 | ad6aeece235afc629bd91b880ea08026d200047aa4d73f9a4817f6855ef52e7b | PASS |
+| Andre, later edge | 3252 / 6070 | f0e396a44c3e403201ea00efd280dadd8802429d46ef6dbe2955a36cdf5bae32 | PASS |
 
 The passing runs observe the mature Star's physical collector, actor
 erase, popup6/timer48, actual Star timer35, music64 and sound32 producers,
@@ -44,9 +46,25 @@ passenger5, actual B683/SP237. The Star is born3061, mature3128 and
 physically collected3156; score2900 becomes3900. Exactly25 later movements
 finish at Main3182 with power2/lives2.
 Savage's original policy also dies in that gap (1399/243, lives1/power0),
-after the genuine Mushroom and Flower transactions pass. The batch stops
-on that negative, so it does not execute Andre. Later-edge successors for
-these identities remain separate from the frozen original controllers.
+after the genuine Mushroom and Flower transactions pass. That initial batch
+stops before Andre. The separate later-edge successors then pass both:
+Savage records10 actual carries, Star birth3103/mature3168/collector3196,
+score3000→4000, and25 later movements; Andre records42 carries, Star
+birth3133/mature3198/collector3226, score3000→4000, and25 later movements.
+Their endpoints are1651/176 and1655/176, both power2/lives2.
+
+The later-edge factory is
+`fa75d51bc43cb7497f6fe0b9302da5497fa7f3bc29abc6c899c1297e6445b53d`;
+Savage Lua`2920ef20480066b44737b3d7114f5fc9c8803111951ad9e3006af2a462082ce7`,
+Andre Lua`00cb2ebfbed45adeb0ec432d7486d2a80c2bd904501967cb0852eb53ca737d37`.
+Its other four controls remain byte-identical to the tested predecessors.
+No platform placement changes. The existing helper is in1-1/area25,
+initial left1376/center1400/top208, width48, native actor40.
+
+Together with the independent hidden1UP checks, all six wrestlers now have
+natural M/F/S/L native coverage on7a80 in Easy. The successful Star routes
+independently re-earn M/F with60 updates/+25 moves each; this is new current
+evidence, not an automatic promotion of the older16a Flower receipts.
 
 Each run preserves the installed ROM, private candidate and sidecar guard.
 No capture files, videos, extra ROM copies, helper placements or game bytes

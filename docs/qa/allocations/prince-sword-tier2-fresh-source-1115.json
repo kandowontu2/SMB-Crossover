@@ -1,0 +1,39 @@
+{
+  "kind": "Root source-only successor: retire Prince FreshGap clear before reusing it for constructor code",
+  "parent_SHA256": "7a80f0f37e316436be0825bbd6fd9d372af6b0b7741f84ea87356282033d9b79",
+  "previous_source_grant": "docs/qa/allocations/prince-sword-tier2-source-1115.json",
+  "previous_source_grant_SHA256": "c787391be64b6118f6d8183f405fd114ba82fd397adf75320be326a33af6bd51",
+  "previous_candidate_retained_negative": "5cfa2a0f1e98fc74d616a922f0f7273396dc98ff20c5afe04441ca04e7f914df",
+  "successor_plan_file": "tools/audit/plan_prince_sword_tier2_fresh_1115.py",
+  "successor_plan_SHA256": "2d4f2be9e9a49d0f72693f12018165ed5165d2bf915c39ceb12bd360254cf6b8",
+  "successor_plan_receipt_SHA256": "d53fd20cd7eb69aadbc28f81ef5a2215e22d48298225246a59ac65d857587d02",
+  "previous_failure": "Actual cold transport copies the proposed tail, then Prince Fresh STA C0F8,X clears it; the second constructor BRKs at C0F9. No native staging occurred.",
+  "decoded_spans": [
+    {"stream": 2, "half_open": [0,80], "purpose": "Same proposed HostInit80 with native tier restore; final8 bytes reassigned from unused FreshGap"},
+    {"stream": 2, "half_open": [1452,1529], "purpose": "Same proposed compact pickup77"},
+    {"stream": 1, "half_open": [6012,6013], "purpose": "Same proposed death-JMP operand EA to EB"},
+    {"stream": 0, "half_open": [5105,5113], "live_CPU_half_open": [46065,46073], "preimage_hex": "a2079df8c0ca10fa", "new_hex": "eaeaeaeaeaeaeaea", "purpose": "Retire only the now-reassigned FreshGap clear loop; retain preceding LDA0 and following JMP DEE7"}
+  ],
+  "owned_decoded_bytes": 166,
+  "expected_changed_decoded_bytes": 87,
+  "physical_carriers_and_cookie": "Exactly the same45 pages and16-byte cookie as the previous grant; no additional physical ownership",
+  "allowed_header_word_indices": [2,10],
+  "expected_packed_bytes": [6461,5995,1263],
+  "expected_cookie": "a7260209e6eb04c8dbe70c3197b0cb4b",
+  "expected_spare_bytes": 585,
+  "packed_stream0_limit": 6528,
+  "packed_stream2_limit": 1280,
+  "source_in_memory_composition_and_mounts_authorized": true,
+  "ROM_file_writes_authorized": false,
+  "native_Mesen_authorized": false,
+  "Downloads_delivery_authorized": false,
+  "requirements": [
+    "Preserve the previous three-span plan/composer/factory and both actual-cold negatives unchanged; create separately named successor files",
+    "Before mounting, qualify the exact Fresh boundary: sole executable gap writer is retired, following ResetTail LDX AF overwrites removed-loop X/N/Z, A/C/Y/stack and every other clear/write remain correct; keep raw pose aliases distinct",
+    "Keep all previous grant requirements, normal tier0/1/2 policy, storage limits and exact preservation outside the four decoded spans",
+    "Demonstrate actual encoded cold construction reaches both constructor calls with the complete79 meaningful bytes intact after Fresh, rather than relying on a flat suffix primitive",
+    "Require real earned Flower→compiled area and ordinary full1-1-to-active1-2 persistence, death/menu lifecycle, native Star/1UP dispatch and reached IRQ/busy-NMI checks",
+    "Provide exact candidate/header/codec pins, portable inverse with inline preimages, and strict native-ready controller after source qualification",
+    "Use bounded zero-output source jobs and retain root's sole Mesen queue; no copy-count/shared-loader modification, new RAM, art, storage or release assets"
+  ]
+}
