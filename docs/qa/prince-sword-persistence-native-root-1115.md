@@ -40,9 +40,13 @@ compiled area transition retains2/1; cold, death/menu, native callback and
 13 reached ISR contexts pass. These components and the preserved negatives
 are detailed in `prince-sword-tier2-source-1115.md`.
 
-Separate delivery grant requires replaying this exact script from the
-Downloads path and matching the private receipt. No delivery claim follows
-until that replay passes. Root retains the bounded shared queue and two-file
+Root53400 then installs and replays the exact script from the actual
+Downloads path. It passes with the identical native receipt above,9336
+completed Main/7757 Prince updates/17245 video frames and the same2/1 sword
+endpoint. Installed bytes equal the tested candidate; patch guard CLI passes
+before and after, with no same-name IPS/BPS/UPS. The installer creates no
+backup file. This is a verified local delivery, following source push9960b7ce.
+Root retains the bounded shared queue and two-file
 slot, with no captures, videos, backups, patch assets or releases. Equal-
 facing F090, natural Star/1UP, remaining abilities, audible output and
 performance retain their separate open scope. Privatea90 is not included.
