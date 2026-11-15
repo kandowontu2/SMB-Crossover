@@ -78,3 +78,28 @@ claim follows. All six complete cookies are authenticated; their common
 aggregate28d3347a5571d64d51f16027c2fa4c43def63b8b2c385b24c3856d0d1ba4bc7c
 does not substitute for per-identity play. Native conversion and the five
 other identities remain required before broader qualification.
+
+## Independent source cohort
+
+The same frozen de035643 prototype subsequently passes independent compiled
+cold starts for the other five identities. Each earns both real actors,
+completes both60-call guest powerup intervals and25 later WfMovement calls,
+and ends at1236/112 with power2/lives2/score2500. No game byte is changed.
+
+| Identity | Source Main | Receipt SHA256 |
+| --- | ---: | --- |
+| Ted DiBiase | 2222 | e76fb49bc4cc4398a3cb5529769163bb7ef78aeb97fc6d36ff0f95254f66d980 |
+| Bam Bam Bigelow | 2322 | 1330442799628961307ea3934bd7b06291121dc7b1421e0fde625941d60e8401 |
+| Honky Tonk Man | 2358 | 6fe543e841940b83dbadc3a6ba85c423ecfc6f0193a6ceaeabe0364a59282f7a |
+| Randy Savage | 2286 | dc28e4ef72c4c92f0e1b02b9b9d706c97397389195b56e83af449539a06507e4 |
+| André the Giant | 2286 | 4056fb95a692d940781f6776e9af64aae8079975e4a6d53d41e349a6b0e1115d |
+
+Root24444 covers DiBiase/Bigelow; root17769 covers Honky/Savage/André.
+Both are terminal successful source batches, not native runs.
+
+The new ordinary Lua translation independently passes Hogan source38643:
+2362 Main, receipt ad0693a0193ee4ab1e14f84bfb87a53d80ca6ce1ef65472493e4729008ef4406,
+Lua2ea835ed05463ddefe8e907dc464a77822ee457160a2aeb894d74072cf823165.
+It shares the actual collector/freeze/movement assertions with its native
+controller. Its native result is separately retained in
+`wwf-natural-flower-native-1115.md`; these source passes do not override it.
