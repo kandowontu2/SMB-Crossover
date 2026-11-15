@@ -1,7 +1,7 @@
 # Expanded-roster next native checklist — November 14
 
-Snapshot: latest `LATEST_1114_1DACA_DOWNLOADS_VERIFIED` handoff, exact installed
-`1daca93f837e894a3ee5b3d8cef54622336726f4df243c6bfb997130323f3baa`.
+Snapshot: latest `LATEST_1114_CF7_DOWNLOADS_VERIFIED` handoff, exact installed
+`cf7b6d2964ae0ef18d08c726f66afe9bf5be3dc6f3ec9c7a43279121ee09d968`.
 Rows retain their explicitly recorded ROMs; the common CHR delivery does not
 silently promote earlier stage receipts to the new image.
 The goal remains incomplete. All101 names start; that is not101 stage clears.
@@ -30,7 +30,7 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
 | Rogue Dawn | **C82**, actual Downloads82 root52892/3e8d,6795physical/4734Main, fullflag/castle/entrance then25 living grounded1-2 at40/177, lives2/power1; retained **H** f23af095 is separately authenticated | Natural M/F/S/L and original ability/audio/visual coverage remain separate; the route's power0→1 alone is not complete item proof. See `rogue-full11-current-1114.md` |
 | GB Pit | **C1D**, actual Downloads1daca root17738/b4ac,5589physical/4386Main, fullflag/castle/entrance then25 living grounded1-2 at40/176, lives2/power0; separate **C82**44721/75b5 | Natural M/F/S/L, powered abilities/audio and visual review remain open. See `gb-pit-full11-current-1114.md` |
 | Ryan | **C1D**, actual Downloads1daca root37312/8b18,6415physical/5800Main, full flag/castle/entrance then25 living grounded1-2 at40/176, HP64/tier1/power1/lives2 | Natural M/F/S/L policy and ability/audio/visual coverage remain separate. The route's tier increase is not complete item proof. See `ryan-full11-current-1114.md` |
-| Mr. Gimmick | **C1D**, actual Downloads1daca root64354/1725,8959physical/7402Main, full flag/castle/entrance then25 living grounded1-2 at40/176, HP2/power0/lives2; eight genuine native star-support events | Natural M/F/S/L and remaining abilities remain separate. Native12772 confirms corrupt natural mushroom graphics; private-window repair is under review. See `mr-gimmick-full11-current-1114.md` and `gimmick-world-sprites-1114.md` |
+| Mr. Gimmick | **CCF7**, actual Downloadscf7 root60011/8483,8959physical/7402Main, full flag/castle/entrance then25 living grounded1-2 at40/176, HP2/power0/lives2; eight genuine native star-support events | Natural complete M/F/S/L and remaining abilities remain separate. Actual Downloads60011/d3bd verifies repaired natural mushroom, unchanged Goomba and exact private sprite art. See `gimmick-private-window7-nightly-delivery-1114.md`; parent1daca's corrupt mushroom is superseded |
 | Donkey Kong | **U**; startup/host/launch and current Goomba/mushroom/barrel graphics proof are not a full clear | Individually qualify first natural pickup and complete M/F/S/L policy; do not transfer sibling receipts |
 | Doc Louis | **C**, actual Downloads421 root18076/b2e4, full flag/castle/entrance and25 living grounded1-2 at40/176/HP96/lives2 | Natural item/audio ensemble remains separate. Existing actor28 at initial left3096/center3104/Y64 was present; no support event, so assistance is not claimed. See `doc-louis-full11-source-1114.md` |
 | Getsu Fuma | **H**, c6ab5610 full clear plus earned M/F | Natural S/L; full donor arsenal remains later work |
@@ -46,7 +46,7 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
 | Popo; Nana | **H**,a7ccbaaa natural clears5190/5285 frames, tier0→1 | F/S/L and additional original abilities; do not reuse the old pipe/route negatives |
 | FF Fighter; FF White Mage; FF Black Mage; FF Thief | **H**,a5c54d76 full routes, earned M/F/tier-two attacks | Natural S/L have CPU routes; complete physical S/L per class remains a native gate |
 | Sunny | **H**,16a9de64 Hard full route and separate M/F/fireballs/full-stage | Natural S/L; delivered palette-deadline fix supersedes earlier late-enable negatives |
-| Rash; Zitz | **U**; ready74 source/native movement/combat smoke | Full stage and natural upgrades/S/L for each; visible slowness remains a measured gameplay concern |
+| Rash; Zitz | **U**; actual1daca Rash native79559 startup/ordinary1000Main observation, source actual constructors for both | Full stage and natural upgrades/S/L remain open. Current missing native scroll fields cause the real X239 camera clamp; RAM-only camera repair is under primitive/source review. See `battletoads-current-camera-1114.md` |
 | SMB2 Mario; SMB2 Luigi; SMB2 Toad; SMB2 Peach; Imajin; Lina; Papa; Mama | All8 **H** full12397; Luigi **C** full421/25 grounded1-2 | All8 M7ef, F/vegetable combat12397, and **C** S/L421 now qualified. No missing four-stock family; other7 exact421 full reruns are regression coverage, not never-cleared identities |
 | Bub; Bob | **H**,f88 full stage and first M, optimized source cadence | Natural F/S/L per identity; remaining lag is not a zero-lag acceptance requirement |
 | Sonic; Super Sonic | **H**,c4568faf separate full clears, rings/loss and M | Natural F/S/L; distinct Super mechanics remain later review, not an unselectable-name problem |

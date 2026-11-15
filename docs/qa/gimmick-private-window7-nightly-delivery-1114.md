@@ -57,3 +57,19 @@ metadata, which changes the later stage config prefix/hash. The installer now
 freezes stage text before image text and still asserts both independently
 qualified hashes. Frozen factories, Lua bodies and candidate bytes stay exact.
 This is an installer metadata-cache correction, not a ROM behavior change.
+
+## Actual Downloads delivery
+
+Root60011, bounded existing flag slot, terminal exit0: directly replaced
+`C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes` with the exact
+2097168B cf7 candidate. Actual Downloads image and full-stage launches both
+PASS with the same pinned controllers, receipts, PNG hashes, counters and
+endpoints as the private tests above. No rollback was needed.
+
+The installed bytes equal the tested candidate before and after both runs.
+Pre/post sidecar patch guards are clear. No backup, patch, release, capture,
+video or new build file was created. Source through8744b374 was pushed before
+installation; later source/QA checkpoints continue without release publishing.
+Final shared preflight: build2873621637B/19996files, within5GB/20000. The
+nightly remains a WIP; this verification covers Gimmick's fixed world sprites
+and full route, not every roster identity or every stock item.
