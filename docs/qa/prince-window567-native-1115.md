@@ -69,3 +69,50 @@ Metadata34379 passes. Full source route92778 is pending at this checkpoint;
 native pictures, pattern provenance and accepted-pickup behavior remain for
 root review before any delivery. Source API PNG fixtures are never described
 as rendered game images. No captures or ROM files are created by this helper.
+
+## Source pickup observer correction and verified wrapper
+
+The frozen5c2e probe is a source negative73251 at587 Main entries/586 returns,
+after its two natural image observations. Receipt
+`c1b2e3948b625e62d0180281174ac85c0012958051bafb3da6f12f328474c12a`.
+Its private-pickup byte check incorrectly indexed C7B3 below the C800
+metadata base. Actual PpNativePickup belongs to the154-byte AUDIO cold copy
+STAGED C65F→live C766; its correct source is stream2 offset1452, stagedC6AC.
+This is an observer address-domain error, not a game or pickup defect.
+The earlier92778 receipt-filter refusal hid this negative and is not a pass.
+Frozen5c2e and factory1700c122 remain byte-identical.
+
+`replay_prince_window567_verified_images_1115.py` is the separate corrected
+observer. Factory SHA256
+`15069235637242d91a4142c20c3981ac474cab19ead091a1289c3bc448682a5a`;
+Lua SHA256
+`1c724aef115ccac89ae2cc1313a3591564a2d0d47226667652d3edeb8352dea4`.
+It retains the complete5c2e movement/image/pickup body, corrects the expected
+AUDIO bytes and adds the root-requested first-BBC1 static readback. Both
+complete16-byte cookies and every3174/3/2 graphics byte must match before
+the first observed BBC1 publication; only PC/SP, lengths and expected hashes
+are emitted. There is no mutable-state or per-frame dump.
+
+Source58765 passes612 whole Main returns. Final source93656 explicitly
+extracts and asserts that readback, with unchanged Lua and underlying native
+receipt `60285240d7f5e9c822d991a275368bb23c155735d9ca181ed39fd5452c6ca428`.
+Its aggregate receipt is
+`383a2c22d5e838e6c4856b599434c4b3f4ac1716213479af64f11dc1ba15ff70`.
+Readback is BBC1/SP203 with both cookies and all three expected extents.
+The replay API starts after compiled cold, so its first observed draw is the
+first post-cold draw; the separate e3d050 actual cold transport proof above
+checks the real initial decode/publication. In native execution the script
+is present before normal title/menu/cold and records the first actual draw.
+
+The two genuine source observations occur at134 and510 returned Main updates.
+Goomba OAM uses native window2/page17, while Prince uses private5/6 pages351/
+345. The mature Mushroom uses native window1/page16 while Prince uses341/383
+in5/6. These mapper/OAM source facts are not pixel-rendering evidence.
+
+Actual physical collection at587 has player417/176 against native kind0
+Mushroom413/164/state192/slot5. The real private pickup returns at016E/SP221
+with C1, actor erased and floatey6. Generic power0→1, Prince HP stays at its
+existing cap5 and lives2;25 further returned Main/Prince updates reach425/176
+with power1/HP5/lives2. No actor, health, position, terrain or ability seeds
+are used. Native pictures, provenance and pickup qualification remain root's
+next required scope; this is not a full-stage or delivery claim.
