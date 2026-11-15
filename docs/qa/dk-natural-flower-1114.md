@@ -25,3 +25,24 @@ ordinary intervening injury. The corrected proof will require the earned
 M and powered birth, then record the actual current tier at the physical
 collector instead of rejecting the legal spent-shield path. This changes
 only that harness assertion, not the controls or game rules.
+
+Corrected source14543 is TERMINAL PASS:1465 returnedMain/1345 DK calls,
+receiptfb77f01d33f847b2daea2c5b7ee5b4e8cc66968f273895056b12fd62243c2415.
+It retains the real powered kind1 birth and the ordinary intervening injury.
+At the physical mature collector, actual DkGrant(A1) returns Cset and sets
+tier0→2, then real erase/control6/cue32/engine9 freeze and25 resumed DK calls.
+Native score1400→2400; terminal1243/112/engine8/lives2/tier2/power2/Star0.
+Lua2bca10e74de5bebbc93259cf5dfb36e215d83500f91aa821449d8d8485b4bc01;
+factory02088efaefd414b65a3d5e8db19a412195634b3cceb98e7b31d33b0c07f301e6.
+
+Root77438 actual Downloads571/2bca is TERMINAL FLOWER PASS, receipt
+382477502ddb6823ffcecaf94630269e3610dd21c68cd23107da124a942b0274.
+1792Main/2248physical/1358DKcalls. Powered final-kind1 birth is
+1556/frame1951 at1248/136. A real injury1603/frame2022 at1202/176 spends
+tier1→0; the actor matures1621/frame2048 at1248/119. Actual collector
+1706/frame2158 atplayer1221/112 uses boxes[68,112,110,144] and
+[110,128,122,140]. Genuine DkGrant0→2/Cset, erase/control6/cue32 and engine9
+freeze precede25 resumed DK calls; score1405→2405. Terminal1240/112,
+engine8/lives2/tier2/power2/Star0. Six real barrels and one ordinary injury.
+Bytes and guards unchanged, no capture or state write. This closes natural
+F only; natural S/L and complete abilities remain separate open gates.

@@ -37,7 +37,8 @@ hook('DkHostCollect',function()
  assert(dkFlower.born and dkFlower.mature and not dkFlowerPending,'Real final-kind Flower precedes collector')
  local sp,ret=dkCall();dkFlowerPending={sp=sp,ret=ret,slot=emu.getState()['cpu.x']}
  dkFlower.before={native=dkFlowerCollector,state=state(),tier=r('DkTier'),power=r('PlayerStatus'),score=dkScore(),DK_moves=dkMoves}
- assert(r('DkTier')==1 and r('PlayerStatus')==1,'Real first mushroom precedes Flower tier')
+ assert(dkMush.ready and dkFlower.born.state.tier==1 and dkFlower.born.state.power==1
+  and r('DkTier')<=1 and r('PlayerStatus')==r('DkTier'),'Real powered Flower birth survives an ordinary spent shield')
 end)
 hook('DkGrant',function()
  if not dkFlowerPending then return end
@@ -138,4 +139,4 @@ end
 def metadata(raw,key='donkey_kong'):
     return dict(ROM_SHA256=PIN,identity=key,controller_SHA256=sha256(controller(raw,key).encode()).hexdigest(),
         parent_earned_M_full_SHA256=OLD_LUA_SHA,normal_controls_only=True,gameplay_seeds=0,outputs=0,Mesen_run=False,
-        scope='Genuine first M, ordinary block1248/Y144 final-kind Flower, physical collector/tier1-to2/erase/score/cue/freeze/+25 resume; no S/L claim')
+        scope='Genuine first M and powered Flower birth at1248/Y144, physical kind1 collector sets tier2 even after ordinary shield loss, erase/score/cue/freeze/+25 resume; no S/L claim')
