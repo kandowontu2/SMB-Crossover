@@ -42,10 +42,11 @@ wrong palette, not a CHR allocation fault.
 
 Original attributes are gameplay state. Actual source DF14 atB003 masks
 private sprite attr with3 and sets a captured-enemy owner bit; DA30 atAA84
-shifts the attr to select input C030 versus C044. Their current byte strings
+shifts the attr to select owner upgrade/status C030 versus C044. Actual held
+buttons are actor+1 (C02F/C043). Their current byte strings
 are `B902C12903F008BD02C009019D` and
 `B902C14AAD30C0B003AD44C02940`. Changing original Bub constants3→0 would
-change that owner/input contract. The proposal leaves every original private
+change that owner/status contract. The proposal leaves every original private
 OAM byte and every attribute writer untouched.
 
 The visual boundary is `BbNativePair` BDC9..BE45. Its exact125-byte hash is

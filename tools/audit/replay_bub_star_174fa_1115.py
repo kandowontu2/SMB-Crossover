@@ -133,7 +133,7 @@ local function full_tick(finish)
  if q.completed_Main~=star.last then
   star.last=q.completed_Main;star.age=star.age+1
   if q.completed_Main%8==0 then
-   local a=star.rows;a[#a+1]={state=starState(),phase=star.phase,part=full_part,index=full_index,held=full_state(0x301),item=starActor(),rides=q.source_bubble_ride_restarts}
+   local a=star.rows;a[#a+1]={state=starState(),phase=star.phase,part=full_part,index=full_index,held=full_state(0x301),item=starActor(),rides=q.source_bubble_ride_restarts,bubble=poweredSlot and poweredSample(poweredSlot)or nil,support=x>=1390 and full_support_probe()or nil}
    if#a>24 then table.remove(a,9)end
   end
  end
@@ -161,13 +161,13 @@ local function full_tick(finish)
    if x>=1304 and y==176 and full_normal_jump_ready(actor)then star.floor_ready=starState()end
    return
   end
-  assert(full_solid(1268,208),'Actual safe floor below Flower roof, before second pit')
+  assert(full_solid(1286,208),'Actual safe floor beside Flower roof, before second pit')
   if y~=176 or not full_normal_jump_ready(actor)then full_pad={};return end
-  full_pad={left=x>1266,right=x<1262}
-  if x>=1262 and x<=1266 then
+  full_pad={left=x>1284,right=x<1280}
+  if x>=1280 and x<=1284 then
    if full_state(0x102+(identity==1 and 8 or 0))&64==0 then full_pad={right=true}
    elseif full_launch_ready(actor)and full_state(0x301)&192==0 then
-    star.phase='travel';star.age=0;star.fast_launch=starState();obstacles[6].lead=112
+    star.phase='travel';star.age=0;star.fast_launch=starState();obstacles[6].lead=94
     full_part='grow';full_step=0;full_last=q.completed_Main;full_ride_base=q;full_start_y=y;full_min_y=y
     flower.phase='grow';full_pad={right=true,b=true}
    else full_pad={}end

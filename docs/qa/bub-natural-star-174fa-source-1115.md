@@ -45,3 +45,27 @@ next controller. The earlier usable flags1 Flower mount's mature bubble is
 around1216 from launch1144 (about72 px), whereas flags7 travels110: matching
 that original world support position calls for approximately38 px earlier
 launch than the old1320 pit run-up, near1282 rather than1264.
+
+1282 successor22470 crosses the actual second pit and then is **NEGATIVE** on
+the later Goomba pair. Lua
+`aa06dddf91696efa18a38ecf2d436f59d9de2242d1d188e091b4c4d39995079a`,
+receipt `1e9260aacfc62e78259414df8e9a5b0487ec2e1b0d6b091c4d5930a09c199b7c`.
+Launch1942 at1283/176, seventh original support, then a real1427/176 static
+far-floor landing with tile84 atfeet208. The old route clears to index7 by
+1473/176. Its later generic combat holdsRight into two Goombas; first source
+injury is2172 at1533/176, still engine8/lives2. No Star was reached.
+
+Read-only source63429 repeats identical aa06 controls and captures the first
+actual NativeHurtChoose: slot0 ID6/state1 at1543/Y172 and slot1 ID6/state0 at
+1545/Y184, hero1533/176, body[110,192,125,207], camera1423. Koopa ID0 is farther
+away at1706/184. This is a real unsafe pair approach, not a demonstrated game
+bug. The next scope reuses the already qualified disjoint-body close-shot,
+safe-floor retreat and actual trap/pop wait only for post-F Star travel
+1450..1610; all existing M/F controls and first close-defense scope stay exact.
+
+Original source DFDF..DFF0 independently explains earned motion: owner attrs
+select upgrade/status C030/C044, then AND2/ADC3 gives ordinary speed3 versus
+earned flags7 speed5. These fields are not held buttons; held input is actor+1.
+The earlier palette QA wording is corrected without changing any frozen code,
+grant, composer or controller. Private attr/owner and all gameplay bytes were
+preserved by the delivered palette-only repair.
