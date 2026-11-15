@@ -181,3 +181,16 @@ Same frozen0ce579 service factory and42b6f8 checker; per-class runtimes
 151.49/81.31/79.95seconds. Root's actual native queue remains the only
 emulator. All helper source handles are terminal and the output root is
 absent/zero files after these checks. No helpers or ROM/game changes.
+
+Root42192 actual Downloads ae66 FighterStar/9b69dc9d is TERMINAL native
+PASS, receipt3d301f72e807ef9b1b018578a28488fd3bcc7ebc0f112049529917c53be68d01.
+1837 completed Main/3221 physical/1403 actual FF entries. Genuine M/F
+both60-tick freezes earn tier2/power2. Real Star birth1687/frame2915 at
+1616/136, mature1752/3044 at1616/119, physical collector1812/3170 player
+1672/144 versus actor1676/130. Actual carry-set collector erases, control6/
+timer35/music64/cue32 without freeze; entry1378→1403 proves25 later actual
+FF entries. Score2400→3400 occurs1817/frame3180. Terminal1672/110/native1/
+engine8/lives2/tier2/charges0/Star34. Fighter M/F/S is Cae66; its natural L
+remains separately C571. No expiry, protected hit, full-stage, audible or
+exhaustive art claim. No images/files/ROM changes. Sibling native Star
+qualification remains individual.
