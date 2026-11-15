@@ -134,3 +134,40 @@ Flags7/power2/lives2 and all earlier M/F60/+25 gates pass. No game/image/file
 change. This closes Bub's natural Star on174fa; Bob remains source-qualified
 and native-pending here. Star expiry/protected hit, all abilities/audio and
 current full-stage remain separate. Root owns the authoritative native QA.
+
+The separately frozen `replay_bub_star_images_174fa_1115.py` is a passive
+three-PNG facade, SHA256
+`6b82feeb52bbedcda50aedfb8ecaafe0e59fa7dba7a91df640b4c870a29553f5`.
+It removes byte-exact to the two qualified e3e plain controls, including all
+functional assertions. New code observes actual MMC5 sprite mode/upper and
+eight CHR publishers, physical OAM, both palette0/3, source/pose/native
+attributes and actual direct-ROM pattern bytes. It requires two real visible
+hero OAM parts and preserves actual native ground P3=0F/0F/36/17. No game
+state/input change or image file is used; max3 RAM PNGs,64KB each,196608 total.
+
+Scenes are mature natural Star+hero before the collector, then active-Star
+hero after the real score credit at two distinct actual counter phases0/2.
+Both active requests occur within postcredit returns1..20, leaving time to
+capture before the unchanged25-worker endpoint. It records requested and
+physical capture state separately; pictures do not assume audible output or
+that a cue itself proves graphical flashing.
+
+Compile/binding/observer-removal receipts are
+`856dbfa1916a14d94684a7a59e18e29a5b3bb2e381b49e54240d749f9cf6e400`
+(Bub), `b82c804aaab010ae90c539bc43e6e3c3adc96c90c4b8a6e3d7a547fd32a5b391`
+(Bob). APIs `controller(raw174fa, identity=0|1)` and `metadata(raw174fa, identity)`.
+Exact LF Lua Bub
+`02bead557efd4c6afd795bc9d0620d62a055ce4f1490d1be44364e0d6ad2153a`,
+Bob `92750038fa3df498919a1a0624863901cfd582a8b0d4891bdc205511152cf8e3`.
+CheckerSHA256
+`e47bff5c472682c01eae669ff89cb2bbb617b05cdb87e510da8ffb558dddcb27`.
+Source root `build/bub-star-images-174fa-1115` remains absent/zero files.
+
+Code inspection authenticates native CyclePlayerPalettePreload A512/file9506,
+CyclePlayerPalette A53A/file9546 and ResetPalStar A54C/file9564. The cycling
+routine masks native palette bits and writes Player_SprAttrib0587. Current
+private Pair BE1A instead clears R3 before its renderer and copies original
+source attributes through the delivered palette mapper. That suggests the
+private body might not follow native palette cycling; it is a prediction,
+not a native graphical defect finding. Actual images and their OAM/palette
+acknowledgment are root's next gate. No game patch is proposed here.
