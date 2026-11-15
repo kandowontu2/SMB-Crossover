@@ -62,6 +62,10 @@ def explore(raw,key,limit=3200):
     def nearby(s,aa):
         return any(a['flag']<128 and a['id']<21 and a['state']&32==0
             and 0<a['x']-s['x']<=44 and abs(a['y']-s['y'])<40 for a in aa)
+    def solid(x,y):
+        if not 32<=y<240:return False
+        index=(x//256)%2*208+((y-32)//16)*16+(x%256)//16
+        return N.get(m,'Block_Buffer_1',index)not in(0,0x23,0x26,0xc2,0xc3)
     class CPU(original):
         def step(self):
             nonlocal pending
@@ -145,7 +149,9 @@ def explore(raw,key,limit=3200):
                                 if age>12 and s['native']==0:travel_jump=None;cooldown=8
                             elif cooldown:cooldown-=1
                             elif s['native']==0:
-                                if pipe<4 and s['x']>=starts[pipe]:travel_jump=tick;bits|=128
+                                if(pipe<4 and s['x']>=starts[pipe])or(pipe>=4 and
+                                    (not solid(s['x']+8,216)or solid(s['x']+28,s['y']+24))):
+                                    travel_jump=tick;bits|=128
                                 elif nearby(s,aa):bits=punch()
                     elif p=='flower-align':
                         if s['x']<1239:bits=1

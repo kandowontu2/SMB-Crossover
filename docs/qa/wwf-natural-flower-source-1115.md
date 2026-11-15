@@ -36,3 +36,13 @@ to its ordinary travel input. No game byte or helper placement changes.
 All runs use max-files1/600seconds in the absent, zero-output root
 `build/wwf-natural-flower-root-1115`. No Mesen, images, video or state files.
 Flower, Star,1UP and all six identity-specific checks remain open.
+
+The terrain-probe successor f973d299c5a5d7836b186fbc09be35f3ae76b3bc6a1dcfe4ec5fa48405a3403d
+then crosses the first gap and reaches1184/176 with power1 atMain1945.
+Source14839 is a second terminal negative, receipt
+d414fc4a3115c53d543e1d99b065f0341dd9e8dd01988d9ca9ca9c338e42572d.
+The flower-alignment policy ignores two falling Goombas and loses armor
+at1194, then tries a head jump at1239 beside the target's left edge. No
+authored Flower appears before the120-update bound. The next ordinary
+policy retains enemy defense during alignment and moves the head probe
+inside the Flower tile. Neither input-policy defect authorizes game changes.
