@@ -48,3 +48,50 @@ Final1069/176/sourceground128/native0/engine8/lives3/power1/Star0. Score1300
 stays unchanged through this1UP. These are source-only results, not native
 acceptance, Star expiry/protected-hit, audible-output, artwork or full-stage
 proof. Root's earlier actual590 four-pipe Mushroom proof stays separately scoped.
+
+The new Star route leaves the frozen1UP/M/F scripts unchanged. Its initial
+source34117 fails before the first M collector gate, receipt
+1c4bb7cfe257e6f44cffef2ed0dc2c2af7274cec7127012ef332539fa20ac298,
+Lua510fd108e36ce1a225d254756c2c2e28e21a0ac54587db1191046f4576d47b85.
+A broad prototype post-Main splice removed inherited M birth/maturity
+observations. The correction replaces only the exact stock block and keeps
+every inherited first-M observation. No gameplay defect is inferred.
+
+Corrected walking-only Star source62076 is a genuine route negative, receipt
+cc1f9adb184de7e51adefdae661ea93549ce304bc75f3a6abf1446516cf8b72f,
+Luaea80ca8ba1fc52330cfbd24476e984506d2f0959ae85e9d6b8b655eb21a78cd0.
+It naturally spawns kind2 at1616/136 on1361, matures at1616/119 on1426,
+but walking-only pursuit never collects and ends1942/176/engine11/HP0 on1776.
+Gimmick's actual floor body starts atY194; ordinary jumps toward the descending
+nearby Star are therefore allowed using live actor position, real input
+release/poll/consumption and original A172 admission. No actor/health seed.
+
+Final current590 ordinary Star source31936 is TERMINAL PASS, receipt
+56a69dfc7510aac0ae23c38b48e7ab7ab9da92bc8ec036c114b6579b0b1afe45,
+Lua6c112fc1de5e3365ebcd6bbd65f791a48ad2d098e8bc6d7fc3181cecaa97f0a4.
+API replay_gimmick_natural_star_current_1115.controller(raw590,'mr_gimmick');
+factoryfdd02e7e2d0dab61aa68c665dfe17332689a4681f14102bf9c915bdb2d15bb2a,
+checkera14411ab2541f70895e32bdff9089cbdb8dc53aa46777a49ba13e64de28b78b7.
+1686 returned Main/1685 actual GmMovement/128.59seconds. The prior89166
+intercept run also passed; final31936 additionally keeps real input-consumption
+observation active through2100 so later native A-release/retry gates remain
+in their legal observed region. No frozen factory or gameplay byte changes.
+
+Actual ordinary Star brick1616/Y144 is metatile87 (the inherited receipt key
+`hidden_tile` is a legacy field name, not a hidden-Star claim). Original fresh
+jump from1608/176 physically bumps it. Kind2 birth1361 at1616/136 and maturity
+1426 at1616/119 are observed, then its live bouncing actor is pursued. Four
+original jump admissions occur, including the head bump and later ordinary
+intercepts. The final actual request/admission is1653 at1830/176, followed by
+physical mature collection state.Main1660, hero1842/143 versus Star1851/159.
+
+The genuine native owner/caller PC/SP, erase, popup6, timer35/music64/cue32
+are observed. GmPickup is not called for this Star; inventory0/next1, capacity3,
+HP2 and power1 are preserved without a hosted freeze or life grant. HP3 had
+fallen to2 during the normal pursuit; this is not an injury-free claim.
+Score1840 to2840 credits on the fifth later movement. Collector counter1660
+to1685 means25 strictly later actual GmMovement entries. Final1878/176/
+sourceground128/native0/engine8/lives2/HP2/capacity3/power1/Star34. Source-only
+until root native validation; expiry, protected hit, Flower and all abilities/
+audio/art/full-stage remain separate. The unchanged genuine M prefix remains
+part of this route, and all output roots remain absent/zero files.
