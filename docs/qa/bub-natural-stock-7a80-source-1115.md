@@ -1,7 +1,8 @@
-Latest work targets exact40a. Bub's margin controller is source-qualified;
-root79822 native is pending and Bob margin is an independent source case.
-No Flower native or graphics success is claimed yet. Earlier7a80 results
-below remain versioned and are not silently promoted.
+Latest work targets exact40a. Root79822/44512 close actual natural M/F for
+Bub/Bob;32315 closes Bub hidden1UP. Root16681 views two clean Bub item PNGs;
+the new third-Goomba image and Bob1UP are separate pending gates. Star remains
+open for both. Earlier7a80/source/pending statements below are historical and
+are not silently promoted.
 
 Original source work uses exact Downloads7a80
 `7a80f0f37e316436be0825bbd6fd9d372af6b0b7741f84ea87356282033d9b79`.
@@ -317,3 +318,77 @@ Physical Flower collector1806 at1235/110 versus1248/119, flags1→7, actual
 erase/setup6/popup6/cue32/60 ages0..59,1700→2700; actual1806→1831 proves25.
 Terminal1236/112/lives2/power2/flags7. Native is pending root; Bob is a fresh
 independent source case. All old controllers and negatives remain frozen.
+
+Bob margin source90578 separately passes1831 Main/actual entries, actor66,
+Lua `27577418b4ecdfe0a5ea0f43a9a31040bbbfcb21611103528aaad5c5169de813`,
+receipt `937bda8025e0c8908544b0420cc51834b253b4eb9adeff0debb89f97c4ea9a3c`.
+The exact two role metadata changes reproduce qualified Bob baseline1b85;
+real support1785 at1203/142 is direction1/held129, selector0→1, no ceiling
+or retry, complete M/F/60 and actual F1806→1831 post25; terminal1236/112,
+lives2/power2/flags7. All frozen margin/parent files remain unchanged.
+
+Root79822 Bub **NATIVE PASS** on actual Downloads40a, receipt
+`79db1dd369276de8c347636811fe2afa9115e82169e880ab1ec70a2fbf539e46`:
+1844 actual returned Main/Bub entries,4071 physical. The actual Flower
+takeoff1777 is1172/176, dx44/dy−16. Sixth support1799 is1205/142 with
+entryA448/SP196→returnA427/SP198, direction1/held129/pad129/saved129,
+support128, selector0→1. No ceiling hit, retry or landing recovery occurs.
+Real F collector1819 at1235/107 versus1248/119, actor46 flags1→7/native1→2,
+erase/setup6/popup6/cue32/60 ages0..59,1700→2700, exact1819→1844 post25.
+Terminal1237/112/lives2/power2. The measured bubble-relative takeoff margin
+fixes the native navigation without game, physics, helper or terrain changes.
+
+Root44512 Bob independently **NATIVE PASS**, receipt
+`919c138823f5e44be5eadf29bee0e98c040160f11625158f69299688650f2797`:
+1848 returned Main/Bob entries,4100 physical. Sixth support1800 at1202/140,
+A448/SP196→A427/SP198, direction1/held129, no ceiling/retry. Real F collector
+1823 at1236/112 versus1248/119, actor66 flags1→7/native1→2, real erase,
+setup6/popup6/cue32/60 ages0..59 and1000 score; exact1823→1848 actual post25,
+lives2. Both routes retain real M/60/+25. Root's authoritative native details
+are in `bub-natural-flower-native-1115.md`; no full-powered-stage claim follows.
+
+The frozen two-PNG observer `replay_bub_flower_images_40a_1115` has SHA256
+`c1616cddfc30edae8cecdaec3d6e5ac567409c0ed8930fcc8273f91590c0a562`,
+Lua `d62015759d04012851aa6e7031fcc17670208713858726ebcf451f1b3434ed68`.
+Compile/API/byte-exact control restoration passes receipt
+`61c58f10360ab93bad2e317b3c35ad36c49fd66b336ef85dcf86886cc1f02719`.
+An initial spacing typo is rejected before gameplay and corrected. Root16681
+then actually views both clean PNGs, native receipt
+`c2a6d12489fc6baa3a2c8daa2c70de65c2b5d11f10c690ea957dd6d1dac63adc`,
+1844 Main/4071 physical. PNGs ac05255b…/2822B and0ea724be…/2530B show normal
+Bub, SMB background, red-white mature mushroom and mature Flower/free bubble.
+No live enemy is present in those two frames; enemy artwork is not closed.
+Actual PPU/MMC5 latches, OAM, palette and bounded direct-ROM pattern bytes are
+recorded. No PNG files, game-state writes or new controls are used.
+
+The new three-PNG facade adds one independently live visible opening Goomba
+after two completed Main snapshots, while retaining exact old M/F tags and
+functional controls. SHA256
+`59fa9dbff4b9aa9d13759651c0baf30ed3ee9b116244093f84a1148019293526`,
+Lua `e94c064b313bb108c943b89c5e800276ed819e283b21c4ffc178ab25efacf11c`,
+compile/API receipt `29820f960cd9d89566169b2af12f2e4f2a25fb07963d9f679b872f55c36212db`.
+The extra G frame requires actual visible hardware OAM near the live actor.
+At most3 RAM PNGs of64KB each, zero output files; native remains root's gate.
+
+New `replay_bub_oneup_40a_1115` uses the same qualified ordinary M/four-pipe
+prefix, then actual original bubble support to bump authored hidden96 at
+1024/Y128. Bub source4546 **PASS**, factorySHA256
+`4794173b925520ffd5fedbc917a36b25dc36f45cae5ce52e2e5d66a7019d52fe`,
+Lua `b0cb0e3d684af18894d991b4a2cc4f9e160689385ad30f3bcdf9c79232ee642e`,
+receipt `af202d51dc4a508ec4dabdef671f0789281189fdbf01a324bc60f908ac822ce9`.
+1571 returned Main/actual entries. Fifth original support1437 at1023/135
+genuinely opens the real block; kind3 born1439 at1024/120, mature1505/103.
+Physical collector1541 at1058/176 versus1060/171, actual erase/setup6→popup11,
+timer48; delayed INC1546 at42 with cue64, native lives2→3. Actual1546→1571
+proves25 postwriter calls, terminal1058/176/lives3/flags1/power1, score1500
+unchanged. Actual original actor life3/source lease3 remain recorded values;
+there is no invented requirement to force private4 or infer life conventions.
+
+Root32315 Bub1UP independently **NATIVE PASS**, receipt
+`78fba5549ef1d738f36b6e5d226f505b86d4f6f12a1da5d11d5bdb505bd325fc`,
+1586 Main/actual Bub entries,3502 physical. Fifth support1451 at1023/135,
+real hiddenkind3 born1453/mature1520. Physical collector1556 at1059/176
+versus1060/171, erase/setup6→popup11/timer48; actual INC1561 at42/cue64,
+native2→3, exact1561→1586 post25. Score1500 unchanged, flags1/power1/lives3.
+No extra-life death/respawn or total-life convention is inferred. Bob1UP is
+an independent fresh source/native gate; Star is still open for both.
