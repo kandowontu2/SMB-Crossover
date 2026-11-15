@@ -92,3 +92,21 @@ Parent's preserved route used6,485physical for the same4,380Main/HP35.
 Both native stage routes and the literal-read observation now qualify a
 partial performance delivery. The unresolved skipped-read frames are an
 explicit limitation, not a blocked whole-goal or zero-lag completion claim.
+
+## Downloads delivery
+
+Root72436 TERMINAL PASS after source push85bd96b3. Replaced
+`C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes` directly with
+the exact testedae66 image,2,097,168bytes, no backup. CLI patch guards before
+and after are clear, with no same-name IPS/BPS/UPS. Actual Downloads Mesen
+launches for the read observer, Rash full1-1 and Zitz full1-1 reproduce all
+three private Lua/receipt hashes, counters and endpoints exactly. No rollback
+was needed. The literal idle/walking missed-read limitation remains identical
+and open in the installed build.
+
+Final shared storage preflight: build2,873,625,401bytes/19,996files, below
+5GB/20,000. Latest capture preflight workspace~6.428GB, below70GB. All new
+source output roots remain absent; only the existing two-file flag slot was
+reused (ae66 candidate/a93cZitz Lua). No screenshots, videos, logs, state
+dumps, backups, patch assets or releases were produced. Other Mesen sessions
+were left untouched. Existing helper placements are unchanged.
