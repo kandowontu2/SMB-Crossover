@@ -133,3 +133,28 @@ onMain3989..3996. Score is2600 through3993 and3600 from3994: the actual
 record a target invocation, so its mapping/call-site observer is still being
 diagnosed. This is an observer failure, not a missing Star award; no gate is
 waived and no native-ready pin is claimed yet.
+
+Source55310 identifies the actual timer DEC at PRG126:897C (write-time py65
+PC897D), then the native decimal-score writer. Its first eight recorded writes
+cover slot5 timer48..42 and the start of the score vector; receipt
+`69a04a72a5de8d8bc3a2211fcb3778f33111af78ec4a1e03be4e1f47afdb2892`.
+The declared8964 core entry is not reached in this route, including an
+unfiltered exec callback. The replacement observer authenticates actual
+DE2901C92B at897C and the live caller return; it does not change buttons or
+infer credit from unrelated aggregate score. An initial897B metadata typo
+was rejected before gameplay; exact byte inspection corrected it to897C.
+
+Natural Star source70729 **passes**, receipt
+`7849c2973073860d168ed3a2d7138682f290f9478a0cc5e25b8dd932751ce749`.
+Frozen API `replay_prince_natural_star_40a_1115.controller(raw40a)`, native
+variant3, LF Lua SHA
+`48097c866784b47ba20adb31d191a1d66746286f814abe87fb8921678577dc40`.
+It retains45532's genuine birth3853, maturation3918, physical collector3989,
+erase/popup6/cue32/Star35/music64. Actual target timer43 entry897C/SP245
+onPrince update3994 returns83D6/SP247 with score2600 to3600, lives2 unchanged.
+Exactly25 later completed Prince HostUpdate returns endMain=Prince4019,
+1696/176/HP4/lives2/native2/Sword1/Star33. Actual firstBBC1/SP203 verifies both
+cookies and all4193 static owning bytes. There are no gameplay state writes,
+helpers, ROM files, images or Mesen runs; this is native-ready source proof,
+not an actual native acquisition claim. Source frontend uses compiled menu
+components and lacks physical vblank/cadence as already noted.
