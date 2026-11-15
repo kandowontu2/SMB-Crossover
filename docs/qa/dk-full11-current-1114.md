@@ -289,6 +289,25 @@ and the delayed-input admission evidence are explicitly separate. Root has
 the bb51 API for native verification; no helper, game-code or installed-byte
 change is inferred from any controller-only result.
 
+Root actual Downloads96119 validates the bb51 first native latch: request
+Main1382/frame1752 at1445/176, real admission1384/1754 at1448/172, guarded
+roof landing1425/1815 at1497/112. It remains a whole-route native negative
+at the later Koopa, Main1493/frame1930/x1659/Y161/engine11/lives2. Receipt
+`997a68941cb8eb27085eacf4c31c73ce8248b4c5a7d8f634732fd106a84b2636`.
+All five subsequent jump requests were admitted. This corroborates the
+separate source delayed-input later-contact case and rules out a lost A
+request as its later cause. No helper/physics change follows from it.
+
+The separate immediate-roof-jump controller1c76 retains all guards but is
+also negative under the two omitted polls, source95571/receipt
+`e6420b4154b28339c5c8b30a196925dff80447bbb0ca396fe04f6e3d71004f0d`.
+Its first guarded landing is1500/112, and two immediate roof decisions leave
+the later Koopa contact unchanged. No full or native acceptance is claimed.
+The next source fit uses the already observed supported position1527/112:
+retain ordinary A release while walking to that real roof edge, then launch
+after the head-left clears the upper brick at1488. This is a geometric route
+continuation, not an enemy timing or physics alteration.
+
 No full1-1 clear, native playtest, new helper, game change or delivery is
 claimed. Source jobs use absent `build/dk-full11-current-1114`, max-files1,
 timeout600 seconds, and zero output files. Root owns the single Mesen queue.
