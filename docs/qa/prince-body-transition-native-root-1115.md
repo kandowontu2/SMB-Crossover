@@ -39,3 +39,19 @@ from the actual Downloads path. Installation has not been claimed here.
 Equal-facing F090 target disappearance, the retained late-fight full-route
 death and sustained performance remain open. Source and interrupt proofs
 are separately recorded in the helper's candidate and image QA documents.
+
+## Actual Downloads delivery
+
+After source push509abdad, root44705 directly replaces the existing Downloads
+nightly with the tested16a bytes. No backup is created. The same frozen4b3f
+controller is replayed from the actual Downloads path with variant3. It
+reproduces the private receipt5a60631f and both PNG hashes exactly, including
+1002 Main/625 Prince updates/1864 physical frames and the accepted Mushroom
+transaction. An independent comparison of all15 observed OAM-selected
+sprite pattern pairs against the installed ROM passes.
+
+Installed bytes equal the private tested candidate. Pre/post sidecar guards
+are clear; no IPS/BPS/UPS, capture files, releases or backup files are made.
+The official nightly is now16a385654e80105f83470e14cd328d8bbceaa659730f4a81a2f36ca039cfbcfb.
+The earlier statements preserving Downloads590 describe the private runs.
+The open limits above still apply after delivery.
