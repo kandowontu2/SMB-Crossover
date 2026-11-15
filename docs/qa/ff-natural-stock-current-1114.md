@@ -51,3 +51,19 @@ at1024/120, mature882 at1024/103, physical collector915 at1053/176 versus
 actor1057/161. Native INC2→3 occurs920/timer42/cue64; terminal1053/176,
 native0/engine8/lives3/FFlease3/power1/earned1/charges0. No current native FF
 receipt is implied. Sibling classes are separate fresh-cold checks.
+
+The captured571 sibling batch5502 is TERMINAL PASS, with fresh actual cold
+menu/Start for every class. All three complete945 returned Main/885 actual
+FF entries and25 strictly post-credit entries, real lives2→3 and FFlease3,
+terminal1053/176/native0/engine8/power1/earned1. White retains charge1;
+Black and Thief retain charge0. No sibling receipt transfers or ROM changes.
+
+| Class/key | Exact controller SHA256 | Source receipt SHA256 |
+| --- | --- | --- |
+| White Mage / white-life | 7547a67c80a101d8a54120eccbfb7c6dc1f4170358722be78f00d0b9d9b75cb8 | 3e97f9afde2786a2e9e023276db5dab538ef81431a0b57c2becb23931a528dd0 |
+| Black Mage / black-life | dcdcd589281c9d889b8de051db29af8dd5699ce73a0f77fecaf5fe85a05d2da2 | 61ac3ebe85940e1984adb54750ba190dc0a727ed7f3688c17b00cd3588dffd30 |
+| Thief / thief-life | c1ed767cf9f5418fc64451379d379b60a14effb6c5331ec3f79a5a2d588b4eaa | a62c312480b8e74879f1170486f9e10d68a2f40927ebff3bb185cf2325546926 |
+
+Each uses the same frozen strict successor API above with its named key;
+Star and actual Mesen item qualification are still separate. Per-class
+source runtimes110.01/44.65/44.55seconds; zero output files throughout.
