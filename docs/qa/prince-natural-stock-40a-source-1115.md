@@ -174,6 +174,19 @@ clears pendingMain and increments Main_returns; it records exact PC/SP and
 both completed counters. It changes no acquisition controls or game bytes.
 The old48097 source and native results remain frozen separately.
 
+Return-boundary successor49196 **passes** source, receipt
+`f38a1c5408d31efc81ec568a749df8ee28e34f9aab1448c19217fdc9c51fc177`.
+Frozen API `replay_prince_natural_star_return_40a_1115.controller(raw40a)`,
+required native variant3, LF Lua
+`c64d22a697143beecb1ec12cac4ea68fef117d459b3ec7d34a26b2bc7a2e68c7`.
+All acquisition inputs and target credit remain48097's. Actual endpoint
+PC82BE/SP252 has Main entries=returns4019 and Prince entries=returns4019,
+exactly25 completed Prince returns after target credit3994. Terminal
+1696/176/HP4/lives2/native2/Sword1/Star33; first4193-byte/cookie readback
+is retained. The endpoint requires both updates returned, unchanged living
+health/lives and sword inventory/tier, and active Star. Native qualification
+of this new observer remains root-owned and pending.
+
 The corrected full-cap hidden1UP experiment19277 is an input negative,
 receipt `3d486b0c238c6a74465ca3633e6bc378bca1dd29e6f42a1b249668033ca7ff56`,
 Lua81664520. AtMain1962, actual both-feet support is928/112/HP4/lives2,
