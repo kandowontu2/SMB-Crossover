@@ -83,3 +83,36 @@ sword2. The genuine retained negative has opposed facing. Full ordinary
 free-draw/attack, actual loss→sheath→movement, re-admission, reached interrupt
 and complete route proof must precede any usable repair or delivery claim.
 There is no current gameplay placement or composition grant for this219B.
+
+## November15 exact source-model placement
+
+Root subsequently granted source-model placement in
+`allocations/prince-opponent-transition-model-1115.json`, SHA256
+`28505a17bab65541abde00900a4fa9c82ad1cd047579f13a306919191e307864`.
+This supersedes only the earlier no-source-placement status. It still does
+not authorize an importer ROM candidate, native run or delivery.
+
+After root's actual Downloads590 graphics delivery, the new strict
+`current_prince_transition_590_1115.py` input authenticates590 and uses the
+portable graphics inverse to recover exactAE for the declared research
+reference. The actual CPU executes owning590 ROM bytes. Old AE/F11/frozen
+control factories keep their strict original inputs. All qualified graphics,
+BT160/score10/Gimmick192 and unrelated native bytes remain present.
+
+Source6155 cold-model receipt
+`626a6377f8ee1662904fee16abf62216d56bb86097372cd206b226c8339e8e5d`
+passes actual compiled Select/Start/parser167,40/176/HP5/lives2. The219B
+array mounts only after its complete authenticated metadata decode. The
+already-leased449B World array mounts after its full runtime decode; the
+180B Prepare array mounts in the completed STAGED stream before its real
+80-byte down-copy. No unread compressed input or later backreference source
+is overwritten by an early model patch. First actual BBC1/SP203 verifies
+both current cookies, all three qualified graphics extents and livePrepare.
+
+The existing e418 image is only an in-memory frozen control/array dependency;
+its ROM bytes never execute in this model. No combined ROM is composed.
+Frozen ordinary controls are rebound only at their full ROM/header guards,
+yielding source-model Lua
+`a9d4e0d0c4b58ce53cf8cb3603f3543f31fe826119276d90f1426f90328a5384`.
+Source92478 is the first full ordinary replay of this model. Its result,
+genuine free-sword/loss/re-admission and reached ISR remain pending here.
