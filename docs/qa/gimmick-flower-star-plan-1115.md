@@ -258,3 +258,40 @@ launch, and at most four explicitly labeled borrowed star-side-collision
 snapshots. Fixed-point hero/star positions, velocities/flags, current native
 body bounds, saved pads/Fresh/Previous, poll/read/decision epochs are bounded
 inside the receipt. No PNG/state/ROM files or gameplay qualification added.
+
+Root26639 actual590/ff47 is TERMINAL diagnostic complete/gameplay false,
+receiptca22df59a3236e994812fd5c9c91a5c2c26e580ac90b910fe12570867c8310e4.
+It repeats1644 Main/2189 physical/end1163/176/HP2/lives2. Native restored
+1563 is1231/137 with source heroX16=19839/Y16=2708, VX0/VY0, saved Right+A129.
+Next restored1564 is1247/137, heroX16=20093/Y16=2712, VX0/VY4, saved Left2.
+The16-pixel shift persists after whole Main. It is not merely a borrowed
+star-collision snapshot. Star positions/velocity and later left inputs match;
+the shifted hero misses actual support. First six actual ride calls return
+BB68/SP208 unchanged with no support. No game/geometry repair inferred yet.
+
+Matching unchangedff47 ordinary source41836 is PASS, receipt
+724f3049cf1694f59889b297562abf07239e5c443a7667e9265065062ad9aca1,
+1351 returned Main/112.35seconds. The NEW one-extra-Right source diagnostic
+99046 holds precisely one additional ordinary Right+A consumption after the
+actual launch, matching native's first input difference. It remains gameplay
+PASS, receiptb1e7247990a2c7b73be862d8206909248141db4c58fbd1b1e530ef97654d90e0,
+Lua36fc01d4cb5ac7a66ac64444e81202fdffd1e2b9c5b482cc00a2cef4447d8071,
+1350 Main/156.34seconds. It reproduces pre-clip heroX16=19839, saved129, but
+the next Left2 gives19837/native1231 rather than native20093/1247. Real support
+and Flower collection still succeed. Thus that extra Right alone does not
+explain the native shift. Its CPU writer window armed prematurely at1066 on
+an upstream star; those writes do not identify the first native clip writer.
+
+A NEW native-only passive position-write facade keeps everyff47 control and
+assertion byte after removing its sole observer insertion. Source22723 API/
+compile/exact hook/bank/strict-input gates PASS, receipt
+d274a2f922eed2e763c193d1500572e7a648d7041bd55931697acd8642aa7ab3.
+Factory312746b4233b847e1733f8af6443ab6a08feafc95fa56ea1694200b9e543e140,
+checker43cb955a6004b33b23a8baefd91a47af07fc3159b9229ea0ecf685edc3b1bbd4,
+Lua04f0db601dfa741f67ea065aece1c9aa7ee5cd2a4b13424e99be9e30bfd439f2.
+It watches changed source hero-X high bytes and native X writes of at least
+eight pixels, only in the admitted-jump trajectory window, at most32 rows.
+Actual writer PC/map/nearby instruction bytes/registers/SP/stack/scratch and
+source/native positions are read without changing memory or buttons. Its
+Mesen write callbacks are not claimed to execute in the exec-only source
+shim. Root's next native diagnostic must locate the first lasting write.
