@@ -45,9 +45,31 @@ callback-registration issue, before any gameplay result. The corrected
 standalone Lua policy compiles. Source11847's negative is retained in
 commit5d092afe; successor files are separately named.
 
-Source76126 (hidden1UP) and59314 (Star) are live on ordinary A128 successors,
-each bounded600 seconds/max-files1 and an absent output root. No native-ready
-controller pins are published until actual acquisition/credit/+25 passes.
+Source76126 (hidden1UP) and59314 (Star) are terminal input negatives.
+Hidden1UP Lua d07c3f9e receipt
+`3be33a5d19f6eebcace43155b7ae374537092057e106b9b14265590218ec6400`
+requests A at1020/176, admits action3, minimumY174, with no birth. Its second
+coarse alignment ends991 and rejects its own requested head-span condition;
+Main2333/HP4/lives2/native1/Sword0. The existing retained small standing-hop
+receipt (`build/prince-control-recipe-1103-v190/control-recipe.json`, checked
+present read-only) measures sourceY lift6/foot and nativeY lift2, range174..182.
+The new A result matches that intended original standing hop; it is not a
+jump-height regression. No historical graph was restored.
+
+Star Lua48c7d237 receipt
+`18aee646018902bb5766e6cab42352b8022c954f806e60b419070ba5c8ffc187`
+reaches below the brick at1600/176,HP4/Sword1/native2, but rejects its head-span
+condition before the first request. Main3961/lives2/no birth or collector.
+Neither negative qualifies actual item acquisition or native readiness.
+
+New held-Up80 successor2745 is live for hidden1UP, bounded600/max-files1,
+zero generated files. It uses the established genuine Mushroom reach recipe,
+waits for fresh actual action0, and retains the short-Up/A negatives. The
+earlier12-update pulse never reached the full reach/pose78 interval. Maturation
+may first be observed at the actual collector; this is recorded explicitly
+with the real mature native actor, rather than requiring a prior frame sample.
+Measured boxes are retained even when an observer rejects their overlap.
+No native-ready controller pin is published until acquisition/credit/+25 passes.
 Source menus use the existing compiled Select/Start component; the source
 peripheral lacks physical vblank/cadence. Actual native navigation is a later
 root-owned scope. Equal-facing F090, audio completeness and idle lag remain
