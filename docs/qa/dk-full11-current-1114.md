@@ -1,9 +1,10 @@
 # Classic DK functional 1-1 source investigation
 
-Latest full-source outcome: exactf11/controllerf875 passes full nonshortcut
+Latest full-source outcomes: exactf11/controllersf875 andbb51 pass full nonshortcut
 1-1 and25 living grounded1-2 updates, with both lives and tier0. Root's native
 f875 run found an input-admission harness race; the actual game remained alive.
-The separate latch successor below is under source qualification. No ROM code, physics, helper placement,
+The all-request latchbb51 passes the normal full-source gate and awaits native
+verification; its delayed-poll scope is stated below. No ROM code, physics, helper placement,
 health or power grant changes are needed for this source clear. Earlier
 controller negatives below retain their scope.
 
@@ -242,10 +243,12 @@ already delivered ROM; this lane creates no candidate ROM or install.
 Root actual Downloads33997 is terminal negative, receipt
 `ec1d39d20b298ff35a64b672fe7a70e6daf809bddd73bc5b8908f881e4392f2f`.
 At Main1384/frame1754, x1448/Y176/state0/lives2/tier0, the real landing guard
-fires before any jump was admitted. A requested jump was treated as rising
-immediately; a catch-up Main before a new input poll still had ground/VY0,
-so the apex-release code cleared the queued A. The following ground snapshot
-was then misclassified as a landing. No game death or weakened floor/ceiling
+fires with an unadvanced ground snapshot. Root's input-poll hypothesis is
+that a requested jump was treated as rising immediately; a catch-up Main
+before a new input poll still had ground/VY0, so the apex-release code cleared
+the queued A. The source delayed-poll fixture below reproduces this mechanism;
+the original native receipt did not retain all input fields to prove that
+cause by itself. No game death or weakened floor/ceiling
 requirement is inferred. The old source pass and native negative retain
 their distinct scopes; f875 is frozen.
 
@@ -266,6 +269,25 @@ the first admission contract, not a full or native clear. The next separate
 controller applies the same admission/actual-ascent hold to subsequent
 ordinary ground requests after1408, keeping the proven opening and all
 actual floor/head/roof guards intact.
+
+The all-request controller is Lua
+`bb51b57f672063f76b30f36cb5e0af46dd0d69879fe5f5d0a22011e192f2ba4d`.
+Normal source56921 passes all3142 Main returns,20 actual requested/admitted
+jumps, flag1946/castle2008/entrance2566 and25 grounded1-2 updates at40/176,
+lives2/tier0, receipt
+`d4a93030d1c7e53c9521f1ce407d02c5d3d47f7bcc8d6060540b29c431bdf75c`.
+The owning exactf11 runtime bytes and all true geometry/landing guards are
+unchanged. New first-launch request/admission/landing records and32 bounded
+movement/Main/poll rows are retained for root's actual native replay.
+
+The separate delayed-two-poll fixture47515 still passes the first admission
+and guarded roof landing, with five requested/admitted jumps, but remains
+negative at the later Koopa contact after the shifted first roof landing:
+receipt `4663f9bbebdb48a5dd862104d7f332d6df2735d02f2c440e8b5143ccd9778598`.
+This is not a full-route delayed-cadence pass. The normal full-source pass
+and the delayed-input admission evidence are explicitly separate. Root has
+the bb51 API for native verification; no helper, game-code or installed-byte
+change is inferred from any controller-only result.
 
 No full1-1 clear, native playtest, new helper, game change or delivery is
 claimed. Source jobs use absent `build/dk-full11-current-1114`, max-files1,
