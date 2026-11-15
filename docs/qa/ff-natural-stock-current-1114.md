@@ -67,3 +67,17 @@ Black and Thief retain charge0. No sibling receipt transfers or ROM changes.
 Each uses the same frozen strict successor API above with its named key;
 Star and actual Mesen item qualification are still separate. Per-class
 source runtimes110.01/44.65/44.55seconds; zero output files throughout.
+
+Root93311 actual Downloads571 Fighter3d6fc is TERMINAL native PASS,
+receiptda25402c805fa0e8f1e685db566c5a8d43398d97db2484d6bd5265f250eba9fa.
+It completes1263 returned Main/2127 physical frames/889 actual FF entries.
+Real mushroom collection is Main698 at403/152 followed by60 freeze ticks.
+The authored hidden kind3 is born Main1135/frame1886 at1024/120 and matures
+1200/2015 at1024/103. Physical collector1233/2080 has player1055/176 and
+actor1057/161. Actual writer1238/2089 gives life2→3/timer42/cue64 with
+entry counter864. Final889 proves exactly25 actual FF entries after that
+writer; terminal1055/176/native0/engine8/lives3/FFlease3/power1/earned1/
+charges0. This closes Fighter's natural life gate on571; each sibling remains
+source-only until its own native replay. No Star, complete abilities or
+visual/audio claim is added. No images/files/state writes; guard/hash and
+the separate private BTae66 candidate remain unchanged.
