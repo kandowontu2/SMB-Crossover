@@ -173,3 +173,62 @@ negative, not a physics defect. A single genuine mature-prefix capture and
 the adjacent measured takeoff threshold are the next source investigation.
 All roots remain absent/zero files, and no native Flower qualification is
 inferred from source-only controls.
+
+The first NEW current planner46595 ended at a harness facade error after
+capture: its replaced module lacked the frozen score helper used by G.state.
+No branch outcome is inferred from that run. The corrected narrow facade
+keeps that score helper and binds only the actual590 branch hooks. Source82871
+then TERMINAL PASS as an input-only planning diagnostic, receipt
+a1301292dc883121b6f3a258eaf9e8a020cabd19397fde16faa446edbebac9f8.
+It captures the real mature Flower once at1166, hero1245/176/VX0, HP/capacity3,
+inventory0/next1/lives2/score1400. Two adjacent ordinary thresholds are the
+entire branch domain. Threshold1244 reproduces takeoff1243, release1231,
+launchA29 and zero reflections/rides/pickups. Threshold1245 gives takeoff
+1245/VX232, release1232, launchA28; real wallA229 occurs at star1244.0625/
+164.625 with wall128. Two real flagged rides follow, then physical GmPickupA1
+at branch159, hero1239/105. After25 ordinary steps inventory1/code2/next2,
+score1405 to2405, HP/capacity3/lives2 remain. These in-memory forks are source
+planning, not current native or production acceptance.
+
+The NEW poll-board production successor keeps the native-qualified pipe
+policy and all mature Flower/reflection/real support/fresh jump/collector/
+inventory/cue/erase/score/+25 gates. It uses the measured1245 threshold,
+holds A until actual jump admission and holds Right/B-release until actual
+star launch. It releases A on real descent before support, waits for two
+polls plus an original clear-A read, and requests the final fresh jump only
+from the current actual GmRideStar PC/SP return. Its full current590 source
+qualification is separate from the planning branch above. Frozen061b and
+four-pipe1199/a3e7 remain unchanged.
+
+Full NEW actual590 poll-board source88429 is TERMINAL PASS, receipt
+d65cd5e501e55a21d857fcc0a5c392323d90b32d4c750d30c118ab6ce376da57.
+1351 returned Main/1350 actual GmMovement calls/118.13seconds. API
+`replay_gimmick_flower_pollboard_current_1115.controller(raw590,'mr_gimmick')`;
+factory3c7ecde80977f5d822ec7ddb88bdf3c89add505dda38f3df5748e8f881772ede,
+checkerf82b0c6eb25ba17473c6f1af598c2ee3a20240277d3e01f0b06712baf6e77071,
+Lua0a644fcb7ef09267d79e49b36b7fce3837b148ad18f6efa11db30921a4db32da.
+Current pins, complete hook bytes/bank hashes, cold compiled Select/Start and
+strict rejection of truncated/unowned-byte/old parent inputs pass. Mutable
+nightly rereads and file/Mesen output are trapped.
+
+Genuine Flower birth1101/maturity1166 remains at1248/136 then119. Completed-
+state counters distinguish policy decisions from in-flight writers: takeoff
+requested1277 at1245, actual admitted writer is observed before decision1278
+at1243/171. Release requested1285 at1232/143, actual A28/left heroVX233 launch
+has state.Main1285, actual wallA229/wall128 has state.Main1288. The exact
+GmRideStar entry/return PC/SP at state.Main1296 sees descendingVY40, D7bit40,
+star1230.5625/190.625 and hero1224/151; return sets ground128/VY0. Decision1297
+uses that same original input-read epoch890, after A was cleared beginning
+1287, then the actual fresh jump writer has state.Main1297/A172.
+
+The mature physical collector state.Main1325 sees hero1240/107 and Flower
+1248/119/state128. Real GmPickupA1 returns carry set, queues1c, sets inventory
+count1/code2/next2, preserves HP/capacity3/lives2, erases at1326, and credits
+score1405 to2405. Twenty-five strictly later actual GmMovement entries follow;
+final1258/112/sourceground128/native0/engine8/lives2. Travel diagnostics count
+nine requests/nine admissions/no retries, separately one pre-mature head
+admission, two Flower-phase admissions and one actual current star support.
+Bounded phase snapshots retain real saved pads/Fresh/Previous, PC/SP, polls,
+source input consumption and completed-Main decision epochs. No native
+Flower, full-stage, audible-output or visual claim is made before root's
+independent queue. All source output roots remain absent/zero files.

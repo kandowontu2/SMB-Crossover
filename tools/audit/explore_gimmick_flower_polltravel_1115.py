@@ -2,6 +2,7 @@
 from hashlib import sha256
 import json
 from pathlib import Path
+from types import SimpleNamespace
 from unittest.mock import patch
 
 import replay_gimmick_flower_polltravel_current_1115 as Factory
@@ -38,7 +39,10 @@ if __name__=='__main__':
         seed=capture(raw);rows=[]
         # Current failed takeoff1243 misses the actual side collision by one
         # pixel; test only the adjacent ordinary threshold and its old control.
-        with patch.object(G,'F',Factory):
+        # G.state uses its frozen parent's score helper; only the branch's
+        # binding authority changes to current590. Do not replace that helper.
+        facade=SimpleNamespace(bindings=Factory.bindings,Previous=G.F.Previous)
+        with patch.object(G,'F',facade):
             for target in(1244,1245):
                 q=Plan.opposite_scene(seed['memory'],8,target)
                 rows.append(q)
