@@ -146,3 +146,31 @@ snapshots and matching hardware OAM. All PNGs remain in stdout/memory;
 zero capture files or ROM changes. A source ownership audit is in progress
 before choosing an exact palette/OAM repair; Bob and water/outline consumers
 must also be accounted for. The official Downloads40a remains unchanged.
+
+## Bob's rendered baseline is correct
+
+Root36046 independently uses the Bob-only three-scene factory
+`replay_bob_three_images_40a_1115.py` SHA256
+`9a35298e24168eceb6d06dffd9111aa8a1136b00a789ff38a8b3b39d61dc85a7`;
+Lua `b9007f0006fe4d5d0f3eb27246251d04b177c2bb8ce37fb5fac5d312a684ee24`.
+Removing only observer additions restores exact native-qualified Bob
+functional Lua27577418. Compilation and restoration pass without outputs.
+The actual Downloads40a native run passes all M/F transaction/resume gates,
+1848 Main/4100 physical frames, receipt
+`ee2a6a98a29c13c0f9cd9724228f1a564dfad3ca268a6870363903287ea0cee0`.
+
+Root views all three actual PNGs. Bob, Mushroom, Flower and free bubble look
+correct; the native Goomba is brown. At G frame622/Main135 it is329/184,
+hardware OAM A4/A2 in bank17, attributes3, with actual native P3=0F/0F/36/17.
+Bob uses P0=22/2C/23/30. This separately confirms the identity-specific defect.
+
+| Bob scene | PNG bytes | PNG SHA256 |
+| --- | ---: | --- |
+| Goomba |2447|893866cdd5ac7de8068e59f65e2c847e50271744674ae8d6905ac943ab5fd641|
+| Mushroom |2808|9fc75883cc5f887e368c380104e7f3cd67b72f2a5191a648179e5c43142f8aaa|
+| Flower/bubble |2529|f4ab3a34321d56732b5eedb1d24ccbcf6f761f1dc3f74fc0bd2dadf623f41d25|
+
+All images stay in memory, no ROM edits or capture files. Bub's proposed
+52-byte source/cookie repair is separately source-only under allocation
+`bub-native-palette-current-source-1115.json`; it is not installed or native
+qualified by this baseline.

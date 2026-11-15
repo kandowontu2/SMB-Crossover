@@ -13,7 +13,7 @@ FACTORY='ed41116f5f0d9dc8d5c35bda711db48f47b5155acadbd2b16cd66f0e32931c1f'
 LUA={0:'b5d201919c087e13e4587dc8f22a4112391592ad0de6528e810be9f417331896',
      1:'b9d196e96d5bc0349e55425bb60febc980fec10882bcad1728dfb7e3df7b873a'}
 
-def execute(identity,close_defence=False,margin=False,images=False,three_images=False):
+def execute(identity,close_defence=False,margin=False,images=False,three_images=False,bob_three_images=False):
     factory,expected_factory,expected_lua=F,FACTORY,LUA[identity]
     if close_defence:
         assert identity==0
@@ -41,6 +41,12 @@ def execute(identity,close_defence=False,margin=False,images=False,three_images=
         factory=Images
         expected_factory='59fa9dbff4b9aa9d13759651c0baf30ed3ee9b116244093f84a1148019293526'
         expected_lua='e94c064b313bb108c943b89c5e800276ed819e283b21c4ffc178ab25efacf11c'
+    elif bob_three_images:
+        assert identity==1
+        import replay_bob_three_images_40a_1115 as Images
+        factory=Images
+        expected_factory='9a35298e24168eceb6d06dffd9111aa8a1136b00a789ff38a8b3b39d61dc85a7'
+        expected_lua='b9007f0006fe4d5d0f3eb27246251d04b177c2bb8ce37fb5fac5d312a684ee24'
     assert sha256(Path(factory.__file__).read_bytes()).hexdigest()==expected_factory
     before=check(factory.ROM)
     raw=factory.ROM.read_bytes()
@@ -53,7 +59,7 @@ def execute(identity,close_defence=False,margin=False,images=False,three_images=
     script=OUT/'controller.lua'
     script.write_bytes(text.encode())
     q=run(script,factory.ROM,OUT/'capture',factory.PIN,180)
-    assert q['script_SHA256']==expected_lua and len(q['images'])==(3 if three_images else 2 if images else 0)and q['outputs_written']==0
+    assert q['script_SHA256']==expected_lua and len(q['images'])==(3 if three_images or bob_three_images else 2 if images else 0)and q['outputs_written']==0
     assert factory.ROM.read_bytes()==raw and check(factory.ROM)==before
     assert (OUT/'candidate.nes').read_bytes()==candidate
     return q
@@ -65,14 +71,16 @@ if __name__=='__main__':
     p.add_argument('--margin',action='store_true')
     p.add_argument('--images',action='store_true')
     p.add_argument('--three-images',action='store_true')
+    p.add_argument('--bob-three-images',action='store_true')
     a=p.parse_args()
     assert not a.close_defence or a.identity==[0]
     assert not a.margin or set(a.identity)<={0,1}
     assert not a.images or a.identity==[0]
     assert not a.three_images or a.identity==[0]
-    assert sum((a.close_defence,a.margin,a.images,a.three_images))<=1
+    assert not a.bob_three_images or a.identity==[1]
+    assert sum((a.close_defence,a.margin,a.images,a.three_images,a.bob_three_images))<=1
     for identity in a.identity:
-        q=execute(identity,a.close_defence,a.margin,a.images,a.three_images)
+        q=execute(identity,a.close_defence,a.margin,a.images,a.three_images,a.bob_three_images)
         print('RESULT '+json.dumps(q,separators=(',',':')),flush=True)
         assert q['passed'],('Natural Bub/Bob Flower remains native-unqualified',identity)
         assert q['receipt']['natural_flower']['actual_post_F_moves']==25
