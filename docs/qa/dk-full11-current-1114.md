@@ -144,6 +144,29 @@ collision defect. The next intended-ability diagnostic can use the existing
 ordinary barrel from a stopped, right-facing position scoped to this real
 pair and admitted only with a clear actual terrain corridor.
 
+## Earlier supported landing clears the pair in source
+
+The root-suggested ordinary landing route is frozen at Lua
+`bda650a11629d48f49c27171690ff213d6274eaf66618a3b04b4a8564328ca17`.
+It retains the baseline through the four pipes, then releases A and
+countersteers only once the leading foot can reach the second pit's far
+floor1424. A fresh jump requires real ground, native1437..1458, physical
+left at least1424 and both actual floor cells. Its actual coin-brick head
+clearance and landing-above-ceiling guards remain enabled.
+
+Session92130 crosses the paired Goombas without injury, with actual
+Main1097/x1538/Y112, both enemies left behind alive. This proves that an
+ordinary supported early jump traverses that measured obstruction without
+new physics or helpers. The whole run remains negative later at Main1146,
+x1660/Y166, against Koopa1684/Y184; receipt
+`e5c7d368d1883131daf6395def0caec9749611294935f3c45546b6850d7e328b`.
+At Main1135/x1632/Y156 an actual native bump on tile87, row144/pointer0305
+(world1616), stops the next jump. DK then lands on Main1143, releases A on
+1144 and jumps1145, too late for the wide body's next contact. This is a
+retained controller negative, not a claim that any native head response is
+wrong. The first pair crossing is qualified only in source; no full-stage
+or native success is claimed.
+
 No full1-1 clear, native playtest, new helper, game change or delivery is
 claimed. Source jobs use absent `build/dk-full11-current-1114`, max-files1,
 timeout600 seconds, and zero output files. Root owns the single Mesen queue.
