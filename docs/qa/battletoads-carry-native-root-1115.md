@@ -44,3 +44,33 @@ Only the existing controller file is replaced in the two-file native slot.
 No capture files, ROM copies, backups or release assets are created. The root
 source fixture proof uses absent `build/battletoads-carry-root-review-1115`,
 max1/600s and zero generated outputs; native root uses its existing2-file slot.
+
+## Private corrected candidate: partial cadence gain and both routes pass
+
+Root83713 runs exact acee in the existing private slot. All three native
+checks pass; official174fa remains untouched at this gate.
+
+| Private scope | Main / physical frames | Native receipt SHA256 |
+| --- | ---: | --- |
+| Literal-read cadence |353 /377 total|0412eea79a26d44a4289af63f80c43922236e8ad74e13a213e27636fa41eaad3|
+| Rash full1-1 |4254 /4699|87fc83a0d6fc4b4bda4e10ca8d122632cfbb7c63612dbcdc7641299a664c2254|
+| Zitz full1-1 |4338 /4801|dbf90604db93f11c509e07409a40ff9aa5ac1d03fa783f8d75ec6fc758a1d898|
+
+The same cadence observer now records idle48 Main/48 physical, but19 missed
+reads among47 complete frames (histogram0:20,1:7,2:20), compared with23 misses
+on174fa. Right32/32 has15 misses (0:15,1:2,2:15), compared with16. Idle
+NmiSkipped increases19; Right increases16. Zero idle actors, HP47/lives2,
+Right endpoint83/176. This is a modest improvement; skipped and doubled
+updates remain. It is not smooth60Hz or a closed lag defect. Do not infer
+an exact stage-speed percentage from stage runs on different older ROMs.
+
+Both ordinary full routes retain real variants0/32, flag/castle/entrance,
+then25 living grounded1-2 updates at40/176/area2/engine8/state0, HP39/lives2,
+power0. Main entries equal returns. No input/game/health/terrain seeds,
+helpers, images or output files are introduced. The source-qualified955-byte
+envelope contains714 changes; every unowned byte, all52 Bub palette bytes,
+Prince/cache/code/assets and helpers are preserved.
+
+The separate delivery decision permits this useful partial gain while keeping
+the remaining cadence work open. Source push, direct Downloads replacement,
+sidecar guards and all three actual Downloads repeats remain required.
