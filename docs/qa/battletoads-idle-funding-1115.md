@@ -1,9 +1,13 @@
 # BT idle funding, source research only
 
-Current owning input is exact590:
-`590e0ae60414d98d4b0a4d74874af58b93c6e720e8156220e0648966128b5f1f`.
-The new1115 tool explicitly uses Prince's portable inverse only for legacy
-bindings. Actual current bytes remain the executed source input. Frozen
+Latest model receipts use exact16a:
+`16a385654e80105f83470e14cd328d8bbceaa659730f4a81a2f36ca039cfbcfb`.
+Earlier590 receipts below retain that versioned scope. The new1115 facade
+also accepts only explicit exact7a80 through the pinned Gimmick inverse
+`a9eaabb0...` to16a, then the pinned Prince body inverse `62d9ae4c...` to590,
+then Prince graphics inverse toAE for legacy bindings. Actual owning bytes
+remain the executed source input. Delivery authority remains root's handoff.
+Frozen
 6017/494d research, ae66 production fragments, cache/cookie/full BtCheck,
 all preceding fixes and root's image/installation are unchanged.
 
@@ -230,12 +234,133 @@ source formula exactly. Receipt
 Its literal aliases and three direct Box caller contexts still need owning
 context; this is not an arbitrary indirect-entry exclusion claim.
 
-The smallest remaining blocker is complete owning context for the deliberate
-three-byte end-SMC change: every legal raw33 getter caller, data/indirect
-consumer, protocol continuation and transition must discard or overwrite
-those values before meaningful use. Current endpoint/8-Main/ISR receipts
-support this but do not prove the entire domain. Table aliases and private
-normalizer ingress also require final classification. The actual guard and
-constructor ISR, full FarCall constructor, normalized selector-domain and
-explicit-SMC component gates above are closed within their stated scopes.
-No source overlay or native candidate is authorized by these receipts.
+## Final current-input protocol and proposal review
+
+The source proposal is ready for root's ownership/contract review. It has
+not been mounted as a physical code overlay or composed into a ROM. The
+deliberate getter-return SMC difference is part of this proposed contract;
+whole-instruction/foreign/full-route qualification follows a root source lease.
+
+47266 on actual16a passes paired genuine Select/Start/cold,8 Right Main,
+64 paused Main, ordinary resume+8 Main, and an explicit owning DeathStart
+request followed by8 neutral Main. End application RAM, SMC, VRAM and maps
+agree. There are34 resumed getter calls and no read of any differing field
+before overwrite; every pending set empties. Cold, paused and post-death
+paths call neither getter. Death remains engine11/lives2: no natural death
+or respawn repair is claimed. Real BtRetire then declared getter queries
+change old Y91/C0 to native Y0/C1 without changing private RAM/maps. This
+is intentional native-only admission, not invalid-cache parity. Receipt
+`fcee18902668292165b3b91cefe799165908e509c3a34162be2eb6b5c1c72644`.
+99866's earlier16-Main resume attempt was too early for the real$2B pause
+timer; its unchanged paused$81 state is retained as a harness negative.
+
+45388 on16a exercises the other two real Box control tails,129:B978 and
+223:B5E6, in64 declared components (four A, four P, two X/Y per tail).
+Their exact source preimages funnel into MegaManCollisionBox. Full return
+AXYP/SP/physical RAM/maps match, minSP181, with only the same three SMC
+leftovers. Receipt
+`0c838d0e4af5c3233930abc15fb1b9ae3bffe376166d1935c342b01b681787f3`.
+
+The actual raw33 Nr word path is not the old five-row fixture: A1CC enters
+A554, obtains a checksum from its own real JSR return, matches one of15
+unique entries atA51E, bypasses Mini41 atA716, then A824/A509 publish
+`B600+16*X` and bankCF before A60D restores the caller frame. X0..14 is
+the closed domain; geometry selectsB6C0/B6D0. The exact current opcodes at
+A554/A4FB/A716/A824/A509/A60D are bound by `--raw33-transport` and included
+in the final proposal. No old getter target is used to construct this word.
+The complete owning native frontends establish savedC1 independently of
+incoming P; arbitrary direct private Adder entries with forged C0 are not
+that runtime caller contract.
+
+6034 catalogues the13 genuine inner-FarCall protocol control sites. The
+only$0169 lead is a non-instruction overlap: `7d bb 6c 69 01` in Darkwing,
+not JMP($0169). There is no direct$016B entrant. Current legal consumers are:
+
+| Site file(s) | Source role and target lifetime |
+| --- | --- |
+|543967|Menu target publishes Lo/Hi/bank with STA/STX/STY.|
+|545834,546060|Hot graphics/draw load all three fields from their current tables.|
+|545927|Hot Kr own path publishes its complete constant target before restore.|
+|576271|Qw ROM path publishes its target; RAM branch does not enter this protocol.|
+|653291|Quick callback is owner9/Quick-alt only, excluded for raw33.|
+|653509|Hu restore consumes fresh table/extended publication; raw33 Original sets all three.|
+|693427|CV3/CF/BT dispatch publishes all three fields before its JSR.|
+|701626|Thomas checked dispatch publishes Lo/A0/bank3, and is owner10 only.|
+|717058|Bt Target requires resolver C1/fresh Lo/Hi; rejects skip this arm.|
+|737269|Head admission tail explicitly publishes Lo/Hi/bank.|
+|763716|Z2 legacy Box loads all three planes before the call.|
+|1017379|Nr finish publishes bank after the bound row-word producer above.|
+
+FarCallCommon$015A itself begins by publishing NextBank. The dispatcher
+reads of TargetLo/Hi belong to their just-entered, caller-published request,
+not a previous getter result. Other SMC reads are save/restore transport.
+Thus the meaningful target/indirect consumers require a fresh publication;
+the last private leaf identity is not a stable geometry result. This is a
+source-domain argument backed by the actual caller/word bindings and ISR/
+transition receipts, not a claim based on byte absence alone.
+
+96369 binds the copy escape as well: RgAudioCpuZp=$71DD, snapshot tail
+$7278..$727C, exactly two complete five-field saves521329/679711 and two
+restores521495/679742. Every absolute LDA of those five cells is part of
+those restores. The three actual indexed base readers initialize X18 orY16
+before their loops; the remaining source borrowers are unrolled or bounded
+through23. They cannot reach offset155. The tail transports the fields and
+does not interpret them as audio data or select a function. Receipt
+`3da2e3f360d4b81f09c92794644282a0da4fdce9d42dcfea7f9084aa1cd65db6`;
+76751 additionally asserts the current initializer opcodes. Snapshot copies
+can retain their saved opaque values, but meaningful restored target use
+still follows the publication protocol above.
+
+HuPairHi's other literal aliases all belong to A000 XG_MUSIC_2B/34/37 self
+banks; they are not resident/union79 table readers. The single compiler
+reference and bound reader653494 are the actual Hu consumer. Each other
+table has one actual LDA reader/reference. 6445 expands moved-code ingress
+through the entire9B classifier,32B old BT setup and121B old HuResolve:
+the only bankCF farcall tuple is the menu BA54 operand being rebound. The
+authenticated common-code copy domains, actual decoded16a Prince streams,
+eight declared containers and Hu/Wf/Bw/Nr structured targets add no moved
+code entrant. Current private near targets are in their own RAM/ROM window,
+not PRG79. Receipt
+`005e27ae8aa19d24ec417167ab2a41ce4d471b309a5ab7c96946d2c7f95d121d`.
+
+76751 `--final-proposal` emits exactly nine detached envelopes,556 bytes,
+535 differing bytes, no whole ROM. Framed array SHA is
+`295e9408740ad58b4a36ccd558b0a72806cebf14461d3a88cc34f0317c6adb9a`;
+receipt `a22e91cc20ee95de7009240796edc4453ca0191d065f1e80020d237bbe6ef739`.
+The envelope files are244078/1,653403/9,653438/4,653451/1,
+653485/2,653491/2,653495/2,653501/2,653512/533. All source preimages and
+replacements are emitted directly. No RAM/CHR/art growth, palette change,
+cache/cookie/BtCheck weakening, gameplay/helper change or audio omission.
+All bytes outside these proposed envelopes remain owned by their existing
+layers. The final root review must explicitly accept the three-field dead
+publication and native-only invalid-cache contract before any overlay.
+
+43535 repeats moved-code ingress with the corrected scanner's final12-byte
+window and a one-tuple boundary self-check; actual16a result remains empty
+outside the menu BA54 call. Receipt
+`2d7ac1bdf8f6344a3234202b6463fc4116a05c89dd38d3ac12995593616cf572`.
+
+34663 is the final packet check on actual delivered7a80, retaining all owning
+CPU bytes through the explicit pinned inverse chain for bindings only.
+All nine old/new envelopes and framed hash remain identical. The snapshot
+audit additionally checks all absolute data-read/RMW/indirect opcodes for
+the five backup cells: there are no non-LDA readers; LDA readers remain only
+the canonical restores. Receipt
+`db98ad744351ec6872b080905147c332d13928e1376f61935d068cfecfe70e0f`.
+
+Entry points for root review are `load()` and `final_proposal(raw)` in the
+owned1115 script. The latter emits all556 preimage/replacement bytes and
+per-envelope hashes without composing an image. Frozen script SHA256:
+`c43361c1d8e0e9c2f88748686170f5b73a012df83f4fc3ee2927e82a5d3d6c47`.
+CLI:
+
+```text
+python -B tools/audit/run_bounded_build_v1.py --output build/battletoads-remaining-idle-1114 --max-files 1 --timeout 600 -- python -B tools/audit/research_battletoads_idle_funding_1115.py --final-proposal
+```
+
+Other independent modes are `--normalize-units`, `--normalized-domain`,
+`--normalizer-interrupts`, `--construct-menus`, `--constructor-interrupts`,
+`--guard-return-interrupts`, `--box-fallbacks`, `--smc-lifecycle`,
+`--snapshot-buffers`, `--smc-protocol`, `--moved-code-ingress` and
+`--raw33-transport`. Receipts retain their actual590/16a/7a80 input version.
+All helper producers finished with zero build files and no live child.

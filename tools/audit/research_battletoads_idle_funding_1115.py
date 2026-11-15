@@ -20,8 +20,19 @@ W,N,Frames=Frozen.W,Frozen.N,Frozen.Frames
 
 def reference(raw):
     pin=sha256(raw).hexdigest()
+    if pin=='7a80f0f37e316436be0825bbd6fd9d372af6b0b7741f84ea87356282033d9b79':
+        path=Frozen.Service.R/'tools/audit/compose_gimmick_empty_side_1115.py'
+        assert sha256(path.read_bytes()).hexdigest()=='a9eaabb0dc63a8c457b35bc908da5e887460a7f70dc8f57a29c88a7a9a85b02c'
+        import compose_gimmick_empty_side_1115 as Gimmick
+        raw=Gimmick.current_inverse(raw);pin=sha256(raw).hexdigest()
+        assert pin=='16a385654e80105f83470e14cd328d8bbceaa659730f4a81a2f36ca039cfbcfb'
+    if pin=='16a385654e80105f83470e14cd328d8bbceaa659730f4a81a2f36ca039cfbcfb':
+        path=Frozen.Service.R/'tools/audit/compose_prince_body_transition_590_1115.py'
+        assert sha256(path.read_bytes()).hexdigest()=='62d9ae4c992119e272e307f74c0b4fbd5a2ec120a8f293fdf7fe58fc32ce0d78'
+        import compose_prince_body_transition_590_1115 as Body
+        raw=Body.inverse(raw);pin=sha256(raw).hexdigest();assert pin==Prince.CANDIDATE
     if pin==Prince.CANDIDATE:raw=Prince.inverse(raw)
-    else:assert pin==Frozen.Service.CANDIDATE,'Expected exact590 or exactae66'
+    else:assert pin==Frozen.Service.CANDIDATE,'Expected explicit exact7a80, exact16a, exact590 or exactae66'
     assert sha256(raw).hexdigest()==Frozen.Service.CANDIDATE
     return raw
 
@@ -29,7 +40,9 @@ def reference(raw):
 def load():
     raw=Frozen.ROM.read_bytes();parent=reference(raw)
     return raw,dict(actual_input_SHA256=sha256(raw).hexdigest(),source_binding_ae66_SHA256=sha256(parent).hexdigest(),
-        actual_owning_bytes_retained=True,explicit_Prince590_inverse_for_bindings_only=raw!=parent)
+        actual_owning_bytes_retained=True,explicit_Prince590_inverse_for_bindings_only=raw!=parent,
+        explicit_Prince16a_to_590_inverse_for_bindings_only=sha256(raw).hexdigest()in('16a385654e80105f83470e14cd328d8bbceaa659730f4a81a2f36ca039cfbcfb','7a80f0f37e316436be0825bbd6fd9d372af6b0b7741f84ea87356282033d9b79'),
+        explicit_Gimmick7a80_to_16a_inverse_for_bindings_only=sha256(raw).hexdigest()=='7a80f0f37e316436be0825bbd6fd9d372af6b0b7741f84ea87356282033d9b79')
 
 
 def cold(raw):
@@ -535,7 +548,7 @@ def smc_readers(raw):
         literal_leads_not_instruction_or_consumer_qualification=True,outputs=0)
 
 
-def static_domains(raw):
+def static_domains(raw,extra_targets=()):
     b=bundle(raw);bases={n:W.address(b,n)for n in('HuLo','HuPairIndex','HuPairHi','HuPairBank')};prg=raw[16:1048592]
     consumers=[]
     for name,pc in bases.items():
@@ -560,7 +573,7 @@ def static_domains(raw):
             if not line.startswith('sym\t')or not any('name="'+n+'"'in line for n in named):continue
             row=dict(x.split('=',1)for x in line.split('\t',1)[1].split(',')if'='in x);records.append(row)
         debug.append(dict(path=name,SHA256=sha256(data.encode()).hexdigest(),records=records))
-    targets=set(range(0xb84b,0xb854))|{0xb85c,0xba54}|set(bases.values());indirect=[]
+    targets=set(range(0xb84b,0xb854))|{0xb85c,0xba54}|set(bases.values())|set(extra_targets);indirect=[]
     def check(role,rows):
         hits=[r for r in rows if r['bank']==207 and r['CPU']in targets];assert not hits,(role,hits)
         indirect.append(dict(role=role,rows=len(rows),targets_into_changed_entries_or_table_bases=hits))
@@ -583,6 +596,284 @@ def static_domains(raw):
         getter_direct_control_leads=calls,current_compiler_references=debug,
         structured_indirect_target_domain_exclusion=indirect,ProductLo_numeric_table=dict(file=at,bytes=256,SHA256=sha256(expected).hexdigest()),
         compiler_refs_and_literal_leads_require_owner_context=True,all_domain_closure_not_claimed=True,outputs=0)
+
+
+def smc_protocol(raw):
+    b=bundle(raw);locations=[]
+    for name in b['syms']:
+        try:at=W.location(b,name)
+        except(KeyError,AssertionError):continue
+        locations.append((at,name))
+    locations.sort();positions=[p for p,_ in locations]
+    def context(at):
+        segs=[]
+        for seg in b['segs'].values():
+            if'ooffs'not in seg:continue
+            lo,size=int(seg['ooffs'],0),int(seg['size'],0)
+            if lo<=at<lo+size:segs.append(dict(name=seg['name'],CPU_start=int(seg['start'],0),file=[lo,lo+size]))
+        k=bisect_right(positions,at);names=[(at-p,n)for p,n in locations[max(0,k-16):k]if 0<=at-p<=96]
+        return dict(segments=segs,nearest_symbols=sorted(names)[:3])
+    rows=[]
+    for bank in range(128):
+        data=raw[16+bank*8192:16+(bank+1)*8192]
+        for target in(0x15d,0x169,0x16b):
+            for op in(0x20,0x4c,0x6c):
+                pattern=bytes((op,target&255,target>>8));i=0
+                while(i:=data.find(pattern,i))>=0:
+                    at=16+bank*8192+i;rows.append(dict(file=at,raw_bank=bank|128,offset=i,target=target,opcode=op,
+                        before=data[max(0,i-40):i].hex(),instruction=pattern.hex(),**context(at)));i+=1
+    aliases=[]
+    data=raw[16:1048592];pattern=bytes.fromhex('b9f8b9');i=0
+    while(i:=data.find(pattern,i))>=0:
+        at=16+i
+        if at!=653494:aliases.append(dict(file=at,**context(at)))
+        i+=1
+    return dict(ROM_SHA256=sha256(raw).hexdigest(),inner_FarCall_protocol_control_literal_leads=rows,
+        HuPairHi_other_literal_alias_contexts=aliases,raw_aliases_not_automatically_code_or_Hu_consumers=True,outputs=0)
+
+
+def smc_lifecycle(raw):
+    parent=W.ControllerBus;cpu_base=N.NesMPU;unit=0x5800;program=bytes.fromhex('c00cf004c00dd0052828a00060')
+    ctx=dict(active=False,pc=0,tag=0);reads=Counter();overwrites=Counter();entries=Counter();minimum=255
+    def view(enabled):
+        class View(parent):
+            def __init__(self,*a,**kw):super().__init__(*a,**kw);self.funding_guard=enabled;self.funding_watch=set()
+            def __getitem__(self,at):
+                if isinstance(at,int):
+                    if ctx['active']and at in getattr(self,'funding_watch',()):reads[at,ctx['tag'],ctx['pc']]+=1
+                    if unit<=at<unit+len(program):return program[at-unit]
+                return super().__getitem__(at)
+            def __setitem__(self,at,value):
+                if isinstance(at,int)and ctx['active']and at in getattr(self,'funding_watch',()):
+                    overwrites[at,ctx['tag'],ctx['pc']]+=1;self.funding_watch.remove(at)
+                return super().__setitem__(at,value)
+        return View
+    class CPU(cpu_base):
+        def step(self):
+            nonlocal minimum
+            m=self.memory;tag=m.rawtags[(self.pc-0x8000)//8192]if self.pc>=0x8000 else-1
+            if getattr(m,'funding_guard',False)and tag==207 and self.pc==0xb8b8 and self.y in(12,13):
+                assert self.a==33;entries[self.y]+=1;self.pc=unit;tag=-1
+            pc=self.pc;ctx.update(active=True,pc=pc,tag=tag);minimum=min(minimum,self.sp)
+            try:result=super().step()
+            finally:ctx['active']=False
+            if pc==unit+12:m.funding_watch={0x162,0x16c,0x16d}
+            return result
+    pair=[]
+    with patch.object(N,'NesMPU',CPU),patch.object(W.UI.F,'NesMPU',CPU):
+        for enabled in(False,True):
+            with patch.object(W,'ControllerBus',view(enabled)):pair.append(cold(raw))
+        Containers.Model.compare(pair,minimum)
+        cold_entries=dict(entries);phases=[]
+        for phase,pad,count in(('walk',1,8),('pause_edge',16,1),('paused',0,64),('resume_edge',16,1),('resumed',0,8)):
+            states=set();before=entries.copy()
+            for _ in range(count):
+                for m in pair:m.controller_pad=pad;Frames.frame(m,whole_pass=True)
+                Containers.Model.compare(pair,min(180,minimum));states.add(N.get(pair[1],'GamePauseStatus'))
+            phases.append(dict(phase=phase,Main=count,pad=pad,pause_values=sorted(states),
+                getter_entries=dict(entries-before),pending_fields=sorted(pair[1].funding_watch)))
+            print('PROGRESS '+json.dumps(phases[-1]),flush=True)
+        assert all(v&1 for v in phases[2]['pause_values'])and not N.get(pair[1],'GamePauseStatus')&1
+        retired=[N.fork(m)for m in pair]
+        for m in retired:N.invoke(m,'BtRetire');assert m.ram[3][0x1fe0]==0
+        retired_rows=[]
+        for name in('MegaManCollisionAdder','MegaManCollisionBox'):
+            ms=[N.fork(m)for m in retired];results=[N.invoke(m,name,a=85,x=7,y=91,p=0x20)for m in ms]
+            assert not results[0]['P']&1 and results[1]['P']&1 and results[1]['Y']==0
+            assert ms[0].ram==ms[1].ram and ms[0].rawtags==ms[1].rawtags
+            retired_rows.append(dict(caller=name,parent={k:results[0][k]for k in('A','X','Y','P')},
+                native_only={k:results[1][k]for k in('A','X','Y','P')}))
+        death=[N.fork(m)for m in pair]
+        for m in death:N.invoke(m,'HuDeathStart',a=33,p=0x21)
+        Containers.Model.compare(death,min(180,minimum));before=entries.copy()
+        for _ in range(8):
+            for m in death:m.controller_pad=0;Frames.frame(m,whole_pass=True)
+            Containers.Model.compare(death,min(180,minimum))
+        death_scope=dict(API='HuDeathStart slot7; declared owning component, not natural damage',
+            following_Main=8,getter_entries=dict(entries-before),engine=N.get(death[1],'GameEngineSubroutine'),
+            lives=N.get(death[1],'NumberofLives'),pending_fields=sorted(death[1].funding_watch))
+    return dict(ROM_SHA256=sha256(raw).hexdigest(),actual_Select_Start_cold=True,cold_getter_entries=cold_entries,
+        ordinary_pause_resume=phases,retired_actual_API_native_query_contract_change=retired_rows,
+        full_BtCheck_unchanged=True,private_RAM_exact_after_retired_queries=True,owning_death=death_scope,
+        baseline_and_detached_Main_RAM_SMC_VRAM_maps_exact=True,
+        SMC_reads_before_first_overwrite=[dict(address=a,tag=t,PC=p,count=n)for(a,t,p),n in sorted(reads.items())],
+        first_overwrites=[dict(address=a,tag=t,PC=p,count=n)for(a,t,p),n in sorted(overwrites.items())],
+        minimum_SP=minimum,optimistic_PC_redirection_only_not_source_overlay=True,
+        retired_query_fault_parity_intentionally_not_claimed=True,natural_death_or_respawn_not_claimed=True,outputs=0)
+
+
+def box_fallbacks(raw):
+    seed=cold(raw);base=type(seed);cpu_base=N.NesMPU;unit=0x5800;program=bytes.fromhex('c00cf004c00dd0052828a00060')
+    class View(base):
+        def __getitem__(self,at):
+            if isinstance(at,int)and unit<=at<unit+len(program):return program[at-unit]
+            return super().__getitem__(at)
+    def clone(enabled,tag):
+        m=list.__new__(View);list.extend(m,list.__iter__(seed))
+        for key,value in seed.__dict__.items():setattr(m,key,value if key=='bundle'else deepcopy(value))
+        m.enabled=enabled;m.hits=0;m.raw_page(1,tag);N.put(m,CurrentBank=tag);return m
+    class CPU(cpu_base):
+        def step(self):
+            m=self.memory
+            if m.enabled and self.pc==0xb8b8 and m.rawtags[1]==207:
+                assert self.a==33 and self.y==13;m.hits+=1;self.pc=unit
+            return super().step()
+    rows=[];minimum=255
+    for tag,entry,at,preimage in((129,0xb978,14728,'c902f0054cd68f'),(223,0xb5e6,783862,'0848203daf90056828a0016068284cd68f')):
+        assert raw[at:at+len(bytes.fromhex(preimage))]==bytes.fromhex(preimage)
+        cases=0
+        for p in(0x20,0x31,0x69,0xe5):
+            for a in(0,2,33,255):
+                for x,y in((0,0),(7,91)):
+                    pair=[]
+                    for enabled in(False,True):
+                        m=clone(enabled,tag);c=CPU(memory=m,pc=entry);c.a=a;c.x=x;c.y=y;c.p=p;c.sp=224;c.stPushWord(0x5aff)
+                        for _ in range(200000):
+                            if(c.pc,c.sp)==(0x5b00,224):break
+                            minimum=min(minimum,c.sp);assert m[c.pc];c.step()
+                        else:raise AssertionError('Box fallback component bound')
+                        assert m.hits==int(enabled);pair.append((m,(c.a,c.x,c.y,c.p&0xef,c.sp)))
+                    (old,ra),(new,rz)=pair;assert ra==rz
+                    assert old.ram==new.ram and old.rawtags==new.rawtags and old.chr_latches==new.chr_latches
+                    diff=[i for i in[*range(0x17b),*range(0x200,0x800),*range(0x5c00,0x8000)]if old[i]!=new[i]]
+                    assert diff==[0x162,0x16c,0x16d],(tag,p,a,x,y,diff)
+                    cases+=1
+        rows.append(dict(raw_bank=tag,entry=entry,entry_file=at,preimage_hex=preimage,cases=cases))
+    return dict(ROM_SHA256=sha256(raw).hexdigest(),genuine_Rash_cold_seed=True,
+        declared_raw33_fallback_entry_components=rows,all_current_additional_Box_control_leads_exercised=True,
+        exact_AXYP_SP_physical_RAM_maps=True,only_internal_SMC_publication_differences=[0x162,0x16c,0x16d],
+        minimum_SP=minimum,optimistic_PC_redirection_only_not_source_overlay=True,outputs=0)
+
+
+def snapshot_buffers(raw):
+    b=bundle(raw);base=W.address(b,'RgAudioCpuZp');backup=base+155;fields=(0x162,0x16a,0x16c,0x16d,0x179);prg=raw[16:1048592]
+    save=b''.join(bytes((0xad,at&255,at>>8,0x8d,(backup+i)&255,(backup+i)>>8))for i,at in enumerate(fields))
+    restore=b''.join(bytes((0xad,(backup+i)&255,(backup+i)>>8,0x8d,at&255,at>>8))for i,at in enumerate(fields))
+    def finds(pattern):
+        result=[];at=0
+        while(at:=prg.find(pattern,at))>=0:result.append(16+at);at+=1
+        return result
+    saves,restores=finds(save),finds(restore);assert saves and restores
+    restore_reads={at+6*i for at in restores for i in range(5)};readers=[]
+    for i in range(5):
+        pattern=bytes((0xad,(backup+i)&255,(backup+i)>>8));hits=finds(pattern)
+        readers.append(dict(address=backup+i,LDA_abs_files=hits,noncanonical_restore_aliases=[at for at in hits if at not in restore_reads]))
+    other_reads=[]
+    for op in(0xae,0xac,0x6d,0xed,0x2d,0x0d,0x4d,0xcd,0xec,0xcc,0x2c,0x6c,0x0e,0x2e,0x4e,0x6e,0xce,0xee):
+        for i in range(5):
+            for at in finds(bytes((op,(backup+i)&255,(backup+i)>>8))):
+                other_reads.append(dict(file=at,opcode=op,address=backup+i,context=raw[max(16,at-6):at+9].hex()))
+    assert not other_reads,('Unclassified snapshot data/indirect read',other_reads)
+    indexed=[]
+    for op in(0xbd,0xb9):
+        for at in finds(bytes((op,base&255,base>>8))):
+            indexed.append(dict(file=at,opcode=op,context=raw[max(16,at-28):at+14].hex()))
+    assert[(r['file'],r['opcode'])for r in indexed]==[(515494,0xbd),(204043,0xb9),(220417,0xb9)]
+    assert raw[515483:515485]==bytes.fromhex('a212')
+    assert all(raw[at-10:at-8]==bytes.fromhex('a010')for at in(204043,220417))
+    assert all(not r['noncanonical_restore_aliases']for r in readers)
+    source=[]
+    for name,needles in(('src/roster_audio.s',('ZpCount=24','ZpCount=17')),
+            ('src/rogue_dawn_audio_reader_v6.s',('ldx #18','sta RgAudioCpuZp,x','lda RgAudioCpuZp,x')),
+            ('src/smb2_roster_audio.s',('.repeat 12,I','RgAudioCpuZp+I')),
+            ('src/dragon_power_audio.s',('ldx #4','RgAudioCpuZp,x')),
+            ('src/rogue_dawn_audio_scheduler_hooks_v3.s',('RdsSmcBackup=RgAudioCpuZp+155','RdsSaveSmc','RdsRestoreSmc')),
+            ('src/smb2_roster_common_audio_v9.s',('S2CommonSmc=RgAudioCpuZp+155','S2CommonSaveSmc','S2CommonRestoreSmc'))):
+        data=(Frozen.Service.R/name).read_text();assert all(n in data for n in needles),(name,needles)
+        source.append(dict(path=name,SHA256=sha256(data.encode()).hexdigest(),required_source_fragments=list(needles)))
+    return dict(ROM_SHA256=sha256(raw).hexdigest(),RgAudioCpuZp=base,snapshot_window=[backup,backup+5],
+        complete_five_field_save_files=saves,complete_five_field_restore_files=restores,
+        snapshot_absolute_readers=readers,indexed_base_reader_contexts=indexed,
+        other_absolute_data_RMW_or_indirect_readers=other_reads,
+        current_source_lifetime_bindings=source,copy_buffers_are_transport_not_target_selection=True,
+        current_indexed_readers_initialise_X18_or_Y16=True,max_indexed_borrow_offset=18,
+        snapshot_offset155_is_disjoint=True,outputs=0)
+
+
+def final_proposal(raw):
+    q=layout(raw);arrays=[]
+    def owned(at,new):
+        old=raw[at:at+len(new)];arrays.append(dict(file=[at,at+len(new)],bytes=len(new),
+            old_hex=old.hex(),new_hex=new.hex(),old_SHA256=sha256(old).hexdigest(),new_SHA256=sha256(new).hexdigest()))
+    block=q['detached_funded_piece'];owned(block['file'][0],bytes.fromhex(block['new_hex']))
+    at,old,new=normalizer(raw);assert raw[at:at+len(old)]==old;owned(at,new)
+    at=q['upper_test_proposal']['file'];assert raw[at:at+4].hex()=='c922b00a';owned(at,bytes.fromhex(q['upper_test_proposal']['new_hex']))
+    edge=q['other_cohort_branch_rebinding'][0];owned(edge['file']+1,bytes((edge['new_operand'],)))
+    for row in q['four_table_operands']:owned(row['instruction_file']+1,row['new_target'].to_bytes(2,'little'))
+    assert raw[244077:244092]==bytes.fromhex('a9548d6c01a9ba8d6d01a9cf205a01')
+    owned(244078,b'\x61')
+    occupied=[i for row in arrays for i in range(*row['file'])];assert len(occupied)==len(set(occupied))==556
+    serial=b''.join(row['file'][0].to_bytes(4,'little')+row['bytes'].to_bytes(4,'little')+bytes.fromhex(row['old_hex'])+bytes.fromhex(row['new_hex'])for row in sorted(arrays,key=lambda r:r['file'][0]))
+    backup=snapshot_buffers(raw);transport=raw33_transport(raw)
+    return dict(ROM_SHA256=sha256(raw).hexdigest(),exact_detached_envelopes=sorted(arrays,key=lambda r:r['file'][0]),
+        total_owned_bytes=556,actual_changed_bytes=sum(a!=z for row in arrays for a,z in zip(bytes.fromhex(row['old_hex']),bytes.fromhex(row['new_hex']),strict=True)),
+        framed_array_SHA256=sha256(serial).hexdigest(),relocated_entry=q['new_HuResolve_entry'],
+        palette_DkPrepare_Legacy_and_all_row_suffixes_unchanged=True,
+        native_query_scope='Only raw33 canonical owning Adder/Box calls, saved C1 established by complete native frontends; Y0/native C1 without private code',
+        internal_return_contract='0162/016C/016D may retain Hu row instead of last private leaf. These are caller-published farcall operands, not stable getter results.',
+        invalid_cache_contract='Native-only getters remain usable after actual BtRetire; public full BtCheck/cache/cookie and private admission unchanged. Old rejection parity not claimed.',
+        snapshot_transport_binding=backup,raw33_caller_transport=transport,whole_ROM_composed=False,source_overlay_mounted=False,native_or_delivery_grant=False,
+        source_model_allflags_foreign_fullroutes_after_grant_still_required=True,outputs=0)
+
+
+def moved_code_ingress(raw):
+    b=bundle(raw);targets=set(range(0xb84b,0xb854))|set(range(0xb8b8,0xb8d8))|set(range(0xba54,0xbacd))
+    def macros(data):
+        hits=[]
+        for i in range(max(0,len(data)-11)):
+            p=data[i:i+12]
+            if p[0]!=0xa9 or p[2:6]!=bytes.fromhex('8d6c01a9')or p[7:]!=bytes.fromhex('8d6d01a9cf'):continue
+            target=p[1]+256*p[6]
+            if target in targets:hits.append(dict(offset=i,target=target,hex=p.hex()))
+        return hits
+    assert macros(bytes.fromhex('a9548d6c01a9ba8d6d01a9cf'))==[dict(offset=0,target=0xba54,hex='a9548d6c01a9ba8d6d01a9cf')]
+    prg=macros(raw[16:1048592]);assert prg==[dict(offset=244061,target=0xba54,hex='a9548d6c01a9ba8d6d01a9cf')]
+    regions=[];pages={37:((728,729,730,731,732,733),6),38:((),0),
+        39:((301,305,337,362,363,440,819,666),8),40:((),0),41:((),0),42:((991,992),2),43:((),0)}
+    for owner,(indices,count)in pages.items():
+        data=b''.join(raw[1048592+p*1024:1048592+(p+1)*1024]for p in indices)
+        found=macros(data);assert not found,(owner,found)
+        regions.append(dict(role='authenticated_common_code_rows_'+str(owner),pages=list(indices),code_rows=count,
+            bytes=len(data),SHA256=sha256(data).hexdigest(),bankCF_moved_code_farcall_tuples=found))
+    head,streams,_=Packet.extract(raw)
+    for name,data in zip(('Prince_runtime','Prince_metadata','Prince_staged_state'),streams,strict=True):
+        found=macros(data);assert not found,(name,found);regions.append(dict(role=name,bytes=len(data),SHA256=sha256(data).hexdigest(),bankCF_moved_code_farcall_tuples=found))
+    regions.append(dict(role='Prince_decoder_loader',bankCF_moved_code_farcall_tuples=macros(head[-704:])))
+    seen=set()
+    for seg in b['segs'].values():
+        if seg['name'].strip('"')not in('FF_STREAM','BW_STREAM','BT_STREAM','CF_CARRIER','QW_STREAM','KR_KERNEL_IMAGE','ARTHUR_CACHE_EXEC','WF_TEMPLATE_CHR'):continue
+        at,size=int(seg['ooffs'],0),int(seg['size'],0)
+        if(at,size)in seen:continue
+        seen.add((at,size));data=raw[at:at+size];found=macros(data);assert not found,(seg['name'],found)
+        regions.append(dict(role=seg['name'],file=[at,at+size],bytes=size,SHA256=sha256(data).hexdigest(),bankCF_moved_code_farcall_tuples=found))
+    q=static_domains(raw,targets)
+    return dict(ROM_SHA256=sha256(raw).hexdigest(),sole_bankCF_moved_code_farcall=prg,
+        current_authenticated_common_copy_domains_reference_receipt='036c9d2b5bfb580bcaadd39dbf9add34e3bd1b28733388d576bba57dd547eb28',
+        source_copy_rows_not_reloaded=True,current16a_Prince_decoded=True,scanned_domains=regions,
+        all_structured_target_tables_exclude_moved_code=q['structured_indirect_target_domain_exclusion'],
+        four_table_compiler_references=q['current_compiler_references'],
+        private_RAMP_near_targets_are_not_PRG79=True,arbitrary_computed_invalid_addresses_not_a_legal_entry_contract=True,
+        opcode_or_data_placed=False,outputs=0)
+
+
+def raw33_transport(raw):
+    off=lambda pc:16+124*8192+(pc&8191)
+    expected={0xa554:'8aa8babd01017d02014cfba4',
+        0xa4fb:'a20edd1ea5f004ca10f8004c16a7',
+        0xa716:'ad0260c929f0034c24a84cc7a8',
+        0xa824:'8a0a0a4c09a5',
+        0xa509:'0a0a8d6c01a9b669008d6d0198aa6868a9cf4c0da6',
+        0xa60d:'8d620168a8284c5d01'}
+    rows=[]
+    for pc,text in expected.items():
+        at=off(pc);data=bytes.fromhex(text);assert raw[at:at+len(data)]==data,(hex(pc),raw[at:at+len(data)].hex())
+        rows.append(dict(PRG=124,CPU=pc,file=at,bytes=data.hex(),SHA256=sha256(data).hexdigest()))
+    sums=raw[off(0xa51e):off(0xa51e)+15];assert len(set(sums))==15
+    return dict(current_actual_raw33_legacy_path=rows,return_address_checksums=list(sums),
+        exact_domain='A1CC raw33 goesA554; return-PC checksum selectsX0..14; raw33 bypassesMini41 atA716; fourASLs publishB600+16X, CFbank, thenrestorecallerframe.',
+        root_word_is_published_before_Hu_dispatch=True,no_old_getter_target_reused=True,
+        expected_geometry_rows=[0xb6c0,0xb6d0],owning_complete_frontend_C1_proof='82847 Adder512/Box512 allvalidP/fourXY',
+        arbitrary_private_entry_with_C0_not_an_owning_Adder_call_contract=True,outputs=0)
 
 
 def ingress(raw):
@@ -906,7 +1197,9 @@ if __name__=='__main__':
         'menu-inspect':lambda raw:construct_menus(raw,True),'construct-menus':construct_menus,
         'guard-units':guard_units,'guard-liveness':guard_liveness,'smc-readers':smc_readers,
         'guard-return-interrupts':guard_return_interrupts,'constructor-interrupts':constructor_interrupts,
-        'static-domains':static_domains,'normalizer-interrupts':normalizer_interrupts}
+        'static-domains':static_domains,'normalizer-interrupts':normalizer_interrupts,'smc-protocol':smc_protocol,
+        'smc-lifecycle':smc_lifecycle,'box-fallbacks':box_fallbacks,'snapshot-buffers':snapshot_buffers,
+        'final-proposal':final_proposal,'moved-code-ingress':moved_code_ingress,'raw33-transport':raw33_transport}
     ap=argparse.ArgumentParser(description=__doc__);group=ap.add_mutually_exclusive_group()
     for mode in modes:group.add_argument('--'+mode,action='store_true')
     args=ap.parse_args();raw,info=load()
