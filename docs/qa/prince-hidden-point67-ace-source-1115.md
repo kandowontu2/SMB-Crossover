@@ -57,3 +57,52 @@ The reached scope is genuine cold plus 320 ordinary neutral/Right Main calls.
 Remaining source gates: real cold/readback, same ordinary hidden approach,
 head and sweep contracts, reached interrupts, full route, natural M/F/Star,
 and public lifecycle components. Natural 1UP acquisition remains open.
+
+## Completed source qualification
+
+All required repair regression jobs are terminal with zero output files.
+The entries above retain the initial fixture negatives; they are superseded
+only for the corrected observer/driver scope.
+
+| Gate | Receipt | Measured scope |
+| --- | --- | --- |
+| Actual cold and portable inverse | `0a91e414091121bf1df8dcdffb6ba245ddb17bee7b8f83bff79567be728d7f47` | First B310/SP189, all 67 bytes before SMC, both cookies, constructors 79 bytes, native leaf mapping and strict input rejection |
+| Actual encoded transport | `eaf641e172d05f9c957ff5253e708791d3d7df214cb68d8bebbc7c13ba137091` | Every decoded byte exact: 8159/6112/1607; overlapping-stream unread margins 414/163; no array mounts |
+| Same ordinary hidden approach | `8589381b0bb11432fc4f4cd188d7d3af725a547acafd878736bd5022e5059fe2` | Hidden A0/C0/B36D0, no matching Wall/kind20 or old C427 backtrack; natural 1UP policy still negative |
+| Native head and sweep primitives | `00950191d1d1a3ee4f55205d5e89df0fd185f9ea3b9e99740fff0ef15bb37179` | 42 compiled head queries retain raw 5F/60; 4096 sweep pairs, including real pipe solidity and unchanged nonhidden/vine admission |
+| Reached IRQ/busy-NMI | `2e6c4550c4695490a7ede4ea46664d0935804aa3d1ce6cec5a2bfd640921d4ba` | Genuine point/native-leaf cuts; exact paired effects, private RAM, transport and live stack; no masks |
+| Full ordinary route and lifecycle | `c0392747b46b050e0734c485611cb033792aa112b6b0ea7e231d1c8bd9cb52c3` | 8644 Main entries=returns, no pending Main, full 1-1 and 25 living grounded returns in 1-2; terminal 40/176, HP5/lives2/native2/Sword1 |
+| Natural Star | `f8bad8f45d75c0cb8b2e58804bd7188fa068faf3d3783e85d8d5c3681aae6039` | Birth3853, mature3918, physical collector3989, score credit3994, exactly 25 returned Prince updates to4019 |
+
+The full route genuinely earns Mushroom and Flower. Its earned Flower
+checkpoint is native tier2/Sword1/HP4/lives2 at1260/112. Warm32 and the
+compiled ChgAreaMode component preserve the sword through 243 Main calls
+and 25 active next-area calls. Explicit KillPlayer sets native tier0/engine11;
+Continue and menu components also reset native tier0. The menu component
+uses the declared rendering-off setup because the source peripheral lacks
+physical vblank. These are public-component tests, not natural death/menu
+gameplay. No upgrade or health state is seeded.
+
+Star uses the real actor: collector C7B3/SP219 has positive4x2 overlap;
+actual erase and popup6/cue32 occur, then the target timer credit changes
+score2600→3600. Endpoint is actual Main return82BE/SP252, with Main and
+Prince entries=returns4019,1696/176,HP4/lives2/native2/Sword1/Star33.
+First BBC1/SP203 verifies both cookies and4193 static bytes; the separate
+first B310 witness verifies all67 before the relocated B338 SMC operand.
+
+The head/sweep test uses explicitly synthetic tile/position primitives and
+a declared D660 tail spy. It does not claim natural vine traversal, block
+birth or a 1UP collector. No helpers were added or moved. Natural 1UP,
+equal-facing F090 exits, remaining abilities, audio and performance stay open.
+
+## Frozen review interfaces
+
+- C: `compose_prince_hidden_point67_ace_1115.py`, SHA `1fce2b546003860e31da49723c3ac185a25b5420e2ba88143434516c59a4ee27`.
+- Full F: `replay_prince_hidden_point67_full_ace_1115.py`, SHA `fd0bd493ed522a2856a3f91a3300cf6ab1dc87ff91efa5ea3450e11ca2a4d371`; LF Lua `0b049ab2840bdd286f95dd9c8a88f4cfc374a5883ca43d58c01cb09f42421224`.
+- Star F: `replay_prince_hidden_point67_star_ace_1115.py`, SHA `fbdd81a74f9259ff9a36bb1912d235fb300609f4e83f97597a7123c35f67b115`; LF Lua `ee13fbe7423a8e0f070e49b87d8313d45328c64672d00055dca70e5da6b4f589`.
+- Same-control diagnostic F: SHA `c79c793680c362d945a4befabb46486d284f708c71e6673a63d2be158243d6d3`; LF Lua `461dd1ab6eb716e5510c6f36441425dfce36602f9b326716a2f1d7d0d0a095c9`.
+
+Full API is `F.controller(candidate7fb3)`; Star API is
+`F.controller(candidate7fb3, 'star', 8)`. Both require native variant3.
+Root owns subsequent native staging and delivery. These source receipts
+do not claim a native result or an installed nightly update.
