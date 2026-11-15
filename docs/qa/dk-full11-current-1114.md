@@ -311,3 +311,15 @@ continuation, not an enemy timing or physics alteration.
 No full1-1 clear, native playtest, new helper, game change or delivery is
 claimed. Source jobs use absent `build/dk-full11-current-1114`, max-files1,
 timeout600 seconds, and zero output files. Root owns the single Mesen queue.
+
+The separate supported-edge controller `eae8b13647143d1a3fef1346e303af338c43e0952ce888ec9e9487227cc3af48`
+is a retained source negative. The delayed-two-poll route lands1500/112 and
+walks A-released, but loses ground at1512/112 before its requested1527 takeoff.
+Its conservative support assertion stops at Main1077; no injury or geometry
+change is implied. Receipt `1533bb55b6b5655e344877db8ec1655e78355fd9ead27ca279c9a346750e02a3`.
+Earlier1527 ground was reached by a jumping route and does not establish
+continuous support from1500. The next measured route must launch while real
+support remains, after the actual leading head probe clears the upper brick.
+The repeat source process30610 ended with zero files in the absent
+`build/dk-launch-latch-current-1114` root; a prior process result was lost at
+compaction, so no result is inferred from its disappearance.
