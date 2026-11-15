@@ -110,3 +110,19 @@ asserts ordered new launch→reflection→support→fresh jump→physical collec
 and support_count greater than its launch baseline. All source output roots
 are absent/zero files; no native Flower proof is claimed before root's queue.
 Defaults30ba/0a665 source and59505 checker remain byte-identical.
+
+Root33476 actual590/061b is a terminal native route negative, receipt
+a720d1b1035d4c1e44bf1b755de7a045f372c5bfe3558f47069aa7f5af97c165.
+Its genuine M/+25 proof remains valid, but2300 Main/2616 physical reaches
+only maxX724, with HP3/lives2 and ten real star supports. It never reaches
+the Flower. The late generic support-jump field at723 is not a current
+support witness; the source pass cannot replace this native result. Root's
+separate `gimmick-flower-native-1115.md` preserves the complete scope.
+
+The new pipe-only input handshake prototype is retained as a compile-only
+negative before gameplay. Helper69623 and root77841 both fail generated
+Lua line513 with "end expected near gmInput". Frozen prototype factory
+fef04cfdd94bc85e8a259356e21a3ec3603d9bea19a6d6b8ff4b0890c0c7a05d;
+checker6279436ec05c01b2205afa497d34af582865ffca6cfa13ab37c01e3417187e97.
+It adds no gameplay evidence. The generated text is being inspected in RAM
+and its new files corrected; old061b/default factories remain unchanged.
