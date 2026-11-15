@@ -99,8 +99,8 @@ end)
   if dkStar.collected and dkMoves~=dkStar.lastMoves and active()then
    assert(dkMoves==dkStar.lastMoves+1 and r('StarInvincibleTimer')>0,'Actual resumed Star-protected DK movement')
    dkStar.lastMoves=dkMoves;dkStar.resume=dkStar.resume+1;dkStar.final_score=dkScore()
-   assert(dkScore()>=dkStar.collector.score+1000,'Actual native Star score1000')
-   if dkStar.resume==25 then finish('natural-star-vertical-and25-resume');return end
+   if dkScore()>=dkStar.collector.score+1000 then dkStar.score_awarded=dkStar.score_awarded or{resume=dkStar.resume,state=state(),score=dkScore()}end
+   if dkStar.resume==25 then assert(dkStar.score_awarded,'Actual native Star score1000 after normal popup delay');finish('natural-star-vertical-and25-resume');return end
   end
  end''')
     text=once(text,'local function controls(c)','local function dkFlowerControls(c)')

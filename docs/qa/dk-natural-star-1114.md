@@ -27,3 +27,20 @@ The corrected component will retain all actual collector/producer witnesses
 and require the1000 credit by25 resumed calls, recording its first observed
 credit step. This changes only the premature score assertion, not controls,
 the popup timing, game rules or native-qualified M/F/full factories.
+
+Corrected source45055 is TERMINAL PASS:1891 returnedMain/1771 actual DK
+calls, receipt7fa55b2c4d52d38dcf49474f120e2c2a7d1706e74200061e8bba49c02237e027.
+The same real M/F and tier2 Down+B/actual Cset kind2/supported roll precede
+the mature native Star collector. Timer35/music64/cue32, real erase and
+unchanged tier2 are observed at the actual native return. Score2705→3705 is
+credited on the fifth resumed DK call. After25 protected calls, terminal
+1680/176/engine8/lives2/tier2/power2/Star34. Ten real barrels, one earlier
+ordinary injury during the preserved Flower component. No game change or
+synthetic admission is involved. Native S/attack verification remains pending.
+
+Root-only API: replay_dk_natural_star_1114.controller(exact571).
+Lua3920406af59cc8065c6648583ebed83630ec3946f6f81cab47a7f02e4a9a34db.
+Factory0579a887a42a8a75e1cbc2ec50d0422eb11c2935105a702eafb361c4cfee02ad;
+checkera4eb4a7283336d4c1388a30ee99646905a39a65dc572d01986a4928c672087a4.
+All M/F/full dependencies stay frozen. Source uses the absent zero-file
+build/dk-launch-latch-current-1114 root, max-files1/600seconds.
