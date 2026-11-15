@@ -49,3 +49,12 @@ and stays well ahead during the jump. Chasing it scrolls the camera far
 enough to prevent returning to the original launch point. The next attempt
 charges before jumping near the real block wall and releases while airborne;
 it retains the actual support and physical Flower-collector requirements.
+
+Airborne attempt39087 also remains negative:5,000Main/HP3/lives2, Lua
+24dd8dfde00fd24c7b0b74541c192221ba555e1c39030aa2b7e7e53ef89177ee,
+receipt a98c337628ab7b6a99ef393b97cba5672b5445e2bfdfbd83b7ca01154b00fcfe.
+The real star does bounce off the block wall, but the player arrives too late
+and remains outside its support width during descent. The bounded trajectory
+records starX/Y and confirms zero actual GmRideStar transitions. No item,
+health, terrain, inventory or physics changes were made. The physical Flower
+collection gate remains open; spawning it alone is not a pass.

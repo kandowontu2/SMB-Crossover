@@ -30,30 +30,35 @@ return function(c)
  end
  if item then
   if item.state<128 then return{}end
-  if phase~='star-align'and phase~='star-face'and phase~='charge'and phase~='board'and phase~='flower-jump'then phase='star-align'end
+  if phase~='star-align'and phase~='star-face'and phase~='charge'and phase~='air-charge'and phase~='board'and phase~='flower-jump'then phase='star-align'end
   local v=c.r('GmRam00CC');if v>=128 then v=v-256 end
   local stopping=c.x+v*math.abs(v)/32
   local status=c.r('GmRam0091')
   if phase=='star-align'then
-   if c.grounded and c.x>=1166 and c.x<=1170 and math.abs(v)<=2 then phase='star-face';return{right=true}end
-   return{right=stopping<1167,left=stopping>1170}
+   if c.grounded and c.x>=1218 and c.x<=1222 and math.abs(v)<=2 then phase='star-face';return{right=true}end
+   return{right=stopping<1219,left=stopping>1222}
   elseif phase=='star-face'then phase='charge';age=0;return{b=true}
   elseif phase=='charge'then
    age=age+1;assert(age<180,'Bounded original star charge')
-   if status>=169 then phase='board';age=0;flower.required_support=(flower.support_count or 0)+1;return{}end
+   if status>=169 then phase='air-charge';age=0;return{b=true,a=true}end
    return{b=true}
+  elseif phase=='air-charge'then
+   age=age+1
+   if age>=8 then phase='board';age=0;flower.required_support=(flower.support_count or 0)+1;return{a=true}end
+   return{b=true,a=true}
   elseif phase=='board'then
    age=age+1
    if (flower.support_count or 0)>=(flower.required_support or 1)and c.grounded and not c.lastA then
     phase='flower-jump';age=0
     return{left=c.x>item.x-8,right=c.x<item.x-8,a=true}
    end
+   assert(age<200,'Bounded actual airborne star boarding')
    if status==0 then phase='star-align';return{}end
    local sx=(c.r('GmRam00AF')+256*c.r('GmRam00B9'))/16-8
    flower.board_trace=flower.board_trace or{}
    if age%8==1 then
     local trace=flower.board_trace
-    trace[#trace+1]={step=c.frame,x=c.x,y=c.y,star_x=sx+8,status=status,ground=c.grounded,vy=c.r('GmRam00C2')}
+    trace[#trace+1]={step=c.frame,x=c.x,y=c.y,star_x=sx+8,star_y=(c.r('GmRam009B')+256*c.r('GmRam00A5'))/16,status=status,ground=c.grounded,vy=c.r('GmRam00C2')}
     if #trace>16 then table.remove(trace,9)end
    end
    local pad={right=stopping<sx-1,left=stopping>sx+2}
