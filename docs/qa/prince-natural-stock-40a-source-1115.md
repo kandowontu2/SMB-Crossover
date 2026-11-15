@@ -322,3 +322,14 @@ tile is96 and actual attribute65. Later clear point reads overwrite the
 last-eight ring before this writer, so this receipt alone does not retain
 the causal hidden-solid query or confirm a false wall. A separate latch
 must preserve first5F/60 point/consumer and matchingkind20 before a proposal.
+
+First-point latch23276 retains the genuine hidden-solid reads on174fa,
+receipt `43b6d2a90c0a14e77380a2333d78d8e2eeb1d21b1953f24f512b8ca7f7505f22`,
+Lua `9eecbc04c511c30ee7e3993b1a076af52da40ba8e9557b44f73fc39b4ef5cc0d`.
+B310/SP191 at1032/142 returns raw96/C1/P31 toBFCC/SP193 onPrince2060;
+cell1024/128, actual attribute65 from PRG127:EF96. Later1032/128 returns
+96/C1 throughA49D. The kind20/backtrack remains80091's. Its first-four-point
+cap fills before the later same-update matching condition, so that causal
+field is still absent. The next observer uses a material-invocation serial
+at common entryBDE5 and immutable first matching Wall-write/kind20 snapshots,
+while keeping these first reads and every earlier negative unchanged.
