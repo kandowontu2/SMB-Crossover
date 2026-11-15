@@ -218,3 +218,14 @@ Read-only current pose records measure tile Y offsets down to-48 in pose78,
 versus-37 standing. Together with the measured head row144, these give no
 evidence for changing the head worker or donor jump constants. No collision,
 ability, helper, ROM or allocation change is proposed for hidden1UP here.
+
+Source50574 is a control-admission component, receipt
+`2b0fdcfaebd4b97a5c06fe0eabbd546bdd572040068346ccfeb9c5fe695ea769`.
+It clones one genuinely reachedMain1962 cap checkpoint in memory, retaining
+the controller peripheral, all actors and current40a. Four branches apply
+Up/A/Right+A/B+Right for eight actual Main updates, then neutral through80.
+A/Right+A/B+Right continue action42 and fall; Up also returns to that step.
+No branch admits action3/4 or qualifies an item. HP4/lives2 remain unchanged.
+These are ordinary-input component observations, not seeded gameplay or a
+natural1UP/native proof. Next source successor holdsUp through the original
+partial-cap climb before the old prefix injects B+Right/action42.
