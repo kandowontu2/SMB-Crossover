@@ -250,3 +250,65 @@ same frozen danger declaration/call to Bob's exact original controller and
 proves removing only those additions restores the old Bob text. It preserves
 all Bub ed411/17f9 dependencies during root's native run. Bob source is a new
 independent cold case, with no automatic qualification from Bub.
+
+Bob early-defence source24709 separately passes1824 returned Main/actual
+entries. Frozen `replay_bob_flower_close_defence_40a_1115` SHA256 is
+`40c7e3035c85a76110d685b21793cb9cda504a7d918ea6d32170e6f30bad8489`,
+Lua `1b858e8c06776d17e190a6945ae321d4f1bac0f69f53bde25e3c0d7855e43560`,
+receipt `a83854367ab9bba890cd53504c40c2dd27848c06b166641064ebc73be961a346`.
+Same actual19px source shot859/trap+pop864, complete Bob actor66 M/F/60/+25,
+terminal1245/112/lives2/power2/flags7. Native remains a separate gate.
+
+Root2797 proves the early defense actually works natively on Downloads40a:
+fresh B862 at654/176, body[654,192,669,207], Goomba673/184,
+box[677,198,687,204], gap19; actual trap/pop867. All four pipes and first
+pit then pass with six real original supports including Flower support.
+It remains an overall native Flower negative, receipt
+`62263ed5bec20f1565b62e8bdc6f54fc02aba05d7f5ebb3bee4cf127c0ac45f6`,
+3177 Main/6677 physical, alive1246/176/lives2/power1 at rideage1400.
+RealFlower born1640/mature1704 at1248; actual takeoff1777 is1184/176,
+dx32/dy−16. Last pre-support align rows1798 have1215/140, dx1/dy13,
+held129/cached direction1. They do not support the discarded direction0
+hypothesis. No actual sixth-support entry/return or ceiling row was retained
+by that parent. A stale held A after landing keeps the controller under the
+brick row; no game/geometry defect or Flower collection is inferred.
+
+New `replay_bub_flower_ride_40a_1115` adds explicit actual support entry/return
+PC/SP and ceiling-clamp observers plus one bounded release/relaunch from real
+floor. Its initial metadata69827 rejects an obsolete JSR-after-clamp preimage
+before gameplay: retained v55 actually relocates the clamp to BbHeadCapture
+and JMPs back. Corrected unique current clamp preimage binds that actual
+code. Source24605 passes, Lua
+`c2a03f1c57802044d26096f09565207537fcbdd44887c91f239c465e78aee520`,
+receipt `5a62be4d34e7426b1aa0348526c553ab541a8afb7bcb68ec72b98862adf75252`,
+1831-independent baseline still1824 Main. Its rising-neutral alignment does
+not move the actual restart (1211/140), so it is retained as source proof,
+not represented as the native fix. Source entry/return is PC A448/A427,
+SP196/198, real support marker1, direction1, held129, selector0→1.
+
+Root froze the exact native2797 C8 LF controller as
+`tools/reference/bub40a_flower_c8e4_1115.lua` (61184 bytes, SHA c8e483d6…,
+commit d6a2497f). New `replay_bub_flower_margin_40a_1115` authenticates that
+complete byte identity; the two explicit role metadata substitutions must
+also yield exact previously qualified Bob1b858e8c text. It executes exact
+actual40a; no historical normalized ROM is mounted. This removes repeated
+historical controller regeneration without relaxing any old API.
+
+The margin changes only Flower grow-target34→44 and actual takeoff window
+30..36→40..46 at the same observed dy−16. This takes off farther left relative
+to the actual bubble while retaining the safe1144 run-up beyond the1136 pit.
+It preserves first five traversals/defense, records real support and ceiling
+contacts, and allows one verified floor release/relaunch. No game field,
+helper, terrain, velocity or actor changes are introduced.
+
+Margin source37412 **PASS**, factorySHA256
+`88a452e94489dea2749403abc193b7c4a2578b7a2e837183a0cf102af3d85b76`,
+Lua `e1403f313fcc58dcc30fbe5e193b3b195950dfec6f6fe62a7c59d5d6c9751763`,
+receipt `808f089ab906400dfea6d6c847d39c8f3a2b017cdddeec12603839636a1d58b1`.
+1831 Main/actual Bub entries. Flower takeoff1764 is1170/176 at dx44/dy−16;
+actual restart1785 entry/return is1203/142, direction1/held129, support128,
+selector0→1, PC A448/A427/SP196/198. No ceiling hit or retry occurs.
+Physical Flower collector1806 at1235/110 versus1248/119, flags1→7, actual
+erase/setup6/popup6/cue32/60 ages0..59,1700→2700; actual1806→1831 proves25.
+Terminal1236/112/lives2/power2/flags7. Native is pending root; Bob is a fresh
+independent source case. All old controllers and negatives remain frozen.
