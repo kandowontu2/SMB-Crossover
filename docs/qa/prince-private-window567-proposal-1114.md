@@ -141,3 +141,24 @@ current code consumers are STA D77B and LDA D7A1. No archive is restored and no
 ROM is composed. Native shared-caller mapping and complete lifecycle/new-cold
 transport remain separate gates; this result closes the decoded private data
 and preserved original reader domains.
+
+## Strengthened private-state and stack comparison
+
+Source55864 passes with receipt
+`ba0a92c4d8af6adddfb3c583665a41429d80d05bf10c1451115dcdf4b3beff3c`.
+Checker SHA256 is
+`4e38225c5fd157996c31192a7534af28294e55cc6c6657a14d61585dde48cd1d`.
+All792 renderer/ABI cases now compare complete private RAM, excluding only
+the three leased extents, intentionally remapped synchronous tile bytes,
+the bounded Byte pointer and cached pose-tag pointer bits. The cached
+format N/V bits remain exact. Stale, unconsumed tile positions in the same
+53-byte packet may retain the same intentional +65 transformation.
+Every actual Byte read stays within that particular pose's formatted record.
+All55 primitive IRQ, five actual warm-Main IRQ and five busy-NMI cuts preserve
+the caller's stack above the interrupt entry SP. The earlier finite render,
+tile255 and native-window retirement results remain unchanged.
+
+This is a leased source-model result, without a ROM composition or native
+graphics result. Complete pre-publication cold, death/lives, alternate-menu
+and same-area reload paths remain pending. The static consumer proof above
+is complete; it is not reopened by the older checker's pending-label text.

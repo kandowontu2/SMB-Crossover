@@ -45,6 +45,8 @@ def controller(raw,*,brick_runup=False,combat=False):
     end
   elseif progress=='late-finish-brick-wait' then""")
     if combat:
+        change("    if s.mode==2 or s.mode==6 or s.action==10 then attempt.hang=attempt.hang or s end",
+               "    if s.mode==2 or s.mode==6 or s.action==10 then\n      if not attempt.hang then attempt.hang=s;p.advanced=commits end\n    end")
         change("    elseif age>165 then\n      p.obstruction=",
                "    elseif age>165 and(not attempt.hang or commits-attempt.hang.commit>165)then\n      p.obstruction=")
         change("    assert(commits-earnedStage.sword_pause.start<300,'Bounded original sword encounter')\n    pad=128\n    changedAt=commits",

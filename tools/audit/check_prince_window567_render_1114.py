@@ -60,10 +60,24 @@ def run(raw,*,interrupts=False):
     parts,math=arrays(raw);seed,opening=cold(raw);original=Packet.extract(raw)[1]
     pair=(N.fork(seed),mounted(seed,parts));native=N.NesMPU;counts=Counter();minimum=255
     data_readers=Counter();data_writes=Counter()
+    old_bounds=Plan.tile_locations(original[1])[1]
+    bounds=[]
+    for data in(original[1],parts[1]):
+        rows={}
+        for frame in range(239):
+            tag=int.from_bytes(data[2*frame:2*frame+2],'little')
+            if tag==65535:continue
+            oldtag=int.from_bytes(original[1][2*frame:2*frame+2],'little');lo,hi=old_bounds[oldtag]
+            start=0xc800+(tag&0x3fff);rows[frame]=(start,start+hi-lo)
+        bounds.append(rows)
     for which,m in enumerate(pair):
+        m._pose_bounds=bounds[which]
         parent=type(m)
         class DataBus(parent):
             def __getitem__(self,at):
+                if isinstance(at,int)and 0xc800<=at<0xdfe0 and self.rawtags[2]==2 and getattr(self,'_render_pc',None)==(0xbcf4,3):
+                    lo,hi=self._pose_bounds[self._render_frame]
+                    assert lo<=at<hi,('Actual Byte reader exceeded the specific pose packet',self._render_frame,hex(at),hex(lo),hex(hi))
                 if isinstance(at,int)and 0xc800<=at<0xd466 and self.rawtags[2]==2:
                     pc=getattr(self,'_render_pc',None)
                     if pc:data_readers[pc]+=1
@@ -80,6 +94,7 @@ def run(raw,*,interrupts=False):
         before=([bytes(r)for r in m.ram],bytes(m[3:11]),bytes(m[0x15a:0x17b]),m.rawtags[:],m.chr_latches[:])
         native_before=bytearray(m[0x200:0x800])
         regs=(c.a,c.x,c.y,c.p,c.sp,c.pc);skip=N.get(m,'NmiSkipped')
+        protected_stack=bytes(m[0x101+regs[4]:0x200])
         c.irq()if kind=='IRQ'else c.nmi()
         for _ in range(100000):
             minimum=min(minimum,c.sp)
@@ -95,8 +110,10 @@ def run(raw,*,interrupts=False):
             assert N.get(m,'NmiSkipped')==(skip+1)&255
             native_before[0x7da-0x200]=native_after[0x7da-0x200]=0
         assert native_before==native_after,'ISR native RAM exact except busy audio duration'
+        assert bytes(m[0x101+regs[4]:0x200])==protected_stack,'ISR wrote above its owned stack extent'
         counts[kind]+=1
     def invoke(m,frame,facing,changed,flags=97):
+        m._render_frame=frame
         m.raw_page(2,2);N.put(m,CurrentBankC=2,GuestOamRotationActive=1,RgOamRotation=0,CurrentOAMOffset=0)
         m.ram[2][0x617]=frame;m.ram[2][0x615]=facing
         m.ram[3][0x1cfe:0x1d02]=bytes((48,0,176,1))
@@ -130,6 +147,31 @@ def run(raw,*,interrupts=False):
         # publisher commits those choices to MMC5 before pattern comparison.
         N.invoke(m,'X5PublishChr',a=0,x=0,y=0)
         return events,stream,packet,geometry_fields,c.processorCycles,regs
+    state_equivalence_cases=0
+    def private_equivalence(frame):
+        nonlocal state_equivalence_cases
+        count=pair[0].ram[2][0x200]
+        for bank in(2,3):
+            allowed=set()
+            for row in json.loads(GRANT.read_bytes())['envelopes']:
+                if(3 if row['stream']==0 else 2)==bank:
+                    allowed.update(range(row['live_PC']&8191,(row['live_PC']&8191)+row['bytes']))
+            if bank==2:
+                allowed.add(0xd7b1&8191)
+                allowed.add(0xd95f&8191)  # Cached tag high: low6 are relocated pointer bits.
+                # Smaller poses leave old, unconsumed tiles in the same
+                # existing53-byte synchronous renderer packet.
+                allowed.update(0x201+offset for offset in range(0,52,4))
+            else:allowed.update((0xbcf5&8191,0xbcf6&8191))
+            diffs={i for i,(a,b)in enumerate(zip(pair[0].ram[bank],pair[1].ram[bank]))if a!=b}
+            assert diffs<=allowed,(frame,bank,sorted(diffs-allowed)[:12])
+        assert pair[0].ram[2][0xd95f&8191]&192==pair[1].ram[2][0xd95f&8191]&192
+        assert all(a==b or b==a+65 for a,b in zip(pair[0].ram[2][0x201:0x235:4],pair[1].ram[2][0x201:0x235:4]))
+        for which,m in enumerate(pair):
+            tag=int.from_bytes((original[1]if which==0 else parts[1])[2*frame:2*frame+2],'little')
+            pointer=int.from_bytes(m.ram[3][0xbcf5&8191:(0xbcf5&8191)+2],'little')
+            assert pointer==0xc800+(tag&0x3fff)
+        state_equivalence_cases+=1
     cases=pieces=tile255=0;max_extra=-100000;min_extra=100000;cycle_deltas=Counter()
     for frame in range(239):
         decoded=Plan.geometry(original[1],frame)
@@ -142,6 +184,7 @@ def run(raw,*,interrupts=False):
             assert all(new==(old+65 if k%4==1 else old)for k,(old,new)in enumerate(zip(a,b)))
             assert left[3]==right[3]
             assert left[5]==right[5]
+            private_equivalence(frame)
             for old,new in zip(a[1::4],b[1::4]):
                 ow,nw=Plan.Census.Old.tile_window(old),Plan.Census.Old.tile_window(new)
                 assert pair[0].chr_latches[ow]==pair[1].chr_latches[nw]and old&62==new&62,(frame,facing,old,new,ow,nw,pair[0].chr_latches,pair[1].chr_latches)
@@ -162,6 +205,7 @@ def run(raw,*,interrupts=False):
                 assert left[5]==right[5]and left[3]==right[3]
                 assert all(b==(a+65 if k%4==1 else a)for k,(a,b)in enumerate(zip(left[2],right[2])))
                 flag_cases+=1
+                private_equivalence(frame)
     assert not data_writes
     # Current poses stop short of tile255. This explicit native-kernel unit
     # uses the renderer's existing five-byte one-part C200 packet, not actor
@@ -206,6 +250,9 @@ def run(raw,*,interrupts=False):
     q=dict(passed=True,input_F11_SHA256=sha256(raw).hexdigest(),lease_SHA256=GRANT_SHA,opening=opening,
         actual_render_cases=cases,actual_parts=pieces,actual_tile255_parts=tile255,
         all64_valid_hardware_flag_combinations=True,additional_ABI_flag_cases=flag_cases,format_representatives=representatives,
+        full_private_RAM_equivalence_cases=state_equivalence_cases,
+        only_private_differences='Three leased spans, renderer TileOut, synchronous packet tiles, bounded Byte SMC pointer, cached tag low6 pointer bits (format N/V exact)',
+        every_actual_Byte_read_within_specific_pose_packet=True,ISR_caller_stack_above_entry_SP_exact=True,
         explicit_native_packet_tile255_case=True,former_private0_retired_by_compiled_FmNativePrepare=True,
         native0through4_after_retirement_and_remap=native_banks,
         pose_data_actual_reader_PC_map_counts=[[pc,tag,count]for(pc,tag),count in sorted(data_readers.items())],

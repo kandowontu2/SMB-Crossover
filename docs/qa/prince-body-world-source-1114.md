@@ -417,6 +417,21 @@ The next source replay bounds an already admitted climb from its actual hang
 commit. That observer correction changes no navigation input or game byte;
 full-stage qualification remains pending.
 
+The climb observer successor66339 reaches the genuine late-brick top4001,
+then its horizontal-only progress timer expires4016 during ordinary run-up.
+Lua `f1d36ac9b12339bfae168b4a92335f5fd69867de1fbfffc7b19e223e39bd71af`,
+receipt `9ba195aa79ccfe32dabe71b722683ad9a1add116edd0da7a78b6b4167726d20e`.
+The next observer resets the progress bound once at actual hang admission;
+navigation inputs and game bytes remain unchanged. Source58975/Lua
+`a69e9bba0d95df765efcaeddb047e5ff6838a79276237f1bc2aac398046eecef`
+ends negative5207 at1729/143/HP4/lives2, sword2/pose171/action0, after the
+live opponent leaves admission and guard UID becomes0 at4507. Real earlier
+Goomba3503 and Koopa3747 defeats remain. Receipt
+`602e30149f47af6bcc07f75047ece1c94172882c26da302f1a41c6c67db3196f`.
+There is no flag/castle/1-2 claim. This exposes a lost-opponent drawn-sword
+lock for separate importer research, rather than establishing a new body or
+ledge geometry fault. No importer correction is mounted in this result.
+
 ## Read-only private sprite remap census
 
 `audit_prince_sprite_window_options_1114.py` only inspects current f11 bytes,
