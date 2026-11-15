@@ -49,7 +49,37 @@ before the original helper bound, as recorded in the separate fresh-step QA.
 It is not silently promoted to a current full clear. A separate single
 bounded completion31681 uses the same frozen53c1 text and cold-budget source,
 with a measured9000 Main ceiling and explicit native-state reporting if the
-fixture still ends without a receipt. That source invocation is pending.
+fixture still ends without a receipt. This single source invocation is now
+terminal **FULL PASS**, receipt
+`64e85342868ec28aca2a03726d31e3fd4604ea50c7919b2f54b1d98e9366e67f`;
+cold-budget receipt
+`ed3997c4e0f53243720c1833e337b22e10bdb0676316169a1e643230265a948f`.
+It records8644 Main entries=returns, none pending and25 living grounded
+completed1-2 returns. Terminal is40/176/world0/level1/area0/engine8/HP5/lives2,
+source7761 Prince updates, input0, idle15/mode0. FirstBBC1/SP203 checks both
+cookies/all4027B. The actual flag/castle/gap chain is asserted by the unchanged
+completion callback. There are no source array mounts or gameplay seeds.
+
+The two actual cold Mains8048 and8547 consume1,967,089 and1,967,107 CPU
+instructions (8,116,498 and8,116,546 model CPU cycles). Each reaches exactly
+three C000/SP204/P181 decoder entries with maps[254,3,2,255], both headers
+invalid, forcedblank and all224 immutable code bytes exact, then returns that
+same Main. Maximum ordinary Main cost is40,742 instructions. Thus neither
+increasing the ordinary500k budget nor changing the game is necessary.
+These CPU-model cycle counts do not establish physical hardware cadence.
+Decoder SHA256 is
+`f8d6d9707d38546e8030297c64f5479120b141590e6b6bb9cb6e9d8cc45c7575`.
+
+The actual native BlockBuffer confirms the first late pipe starts at2608:
+176-row cells2608/2624 have values18/19 and attribute5, native addresses
+915/916;192-row cells have values20/21, and208-row ground is84/attribute65.
+The two fresh partial requests are36 at6251 and35 at6299, both AF2E/SP198,
+at native2590 then2592. After those real decisions, Up begins at6334 from
+2593/176/idle15, sampled body[2595,184,2607,208], one pixel before the actual
+pipe face. It reaches original mode2 at6393 and climb action10 at6395.
+The second pipe repeats fresh36/35 at6967/7015 from2846/2848. This closes the
+stale-action release diagnosis using real cells and ordinary controls; it is
+not evidence for changing the World ABI, body clipping or climb reach.
 
 Root33139 actual Downloads7a80 native is terminal **FULL PASS**, receipt
 `353509637a89baf21053b6602637447251807ea3efdc9970bd9339b0a007799d`,
@@ -62,8 +92,9 @@ BBC1/SP203 authenticates both cookies and all4027 owning bytes. No helper is
 added or moved and this replay changes no ROM bytes or capture files.
 
 This actual native receipt is the full-stage authority. Root owns its native
-QA, checklist and handoff. Source fixture limits above remain contextual
-negatives rather than game failures or extra native claims. Equal-facing
+QA, checklist and handoff. Both source and native scopes are now positive;
+the earlier source fixture limits remain retained contextual negatives.
+No generated files or live task processes remain. Equal-facing
 F090 exit, natural Star/1UP, all-ability/audio qualification and performance
 remain independently open. Root owns all emulator, candidate-file and
 delivery operations; this stage clear requires no further ROM installation.
