@@ -126,3 +126,14 @@ birth/mature/collector/score witnesses above, with25 actual post-collector
 entries and Star34/lives2/earned2. Runtimes117.19/51.17/50.90/78.79seconds,
 zero outputs. These are source-model gates; root native receipts remain
 individual and explicitly versioned.
+
+Root3651 actual Downloads ae66 White Mage/5bfac741 is TERMINAL native PASS,
+receipt5321115e79189bce9bd27904e45147e09f326c75343b1c24e09a0fecf55b4ce9.
+1283 returned Main/2147 physical/888 actual FF entries. Real hidden kind3
+birth1155/frame1906 at1024/120, mature1220/2035 at1024/103, physical
+collector1253/2100 player1055/176 versus actor1057/161. Writer1258/2109
+gives life2→3/timer42/cue64 and counter863; final888 is25 strictly later
+actual entries. Terminal1055/176/native0/engine8/lives3/FFlease3/power1/
+earned1/charge1, with the genuine60-tick mushroom freeze retained. This
+closes White Mage M/L Cae66 only. No ROM changes, images or files; guards
+unchanged. Black/Thief native and all native Star gates remain separate.
