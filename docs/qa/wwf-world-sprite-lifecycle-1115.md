@@ -32,14 +32,14 @@ in the in-memory receipt. All selected gameplay/freeze/recovery publications
 use Y0. Hogan body pages observed:445,446,447,570,629,634,636. Andre:
 444,457,585,587,588,630,631,632,634. Menu traversal previously publishes
 other characters' private windows1/2/3 and7; the real Start reset removes
-those modes. Actual gameplay modes1..11 remain0, with window0 mode81/82.
+those modes. Actual gameplay modes1..11 remain0, with window0 mode$81/$82.
 Hardware windows1/2 stay native16/17 throughout the tested lifecycle.
 
 Authenticated native page16 SHA256 is
 fbdfcb689bab3c74a0f5ad235ab24dea6625378658f3e70fbbe0144200c6709d;
 page17 is006c3d8e9cf3760a610ab3a8f89519d464e6d25fac12f26ab204eb538680269e.
 The real source OAM has Goomba tiles162/164 at window2/page17/palette3,
-and mushroom124/126 at window1/page16/palette2, for both roles. PPUCTRL A8
+and mushroom124/126 at window1/page16/palette2, for both roles. PPUCTRL $A8
 selects16-pixel sprites. In these captured source OAM states, Goomba rows
 have at most6 candidates Hogan/5 Andre; mushroom rows at most2. Neither
 target is beyond the first8 eligible sprites on its rows. This is an OAM
