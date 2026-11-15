@@ -18,7 +18,6 @@ def policy():
     travel=Previous.Previous.Base.Stage.POLICY
     return "local opening=(function()\n"+opening+"\nend)()\nlocal travel=(function()\n"+travel+"\nend)()\n"+r'''
 local phase,age='travel',0
-local previousA=false
 return function(c)
  if not firstMReady then return opening(c)end
  if flower.after then return{}end
@@ -36,21 +35,27 @@ return function(c)
   local stopping=c.x+v*math.abs(v)/32
   local status=c.r('GmRam0091')
   if phase=='star-align'then
-   if c.grounded and c.x>=1208 and c.x<=1212 and math.abs(v)<=2 then phase='star-face';return{right=true}end
-   return{right=stopping<1209,left=stopping>1212}
+   if c.grounded and c.x>=1166 and c.x<=1170 and math.abs(v)<=2 then phase='star-face';return{right=true}end
+   return{right=stopping<1167,left=stopping>1170}
   elseif phase=='star-face'then phase='charge';age=0;return{b=true}
   elseif phase=='charge'then
    age=age+1;assert(age<180,'Bounded original star charge')
-   if status>=169 then phase='board';age=0;return{}end
+   if status>=169 then phase='board';age=0;flower.required_support=(flower.support_count or 0)+1;return{}end
    return{b=true}
   elseif phase=='board'then
    age=age+1
-   if c.r('GmRam00D7')&64~=0 and c.grounded and not c.lastA then
-    flower.real_support={state=state(),age=age};phase='flower-jump';age=0
+   if (flower.support_count or 0)>=(flower.required_support or 1)and c.grounded and not c.lastA then
+    phase='flower-jump';age=0
     return{left=c.x>item.x-8,right=c.x<item.x-8,a=true}
    end
    if status==0 then phase='star-align';return{}end
    local sx=(c.r('GmRam00AF')+256*c.r('GmRam00B9'))/16-8
+   flower.board_trace=flower.board_trace or{}
+   if age%8==1 then
+    local trace=flower.board_trace
+    trace[#trace+1]={step=c.frame,x=c.x,y=c.y,star_x=sx+8,status=status,ground=c.grounded,vy=c.r('GmRam00C2')}
+    if #trace>16 then table.remove(trace,9)end
+   end
    local pad={right=stopping<sx-1,left=stopping>sx+2}
    if c.grounded and not c.lastA and math.abs(c.x-sx)<40 then pad.a=true
    elseif not c.grounded then pad.a=c.r('GmRam00C2')>=128 end
@@ -91,6 +96,8 @@ def controller(raw,key='mr_gimmick'):
     start=text.index(' local ok=reason==');end=text.index('\n print(',start)
     text=text[:start]+" local ok=reason=='natural-flower-inventory-and25-resume'and firstMReady and flower.born and flower.mature and flower.before and flower.after and flower.cue and flower.erase and flower.resume==25 and identity()and r('NumberofLives')==2 and r('GmRam0346')>0 and r('GmRam0039')==1 and r('GmRam0036')==2 and r('GmNextSpecial')==2 and score()>=flower.before.score+1000\n"+text[end:]
     text=once(text,'natural_birth=born,','natural_flower=flower,first_mushroom_ready=firstMReady,natural_birth=born,')
+    text=once(text,'then gmRides=gmRides+1;gmFirstRide=gmFirstRide or state()end',
+        "then gmRides=gmRides+1;gmFirstRide=gmFirstRide or state();if firstMReady then flower.support_count=(flower.support_count or 0)+1;flower.real_support={state=state(),count=flower.support_count}end end")
     extra=r'''
 hook('NrPickup',function()
  if not firstMReady then return end

@@ -39,3 +39,13 @@ qualified by this failure. The successor observes the actual GmRideStar
 ground transition already used in the qualified full-stage controller, and
 reads that published witness from the policy instead of calling a later
 local observer function.
+
+The corrected observer run18086 is a control-route negative, not a game
+failure. It finishes5,000Main alive atHP3/lives2 with zero genuine supports.
+Lua a85cd37fed7ca73906bbff50e742164d3a4533a035ad5d82282052d707219247,
+receipt1b8fa7d7673e208ed73cad359b0f6b213e76500f2fb0dd4844836b6774bd5a4b.
+The bounded trace shows why: a ground-thrown star moves faster than the hero
+and stays well ahead during the jump. Chasing it scrolls the camera far
+enough to prevent returning to the original launch point. The next attempt
+charges before jumping near the real block wall and releases while airborne;
+it retains the actual support and physical Flower-collector requirements.
