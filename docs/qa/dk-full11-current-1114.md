@@ -187,9 +187,23 @@ x1487,1509,1527,1614,1701..1739. Last head bump is Main1376/x2107, before
 the staircase. All retained final staircase rows show current/previous AB64,
 pad65, nativeVY0 and state0: no A jump is being requested there. This requires
 actual near/far terrain-probe evidence before drawing any jump/helper or
-physics conclusion. A separate unchanged-f02 bounded stagnation observer70511
-is pending. No process was killed for2739; it had already ended naturally
+physics conclusion. No process was killed for2739; it had already ended naturally
 before the owner inspected its absent process handle.
+
+Unchanged-f02 observer70511 completes its bounded diagnostic at Main1545,
+x2217/Y128/state0, no actors and pad65/AB64. Diagnostic receipt
+`59739451492057f5469b94c8b12b2edae6d1d8efdb5b99b476257da445d69e12`;
+it explicitly reports `full_route_passed:false`. Actual world2240..2255 has
+solid tile97/attribute69 beginning atY144, while2256..2271 begins atY160.
+The old far48 samples world2265/Y136=empty, Y152=empty, Y168=solid. It sees
+neither an obstacle nor a gap, so never requests a jump. Actual body-front30
+samples world2247/Y152=solid and detects the skipped16px rise. The actual
+screen body is `[63,128,105,160]`, camera2141, preserving its42px width.
+
+This establishes a controller lookahead miss. The separate near/far successor
+retains f02 and adds30/38/46 samples alongside48 only after2100, while keeping
+native A, the true earlier floor/head guards and the25-grounded endpoint.
+Full source22082 is pending; no helper or game-code fix is proposed.
 
 No full1-1 clear, native playtest, new helper, game change or delivery is
 claimed. Source jobs use absent `build/dk-full11-current-1114`, max-files1,
