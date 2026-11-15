@@ -34,4 +34,15 @@ through this private run, with clear pre/post sidecar guards.
 
 This qualifies native score awards and this natural mushroom route, not a
 fresh whole-roster/full-level audit or an audible cue check. Actual Downloads
-delivery is pending its separately recorded repeat.
+delivery is recorded below.
+
+## Actual Downloads delivery
+
+Root4803 terminal PASS. After source push e0bfc465, the installer replaced
+the Downloads file directly with the exact tested571 candidate and launched
+that Downloads path in Mesen. Lua and receipt hashes,698Main/809physical
+counters,100→1100 score, health/capacity3, cue45 and25 further movement calls
+match the private run exactly. Installed bytes equal the tested candidate;
+both sidecar guards are clear. No rollback, backup, patch asset, release,
+image or capture file was needed. ExistingF11 gameplay/graphics fixes are
+preserved byte for byte outside the ten native award-table entries.
