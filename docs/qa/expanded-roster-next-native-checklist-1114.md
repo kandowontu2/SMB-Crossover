@@ -1,9 +1,12 @@
 # Expanded-roster next native checklist — November 14
 
-Snapshot: latest `LATEST_1114_571_DOWNLOADS_VERIFIED` handoff, exact installed
-`5715bb7e3c772350a2a7420ec9061eabd948964a8789e5d348c49d3cfb3c57ee`.
-Rows retain their explicitly recorded ROMs; the common CHR delivery does not
-silently promote earlier stage receipts to the new image.
+Current delivery: `LATEST_1115_590_DOWNLOADS_VERIFIED`, exact installed
+`590e0ae60414d98d4b0a4d74874af58b93c6e720e8156220e0648966128b5f1f`.
+Rows retain their explicitly recorded ROMs; a later delivery does not
+silently promote earlier stage receipts to the new image. Current opening
+enemy/powerup pictures cover Prince, DK and all six wrestlers separately;
+see `prince-window567-native-root-1115.md` and
+`named-world-sprites-590-native-1115.md`. These do not close later item gates.
 The goal remains incomplete. All101 names start; that is not101 stage clears.
 This checklist covers **all64 additions beyond the37 identities** in the
 read-only October27 progress file. The original37 retain their separately
@@ -71,7 +74,8 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
    current run or claim an idle-performance improvement from this repair.
 2. **U0 (previously U1):** classicDonkeyKong now has the actual571 full
    earned-M route93535/4601, including25 living grounded1-2 updates. Natural
-   F/S/L, complete ability coverage and idle-performance gates remain open;
+   DK's natural M/F/S/L are now covered by the separately versioned row above;
+   Star expiry, protected hits, complete abilities and performance remain open;
    the whole goal is not complete. The two Battletoads choices have actual
    f11 full passes. Shinobi's
    recovered historicalH and Rogue Dawn's retained native pass correct the
@@ -96,9 +100,11 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
    Use their intended abilities. If assistance is needed, root owns native
    actor placement/allocation and must record the assisted crossing.
 3. Reuse existing natural-item source controllers for **Jay F/S/L, both
-   Bowsers S/L, all4 FF S/L, both Bub/Bob F/S/L, six WWF F/S/L, Prince S/L,
+   Bowsers S/L, both Bub/Bob F/S/L, six WWF F/S/L, Prince S/L,
    Metal S/L and Excitebike F/S/L**. A mature-actor seed is diagnostic only;
    collector/erase/score/sound/resumed-play effects must follow ordinary access.
+   All four FF M/F/S/L are already covered in their recorded versions; their
+   next work is expiry, protected hits and remaining abilities/audio/art/lag.
 4. Keep H positives and explicit byte-preservation evidence separate. Current
   421 changes are exactly110 owned hidden-head bytes overfa66;fa66 adds66
    granted cheat bytes. The new hidden behavior intentionally changes SMB2
