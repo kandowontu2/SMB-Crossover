@@ -101,6 +101,28 @@ replay_ff_natural_stock_service_current_1114.py. Its owning inverse must
 recover exact571; it authenticates the entire unchanged FF8192-byte worker,
 full16-byte cookie and native hook banks/bytes. It changes only the config
 prefix and verifies the frozen ordinary-control body is byte-identical.
-The actualae66 runtime source checks are pending; no571 API is relaxed and
-no571 receipt is relabelledae66. No helper or game/ROM byte change belongs
-to this stock lane.
+Actualae66 runtime source batch62609 is TERMINAL PASS. Factory SHA256 is
+0ce579b23cc1c2b8ebba484644f17979012e1670059cf76ed30e8a8681b2b7db;
+checker42b6f8d555562ec5f07dc65976ca3ba8f9de352c1a69a8f4a523a53ca54df164.
+No571 API is relaxed and no571 receipt is relabelledae66. No helper or
+game/ROM byte change belongs to this stock lane. The frozen template's
+native hook domains are PRG1/126, plus cookie-authenticated private WRAM3;
+all are disjoint from ae66's owning PRG127/33/87 spans. Full typed inverse/
+forward closure preserves those bytes, in addition to the explicit whole
+FF worker/cookie and native hook checks.
+
+| Actualae66 key | Exact controller SHA256 | Source receipt SHA256 |
+| --- | --- | --- |
+| white-life | 5bfac74142550fa5d68e86b88a151d201b4a9d3dec888a1a90904312777b8634 | 8358219e2ad0a158eaff9ecb083b5f15aacb8d1ba8d83fe545f300e036c3ff93 |
+| black-life | 83b8abdd39fb9bce97c17c9844aaa1d5647fd5564d7fd6ae5f4423aa7b988391 | dadc37d335dd5eac74718309ec6c68e4bf8c9e2d04dfcb75f6adfe65c739bb10 |
+| thief-life | afe41fafac191bf72240b719dfeb1543d89ed8251ccf48467c48132832f85170 | 6ccea7af1701361c9550ff84986ee860230eef9845eecb8a0bfc92cfa74490d5 |
+| fighter-star | 9b69dc9db505b25d2e80b354842101762c5e6ccb301e633d04a8e5d228dd77c0 | e9fe9ca4b8c9fc55879c97c0eef6c4e12ae0f4c200f4f2235ea75dcbbaa5cb10 |
+
+Each fresh-cold life check completes945 Main/885 FF entries and25 actual
+post-writer entries, terminal1053/176/native0/engine8/lives3/FFlease3,
+earned1/power1. White preserves charge1; the others charge0. Fighter Star
+executes1515 Main/1395 FF entries and retains exactly the ordinary571
+birth/mature/collector/score witnesses above, with25 actual post-collector
+entries and Star34/lives2/earned2. Runtimes117.19/51.17/50.90/78.79seconds,
+zero outputs. These are source-model gates; root native receipts remain
+individual and explicitly versioned.
