@@ -44,3 +44,16 @@ Factory0579a887a42a8a75e1cbc2ec50d0422eb11c2935105a702eafb361c4cfee02ad;
 checkera4eb4a7283336d4c1388a30ee99646905a39a65dc572d01986a4928c672087a4.
 All M/F/full dependencies stay frozen. Source uses the absent zero-file
 build/dk-launch-latch-current-1114 root, max-files1/600seconds.
+
+Root89926 actual Downloads571/3920406a is TERMINAL STAR+DownB PASS,
+receipt7ccc5dde09eb8e5b642d75653a75346c23a4bb936b892d8edf0bd5fc1cfdf33e.
+2226Main/2866physical/1792DKcalls. Real Down+B request1792 precedes actual
+Cset kind2 spawn1808/frame2265 at1264/128; normal supported rolling kind1
+is observed1810/frame2266. This verifies that supported attack, not freefall.
+Genuine Star birth2067/frame2624 at1616/136, maturity2133/frame2723 at
+1616/119, physical collector2200/frame2828 atplayer1683/176, actor1684/155.
+Actual erase/control6/timer35/music64/cue32 preserve tier2 with no freeze.
+Score2510→3510 is credited at the fifth resumed DK call2206/frame2836.
+After25 resumed calls:1683/176/lives2/tier2/Star34. No capture, state write,
+byte or guard change. Natural M/F/S are C571; L, Star expiry/protected-hit
+and complete original ability/audio/visual/performance coverage stay open.
