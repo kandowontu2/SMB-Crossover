@@ -24,7 +24,7 @@ def contact(raw):
     """Passive source observer: exact frozen controller and ordinary cold."""
     N,W=Factory.N,Factory.W;original_cpu=N.NesMPU
     ctx=dict(arena=None,main=0,cpu=None,pc=-1,points={},injury=None,death=None)
-    recent=deque(maxlen=24)
+    recent=deque(maxlen=24);heads=deque(maxlen=8)
     def view(m):
         fields=('Player_Y_Position','Player_Y_HighPos','Player_State','Player_X_Speed','Player_Y_Speed',
             'Player_Y_MoveForce','Player_YMoveForceFractional','A_B_Buttons','PreviousA_B_Buttons',
@@ -42,7 +42,7 @@ def contact(raw):
             X=c.x,Y=c.y,A=c.a,P=c.p,SP=c.sp,**view(m),actors=actors(m),
             actual_player_box=list(m[box:box+4]),actual_enemy_boxes=[list(m[enemy+4*i:enemy+4*i+4])for i in range(6)],
             camera=N.get(m,'ScreenLeft_X_Pos')+256*N.get(m,'ScreenLeft_PageLoc'),
-            recent_completed_Main=list(recent))
+            recent_completed_Main=list(recent),recent_native_head_bumps=list(heads))
     class CPU(original_cpu):
         def step(self):
             m=self.memory
@@ -52,7 +52,10 @@ def contact(raw):
                 name=ctx['points'].get((bank,self.pc))
                 if name=='GameLoop':ctx['main']+=1
                 elif name and name.startswith('GameLoopReturn'):
-                    if view(m)['x']>=1440:recent.append(dict(**view(m),actors=actors(m)))
+                    recent.append(dict(**view(m),actors=actors(m)))
+                elif name=='BumpBlock':
+                    heads.append(dict(PC=self.pc,bank=bank,**view(m),
+                        scratch={n:N.get(m,n)for n in('R2','R3','R4','R5','R6','R7')}))
                 elif name=='InjurePlayer'and ctx['injury']is None:
                     ctx['injury']=causal(m,self,name)
                     print('DK_FIRST_INJURY '+json.dumps(ctx['injury'],separators=(',',':')),flush=True)
@@ -61,7 +64,7 @@ def contact(raw):
             return super().step()
     def retained_cold(image,key):
         m=cold(image,key);ctx['arena']=m
-        names=('GameLoop','GameLoopReturn0','GameLoopReturn1','InjurePlayer','DkHostDeathStart')
+        names=('GameLoop','GameLoopReturn0','GameLoopReturn1','InjurePlayer','DkHostDeathStart','BumpBlock')
         for name in names:
             if name.startswith('GameLoopReturn'):
                 h=Factory.bindings(image,key)['hooks'][name];at=16+h['offset'];pc=h['pc']
@@ -70,7 +73,7 @@ def contact(raw):
         return m
     with patch.object(N,'NesMPU',CPU),patch.object(Runner,'Factory',Factory),patch.object(Runner,'cold',retained_cold):
         q=Runner.run(raw,'donkey_kong',9000)
-    summary=dict(injury=ctx['injury'],death=ctx['death'],last_completed_Main=list(recent)[-8:],
+    summary=dict(injury=ctx['injury'],death=ctx['death'],last_completed_Main=list(recent)[-8:],recent_native_head_bumps=list(heads),
         exact_frozen_controller_SHA256=sha256(Factory.controller(raw).encode()).hexdigest(),
         controls_and_game_bytes_unchanged=True,outputs=0)
     q['passive_contact']=summary

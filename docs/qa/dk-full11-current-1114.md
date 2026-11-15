@@ -129,6 +129,21 @@ so no ceiling/collision defect is inferred. The next separate controller must
 preserve the proven baseline prefix through1440 and scope its reaction to the
 measured paired-Goomba encounter, with a passive head-response witness.
 
+The scoped64px successor preserves the opening prefix and is also negative:
+Lua `9301aaff7f4f7c46ac0a0468c8778e176b8e20dec7e5df8149ab45dc4ae2605f`,
+session21199, receipt
+`23d457dc4f51349d6e0609abda8b7f1629def888d9be5782cf020dd173b11fea`.
+The earlier jump begins Main1034/x1477/Y171. Actual BumpBlock at Main1037,
+x1484/Y156, observes upward VY251 and original tile88 at R2=112/pointer03DE,
+the world1504/Y144 overhead coin brick. VY becomes0; DK lands Main1045 at
+x1504/Y176, then hits the first Goomba at Main1046/x1507, enemy1532/Y184.
+Actual boxes `[99,176,141,208]` / `[140,198,150,204]` overlap at gap25.
+Free-rise reaction estimates therefore do not apply beneath this actual
+ceiling. The native head response is retained, not bypassed or called a
+collision defect. The next intended-ability diagnostic can use the existing
+ordinary barrel from a stopped, right-facing position scoped to this real
+pair and admitted only with a clear actual terrain corridor.
+
 No full1-1 clear, native playtest, new helper, game change or delivery is
 claimed. Source jobs use absent `build/dk-full11-current-1114`, max-files1,
 timeout600 seconds, and zero output files. Root owns the single Mesen queue.
