@@ -18,30 +18,39 @@ LUA={
  'savage':'eec0d3c67d3e4cb8e318c89830cf6c24dbc27610bbadea69175956b274b35c9d',
  'andre':'1af9d09b30e188a56aaffd446759b80d1fcb5ddf80d23882abc96bbd40d15771'}
 
-def execute(key):
-    assert sha256(Path(F.__file__).read_bytes()).hexdigest()==FACTORY
-    before=check(F.ROM)
-    raw=F.ROM.read_bytes()
-    assert sha256(raw).hexdigest()==F.PIN
-    text=F.controller(raw,key)
-    assert sha256(text.encode()).hexdigest()==LUA[key]
+def execute(key,later_bigelow=False):
+    factory,expected_factory,expected_lua=F,FACTORY,LUA[key]
+    if later_bigelow:
+        assert key=='bigelow'
+        import replay_wwf_bigelow_star_gap_7a80_1115 as Later
+        factory=Later
+        expected_factory='cd3e0f19001abb96aa8f1ba0d77addba6aa293b9093633fb737d1c4404d98e20'
+        expected_lua='33e3288072ee95025c9a0ac0f1958ba0cfad6a48423d8c717db87648638c05b6'
+    assert sha256(Path(factory.__file__).read_bytes()).hexdigest()==expected_factory
+    before=check(factory.ROM)
+    raw=factory.ROM.read_bytes()
+    assert sha256(raw).hexdigest()==factory.PIN
+    text=factory.controller(raw,key)
+    assert sha256(text.encode()).hexdigest()==expected_lua
     assert {p.name for p in OUT.iterdir()if p.is_file()}=={'candidate.nes','controller.lua'}
     Storage.preflight(private_root=OUT,reserved_bytes=0,reserved_files=0,fresh=True)
     candidate=(OUT/'candidate.nes').read_bytes()
     script=OUT/'controller.lua'
     script.write_bytes(text.encode())
-    q=run(script,F.ROM,OUT/'capture',F.PIN,180)
-    assert q['script_SHA256']==LUA[key]and not q['images']and q['outputs_written']==0
-    assert F.ROM.read_bytes()==raw and check(F.ROM)==before
+    q=run(script,factory.ROM,OUT/'capture',factory.PIN,180)
+    assert q['script_SHA256']==expected_lua and not q['images']and q['outputs_written']==0
+    assert factory.ROM.read_bytes()==raw and check(factory.ROM)==before
     assert (OUT/'candidate.nes').read_bytes()==candidate
     return q
 
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--identity',nargs='+',choices=LUA,default=['hogan'])
+    p.add_argument('--bigelow-later-edge',action='store_true')
     a=p.parse_args()
+    assert not a.bigelow_later_edge or a.identity==['bigelow']
     for key in a.identity:
-        q=execute(key)
+        q=execute(key,a.bigelow_later_edge)
         print('RESULT '+json.dumps(q,separators=(',',':')),flush=True)
         assert q['passed'],('Natural WWF Star remains native-unqualified',key)
         r=q['receipt']

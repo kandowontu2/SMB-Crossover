@@ -27,7 +27,25 @@ The frozen parent/candidate benchmark bodies stay unchanged.
 
 The exact a90c image changes535 bytes within556 owned bytes and preserves
 all other7a80 bytes. Source flags/foreign/constructors/lifecycle/ISR/full
-routes passed, as recorded separately. Full Rash/Zitz **native** routes
-have not run on this candidate. No delivery decision, zero-lag claim,
+routes passed, as recorded separately. Full Rash/Zitz native routes are
+now qualified separately below. No delivery decision, zero-lag claim,
 gameplay repair or audible-output claim follows from this benchmark.
 No ROM backup, capture file, video, patch asset or release is created.
+
+## Private full-level regression checks
+
+Root35986 passes both frozen ordinary full routes on exact privatea90c:
+
+| Identity | Main / video frames | Native receipt SHA256 |
+| --- | ---: | --- |
+| Rash | 4359 / 4897 | 797ae2f02d3f2ebaa3cb82897da416a636b90a8c53533d7b5de3d449716c1e9f |
+| Zitz | 4380 / 4912 | b3bf1f6de2cf3da86082b60d4a57384dfaf0e817d85850f6d35e90b78a96c314 |
+
+Each reaches the flag, castle and next-area entrance, then completes25
+living grounded1-2 updates at40/176, HP35/lives2/power0. These are real
+controller routes without gameplay-state writes, additional helpers or
+capture files. HP35 is the native result; the source model's HP43 is not
+promoted to the emulator. The different total frame count from older
+versioned full-route receipts is not an isolated performance measurement.
+Installed Downloads7a80 remains byte-identical and the sidecar guard stays
+clear. The identical idle/read cadence above remains an open native gate.

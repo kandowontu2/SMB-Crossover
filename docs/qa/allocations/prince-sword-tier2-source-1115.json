@@ -1,0 +1,35 @@
+{
+  "kind": "Root source-only Prince earned-sword persistence implementation",
+  "parent_SHA256": "7a80f0f37e316436be0825bbd6fd9d372af6b0b7741f84ea87356282033d9b79",
+  "detached_plan_file": "tools/audit/plan_prince_sword_tier2_1115.py",
+  "detached_plan_SHA256": "4d515e094bf7a70f05fbec34224e41b48af6105ac91691b4ca0c5580ded7674a",
+  "detached_plan_receipt_SHA256": "2ae5e40736aa6cfbf54081de7bd20ce86b7f9327633a6489c4ce97c0cbe65346",
+  "decoded_spans": [
+    {"stream": 2, "half_open": [0, 80], "purpose": "Existing HostInit envelope including eight-byte tail padding"},
+    {"stream": 2, "half_open": [1452, 1529], "purpose": "Existing 77-byte Prince pickup/death shim dedicated copy"},
+    {"stream": 1, "half_open": [6012, 6013], "purpose": "Existing Prince death-JMP low operand EA to EB"}
+  ],
+  "owned_decoded_bytes": 158,
+  "expected_changed_decoded_bytes": 79,
+  "physical_carrier_pages": [341,343,345,347,349,351,353,355,357,359,361,365,369,373,377,381,383,385,387,389,391,393,544,545,605,607,609,611,613,615,617,619,621,623,625,627,690,691,692,693,695,795,291,514,329],
+  "physical_cookie_half_open": [535471, 535487],
+  "expected_packed_bytes": [6469, 5995, 1263],
+  "expected_header_word_change": {"index": 10, "before": 1259, "after": 1263},
+  "expected_cookie": "a726028d9d5e0c8ab00f6ca1af5c7599",
+  "source_in_memory_composition_and_mounts_authorized": true,
+  "ROM_file_writes_authorized": false,
+  "native_Mesen_authorized": false,
+  "Downloads_delivery_authorized": false,
+  "requirements": [
+    "Keep the frozen detached plan, current full-route facade and all earlier persistence failures unchanged",
+    "Use only the exact three decoded spans; preserve all other decoded code/data, loader, art, tables, public ingress and all other character bytes",
+    "Re-encode only the existing45 Prince carriers and existing16-byte cookie; no new storage, logical pages, RAM, shared loader changes or metadata edits beyond the one stream-size word",
+    "Normal tiers0/1/2: Mushroom restores HP and changes only tier0 to1; Flower earns native tier2 and private Sword1; constructor maps native0/1 toSword0 and2 toSword1. Native death/menu/newgame clearing remains intentional",
+    "Qualify the compact classifier and moved death entry against real callers, preserving native Star/1UP dispatch, X/Y and any consumed flag/accumulator contracts",
+    "Use actual earned Mushroom/Flower and the compiled area transition for persistence, plus a complete ordinary full1-1-to-active1-2 route; do not seed tier2 as evidence of acquisition",
+    "Keep direct tier units distinct from earned routes; verify constructor, native death/menu/newgame lifecycle and reached IRQ/busy-NMI interactions",
+    "Provide a strict exact-parent composer and portable inverse with inline preimages, a whole-image candidate pin, and native-ready read-only controller pins after source qualification",
+    "Every producer uses its exact bounded absent output root, max-files1, zero generated outputs; root retains the single Mesen queue and existing private candidate/controller slot"
+  ],
+  "patch_assets_or_releases_authorized": false
+}
