@@ -67,3 +67,43 @@ source-clock consumptions, then holds the fresh press until the actual
 original jump entry counter acknowledges it. It records bounded transition
 events and retains all old actual support/crossing/Flower assertions. No
 blind timing matrix or game-state edits are introduced; source result pending.
+
+Rearm16714 is also retained as a source controller negative, receipt
+`89b90ca882e077ba3a3037e326e83de3f7fb9823cb2e524aeea12a17d969d8fb`,
+Lua `1c60b75911ad4b466e72b96737982f6027a0036bf6be9c5a41a37e3f19e47c90`.
+It stops779 Main at433/176/lives2/flags1. Its24 requests reach23 actual
+original jump entries, but the pipe-face attempts are arrested immediately;
+entry alone is not sustained ascent. More useful is its first support bounce:
+Main606 at416/135 has source held130 (Left+A). The source's D36B/D36F stores
+held&3 into the jump-direction latch, and the next landing is384/112, on the
+earlier overhead brick. That measured wrong-way support bounce comes before
+the repeated pipe-face retries.
+
+The separate forward-boarding successor uses neutral horizontal alignment
+instead of Left and requests Right when the actual bubble dy reaches8 near
+the feet. Source91183 then traverses all four pipes and first pit with five
+actual original bubble support restarts, retains flags1/lives2, discovers the
+real1248/Y144 Flower block and bumps it from1249/176. It stops at the actual
+emergence Main1629 because the new wrapper omitted `L.PowerUpType`. This is
+a harness binding error, not a rejected game state. Receipt
+`f277c4eb079b85753c43f9569bcc7c3a733280f062b56319e08d3acc3843949e`,
+Lua `8f87ff9e4838c6dfbdd790c1a4a36d61be5f0a8a8265661c9a55c13212d43af6`.
+Its actual restart Main1479 at1097/135 records held129/cached direction1;
+the correct rightward original jump is observed, not inferred from intent.
+
+`replay_bub_flower_7a80_1115` keeps those controls and binds the omitted native
+field. It adds read-only actual BbNativePickup/grant-store/erase/popup,
+Square2SoundQueue producer, GuestPowerupUpdate and BbNativeUpdate witnesses.
+The source driver gains memory-write callbacks only; actual scheduler/CPU
+instructions and game state remain unchanged. Its first witness run52807
+fails485 Main while still at the M+25 endpoint because the popup observer
+incorrectly requires the actor to remain live after erasure. The actual source
+order is `EraseEnemyObject; LDA#6; JSR SetupFloateyNumber`, so the successor
+retains the authenticated physical-collector slot token through bookkeeping.
+The false negative is preserved as receipt
+`4c27ef94d40aa29fed231c6aebac211b8fdb99c3e87a3ef5828534b4677d1df0`,
+Lua `b7794248243a57e018ee1a0a8105e7bb2735d98875f69a27b0960af2f47abaff`.
+That run already observes the real M collector411/176 versus415/171, original
+actor46 flags0→1, erasure, popup6/timer47, actual cue32 and60 hosted updates
+with ages0..59. The missing setup snapshot is an observer error; no pickup
+assertion is weakened. Corrected source92378 is pending, not native-ready yet.
