@@ -221,3 +221,68 @@ Prototypes and receipts stay in
 memory/stdout. Frozen Gimmick/WWF factories, current ROM and protected user
 progress/Steve documents are unchanged. Current Star native/fullstage/Hard/audio,
 expiry/protected-hit and performance claims remain open.
+
+Root's later native runs supersede the pending Star status above for four
+roles. Actual Downloads7a80 Hogan16770 passes with receipt
+`db6e69abb259dc520df431d661fec35f3345efa49284dc3b2d8db09168cc75ca`
+(3094 Main/5818 physical), DiBiase16770 with
+`fedfaa39bc1de7e63690e4ac95f794801567852ac148229235a9f4920796e1e7`
+(3204/6025), and Honky13423 with
+`965b8ed28cfeb945efc398d2f88e7eb7bf151530edb6a10fb065179a15ccb000`
+(3424/6453, ten actual helper carries). Each retains genuine M/F60/+25 and
+Star maturation, physical contact, erase/popup6/timer35/music64/cue32,
+1000 points and25 actual later WfMovement entries, power2/lives2. See root's
+`wwf-natural-star-native-1115.md` for the authoritative native observations.
+
+The generic Bigelow and Savage controls remain native negatives despite their
+earlier source passes. Bigelow16770 receipt
+`a7fde09808c3b909c94282f68f7f894c7c6dbab50f3ee0f3f384e6ed8b3c3898`
+finishes2883 Main/5240 physical after gap death1400/Y243, lives1/power0.
+Both real M/F prefixes pass; Star was not reached. Savage13423 receipt
+`24f6fe8def09aa61f0b0f485a0896e7e126608107f312a683537996abb2a9396`
+finishes2917/5236 after the same gap at1399/Y243, lives1/power0. These are
+ordinary input/helper-phase failures, with no demonstrated geometry defect.
+
+The separate `replay_wwf_bigelow_star_gap_7a80_1115` facade is frozen at
+SHA256 `cd3e0f19001abb96aa8f1ba0d77addba6aa293b9093633fb737d1c4404d98e20`.
+Its Bigelow controller has LuaSHA256
+`33e3288072ee95025c9a0ac0f1958ba0cfad6a48423d8c717db87648638c05b6`.
+It proves the former generic role bodies equal, then uses the qualified Honky
+later-edge controls with actual Bigelow role2/menu/cookie bindings. Other
+roles return exact frozen parent text. No ROM, helper or geometry is changed.
+Source41013 passes2724 Main/2604 Wf with receipt
+`72350a03660080e214b879b0021315102509fd6eb749f1287e50a96dcac4f063`.
+It records40 actual carries, first Main2264 at1421/176, helper40slot5 at1402/208,
+passenger5/PCB683/SP237; realStar2605/2670/2698,2800→3800 and25 later calls.
+
+Root81206 independently passes this exact Bigelow Lua on actual Downloads7a80:
+receipt `97d1f350bc734c4ba2a80949e6056756ef23f08437550bf00855db0b2541eb24`,
+3182 Main/6022 physical, ten actual carries. First carry Main2745 is
+player1413/176, helper40slot5 at1400/208, passenger5/PCB683/SP237. The same
+existing helper's initial position remains left1376/center1400/Y208, width48
+in stage1-1/area25. Star born3061, mature3128, physical collector3156 at
+player1656/176 versus1645/164;2900→3900,25 later calls, lives2/power2.
+Savage/Andre source-qualified successor receipts follow separately; no native
+Star result is inferred for those roles from Bigelow's pass.
+
+The new uniform facade `replay_wwf_late_edge_star_7a80_1115.controller(raw7a80,
+role)` is frozen at `fa75d51bc43cb7497f6fe0b9302da5497fa7f3bc29abc6c899c1297e6445b53d`.
+Hogan/DiBiase/Honky/Bigelow text is byte-identical to the cd3e parent. For
+Savage/Andre it proves the generic bodies equal and applies the same qualified
+later-edge body with each actual role/menu/cookie config and actual carry
+hook. No game, terrain, ability, actor or geometry changes are involved.
+The original52927 terminal stdout was not retained across compaction, so its
+vanished process handle was not treated as success. Repeat88152 explicitly
+passes both cases with all output/Mesen traps active and zero output files.
+
+| Role | Lua SHA256 | Source receipt SHA256 | Main / Wf | Actual carries / first Main | Star born / mature / collector | Post-collector Wf |
+| --- | --- | --- | ---: | --- | --- | --- |
+| Savage | 2920ef20480066b44737b3d7114f5fc9c8803111951ad9e3006af2a462082ce7 | 0a4fbbeb5e89d6c0511e965c62d270d87d13125875f279feb9d5853a42ee70b4 | 2740 / 2620 | 40 / 2276 | 2622 / 2686 / 2714 | 2595→2620 |
+| Andre | 00cb2ebfbed45adeb0ec432d7486d2a80c2bd904501967cb0852eb53ca737d37 | 330fe0d0c826f0973e9b7864cd2b859c5ae21d09694f87aa7dcebf14dfcd4c9a | 2728 / 2608 | 36 / 2268 | 2609 / 2674 / 2702 | 2583→2608 |
+
+Savage's first actual carry is1421/176 on helper40slot5 at1402/208, Andre's
+1422/176 on1401/208; both have passenger5/PCB683/SP237. Their real collectors
+are player1648/176 and1651/176 respectively versus Star1645/164. Both erase,
+popup6, timer35, actual music64/cue32 producers,2800→3800 and exactly25 later
+WfMovement calls pass, with lives2/power2 retained. Native remains pending
+for these exact two successor controllers. Root owns the single queue.
