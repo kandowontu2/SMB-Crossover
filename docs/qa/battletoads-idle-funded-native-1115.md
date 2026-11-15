@@ -49,3 +49,11 @@ promoted to the emulator. The different total frame count from older
 versioned full-route receipts is not an isolated performance measurement.
 Installed Downloads7a80 remains byte-identical and the sidecar guard stays
 clear. The identical idle/read cadence above remains an open native gate.
+
+Root67124 subsequently confirms the optimization executes in actual Mesen:
+all160 mapped getter entries return to their actual callers; getter12 costs
+994→21 cycles and getter13 costs992→24. Exclusive Main saves about1966
+cycles per update, while the NMI work leaves the same alternating lag-frame
+cadence. The full aggregates and sparse rows are in
+`battletoads-native-profile-root-1115.md`. The profiler distinguishes actual
+hardware interrupt returns from the authenticated audio software RTI.
