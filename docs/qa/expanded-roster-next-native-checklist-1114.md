@@ -1,7 +1,7 @@
 # Expanded-roster next native checklist — November 14
 
-Snapshot: latest `LATEST_1114_CF7_DOWNLOADS_VERIFIED` handoff, exact installed
-`cf7b6d2964ae0ef18d08c726f66afe9bf5be3dc6f3ec9c7a43279121ee09d968`.
+Snapshot: latest `LATEST_1114_F11_DOWNLOADS_VERIFIED` handoff, exact installed
+`f11a25b892779cb0d5192457f7feff548f35019818cd75dfef5bdf3f2419b865`.
 Rows retain their explicitly recorded ROMs; the common CHR delivery does not
 silently promote earlier stage receipts to the new image.
 The goal remains incomplete. All101 names start; that is not101 stage clears.
@@ -9,7 +9,7 @@ This checklist covers **all64 additions beyond the37 identities** in the
 read-only October27 progress file. The original37 retain their separately
 versioned stage/item audit; this document does not certify them anew.
 
-**C** = current-line native pass on the exact421/82ec/1daca ROM named in its row.
+**C** = current-line native pass on the exact421/82ec/1daca/cf7/f11 ROM named in its row.
 **H** = native pass on the named earlier ROM;
 retain it, and use its exact preservation/rebinding proof before reuse.
 **U** = no full native stage pass located in the compact evidence reviewed;
@@ -46,7 +46,7 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
 | Popo; Nana | **H**,a7ccbaaa natural clears5190/5285 frames, tier0→1 | F/S/L and additional original abilities; do not reuse the old pipe/route negatives |
 | FF Fighter; FF White Mage; FF Black Mage; FF Thief | **H**,a5c54d76 full routes, earned M/F/tier-two attacks | Natural S/L have CPU routes; complete physical S/L per class remains a native gate |
 | Sunny | **H**,16a9de64 Hard full route and separate M/F/fireballs/full-stage | Natural S/L; delivered palette-deadline fix supersedes earlier late-enable negatives |
-| Rash; Zitz | **U**; actual1daca Rash native79559 startup/ordinary1000Main observation, source actual constructors for both | Full stage and natural upgrades/S/L remain open. Current missing native scroll fields cause the real X239 camera clamp; RAM-only camera repair is under primitive/source review. See `battletoads-current-camera-1114.md` |
+| Rash; Zitz | **CF11**, actual Downloads47036 separate full routes: Rash6464physical/4359Main, Zitz6485/4380; both flag/castle/entrance then25 living grounded1-2 at40/176, HP35/lives2, real variants0/32 | Native camera clamp is repaired. Natural complete M/F/S/L, abilities/audio/visual and idle-performance coverage remain separate. See `battletoads-camera-nightly-delivery-1114.md`; old X239 and generic final-flag control negatives are superseded for stage playability |
 | SMB2 Mario; SMB2 Luigi; SMB2 Toad; SMB2 Peach; Imajin; Lina; Papa; Mama | All8 **H** full12397; Luigi **C** full421/25 grounded1-2 | All8 M7ef, F/vegetable combat12397, and **C** S/L421 now qualified. No missing four-stock family; other7 exact421 full reruns are regression coverage, not never-cleared identities |
 | Bub; Bob | **H**,f88 full stage and first M, optimized source cadence | Natural F/S/L per identity; remaining lag is not a zero-lag acceptance requirement |
 | Sonic; Super Sonic | **H**,c4568faf separate full clears, rings/loss and M | Natural F/S/L; distinct Super mechanics remain later review, not an unselectable-name problem |
@@ -69,8 +69,8 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
    Current-parent composition and full ordinary source route are in progress;
    no successor is installed. Do not call the older delivered clear a failed
    current run or claim an idle-performance improvement from this repair.
-2. Assign individual full routes to the **3 U identities** above, including
-   the two Battletoads choices. Shinobi's
+2. Assign a full route to the **one U identity**, classicDonkeyKong. The
+   two Battletoads choices now have actual f11 full passes. Shinobi's
    recovered historicalH and Rogue Dawn's retained native pass correct the
    earlier U counts; neither recovery alone is a newC pass.
    Burns root16139 is an independent currentC closure after that correction;
@@ -87,6 +87,9 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
    `3d894fe0c489d495e90542821182cf9e27f2c399db626bd5c3ac73609efdfc74`.
    Mr. Gimmick root64354 closes another, receipt
    `a6f2ada1ada24b24daaecd33352b60e95d7525bf2863eaaad62f371afc0965d9`.
+   Actual Downloads47036 closes Rash and Zitz after the52-byte camera repair:
+   receipts `f64ec257be8f7dec5c59b10bc7fb26f1519fbc328b6cf2f10b506e314197b48b`
+   and `48619365f3fbb73a02c9c205df2a8330d602d82049b4645e836d3ec4f1397579`.
    Use their intended abilities. If assistance is needed, root owns native
    actor placement/allocation and must record the assisted crossing.
 3. Reuse existing natural-item source controllers for **Jay F/S/L, both

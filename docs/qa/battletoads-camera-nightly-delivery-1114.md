@@ -49,3 +49,19 @@ The delivery installer pins both exact native receipts and controllers and
 must repeat them using the actual Downloads file after direct replacement.
 Until that terminal result is appended, the native section alone is not a
 delivery claim.
+
+## Actual Downloads delivery
+
+Root47036, bounded existing two-file flag slot, terminal exit0: directly
+replaced `C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes` with
+the exact2097168B testedf11 candidate. Both actual Downloads full-stage
+replays PASS with precisely the private Lua/receipt hashes, counters and
+endpoints above. No rollback was needed. Installed bytes equal the tested
+candidate before and after both launches; pre/post patch guards are clear.
+
+There are no backups, patch assets, releases or capture files. Source through
+8f187ecc was pushed before installation. A final independent CLI patch check
+confirms f11 with no same-name sidecars; GitHub releases API returns0.
+Shared preflight is build2873625401B/19996files, within5GB/20000. Remaining
+natural-item, idle-performance, ability, sound and visual gates stay open;
+this is a verified functional camera/stage update, not full-goal completion.
