@@ -1,18 +1,20 @@
 # Expanded-roster next native checklist — November 14
 
-Current delivery: `LATEST_1115_590_DOWNLOADS_VERIFIED`, exact installed
-`590e0ae60414d98d4b0a4d74874af58b93c6e720e8156220e0648966128b5f1f`.
+Current delivery: `LATEST_1115_16A_DOWNLOADS_VERIFIED`, exact installed
+`16a385654e80105f83470e14cd328d8bbceaa659730f4a81a2f36ca039cfbcfb`.
 Rows retain their explicitly recorded ROMs; a later delivery does not
 silently promote earlier stage receipts to the new image. Current opening
-enemy/powerup pictures cover Prince, DK and all six wrestlers separately;
-see `prince-window567-native-root-1115.md` and
-`named-world-sprites-590-native-1115.md`. These do not close later item gates.
+enemy/powerup pictures cover Prince on16a and DK/all six wrestlers on590
+separately; see `prince-body-transition-native-root-1115.md` and
+`named-world-sprites-590-native-1115.md`. Separate actual16a M/F transaction
+checks now cover all six wrestlers in `wwf-natural-flower-native-1115.md`.
 The goal remains incomplete. All101 names start; that is not101 stage clears.
 This checklist covers **all64 additions beyond the37 identities** in the
 read-only October27 progress file. The original37 retain their separately
 versioned stage/item audit; this document does not certify them anew.
 
-**C** = current-line native pass on the exact421/82ec/1daca/cf7/f11/571 ROM named in its row.
+**C** = native pass on the exact development-line ROM named in its row,
+not automatic qualification on the newest image.
 **H** = native pass on the named earlier ROM;
 retain it, and use its exact preservation/rebinding proof before reuse.
 **U** = no full native stage pass located in the compact evidence reviewed;
@@ -55,7 +57,7 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
 | Sonic; Super Sonic | **H**,c4568faf separate full clears, rings/loss and M | Natural F/S/L; distinct Super mechanics remain later review, not an unselectable-name problem |
 | SMB3 Bowser; SMB1 Bowser | **H**,7ef separate full/grounded1-2 and natural M/F | Natural S/L per Bowser; native tier/health adaptations do not imply extra donor attacks |
 | Donkey Kong Jr. | **H**,Nov11 delivered full route; current private769 **N** final3040 handoff | New private repair must clear full route after one-way/fractional-motion closure; natural first-item component pass is not all-item/full-stage qualification. Preserve the older public pass |
-| Hulk Hogan; Ted DiBiase; Bam Bam Bigelow; Honky Tonk Man; Randy Savage; Andre the Giant | **H**,8fc57b8b six separate full routes;d76e070e six natural M | Natural F/S/L per wrestler; original endurance/gear remains separate. Down+B Honky route supersedes failed plain-B experiment |
+| Hulk Hogan; Ted DiBiase; Bam Bam Bigelow; Honky Tonk Man; Randy Savage; Andre the Giant | **H**,8fc57b8b six separate full routes; **C16a**, six separate natural M/F,60-update transactions and25 later movements each | Natural S/L per wrestler; original endurance/gear remains separate. Down+B Honky route supersedes failed plain-B experiment. Actual cue writes close André's return-only queue false negative; audible output remains open |
 | Excitebike | **H**,Nov2 full route; a76 natural M/60-tick resume | Natural F/S/L; first-M freeze was repaired, not a current defect |
 | Prince Persia | **H**,7ef full/grounded1-2;62ba natural M/F sword/combat. Current421 ordinary first-pipe approaches reproduce bump/backtrack and failed intuitive climb | Active collision/usability repair in `prince-pipe-usability-current-1114.md`; the tuned historical clear does not close it. Natural S/L are fixture-only so far; invisible automatic entrance remains a visual limitation |
 | Burns | **C**, actual421 root16139/94b,8864physical/4442Main/2818CF, full flag/castle/entrance and25 grounded1-2; no helpers | Natural weapon/container ensemble and remaining abilities are separate; the idle30Hz deficit remains open. Evidence: `contra-force-full11-source-1114.md` |
@@ -100,7 +102,7 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
    Use their intended abilities. If assistance is needed, root owns native
    actor placement/allocation and must record the assisted crossing.
 3. Reuse existing natural-item source controllers for **Jay F/S/L, both
-   Bowsers S/L, both Bub/Bob F/S/L, six WWF F/S/L, Prince S/L,
+   Bowsers S/L, both Bub/Bob F/S/L, six WWF S/L, Prince S/L,
    Metal S/L and Excitebike F/S/L**. A mature-actor seed is diagnostic only;
    collector/erase/score/sound/resumed-play effects must follow ordinary access.
    All four FF M/F/S/L are already covered in their recorded versions; their

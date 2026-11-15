@@ -69,3 +69,25 @@ reading Square2SoundQueue at return sees no cue32. That observation alone
 does not distinguish an absent producer from NMI consumption before return.
 A new passive write observation must resolve it; André's60/+25 and Flower
 remain unqualified. No game byte is changed by these controller tests.
+
+## André: cue production observed and both pickups qualified
+
+Root19710 preserves the same ordinary gameplay policy and adds only a
+passive observation of writes to Square2SoundQueue while a real collector
+is active. Factory440bbaf77683e74e96c6c3bc9d88a337cff60a3f69f8c25c0e2642ea97c59aa6,
+Lua8d82673e2d9ca4b93a92b728265f7141d9697a13aebc72f360de22bdd5aba10f.
+Receipt25750237bc296f3357c443795dc42e26f7eb5599a5242a2d19b4420494b4091b
+passes on the actual installed16a path:2549Main/4635physical,
+1237/112/power2/lives2/score2600. Both real actors mature and are physically
+collected, each completes60 actual guest updates and25 later movements.
+
+For the Mushroom at1034 prior returned Main/frame1691, the observer sees
+an actual cue32 write during collection; the queue is0 at return. For the
+Flower at2463/frame4525 it sees an actual cue32 write and queue32 at return.
+Thus the earlier return-only cue assertion was insufficient. This witnesses
+queue production, not an audible-output test or a new SFX repair.
+
+Together64263's five passes and19710 close natural M/F transaction and
+resumed-movement gates for all six WWF roles on16a. Star, hidden1UP,
+endurance/gear, all abilities, audible audio, art and performance remain
+separate. Historical full-stage receipts are not promoted to16a.
