@@ -171,3 +171,28 @@ source attributes through the delivered palette mapper. That suggests the
 private body might not follow native palette cycling; it is a prediction,
 not a native graphical defect finding. Actual images and their OAM/palette
 acknowledgment are root's next gate. No game patch is proposed here.
+
+Root50286 subsequently closes **Bob NATIVE PASS** on actual174fa, receipt
+`a88254b0a3ee43908a039e0f763fb38b4253ac0f1f332ddf506ac4f5ad4f6ef1`,
+exact frozen f6937ce1 Lua.2986 returned Main/6374 physical; actual timer43
+score credit2961 is followed by exactly25 new entries and matching returns,
+30 postcollector. Flags7/power2/lives2 are retained. Both identities now have
+natural M/F/S/L acquisition evidence on174fa across separate native routes.
+Authoritative native counts and earlier stock scope are in root's
+`bub-bob-natural-star-native-root-1115.md` and `bub-palette-native-root-1115.md`.
+
+Root77929's separate three-picture run functionally passes, receipt
+`de72d03e4f7126f7e250d52cbc25dfdfb56b070de0bac264b401a2ca04773d69`,
+but proves **missing player Star flashing**. Mature-Star frame6128 is normal;
+active frame6294 has native Player_SprAttrib2, while the two actual hero OAM
+attributes remain64/64 (palette0). Frame6302 has native attribute0 and the
+same hero palette0/RGB. Actual P0 is22/2A/26/30; native world P3 remains
+0F/0F/36/17. Original private attributes67/67 stay intact, as required.
+Root viewed all three real RAM PNGs: the Star/world/body are otherwise clean,
+but the two active poses remain green. This is a graphical defect, separate
+from the valid acquisition, score and resumed-play gates. No expiry,
+protected-hit, full-stage, audio or broader visual qualification follows.
+
+A new descriptor-only proposal is documented in
+`bub-selected-star-palette-proposal-1115.md`. All existing controller,
+composer, mapper-grant and source-proof files remain frozen.
