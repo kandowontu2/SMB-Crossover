@@ -13,7 +13,7 @@ def signed(v):return v-256 if v>=128 else v
 
 
 def compact(q):
-    return{k:q[k]for k in('x','y','vx','vy','ground','star','sx','sy','svx','svy','face','hp','cap','held','inventory','next','lives','score')}
+    return{k:q[k]for k in('x','y','vx','vy','ground','star','flags','sx','sy','svx','svy','face','hp','cap','held','inventory','next','lives','score')}
 
 
 def align(b,target,limit=120):
@@ -83,7 +83,7 @@ class ObserveBranch(G.Branch):
         with patch.object(G.N,'NesMPU',CPU):return super().step(pad)
 
 
-def opposite_scene(seed,air_charge):
+def opposite_scene(seed,air_charge,jump_start=1244):
     b=ObserveBranch(seed);marks=[];trajectory=[]
     def mark(name):
         b.phase=name;marks.append(dict(t=b.t,phase=name,state=compact(G.state(b.m))))
@@ -101,7 +101,7 @@ def opposite_scene(seed,air_charge):
     mark('left-charge-runup')
     for _ in range(100):
         q=G.state(b.m)
-        if q['x']<=1230 and signed(q['vx'])<0:break
+        if q['x']<=jump_start and signed(q['vx'])<0:break
         b.step(2|64)
     else:raise AssertionError('Ordinary left runup bound')
     mark('left-jump-with-charge')
@@ -127,12 +127,12 @@ def opposite_scene(seed,air_charge):
             b.step((1 if q['x']<1243 else 2 if q['x']>1247 else 0)|(128 if i<25 else 0))
     if b.pickups:
         for _ in range(25):b.step(0)
-    return dict(kind='opposite-momentum-real-brick-reflection',air_charge=air_charge,
+    return dict(kind='opposite-momentum-real-brick-reflection',air_charge=air_charge,jump_start=jump_start,
         marks=marks,actual_star_writers=b.events,boarding=boarded,real_supports=len(b.rides),
         pickups=b.pickups,trajectory=trajectory,terminal=compact(G.state(b.m)))
 
 
-def run(actual,air_charge=8):
+def run(actual,air_charges=(4,8),jump_start=1244):
     assert sha256(actual).hexdigest()==Current.CANDIDATE
     parent=Current.inverse(actual)
     # Historical571 is an explicitly recovered planning model. It is not
@@ -145,8 +145,10 @@ def run(actual,air_charge=8):
             row.append(G.N.get(m,'Block_Buffer_1',at))
         tile_rows.append(dict(y=y,x_start=1152,step=16,tiles=row))
     results=[]
-    q=opposite_scene(m,air_charge);results.append(q)
-    print('BRANCH '+json.dumps(q,separators=(',',':')),flush=True)
+    for air_charge in air_charges:
+        q=opposite_scene(m,air_charge,jump_start);results.append(q)
+        print('BRANCH '+json.dumps(q,separators=(',',':')),flush=True)
+        if q['pickups']:break
     return dict(actual_input_SHA256=Current.CANDIDATE,planning_runtime_SHA256=sha256(parent).hexdigest(),
         scope='Input-only historical571 planning from strictae66 inverse; no current/native admission',
         capture={k:v for k,v in capture.items()if k!='memory'},tile_rows=tile_rows,branches=results,
@@ -154,9 +156,15 @@ def run(actual,air_charge=8):
 
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--air-charge',type=int,default=8);args=parser.parse_args()
-    assert 3<=args.air_charge<=14,'Only a measured short launch phase is permitted'
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--air-charge',type=int,nargs='+',default=[4,8]);parser.add_argument('--jump-start',type=int,default=1244);args=parser.parse_args()
+    assert len(args.air_charge)<=2 and all(3<=n<=14 for n in args.air_charge),'Only two measured short launch phases are permitted'
+    assert 1242<=args.jump_start<=1246,'Measured real-brick-edge takeoff domain'
     raw=Path('C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes').read_bytes()
     def forbid(*args,**kwargs):raise RuntimeError('Star planner attempted files or Mesen')
-    with patch.object(Path,'write_bytes',forbid),patch.object(Path,'write_text',forbid),patch.object(G.F.Runner.Native,'run',forbid):q=run(raw,args.air_charge)
-    print('RESULT '+json.dumps(q,separators=(',',':')),flush=True)
+    with patch.object(Path,'write_bytes',forbid),patch.object(Path,'write_text',forbid),patch.object(G.F.Runner.Native,'run',forbid):q=run(raw,args.air_charge,args.jump_start)
+    digest=sha256(json.dumps(q,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+    summary={k:v for k,v in q.items()if k!='branches'}
+    summary.update(receipt_SHA256=digest,branches=[dict(jump_start=b['jump_start'],air_charge=b['air_charge'],
+        real_supports=b['real_supports'],pickup_entries=len(b['pickups']),terminal=b['terminal'])for b in q['branches']])
+    print('RESULT '+json.dumps(summary,separators=(',',':')),flush=True)
