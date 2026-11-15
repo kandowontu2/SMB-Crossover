@@ -35,8 +35,8 @@ return function(c)
   local stopping=c.x+v*math.abs(v)/32
   local status=c.r('GmRam0091')
   if phase=='star-align'then
-   if c.grounded and c.x>=1218 and c.x<=1222 and math.abs(v)<=2 then phase='star-face';return{right=true}end
-   return{right=stopping<1219,left=stopping>1222}
+   if c.grounded and c.x>=1228 and c.x<=1231 and math.abs(v)<=2 then phase='star-face';return{right=true}end
+   return{right=stopping<1229,left=stopping>1231}
   elseif phase=='star-face'then phase='charge';age=0;return{b=true}
   elseif phase=='charge'then
    age=age+1;assert(age<180,'Bounded original star charge')
@@ -56,10 +56,10 @@ return function(c)
    if status==0 then phase='star-align';return{}end
    local sx=(c.r('GmRam00AF')+256*c.r('GmRam00B9'))/16-8
    flower.board_trace=flower.board_trace or{}
-   if age%8==1 then
+   if age%2==1 then
     local trace=flower.board_trace
     trace[#trace+1]={step=c.frame,x=c.x,y=c.y,star_x=sx+8,star_y=(c.r('GmRam009B')+256*c.r('GmRam00A5'))/16,status=status,ground=c.grounded,vy=c.r('GmRam00C2')}
-    if #trace>16 then table.remove(trace,9)end
+    if #trace>24 then table.remove(trace,17)end
    end
    local pad={right=stopping<sx-1,left=stopping>sx+2}
    if c.grounded and not c.lastA and math.abs(c.x-sx)<40 then pad.a=true
@@ -152,7 +152,7 @@ end
    if flower.resume==25 then finish('natural-flower-inventory-and25-resume');return end
   end
  end''')
-    text=once(text,'if frame>=5000 or updates>=2400','if frame>=9000 or updates>=5000')
+    text=once(text,'if frame>=5000 or updates>=2400','if frame>=9000 or updates>=2300')
     Frozen.LuaRuntime().compile(text)
     assert not any(s in text for s in('emu.write','emu.setState','io.open','saveState','loadState','takeScreenshot'))
     return text

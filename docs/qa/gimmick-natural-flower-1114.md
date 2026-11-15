@@ -53,8 +53,16 @@ it retains the actual support and physical Flower-collector requirements.
 Airborne attempt39087 also remains negative:5,000Main/HP3/lives2, Lua
 24dd8dfde00fd24c7b0b74541c192221ba555e1c39030aa2b7e7e53ef89177ee,
 receipt a98c337628ab7b6a99ef393b97cba5672b5445e2bfdfbd83b7ca01154b00fcfe.
-The real star does bounce off the block wall, but the player arrives too late
-and remains outside its support width during descent. The bounded trajectory
+The real star travels left after release near the block wall, but the player
+arrives too late and remains outside its support width during descent. No
+separate wall-contact witness was recorded. The bounded trajectory
 records starX/Y and confirms zero actual GmRideStar transitions. No item,
 health, terrain, inventory or physics changes were made. The physical Flower
 collection gate remains open; spawning it alone is not a pass.
+
+The closer launch successor75793 is likewise a bounded control negative,
+2,300Main/HP3/lives2, zero actual supports. Lua
+30ba432109dfe4b734ce4ebb523b74b957cd242fb855b63b722dbf0445f24cc8,
+receipt475f42e5c618e302e0b0373a455a6dfe9240b53043dc2ed9da50b1693363e283.
+Its tool output was truncated in the middle, so no unobserved trajectory
+details are asserted. This checkpoint remains source-only and unqualified.
