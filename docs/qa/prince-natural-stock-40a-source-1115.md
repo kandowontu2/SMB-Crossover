@@ -62,8 +62,12 @@ reaches below the brick at1600/176,HP4/Sword1/native2, but rejects its head-span
 condition before the first request. Main3961/lives2/no birth or collector.
 Neither negative qualifies actual item acquisition or native readiness.
 
-New held-Up80 successor2745 is live for hidden1UP, bounded600/max-files1,
-zero generated files. It uses the established genuine Mushroom reach recipe,
+Held-Up80 successor2745 is terminal input negative, receipt
+`b2974e2129d4cfbdc394379bfd2069da0e79148e19aac255555d9486646ab551`,
+Lua `720d78ec915b3c4a97fcb16442dbc52fb0e169ea117df57e2b328ade2e7c800c`.
+Main entries=returns2723, terminal1018/176/HP4/lives2/native1/Sword0.
+Four genuine requests reach pose78, but minimumY173 and the hidden tile
+remains96; there is no item birth. It uses the genuine Mushroom reach recipe,
 waits for fresh actual action0, and retains the short-Up/A negatives. The
 earlier12-update pulse never reached the full reach/pose78 interval. Maturation
 may first be observed at the actual collector; this is recorded explicitly
@@ -74,3 +78,58 @@ Source menus use the existing compiled Select/Start component; the source
 peripheral lacks physical vblank/cadence. Actual native navigation is a later
 root-owned scope. Equal-facing F090, audio completeness and idle lag remain
 separate open work.
+
+New wrappers authenticate the immutable source fixture
+`tools/reference/prince40a_full_e161_1115.lua`: 92961 LF bytes, SHA
+`e1614ed60e1bb2d3990df26c4f1f16e97fcda6a744ca9950bf346cc2a3ddbc2f`.
+Root committed its byte-identical export in2fa42a5a. It replaces only slow
+factory reconstruction in new wrappers; the initial held-Up Lua stays exactly
+720d before new observers are added. All old factories remain unchanged.
+
+Read-only source23273 diagnoses one genuine pose78 query, receipt
+`9c35af4b4fbd4a6eb00de84c425d574d5dfccfff52ce6dec4f97fb00034ef7ad`,
+Lua `321b72cb5621036b10c66cc1c7b5827b962d2ae1bd98f7ac17fb3b69fb59ff9b`.
+Main entries=returns2181. At headPC9587/SP192, the existing worker temporarily
+uses nativeY157 (actual173 minus16), native head adder51/X8/Y1. WorldX1028
+queries actual row144/raw0, returningB114/SP194; the hidden block is row128.
+The shared entry's foot adders52/53 are excluded. This explains this input's
+miss; it does not prove universal inability or authorize a head-height change.
+Root's retained full native running-jump trace independently measures only
+15 pixels of lift (176 to161), while the original standing hop is two pixels.
+
+Additional finite input negatives are retained as separate named successors.
+Fast initial query53761 reproduces the held-Up miss, receipt c0905d46; its
+24-sample trace filled during braking/feet, so it is superseded for query
+interpretation by23273. Star78907, receipt b622c00c, stops at its1100-update
+control bound without birth; coarse release settles1624, putting headX1632
+outside the authored Star column. Careful-step36014, receipt a4199364,
+keeps facingLeft at the screen clamp and dies before any Star request; the
+successor faces normally before using B+direction. Neither is a geometry claim.
+Running99932 contains two input negatives: ground runningA is admitted but
+dies without acquisition; its full printed receipt was truncated and is not
+claimed here. Cap attempt endsMain2002/HP0, receipt
+`ddcb3c83532d4b174973f0227b2b3c30a98b94c4785fda1528a8f18a547c6429`.
+It overrides the prefix at a partial cap before its careful anchor and falls
+off; it is not evidence against a properly supported cap route.
+
+Star45532 reaches genuine acquisition, then fails its score observer/control
+bound, receipt `393e30572799bc019fa4538f6c115c84789888db9ba28cf91b2906dac07905f1`.
+Lua `e767e93635b66efa1a757019b8693917f5e4ba549b7671863e777cd428a20a5a`.
+At fresh idle1608/176, actual headX1616 covers authored brick87. Up8 held80
+reaches pose78: native query row144/raw87 and genuine kind2 birthMain3853,
+1616/136. MatureMain3918 is1616/119/state128. AtMain3989, collectorC7B3/SP219
+has item1687/166 versus player1695/176, boxes122,175,134,187 and130,185,142,209,
+positive4x2 overlap. Actual erase/popup6/cue32 and return016E/SP221/C1 pass;
+Star timer35/music64 are set, HP4/lives2/native2/Sword1 retained. No score
+credit is recorded by the existing timer43 observer, so this is not a complete
+Star qualification. Separate read-only trace30944 follows native popup timing
+with neutral ordinary input after collection; it changes no game bytes.
+Source30944 completes its diagnostic atMain4029, receipt
+`8a0288d7cb42179567e782f85886ed065f13bf0bf45e3274dfa27bf9cb424774`,
+Lua `4d43b7af6fd58377dc5e2952605d24a2057351e80a087262f0f82088513592d0`.
+The real slot5 popup stays6 and its timer decreases47,46,45,44,43,42,41,40
+onMain3989..3996. Score is2600 through3993 and3600 from3994: the actual
+1000-point award succeeds. The existing strict owning-core callback does not
+record a target invocation, so its mapping/call-site observer is still being
+diagnosed. This is an observer failure, not a missing Star award; no gate is
+waived and no native-ready pin is claimed yet.
