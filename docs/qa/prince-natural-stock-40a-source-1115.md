@@ -229,3 +229,15 @@ No branch admits action3/4 or qualifies an item. HP4/lives2 remain unchanged.
 These are ordinary-input component observations, not seeded gameplay or a
 natural1UP/native proof. Next source successor holdsUp through the original
 partial-cap climb before the old prefix injects B+Right/action42.
+
+Held-Up partial-climb source90366 is a finite input negative, receipt
+`bef1a4c7ac6a91189731f7e30623cf96edd06a974e7bccd2a171223c59766781`,
+Lua `9e0ac27633b32d0ab747ac349bb3625ea079806d7ab341d21d530ffc0a9600fe`.
+AtPrince1910,899/112/action10/mode0, Up remains held instead of B+Right.
+The next original control selects action8 and moves to920/112 with both
+native feet inside the cap. Continued Up repeats the reach/fall cycle;
+the fixture's fresh-action0 requirement never becomes true. It reaches its
+240-update mount bound atPrince2150, HP4/lives2/native1/Sword0, without a
+jump or item. This supplies a supported ordinary mount, not an incorrect
+game writer. A separate successor releases Up after admitted action8,
+then awaits actual idle before testing running-jump admission.
