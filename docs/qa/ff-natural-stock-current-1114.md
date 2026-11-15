@@ -16,7 +16,7 @@ is restored. PRG74 belongs to Kirby and is not the FF owner.
 Fighter natural1UP source79551 is TERMINAL PASS on actual571 runtime bytes,
 receipt54b926112436bbb3c18804a4e5a9b0c4b8ad30a588c4609552e1cc0d30e4ef84.
 The actual authored hidden block is1024/Y128. Real kind3 birth at1024/119
-is observed at continuation366; mature actor1050/135/state192 is physically
+is observed at continuation366; mature actor1049/135/state192 is physically
 collected at continuation454, player1045/150. It erases the actor and sets
 popup11/cue32 without freeze or tier/earned change. Native opcode
 ee5f07a9408d0401 at PRG254:8987 gives life2→3 at continuation459/timer42,
@@ -28,3 +28,26 @@ this proof does not certify FF black-mask/art or audible output.
 All output roots are absent/zero files, max-files1/600seconds. Root alone
 owns Mesen, ROMs, Downloads and cleanup. New native S/L controller factories
 must be source-qualified individually; no sibling-class receipt transfer.
+
+The first production Fighter controller87eb source70462 passed, receipt
+8331ae5dfa0d8a8fa047846d85dd02e369e0d29d9a41adf7ed0666f7d0a8204a.
+Its endpoint counted25 returnedMain snapshots after credit, including the
+credit-writing Main whose movement had already run. That is24 strictly
+post-writer movement calls. The native life mechanism remains qualified
+in source; this controller is retained unchanged and is not the native
+queue successor.
+
+The separate strict successor is TERMINAL source PASS48306, receipt
+1b62daffa6e98b269d5118fd470942267064afc3969a908f7d7ac70a84d85881.
+Use replay_ff_natural_oneup_after_credit_1114.controller(raw571,'fighter-life'),
+Lua3d6fc380344c4249e61e8aa6ac946c0567237f90b807826f11ce26f7c4f4d945.
+Factoryd381a25808eed711635aa06db08ad5503a5a1832ca10045050b6585384fba3a4;
+checker92d25b50a6d1abaa620a99965ecccb625b87296593df17372038152149924243.
+Only observation/endpoint counting changes; ordinary controls and frozen87eb
+remain unchanged. It records the actual FfMovement entry count at the native
+life writer, then requires25 later entries. Source completes945 Main and885
+FF entries in120.58seconds. Real M collector379 at401/176, kind3 birth817
+at1024/120, mature882 at1024/103, physical collector915 at1053/176 versus
+actor1057/161. Native INC2→3 occurs920/timer42/cue64; terminal1053/176,
+native0/engine8/lives3/FFlease3/power1/earned1/charges0. No current native FF
+receipt is implied. Sibling classes are separate fresh-cold checks.

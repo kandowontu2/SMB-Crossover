@@ -13,8 +13,8 @@ The real kind3 matures at1024/103/Main1214. The physical native collector
 at1038/176/completedMain1245 erases the actor, keeps the earned tier and
 uses the native popup11 return without powerup freeze or a DK tier grant.
 The real FloateyNumbersCore INC NumberofLives and extra-life cue are
-separately authenticated and observed, proving life2→3. After25 actual
-resumed DK calls following that credit, terminal1045/176/engine8/lives3,
+separately authenticated and observed, proving life2→3. After25 returned
+Main snapshots with credit present, terminal1045/176/engine8/lives3,
 tier1/power1/Star0; DK's natural life lease is also3. Final score1300.
 The full stdout was truncated; no unavailable birth/credit indices are
 invented. This is source-model evidence only until root's native replay.
@@ -35,8 +35,15 @@ kind3 birth1490/frame1829 at1024/120, maturity1557/frame1899 at1024/103.
 Physical collector1588/frame1931 has player1034/176, actor1056/158 and
 boxes[97,176,139,208]/[134,167,146,179]. Actual erase/popup11 follows the
 native initial setup6, then real delayed INC life2→3 at1593/frame1936,
-timer42/cue64. After25 actual DK calls following that credit, terminal
+timer42/cue64. After25 returned Main snapshots with credit present, terminal
 1041/176/engine8/lives3/DkLife3/tier1/power1/Star0; score1305 is unchanged
 by the1UP. No capture, state write, byte or guard change. This closes DK's
 natural M/F/S/L stock on571. Star expiry/protected-hit, complete ability,
 audio/visual and performance coverage remain separate open gates.
+
+Counter precision: movement precedes Enemies/FloateyNumbersCore in native
+GameCoreRoutine. The25 snapshots include the credit-writing Main's movement
+that already happened, so they contain24 strictly post-credit DK movement
+calls. The real mature collector, native life increment/cue and resumed-play
+proof remain valid. Frozen73709db8 is unchanged; no additional DK native run
+is inferred or required solely to relabel this component counter.
