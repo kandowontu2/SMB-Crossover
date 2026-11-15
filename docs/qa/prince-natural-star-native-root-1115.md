@@ -1,4 +1,4 @@
-# Prince natural Star: native acquisition succeeds, observer correction pending
+# Prince natural Star: current40a native pass
 
 Actual Downloads40a SHA256
 `40a11ffb8452c3b54caef56ddd5912e2bdda2c276545f20a589baa053de4d20e`.
@@ -31,3 +31,26 @@ The ROM and automatic-patch guard remain unchanged before/after; root reuses
 the existing two-file private slot, zero captures/game-state writes/backups
 or releases. Source timing is recorded separately in
 `prince-natural-stock-40a-source-1115.md`.
+
+## Corrected returned-Main endpoint passes natively
+
+Root42289 uses the separately source-qualified return-boundary factory
+`replay_prince_natural_star_return_40a_1115.py` SHA256
+`d0361d48072814959de6ec402d76f39ebaca0310c5c0772c6a63a78744a0b552`,
+LF Lua `c64d22a697143beecb1ec12cac4ea68fef117d459b3ec7d34a26b2bc7a2e68c7`,
+variant3. Its actual Downloads native receipt **passes**:
+`f10d49b5fe018edcc39c2c72d188f60e59215c16a9e6968245cf5d1c0367e3b9`.
+
+All acquisition inputs and witnesses above are retained. At physical frame8511,
+the real authenticated Main caller return82D0/SP252 has Main4707 entries and
+returns, Prince4015 entries and returns, and both pending guards clear.
+Exactly25 Prince returns follow the score credit3990. Endpoint1696/176,
+HP4/lives2/power2/Sword1/Star33. First actualBBC1/SP203 verifies both cache
+cookies and all4193 static owning bytes. Source49196 independently passes
+the same new boundary; its different menu/cadence count is not substituted
+for this physical run. The old48097 observer-bound negative remains intact.
+
+Actual Downloads40a and patch-guard results are unchanged; zero new capture
+files, ROM edits, helpers or releases. This closes natural Star acquisition
+and short resumed play on this version. Expiry/protected contact, hidden1UP,
+remaining abilities, audio output and performance remain separate.
