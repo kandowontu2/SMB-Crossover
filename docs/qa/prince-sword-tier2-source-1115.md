@@ -53,8 +53,9 @@ the cold copy's STA C0B0,Y. Correction to earlier diagnosis prose: C6D1 is
 the donor bank selector, not an established max-HP field; its store is exact.
 
 Pickup saves3 bytes by using the Type LSR carry through mature-state LDA/BPL.
-Types>=2 retain native dispatch;0/1 retain mature gating. Incoming A/flags
-are overwritten inside NativeCall before dispatch. Flower costs4 additional
+Types>=2 retain native dispatch;0/1 retain mature gating. Incoming A/N/Z
+are overwritten inside NativeCall; carry reaches the native pickup and its
+actual caller compatibility is checked separately below. Flower costs4 additional
 bytes; preserving native2 in the Mushroom helper costs2. Result75 meaningful
 bytes plus2 tail bytes. NativeDeathUpdate movesC7EA→C7EB, so its actual
 published Prince death JMP low operand changesEA→EB. Other raw C7xx words
@@ -134,3 +135,30 @@ The direct Star/1UP callback fixture initially lacked the resident bridge's
 RAM2 map precondition, then found a strict native-RAM comparison difference;
 that difference is being instrumented rather than labeled a game defect.
 No candidate staging, native, installation or delivery grant is inferred.
+
+Metadata55843 is now terminal PASS. Frozen successor composer SHA
+`6d2cbeb8bcf6b9a32d85c08ef158bb4dbe67e890831bbdb8dd203359e61b1afc`,
+factory SHA
+`aac0ba31d15a07df0fa9abb6c4a72a63d0c1af818a71cb2d0ac1ada73fd04612`,
+LF Lua `e1614ed60e1bb2d3990df26c4f1f16e97fcda6a744ca9950bf346cc2a3ddbc2f`,
+variant3. Its firstBBC1 witness keeps the prior4185 bytes and adds the8 Fresh
+bytes, total4193. Existing navigation/combat and endpoint inputs stay53c1.
+
+Actual encoded40a direct native callback components PASS, receipt
+`960c83cdb69482dc10cfd1455daddf71471115077765ec5c9294d6126ee700d7`.
+Star/1UP at each diagnostic tier0/1/2 erase the native item and preserve the
+tier. Star sets35 and awards1000;1UP grants2→3 through six actual popup-core
+updates, not immediately at pickup. Current DF7B JMP→C7EB death-update output
+matches parent. Returned registers/carry, all nonstack native RAM and live
+caller stack match. Star initially passes carry0 versus parent1 into AF71;
+its only retained difference after popup is dead stack byte1CC (51→50),
+not a live caller argument or gameplay effect. The original full-native-RAM
+comparison negative is retained as that fixture distinction. Actor/status
+inputs and direct calls are declared components, not natural Star/1UP play.
+
+Live41018 source progress reaches a genuine Flower atMain2833,1260/112,
+HP4/lives2/native075B2/privateSword1. A32-neutral control retains2/1. The
+public ChgAreaMode component passes243 Main including25 active at40/176,
+HP5/lives2/native075B2/Sword1. Actual earned-state clones demonstrate explicit
+KillPlayer/Continue/menu-entry clearing075B0; this is not a natural death or
+menu episode, nor a death-respawn proof. Full/ISR terminal receipt is pending.

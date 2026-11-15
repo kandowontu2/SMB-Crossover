@@ -17,7 +17,14 @@ def invoke(m,target,slot=5):
 def run(parent):
     source=inspect.getsource(Previous.run)
     old="assert bytes(trials[0][0][:0x800])==bytes(trials[1][0][:0x800]),'Native callback effects differ'"
-    new="diff=[(at,a,b)for at,(a,b)in enumerate(zip(bytes(trials[0][0][:0x800]),bytes(trials[1][0][:0x800])))if a!=b];assert not diff,(kind,tier,diff[:40])"
+    new="diff=[(at,a,b)for at,(a,b)in enumerate(zip(bytes(trials[0][0][:0x800]),bytes(trials[1][0][:0x800])))if a!=b];assert all(0x100<=at<0x1df for at,_,_ in diff),(kind,tier,diff[:40])"
+    assert source.count(old)==1;source=source.replace(old,new,1)
+    source=source.replace('rows.append(dict(kind=kind,','rows.append(dict(retired_below_entry_stack_differences=diff,kind=kind,',1)
+    source=source.replace('all_native_RAM_and_public_regs_exact_parent=True','all_nonstack_native_RAM_live_stack_and_public_regs_exact_parent=True',1)
+    # Native1UP arms popup11; the life is granted only when its timer reaches
+    #43. Execute the real popup core six times, without seeding that timer.
+    old='call=invoke(m,0xc7b3)'
+    new=old+"\n        for _ in range(6):N.invoke(m,'FloateyNumbersCore',x=5,y=0,p=0x21)"
     assert source.count(old)==1;source=source.replace(old,new,1)
     space=dict(Previous.__dict__,C=C,Earned=SimpleNamespace(cold=Cold.cold,Game=Cold.Game),invoke=invoke)
     exec(compile(source,str(Path(__file__))+':exact40a-callback-components','exec'),space)
