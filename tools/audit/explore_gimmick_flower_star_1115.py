@@ -1,5 +1,6 @@
 """Bounded input-only star boarding planner from a genuine mature Flower."""
 from hashlib import sha256
+import argparse
 import json
 from pathlib import Path
 from unittest.mock import patch
@@ -59,7 +60,79 @@ def scene(seed,target,air_charge,chase):
         terminal=compact(G.state(b.m)),trace=trace[:3]+trace[-3:])
 
 
-def run(actual):
+class ObserveBranch(G.Branch):
+    """Passive actual launch/reflection witnesses around the ordinary frame."""
+    def __init__(self,seed):
+        super().__init__(seed);self.events=[];self.phase='align'
+        self.points={}
+        for name in('GmN30_829C','GmN29_8114'):
+            at=G.W.location(seed.bundle,name)
+            self.points[(G.W.address(seed.bundle,name),(at-16)//8192|128)]=name
+    def step(self,pad):
+        owner=self;base=G.N.NesMPU
+        class CPU(base):
+            def step(cpu):
+                tag=owner.m.rawtags[(cpu.pc-0x8000)//8192]if cpu.pc>=0x8000 else-1
+                label=owner.points.get((cpu.pc,tag))
+                if label:
+                    assert len(owner.events)<16,'Bounded original star writer witnesses'
+                    owner.events.append(dict(t=owner.t,phase=owner.phase,event=label,PC=cpu.pc,tag=tag,
+                        A=cpu.a,new_signed_vx=signed(cpu.a),wall=G.N.get(owner.m,'GmRam0379'),
+                        state=compact(G.state(owner.m))))
+                return super().step()
+        with patch.object(G.N,'NesMPU',CPU):return super().step(pad)
+
+
+def opposite_scene(seed,air_charge):
+    b=ObserveBranch(seed);marks=[];trajectory=[]
+    def mark(name):
+        b.phase=name;marks.append(dict(t=b.t,phase=name,state=compact(G.state(b.m))))
+    align(b,1244);mark('stationary-charge')
+    for _ in range(120):
+        q=b.step(64)
+        if q['star']>=169:break
+    else:raise AssertionError('Real original charge did not mature')
+    mark('right-charge-runup')
+    for _ in range(80):
+        q=G.state(b.m)
+        if q['x']>=1270:break
+        b.step(1|64)
+    else:raise AssertionError('Ordinary right runup bound')
+    mark('left-charge-runup')
+    for _ in range(100):
+        q=G.state(b.m)
+        if q['x']<=1230 and signed(q['vx'])<0:break
+        b.step(2|64)
+    else:raise AssertionError('Ordinary left runup bound')
+    mark('left-jump-with-charge')
+    for _ in range(air_charge):b.step(2|64|128)
+    mark('right-facing-release-with-left-momentum');b.step(1|128)
+    mark('left-chase-through-first-descent');boarded=None;last_a=True
+    for i in range(100):
+        q=G.state(b.m)
+        if len(trajectory)<32:trajectory.append(dict(t=b.t,phase=b.phase,state=compact(q)))
+        if b.pickups:break
+        if b.rides:
+            boarded=boarded or dict(t=b.t,ride=b.rides[0],state=compact(q))
+            if last_a:
+                mark('actual-ride-A-release');b.step(0);last_a=False;continue
+            mark('actual-ride-fresh-right-jump');b.step(1|128);last_a=True;break
+        b.step(2|128)
+        if q['star']==0 or q['x']<1152:break
+    if boarded:
+        mark('flower-chase-after-real-support')
+        for i in range(100):
+            q=G.state(b.m)
+            if b.pickups:break
+            b.step((1 if q['x']<1243 else 2 if q['x']>1247 else 0)|(128 if i<25 else 0))
+    if b.pickups:
+        for _ in range(25):b.step(0)
+    return dict(kind='opposite-momentum-real-brick-reflection',air_charge=air_charge,
+        marks=marks,actual_star_writers=b.events,boarding=boarded,real_supports=len(b.rides),
+        pickups=b.pickups,trajectory=trajectory,terminal=compact(G.state(b.m)))
+
+
+def run(actual,air_charge=8):
     assert sha256(actual).hexdigest()==Current.CANDIDATE
     parent=Current.inverse(actual)
     # Historical571 is an explicitly recovered planning model. It is not
@@ -72,12 +145,8 @@ def run(actual):
             row.append(G.N.get(m,'Block_Buffer_1',at))
         tile_rows.append(dict(y=y,x_start=1152,step=16,tiles=row))
     results=[]
-    for target in(1196,1212,1228):
-        for chase in(False,True):
-            q=scene(m,target,8,chase);results.append(q)
-            print('BRANCH '+json.dumps(q,separators=(',',':')),flush=True)
-            if q['pickups']:break
-        if results[-1]['pickups']:break
+    q=opposite_scene(m,air_charge);results.append(q)
+    print('BRANCH '+json.dumps(q,separators=(',',':')),flush=True)
     return dict(actual_input_SHA256=Current.CANDIDATE,planning_runtime_SHA256=sha256(parent).hexdigest(),
         scope='Input-only historical571 planning from strictae66 inverse; no current/native admission',
         capture={k:v for k,v in capture.items()if k!='memory'},tile_rows=tile_rows,branches=results,
@@ -85,7 +154,9 @@ def run(actual):
 
 
 if __name__=='__main__':
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--air-charge',type=int,default=8);args=parser.parse_args()
+    assert 3<=args.air_charge<=14,'Only a measured short launch phase is permitted'
     raw=Path('C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes').read_bytes()
     def forbid(*args,**kwargs):raise RuntimeError('Star planner attempted files or Mesen')
-    with patch.object(Path,'write_bytes',forbid),patch.object(Path,'write_text',forbid),patch.object(G.F.Runner.Native,'run',forbid):q=run(raw)
+    with patch.object(Path,'write_bytes',forbid),patch.object(Path,'write_text',forbid),patch.object(G.F.Runner.Native,'run',forbid):q=run(raw,args.air_charge)
     print('RESULT '+json.dumps(q,separators=(',',':')),flush=True)

@@ -27,3 +27,15 @@ so this can reduce star speed after a genuine wall reflection. It remains an
 untested controller hypothesis, not a new mechanic or a physics defect.
 Actual support, physical pickup, inventory/cue/score and resumed gameplay are
 still required before qualifying a native controller.
+
+Helper52924 then tests one opposite-momentum branch using the same genuine
+Main1694 seed. It charges at1244 until star169 (t42), goes Right+B to1270
+(t71), turns Left+B to1230/VX−24 (t121), jumps Left+A+B for8 updates and
+releases Right+A. At t130 hero1216/140 still has left momentum while the
+actual star launches right at VX27. A genuine GmRideStar transition appears
+at t153: hero1180/140/ground128/VY0 and star1191/179.875/VX−26. It then
+releases A and requests Right jump. This is real support, not proximity.
+The final stdout was truncated, so no terminal Flower pickup, reflection
+writer row or inventory result is claimed from that output. The complete
+source observer remains reproducible; the next batch will print nonduplicated
+compact receipts and use the measured later takeoff1244 with air-charge4/8.

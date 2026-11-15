@@ -63,3 +63,18 @@ naturally mature mushroom. Both identities total4 PNGs; root owns the sole
 queue and actual Downloads launch. Source PNGs were labelled API fixtures
 and never used as pixel evidence. Some inherited Prince-only state fields
 in the generic image receipt are not interpreted as WWF physics/state.
+
+Root71314 subsequently ran both exact current controllers against actual
+Downloads ae66 and visually reviewed all4 in-memory PNGs: normal Goomba and
+mushroom for Hogan and Andre; no corruption reproduced in those openings.
+Hogan908 Main/1490 physical, receipt
+d09e3f89ae5d01360d22c99e8fa8af830708e92239b22b81baecc8ad4d50b52d;
+Andre963/1536, receipt
+65297fc03f39237afc564dc96463f9b67717e1a13740de26721c3c325ecb7eb0.
+Native latches were446/16/17 for Hogan and630/16/17 for Andre in windows0/1/2.
+Independent current-ROM reads matched all8 target pattern pairs: page17
+offsets544/576, page16 offsets960/992,16 bytes per half, across both roles.
+The native controllers end at mature mushroom before collection. The60-tick
+freeze/+25 recovery remains source-only. This is neither all6 wrestlers nor
+all stages/poses. Root's native QA is `wwf-world-sprite-native-1115.md` and
+runner `run_wwf_world_images_native_1115.py`; no ROM/image files changed.
