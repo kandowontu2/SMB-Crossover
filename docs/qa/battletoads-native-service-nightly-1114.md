@@ -69,3 +69,26 @@ living grounded1-2 at40/176/high1/native0/engine8/area2/power0/Star0.
 The input body is identical to the previously qualified route. Parent571's
 preserved full receipt used6,464physical for the same4,359Main and HP35.
 Zitz and actual Downloads delivery remain pending at this checkpoint.
+
+The finer native observer13017 confirms remaining lag. Lua
+404f3208118e9061fe242b20954ea0c61b5b16473f32f65eafc139d79f612854;
+receipt46bb457dc547b0660cb80a68d2895c993c9570a6c23b4544389cbf363f1bfb0a.
+After excluding the initial partial frame, idle47physical frames have23
+missed4016/4017-read frames and Main histogram0:24/2:23. Walking32frames
+have16 missed-read frames and histogram0:16/2:16. These are real read
+callbacks, not just the native NmiSkipped counter. The faster average is
+therefore a catch-up pattern; this candidate is a partial performance gain,
+not smooth60Hz or zero-lag admission. The remaining idle/walk overrun stays
+open for the next optimization. No game or input policy changed for this
+observer.
+
+Root19284 terminal full Zitz PASS onae66. Lua
+a93c56ff35f877a2c14a8229b59a4fe89709ff81abadddd114f9efc4d996d15d;
+receipt581e7f685679393638d9b5e54f1ace1815dee83d3b609e4128d820bbac2219e8.
+4,380Main entries=returns/5,173physical,2,799BTsteps/58in1-2, HP35/lives2,
+Selectcycle1/variant32. Flag3033/frame3782,castle3096/3848,entrance3783/4550,
+then25 living grounded1-2 at40/176/high1/native0/engine8/area2/power0/Star0.
+Parent's preserved route used6,485physical for the same4,380Main/HP35.
+Both native stage routes and the literal-read observation now qualify a
+partial performance delivery. The unresolved skipped-read frames are an
+explicit limitation, not a blocked whole-goal or zero-lag completion claim.
