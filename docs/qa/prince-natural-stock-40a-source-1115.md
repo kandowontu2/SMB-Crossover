@@ -187,6 +187,18 @@ is retained. The endpoint requires both updates returned, unchanged living
 health/lives and sword inventory/tier, and active Star. Native qualification
 of this new observer remains root-owned and pending.
 
+Root42289 actual Downloads40a **passes** the frozen c64d observer, receipt
+`f10d49b5fe018edcc39c2c72d188f60e59215c16a9e6968245cf5d1c0367e3b9`.
+8511 physical frames,4707 completedMain and4015 completedPrince (entries
+equal returns). Real birth3849/mature3914/physical collector3985 and target
+credit3990 retain the earlier native transaction: positive4x2 overlap,
+erase/popup6/cue32/Star35/music64, score2600 to3600. Exactly25 later Prince
+returns finish at actual Main return82D0/SP252,1696/176/HP4/lives2/native2/
+Sword1/Star33, with both pending flags clear. FirstBBC1/SP203 verifies both
+cookies/all4193 bytes. No images, files, state writes or ROM changes. This
+closes Prince's natural Star acquisition on40a; expiry/protected hit, hidden
+1UP, equal-facing F090, wider audio/abilities and performance stay separate.
+
 The corrected full-cap hidden1UP experiment19277 is an input negative,
 receipt `3d486b0c238c6a74465ca3633e6bc378bca1dd29e6f42a1b249668033ca7ff56`,
 Lua81664520. AtMain1962, actual both-feet support is928/112/HP4/lives2,
