@@ -5,7 +5,8 @@ and25 living grounded1-2 updates. Root is running the same frozen controller
 against actual Downloads571; native verification remains pending. Its
 delayed-two-poll source fixture is still running. The controller uses a
 measured first-roof takeoff1506..1510, with actual native ground required
-again after a brief foot-query gap. Earlier F11 source passes and actual
+again after a brief foot-query gap. The delayed-two-poll source fixture also
+passes. Earlier F11 source passes and actual
 native negatives retain their scope below. No DK ROM code, physics, helper
 placement, health or power grant change is needed for this source clear.
 
@@ -389,5 +390,13 @@ checker `a23f6634da94304b36f160122b6b236bc680e29a6cf9159d60786549519fa3d0`.
 Pure571 rebound of the unchanged frozenb68 body is
 `9986fbadce1065ce375ea422bdf643812a0408bcbc99ec80abf3e1da13b3ed10`.
 No factory dependency changes while root's actual Downloads native replay
-and the same-controller delayed source45858 run. Current roots remain
+runs. The same-controller delayed source45858 is TERMINAL PASS:3247
+returnedMain,2106 actual DK calls,58 in1-2,18 requests/admissions,
+flag2047/castle2110/entrance2671 and25 living grounded updates at
+40/176/high1/state0/engine8/area2/lives2/tier0. Full factory receipt SHA256:
+`60819785239b1cd68bdb2bd980171a0aa88fc595872c90ebb153c9f37b52ea44`.
+The two source input-delivery omissions occur at the genuine first grounded
+request1447/176 and its next1448/176 update. They change no game state or
+CPU/NMI scheduler and do not claim hardware cadence coverage. All source
+jobs have ended. Current roots remain
 absent/zero files, with no ROM, capture, patch, backup or release output.
