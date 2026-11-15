@@ -1,7 +1,8 @@
 # Classic DK functional 1-1 source investigation
 
-Root's delivered current is exactcf7
+The initial proofs used delivered exactcf7
 `cf7b6d2964ae0ef18d08c726f66afe9bf5be3dc6f3ec9c7a43279121ee09d968`.
+Current input is now exactf11, using the separately typed boundary below.
 `current_dk_gameplay_input_1114.py` authenticates the owning Gimmick inverse
 to exact1daca and strict forward roundtrip, then rebinds only image-controller
 provenance and changed bank hashes. Actual runtime bytes remain cf7; the
@@ -166,6 +167,29 @@ At Main1135/x1632/Y156 an actual native bump on tile87, row144/pointer0305
 retained controller negative, not a claim that any native head response is
 wrong. The first pair crossing is qualified only in source; no full-stage
 or native success is claimed.
+
+## Native-descent A release progresses to the later staircase
+
+Lua `f02d262022b46fb11f30742b2e498218ddf702665b38a539dfff29ef82d004c6`
+retains the opening and earlier supported jump. After1408 it holds A while
+actual native VY is negative and releases during native descent. The native
+Mario sign/carry integrator cannot move upward with integer VY0; this is
+ordinary input selection, not the excluded Jr. fractional projection change.
+
+Session2739 naturally completes its9000-source-pass bound in236.59 seconds.
+It has no injury/death and passes both prior enemy encounters, but stalls
+oscillating x2209..2220/Y128/state0 at the later staircase. There is no Lua
+terminal receipt. The SHA256 of its empty receipt object (`44136f...`) is
+not a stage receipt and is not used as passing evidence.
+
+The supported-roof observer records real grounded Y112 with A released at
+x1487,1509,1527,1614,1701..1739. Last head bump is Main1376/x2107, before
+the staircase. All retained final staircase rows show current/previous AB64,
+pad65, nativeVY0 and state0: no A jump is being requested there. This requires
+actual near/far terrain-probe evidence before drawing any jump/helper or
+physics conclusion. A separate unchanged-f02 bounded stagnation observer70511
+is pending. No process was killed for2739; it had already ended naturally
+before the owner inspected its absent process handle.
 
 No full1-1 clear, native playtest, new helper, game change or delivery is
 claimed. Source jobs use absent `build/dk-full11-current-1114`, max-files1,

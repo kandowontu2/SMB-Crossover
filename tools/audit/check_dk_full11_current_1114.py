@@ -20,11 +20,13 @@ def run(raw,*,metadata=False):
         return Runner.strict_metadata(raw,'donkey_kong')if metadata else Runner.run(raw,'donkey_kong',9000)
 
 
-def contact(raw):
+def contact(raw,*,staircase=False):
     """Passive source observer: exact frozen controller and ordinary cold."""
     N,W=Factory.N,Factory.W;original_cpu=N.NesMPU
-    ctx=dict(arena=None,main=0,cpu=None,pc=-1,points={},injury=None,death=None)
-    recent=deque(maxlen=24);heads=deque(maxlen=8)
+    ctx=dict(arena=None,main=0,cpu=None,pc=-1,points={},injury=None,death=None,
+        stair_max=0,stair_progress=0,diagnostic=None)
+    class StaircaseDone(Exception):pass
+    recent=deque(maxlen=24);heads=deque(maxlen=8);roofs=[]
     def view(m):
         fields=('Player_Y_Position','Player_Y_HighPos','Player_State','Player_X_Speed','Player_Y_Speed',
             'Player_Y_MoveForce','Player_YMoveForceFractional','A_B_Buttons','PreviousA_B_Buttons',
@@ -43,6 +45,15 @@ def contact(raw):
             actual_player_box=list(m[box:box+4]),actual_enemy_boxes=[list(m[enemy+4*i:enemy+4*i+4])for i in range(6)],
             camera=N.get(m,'ScreenLeft_X_Pos')+256*N.get(m,'ScreenLeft_PageLoc'),
             recent_completed_Main=list(recent),recent_native_head_bumps=list(heads))
+    def terrain(m):
+        block=W.address(m.bundle,'Block_Buffer_1');attrs=W.location(m.bundle,'MTileAttribute')
+        def cell(x,y):
+            at=block+(x//256%2)*208+((y-32)//16)*16+(x%256//16)
+            tile=m[at];return[x,y,tile,raw[attrs+tile]]
+        x=view(m)['x'];y=N.get(m,'Player_Y_Position')
+        return dict(cells=[cell(wx,wy)for wx in range(2192,2289,16)for wy in range(80,209,16)],
+            controller_far48=[cell(x+48,y+8),cell(x+48,y+24),cell(x+48,min(y+40,232))],
+            actual_body_front30=[cell(x+30,y+8),cell(x+30,y+24),cell(x+30,min(y+40,232))])
     class CPU(original_cpu):
         def step(self):
             m=self.memory
@@ -52,7 +63,16 @@ def contact(raw):
                 name=ctx['points'].get((bank,self.pc))
                 if name=='GameLoop':ctx['main']+=1
                 elif name and name.startswith('GameLoopReturn'):
-                    recent.append(dict(**view(m),actors=actors(m)))
+                    row=view(m);recent.append(dict(**row,actors=actors(m)))
+                    if 1408<=row['x']<1740 and row['Player_State']==0 and row['Player_Y_Position']<=112:
+                        roofs.append(row)
+                        if len(roofs)>16:del roofs[8]
+                    if staircase and row['x']>=2100:
+                        if row['x']>ctx['stair_max']:
+                            ctx['stair_max']=row['x'];ctx['stair_progress']=ctx['main']
+                        elif ctx['main']-ctx['stair_progress']>=120:
+                            ctx['diagnostic']=dict(causal(m,self,'bounded_actual_staircase_stagnation'),terrain=terrain(m))
+                            raise StaircaseDone()
                 elif name=='BumpBlock':
                     heads.append(dict(PC=self.pc,bank=bank,**view(m),
                         scratch={n:N.get(m,n)for n in('R2','R3','R4','R5','R6','R7')}))
@@ -72,8 +92,15 @@ def contact(raw):
             ctx['points'][(((at-16)//8192)|128,pc)]=name
         return m
     with patch.object(N,'NesMPU',CPU),patch.object(Runner,'Factory',Factory),patch.object(Runner,'cold',retained_cold):
-        q=Runner.run(raw,'donkey_kong',9000)
-    summary=dict(injury=ctx['injury'],death=ctx['death'],last_completed_Main=list(recent)[-8:],recent_native_head_bumps=list(heads),
+        try:q=Runner.run(raw,'donkey_kong',9000)
+        except StaircaseDone:
+            q=dict(passed=False,diagnostic_window_complete=True,full_route_passed=False,
+                ROM_SHA256=sha256(raw).hexdigest(),controller_SHA256=sha256(Factory.controller(raw).encode()).hexdigest(),
+                stationary=ctx['diagnostic'],gameplay_seeds=0,ROM_changes=0,outputs=0,Mesen_run=False)
+            q['diagnostic_receipt_SHA256']=sha256(json.dumps(q,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+    def compact(row):return {k:v for k,v in row.items()if k!='recent_completed_Main'}if row else None
+    summary=dict(injury=compact(ctx['injury']),death=compact(ctx['death']),last_completed_Main=list(recent)[-8:],
+        recent_native_head_bumps=list(heads),actual_supported_roof_rows=roofs,
         exact_frozen_controller_SHA256=sha256(Factory.controller(raw).encode()).hexdigest(),
         controls_and_game_bytes_unchanged=True,outputs=0)
     q['passive_contact']=summary
