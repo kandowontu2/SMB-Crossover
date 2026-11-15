@@ -149,3 +149,27 @@ default30ba/checker59505 remain immutable. The inherited metadata's body-
 unchanged flag is corrected for this new policy, with the five exact native
 hook records exposed; the qualified Lua body remains a3e7f6b3 unchanged.
 No physics, terrain, helpers, ROM, captures or generated files changed.
+
+Root50165 actual Downloads590/a3e7 is TERMINAL native PASS for the narrow
+four-pipe diagnostic, receipt
+b10dc872687f94fadee03df9014474b2ca058dc491182fa9dfcfeab7c9cc6b7e.
+1190 returned Main/1513 physical. Genuine Mushroom readiness is Main698 at
+430; arrival Main1165 at976/176/read467, followed by25 grounded original input
+consumptions through read492. Final992/176/native0/engine8/HP2/capacity3/
+lives2/power1. Nine A requests, seven actual admissions, two A retries and
+eight B retries; zero true star supports, so that branch remains unexecuted.
+One ordinary injury near Main970/x784 spends HP3 to2. This is not an injury-
+free, Flower or full-stage claim. Frozen1199/a3e7 and061b stay unchanged.
+
+The NEW full Flower poll-travel successor source18065 is TERMINAL NEGATIVE,
+receiptc664fca83cfc4ad1047133f51f7084dd25300ce24efd0b2ff643ccb2d7cf6b03,
+Lua a948946485989b29ce3334cadfa23a8fbf67b291aa4e27288dfc2668dd0d2208.
+Its current590 travel reaches the real Flower birth1101/maturity1166, with
+HP/capacity3/lives2. Boarding begins1245/176/VX0, takeoff1243/VX233;
+actual launch1286 has A29/heroVX234 at1231/143, rather than the earlier
+winning launch1232/A28. No wall reflection or true support occurs; the
+retained bounded-support assertion stops at1386. This is an ordinary setup
+negative, not a physics defect. A single genuine mature-prefix capture and
+the adjacent measured takeoff threshold are the next source investigation.
+All roots remain absent/zero files, and no native Flower qualification is
+inferred from source-only controls.
