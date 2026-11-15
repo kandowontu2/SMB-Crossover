@@ -136,3 +136,45 @@ Initial40a run87181 rejects a Lua `or24` spacing error before gameplay;57872
 runs the corrected text under absent `build/bub-flower-40a-1115`, max-files1,
 600s and zero outputs. There is no current40a Flower or native qualification
 yet, and root alone owns delivery and its installed-context result.
+
+Corrected actual40a source57872 is now **PASS**. Frozen native-ready API is
+`replay_bub_flower_combat_40a_1115.controller(raw40a, 0)` for Bub, factorySHA
+`ed41116f5f0d9dc8d5c35bda711db48f47b5155acadbd2b16cd66f0e32931c1f`,
+checkerSHA `7ad2e4fbfa506c6ddae0a7845f765e100438fcf2ad4ed7124f2199d73b7974f5`.
+LuaSHA256 `b5d201919c087e13e4587dc8f22a4112391592ad0de6528e810be9f417331896`,
+source receipt `99f57f4223037cde67e588fc800a1a9a013b43a0fdd5ab4660d217e65910d682`.
+It completes1824 returned Main/1824 actual BbNativeUpdate entries across1944
+source scheduler passes; source counts do not establish physical cadence.
+
+M physically collects411/176 versus415/171, source actor46 flags0→1, original
+popup6/erase/cue32,60 actual GuestPowerupUpdate entries ages0..59 and25 later
+Bub entries. Its100→1100 score credit is actual. Five actual original bubble
+support restarts traverse all four pipes and the first authored pit. The
+real Flower kind1 is born1629 at1248/135 and mature1693 at1248/119. The
+defense observer confirms a live leftward Goomba behind the player; one
+fresh leftward bubble at measured20px gap actually traps/pops it by1668,
+then normal left movement reaches1145/176 without injury or state edits.
+
+A sixth actual original bubble restart reaches the Flower. Actual physical
+collector1799 is player1235/97 versus1248/119, boxes[87,113,102,128] and
+[102,128,114,140]. Source actor46 grants flags1→7 through the actual OR/store;
+native power1→2 follows. Actual erase, setup6, popup6/timer47 and cue32 writer
+are retained, then60 hosted updates ages0..59. Score1700→2700 passes and
+movement counter1799→1824 proves exactly25 actual post-grant entries.
+Terminal is1245/112/engine8/lives2/flags7/power2. No helper, ROM, terrain,
+health, actor, ability or position was changed. Current40a native is pending
+root; no Bob F, Star or1UP qualification follows automatically.
+
+All source dependencies are frozen for root's native replay:
+
+| File | SHA256 |
+| --- | --- |
+| replay_bub_stock_7a80_1115.py | c99830bc4f2620310b5fa8a54484c81ba4984881a73191a6c333af632bc035ef |
+| explore_bub_flower_7a80_1115.py | 5ac94fc68a9478332fdd75a7152d23a2561189b46981cfdf9b5f63cb7f639638 |
+| explore_bub_flower_rearm_7a80_1115.py | d0c48fce38e2a2b4a9a35af84e5322f2df2db8c2bf3dbd88b0370d51b6c39f23 |
+| explore_bub_flower_forward_7a80_1115.py | 4833ba984646abf017fc16368b062a420329eb4f72dc0c643706b0a2e025875c |
+| replay_bub_flower_7a80_1115.py | 096962b099714acd6ec2b82c8e6bcde632207143437f71e4e42d3862c4ba2c82 |
+
+Bob is a fresh cold/controller identity1 case of the same strict40a API; its
+result must be retained separately. All producers remain bounded max-files1,
+600s/zero output files and no Mesen. Root owns the only native queue.
