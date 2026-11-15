@@ -47,7 +47,7 @@ return function(c)
  if phase=='align'then
   if not(c.grounded and c.x>=1242 and c.x<=1246 and math.abs(v)<=2)then return{right=stopping<1243,left=stopping>1245}end
   if nativeStar(c)~=0 then return{}end
-  phase='charge';age=0;flower.boarding_policy_start=state()
+  phase='charge';age=0;flower.boarding_policy_start={frame=c.frame,x=c.x,y=c.y,VX=c.r('GmRam00CC')}
  end
  if phase=='charge'then
   age=age+1;assert(age<160,'Bounded ordinary charge')
@@ -59,7 +59,7 @@ return function(c)
  end
  if phase=='left-runup'then
   if c.x>1244 or v>=0 then return{left=true,b=true}end
-  phase='left-air-charge';age=0;flower.boarding_takeoff=state()
+  phase='left-air-charge';age=0;flower.boarding_takeoff={frame=c.frame,x=c.x,y=c.y,VX=c.r('GmRam00CC')}
   return{left=true,a=true,b=true}
  elseif phase=='left-air-charge'then
   age=age+1

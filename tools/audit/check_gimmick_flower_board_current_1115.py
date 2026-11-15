@@ -18,7 +18,7 @@ if __name__=='__main__':
         q=Runner.run(raw,'mr_gimmick',5000)
     r=q['receipt'];f=r.get('natural_flower',{})
     print('RESULT '+json.dumps(dict(passed=q['passed'],metadata=q['metadata'],receipt_SHA256=q['source_receipt_SHA256'],
-        seconds=q['seconds'],completed_Main=r.get('completed_Main',r.get('Main')),reason=r.get('reason'),
+        seconds=q['seconds'],completed_Main=r.get('Main_returned',r.get('completed_Main',r.get('Main'))),source_scheduler_passes=q['source_scheduler_passes'],reason=r.get('reason'),
         first_mushroom=r.get('first_mushroom_ready'),flower=f,terminal=r.get('terminal'),
         actual_Gm_movement_calls=r.get('Gm_movement_calls'),outputs=0,Mesen_run=False,gameplay_seeds=0),separators=(',',':')),flush=True)
     assert q['passed'],'Actualae66 ordinary Flower boarding remains unqualified'

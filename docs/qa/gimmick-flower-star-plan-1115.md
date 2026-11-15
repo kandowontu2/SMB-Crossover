@@ -72,3 +72,24 @@ The earlier policy closure cannot call the later local state() observer.
 No production boarding/pickup result is inferred; the policy's diagnostic
 marks must use its existing c fields. This is separate from the proven
 historical planning win. Frozen default30ba/checker59505ff6 stay unchanged.
+
+Corrected actualae66 production33196 is TERMINAL source PASS,
+receipta1605f08b1f8f00fcc0f81cd27e0fe5fd6eae134e0419128a4b1b052f9e3d696,
+Lua f358274e9abd17883a6e6a3280417db786aee625469f020753449c0c977b38ce.
+Factory9b875f9ea4eda6ad3d334caa6e56913be917d290ce98e1d33c18dc7202b7e49e;
+checker253634fd6b65786132a401dd721e544de7166db0ae78238be8b84cc41fe1420d.
+1879 returned Main/1878 GmMovement entries,129.5seconds. Ordered observer
+state.Main values: launch1813/A28/left heroVX233; wall1816/A229/wall128;
+latest actual new support1825/count2/D7bit40/ground128/VY0; actual fresh
+jump1826/A172. These are completed-state counters inside the running caller,
+kept distinct from entry counts. The physical mature Flower collector has
+state.Main1853, hero1239/105 versus actual1248/119/state128. Its real return
+sets inventory count1/code2/next2 with C set and cue1c, preserves HP/capacity3,
+erases the actor, scores1505→2505 and completes25 strictly later movement
+entries. Final1260/112/sourceground128/native0/engine8/lives2. No native
+or audible-output claim. Both source output roots remain absent/zero files.
+
+Downloads subsequently becomes exact590 through root's Prince graphics-only
+delivery. The successful ae66 source receipt is retained version-scoped.
+A new strict590→Prince.inverse→ae66 config adapter and actual590 source
+qualification are required before using the new Downloads context.
