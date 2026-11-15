@@ -213,3 +213,18 @@ disjoint native boxes, ready facing/cooldown and28..40px separation. It waits
 for actual capture before approaching and requires actual pop. Original
 unsafe-distance and injury/death assertions remain verbatim. Source16936 is
 pending under absent `build/bub-flower-close-40a-1115`, no files/Mesen.
+
+Initial close-defence16936 is a retained source negative, receipt
+`76ac89fe508a6873cd0b0914215324a675a56082a56c95208dc2607281feb2f2`,
+Lua `38fd2b8d84ac461299a0468317a54e30e86db0006a1b76617c65eb9f932f26a8`.
+It exercises the new actual-coordinate branch: Main836 player659/136,
+body[659,152,674,167], live Goomba686/184 with box[690,198,700,204]. During
+descent Left cannot immediately move the hero. On the floor, retreat stops
+at646 because the real pipe is behind; the enemy keeps approaching. Main878
+gap19 still has disjoint boxes[646,192,661,207]/[669,198,679,204]. Requiring
+28px before even turning back to face the threat prevents any shot; gap
+shrinks until actual source injury893. No Flower is reached and no native
+success is claimed. The next unqualified revision permits turning at20px and
+firing at16px or more with actual disjoint boxes, retaining the original
+16px unsafe bound and all health/real-capture/pop requirements. This is a
+measured ordinary-control correction to excessive retreat, not a game fix.
