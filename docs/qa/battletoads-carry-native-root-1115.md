@@ -98,3 +98,46 @@ Root's queue is free after32707. The existing slot contains candidateacee and
 Zitz controller93bcd70b only. Build preflight is2,873,625,401 bytes/19,996 files;
 protected user files retain bd99b4ee/963a9ef0 hashes. Zero capture files,
 backups or release assets are created.
+
+## Actual ACE Main/interrupt/service attribution
+
+Root74702 runs the frozen read-only profiler92a42eb3 with exact Lua
+`2c1c0fc42610d67add057f6983d750df6ab94ee4348bf2e3e6d2bfa7a6522704`
+on actual Downloads acee. Native receipt **passes**:
+`07f374ae854702a6f413c098cb32d162557c0bccd13ecacebf33da7e66809c0a`.
+It reproduces the same19/47 idle and15/32 walking missed reads. Every span
+is acknowledged:160 geometry getters and206 Wf/206 BtCheck entries/returns,
+no pending Main/ISR/getter/service. HuResolve is not reached in this window.
+
+| Actual measured group | Idle | Right |
+| --- | --- | --- |
+| Representative normal Main exclusive |25,004 cycles|24,930 cycles|
+| Representative catch-up Main exclusive |16,729 cycles|16,999 cycles|
+| Regular NMI calls / wall range |29 /4,299..6,876|17 /4,298..6,408|
+| Busy NMI calls / wall range |19 /2,740..3,403|16 /2,740..3,376|
+| IRQ calls / cost |48 /120 each|32 /120 each|
+| Wf acknowledged calls / exclusive cost |125 /419 each|81 /419 each|
+| BtCheck acknowledged calls / exclusive cost |125 /325 each|81 /325 each|
+| Geometry getter12 /13 |48 each /21 and24 cycles|32 each /21 and24 cycles|
+
+Wf419 includes the nested BtCheck325; do not add those service costs.
+The native window does not execute three checks on every catch-up Main:
+206 total calls differs from the model's one-scheduled-frame-per-Main240.
+No authentication is skipped by the candidate. The next attribution must
+distinguish normal/render work from the shorter catch-up path rather than
+treating the aggregate mean as the normal-frame budget.
+
+Idle Main totals are1,039,532 exclusive plus63,594 interrupt cycles across48
+returns; Right totals682,552 plus50,395 across32. Regular NMI exclusive totals
+149,141/87,471 (wall149,621/87,831); nested IRQ is accounted separately.
+These are measured sums, not a proof that every frame fits its deadline.
+The actual first normal frames run into busy NMI; skipped/doubled updates
+remain. A new source-only observer will attribute AudioUpdate and actual
+source update/draw/collision work before another optimization proposal.
+
+The profiler retains32 bounded representative rows in its in-memory receipt;
+normal idle frame297→298 is25,004 exclusive+3,523 interrupts, followed by
+16,729+120 in frame298. Right345→346 is24,930+3,496, then16,999+120. It counts
+hardware entry/RTI and uses matched PC/SP returns; software RTI does not end
+a hardware span. No forced regular-NMI fixtures or nested-service sum is used.
+Official/private bytes and sidecar guards remain unchanged, with zero files.
