@@ -241,3 +241,19 @@ the fixture's fresh-action0 requirement never becomes true. It reaches its
 jump or item. This supplies a supported ordinary mount, not an incorrect
 game writer. A separate successor releases Up after admitted action8,
 then awaits actual idle before testing running-jump admission.
+
+Mount-release45123, Lua53b69df4, is a fixture-support negative, receipt
+`33ba0413540ce58a3bf0d35b14e8635feee19ecdc343c28d4fdf6159f63183a1`.
+It releases after the genuine1911 mount920/112/action8. Fresh action0
+arrivesMain2019 at937/112/foot144/HP4/lives2/native1/Sword0; the fixture's
+both-feet condition rejects the edge. The left native foot939 remains over
+the pipe while the right950 is beyond944. This does not establish invalid
+source support or a game defect, and no jump/item attempt is claimed.
+
+Donor review corrects the early-A interpretation: F46D latches the request,
+but F473..F47D really require poses6..13 for action4. The source comment
+was corrected after45123 terminated; Lua and all functional code remain
+53b69df4. The next ordinary-input successor queues A during reach release,
+using the genuine8871 standing handler (A held, lock0, mode0/pose15) and
+requiring actual action3; it records both raw native foot tiles and every
+actual nearby head-query cell. It retains all item/INC/25-return gates.
