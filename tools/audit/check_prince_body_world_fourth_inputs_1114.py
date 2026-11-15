@@ -29,7 +29,7 @@ def state(m):
         surface=int.from_bytes(s[0x7f:0x81],'little'),native_pad=N.get(m,'SavedJoypad1Bits'),actors=actors)
 
 
-def run(parent,*,edges=(880,888,892,896),jump=False,trace_queries=False,third_cap=False):
+def run(parent,*,edges=(880,888,892,896),jump=False,trace_queries=False,third_cap=False,wall_up=False):
     raw,info=C.proposal(parent);model,opening=Game.cold(raw)
     text=Game.Factory.controller(raw,mode='earned')
     old="          switch('third-park',65)"if third_cap else"    switch('fourth-recovery',1)"
@@ -79,7 +79,7 @@ def run(parent,*,edges=(880,888,892,896),jump=False,trace_queries=False,third_ca
             return super().step()
     assert all((723 if third_cap else 844)<=edge<=896 for edge in edges)and 1<=len(edges)<=4
     for edge in edges:
-        m=N.fork(model);active['model']=m;commits=0;mode='approach';changed=0;rows=[];previous=None;hang=top=False
+        m=N.fork(model);active['model']=m;commits=0;mode='approach';changed=0;rows=[];previous=None;hang=top=False;wall_up_at=None
         pending.clear();queries.clear();query_keys.clear()
         for tick in range(540):
             s=state(m)
@@ -87,6 +87,8 @@ def run(parent,*,edges=(880,888,892,896),jump=False,trace_queries=False,third_ca
             if mode=='approach' and s['x']>=edge and(not third_cap or running):
                 mode='takeoff'if jump else'up';changed=commits
             if jump and mode=='takeoff'and s['action']==4:mode='flight'
+            if wall_up and mode=='flight'and s['x']>=897 and s['pose']==15 and s['mode']==0 and s['lock']==0:
+                mode='wall-up';changed=commits;wall_up_at=dict(commit=commits,state=s)
             if jump and s['mode']in(2,6):mode='up'
             active['phase']=mode
             pad=1 if mode in('approach','flight')else 129 if mode=='takeoff'else 8
@@ -101,7 +103,7 @@ def run(parent,*,edges=(880,888,892,896),jump=False,trace_queries=False,third_ca
             if mode!='approach' and commits-changed>=240:break
             m.controller_pad=pad
             with patch.object(N,'NesMPU',CPU):P.Frames.frame(m)
-        cases.append(dict(edge=edge,jump=jump,third_cap=third_cap,mode=mode,Main_frames=tick,admitted_source_commits=commits,
+        cases.append(dict(edge=edge,jump=jump,third_cap=third_cap,wall_up=wall_up,wall_up_at=wall_up_at,mode=mode,Main_frames=tick,admitted_source_commits=commits,
             post_trigger_commits=commits-changed if mode!='approach'else 0,hang=hang,top=top,terminal=state(m),
             trace=rows[::4],trace_SHA256=sha256(json.dumps(rows,sort_keys=True).encode()).hexdigest(),
             returned_queries=list(queries),unreturned_observer_calls=len(pending)))
@@ -111,9 +113,9 @@ def run(parent,*,edges=(880,888,892,896),jump=False,trace_queries=False,third_ca
 
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('--edges',default='880,888,892,896');parser.add_argument('--jump',action='store_true');parser.add_argument('--trace-queries',action='store_true');parser.add_argument('--third-cap',action='store_true');args=parser.parse_args()
+    parser=argparse.ArgumentParser();parser.add_argument('--edges',default='880,888,892,896');parser.add_argument('--jump',action='store_true');parser.add_argument('--trace-queries',action='store_true');parser.add_argument('--third-cap',action='store_true');parser.add_argument('--wall-up',action='store_true');args=parser.parse_args()
     current=Current.load(Game.Factory.ROM)
-    q=run(current.reference1daca,edges=tuple(map(int,args.edges.split(','))),jump=args.jump,trace_queries=args.trace_queries,third_cap=args.third_cap)
+    q=run(current.reference1daca,edges=tuple(map(int,args.edges.split(','))),jump=args.jump,trace_queries=args.trace_queries,third_cap=args.third_cap,wall_up=args.wall_up)
     q['public_input']=current.metadata()
     digest=sha256(json.dumps(q,sort_keys=True,separators=(',',':')).encode()).hexdigest()
     q['prefix'].pop('events',None)

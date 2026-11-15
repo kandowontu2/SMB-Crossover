@@ -261,3 +261,123 @@ hang/top; takeoff752 is contact-negative there. Receipt:
 `1bfd23dc3bacbe1bd7ff3a81413acb2be8ba1170ed3956e4330deef1c2e3cca4`.
 These controls do not supersede the preserved first-three and native first-pipe
 positives, and do not constitute a full-stage qualification.
+
+## Matched ledge sequence and genuine fourth-cap positive
+
+`trace_prince_body_ledge_halves_1114.py` completes the actual first-three route
+at1409 Main/723/112/HP5/power1. Receipt:
+`4cd3e2b016fc32c00b6cde2fe0fc8a48810c8eb4fef906c80a396d203c6cb341`.
+Original C754 tries source X offsets12 and9 in the same Main. The first three
+raw pairs413→416,573→576,701→704 cross a32px cell boundary on the second
+probe. Actual native PointRead then sees456/176,616/160 and744/144 and returns
+the genuine floor material1. Fourth idle source902 gives890→893, which stays
+before896. Source905/native897 instead makes the second probe896; this is an
+alignment distinction in the original two-probe controls, not authorization
+for a wider query or WorldAlign change.
+
+The genuine third-cap running jump744 reaches idle897/source905 after a
+natural Goomba stomp. Up from that actually returned idle state is positive:
+hang=true/top=true at component240/global1649, terminal899/112/ground0,
+action10/pose15, HP4/lives2/power1/sword0. The survivor is814/184. Up starts
+at component120 in idle897/176 and proceeds through original action24/climb10.
+Receipt:
+`66e162023923a18b873327aa02b00481a03e7e201738456fe90cc307575f06e1`.
+No new game, reach, ABI, terrain or helper change is needed for that positive.
+This component still does not qualify the full standalone replay or full1-1.
+
+B's unarmed careful-step contract is also confirmed in authenticated runtime:
+AE47 is `AD17C6C90F` (pose15), AE58 is `AD0AC42940` (source-pad bit40).
+OriginalF62C-F631 selects action29 plus the measured partial-step distance.
+The actual retained earned replay observes B+Right65→action42, release→idle,
+moving723→752 on the third cap. A label-derived source description alone is
+not being substituted for that observed control admission.
+
+## Separate f11 research boundary
+
+Root has since delivered current
+`f11a25b892779cb0d5192457f7feff548f35019818cd75dfef5bdf3f2419b865`.
+The new `current_prince_body_research_f11_1114` API accepts only explicit
+`bt-camera-f11`, applies the frozen BT inverse to cf7 and then the older typed
+Gimmick boundary. Its original f11 bytes are retained, with52 changed BT sites
+(all56 bytes of their exact spans) plus192 Gimmick sites guarded. The previous
+cf7 API and frozen Prince composer continue rejecting f11 directly.
+Any future merged Prince proposal must preserve all244 changed sites; private
+e418 remains a historical research candidate and cannot replace f11.
+
+## Frozen four-cap source and native distinction
+
+`replay_prince_body_four_caps_1114.py` is frozen at source SHA256
+`9e7d37e120445c92b1d4863beda99e738dc24079f3b6b6856bb6cf7f8d16bbb9`;
+its logical Lua SHA256 is
+`91535e9cb89eb6379a74d1b40a35a45e31e0cc38ea6c15134fc4e4f4f9a644dc`.
+It accepts exact historical e418 only and requires native variant3. No201
+fallback chord remains, including the unreachable inherited late tail.
+Source99560 passes167 parser updates plus1649 route Main updates, reaching
+fourth cap899/112, ground0, HP4/lives2, naturally earned power1/Star0.
+Receipt: `6f58f46020b48d8867d89620b419fc845d7432cdb2ca51ed3275d3668e7c59e9`.
+
+Correct-variant actual Mesen45917 is **negative** for that same Lua/e418.
+Caps2/3 occur at commits1065/x609/Y128 and1401/x723/Y112, HP5. The running
+jump is requested1425/x745 and admitted1427/action4. At1521 Prince stands
+897/176/action30/pose15 with HP4 after one hard landing. Up then admits
+action24, but original fatal contact at1550 drainsHP4→0 (callback PC A345,
+the post-decode witness of storeA342). Terminal1551 updates/3845 physical,
+897/176/HP0. Receipt:
+`d34f4a0d498d87ffe5835446e33f4f60690a783a8f13b4afd8a059e6a4eb8fb1`.
+This is a live timing/survival input negative, without a fourth-cap native
+pass or a new geometry-fault inference. The earlier root93577 omitted variant3
+and proved only cap1; root77487 stopped before staging due to a launcher name
+error. Neither is four-cap authority.
+
+`replay_prince_body_four_caps_wait_1114.controller_partial(raw_e418)` is a
+separate frozen successor, source SHA256
+`93d8a07b3fd3c259284d289750e5634ff73d125dcffe7b0439c6e0fbdc1dbd97`,
+logical Lua SHA256
+`5d8f72dfba22c666430bb302927fec38419bd2d1238e613a8ea19d4586c8aa09`.
+It holds ordinary neutral on the actual supported third-cap foot until both
+real live Goombas face left and are at or left of848, then uses the same
+running jump and actual idle897/source905→Up. Source84990 passes1909 Main,
+899/112/ground0/HP4/lives2/power1/Star0; wait1409→1668, takeoff request1693,
+admission1695, one hard landing1761, Up1789, top1909. Source receipt:
+`e2001b65f5b92782804bc2781b0a335de751b43ed5077045e626da16dff4a95c`.
+Native-style receipt:
+`78087e23f47f8cdb73895544a3d9aa3e31db8449ab2088577a685525c3f7a802`.
+Bounded read-only actor ID/state/X/Y/high/direction and HP-write witnesses
+cover third-cap, takeoff, stand and injury. Native qualification is pending.
+The separate default `wait=True` Lua68020f remains a source negative: its
+careful step to752 changes support/trajectory and dies1718/x804/HP0. It must
+not be confused with `controller_partial`.
+
+## Earned-sword full-route prototype remains open
+
+`replay_prince_body_earned_stage_1114.py`, logical Luacbf30a6c9ff1c47f0cfb8c122d6004b573109647cddbe431e3d71eabba1998fb,
+retains a source90282 negative after genuine flower/sword collection at
+Main2573/x1260/112 and original parry/attack/native Goomba defeat. It reaches
+x1688/176/HP3/lives2 but its inherited early brake/Up never tops the later
+wall;4128 Main entries equal returns, no pending Main, no flag/castle/1-2.
+Receipt: `1e727d60d3c28b0ecc57fc689a628aaf7f3d406679a74bf5ac402e199d615d6e`.
+This does not qualify the full stage or identify a new geometry defect.
+The separate `replay_prince_body_earned_wait_stage_1114.py` is in source
+qualification: safe supported third-cap wait, actual late wall contact rather
+than inherited early brake coordinates, and bounded obstruction geometry.
+All candidate game bytes remain the frozen two-span e418 proposal.
+
+## Read-only private sprite remap census
+
+`audit_prince_sprite_window_options_1114.py` only inspects current f11 bytes,
+which preserve Prince's exact1daca packet outside the two research spans.
+The204 pose/2-facing census has1289 pieces per facing and page counts147/53/4
+for1/2/3 pages. Uniform private windows0/1/2→5/6/7 and final even tile+65
+preserve every 8x16 pattern-pair offset. It is an option, not an allocated or
+mounted graphics repair. Existing native Mushroom window1 and Goomba window2
+remain the reason to avoid shared0..4. Receipt:
+`75c8808a7b5754b255f69dfe6af499fe8a28db47f8cc384bd74c885cae67bd0d`.
+
+At BC40 the live metadata cursorY is2+pageIndex. Three INYs could replace the
+three-byte LDY BD04 to select5+pageIndex; Y is stack-restored atBC52 and LDA#75
+immediately replaces N/Z. This still needs full ingress/caller/IRQ proof and
+a placement grant. Final ReadTile transformation also needs a fitted proof;
+adding65 to compact metadata tiles would corrupt coordinate bits. The two
+nine-NOP runs A487..A490/A51E..A527 are live fallthrough, and adjacent high/
+body helpers are live. No padding, renderer span or new resource is granted.
+No graphics mutation, source render overlay, ROM output or native test occurs.
