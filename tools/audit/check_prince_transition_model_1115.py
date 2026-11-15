@@ -22,7 +22,7 @@ def state(m):
         guard=s[0x6e0],uid=s[0x61c],pose=s[0x617],action=s[0x616],facing=s[0x615],guard_facing=s[0x623])
 
 
-def run(raw,*,full=False,limit=8500):
+def run(raw,*,full=False,limit=8500,transition=True,controller_transform=None,frame_observer=None,after_route=None):
     current=Current.normalize(raw,kind='prince-graphics-590')
     data=GRANT.read_bytes();assert sha256(data).hexdigest()==GRANT_SHA;grant=json.loads(data)
     assert sha256(Path(Research.__file__).read_bytes()).hexdigest()==grant['proposal_source_SHA256']
@@ -37,6 +37,8 @@ def run(raw,*,full=False,limit=8500):
     newcookie=raw[Current.Graphics.Packet.COOKIE:Current.Graphics.Packet.COOKIE+16].hex()
     assert text.count(oldcookie)==1;text=text.replace(oldcookie,newcookie,1)
     assert text.count(Body.digest(historical))==1;text=text.replace(Body.digest(historical),Body.digest(raw),1)
+    if controller_transform is not None:text=controller_transform(text)
+    assert not any(s in text for s in('emu.write','emu.setState','io.open','saveState','loadState'))
     Frozen.LuaRuntime().compile(text)
     body_grant=Body.allocation();native=N.NesMPU;owner=None;stage=-1;pending_decode=None
     mounted=[];returns=[];pending_proxy=None;first_publish=None
@@ -54,7 +56,7 @@ def run(raw,*,full=False,limit=8500):
                     span=body_grant['decoded_spans'][0];lo,hi=span['decoded_half_open']
                     apply(m,3,span['live_CPU_half_open'][0],body_parts[0][lo:hi],span['preimage_SHA256'],'leased449World')
                 if stage==2:
-                    apply(m,2,Research.START,proposal['new'],grant['preimage_SHA256'],'transition219')
+                    if transition:apply(m,2,Research.START,proposal['new'],grant['preimage_SHA256'],'transition219')
                     ret=m[0x100+((self.sp+1)&255)]+256*m[0x100+((self.sp+2)&255)]+1
                     pending_decode=(ret,(self.sp+2)&255)
             if m is owner and pending_decode==(self.pc,self.sp):
@@ -64,7 +66,7 @@ def run(raw,*,full=False,limit=8500):
                 apply(m,2,0xc100+lo,body_parts[2][lo:hi],span['preimage_SHA256'],'leased180PrepareStaged')
                 pending_decode=None
             if m is owner and self.pc==0xbbc1 and m.rawtags[1]==3 and first_publish is None:
-                assert len(mounted)==3 and pending_decode is None
+                assert len(mounted)==(3 if transition else 2)and pending_decode is None
                 cookie=raw[Current.Graphics.Packet.COOKIE:Current.Graphics.Packet.COOKIE+16]
                 assert all(bytes(m.ram[b][0x1fe0:0x1ff0])==cookie for b in(2,3))
                 parts=Current.Graphics.Packet.extract(raw)[1]
@@ -75,7 +77,7 @@ def run(raw,*,full=False,limit=8500):
                 assert sha256(bytes(m.ram[2][pc&8191:(pc&8191)+180])).hexdigest()==span['proposed_SHA256']
                 first_publish=dict(PC=self.pc,SP=self.sp,both_current_cookies=True,all_qualified_graphics_exact=True,live_Prepare180_exact=True)
             if m is owner and self.pc==Research.START and m.rawtags[2]==2:
-                assert sha256(bytes(m.ram[2][Research.START&8191:Research.END&8191])).hexdigest()==grant['proposed_SHA256']
+                assert sha256(bytes(m.ram[2][Research.START&8191:Research.END&8191])).hexdigest()==grant['proposed_SHA256'if transition else'preimage_SHA256']
                 ret=m[0x100+((self.sp+1)&255)]+256*m[0x100+((self.sp+2)&255)]+1
                 pending_proxy=(ret,(self.sp+2)&255,state(m))
             if m is owner and pending_proxy and(self.pc,self.sp)==pending_proxy[:2]:
@@ -92,17 +94,25 @@ def run(raw,*,full=False,limit=8500):
             first_actual_publication=first_publish,controller_SHA256=sha256(text.encode()).hexdigest(),
             actual_CPU_ROM_SHA256=sha256(model.bundle['raw']).hexdigest(),combined_ROM_composed=False,outputs=0,Mesen=False)
         if full:
-            actual=Frames.frame;ticks=0
+            actual=Frames.frame;ticks=0;cold_class=type(model)
+            class CheckpointReached(Exception):pass
             def frame(m,*args,**kwargs):
                 nonlocal ticks
                 result=actual(m,whole_pass=True);ticks+=1
                 if ticks%500==0:print(json.dumps(dict(event='transition-current-model',Main=ticks,**state(m)),separators=(',',':')),flush=True)
+                if frame_observer is not None and frame_observer(m,ticks):raise CheckpointReached()
                 return result
-            with patch.object(Game,'controller',lambda image:text),patch.object(Game.Frames,'frame',frame):proof=Game.route(model,raw,limit)
+            checkpoint=False
+            try:
+                with patch.object(Game,'controller',lambda image:text),patch.object(Game.Frames,'frame',frame):proof=Game.route(model,raw,limit)
+            except CheckpointReached:proof=dict(passed=False,scope='Declared genuine CPU checkpoint, not a full-stage clear');checkpoint=True
+            finally:model.__class__=cold_class
             proof.pop('events',None);proof.pop('sword_trace',None)
             if isinstance(proof.get('flower'),dict):proof['flower']={k:v for k,v in proof['flower'].items()if k!='trace'}
-            q.update(passed=proof['passed'],proof=proof,actual_opponent_transitions=returns,terminal=state(model),
+            q.update(passed=proof['passed']or checkpoint,full_route_completed=proof['passed'],checkpoint_reached=checkpoint,
+                proof=proof,actual_opponent_transitions=returns,terminal=state(model),transition_model=transition,
                 scope='Owning590 compiled cold plus only root-leased body449/Prepare180/transition219 arrays; ordinary frozen inputs')
+            if after_route is not None:q['after_route_component']=after_route(model,q,ticks)
     q['receipt_SHA256']=sha256(json.dumps(q,sort_keys=True,separators=(',',':')).encode()).hexdigest()
     return q
 

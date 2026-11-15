@@ -116,3 +116,42 @@ yielding source-model Lua
 `a9d4e0d0c4b58ce53cf8cb3603f3543f31fe826119276d90f1426f90328a5384`.
 Source92478 is the first full ordinary replay of this model. Its result,
 genuine free-sword/loss/re-admission and reached ISR remain pending here.
+
+Source92478 is now terminal negative4874 at1891/176/HP0/lives2, original
+action85, receipt
+`ded039cca08367a2d77317e71fea16f702827892a65fb9695c3aaddff1b7c57a`.
+Its narrow intended transition succeeds: the real1729/143 guard129→0 loss
+sets request1, original sheathing reaches sword1, movement resumes and a
+fresh guard is admitted at1882/176 with request reset0. That guard is
+genuinely defeated (marker85);129 is re-admitted at1918/176 before the later
+fatal encounter. This is real source transition success and a retained
+full-route negative, not a new geometry-fault or native-clear claim.
+
+After a helper usage interruption root independently repeated the two
+untracked checks, preserving their source. Root85895 reaches the strict
+IRQ probe7700a2d6 failure at its combined native-RAM/upper-stack assertion.
+The separate failure-only tracer31479 keeps that assertion unchanged and
+reports receipt
+`44a00121b23e5aeed1cbafb3dfcf6e419b1c0fc8149ebfa655d1b6d9a6a170ca`.
+Only native07D8 changes12→11: actual symbol Squ1_SfxLenCounter, authentic
+PRG29:A19B opcode CE D8 07. Foreground is DE6D/SP202/P33,320/176/HP5,
+action4. Upper caller stack, registers, private RAM, scratch, mapper and CHR
+have no differences; NmiSkipped increments once. The old07DA mask missed
+square1. No acceptance mask is widened in that diagnostic.
+
+Root44772 is a characterization result, not free-sword qualification:
+receipt `34af5b32c7ba2675535e7fa2135b857d3dcf4a27cb39f77c3866a11b7f9c08d6`.
+Both actual Flower checkpoints are Main2833,1260/112/HP4/lives2/sword1,
+pose6/action91; baseline request0 versus transition request1. After180
+neutral updates the action is still1, so the early two-update A/Down pulses
+occur before genuine idle. All six cases retain sword1. Those outcomes
+cannot establish manual draw, attack or sheath admission. Both original
+source files remain frozen for their negative/characterization scopes.
+
+A new fresh-idle successor waits for actual action0/pose15/mode0/unlocked,
+then holds inputs across multiple real decoder entries. Its matched traces
+and the pinned donor's active-opponent draw rule are pending. A separate
+IRQ successor allows an additional07D8 difference only when its one exact
+authenticated A19B instruction performs the positive N→N−1 decrement under
+busy NMI; all other RAM and caller-stack comparisons stay strict. These
+successors do not modify game bytes or qualify a ROM composition.
