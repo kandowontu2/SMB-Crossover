@@ -1,0 +1,58 @@
+{
+  "status": "granted-private-source-proposal-only",
+  "owner": "root",
+  "component": "Mr. Gimmick private sprite addressing",
+  "eligible_input_SHA256": "1daca93f837e894a3ee5b3d8cef54622336726f4df243c6bfb997130323f3baa",
+  "conditional_owner": 26,
+  "private_CHR_page": 818,
+  "private_sprite_window": 7,
+  "publisher_operands": [
+    {"entry": "GmGraphics", "CPU": 48738, "file": 622194, "old": 1, "new": 7, "preimage": "a932a203a001"},
+    {"entry": "GmPortrait", "CPU": 48957, "file": 622413, "old": 1, "new": 7, "preimage": "a932a203a001"}
+  ],
+  "tile_metadata": {
+    "source_tables": {"GmHeroTable": 22, "GmStarTable": 66, "GmEffectTable": 4},
+    "deduplicated_operand_bytes": 190,
+    "exact_sorted_offset_old_new_digest": "305c78d232b84d18186a912f3549d0946ba5f23d89ef47804758605866290376",
+    "record_digest": "f5099985818417645380eb9fd76634fcfd4bcfc20e7e174d4a60af3e8391499c",
+    "rule": "Only the frozen census's190 tile-address operands with tile>=64 change to (tile&63)|193. Preserve tile&62, record termination, geometry, attributes, all window0 pieces and table pointers."
+  },
+  "frozen_sources": {
+    "tools/audit/check_gimmick_world_sprite_images_1114.py": "4296907aecb3fdcbbab43548a616ed8091137ecc412d56ce69a1fa13ba667c74",
+    "tools/audit/check_gimmick_private7_callers_1114.py": "c927e2c8b97f605995c5779ed2d04a52cbec9a4fb72bafe903be83ae3fd3f2aa",
+    "src/gimmick_render.s": "e408c29a71c254e3da9eee1379b535c44ca62d1b1dd0f7692e93ed29f60b4ac1"
+  },
+  "root_independent_review": {
+    "terminal_bounded_session": 49598,
+    "current_pose_facing_attribute_cases": 1472,
+    "defensive_foreign_selected_cases": 765,
+    "actual_family_Select_Start_constructors": ["BUB", "BOB", "SONIC", "SUPER SONIC"],
+    "family_menu_window7_unused": true,
+    "family_post_Start_window7_mode": 0,
+    "family_post_Start_window7_physical_page": 21,
+    "current_DK28_publisher_rejects_Gimmick26": true,
+    "outputs": 0,
+    "Mesen_run": false
+  },
+  "native_parent_defect": {
+    "actual_Downloads_session": 12772,
+    "controller_SHA256": "02cfb3d9b4c04d67ff3948edad1e2ae53e58dc9fae476013b5e88c3485d6d2ea",
+    "receipt_SHA256": "5c34b5d0901c1a6826afb54fdb40b6a19f06c66ff7a7895aeca583214fc60e1a",
+    "natural_mushroom_corrupt_at_frame": 3038,
+    "actual_mushroom_window1_physical_page": 818,
+    "intended_native_mushroom_page": 16
+  },
+  "constraints": [
+    "Exactly192 existing bytes only: two publisher operands and190 frozen metadata operands. No new code, physical capacity, CHR pixels, palette, RAM, art table, physics, helper, level or input change.",
+    "Preserve all unrelated bytes, including the three delivered DK operands, common CHR reset and prior hidden/cheat fixes. Page818 remains byte-identical; same sprite pair offsets must display exact original art through window7.",
+    "Private window7 is conditional on selected26. Preserve actual foreign guards and family lifecycle: unused stale menu physical43 is not an immediate-clear success, and genuine Start must restore native page21 before gameplay.",
+    "Retain all frozen parent factories and Lua texts. Add explicitly typed candidate adapters with a portable inverse; never broaden old SHA assertions or use a mutable installed ROM as an inverse oracle."
+  ],
+  "authorized_source_qualification": [
+    "In-memory strict composition and portable inverse with exact192-site verification; wrong-input, corrupted owned-site and unrelated-byte rejection.",
+    "Every pose/facing/attribute actual emitter and public publisher/portrait/body/star/effect path, OAM geometry/art equivalence, window0/1 native enemies and powerups, complete ABI and reached IRQ/busy-NMI invariants.",
+    "Real cold/menu/family Select and Start lifecycle, all foreign owners, ordinary natural mushroom route and full1-1/grounded1-2 regression with earned star support preserved.",
+    "Freeze root-only native stage/image adapters after source qualification; report active paths and output budget."
+  ],
+  "authorization_limit": "In-memory source composition and tests only. No candidate files, Mesen launch, Downloads write, backup, patch asset or release. Root owns the single emulator queue, staging, cleanup and delivery."
+}
