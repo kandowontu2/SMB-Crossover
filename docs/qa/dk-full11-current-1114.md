@@ -99,8 +99,16 @@ countersteers, retreats to112px front gap, establishes actual right-facing,
 then uses fresh ordinary grounded B throws while stationary against all live
 front Goombas. The measured fatal overlap corresponds to DK right29 and
 Goomba left3; no engine, collision size, health or helper change is proposed.
-Source successor2721 is pending at this checkpoint; no passing result is
-inferred from the new control text.
+Successor2721 is a retained controller negative: it stays x562/Y176/engine8/
+tier0 from Main500 through6000. The owner deliberately stopped its verified
+Python process35300/parent37064; the bounded wrapper terminated1 with zero
+files. There is no terminal stage receipt or passing result. The broad wait
+can select an enemy beyond a pipe and is unsuitable as a general route.
+The frozen wait policy SHA256 is
+`1dc325e6c6b37f21bd8a0127e7dbfe671c453c0f852cf0c581b43f9b78e3182c`.
+Root directs a simpler separate all-live-forward64px danger-jump successor
+from the already pipe-crossing baseline. No game fault is inferred from this
+barrel-wait stall.
 
 No full1-1 clear, native playtest, new helper, game change or delivery is
 claimed. Source jobs use absent `build/dk-full11-current-1114`, max-files1,
