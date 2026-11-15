@@ -1,8 +1,10 @@
 # Current FF natural stock continuation
 
-This lane targets the missing individual Star/1UP native checks for Fighter,
-White Mage, Black Mage and Thief. Their retained historical M/F/full-stage
-proofs are not relabelled current. Input is exact571
+All four FF identities now have individual native natural M/F/S on ae66;
+L is separately versioned Fighter571 and White/Black/Thiefae66. Star expiry,
+protected hit and complete ability/audio/art/performance coverage remain open.
+Historical full-stage proofs are retained without relabelling. The first
+strict source input was exact571
 5715bb7e3c772350a2a7420ec9061eabd948964a8789e5d348c49d3cfb3c57ee.
 
 The new strict source facade captures current bytes once, validates the
@@ -194,3 +196,27 @@ engine8/lives2/tier2/charges0/Star34. Fighter M/F/S is Cae66; its natural L
 remains separately C571. No expiry, protected hit, full-stage, audible or
 exhaustive art claim. No images/files/ROM changes. Sibling native Star
 qualification remains individual.
+
+Root43523 then completed all three sibling Stars in sequential actual
+Downloads ae66 Mesen runs. Each independently earns M/F with both60-tick
+freezes, then actual mature kind2/control6/erase/timer35/music64/cue32 with
+no Star powerup freeze. No ROM/images/files/guard change.
+
+| Native class/controller | Receipt SHA256 | Completed Main / physical / FF entries | Real Star birth / mature / collector (Main/frame) |
+| --- | --- | --- | --- |
+| White Mage /707b24a8 | db9091e8b2a45f2abc82fe40009eb66e5ca3ea9fc390b4d35d15b1a08c2252d9 | 1857 /3244 /1402 | 1707/2935;1772/3064;1832/3193 |
+| Black Mage /44d7f2f0 | 54e2bc88ab1a1e89d307c00a8136b48e1fec02d880f038448ff8600f61b5a704 | 1857 /3255 /1402 | 1707/2949;1772/3078;1832/3204 |
+| Thief /c2e9b16e | dc38b6d04d99ba4287e4e2e6b8909549859781da21c7e6286951bebbc3fa44ed | 1866 /3230 /1390 (next Main1867 entered) | 1728/2946;1792/3074;1841/3179 |
+
+White/Black birth1616/136, mature1616/119 and physically collect at1672/144
+versus actor1676/130. Their entry1377→1402 proves25 actual post-collector
+entries. Score2400→3400 is Main1837/frame3203 White and1837/3214 Black.
+Terminal1673/110/native1/engine8/lives2/earned2/power2/Star34; White preserves
+charge3 and Black charge0. Thief's real birth is1616/135/state2, mature
+1616/119, physical collector1662/114 versus1665/99. Entry1365→1390 gives25
+post-collector entries; score2300→3300 at1846/3189. Terminal1662/176/native0/
+engine8/lives2/earned2/power2/charges0/Star33; pending entered Main is reported
+separately from1866 completed Main. No25-grounded-update claim is inferred.
+These close M/F/S Cae66 for each of the four FF classes. Life remains across
+the individually named571/ae66 receipts above. This does not close expiry,
+protected hit or the remaining donor abilities/audio/art/performance gates.
