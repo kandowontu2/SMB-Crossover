@@ -1,4 +1,4 @@
-# Bub native enemy palette repair
+# Delivered Bub native enemy palette repair
 
 Source-qualified candidate SHA256
 `174fa29cf05ce1d14526ea3778c74b33a3858301c81da49b982e0ca2200ab0b4`,
@@ -49,3 +49,25 @@ Downloads is still40a. Source push, direct replacement, pre/post sidecar
 guards and all four actual Downloads repeats remain required before calling
 the repair delivered. Root owns the single Mesen queue. Zero PNG/video files,
 backups, patch assets or releases are created.
+
+## Verified actual Downloads delivery
+
+Source push `d2cff847` precedes the direct no-backup replacement of
+`C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes` with exact174fa,
+2,097,168 bytes. CLI automatic-patch guards pass before replacement, after
+replacement and after all actual Downloads tests, with no matching patches.
+Installed bytes equal the tested private candidate.
+
+Root99856 repeats **all four** replays from the actual Downloads path. All
+pass. Each full receipt SHA256, Lua SHA256 and every PNG SHA256 matches its
+private43581 counterpart in the tables above, including exact Main/video
+counts, genuine transactions and25 actual post-effect calls. The two image
+runs again produce three RAM PNGs apiece; no capture files are written.
+
+The root queue is free after99856; the existing private slot contains only
+candidate174fa and Bob1UP controller0acc0bc6. Storage preflight is
+2,873,676,409 build bytes/19,996 files, below the unchanged5GB/20k caps.
+The two protected user files retain bd99b4ee/963a9ef0 hashes. Helpers and
+level layouts are unchanged. All earlier other-character receipts retain
+their recorded versions; this is not101 new stage/ability passes or a
+whole-goal completion. GitHub releases remain empty.
