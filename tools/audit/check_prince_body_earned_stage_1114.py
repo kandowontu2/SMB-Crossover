@@ -52,6 +52,7 @@ def run(current,*,source=False):
                 observed_natural_Star=receipt.get('observed_natural_Star'),
                 flag=ending.get('flag'),castle=ending.get('castle'),third_gap=ending.get('gap'),
                 ending_obstruction=ending.get('obstruction'),ending_climbs=ending.get('climbs'),
+                ending_jumps=ending.get('jumps'),
                 earned_stage=late.get('earnedStage'),
                 native_power=N.get(model,'PlayerStatus'),Star=N.get(model,'StarInvincibleTimer'),
                 exact_native_receipt_SHA256=sha256(json.dumps(receipt,sort_keys=True,separators=(',',':')).encode()).hexdigest(),

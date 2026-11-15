@@ -348,6 +348,16 @@ The separate default `wait=True` Lua68020f remains a source negative: its
 careful step to752 changes support/trajectory and dies1718/x804/HP0. It must
 not be confused with `controller_partial`.
 
+Root53782 now passes the exact `controller_partial` Lua5d8 with actual Mesen,
+variant3, unchanged historical private e418. Native receipt:
+`5561699136e1d37143839e1893525684cad1a92bada152342a119c061965775a`.
+Third-cap wait1401→1665 stays723/112 until the real Goombas are848/824 facing
+left; running request1689/x745, admission1691. One hard landing1757 drains
+HP5→4, idleUp1785 begins897/176, and fourth cap1905/frame4465 reaches899/113,
+action10/mode0/HP4/lives2.1905 source updates/1006 draws, no captures. Current
+Downloads f11 guards/hash remain exact before and after. This qualifies four
+pipes on historical e418; full1-1 and a current merged image remain pending.
+
 ## Earned-sword full-route prototype remains open
 
 `replay_prince_body_earned_stage_1114.py`, logical Luacbf30a6c9ff1c47f0cfb8c122d6004b573109647cddbe431e3d71eabba1998fb,
@@ -361,6 +371,29 @@ The separate `replay_prince_body_earned_wait_stage_1114.py` is in source
 qualification: safe supported third-cap wait, actual late wall contact rather
 than inherited early brake coordinates, and bounded obstruction geometry.
 All candidate game bytes remain the frozen two-span e418 proposal.
+
+That successor's default logical Lua
+`a1693a239f40a9a6be3dab2bf324d019b20ec13de58a312711e41eb1bab9abc9`
+is also retained as a source99717 negative. Genuine flower/sword and first
+late-brick top1600 pass; an immediate standing jump from1587/112 lands among
+live Goombas at1696/176. Original encounters drain HP4→3→0 by4281 Main
+entries=returns, with no pending Main. Source receipt:
+`55bf4d9044a45423fd0598f6204483788c0452d4eca8981767166e5a04f1b807`.
+This survival/input failure does not identify a new collision fault. The
+explicit `brick_runup=True` successor tests ordinary Right until actual
+running admission on the earned top, then Right+A, without gameplay writes.
+
+The running successor is source18098 negative, logical Lua
+`efbd3d9723d1bd13f8c53f6b7433335dbb55f731efdc58bf12b00089d02e515a`.
+Actual running request3929/x1609/112, admission3931/action4, advances to1729
+near raised terrain. An actual approaching native Goomba selects sword2;
+the inherited generic held-A encounter does not finish within300 updates.
+Terminal4291 Main entries=returns,1729/143/HP4/lives2, source sword2, no
+flag/castle/1-2. Receipt:
+`5e1dca9a939a8a08d9f66f8b28ce56c84660e5d97739a83f3ed4ce660ca550b7`.
+This preserves a live input/stance negative. A separate bounded component
+continues ordinary controls from the genuinely earned late-brick state;
+none of its actor, health, item, position or terrain outcomes are installed.
 
 ## Read-only private sprite remap census
 
