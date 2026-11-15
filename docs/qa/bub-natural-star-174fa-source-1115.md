@@ -113,3 +113,24 @@ API: `controller(raw174fa, identity=0|1)` returns read-only LF Lua;
 accepts exact174fa directly or composes it in memory from exact40a with the
 strict existing composer, records the actual input hash, and never widens
 the frozen parents. Bob's independent source5185 is pending at this checkpoint.
+
+Bob5185 independently **SOURCE PASS** with the same frozen e3e7d0fe factory,
+LF Lua `f6937ce1a4f7f7e986bbe748b520d7dccc9bc26f36ce69234c6d14c49ec26010`,
+receipt `13f92c67c8bbca4ab13d2b6c7bc5e11e5260e466adabe1fe2919db13dc6e2ab2`.
+Actual2960 Main/entries/returns, zero HurtChoose; the genuine M/F prefix,
+seventh bubble support, slot0/1 retirement, real Star2793/2857/2930, actual
+timer43 score2935 and exactly25 later complete workers match Bub's source
+counts. Terminal1685/176/lives2/flags7/power2/Star34;30 postcollector returns.
+Both source gates are terminal, all parents unchanged and zero output files.
+
+Root68757 actual Downloads174fa **Bub NATIVE PASS**, receipt
+`5ebc3f8e3251f174af4d1c61e2434a01e028d7dded04b77b2d2bde1bf746a9d1`,
+exact frozen2b6a Lua.2979 actual returned Main/source entries/worker returns,
+6339 physical. Real Star born2809/mature2876, physical collector2949 at
+1685/176 versus1689/172; erase/popup6/Star35/music64/cue32, no M/F freeze.
+Actual timer43→42 and six decimal score writes2954 prove2900→3900. Exactly25
+new entries and matching returns finish2979;30 postcollector retained.
+Flags7/power2/lives2 and all earlier M/F60/+25 gates pass. No game/image/file
+change. This closes Bub's natural Star on174fa; Bob remains source-qualified
+and native-pending here. Star expiry/protected hit, all abilities/audio and
+current full-stage remain separate. Root owns the authoritative native QA.
