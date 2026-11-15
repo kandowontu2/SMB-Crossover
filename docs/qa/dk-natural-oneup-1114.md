@@ -27,3 +27,16 @@ Global lives may become3 only after the actual delayed credit witness; the
 initial constructor remains2 and death is still rejected. All native-bound
 M/F/S/full dependencies are frozen. Source root is absent/zero files at
 build/dk-launch-latch-current-1114, max-files1/600seconds.
+
+Root90739 actual Downloads571/73709db8 is TERMINAL1UP PASS, receipt
+74066f1a848ed035009c2ebb15ac395a896daadd781966107b0370c2f7439a31.
+1618Main/1964physical/1244DKcalls. Real hidden tile96 is1024/Y128; actual
+kind3 birth1490/frame1829 at1024/120, maturity1557/frame1899 at1024/103.
+Physical collector1588/frame1931 has player1034/176, actor1056/158 and
+boxes[97,176,139,208]/[134,167,146,179]. Actual erase/popup11 follows the
+native initial setup6, then real delayed INC life2→3 at1593/frame1936,
+timer42/cue64. After25 actual DK calls following that credit, terminal
+1041/176/engine8/lives3/DkLife3/tier1/power1/Star0; score1305 is unchanged
+by the1UP. No capture, state write, byte or guard change. This closes DK's
+natural M/F/S/L stock on571. Star expiry/protected-hit, complete ability,
+audio/visual and performance coverage remain separate open gates.
