@@ -1,17 +1,13 @@
 # Classic DK functional 1-1 source investigation
 
-Latest source outcome: exactf11/controllerb68 passes full nonshortcut1-1 and
-25 living grounded1-2 updates even with the two omitted input polls that
-previously exposed the roof/Koopa negative. The first request latch works;
-the practical first-roof takeoff is1506..1510, before measured support loss.
-Normal source53352 stops on the successor's overly strict support assertion
-before the takeoff; the actual game remains alive. A separate exact571 wrapper
-now qualifies the measured short native foot-query gap as described below.
-Earlier f875 and
-bb51 normal source passes remain valid; their actual native negatives retain
-their scope below. No ROM code, physics, helper placement, health or power
-grant changes are needed for the new source clear. Native verification of
-the successor remains pending.
+Latest source outcome: exact571/controller06fc passes full nonshortcut1-1
+and25 living grounded1-2 updates. Root is running the same frozen controller
+against actual Downloads571; native verification remains pending. Its
+delayed-two-poll source fixture is still running. The controller uses a
+measured first-roof takeoff1506..1510, with actual native ground required
+again after a brief foot-query gap. Earlier F11 source passes and actual
+native negatives retain their scope below. No DK ROM code, physics, helper
+placement, health or power grant change is needed for this source clear.
 
 The initial proofs used delivered exactcf7
 `cf7b6d2964ae0ef18d08c726f66afe9bf5be3dc6f3ec9c7a43279121ee09d968`.
@@ -372,3 +368,26 @@ may cross native state2 only insideY112..116, with actual tile58 at1504/144
 and real full-body overlap. It still requires actual grounded0 and fresh A
 for takeoff1506..1510, retains every genuine landing/head/admission guard,
 and keeps16 passive roof-walk rows. No floor, terrain or game state is changed.
+
+Exact571 normal source60065 is TERMINAL PASS:3352 returnedMain,2216 actual DK
+calls,58 in1-2,19 requests/admissions, flag2157/castle2220/entrance2776 and25
+living grounded updates at40/176/high1/state0/engine8/area2/lives2/tier0.
+Full factory receipt SHA256:
+`11a093a887d50c93f8df1efac34ccce291501423126b7e7c05d403abb44f6166`.
+The checker prints a compact receipt omitting the32 frozen first-launch
+trace rows; the hash is computed over the original full factory receipt
+before this stdout compaction. The16 roof-walk rows are printed in full:
+native state2 spans1491..1495/Y112..113, actual grounded0 returns1496/112,
+and the measured fresh-A request occurs1507/112 on actual native ground.
+
+Root-only native API is
+`replay_dk_full11_roof_score_current_1114.controller(exact571)`;
+Lua SHA256 `06fc29a92b783cba6dc5b86fa1c1e08bee737dec7f706a561d8b5ff4502e50cf`.
+Factory file SHA256
+`1990013a196589290002f9f157bca02d0899122b3cbe86d8b5b2a75f422fc2c3`;
+checker `a23f6634da94304b36f160122b6b236bc680e29a6cf9159d60786549519fa3d0`.
+Pure571 rebound of the unchanged frozenb68 body is
+`9986fbadce1065ce375ea422bdf643812a0408bcbc99ec80abf3e1da13b3ed10`.
+No factory dependency changes while root's actual Downloads native replay
+and the same-controller delayed source45858 run. Current roots remain
+absent/zero files, with no ROM, capture, patch, backup or release output.
