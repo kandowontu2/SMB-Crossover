@@ -1,13 +1,14 @@
 # Classic DK functional 1-1 source investigation
 
-Latest source outcome: exact571/controller06fc passes full nonshortcut1-1
-and25 living grounded1-2 updates. Root is running the same frozen controller
-against actual Downloads571; native verification remains pending. Both normal
-and delayed-two-poll source fixtures pass. The controller uses a measured
-first-roof takeoff1506..1510, with actual native ground required again after
-a brief foot-query gap. Earlier F11 source passes and actual
-native negatives retain their scope below. No DK ROM code, physics, helper
-placement, health or power grant change is needed for this source clear.
+Latest native outcome: root40016 exact571/controller06fc is TERMINAL NEGATIVE
+at the later Koopa, Main1493/1930physical/x1659/Y161/engine11/lives2/tier0.
+Receipt `3ad0097a8f3e81ea62ce33d9b390d0a2daa187c2d822cbdc9e2a7d5765de487a`.
+The actual first jump admission and real roof run-up1497..1506 succeed; four
+later requests were admitted. Both source fixtures remain passes within
+their stated model scope; they do not predict this native encounter. The
+06fc dependency chain is frozen. Current work earns the first real mushroom
+and uses DK's intended abilities for a practical clear. No game/helper/health
+seed or physics change follows from the retained tier0 native negative.
 
 The initial proofs used delivered exactcf7
 `cf7b6d2964ae0ef18d08c726f66afe9bf5be3dc6f3ec9c7a43279121ee09d968`.
