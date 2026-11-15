@@ -32,9 +32,36 @@ JumpSwimSub entries occur. This rules out a missing A edge at takeoff. It
 does not yet identify the instruction causing the early upward cancellation.
 
 The initial first16/last16 writer ring missed that causal middle writer.
-A strengthened passive arm must retain the first negative-to-nonnegative VY
-write explicitly and the actual head probe, with the same controls. Helpers
-and game changes remain unjustified until that cause is established.
+The subsequent same-control head-cause arm5777 retained it explicitly:
+receipt `c582ed81be4a14443894542d016a7a629677ab4d8a0e91095fd812d74020646c`.
+Native PRG254 PC8DC7 writes VY252→0 at Main32/x402/Y157. The actual
+BillBGHeadConsumer return at9BC5 reads tile81, R2=112 (world row144),
+R5=133 (the left probe at world389), pointer03D8. By the later VY writer,
+world384/Y144 is tile35: the native head transaction has cleared that brick.
+Later empty-cell sampling alone would have missed the genuine head contact.
+
+## Ordinary first-pipe retry passes in source
+
+Session62476 preserves the same genuine opening and250-update negative
+prefix, then supplies two ordinary Right updates with A released, followed
+by fresh Right+A38. The second actual jump is acknowledged at Main252,
+x418/Y172/state1/VY252, with A sampled128. It clears the pipe and reaches
+x513/Y176/state0/engine8/lives2 after89 successor updates. The full physical
+body is past the pipe: left500 exceeds pipe right479. Receipt:
+`abbbe842dbf514e0c680fe16568893b9be23fbd324aa800e6d7a9547b955f22f`.
+The first-pipe failure therefore supplies no basis for adding a helper or
+changing DK's jump/collision code. This remains source proof, not native proof.
+
+The new full-stage controller's initial strict/compile gate96390 passes on
+exactcf7, rejecting truncated/unowned-byte/fa66/12397 inputs, without mutable
+nightly rereads. Initial Lua SHA256 is
+`1dbddab40b17764b04841e72a170bf3fd0b89ef872b38e3081126b30c764dd8c`;
+policy SHA256 is
+`4637f7d0946c03cb46609873e159d3c449696d3c85da31eddd0dc1937cc96c5a`.
+It bases decisions on actual DkMovement followed by authenticated Main
+return, caches buttons for input polling, releases A after a real early
+landing and requires flag/castle plus25 actual living grounded1-2 movement
+updates at40/Y176. Full source session43163 is pending at this checkpoint.
 
 No full1-1 clear, native playtest, new helper, game change or delivery is
 claimed. Source jobs use absent `build/dk-full11-current-1114`, max-files1,
