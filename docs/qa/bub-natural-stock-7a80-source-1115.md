@@ -1,4 +1,9 @@
-Current source work uses exact Downloads7a80
+Latest work targets exact40a. Bub's margin controller is source-qualified;
+root79822 native is pending and Bob margin is an independent source case.
+No Flower native or graphics success is claimed yet. Earlier7a80 results
+below remain versioned and are not silently promoted.
+
+Original source work uses exact Downloads7a80
 `7a80f0f37e316436be0825bbd6fd9d372af6b0b7741f84ea87356282033d9b79`.
 No game, actor, terrain, power, position or health writes, new helpers, ROM
 outputs, emulator runs or historical tree restoration are authorized here.
@@ -281,7 +286,7 @@ and JMPs back. Corrected unique current clamp preimage binds that actual
 code. Source24605 passes, Lua
 `c2a03f1c57802044d26096f09565207537fcbdd44887c91f239c465e78aee520`,
 receipt `5a62be4d34e7426b1aa0348526c553ab541a8afb7bcb68ec72b98862adf75252`,
-1831-independent baseline still1824 Main. Its rising-neutral alignment does
+1824 Main. Its rising-neutral alignment does
 not move the actual restart (1211/140), so it is retained as source proof,
 not represented as the native fix. Source entry/return is PC A448/A427,
 SP196/198, real support marker1, direction1, held129, selector0→1.
