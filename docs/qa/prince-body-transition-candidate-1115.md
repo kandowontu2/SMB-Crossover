@@ -180,3 +180,29 @@ qualification remains narrow: cold/transport, declared code and graphics
 preservation, four pipes, opposed loss, reached ISR and declared lifecycle
 units. Native candidate staging, fresh native four pipes/opposed-loss,
 delivery and full1-1 remain unqualified. Equal-facing F090 remains open.
+
+## Root5474 private native addendum
+
+Root independently staged exact16a and completed both frozen native scopes.
+This supersedes only the preceding pending-native status. Downloads remains
+590; neither delivery nor full1-1 is qualified by these runs.
+
+Four-cap Lua5fa2ac0c passes, root receipt
+`4a9b7e3cd0f2e92a2f910b5e55496fae1fe5315713d0ff37755dbf36898a073e`.
+It reports1905 Prince updates/4466 physical frames, fourth cap899/113,
+HP4/lives2. First actual BBC1/SP203 matches both full candidate cookies and
+all4027 code/graphics bytes. This controller counts Prince commits rather
+than using the separate full-controller Main return witness. Its1905 differs
+from source37852's1909, and native113 differs from source112; these remain
+distinct physical versus source observations.
+
+Opposed-loss Luaae355c19 also passes, root receipt
+`fb2248b9f3bd73d0456811e669a2afed3f074b66859ad69e8196ba09812491ec`.
+It records5367 completed Main returns,4675 Prince updates and9807 physical
+frames. The declared re-admission endpoint is1882/176/action56/HP4/lives2.
+First actual BBC1/SP203 again authenticates both full cookies and4027 static
+bytes. This qualifies the frozen four-cap/opposed loss/sheath/movement/
+re-admission native scope. Source38420's4679 complete passes are a separate
+source observation. Equal-facing F090, the retained later fatal route and
+an actual full-stage clear remain open. No helper writes, installation,
+backup, patch or release asset occurred in this lane.
