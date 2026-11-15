@@ -1,7 +1,7 @@
 # Mr. Gimmick private sprite window7, November14
 
-Private source qualification is complete for the scopes below; native
-qualification and delivery are pending. No candidate file, Mesen run,
+Private source qualification and root native delivery are complete for the
+scopes below. No candidate file, Mesen run,
 Downloads write, patch asset or release was made by this helper.
 
 Root's grant is `allocations/gimmick-private-window7-1114.json`, SHA256
@@ -118,3 +118,21 @@ Wrong/dirty/unowned images reject; old factories and their API pins are frozen.
 No active helper process remains. All terminal results are additionally kept
 in `functions.store` by session handle. Source-only success does not qualify
 actual rendering, native frame cadence, all abilities/items/audio or delivery.
+
+## Root actual native and delivery
+
+Root2054 privatecf7 images and10746 fullstage both pass. Root60011 repeats
+the identical gates on exactcf7 actually installed in Downloads; direct
+replacement, no backup, patch guard clear, no generated output files/assets.
+Actual image receipt
+`435e53a70a7d01d485facdce5a4b60a2e239868ceb0f689b67ea4b5384e30314`.
+Goomba PNG remains the exact correct parent6999d642... image; Mushroom now
+renders correctly (638091d... PNG), with all11 actual private/native pattern
+pairs exact. These are root's actual renderer/physical-bank observations.
+
+Actual fullstage receipt
+`61531263c41804c81145812b72b2b0b0c7ad7db2a4d78bf664afb556ed3ab122`:
+8959physical/7402Main/6120 originalGmsteps/56next,25 grounded1-2,HP2/max2/
+lives2 and8 genuine star support events. Counts match its exact private run.
+This closes this native stage/graphics scope; source's0 supports remains an
+independent model result. No all-ability/item/audio/performance claim follows.
