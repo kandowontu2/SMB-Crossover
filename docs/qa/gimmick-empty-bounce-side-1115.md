@@ -180,3 +180,34 @@ All producers used exact absent bounded roots under build/gimmick-empty-side-*,
 max-files1/600s, in-memory fixtures and compact stdout receipts. Zero generated
 ROMs, capture/state/image files or build artifacts; frozen parent factories and
 game sources unchanged. Protected user progress/Steve files untouched.
+
+Root70234 is now terminal private7a80 **collision diagnostic PASS**, receipt
+`fb8f94243b990fc2119e3a483298206a6e438ab963e7f606ff7783ab4a5996fa`,
+using exact53f0 controller. Across5,510 actual side queries, four observed raw
+R3=35 queries at Main1562/1563 return A0 from public B92C/SP221. Native x1229
+then1228 has no old plus16 shift. Actual real wall tiles18 (Main918/x725/Y128)
+and16 (Main1103/x901/Y128) retain their nonzero returns. This is the actual
+native correction witness, separate from the declared CPU fixtures above.
+
+Its inherited ordinary Flower endpoint remains **negative** at the unchanged
+post-support jump bound:1673 Main/2215 physical, alive1243/176/HP2/lives2/power1.
+That does not invalidate the narrower side-marker witness or qualify Flower.
+Official Downloads remains16a at this point; root owns native QA and any later
+regression/delivery decision. Core/composer/probe remain frozen.
+
+New two-picture graphics API is
+`replay_gimmick_empty_side_images_current_1115.controller(raw7a80,'mr_gimmick')`.
+FactorySHA `ef0ec51a99a8cfa731e82fa629cfcd40657a6afc7321093e35ab94e9beac316a`,
+LuaSHA `a3e6e77e39e9d90d740f3169affc8a8c57082ac031a10700395baec2145a3354`.
+It explicitly inverses all intervening parents to frozen cf7 image controls,
+then rebinds only actual candidate SHA/hook bank hashes. Private deep copies
+avoid the old image recipe mutating cached Stage RAM metadata. Bound is two
+RAM PNGs, each at most65,536 bytes, no disk outputs; ends at maturity before
+pickup. New checker source51488 passes strict API and ordinary compiled cold
+opening route, receipt
+`1a872ec542e893ed512ae0c1df8beb83cea4be10ac57dc710de7bdfe7ef64099`.
+Source Goomba snapshot is Main140 hero216/176, live actor328/184; mature M is
+Main306 hero333/176, actor336/119. Both actual model bank lists are
+[816,16,17,18,19,20,21,818]. The model's marked PNG is only an API fixture,
+explicitly not a native raster/art witness. Root's native two images remain
+pending at this checkpoint;116 complete renderer CPU pairs remain qualified.
