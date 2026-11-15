@@ -178,3 +178,38 @@ All source dependencies are frozen for root's native replay:
 Bob is a fresh cold/controller identity1 case of the same strict40a API; its
 result must be retained separately. All producers remain bounded max-files1,
 600s/zero output files and no Mesen. Root owns the only native queue.
+
+Bob identity1 source81024 separately **PASS** on actual40a with the same
+frozen ed411 factory. LuaSHA256
+`b9d196e96d5bc0349e55425bb60febc980fec10882bcad1728dfb7e3df7b873a`,
+receipt `9ee605e146c2a6c9ccc835145e758ea4e31dc59ba8f46df72580678f90b02157`.
+It has the same1824 returned Main/actual movement entries and separate Bob
+source actor66, flags0→1→7; both real collectors/setup6/erase/popup6/cue32,
+both60 hosted updates ages0..59, M100→1100/F1700→2700,1799→1824 actual25.
+Terminal1245/112/lives2/power2/flags7. No identity is inferred from Bub alone.
+
+Root79994 and50703 then reject the original ed411 controls natively on
+actual Downloads40a before Flower. Bub receipt
+`db93a5ca1ee798d23131f835e1b0379c8b4ad36139795dd88b44a1138e52a8b2`
+is858 returned Main/Bub entries and2065 physical; Bob receipt
+`257005932ccf6a24821692438d2482fcbb0d7cfb595050475aa3081132315eff`
+is858/2085. Both remain alive662/176/engine8/lives2 and trip the retained
+`Enemy reached unsafe distance before close source shot` guard. Actual M
+collector/grant/erase/popup6/cue32/60 ages0..59 passed before travel. Bub
+pipe1 clears683 at511/176, Bob681 at507/176; both pipe2 clears857 at661/176,
+with two actual original support restarts. Main856 is still descending
+661/174;857 is grounded661/176, selector3/held129;858 switches to approach3.
+No native target/box snapshot was retained in that parent. Source success
+does not substitute for this native enemy-phase negative, and no game defect
+is inferred. The two-image task is held until a native route qualifies.
+
+New `replay_bub_flower_close_defence_40a_1115` scopes ordinary danger handling
+to Bub's second-pipe descent/next approach. Bob text stays exactly ed411.
+It records actual native body/enemy boxes converted into world coordinates,
+target id/slot/state/moving direction, held/Saved input, source selector and
+cooldown in20 bounded rows. A live threat within48px causes ordinary retreat
+over real floor before landing; fresh B is permitted only on actual ground,
+disjoint native boxes, ready facing/cooldown and28..40px separation. It waits
+for actual capture before approaching and requires actual pop. Original
+unsafe-distance and injury/death assertions remain verbatim. Source16936 is
+pending under absent `build/bub-flower-close-40a-1115`, no files/Mesen.
