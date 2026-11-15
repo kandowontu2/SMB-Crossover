@@ -20,3 +20,12 @@ source receipt `44610d8e9450afc6ce93ec4106514849a104ce74546a42e84d1857d548ec514f
 This is CPU-model evidence, not a native pickup or original special-attack
 qualification. Zero files or Mesen launches are produced. The bounded root
 `build/gimmick-natural-flower-1114` stays absent.
+
+The closer1216 retreat successor39833 also times out alive at5,000Main,
+health/capacity3, both lives, same genuine Flower birth/maturity and no
+collector. It adds a real native-collector witness without relaxing the
+inventory/cue/score gate. Lua71c30a669ef0d11dbc80e2c36bf2a3cc321b23915e7f4c3396f44d569e9330cb,
+receipt0587892a3dba65c8138fdb2c96fee5828276fc5cdef7cb256051f9a8587045f0.
+The next approach uses the character's actual star platform instead of
+assuming his short ordinary jump can reach a Flower on the block. Neither
+negative changes gameplay or authorizes a new helper platform.

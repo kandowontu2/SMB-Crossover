@@ -32,7 +32,7 @@ return function(c)
   if item.state<128 then return{}end
   if phase~='side-jump'and phase~='jumping'then phase='retreat'end
   if phase=='retreat'then
-   if c.x<=1196 and c.grounded then phase='side-jump';age=0;return{}end
+   if c.x<=1216 and c.grounded then phase='side-jump';age=0;return{}end
    return{left=true}
   elseif phase=='side-jump'then
    if c.grounded and not c.lastA then phase='jumping';age=0;return{right=true,a=true}end
@@ -74,12 +74,19 @@ def controller(raw,key='mr_gimmick'):
     text=text[:start]+" local ok=reason=='natural-flower-inventory-and25-resume'and firstMReady and flower.born and flower.mature and flower.before and flower.after and flower.cue and flower.erase and flower.resume==25 and identity()and r('NumberofLives')==2 and r('GmRam0346')>0 and r('GmRam0039')==1 and r('GmRam0036')==2 and r('GmNextSpecial')==2 and score()>=flower.before.score+1000\n"+text[end:]
     text=once(text,'natural_birth=born,','natural_flower=flower,first_mushroom_ready=firstMReady,natural_birth=born,')
     extra=r'''
+hook('NrPickup',function()
+ if not firstMReady then return end
+ local slot=emu.getState()['cpu.x'];assert(slot>=0 and slot<6)
+ local a=item(slot);assert(a.flag==1 and a.id==46 and a.kind==1 and a.state>=128,'Physical mature Flower at native collector')
+ assert(not flower.native,'Exactly one real Flower collector')
+ flower.native={state=state(),actor=a,score=score()}
+end)
 hook('GmPickup',function()
  if not firstMReady then return end
  assert(emu.getState()['cpu.a']==1 and not flower.before,'Real Flower collector callback')
- assert(flower.mature and r('GmRam0039')==0 and r('GmNextSpecial')==1,'Genuine initial special inventory')
+ assert(flower.native and flower.mature and r('GmRam0039')==0 and r('GmNextSpecial')==1,'Genuine initial special inventory')
  local sp,ret=stackReturn();flower.pending={sp=sp,ret=ret}
- flower.before={state=state(),score=score(),hp=r('GmRam0346'),capacity=r('GmRam002B'),actor=flower.mature.actor}
+ flower.before={state=state(),score=flower.native.score,hp=r('GmRam0346'),capacity=r('GmRam002B'),actor=flower.native.actor}
 end)
 hook('GmQueueSound',function()
  if flower.pending and emu.getState()['cpu.a']==28 then local sp,ret=stackReturn();flower.pendingCue={sp=sp,ret=ret,index=r('GmCueCount')}end
