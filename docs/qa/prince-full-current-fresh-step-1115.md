@@ -37,10 +37,33 @@ existing4M cold instruction budget in that same CPU/Main invocation. It
 compares224 immutable decoder code bytes against the current authenticated
 packet; only the original Back/Load/Store six operand bytes self-modify. No
 native RAM, audio or stack mask, changed scheduling, gameplay seed, array
-mount or new game byte is introduced. Full-source86490 is pending.
+mount or new game byte is introduced. Full-source86490 authenticates and
+passes that decoder cut, traverses both late pipe positions and reaches
+8500 source Main calls at160/176/HP5/Sword0. Its fixed8500 route ceiling
+then leaves no final Lua receipt and triggers the retained receipt-count
+assertion. No exact end-world/AreaType or decoder counts were printed by that
+failed invocation, so those fields are not inferred or invented.
 
 The preceding16a58290 run traversed the late pipes and reached3265/176/HP2
 before the original helper bound, as recorded in the separate fresh-step QA.
-It is not silently promoted to a current full clear. Native play, actual
-flag/castle/25 completed grounded1-2 returns and equal-facing F090 exit remain
-open here. Root owns all emulator, candidate-file and delivery operations.
+It is not silently promoted to a current full clear. A separate single
+bounded completion31681 uses the same frozen53c1 text and cold-budget source,
+with a measured9000 Main ceiling and explicit native-state reporting if the
+fixture still ends without a receipt. That source invocation is pending.
+
+Root33139 actual Downloads7a80 native is terminal **FULL PASS**, receipt
+`353509637a89baf21053b6602637447251807ea3efdc9970bd9339b0a007799d`,
+on exact frozen Lua53c107fec29692356caa88d727fb64aea096c39f0220be2a5749da81e01b8235.
+It records9336 completed Main,7757 Prince updates and17248 physical frames;
+the ordinary earned-sword route traverses both late pipes, the flag/castle
+chain and next area. The endpoint is25 living grounded completed Main returns
+in actual1-2, world0/level1/area0/engine8, x40/Y176/HP5/lives2. First actual
+BBC1/SP203 authenticates both cookies and all4027 owning bytes. No helper is
+added or moved and this replay changes no ROM bytes or capture files.
+
+This actual native receipt is the full-stage authority. Root owns its native
+QA, checklist and handoff. Source fixture limits above remain contextual
+negatives rather than game failures or extra native claims. Equal-facing
+F090 exit, natural Star/1UP, all-ability/audio qualification and performance
+remain independently open. Root owns all emulator, candidate-file and
+delivery operations; this stage clear requires no further ROM installation.
