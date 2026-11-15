@@ -202,6 +202,8 @@ end
 def controller(raw,identity=0,mode='mushroom'):
     assert sha256(Path(Previous.__file__).read_bytes()).hexdigest()==PARENT
     text=Previous.controller(raw,identity,mode,stock='flower')
+    text=once(text,'if x<600 or x>=720 or(full_index~=2 and full_index~=3)then return false end',
+        "local early=x>=600 and x<720 and(full_index==2 or full_index==3)\n local afterF=star and star.phase=='travel'and x>=1450 and x<1610\n if not(early or afterF)then return false end")
     at=text.index('\n')+1;text=text[:at]+'local Star='+Previous.Witness.Base.Previous.lua(bindings(raw))+'\n'+text[at:]
     text=once(text,'local function finish(','local star=nil\nlocal function finish(')
     text=once(text,'natural_flower=flower','natural_flower=flower,natural_star=star')

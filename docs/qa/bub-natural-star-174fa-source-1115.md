@@ -69,3 +69,16 @@ earned flags7 speed5. These fields are not held buttons; held input is actor+1.
 The earlier palette QA wording is corrected without changing any frozen code,
 grant, composer or controller. Private attr/owner and all gameplay bytes were
 preserved by the delivered palette-only repair.
+
+Scoped-defense12503 is **NEGATIVE**, Lua
+`a0c2a4de93e47bb3e4438151ccd15ec0827a53a0950791b57f12c09608ac70a7`,
+receipt `7c495d7f3bdf7f8be4663590b119dbf4d1dedf4e1894ec0a33cc5eb237e4607c`.
+The gap crossing remains qualified. It initially retreats near1450, then
+approaches again and is injured2220 at1497/176 by slot0 Goomba1504/Y172,
+state1; upright slot1 is farther1521/184. Native collision source explicitly
+classifies states<2 as normal/falling hazards; state1 is not a stomped-dead
+Goomba. The earlier investigation's stomped label was wrong; no harmless-enemy
+collision defect is established. The inherited fight uses global capture/pop
+counts to approach, which can make another captured actor look like the
+nearer target is protected. Next controls bind to actual per-slot C320 owner
+association and target retirement, and require a real grounded/aligned shot.
