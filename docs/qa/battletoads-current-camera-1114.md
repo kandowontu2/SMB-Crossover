@@ -79,3 +79,26 @@ The new Gimmick cf7 remap changes192 other bytes only. Existing1daca factories
 stay strict; future Battletoads work must explicitly normalize cf7 through
 the frozen Gimmick inverse or add a preserving typed composition. Do not
 silently accept changed ROMs or install a1daca-based private child overcf7.
+
+## Root-funded camera proposal
+
+Root58825 independently verifies12288 additional prefix cases with every
+valid initial status combination (unused bit5 fixed1), eight low-byte corners,
+both player slots and signed wrap directions. A/X/Y/SP and all architectural
+flags match; only the intended camera fields change. Root also repeats24
+actually reached unmasked IRQ and24 busy-NMI cuts, minimumSP177. Receipt
+`a45e85227263d30f05e94928b63531353d04eac509a701263521e0c0540a9f8e`.
+
+Earlier57309 deliberately exhaustive raw-status input also included impossible
+unused-bit5-zero values and stopped at that artificial mismatch. Root5161
+isolates it: PHP/PLP normalizes only unused/B copy bits, while I/D and real
+flags retain their values. Valid U1 cases differ only in nonarchitectural B
+copy, as the frozen research matrix already specifies. No proposed game
+instruction changed to bypass a live flag failure.
+
+Root grant `allocations/battletoads-camera-handoff-1114.json`, SHA256
+`a6cf8e2291c92d03077cdf6b5172d0f2a8876ae74562fc2cccbceeadb3db92bf`,
+now authorizes the exact40 cache bytes plus12 existing cookie digest bytes
+over currentcf7, in memory only. Native physics, palettes, sprites, health,
+helpers and levels remain exact. Candidate composition/cold transport and
+full-route qualification follow separately; this is not an installed repair.

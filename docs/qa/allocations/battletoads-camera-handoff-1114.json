@@ -1,0 +1,64 @@
+{
+  "status": "granted-private-source-proposal-only",
+  "owner": "root",
+  "component": "Battletoads native camera handoff",
+  "eligible_input_SHA256": "cf7b6d2964ae0ef18d08c726f66afe9bf5be3dc6f3ec9c7a43279121ee09d968",
+  "conditional_owner": 33,
+  "temporal_RAM_bank": 3,
+  "payload_file": [1989648, 1997840],
+  "physical_CHR_carriers": [919, 920, 921, 922, 923, 924, 925, 926],
+  "old_payload_SHA256": "e6548f57de4aefbd6ece22193bcf7a5320f5b9a151fd3ba28209c688d211d876",
+  "new_payload_SHA256": "8605ac5665158653b677e7e12f44f712afb9b003c9d8a7998a632aeaedaf5c66",
+  "spans": [
+    {"name": "Import prefix", "CPU": 44760, "file": 1993448, "old": "a575186908", "new": "20e6b5eaea"},
+    {"name": "Export prefix", "CPU": 44958, "file": 1993646, "old": "bd1cbf38e908", "new": "20f2b5eaeaea"},
+    {"name": "Owned tail helpers", "CPU_half_open": [46566, 46595], "file_half_open": [1995254, 1995283], "old": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff", "new": "ad71058d5a07a57518690860bd1cbf38e908084838e5758d0107682860"},
+    {"name": "Existing ROM cookie", "file_half_open": [765863, 765879], "old": "a7210175e6548f57de4aefbd6ece2219", "new": "a72101758605ac5665158653b677e7e1"}
+  ],
+  "maximum_changed_bytes": 52,
+  "existing_owned_capacity": {
+    "current_BT_CACHE_HOST_CPU_half_open": [44444, 46566],
+    "current_host_symbols": 87,
+    "tail_no_current_host_symbols_or_other_emitted_consumer": true,
+    "tail_only_physical_container": "Existing8192-byte BT_STREAM",
+    "tail_old_SHA256": "6a99cf1e02ff68b7972440d13ec3038fcd79c6546e7533e67412a79b3ee4ab72",
+    "live_status_and_lives_code_before_tail_preserved": true,
+    "original_partition": "docs/qa/checkpoints/2026-10-30/battletoads-source-core-loader-v2/root-grant-and-partition.json"
+  },
+  "frozen_research": {
+    "tools/audit/check_battletoads_camera_handoff_1114.py": "669b67b7b92ac7050ceafd2043885a343b629b02a2b61fe3f5dbf22d5623921e",
+    "docs/qa/battletoads-camera-handoff-1114.md": "593f130e9edbe8000c7709fbceaa8bdab9b095dc5c6ee55f8721c1acae2b7963"
+  },
+  "root_independent_qualification": {
+    "terminal_session": 58825,
+    "receipt_SHA256": "a45e85227263d30f05e94928b63531353d04eac509a701263521e0c0540a9f8e",
+    "all128_valid_status_low_byte_wrap_slot_direction_cases": 12288,
+    "unused_status_bit5_fixed_one": true,
+    "architectural_flags_mask": "EF, excludes only nonarchitectural B copy",
+    "actual_reached_IRQ_cuts": 24,
+    "actual_reached_busy_NMI_cuts": 24,
+    "minimum_SP": 177,
+    "ordinary_Rash_camera_parent_negative_session": 90630,
+    "source_outputs": 0,
+    "notes": "Earlier root57309 forced impossible unused-bit5-zero initial status; diagnostic5161 isolates only U/B model normalization, with I/D and all real flags unchanged. No instruction proposal changed. Agent's32768 initial cases all use valid U1 statuses."
+  },
+  "semantics": [
+    "Import caches actual pre-step Player_Rel_XPos0571 into native Player_Pos_ForScroll075A, then reproduces original LDA75/CLC/ADC8 result and flags.",
+    "Export preserves original source coordinate result/carry while publishing committed signed modulo256 low-byte movement delta into native Player_X_Scroll0701. Preserve original following high-byte subtract and source/native physics.",
+    "Extra source cost is24 import and41 export cycles per BT step. This repairs missing camera inputs; it is not an idle-lag optimization or a change to native walk/jump parameters."
+  ],
+  "constraints": [
+    "Exactly these three cache envelopes and existing cookie only. Tail29 bytes were already inside the owned selected33 cache/copy. No new physical PRG/CHR/RAM/carrier, live state, SMC allocation or native capacity.",
+    "Do not overwrite B548: current status/lives code extends through B5E6. Leave every preexisting instruction, art byte, table, state initializer and cache invalid-cookie byte outside these spans exact.",
+    "Preserve all192 current Gimmick changes,3 DK operands,29 common-reset bytes and176 prior fixes. Frozen historical1daca/other factories remain strict; add new typed candidate adapters and portable inverse, with no mutable Downloads oracle.",
+    "Existing cookie is A7/33/1/117 plus first12 SHA256 bytes of the exact8192-byte payload. Preserve invalid-first/verify/readback/valid-last cold behavior and foreign/retirement guards; old cookies must not be accepted as new warm code.",
+    "No level/helper/terrain/actor placement, health, attack, input remapping, ability, palette, geometry or art change. Ordinary final flag-hop correction belongs in a separately frozen controller, not the ROM."
+  ],
+  "authorized_source_qualification": [
+    "In-memory strict exact52-site maximum composition, complete unrelated-byte equality, portable inverse, wrong/dirty input rejection and actual-current cf7 single-read boundary.",
+    "Genuine cold construction and complete8192-byte readback/new-cookie publication, old/new/foreign/fault/reload/retirement guards and caller/ISR continuation invariants.",
+    "Both Rash/Zitz ordinary full1-1/flag/castle/entrance and25 living grounded1-2 updates; natural powerup use is separate. Retain legitimate contact damage and failed old controls as scoped negatives.",
+    "Freeze root-native controller-only stage adapters and provenance once actual candidate source gates pass. No claim of hardware timing or sprite visibility from the RAM research model."
+  ],
+  "authorization_limit": "Compose and test this exact proposal in memory only. No candidate files, Mesen launch, Downloads write, backup, patch asset or release. Root owns the single emulator queue, staging, cleanup and any delivery."
+}
