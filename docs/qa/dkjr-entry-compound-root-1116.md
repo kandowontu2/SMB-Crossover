@@ -44,3 +44,33 @@ ordinary source route are still required before root grants a physical/native
 candidate. Root's prepared runner refuses to run without that later grant and
 restores the public shared candidate in its `finally` path. No backup, patch
 asset, release or private Downloads delivery is authorized by this review.
+
+## Strong complete source route
+
+Root38224 now passes receipt
+`83da446ed50d0117591c19b005dab74110745cc4ce1aa317f1b58f31dd9762ae`.
+The supported direct harness executes exact7c0f, frozen1caa/sourcec2cd, actual
+compiled Select/Start/parser/cold with zero extra opening inputs, then the
+unchanged ordinary root controls. There are9171 modeled logical updates;
+source-controller frame indices below include its541-frame opening offset
+and are not native Mesen physical-cadence measurements.
+
+All1-1 geometry passes: flag8568, castle8630, external entrance9276. The
+horizontal helper is born at left1408/center1432/top208 while relative287;
+it supplies37 bridge-plane evaluations, not37 successful supports or a native
+carry count. Fourth944 has160 actual supports and final3040 has256. All13
+placements and initial heights remain unchanged.
+
+In1-2, first grounded D65E return9687 and25th9711 finish at40/176/lives2,
+Ready2/source1/prior1/sourceY191/camera0. The additional, independently
+authenticated SourcePhase gate counts26 completed original Move+Clock
+updates, all grounded. No source phase5 occurs anywhere in the observed
+route. Final completed controller frame9712 retains the same living state.
+No position/floor/health/actor/power outcome is supplied.
+
+This closes the ordinary full source-route gate. It does not substitute for
+native Mesen or reached interrupt qualification. The helper's first IRQ job
+stopped at a historical fixture assumption that NextBank always matches the
+live mapping at return PC0175. The actual nested-call return sequence and
+caller-bank PLA/STA are being authenticated before retrying that same cut;
+no game, composer or strong-route controller change has been proposed.
