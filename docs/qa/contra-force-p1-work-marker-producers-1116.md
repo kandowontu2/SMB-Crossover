@@ -160,6 +160,49 @@ explicit PHP/PLP/RTS packet fixture, not actual CfCallA/packet execution;
 actual mounted packet/header/renderer/ISR/lifecycle/source route gates remain.
 All bounded roots stay absent and all generated output counts are0.
 
+## Mounted cold and ordinary source cost
+
+Model `contra_force_p1_work_marker_model_1116.py` SHA256
+`ce720cd610fd8441699704eeedd6f314cf9d43373d25d22cd57baaae89efbed4`
+accepts only exact6a3/ffbb, keeps actual raw CPU bytes, and uses bc5 solely
+for frozen symbols. Its private points reflect the relocated entry addresses.
+Checker `check_contra_force_p1_marker_mounted_1116.py` SHA256
+`bfa279076ecfc645e27d554d94a1dc2a54eeafcde0fbf2844df729867757a9eb`;
+cold61655 terminal PASS, receipt
+`07c5700edce5f44c690ae209d1d713d3fd9717fe8e447b17c7e29419e4335414`.
+
+All four real compiled Select/Start constructors (BURNS, SMITH, IRON, BEANS)
+execute exactffbb and two completed Main updates. Entire RAM1/RAM3 code and
+data read back exactly from the candidate carrier; class0/1/2/3 header bytes
+and new digest match. Each ends40/176 with two lives, no native actors/shots,
+marker0/Choice0/PendingC0/LastBlueC0, and all64 OAM tag bits clear. No gameplay
+state was seeded. This closes genuine cold/native palette publication for
+these four constructors, not all lifecycle/item/full-stage behavior.
+
+Profile `profile_contra_force_p1_marker_current_1116.py` SHA256
+`7c9e389c378994837d4188ac931b7c8e9b769b9e3c184d5edc02eced5dc5276e`;
+91167 terminal PASS, receipt
+`9ab14a0c47522fe7ca24dc82ea66f5dff0996ded6a6493fcc59237f283eec166`.
+The old named-scope observer is unchanged; its actual current hook bytes and
+image are rebound explicitly. It executes ordinary idle8/Right8 completed
+normal/render Main updates on parent6a3 and candidateffbb. No named scope is
+open or unwound; all entries equal returns and call counts are identical.
+
+| Ordinary source Main | Parent6a3 | Candidateffbb | Saving |
+| --- | ---: | ---: | ---: |
+|idle|56240.375|52274.375|3966|
+|Right|56411.25|52445.25|3966|
+|P1Late exclusive, either phase|4237|457|3780|
+
+The renderer loop supplies the remaining186 cycles. All14 outer/private full
+checks remain; audio and NMI costs are unchanged. During genuine cold/warm/
+profile execution the observer reaches21 no-work phases with every hidden
+and visible attribute verified tag-free, plus one initial full-work phase.
+These are source cycles, not physical controller-read or cadence evidence.
+The earlier nativebc5 severe-lag baseline remains the only current CF timing
+acceptance evidence. Full renderer/active-shot/header-fault/foreign/area/death/
+retirement/new-PC ISR/all-four-route qualification is still pending.
+
 ## Preliminary pending status (historical)
 
 Root owns the separate acquisition/Pending/LastBlue reader audit. Its genuine
