@@ -284,3 +284,47 @@ emulator launch, capture, sidecar, build file or new helper was produced.
 Existing Jay helpers are unchanged in1-1: width32, left/center/top
 384/400/192 (necessary M prefix),688/704/192 and880/896/192 (traversal).
 Output root `build/jay-natural-fsl-source-1116` remains absent, max-files1.
+
+## Explicit current00bb packaging transfer
+
+Root's verified Metal delivery changes the actual input to
+`00bb2664647a4ef47b5dfa01c96d50549581d215a33d19a2a6390d1e09078e21`.
+The frozen7c0f factories and controls remain exact and reject00bb.
+New `current_jay_natural_stock_00bb_1116.py` has SHA256
+`4bff33bfc8895d86dc1a405ebd0d7b2b041ca27d73c7d536068588b7e372abb1`.
+Its strict c9051abc Metal inverse produces exact7c0f for metadata only;
+the bundle, constructor and CPU retain actual00bb bytes. All15 Jay/shared
+carrier pages, native/mapped hook preimages and full cold162B stay exact.
+All three complete AA cookie occurrences stay at file534328,774911 and
+1429421; the third is CHR371+925. Actual cold again loads both AA RAM
+headers. No old API or default input is widened.
+
+New `replay_jay_natural_sl_00bb_1116.py` has SHA256
+`ca500ea7ce037cff28ea93bdc839c65eba39f0d63c179236a37c5cb39bbaba34`.
+APIs are `controller(actual00bb, 'life'|'star')`, `bindings(raw, kind)`
+and the exported J typed-facade alias. Only the serialized config prefix
+changes; the complete observer/control body, all collection/effect/credit
+and25 returned-original-update gates are byte-identical to frozen7c0f.
+Body SHA256 is82efbe1840d71f79321e41965cfd544f9f3edb63973c81552c6eb07c13a7412e
+for both kinds. The old literal diagnostic caption mentioning7c0f remains
+inside that body; actual admission compares the environment to config00bb.
+
+| Kind | LF bytes | Current00bb Lua SHA256 |
+|---|---:|---|
+| life | 21913 | `10d87922f2c18a4f9708662ec8caaa4814d550912773412816ba50810f7efa87` |
+| star | 21913 | `dc5958eabfbf474d6155a3191fe865f90efd3b21d444e177b522c973fc616e75` |
+
+Source24716 terminal PASS, receipt
+`90720338cc7caeab08a44165f93a4a125e58b9617bd68e1b42a4f35f461df057`.
+Checker `check_jay_natural_sl_pack_00bb_1116.py` has SHA256
+`6f2c102bdb350bc2becbfd48f6744b9f006893de83454fa2c1af13d81e161caf`.
+Both texts compile; dirty, historical7c0f, historical91dc and Flower-kind
+inputs reject. The unchanged small callback harness acknowledges16 actual
+00bb Main/original-integrator entries/returns, pending0, at52/176/HP6/
+max3/tier1/lives2/weapon0/ammo63. This is a current binding/callback transfer,
+not another natural-item/full-stage replay or a native controller result.
+The existing full pickup source receipts remain versioned7c0f evidence.
+
+Exact bounded root `build/jay-natural-fsl-00bb-1116`, max-files1/600s,
+stays absent with0 generated files. No ROM, Downloads, capture or emulator
+operation occurred; root alone owns native execution and any staging.
