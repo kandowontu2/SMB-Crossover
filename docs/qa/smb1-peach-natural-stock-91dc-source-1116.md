@@ -140,3 +140,11 @@ their exact pins. Native M is recorded above; native F/S/L remain root-owned
 and pending at this checkpoint. No further broad source tests are required.
 All source processes are terminal and their exact bounded roots remain absent,
 with zero generated build files and no new helpers or game bytes.
+
+Root84839 actual Downloads91dc subsequently passes frozen d34a/bae9 Flower:
+`f7cc5ead3b0b7f3ddd9da8337e58d161fec906e7a8a6107d60d0c8b838787650`.
+Native totals1755 Main/1363 Bm/1781 physical. First observed F1500 at1248/135/
+state2 matures1564; actual collector1669 at1260/99 versus1248/119 has positive
+1x4 overlap. Real1100→2100 at1674,60 growth ticks and25 completed Bm returns
+at82BE/SP252 finish1251/112/lives2/tier2. Source1493/1373 stays separate.
+Native Star/L remain root-owned queued gates at this update.
