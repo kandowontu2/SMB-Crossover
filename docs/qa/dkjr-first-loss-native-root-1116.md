@@ -49,3 +49,28 @@ A cached relative-X discrepancy (world928 minus camera848 is80, versus the
 published box left79) is a hypothesis, not a proven cause. Do not apply the
 source-only two-pixel vertical theory as the actual first native failure.
 No game/control/helper change is authorized by this calibration alone.
+
+## Private-X first writer confirmed in actual hardware emulation
+
+Root31697 uses passive Luaee3a1bcb, replacing the already-proven wall witness
+with one private-X write witness. Receipt
+`1779dfc276a184fe5b45f3db2c16133ceeff37a180b42b6d813ab7467f660e64`.
+The original route still fails at exactly Main3718/frame9027; the observer
+changes no input, guard, timeout, ROM or game state. All thirteen other Mesen
+processes remain untouched; zero captures/output files.
+
+Actual first writer is camera-shift indexed STA C203,X atBB27, observed
+post-PC BB2A, X16, writing physical RAM2:C213 from72to71 atMain3654/frame8890.
+Its exact mapped near bytes are `ed38c4 9d03c2 cacacacae0`.
+Current camera848, cached camera847 and computed delta1 accompany native
+worldX928, anchor world928/source72. Native relativeX80 equals world928 minus
+camera848, so the stale-native-relative hypothesis is ruled out for this case.
+
+The camera loop subtracts the same one-pixel scroll from an already-anchored
+player, then the source support window ends at95 and misses platform left96.
+The later B2CA export is a consequence, not the first wrong write. A detached
+repair proposal must preserve non-player source-object shifting and cache
+updates, and prove all legal import/phase ordering before excluding/resyncing
+the player. No source/game repair lease has been granted yet. The different
+source-only later vertical loss remains a regression target after this cause
+is addressed; it has not been waived.

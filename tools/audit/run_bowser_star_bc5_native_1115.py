@@ -13,7 +13,12 @@ GRANT=F.R/'docs/qa/allocations/bowser-star-bc5-native-1115.json'
 
 if __name__=='__main__':
     ap=argparse.ArgumentParser(description=__doc__)
-    ap.add_argument('--identity',nargs='+',type=int,choices=(0,1),default=[0,1]);args=ap.parse_args()
+    ap.add_argument('--identity',nargs='+',type=int,choices=(0,1),default=[0,1])
+    ap.add_argument('--oneup-baseline',action='store_true');args=ap.parse_args()
+    # The default Star path remains the frozen positive qualification.
+    if args.oneup_baseline:
+        import replay_bowser_oneup_lifecycle_bc5_1115 as F
+        GRANT=F.R/'docs/qa/allocations/bowser-oneup-baseline-bc5-native-1116.json'
     g=json.loads(GRANT.read_bytes());assert g['native_ordinary_controls_authorized']and not g['ROM_game_state_or_helper_changes_authorized']
     assert sha256(Path(F.__file__).read_bytes()).hexdigest()==g['factory_SHA256']
     for identity in args.identity:
@@ -34,7 +39,11 @@ if __name__=='__main__':
         out['receipt']['stock']={k:v for k,v in r.get('stock',{}).items()if k not in('trace','samples')}
         out['receipt']['natural_keys']=list(r.get('natural',{}))
         out.update(actual_Downloads=True,identity='SMB3 Bowser'if identity==0 else'SMB1 Bowser')
+        if args.oneup_baseline:out.update(diagnostic_only=True,kind='oneup-first-constructor')
         print('RESULT '+json.dumps(out,separators=(',',':')),flush=True)
+        if args.oneup_baseline:
+            s=r['stock'];assert not q['passed']and s['life_credit']and s['reconstructed']and s['lifecycle']
+            continue
         assert q['passed'],'Current Bowser native Star qualification remains open'
         s=r['stock'];assert s['resumed']==s['tail_resumed']==25 and s['credit']['after']-s['credit']['before']==1000
         assert s['born']and s['mature']and s['collector']and s['collected']and s['actual_Main_return']
