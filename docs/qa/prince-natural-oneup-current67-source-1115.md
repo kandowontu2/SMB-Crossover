@@ -88,3 +88,16 @@ Lua `e96b11e20dc5a7f697eb00cce5f1e34749885db60da2b608eb13f70b3f412796`.
 No hidden1UP is born. This remains a control-policy negative. A separately
 named successor uses fresh original standing A3 from actual stair footholds;
 the donor action must admit each jump and all item/credit/return gates remain.
+
+Fresh-A source42261 is also negative, receipt
+`5115d9b4d0d399b5616f6e50f7893aea4904810193acacb13930ba0833b0de26`,
+Lua `da0d52974a877a200f69d80a3241a83319635fdd6362c0514af1c4aa17cf1466`.
+Three admitted action3 attempts return to350/128/foot160, HP5/lives2.
+No natural1UP is born. The observer's full output exceeded the reporting
+budget, so no unseen minimum-height figures are inferred from that run.
+
+The next directed input hypothesis authenticates original F89B's actual
+`LDA $C40A / AND #$C0` bytes. The previous controller released A on action3
+admission, leaving the original A-or-B grab gate closed. The separate grab
+successor retains Right+A in flight and switches to Up only after actual
+hang/hoist admission. This changes controller inputs, not game code.
