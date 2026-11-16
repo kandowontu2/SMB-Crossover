@@ -161,3 +161,12 @@ performance or current full-stage claim follows. All source processes are
 terminal; bounded output roots remain absent, zero generated files, no added
 helpers, ROM changes or gameplay seeds. Frozen Toad/Peach APIs and earlier
 Kamikaze controls/negative receipts remain intact.
+
+Root16025 actual Downloads91dc subsequently passes frozen0ade/147b Mushroom:
+`ee354da03da5f7c916db2cb7a32d728b53f852956af9a2cb0cb3e7cc8b4cd293`.
+Native totals1006 Main/653 actual Source returns/1018 physical. Real birth773
+and maturity840 precede9B28/SP243 collector920, hero414/176 versus417/177,
+positive9x3. Actual1000 at925,60 growth ticks and25 completed Source returns
+at82BE/SP252 finish426/176/life2/tier1/variant3/CHR132. Source712/652 remains
+separate. One unrelated Mesen process was left untouched. Native F/S/L remain
+root-owned queued scopes; no helper launched an emulator or changed the ROM.
