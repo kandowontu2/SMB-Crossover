@@ -101,3 +101,61 @@ All source producers use bounded absent roots, max1 file/600s and zero outputs.
 The source bus lacks real title-vblank, raster/APU timing and native cadence.
 Current native qualification belongs to root; no helper Mesen run is claimed.
 
+## Current native M authority and source Flower closure
+
+Root46091 actual Downloads91dc passes frozen M Lua9f4c, receipt
+`7014b9e80e8452aee9f055221de8db95383603044896b60ccd3afd7d01b2c0fd`.
+It has999 balanced Main/604 balanced original motor and movement/1497 physical
+frames, both preconstructor cookies and8192 static bytes, real1x13 collection,
+three actual cue20 writes/clears,60 transaction ticks, actual1000 and25 returned
+updates. Terminal290/176/life2/status1/age60/no crash or heat. Root reports clean
+patch guards, installed bytes unchanged, zero images/files/game writes. These
+native counts are separate from the source665/605 result above.
+
+Natural Flower SOURCE PASS:
+`bd2be82e36b05660d4cd8a5fe7a42e2ccad7b55cd6bfe4e1e26431bd46cd70ab`.
+API `replay_excitebike_flower_runway_91dc_1116.controller(raw91dc,'flower')`;
+factory SHA256
+`6d2c572479aea47772e8bc69cfe738a749c89aece65b744d8bc50c91e5f3f470`,
+LF Lua
+`418dd9a3f3baa4a2072266807f945875f0dd59a3a659cc82a6b4e65cee502052`.
+The actual-current facade, M prefix and first-constructor witness stay frozen.
+
+Genuine kind1 birth2180 at1248/136 matures2246 at1248/119. Ordinary throttle,
+coast and reversal create the original-speed collection run-up. The actual
+stand is1346/176; prelean begins1299/176/speed630 and fresh-A requests at
+1289/176/speed693. Actual collector9B28/SP243 atMain2383/original2324 has
+player1260/118 versus Flower1248/119, positive1x13 boxes. Erase/popup6/cue20
+write and accepted carry start the real tier2 transaction. DEC897C/SP245 and
+83D6/SP247 return prove1105→2105, a real1000 delta. Exactly60 native updater
+returns reach status2/age60/Active0/timer0/engine8. Then25 original motor and
+accepted movement returns finish at Main82BE/SP252:2469 balanced Main and2349
+workers,1249/112/native0/lives2/status2/no crash or heat. No Mario fireball or
+new heat benefit is claimed.
+
+The controls use an authenticated original ability: donor DD1A/DD1F selects
+air acceleration24 for Up bit2, versus52 for neutral. The established full
+route already held airborneUp36 updates after fresh-A. The first Flower head
+failure releasedUp too soon: same-input read-only trace
+`f4a824172efb1d84f56d7a50869b8e6b8328dd945e8d5428da6788c66715a669`
+records actualA388/SP190 admissions. M launchspeed630 peaksY150 and native
+headpoint343/158 returns raw193; Flower speed567 peaksY155, so its +8 head
+never rises above163 to query the block row144. There is no tile rejection or
+gameplay repair. Holding intendedUp produces the real Flower. Its stationary
+height then requires a genuine run-up rather than repeated zero-speed hops.
+
+Retained source control negatives (all exact91dc, no game edits):
+
+| LF controller | Receipt | Scope |
+| --- | --- | --- |
+| 310bfbfa… | `8ae058337fd92b1dc820d0845bde236ac510c8271951e0f9f2dc676d96a10263` | Neutral coast beyond block enters second pit |
+| 9447d2b6… | `19727af528ba21743d083100bfa16c2c13a2438ae121b1061ef3fd9d0e9ab468` | Actual fresh-A, insufficient rise after early Up release |
+| 0b19e4fb… | `d2901c25090158505e0b4e29f1082602e6e6ae89b55d737948803c65414b2abd` | Genuine Flower birth/maturity, stationary low-speed chase fails |
+| 87327e76… | `4730ec851867197668376231d25d83c9a0e9bee0f21564d2454dbd486abca0ff` | Short run-up honestly fails required original speed before launch |
+
+Frozen intermediate factories remain separate source files. The successful
+runway extends measured release1296/speed378/stop1317 to actual release1313/
+speed504/stop1346, remaining before the real1392 pit and its unchanged safety
+bound. This is an ordinary-input correction, not a timing matrix or game patch.
+Star and hidden1UP remain independently open at this checkpoint.
+
