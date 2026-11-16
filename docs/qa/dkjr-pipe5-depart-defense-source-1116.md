@@ -33,8 +33,37 @@ read once and captured immutably, then strict owning composition/inverse
 produces actuala3fb source execution. Native BD93 entries, actual injury and
 the first source5 writer stay explicit in the inherited aggregate receipt.
 
-Source run29031 is in progress at this checkpoint, bounded absent root
-`build/dkjr-pipe5-depart-defense-1116`, max-files1/600seconds/zero outputs.
-It is not a source pass, native-ready controller or delivery claim until its
-terminal result is recorded. No Mesen, ROM, helper, geometry or game-code
-change is authorized by this input successor.
+Source run29031 is terminal overall **negative**, receipt
+`da5f85f44709a96eca56ba4cfab33416b24348e75704a41d68d8dfd6416fc225`.
+The new departure defense clears the confirmed encounter, pipe6/2832 has175
+actual carries, and all six final stairs pass with unchanged final-stair
+inputs.3040 has256 actual carries, from7624 at3038/45 to7879 at3073/162.
+Final departure starts7868 at3067/160/top192; late-flag begins7893 at3076/176.
+The8014/3152 event is the **flag-hop request**, not a precise pole-contact
+timestamp. The route genuinely reaches parsed1-2 at motor8026/40/48/source4.
+
+The stronger endpoint then rejects motor8091/frame9717 at40/176/source5/
+lives2. There are65 actual1-2 motor returns but0 qualified grounded returns;
+overall source updates9177. No25-grounded-return or full-route pass is claimed.
+The inherited first-source5/injury observer only watches X>=2600, so its null
+fields describe the late1-1 region and do **not** mean no1-2 death occurred.
+The separate passive source observer `inspect_dkjr_underground_entry_1116.py`
+keeps these exact controls and records at most8 first-entry/origin/landing/
+state-writer witnesses in1-2; it adds no physics or input change.
+
+Frozen native Lua SHA256
+`da23374911949adc34af173f8bd351f4980a59ef1e5d6546e1e7f41f3797e936`;
+source Lua `3fa55eccc6205a72f4d0670c4d72e7ad15fb8d8bbed36c6c247038919995b108`.
+Root independently ran the same privatea3fb native controller26754 and got an
+earlier material negative, receipt
+`97d02b7eb847a5be241b4b18c25921852807ca4382294b26db307d4b4fbb5575`:
+fourth-cross2637/frame6565 at945/164/source5, with zero944 native carries.
+This source success through1-1 cannot substitute for that physical result.
+Root owns the separate first944-admission observer; no new game/control patch
+is inferred from the timing difference.
+
+Bounded absent root `build/dkjr-pipe5-depart-defense-1116` uses max-files1/
+600seconds and zero outputs. No Mesen, ROM, helper, geometry or game-code change
+is authorized by this input successor. Source entry observer14743 is live at
+this documentation boundary under `build/dkjr-underground-entry-cause-1116`,
+also max-files1/600seconds/zero outputs. Root owns all native grants/delivery.
