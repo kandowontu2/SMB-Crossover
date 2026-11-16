@@ -208,3 +208,19 @@ All source processes are terminal and exact bounded roots remain absent,
 zero generated files. Original source/controls/negative scopes remain frozen.
 No game/ROM/helper changes, seeded state, release asset, standalone native M,
 audio/performance/complete ability or current full-stage claim is introduced.
+
+Root40963 actual Downloads91dc subsequently passes frozen1dc18/d2ec Star:
+`2894c7c96b59624210e2b177a09e90b9d073c31ad4d7e0db260ec5c7198e7401`.
+Native totals1906 balanced Main/1514 Source/1956 physical. Real birth1761 and
+full128 maturity1828 follow the actual crouch head route. BD4A injury1767 at
+1612/176 versus1623/184 completes60 shrink at1827. Physical collector1875
+has hero1661/143/neck45 versus1664/97, positive9x1/C0; actual AF8D writes35/
+music64. Real1105→2105 at1880 precedes25 Source returns. Native terminal is
+1683/170/Player_State1/VY3/life2/power0/Star33/neck47; no grounded endpoint is
+claimed. Earlier genuine stomp1110 halves neck33→16. Source1636/1516 and its
+grounded terminal remain separate. The genuine M prefix also passes.
+
+All current native M/F/S/L families are closed through these strict earned-M
+prefixes and separate item scopes. F remains faithful state6 contact; S remains
+actual injury recovery. No extra standalone native M, full128 Flower, powered
+Star, whole-stage requalification, complete ability, audio or lag claim follows.
