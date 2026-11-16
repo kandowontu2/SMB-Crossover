@@ -150,3 +150,14 @@ is born. Its early jump policy is retained. The separate contact successor
 requests at real gap70..90, from the observed closing distance and jump
 peak, and releases A after the original6C0 jump lock clears. This is one
 directed control adaptation, not a timing sweep or a game-byte repair.
+
+Contact88751 is negative, receipt
+`9a98a92aa893e3c1a7da1fbbdff5de167229c99b9467e2d44cfeed3ee1a48d0e`,
+Lua `4aa2785760ac1aa4c90fd66a7875e97a5374bccf11ff108fbcb97ce80bba15f5`.
+Request132/176 vsKoopa221/184 (gap89), admission71; contact93 at202/174
+vs209/184 occurs at pose40 before the peak and drains5HP through the
+existing injury path. The donor action4 stream applies Y deltas-3 at40,
+-9 at41,-2 at42, then+11/+3 at43/44. Thus the initial141-gap collision
+was late at43 and the89-gap collision early at40. A single script-derived
+116..124-gap successor observes actual boxes at that same injury writer;
+it preserves both failures and every genuine item gate.
