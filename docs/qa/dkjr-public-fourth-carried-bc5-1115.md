@@ -5,8 +5,9 @@ fourth special roof branch then ignores genuine helper contact and waits
 nearly2900 source updates. A new controller gives actual helper contact
 priority. Its source test exercises that branch but subsequently falls from
 roof height and fails. It is **not source-qualified safe descent**. Root's
-already-launched controller-only native diagnostic remains pending; no game
-or helper change is proposed or installed from this experiment.
+already-launched controller-only native diagnostic also fails after losing
+support. Both exact negatives are retained; no game or helper change is
+proposed or installed from this experiment.
 
 ## Native49704: earlier hop succeeds, later route fails
 
@@ -97,11 +98,23 @@ descent or full-stage qualification.
 
 Root76234 was already launched under the explicitly approved controller-only,
 pending-source diagnostic scope when this material negative became available.
-Root was notified immediately and retains it. Native is evaluating the same
-frozened3e text on unmodified actualbc5, with the same fatal guards. No further
-variants are prepared until the actual result. If actual also loses support,
-the next investigation must identify the first lost-contact/geometry/writer
-before proposing another input or any game repair.
+Root was notified immediately and retains it. The same frozened3e text on
+unmodified actualbc5 subsequently fails natively, receipt
+`d21701600fee6f533243ade1ff907542e0daac76ed82c0db155eeba062e73a51`.
+Its only944 carry is Main3653/frame8889 at928/109/source1/native0. Adoption
+is3654/frame8891 at927/109/source4/native2, originalY124/origin109/limit24,
+with that prior carry recorded. It never carries944 again. The guard fails
+3718/frame9027 at945/172/source5/native2/lives2/timer246. The other seven
+carry counts remain45/46/15/41/19/10/38. Earlier first-three-pipe, Goomba and
+fourth-ascent native progress remains valid component evidence.
+
+This matches the source loss-of-continuous-support lead, but does not yet
+establish its collision/coordinate cause. In particular, the source4 and
+928→927 displacement already visible at adoption are not proof of a corrupt
+origin or a specific boundary error. Next work is read-only first-loss/query/
+horizontal-box/direction/origin-writer investigation. No new control or game
+repair is authorized from these terminal summaries alone. The factory and
+checker remain frozen at their recorded hashes.
 
 Producers used exact absent bounded roots
 `build/dkjr-public-fourth-carried-bc5-1115` and
