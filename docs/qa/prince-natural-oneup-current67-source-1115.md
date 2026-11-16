@@ -190,3 +190,41 @@ All producer jobs in this batch are terminal with0 generated files. The
 new current67 and5-1 boundaries, all source negatives and strict item/INC/
 cue64/+25 returned-update requirements remain frozen. No native controller
 is proposed for acquisition qualification from these failed routes.
+
+Read-only audit95006 on captured67 retained a test-observer negative: it
+requested9bytes from the native10byte `CollisionFound` return block. The
+source file SHA `47885ff6e8f5d701f62f02097a1a2e3802d031baef94a79d750695a65743cd0a`
+is frozen. No CPU gameplay ran. A separate strictbc5 audit corrects only
+that extent and executes no primitive/state seeds. Its new input boundary
+authenticates the frozen HotNew inverse to67 for references, proves all106
+new changes and the full Prince packet/cookie preserved, and uses owningbc5
+for any future CPU arena. Old67 APIs are not widened.
+
+Owningbc5 static audit52015 passes, receipt
+`0c8e2b13f11423de21aa9083979c0acacc8d99cb57ca61856a9a6845160bfb19`.
+This is read-only current-byte/donor authentication, not seeded CPU gameplay.
+Native954C `FirstBoxGreater` has exact bytes
+`dd5806f01add5a069015f013`; equality reaches956B `CollisionFound`, whose
+return sets carry. Thus the shared y193 edge in96466 is expected native
+inclusive contact. No collision patch is justified by that snapshot.
+
+Current privateABDE has `LDA C6EE / BEQ AC19`: Sword0 bypasses the sword
+control branch. The760byte original battle import remains exact SHA
+`afdef17ad9635e03109557eb7c7bba60644eb81af70bc8383a1100bd192f702e`.
+Its AD0C original rule sends Sword!=2 through E9A4; currentAB57 contains
+five identical calls to original8710. The5HP debit matches this intentional
+unarmed guard-contact rule. Sword1 can automatically draw against an
+admitted active opponent; only then do A58 attack/B62 parry apply. The
+existing equal-facing F090 caveat is unchanged. Unarmed A provides the
+small standing3 or gated running4 jump, B provides careful step/grab, and
+back input admits turn5. A free swordless attack/parry is not available.
+
+Source69693 is a new ordinary2-1 running-roof hypothesis on actualbc5.
+The longer first brick platform supplies the already-reached270/112
+runway. Instead of the previously tested standing3, it requires original
+running pose6..13 and actual action4 before the edge, holds grab only
+through the original jump lock, and uses Up only after actual hang/hoist.
+Read-only F89B/F8D5/F90D observations retain the input, row and material
+admission if it fails. Its new bc5 facade changes only the whole-ROM pin;
+all Prince packet/cookie and actual native hook bytes remain unchanged.
+No current natural1UP or full-stage pass is claimed while this test is pending.
