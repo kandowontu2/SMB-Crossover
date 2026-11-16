@@ -124,7 +124,38 @@ No source NewLife reset or lost equipment occurs. Original native admission6
 and full emergence remain separate milestones; no false SetupFloatey(A11)
 call is required where native code directly writes11.
 
-All three stock families M/F/L now have current1327 native witnesses.
-Star, eight gear upgrades, actual missile attacks, expiry/protected hits,
-current full stage and broader audio/art/performance remain open. No helper
+At this checkpoint M/F/L have current1327 native witnesses; the later Star
+case below closes the fourth family. Eight gear upgrades, actual missile
+attacks, expiry/protected hits, current full stage and broader audio/art/performance
+remain open. No helper
 placement, game bytes, ROM installation, backup or release changes occurred.
+
+## Natural Star: actual Downloads21813
+
+Root21813 passes exit0, receipt
+`e18edae0e7064883a3d82fa6a2e171fc28c5fda5c5eddf6b5ed99cff4c6cbafc`.
+Factoryabe99d10 / Lua5f1e4718 bind exact1327. All2205 Main and2048 each
+RdControlDispatch, RdControlStep and RdLifeMovement entries/returns balance
+over3602 physical frames; no pending scopes, gameplay writes or new files.
+RdControlDispatch is observed beneath the supported-palette guard so the
+return gate measures admitted original work, not just its outer wrapper.
+
+After the real first-tank prefix, the authored1616 block produces raw2/FC.
+Native admission6 and full emergence are separately observed; collection
+occurs in full128 at Main2174/worker2018. Hero1693/177 and actor1697/158
+have native boxes[116,178,124,209] and[118,167,130,179]: positive7x2 overlap.
+The original fallback executes once, with no extra typed grant, one FC erase,
+new cue32/popup6, actual AF8A0→35 and AF8F music64. A later same-value35→35
+timer write remains recorded separately from the original reward.
+
+The actual six-digit writer at Main2179 changes1020→2020. Twenty-five new
+admitted Dispatch/Step/life-wrapper/public calls return,26 Main inclusive
+of the writer. Final1694/177 has life2/tank1/status1/gear0/ammo0 and exact
+captured raw health19,19. No source constructor/NewLife reset occurs. Lua
+asserts the final Star timer is positive and at most35; its terminal state
+does not serialize the numeric timer, so no specific terminal34 is claimed.
+
+All four stock pickup families now have actual1327 native witnesses. This
+is not the eight-gear acquisition suite, a weapon test, a current full-stage
+regression, a Star-expiry/protected-hit test or an audible music comparison.
+No helper positions, game bytes, Downloads installation or releases change.
