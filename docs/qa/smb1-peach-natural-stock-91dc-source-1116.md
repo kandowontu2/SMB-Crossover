@@ -57,3 +57,36 @@ or hidden1UP1024, using the actual Peach profile and natural controls. Emergence
 maturity, positive physical collector, erase/cue, real score or delayed life
 credit and25 returned native updates remain required. No F/S/L closure,
 cosmetic, complete ability, audio or performance claim is made here.
+
+Root10544 actual Downloads91dc subsequently passes the same abfd/f091 M:
+`94711d341c2397b0f806d57e26f4bc38a65db751895551381326f1747d8eefae`.
+Native totals962 balanced Main/630 Bm/974 physical. First observed emergence732
+is state2 at336/135, one update later than source state1; it is not relabeled
+the exact spawn instruction. Maturity796 precedes collector876 at416/176 versus
+417/177 positive11x3, delayed1000 at881,60 growth ticks and25 Bm returns at
+82BE/SP252/426/176/lives2/tier1/variant6/CHR131. Source692/632 stays separate.
+
+## Genuine Flower source pass
+
+New separate stock API
+`replay_smb1_peach_stock_91dc_1116.controller(raw91dc,'flower')`, or
+`family('flower')`. Factory SHA256
+`d34a385599ff9e06ea2af154f3ab1d1aa66eaabf360a6bb9f0d2bfcd7b0280f6`;
+LF Lua `bae9028c31ca4cc02fa6b036921eed814285703f48e64ba65fc6f6cd4d373bae`.
+The frozen Toad right-runway control is a readonly input-policy reference.
+The new config, compiled Select3, profile6 and actual current execution are
+explicitly Peach. BmOwner/float state are additionally observed; no Toad API
+or earlier character proof is promoted by this binding alone.
+
+Source38451 passes in21.27 seconds:
+`8356ba07818190e6c8cd64e26ecfbcc62b3f62329d9aabeeb55e51dfc4806eac`.
+The real M/60/credit/+25 prefix remains required. Flower is first observed at
+Main1238,1248/135/state2, and matures1302 at1248/119. Native running class36
+admits ordinary fresh Left+A+B at1318/176. Actual collector1407,9B28/SP243,
+has hero1259/99 versus1248/119, positive2x4. Native erase/popup6/cue20,
+DEC897C→83D6 score1100→2100 at1412,60 actual Flower growth ticks and25 later
+returned Bm movements finish at actual Main82BE/SP252. Totals1493 balanced
+Main/1373 balanced Bm,1251/112/lives2/tier2/variant6/CHR131/age60/active0.
+No injury is observed. Visible Flower event snapshots have float_active0;
+this does not independently qualify float use. Native F and source/native
+S/L remain separate gates at this checkpoint. No game bytes or helpers change.
