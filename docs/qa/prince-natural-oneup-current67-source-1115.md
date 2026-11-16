@@ -1,6 +1,18 @@
 # Prince natural1UP on current67
 
-Target is exact `67e3b8e7d4b01ea549fe9dc15c09b5a0b5f7085ee396d672a9c963d24287d0b5`.
+Latest source target is exact
+`bc5e275d1dd4dabab4b5b2def66f7643ae46aee17a31ab37887528b791594040`.
+The owning-byte audit passes `0c8e2b13...`: equal native box edges collide,
+and unarmed guard contact takes the original five-debit path. No collision
+patch follows from the5-1 contact. The latest2-1 control attempt remains
+negative `4adb79e6...`: grip reaches material1 at fall pose102, then the
+original landing17 is admitted at104 before the final-grab105/106 gate.
+No natural1UP is born, and no controller here is qualified for native
+acquisition testing. All source jobs are terminal with0 generated files.
+The strict bc5 facade and all prior67 fixtures remain separate and frozen.
+
+The original source target was exact
+`67e3b8e7d4b01ea549fe9dc15c09b5a0b5f7085ee396d672a9c963d24287d0b5`.
 `current_prince_oneup_67e3_1115.py` SHA
 `cf90231fbef52f037536833d9c88b866725dd50f5324db7e1c4eeb05aacd79a5`
 accepts only that image. Frozen Bub inverse `79699547…` recovers7fb for
@@ -291,3 +303,23 @@ Thus this run does not disprove held-grip admission. The separate landing
 successor waits for the actual observed original landing17/mode5 before
 releasing flight input. The game must still admit grab/hoist itself and
 all real item/credit/return requirements remain unchanged.
+
+Landing67955 is a genuine ordinary-control negative, receipt
+`4adb79e6f3ff6f6c3182536279da32a7a2ecbd466189a54c020aac6cc86af829`,
+Lua `225ccd8fb0465c85155fd9a0eb410039af83e4d2798c23d89a4d64a1f02246c1`.
+At Main727 held A129 now reaches grab-row B1A1/SP198 and grab-material
+B1DA/SP198, A1, during fall7/pose102 (sourceX358/Y68). Original F93C
+requires pose105 or106 before final grab. The observed original action
+writer A352/SP200 instead admits landing17 at736 while still pose104,
+material1/sourceX360/Y80. This fall therefore lands before the grip's
+animation gate. It is not evidence that the ordinary grip input was lost.
+No hang is admitted; idle791 is350/128, HP5/lives2/native1/Sword0/Star0.
+No hidden1UP head query or actor birth occurs.
+
+These results close the requested causal/control audit while natural1UP
+remains open. The measured native edge contact and original unarmed damage
+are expected, and this route's small stair drop ends before the donor grab
+pose. No incorrect game writer is established and no game-byte proposal
+is made. Further acquisition work needs a different legal intended route
+or separately reviewed geometry evidence, with the same genuine head,
+actor, delayed INC/cue64 and25 actual completed-return gates.
