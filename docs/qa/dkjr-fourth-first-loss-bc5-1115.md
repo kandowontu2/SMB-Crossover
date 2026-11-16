@@ -103,7 +103,7 @@ decrease. Actual native bbox/query/first-store calibration may still reveal
 an additional edge effect. The source result must not be relabeled as direct
 hardware proof of a footer repair or of a horizontal boundary defect.
 
-No new controller, ROM composition, source mount or code repair is performed
+No new controller, ROM composition, modified-code mount or code repair is performed
 in this diagnostic. Existing native/footer sampler research and grants are
 historical/private; any current change needs its own explicit measured scope,
 caller/flags/restoration and native qualification. The frozen controller and
