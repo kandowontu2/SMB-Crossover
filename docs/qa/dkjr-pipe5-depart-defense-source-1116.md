@@ -64,6 +64,11 @@ is inferred from the timing difference.
 
 Bounded absent root `build/dkjr-pipe5-depart-defense-1116` uses max-files1/
 600seconds and zero outputs. No Mesen, ROM, helper, geometry or game-code change
-is authorized by this input successor. Source entry observer14743 is live at
-this documentation boundary under `build/dkjr-underground-entry-cause-1116`,
-also max-files1/600seconds/zero outputs. Root owns all native grants/delivery.
+is authorized by this input successor. The corrected direct entry observer4323
+is now terminal, diagnostic-complete but retaining the original strong-route
+failure, receipt `62ea4048d3a8241b768a4cd531c7f5228c0c1422edbea9086795e8392704aca9`.
+It proves the host-imposed entrance fall sourceY63→191/origin63 exceeds the
+unchanged donor limit22 at actual A8CE/A8DD, before landing snap. No native
+injury entry occurred in the watched1-2 interval. The exact receipt and earlier
+observer failures are retained in `dkjr-underground-entry-cause-source-1116.md`.
+Its bounded root also remains absent/zero files. Root owns native grants/delivery.
