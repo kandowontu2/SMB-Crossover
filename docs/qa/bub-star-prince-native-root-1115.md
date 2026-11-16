@@ -98,5 +98,18 @@ recorded in the delivery grant. Source allM/F/S/L receipts remain explicitly
 source receipts; fresh native hidden1UP/fullstage/expiry/audio/performance
 are not claimed by these image routes.
 
-Direct delivery and actual Downloads repeats are next. Official7fb3 is still
-unchanged at this checkpoint; all prior Prince/carry changes remain retained.
+## Delivered and verified in Downloads
+
+Source pushed as2b0d7644 before the direct installer replaces the single
+Downloads nightly with exact67e3. Installed bytes equal the tested private
+candidate; the direct72-byte inverse reconstructs exact owning7fb3. No backup,
+release or patch asset was created. CLI guards before/after installation pass.
+
+Root12602 is terminal PASS for both exact physical-picture controllers in the
+actual Downloads launch context. Both full receipt hashes and all six PNG
+hashes match50103 exactly, including pickup/credit/returned-update counts and
+endpoints. All six private images were viewed; the repeated images are exact
+byte matches. Each run has3 RAM PNGs and0 files. Prior Prince/carry changes
+remain intact. Final guard and protected-file/storage checks are recorded in
+the continuation note. Broader performance, full stages and native1UP remain
+versioned/open as stated above.
