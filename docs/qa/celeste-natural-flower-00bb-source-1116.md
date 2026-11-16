@@ -108,3 +108,14 @@ full-stage claim. Source and future native counts must remain separate.
 All producers used absent `build/celeste-natural-flower-source-1116`, max1file,
 600s, with write/native traps and zero generated files. Last source handle9363
 is terminal. No Mesen, ROM, patch, release, capture or backup output occurred.
+
+## Root native follow-up
+
+Root reports actual Downloads00bb run26052 passed independently, receipt
+`083deff3a20a0d3a2fe10f6a2e5d8c8acf8729348c7ab12c84b2566ed52782a4`:
+1844 completed Main,1530 original owners,1856 physical frames. Real mature
+Flower contact11x4/C1, tier2, actual1000 credit and25 returned owners finish
+at1788. Fresh B consumes stock0, State6/Timer12/Ready4; eight returned CmDash
+calls include three6px steps=18px. Final1188/175/size1/tier2/lives2.
+These native counts are separate from source1517. Root owns the authoritative
+native QA and current checklist; this addendum records the supplied outcome.
