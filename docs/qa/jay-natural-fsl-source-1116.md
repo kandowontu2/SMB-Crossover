@@ -194,3 +194,52 @@ synthetic checks leave donor Jay weapon/ammo unchanged; no claim that
 this reward grants a Silius weapon is made. A future real Flower
 qualification must report that policy and prove its usable attack
 scope explicitly. Natural Star and hidden-life controls are independent.
+
+## Natural hidden-life source qualification
+
+First source58444 stopped at physical collector876 with receipt
+`a4379df6d14a835d3cbef8eb2336b4541a4787876b4cd34a5ef26e38850a37e2`.
+The frozen407f observer incorrectly demanded11 among SetupFloateyNumber
+arguments. Native collection first calls that routine with6, then writes
+the same slot's FloateyNum_Control11 directly. This is an observer negative;
+there was no demonstrated game or control defect. It remains preserved.
+
+Separate `check_jay_natural_sl_current_1116.py`89ad30e8 reads the actual
+slot control and records the sound queue. It derives the frozen observer
+with only this check and passive target fields changed; ordinary V3
+policycbee9977 and all delayed-life/resumption gates stay exact.
+Source38055 terminal PASS, receipt
+`33093f0126d9a2a5dfff85d0ccaa4c88d16e481a57699a50f7152816ef81af87`.
+Actual7c0f has907 balanced Main and original integrator entries/returns.
+
+The real tile60 head at Main781/X1020/Y146 precedes kind3 birth782 at
+1024/119. Physical nativeC0 collector876 (motor877) meets a naturally
+mature stateC0 item at1055/155 while Jay is1051/168. Actor erasure,
+slot popup11 and cue32 precede any life increment, retaining lives2.
+The actual PRG126:8987 opcodeEE increments lives to3 at Main881/motor882;
+the completed Main882 acknowledges cue64 and credit. Twenty-five more
+balanced original updates end at Main907, X1053/Y176, HP6/max3/tier1,
+weapon0/ammo63/lives3. No maturity fence, actor/HP/ammo seed, new helper,
+native emulator run or whole-stage claim is involved.
+
+The actual current GroundArea6 stream at file20956 has SHA256
+`162fc0bf0e2e7bd2ecda0ac1bf3551ee5f45a3f116fa6343badda72005c0b4ec`.
+Native page-control decoding binds hidden-life bytes0683 at left1024/top128
+and authored Star bytes5706 at left1616/top144. These are world pixel
+left/top positions, distinct from the existing helper coordinates.
+
+## Natural Star source qualification
+
+Source35149 terminal PASS, receipt
+`08f6626ef9538360a244b1ef947e33de6c46b4cf8cf1f997a4b5aaa0d0a8466e`.
+The same exact current7c0f, corrected native-popup observer89ad30e8 and
+ordinary V3 policycbee9977 produce1295 balanced Main/original-integrator
+entries/returns. The authored57 head at Main1174/X1612/Y161 precedes
+kind2 birth1175 at1616/136. Actual nativeC0 physical collector1269
+(motor1270) meets state80/privateFC item1644/150 while Jay is1640/161.
+Erasure, popup6, cue32, native timer35 and music64 all pass. The ordinary
+score update awards1000, followed by25 returned original updates.
+Terminal Main1295 is1675/167/HP6/max3/tier1/lives2, native Star34,
+weapon0/ammo63 and score1500 (precollector500). This is natural Star
+source proof, with native coverage still pending; it is not a full-stage,
+all-ability, render or cadence claim.
