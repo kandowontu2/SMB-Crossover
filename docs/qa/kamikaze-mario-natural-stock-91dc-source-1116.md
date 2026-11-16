@@ -170,3 +170,29 @@ positive9x3. Actual1000 at925,60 growth ticks and25 completed Source returns
 at82BE/SP252 finish426/176/life2/tier1/variant3/CHR132. Source712/652 remains
 separate. One unrelated Mesen process was left untouched. Native F/S/L remain
 root-owned queued scopes; no helper launched an emulator or changed the ROM.
+
+Root72369 actual Downloads91dc passes frozen9663/adf45 Flower:
+`665a76f9745df9b78b83293dbdf6fd8dbc27d8555c1eda02b159b413918224df`.
+Native totals1727 Main/1314 Source/1743 physical. Real birth1541 at1248/136
+matures1608; collector1641 hero1259/112 versus1248/119 has positive2x13.
+Actual1200→2200 at1646,60 growth ticks and25 Source returns at82BE/SP252
+finish1238/112/life2/tier2. Source1432/1312 remains separate.
+
+Root84472 actual Downloads91dc passes frozen58e1/d5e6 hidden1UP:
+`1e78788add8133ab520cff582c2d982fbdb9b11b2d9aa30149fd18c61c41ed4f`.
+Native totals1540 balanced Main/1187 Source/1552 physical; real INC1514 gives
+life3, then25 Source returns finish1066/176/power1. Source1246/1186 remains
+separate; no additional native collector timestamps are invented here.
+
+Root94629 actual Downloads91dc passes frozen85ff/6aed post-injury Star:
+`9e6fb191e8c5ba0a0da92de6aa663ab9e620b7cc91b6a0846c0ff288f02b71b7`.
+Native totals1899 balanced Main/1486 Source/1920 physical,1698/112/life2/
+power0/Star34/score2220. Runtime assertions require the actual injury60 and
+Star effect/credit/25 Source returns. The tool return omitted the middle native
+trace; only retained pass/header/endpoint/counts are recorded, with no invented
+intermediate timestamps or rerun. Source1604/1484 remains separate.
+
+All four current native Kamikaze natural stock scopes are closed. Star is
+explicitly legitimate injury recovery, not a powered-Star route. Full-stage,
+remaining abilities, protected-hit/expiry, art, audio and performance claims
+remain separate. Root owns native QA/checklist and unchanged Downloads91dc.
