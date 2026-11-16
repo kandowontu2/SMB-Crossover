@@ -121,8 +121,43 @@ opcode/input/mask/coverage change. A bounded rerun is required for a terminal
 receipt; no finite ABI is repeated. Source fullstage now counts each of25
 grounded1-2 updates only when a real OriginalFrame C1 returned in that Main.
 
-The corrected reached-IRQ/busy-NMI proof, both fresh fullstage routes and
-shared MrGimmick/Bub/Bob paired cold checks remain pending before physical
-promotion. Both Sonic/Super motor fidelity and natural F/Star work stay
+Corrected reached-IRQ55377 now passes terminal receipt
+`00d24ca833c13470347f8359cb44725e8826bf45d2344044822dc04fbde3adfa`,
+checker SHA256
+`84fbbee44dbf7db2163e53b227aa4c7577ee4d0b05ae168b1762dd9222c9f321`.
+There are50 actual IRQ and50 busy-NMI cuts, minimumSP182,200 paired dynamic
+Main returns. Every new hook/helper instruction D08F/D371/D374/D376/D379/
+D37B is reached, including both sides of Pending1 and Timer0 stores. Actual
+AXYP, all private state/live stack/SMC/maps and paired native effects match
+without a blanket mask. The original classifier's reached contexts remain.
+All new PCs occur inside actual Main with NmiDisableFF; regular NMI cannot
+legally enter this owner path at those points, and no regular arm is invented.
+The embedded production-callback receipt with corrected a2 caption is
+`91c2f7c38b4c7f2b891ad361467ec369f3b270b373c47a35ca39f7b6e2d951ba`.
+
+Fresh full1-1 source runs pass independently:
+Sonic `023402ffc03ffaf1dd4b2dadbe5abed50083d482c8eff1c3c110eb305a588206`,
+Super `4a27efd6c01cbcdb3ae647bc6a80a865ee812b56c1f84ce985b13a0f1d5432bc`.
+Each has2660 balanced Main/1464 original C1 returns,17 retained-policy jumps,
+real flag1405/castle1467/entrance2225, then25 living grounded original updates
+in1-2 at40/176/high1/state0/two lives. The grounded counter requires actual
+C1 in the corresponding completed Main. Source checker SHA256 is
+`58582dda01f52cc26fe1adaabe3d789902be5846c4ffca3fa83fe463388b8c15`.
+Rings5 in1-1 become0 only on the existing real next-area RingFresh constructor;
+no cross-stage ring-retention claim or new helper placement is made.
+
+Shared-family source13235 passes receipt
+`979de069c2f4eaffbc67a58b9690766727d738d3c8f9a56737b7de4702db9254`.
+Real compiled MrGimmick raw26/Select0, Bub39/1 and Bob39/2 each execute167 cold
+steps and16 neutral Main updates on both typed1327 and a2. Complete native/
+private/SMC/map/CHR/VRAM state matches without any foreign mask; zero new
+helper instructions are entered. This is constructor/neutral shared-boundary
+scope, not their separate fullstage/item suites.
+
+All required game-source gates are closed. Root's physical/native/delivery
+lease is still separate and absent here. A new retained-stage native factory
+for both forms is being compiled/callback-qualified at root's request; its
+unqualified fullstage Lua pins are not offered as tested controls yet.
+Both Sonic/Super motor fidelity and natural F/Star work stay
 separate; no native, 60Hz or whole-arsenal claim is made. Every producer uses
 absent `build/sonic-ceiling-complete-source-1116`, max1/600s/zero files.
