@@ -1,5 +1,7 @@
 # Jay native status publication: source qualification
 
+**HOLD: df0e fails a later native head-size consumer.** Source receipt5d02c293 proves genuine earnedStars80/status1 still has PlayerSize1, and actual CrossoverBlockSize returns small-head Y1. Original JnMovement also cleared PlayerSize0 after its mirror. The following receipts remain narrowly valid but are insufficient for promotion; see `jay-status-size-consumer-00bb-1116.md`. No revised bytes have executed and official00bb remains unchanged.
+
 Source-only candidate `df0e009bad3240122629da681dfd20e559b1fdba2b235b6a00c3ffeefda88afe` is composed over verified installed `00bb2664647a4ef47b5dfa01c96d50549581d215a33d19a2a6390d1e09078e21`. Root's source lease is `docs/qa/allocations/jay-status-source-root-1116.json`, SHA-256 `812f8e8f040cf6cd79d65e7861c331003d7925340b2187f37641206d0305b460`. No candidate file, native run or delivery is authorized by this checkpoint.
 
 ## Frozen composer and owning facade
