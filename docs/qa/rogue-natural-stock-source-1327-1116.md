@@ -47,3 +47,11 @@ Separate source69544 terminal `6ab3b7a9782b9ff01d9b75718be7f089a61e1354e9d27a6d3
 Real actor46/slot5/owner2/privateD9/savedRaw1/kind1 is bornMain1580 at1248/136 and matures1646 at1248/119. It remains uncollected at the controller's3600-Main bound. Original/wrapper/public counts all3600 balanced; player1224/177/life2/Tanks1/status1/missiles0/max0/raw health59/17, score1100. Original injuries/combat are retained; no no-injury or full-health claim. The side-mount controls stall below the brick row. This is a navigation negative, not a grant/policy/collision bug, and no code/helper change is justified.
 
 Next action is a narrow unchanged-input source witness of the first postbirth mount admission, actual head query/stop, momentum and current camera/terrain. The cause must be established before changing the side-mount controls. Native F/S/L remain open; the D9 birth alone is not an acquisition proof.
+
+## First-mount motion calibration
+
+Unchanged-input source62089 diagnostic receipt `85db434ae7cc877e42900c810dffa053714c61b6121433922d3f32661517d4b1` is complete; gameplay remains false. Observer `inspect_rogue_missile_mount_1327_1116.py` SHA `57537bb1cfee8bd782bf0ce4b76d054229c13463d5178c8cb1aa69cc22aaee7a` uses the same policy SHA `6cf8282232857177746f47ec2e9064a689e466ab697e8eca1fbe422b3e6671da` as the F negative. An initial Python reserved-keyword syntax error was corrected before any CPU execution.
+
+Actual fresh A admission occurs at Main1630/player1197/177, camera1137, facing1/left, sourceVXFE/−2, held80/fresh80, health raw19/19. Real store at124:B015 changes source VY00→FC. No solid up-query or blocked MoveUp return is retained. First natural VYFF→00 store124:B098 is at Main1643/player1212/158, while held/requested still80, sourceVX02/right despite facing1, gravity38. Thus the measured first attempt rises only19px with A delivered, not a head-blocked full84px jump. It does not establish a collision defect.
+
+The retained original hurt continuation is the source lead: `RdControlHurtLaunch` publishes gravity38 and the hurt-direction path overwrites VX. A narrow follow-up will bind the actual first38 writer and real HurtClock/Hit fields before a normal wait-for-hurt-clear control is considered. No physics/geometry/helper proposal follows from this calibration.
