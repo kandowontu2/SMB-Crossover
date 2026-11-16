@@ -26,7 +26,7 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
 
 | Added identities — each named choice is in scope | Best native1-1 evidence | Genuine remaining natural-item/native gate |
 |---|---|---|
-| SMB1 Toad | **C**, actual Downloads421 native89041/294b, full flag/castle/entrance and25 living grounded1-2 | **M C91dc**, actual Downloads85032/8d18bd75: real firstM/1000/60growthticks/25completed BmNativeMovement returns atMain82BE/SP252,926Main/615Bm/938physical,427/176/life2/power1. Natural F/S/L remain open; stage receipt retains its421 version. See `smb1-toad-mushroom-native-root-1116.md` |
+| SMB1 Toad | **C**, actual Downloads421 native89041/294b, full flag/castle/entrance and25 living grounded1-2 | **M/F/S/L C91dc**, actual Downloads85032/8d18bd75,35385/06d785a6,76000/95722965,24797/a716846a. Genuine emergence/maturity/contact/erase, actual score or life credit and25completed Bm returns atMain82BE/SP252; M/F60growthticks, F→tier2, L→life3. Star is explicitly power0 after ordinary injury/shrink, nativeC0/timer35/music64/+1000; no powered-Star claim. Old421 stage remains versioned separately. See `smb1-toad-stock-native-root-1116.md` |
 | SMB1 Peach; Kamikaze Mario | **C**, actual Downloads421 native55152, full flag/castle/entrance and25 living grounded1-2; independent7057/254b controllers | Individually earn/use M/F/S/L; stage receipts retain power0/Star0 and do not close natural-item gates |
 | SuperMaaa Mario | **H**, Oct29 Easy clear and earned M | F/S/L; Hard is separate, not a failed Easy clear |
 | Celeste Mario | **H**, a7ccbaaa Easy natural clear,3900 frames, both upgrades/earned dash | Natural S/L and remaining original abilities; old small-CHR/route negatives superseded |
@@ -107,7 +107,7 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
    actor placement/allocation and must record the assisted crossing.
 3. Reuse existing natural-item source controllers for **Jay F/S/L, both
    Bowsers S/L, Prince L,
-   Metal S/L, Excitebike S and SMB1 Toad F/S/L**. A mature-actor seed is diagnostic only;
+   Metal S/L and Excitebike S**. A mature-actor seed is diagnostic only;
    collector/erase/score/sound/resumed-play effects must follow ordinary access.
    All four FF M/F/S/L are already covered in their recorded versions; their
    next work is expiry, protected hits and remaining abilities/audio/art/lag.
