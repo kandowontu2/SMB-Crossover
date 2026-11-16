@@ -39,10 +39,23 @@ minimum nativeY160 and maximumX2128, but no stable grounded160 endpoint;
 the120-update input bound ends at2127/176/source1/lives2. Thus it now gets
 height, but this is not a staircase crossing.
 
-Root14482 next traces the same ordinary prefix at instruction-after-write
-boundaries around that jump, recording nativeY/state and original sourceY/
-phase/body/query. Its purpose is to identify any actual landing/handoff loss
-before another controller or game-code proposal. No result is claimed here.
+Root14482's first observer fills its96 rows with native state2→0 ground
+projections before A, receipt5773f634. It cannot establish the jump cause.
+The corrected root96375 observer retains all47 position/source-phase changes
+and drops0, receipt
+`6582444aff890acda4376342d183e73af4cd155b810cb4997eb51cf9ca9311af`.
+At5384, actual original support writes sourceY175/phase1 atAC62/A8DD and
+exports nativeY160 atB2D4. Its pre-landing rectangle is81,178,97,193 and the
+stored contacted rectangle97,192,112,207. Next5385 the body is79,175,96,190;
+A321 writes phase4. The horizontal right96 now misses contacted left97.
+The original fall then returns nativeY176 by5394.
+
+This identifies actual original support acquisition and immediate support
+loss, not a simple failure to rise. The receipt lacks per-row current/cached
+camera and a separately authenticated new terrain-build return. Its terminal
+camera2048 must not be assumed for the earlier rows. Camera epoch versus
+body-pose/native-clamp alignment still needs causal authentication before
+any new game/helper proposal. No complete staircase or full clear is claimed.
 
 The detached current91dc join descriptor56acde98 predictsa3fb with exactly
 383 owned/281 changed bytes across seven disjoint spans. Whole current BT8192
