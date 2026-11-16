@@ -56,9 +56,73 @@ defect. A separate ordinary-control successor retreats beside the used block
 for a grounded side jump, retains terrain/enemy cues during collection and
 brakes actual VX after collection. It changes no game/actor/resource bytes.
 
-New control qualification, both complete natural1UP routes, new production
-native observer/callback proof, public header/Ready/lifecycle/foreign cases,
-reached IRQ/busy NMI including the new JSR/helper, and both fullstage routes
-remain pending. Both Sonic/Super motor fidelity and natural F/Star work stay
+The first left-side successor is also retained as control negative
+`6f07a47b2c0ddd703f920d56c7a8fa388a07691c624f2b1b462e67952edb4e0b`:
+it launches from977 on worker548 but catches the right-moving item too late
+at1075/184 on605; it credits610, then falls at1100 on631. No game-byte change
+is made in response. The measured right-side successor aligns1056, takes an
+ordinary grounded Left+A jump on528 and meets the item over its block.
+Its policy module SHA256 is
+`88a4e2f5a3ac55bec9c5b18fc87e67d81385c953d7ff443f0654dbfceebb46a8`,
+policy text SHA256
+`1a64889cf7fadfbd422f7bf7c520a72d4ef2cc62e2c03e9f7b0b72126fadf56b`.
+All failed controller generations remain separate immutable files.
+
+Both actual source natural1UP routes pass independently,584 balanced public/
+HostMain/original C1 returns each:
+Sonic `e73ab1468caf1fe7ac896d1b26888f023f2cc1808071787ecf1b36424fc084f0`,
+Super `b2afb5de23fcd2866f0d1ba94afb0c98694b3094c29c427424efe712d52405f5`.
+There is real upward clip/head489 and eight Timer0/flags04/nonnegative VY
+updates under the same held A, before the later grounded policy jump528.
+Actual kind3 state128 at1024/103 is collected on554 with positive native
+boxes player83,105,95,129 versus item72,112,84,124. Native erasure/popup11/cue32
+precede delayed INC559/cue64 and25 further accepted original/public returns
+to584. Terminal1029/160 is alive with three lives/five rings/status0/hurt0/
+privateStar0/ringLives0. No source-position reset or gameplay resource seed.
+
+Native-ready production factory `replay_sonic_ceiling_life_a2d9_1116.py` is
+frozen SHA256
+`9b2cfa820588d02bb4a40b321ad2fe06bcc5b716b36f2472df2bc0f3bae07ee3`.
+API `controller(raw,'sonic'|'super')`, `bindings(raw,form)` and F/J aliases;
+the exact10 hooks include actual D08F and11-byte D371 helper readbacks.
+
+| Form | Exact LF Lua SHA256 | Bytes |
+| --- | --- | ---: |
+| Sonic | `e361cd271f3a8b3e0fc8c907a406c651b3ad7bd6a5b8c0aee0d2b4a6917a24c0` | 18768 |
+| Super Sonic | `ff86383febf05185e4b53ff9b59f45b9d3d804d1401f9c99687374314b73f33c` | 18774 |
+
+Source production-callback gate92085 passes receipt
+`0fb52d623249defa25e911e42f769b74b5015fecc93c291116a042c3fa40b15d`:
+81,972 actual callback dispatches,584 balanced Main/HostMain/original returns,
+one TimerCancel entry/return, zero pending, eight timer/gravity observations,
+real physical overlap and delayed life credit plus25 returns. As before,
+source-only observer activation follows genuine compiled cold/readback; this
+does not claim a native boot-coroutine or physical timing run. Its inherited
+scope caption said'f7' despite actual asserted/executed a2 bytes. Only that
+caption was corrected in the new checker to'a2'; current checker SHA256 is
+`cc3fd83106b0e84ff8856a2d13f4019a63945a0753b88fa8d649b38db9368626`.
+Production Lua, assertions and callback functions remain byte-identical.
+
+New public guard/lifecycle76436 passes receipt
+`8aefe9f4bbad58b62feebf1598c1cc9385a75ee6de3989538ab75eb87ab3904b`:
+all32 resident-header byte faults have zero helper entry; positive, Ready0,
+epoch255, paused, explicit death-engine and area-reentry components pair with
+actual1327 public execution. Only declared selector19/hook3/helper56 and the
+exact old/new cookie XOR in both header views are normalized; all other
+native/private/SMC bytes, maps/CHR/VRAM are exact. This is not a natural
+death/area-story claim. New checker SHA256 is
+`ce6158a6a970ef0d8bb05057dee188c5a75abb64a90439bb386408a65943662d`.
+
+Reached-IRQ job19569 completed all ISR and public-route assertions but its
+final receipt-only validation indexed inherited flat trajectory rows as a
+nested'state', raising KeyError. It is retained as observer negative4cf3dd4a.
+The final check now reads actual sourceVY sign bytes and JumpTimer0, with no
+opcode/input/mask/coverage change. A bounded rerun is required for a terminal
+receipt; no finite ABI is repeated. Source fullstage now counts each of25
+grounded1-2 updates only when a real OriginalFrame C1 returned in that Main.
+
+The corrected reached-IRQ/busy-NMI proof, both fresh fullstage routes and
+shared MrGimmick/Bub/Bob paired cold checks remain pending before physical
+promotion. Both Sonic/Super motor fidelity and natural F/Star work stay
 separate; no native, 60Hz or whole-arsenal claim is made. Every producer uses
 absent `build/sonic-ceiling-complete-source-1116`, max1/600s/zero files.
