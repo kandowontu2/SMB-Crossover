@@ -328,3 +328,152 @@ inputs are reused. Helpers/geometry, root notes and protected user files remain
 unchanged. Native bc5 receiptc95f remains versioned: idle48 Main/96 physical,
 71/95 complete frames without reads; Right16/32,23/31 missed. No current native
 30Hz result is asserted by this source observation.
+
+## Current 9826/cb95 ownership, draw semantics and capacity correction
+
+New explicit bridge `current_contra_force_readonly_9826_1116.py`, SHA256
+`d765d86cc8556d16ed3c366111905a4f2969a07641e0edc5aa3edb386274a54b`,
+accepts only exact9826/cb95. Frozen Mini inverse and, for cb95, Rogue inverse
+recover a2 for metadata; actual execution retains the captured current bytes.
+The old1327/a2 APIs are unchanged. Actual CF24KB, both complete cookie views,
+five protected caller envelopes and SFC33 are byte exact. Every native profile
+point is refreshed from actual current bytes, including whole-bank pins.
+The inherited diagnostic `changed_native_PRG_banks_since_bc5` in this first
+bridge revision describes the a2 reference; use the separately refreshed
+bank79/121 values for actual current ownership. This diagnostic naming is
+not a transfer of old current-cycle evidence.
+
+Static audit39606 stopped on a metadata lookup error: CF_STATE BSS symbols
+have no DBG `oname`. The corrected audit binds the explicitly declared C2
+MEMORY and reports the field as bank2. No game code executed in either audit.
+Corrected54438 PASS receipt
+`51a4f02f1617272330e89e0368176084cd7c7190d58cca55f73b77747fc0dfd2`,
+exact9826 input; audit SHA256
+`9703c7c217da53daca0a7c7bd998bc36466aad49862af42ccd0789cbfa3805b2`.
+
+P1 is hardware palette1 ($3F15), not player1/player2 or a shadow layer.
+Software OAM08 marks accepted CF loan-shot parts;10 marks native palette1
+parts. Visible1/2 describe visible loan/native participants, Choice0/1 selects
+native/loan colors, and both participants alternate using the existing Turn.
+Losers are hidden, then ALL64 OAM attributes have18 cleared, including hidden
+rows. CfP1Visible C2FA aliases per-part CfRenderClip; Choice C2FB aliases
+CfRenderTurn. Visible is computed after rendering, not an independently
+maintained producer flag. Native emitters also run with native C mapping.
+Consequently Visible0 is not a proven permission to skip Paint: hidden tagged
+rows still need clearing. Conservatively marking all native/shot producers
+is the historical work-marker design, which had no native cadence gain.
+
+The authenticated156 body records/1009 parts and123 shot records/331 parts
+contain no optional-outline04 or software18 tag bits. The private renderer
+has no PlayerOutlinesOff dependency. The native outline option cannot remove
+an assumed second CF body layer; that layer does not exist in these records.
+
+The earlier label-only capacity leads were wrong and are withdrawn. Later
+loaded segments occupy RAM1 BF8C..BFE0 (CF_CONTACT_AXIS84) and RAM3
+BFBC..BFDC (CF_SCROLL_PUBLISHER32). Actual terminal fill is ONLY:
+
+| Physical owner | Half-open tail | Bytes | Status |
+|---|---|---:|---|
+|RAM1|BFE0..C000|32|Declared memory/last loaded segment bound; unallocated|
+|RAM3|BFDC..BFE0|4|Excludes protected trailer32; unallocated|
+|RAM2|BF91..BFE0|79|Previously source-derived A2 tail; unallocated here|
+
+Conservative same-owner direct JMP/JSR/indirect-JMP byte leads into the32/4
+tails are zero. Full indexed/indirect reader and global ingress closure is
+not claimed. The proposed116-byte tail wrapper is unfunded and discarded.
+
+## Actual current C-window and borrower observations
+
+`inspect_contra_force_main_cwindow_current_1116.py`, SHA256
+`5f84a8430062ad5e5b8d01cc0a51c1821f9e9a44dd72d299b85b19caf4c14b42`,
+67472 PASS receipt
+`ca9aece7688f9c3f66c60869a212e9657c388ed78d043aff0470bc5297b0ddc2`.
+The captured owning image was actualcb95, accepted through its explicit typed
+inverse bridge. Genuine compiled BURNS menu/cold, four warm updates, then ONE
+ordinary idle Main:56226 cycles, one entry/return,14 queries,0 actors/shots.
+This is a new bounded source observation, not a new hardware cadence claim.
+
+There are ZERO D0 C-window instruction fetches or data accesses in that Main.
+All482 C-window instructions execute RAM2. C-window data reads are RAM2 plus
+the210 expected-cookie byte comparisons against PRG78; all279 data writes
+are RAM2. Every query enters with mapped/shadowD0. This supports investigating
+the unnecessary default-map restoration, but does not prove every other
+native state, data reader, public entry or ISR can run with C2 retained.
+
+`inspect_contra_force_scope_borrowers_current_1116.py`, SHA256
+`689322a7f806a9f166621d7a8a144ceebc50f097950111a75d33dabb9cd54516`,
+25146 PASS receipt
+`8f6966c67dd2da15f56b5d9c65ccc32876834cb0f81f5856ba1a533ecabd8b9e`.
+It reuses the same one-Main observer/body and captures118 distinct PC/SP/map
+contexts without omitting any stack positions. Initial4666, sourceSHA
+`26c3bbd4ba8ab6a5747c2aedf5640aa6ae710362e3e0edeb606e6ba8c2ceb6ba`,
+stopped on an overstrict64-context observer cap after the underlying unchanged
+Main passed. The corrected256-context cap emits compact PC-level rows with
+all distinct SPs. No game mapping or other state is changed by the observer.
+
+| Actual writer | Purpose | Observed mapping |
+|---|---|---|
+|PRG69 BF6C/BF6F, BFA2/BFA5|Outer full16 checker|D0→2→D0,14 times|
+|RAM2 BE8C/BE8F, BEB2/BEB5|Inner full16 expected-cookie comparison|D0→PRG78→2,14 times|
+|RAM2 BF22/BF25|Actual A2 worker return|2→D0,14 times|
+|PRG60 B76E/B773, B7A5/B7AA|SpecialDrawShots native-art borrower|D0→PRG13, then PRG13 again|
+|Fixed126 80C2/80C5|DwResidentGraphicsSelector::StoreGraphics|Native D0 publication, not an incoming-map restore|
+
+The PRG60 sites are source SpecialDrawShots::NativeDraw; its native pickup,
+projectile, injury and CHR publication work remains real even with empty
+source shots. A future scope must preserve that borrower and re-enter C2
+after its CrossoverGraphicsBank call, or qualify a real save/restore change.
+It cannot assume continuously mapped C2. P1NativeC receives208 at actual
+RAM2 BE87 once (SP216) and is not read in this observed Main. Its original
+field/publication semantics still need global current consumer closure before
+moving that write to a scope entry. No header write occurred in this Main.
+
+The current49-byte RdsMainGate B400..B431 has begin/end hooks, not a call
+wrapping the whole Main. Begin increments5FFF and tailcalls native pause;
+end clears the foreign publication before setting NmiDisable0. A live stack
+capability cannot simply be left behind by its begin call. Existing CFReady
+is player-initialization1/2, not authenticated-cache validity. Neither it nor
+the already-rejected5FFE/5FFF scratch proposals grants a checked scope.
+
+## Next material scope and funding requirements
+
+A useful split would retain the full public checker and all existing slow
+public A2/foreign paths, validate once at a real dominating native Main
+boundary, and use a separate checked private dispatch only inside that live
+scope. Its C2 data mapping must survive or be re-established after every
+native borrower, then restore the actual original C before the normal NMI
+publication boundary. Original AXYP/CVID, live stack, native geometry outputs,
+CfArgA/P/TargetBank, late native-C capture and SMC first consumers are explicit
+obligations. IRQ does not change banks in retained reset source; NMI saves C
+on entry and restores its saved value, but actual current byte transfer and
+all new scope cuts remain required. Header, owner and cache writers must be
+proved unreachable within the admitted lifetime or invalidate before writing.
+One empty Main is not that proof. Cold/menu/pause/death/pipe and direct public
+entries must retain their full guarded fallback.
+
+The actual A2 router code is BE6E..BF49 (219), followed by fixed72 table bytes
+BF49..BF91. Its notable regions are original header/map loop BE8A..BEB8,
+division BEBD..BEC6, successful setup/transport BEC6..BEFC, bad-path frame
+reorder BEFC..BF18 and return frame BF18..BF49. All are currently LIVE public
+behavior; none is free space. A dual-entry rewrite can share those paths,
+but claiming their bytes requires an exact layout retaining slow full-check
+semantics and separately authenticated fast ingress. The79-byte tail alone
+does not fund the proposed large generic wrapper.
+
+Current normal Main56226 has34198 query-union cycles and22028 outside. Using
+the versioned marker report only as a cost projection, current real query
+work is about11321 and routing22877. Impossible zero routing alone therefore
+leaves33349 Main cycles, before regular NMI (~4347). Adding the old independent
+3966 marker saving still leaves29383 before NMI (~33730 combined). Thus a
+credible >=25k saving needs nearly all query routing plus marker and/or real
+outside-caller reduction; a checked fast dispatcher alone cannot be credited
+with the whole union. Four actual side-caller layers supply2432 additional
+outside-query cycles to investigate. Their full native return/SMC contracts
+must survive; the actual15-key linear lookup is only744, not5400.
+
+There is currently NO funded >=25k implementation or below-frame prediction.
+The next descriptor must bind an immutable Main admission/return bridge,
+public-vs-private ingress discrimination, writer/ISR lifetime and a concrete
+dual-entry router layout. New game bytes, batch flag, mapper changes, proposed
+opcode CPU tests, ROM composition, native runs and delivery remain unauthorized
+on this lane. All producer roots stayed absent; generated files remain0.
