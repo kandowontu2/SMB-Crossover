@@ -25,3 +25,25 @@ Revision1's streamed physical plan predicts `086be64ee085c372cc543d145921a5dc707
 
 The intended lifecycle checks after a future lease are ordinary grounded cold, falling-header cold and respawn, pipe/vine scripts, underwater exclusion, timer freeze, rising/head-bump/cold owner recovery, fault/retry, retire/foreign boundaries, public ABI, all new reached IRQ/busy-NMI cuts and genuine visible entrance/+25 grounded motor returns. Native normal Ready2 behavior and graphics stay separate from the pending transition. No new source CPU execution, overlay, ROM, Mesen, capture, helper, carrier, RAM allocation or release is authorized by these measurements. Bounded `build/dkjr-forced-entry-plan-1116` remains absent/max-files1/600seconds/zero files.
 
+## Revision2 — explicit rising rejection, frozen detached review target
+
+Root requested the sign guard before any lease. The separate `measure_dkjr_forced_entry_fit_v2_1116.py` SHA256 is `67da40a7d69632b98d1a04070c247cd099e34eac7a43594f53ed5a06936a2745`; revision1 source/checker hashes are pinned and unchanged. APIs `measure(exact91dc)`, `consumers(exact91dc)` and `physical(exact91dc)` generate only detached fragments/receipts and streamed hashes. They do not compose or mount a ROM/payload.
+
+The new18B leaf at ADCB first calls the same fully guarded entry context, requires exact native state2, then rejects negative native Player_Y_Speed. Native VY0 retains CMP#2's carry and remains admissible for the genuine first forced-fall update. The visible pending leaf at BFC4 separately admits exact native states0/2, then reprojects source OAM after native background collision; negative/native-state rejection affects donor admission, not a blanket invisibility rule. Normal Ready2 behavior and all original fall/world/helper bytes remain unchanged.
+
+The native entry context requires OperMode1/task3, source profile1, engine8, no disabled collisions/jumpspring/swim/source-hit, native highY1 and header entrance1. On its pending falling path, TimerControl!=0 skips native gravity while still projecting the source body; it does not prematurely publish Ready2. Nonforced entries retain the old import/camera/Ready2 path. These are intended protocol semantics. Actual rising/zero/falling/grounded/pause/fault/lifecycle/ABI/IRQ and natural +25-grounded entry are required source gates after a root lease, not claimed by the measurement.
+
+Four logical envelopes remain1070B; predicted cookie adds16B. Six physical code chunks stay exactly the ranges above. Funding remains four fruit reads plus three draw reads/three draw stores and self-contained helpers. No protected head byte, head runtime cell, shared character code, new carrier or new RAM is used. The18B leaf uses the formerly explicit19B draw spare; anchor now has12B explicit unreachable NOP spare, and fruit/draw each retain1B. None is leased to unrelated code.
+
+| Span | Revision2 new SHA256 |
+| --- | --- |
+| fruit | `7ffbb31763f601dd13cb435b57d4e65a7f0b10a1c2ebf0beb477aeb38c8a6fd9` |
+| draw | `dc8bf1aadc415b8e0207217999533017c0932f645cc426f7da4cc9f18c324801` |
+| anchor | `b7d40d262e4f59b3d42ff226c8567544da8f518e2c764c0333f7d4c5ad131e9c` |
+| body_guard | `da64c77592157c92f6191c01de53cdda03e50ab87a29b097053324cd77906cf7` |
+
+V2 fit receipt `e8de1ab6f825b9c3eb303ff4793c5cef68bbc808d929c12c95d5b7f16f21371b`; rechecked consumer receipt `c620552abd0c0ac9d6e257220458420fba7f0cbd728d91db5c1950440feaa6eb`; streamed physical receipt `d0fda62840d282147a72bcaedb2a83445877b8b1a87acd351a884b00941175eb`. Semantic moved-label and old SMC writer sets remain exactly238/20; new references are pending-entry JSR ADCB and visible-tail JMP BFC4. New leaf has no writer besides its existing called body-import path on the visible branch; the falling leaf itself reads context/state/VY only.
+
+Predicted V2 identity is `7c0f7902e5ef17ff552c2ce36ba08534fdd48f00fddc62a54834df18e68f3c98`, packet `bbdb7d84eb2485d69d23df750ce08a3ed703b2b4de495aa08aa8c6806b7cb3e1`, cookie `a72801bbdb7d84eb2485d69d23df750c`. Terminal source-planning55989 exited0, no outputs. An initial v2 assembly rejected unsupported `.res`; explicit12-byte NOP data fixed only the planner representation. All original C/F and revision1 files remain immutable. Root alone may grant a new source overlay or physical/native test; no such authority is implied here.
+
+
