@@ -85,3 +85,34 @@ DK D65E motor returns** with matching dynamic PC/SP and no pending motor.
 It does not count completed full host NES Main routines. There are zero
 such1-2 returns in this retained negative. Both ROMs stay exact; no game
 writes, captures, images, backup, patch or release is created.
+
+## Fourth ride-order successor: support loss reproduced
+
+New controllered3e checks a genuine recent944 carry before the old fourth
+roof fallback. It restores exactly to frozenb09c after reversing that one
+branch reorder; all game bytes, helpers, fall/injury guards and returned-motor
+endpoint remain unchanged. Its source fourth component50927 was still pending
+when root76234 was launched under the explicit controller-only diagnostic
+grant. No ROM overlay was involved or source gameplay pass assumed.
+
+Source50927 then reports a material negative,
+`a3863daa6011277de662dcc3f449a1a09c545b9e11bc8634315c2679208f4ad6`:
+actual adoption at4241,929/107, helper top139, source1; just one944 support
+sample, followed by source5 at4309,945/176. Actual writer A8DD/SP194 sees
+sourceY191/origin127/limit24. This is not a safe-descent source pass.
+
+Actual Downloads root76234 is also negative,
+`d21701600fee6f533243ade1ff907542e0daac76ed82c0db155eeba062e73a51`.
+The first944 carry is Main3653/frame8889 at928/109/source1/native0. The new
+adoption event is3654/frame8891 at927/109/source4/native2, with sourceY124,
+origin109/limit24. There is no later944 carry (count1). The guard fires at
+Main3718/frame9027,945/172,source5/native2,lives2,timer246. The first seven
+support counts45/46/15/41/19/10/38 and earlier Goomba evasion are retained.
+No flag/castle/entrance or1-2 motor return is observed.
+
+This narrows the next investigation to the first lost support/coordinate
+handoff. The numeric origin difference and sideward one-pixel motion are
+observations, not proof of a wrong origin or a floor defect. Retain both
+negative controllers, inspect actual geometry and writers, then decide
+whether an input or game change is warranted. Both ROMs remain exact and
+the five unrelated Mesen processes remain untouched; zero capture files.
