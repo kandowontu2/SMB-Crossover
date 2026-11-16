@@ -176,9 +176,22 @@ relative X255, both rides, and a clear into active 1-2 with both lives.
 
 Donkey Kong Jr. (Donkey Kong, Select once) has twelve stock 32-pixel-wide
 vertical girders and one stock 48-pixel-wide horizontal platform in World 1-1.
-Mesen verified a continuous clear through all six pipes, all three gaps,
-the flagpole and active 1-2 with both lives. The first and third gaps required
-no platform. [Full delivery](dkjr-full-nightly-delivery-1111.md)
+The November11 ROM has a native continuous clear through all six pipes,
+all three gaps, the flagpole and active1-2 with both lives. The first and
+third gaps required no platform. [Versioned full delivery](dkjr-full-nightly-delivery-1111.md)
+
+Current November15 public67 preserves all thirteen placements and the full
+11433-byte DK Jr. owner. A fresh full replay is still open. Original recovered
+controls fail from a legitimate high platform departure at the first pipe;
+the cap-depart control successor clears the first three pipes in actual Mesen
+(root28894), with real carries on416/480/560/624/688/752. It then jumps too
+late into a Goomba at791/175; root44172 confirms ordinary ascending side
+contact, not a new helper/floor defect. No placement or game byte changes
+were made. The table below lists world left edges and centers separately;
+Y192 is initial top height, not the moving platform's later height. This
+partial current proof does not relabel the older full clear as current67.
+See `dkjr-current-native-first-pipe-1115.md` and
+`dkjr-public-goomba-after-pipe3-67-1115.md`.
 
 | Pipe | World left X | Center X | Initial top Y |
 |---|---:|---:|---:|
