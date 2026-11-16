@@ -1,6 +1,6 @@
 # Rogue natural Bomb progression — source checkpoint, 2026-11-16
 
-Latest scope: **source38899 PASS** on actual owning cb95 CPU, genuine frozen MF prefix, retained v9/v7 ordinary stage controls, actual authored1-2 D0 acquisition/score+25, then normal morph+B/source bomb lifecycle+25. Native validation remains root-owned/pending. No game/actor/resource seeds, ROM edits, new helpers or captures. This closes one source gear gate, not all eight natural/native abilities.
+Latest scope: **source38899 and root actual Downloads native38822 PASS** on actual owning cb95 CPU, genuine frozen MF prefix, retained v9/v7 ordinary stage controls, actual authored1-2 D0 acquisition/score+25, then normal morph+B/source bomb lifecycle+25. Native counts and visual scope are recorded in the addendum below. No game/actor/resource seeds, ROM edits or new helpers. This closes one natural gear gate, not all eight natural/native abilities.
 
 Input was captured once as exact9826 `98261effbc214d24a00b2f8bd2950eca8ea3bf3675b331956a2ad42a7ab819e6` and strictly composed in RAM to `cb95eb8dff9929c8162e019d5e3f33e45b570946f5281c07584a9f11cacdba07`. The owning cb95 composer, facade and all qualified M/MF/ML/MS/missile/full factories are unchanged. New research module: `tools/audit/explore_rogue_natural_bomb_cb95_1116.py`; `load_current()` captures exact9826 or validates exactcb95 through its inverse; `run(raw, limit=7000)` executes current CPU.
 
@@ -51,3 +51,9 @@ Frozen packet:
 | `tools/playthroughs/rogue_natural_bomb_cb95_1116.lua` — ordinary continuation | 0182c5a55e3d6247ecd9c58bbd1e96015c99d4e11c8c54e3c91649d7034bbbf2 |
 
 Final acquisition and Bomb details/counts are exactly those enumerated above: D0C1/OR01, actual score writer plus25 new original work, then original slotD0 fuse/explosion/terrain-query/F7 removal and at least25 new completed work. Native playback still needs root's single queue; pixel/audio output, actual terrain destruction/enemy hit, additional Bomb placements and the other seven gear abilities remain outside this source pass. Existing helper inventory/geometry and all old source/stock/negative packets remain unchanged.
+
+## Root actual-native addendum
+
+Root actual Downloads38822 **PASS**, receipt `728a8c62ecb547b0705e77e153c7e2606862814c6521598a07dbd61275ba7478`:5138 Main/3882 balanced Dispatch+Step+Life/7621 physical. Real D0 birth4920/mature4986/physical C1 collector5031 ORs gear01; real score writer5036 changes4630→5630, then25 new returns. Ordinary Down morph5064/fresh B placement5065, explosion request5090/five real terrain calls/F7 expiry5112, then25 entries/26 returns. Terminal150/120/morph action3/lives2/tank1/gear1/ammo5/raw19h,19h. No actual broken block, enemy hit or audible waveform is claimed.
+
+Root late-photo92873 **PASS**, receipt `831b0f2246384748bf208aba6fe450b19d3da7a1c0c2b7511dfde414785b731e`, exact functional728a. Root viewed mature D0 and settled Morph Ball with the small native blast OAM tile217; the late image is Main5092/frame7553/action10/age2/frame60, PNG SHA `061ad1753dcc6b0794091b7df8219292bdb693c141702269424ef11e7313d8f4`. The earlier fuse-only9e51 scene remains separately scoped. Both native pictures exposed a blank1-2 E/M HUD row; that independent confirmed continuity issue is documented in `rogue-hud-continuity-source-cb95-1116.md`. No morph/art correction is inferred.
