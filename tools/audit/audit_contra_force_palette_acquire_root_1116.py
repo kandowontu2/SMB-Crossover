@@ -26,7 +26,7 @@ def scan_words(raw,address):
             at+=1
     return rows
 
-def main():
+def main(supplement=None):
     actual=Bowser.ROM.read_bytes();assert Bowser.digest(actual)==PIN
     reference=Bowser.inverse(actual)
     q=P.bindings(reference);b=dict(q['bundle'],raw=actual)
@@ -108,6 +108,7 @@ def main():
             final_LastBlue=z[last],final_Pending=z[pending],complete_return_PC=d.pc,complete_return_SP=d.sp),
         native_points=points,scope='Current instructions only; no dirty-marker arrays or new opcode/ISR qualification',
         source_pins={str(SOURCE):SOURCE_SHA,str(HOST):HOST_SHA},outputs=0)
+    if supplement is not None:result['supplement']=supplement(actual,b,q,cut)
     encoded=json.dumps(result,sort_keys=True,separators=(',',':'))
     print('RESULT '+encoded,flush=True);print('RECEIPT_SHA256 '+Bowser.digest(encoded.encode()),flush=True)
 
