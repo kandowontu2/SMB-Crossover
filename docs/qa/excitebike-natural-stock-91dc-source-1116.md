@@ -353,3 +353,55 @@ Sourcec5a8 remains positive, while current native Star stays open. A future
 ordinary intercept must follow the actual actor/bounce state; this result gives
 no reason to change the now proven head phase or any game bytes.
 
+## Actual-actor bounce feedback source successor
+
+The exact689526fe head factory and its head controls remain unchanged. New
+`replay_excitebike_star_bounce_feedback_91dc_1116.py` only replaces the mature
+actor intercept, reading actual native X/Y speed, direction, height and position.
+It retains the M prefix, physical mature collector, C0/35/music64/erase/cue,
+delayed1000 and25 completed original motor/movement returns. Original56-per4
+coast and63-per4 charge arithmetic selects ordinary throttle/braking; a fresh-A/
+Up fallback requires actual speed630. No physics or game state is written.
+
+Base factory64dd/Lua7a0a source41045 passed the underlying item scope, but its
+readiness0-only condition excludes source recovery5, so the new feedback was
+not adequately exercised. A too-small terminal tool output budget truncated
+that receipt; no exact hash is claimed or reconstructed. That source/control
+version is retained and is not the native-ready feedback scope.
+
+The actual original motor at `ExN_CD6C` explicitly compares5 and accepts
+released recovery5, as well as0. A separate successor admits those real states.
+If374 is still nonzero it uses ordinary B to release the original throttle gate
+before projection. Source qualification additionally requires a positive count
+of actually reached feedback calls. Both code and controls remain readonly.
+
+Native-ready API
+`replay_excitebike_star_bounce_ready5_91dc_1116.controller(raw91dc,'star')`,
+or `family()`. Factory SHA256
+`3cd4f3a45bce587ce2b78400db78bc618ca437961837ec12365d436ce424162c`;
+LF Lua `39d397f619cd9811fd6813b8d2295b3388f9126f785fc22764267473799fa1e5`.
+The base factory SHA is `64ddcec57c9f606f90cebf9961c9709772912aa650db35c9364918c4c2a7dd9d`,
+and new control template SHA is `b7e2b3d73577ec2e1f13727bc9f39c466d7cc284685b1d466179fe7799ebfe83`.
+
+Source26694 passes in64.73 seconds:
+`11f947b2f0938eb13bfd9db3d1dec3a93bd8021ea3dc5ff14115d70a0aa8f627`.
+There are68 actual feedback calls, six bounded actor samples and three bounded
+vertical/direction events. The live Star has native speed16, moving right.
+The real terrain census has empty body row184 and solid floor84 at1600..1760;
+the high bricks do not create an actual ground wall. The controller follows the
+approaching actor instead of leaving a shorter native jump stranded at1675.
+
+The unchanged source head forecast still has exact X/Y error0/0. Actual Star
+collection at Main2625,9B28/SP243 has hero1702/176 versus Star1700/163, positive
+11x1. Exact native C0/35/music64, erase/popup6/cue20 and real DEC897C→83D6
+credit1100→2100 at2630 precede25 returned original motor and accepted movement
+updates at Main82BE/SP252. Totals2656 balanced Main/2596 balanced workers,
+1702/176/lives2/power1/Star34/heat0/crash0/recovery5. The ordinary jump fallback
+is not needed in this source episode and is not separately qualified by it.
+The compiled cold entry again reads6144+2048 and both full cookies beforeA963.
+Native qualification of this new feedback controller remains root-owned.
+
+Both bounded output roots remain absent with zero generated files. All older
+source positives, native negatives and frozen control texts retain their exact
+versions. No additional broad source gates were run after this scoped pass.
+
