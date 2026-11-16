@@ -163,3 +163,34 @@ The final repeated jump below that block is a controller negative, not
 evidence about intended Flower reach. The actual inherited upgrade
 publication path must be measured before any game-repair proposal.
 All files remain source only; the bounded output root stays absent.
+
+## Actual inherited upgrade publication defect
+
+Passive source17436 terminal PASS (the diagnostic succeeds, the Flower
+route remains negative), receipt
+`8b5b7a3b1cb0184f2fd3a604e45b371183471ec77dec8a3697a62e9d75e13219`.
+`audit_jay_upgrade_publication_7c0f_1116.py` SHA256:
+`90fb3980b175c38d303b00f31bf14c196311c1bddfbc344af418d89b9ac50df6`.
+The same ordinary V3 prefix runs1170 balanced actual7c0f Main/original
+integrator calls, without gameplay writes or a repaired image.
+
+The first physical heart's real PRG98:A790 STA changes JnStars00 to80,
+while PlayerStatus remains0. The live inherited `JnMovement` entry is
+PRG96:A2CB, file787163; its prefix contains the original JnStars parity
+to PlayerStatus mirror. That entry executes zero times across1170
+successful Jay private updates. `JnPublishTier` only publishes tier/UI
+state and does not mirror native status.
+
+The real `UnionPwrUpCore` PRG2:BFB1 LDA PlayerStatus runs at SP188 for
+both births. First birth Main219 reads Stars0/Status0; second Main1168
+reads Stars80/Status0. Both actual LDA results are0. Thus the second
+authored mushroom/flower block again selects the heart. This is a
+source-proven omitted status publication, not a failed physical Flower
+collector or permission to force status/growth. Root has the evidence;
+any fix requires a separate exact allocation/qualification.
+
+The inherited Flower reward itself raises Mike JnOwnedTier. Historical
+synthetic checks leave donor Jay weapon/ammo unchanged; no claim that
+this reward grants a Silius weapon is made. A future real Flower
+qualification must report that policy and prove its usable attack
+scope explicitly. Natural Star and hidden-life controls are independent.
