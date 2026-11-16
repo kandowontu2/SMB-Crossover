@@ -38,13 +38,14 @@ No audio-listening, expiry/protected-hit, natural-death or performance claim.
 
 ## Delivery
 
-Private gates are complete. Root delivery grant is
-`allocations/bowser-life-gain-delivery-1116.json`. Source push must precede
-`install_bowser_life_gain_nightly_1116.py`; it directly replaces the single
-Downloads nightly without a backup. CLI patch guards and actual Downloads
-four-repeat exact-receipt verification are still required before claiming
-the nightly verified.
+Source/root grants and private receipts were pushed56a3a944 before installer
+70322. The direct replacement under `allocations/bowser-life-gain-delivery-1116.json`
+used no backup. CLI patch guards before and after returned no matching patches.
+Actual Downloads root37075 repeated all four exact scripts: every PASS and
+complete receipt hash matches its private counterpart in the table above.
+Installed bytes equal the qualified candidate; strict inverse returnsbc5 and
+every unowned byte is preserved. The single Downloads nightly is verified6a3.
 
-The root queue is free after94864. Existing shared candidate/controller are
-the only two run files; all four runs produced zero captures/images/files.
+The root queue is free after37075. Existing shared candidate/controller are
+the only two run files; all eight runs produced zero captures/images/files.
 Other projects' Mesen instances were left untouched. No release or patch.

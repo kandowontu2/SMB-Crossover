@@ -1,7 +1,7 @@
 # Expanded-roster next native checklist — November 14
 
-Current delivery: `LATEST_1115_BC5_DOWNLOADS_VERIFIED`, exact installed
-`bc5e275d1dd4dabab4b5b2def66f7643ae46aee17a31ab37887528b791594040`.
+Current delivery: `LATEST_1116_6A3_DOWNLOADS_VERIFIED`, exact installed
+`6a3ff7c9a60b5ff5906d38f7815f021062006e0817d43e7ed139f47589c4eee2`.
 Rows retain their explicitly recorded ROMs; a later delivery does not
 silently promote earlier stage receipts to the new image. Current opening
 enemy/powerup pictures cover Prince on16a and DK/all six wrestlers on590
@@ -55,7 +55,7 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
 | SMB2 Mario; SMB2 Luigi; SMB2 Toad; SMB2 Peach; Imajin; Lina; Papa; Mama | All8 **H** full12397; Luigi **C** full421/25 grounded1-2 | All8 M7ef, F/vegetable combat12397, and **C** S/L421 now qualified. No missing four-stock family; other7 exact421 full reruns are regression coverage, not never-cleared identities |
 | Bub; Bob | **H**,f88 full stage. **C67 M/F/S**, actual Downloads12602 matches private50103: Bub2979Main/6339physical, Bob2986/6374; real M/F then Star/1000credit and25 completed workers, lives2/flags7/power2. **L C67**, actual Downloads61151: Bub1586Main/3504physical,c874ada6; Bob1585/3522,a055b306; real hidden birth/maturity/collector/erase/popup11/cue64/delayed timer42 lives2→3 and25 later original worker entries, score1500 retained. All four standard families now have native current67 witnesses for both identities | **Player Star flash repaired C67:** all6 actual RAM PNGs reviewed; physical P0/P2 hero64/66 matches completed selected draws while original private Bub67/Bob64 and worldP3 remain intact. Both Downloads receipts and all6PNG hashes match private exactly. Failed3080 capture and31581 diagnostic remain recorded: only request scheduling was corrected, no physical assertion weakened. Full current stage, expiry/protected hit, audible audio and wider ability/performance coverage remain separate. Hidden1UP counts25 worker entries, not a new completed-Main-return claim. See `bub-star-prince-native-root-1115.md` and `bub-selected-star-source-prince-1115.md`; all older stock/stage receipts retain their versions |
 | Sonic; Super Sonic | **H**,c4568faf separate full clears, rings/loss and M | Natural F/S/L; distinct Super mechanics remain later review, not an unselectable-name problem |
-| SMB3 Bowser; SMB1 Bowser | **H**,7ef separate full/grounded1-2 and natural M/F. **S Cbc5**, actual Downloads41422: SMB3 0b51e766/1643Main/1523core/1645tail/3133physical; SMB1 94bae773/2030/1910/2032/3567 | Both genuine Star birth/maturity/physical collector/erase/cue/Star35/music64/delayed1000 and25 complete core+tail returns at completedMain pass; tier2/lives2 retained. SMB1 ends airborne, no grounded/fullstage claim. **L real persistence bug OPEN:** both source episodes reach genuineINC/+25 but constructor resets upgrades (and heals SMB1); signed40B repair has rootSOURCEONLY lease, no physical/native/delivery yet. See `bowser-star-native-root-1116.md`, `bowser-natural-stock-bc5-source-1115.md`, `bowser-life-gain-detached-plan-1115.md` |
+| SMB3 Bowser; SMB1 Bowser | **H**,7ef separate full/grounded1-2 and natural M/F. **L/S C6a3**, actual Downloads37075 all4 match private83453/94864. Genuine1UP preserves tier1/currentHP34or4/lives3 through25 completedcore+tail at completedMain. Star retains tier2/lives2, actual+1000/+25; SMB1Star ends airborne | **Earned-life reset repaired/delivered6a3:** signed40B Ensure plus two cookie views,72owned/56changed/allunownedbc5exact. Both real emergence/maturity/contact/INC/cue64, savedlife3/noCtor; retained baseline36997 proves old upgrade reset/heal. GenuineM/F60 precede Star regression. Naturaldeath/fullstage/expiry/protected-hit/audio/performance remain separate. Newsource genuine1UP-then-fullroute is in progress, not a native clear yet. See `bowser-life-gain-native-root-1116.md`, `bowser-life-gain-candidate-source-1116.md` and baseline QA |
 | Donkey Kong Jr. | **H**,Nov11 delivered full route. **Currentbc5 partial native49704:** earlier-hop controls clear first3pipes/Goomba and ascendfourthpipe; helpers880/944 have38/150 support samples. The old special fourth descent still trips original fall/injury guard at985/176, noflag/1-2. Older uninstalled private769 final3040 negative remains separate | Currentbc5 preserves complete public11433-byte DK Jr owner and13 helpers; private769/floor repair is absent. Earlier43b5 firstpipe fall and5c65 late Goomba contact remain scoped negatives. Newb09c native receipt e8c055b5, actual earlyhop3025 at783/176. Helper investigates safe fourth descent; no game/helper repair inferred. Strong endpoint counts25 completed grounded D65E motor returns, not fullhostMain; zeroobservedinnegative. No current fullclear or naturalall-item claim. See `dkjr-current-native-first-pipe-1115.md`, `dkjr-public-early-depart-bc5-1115.md` and helper inventory |
 | Hulk Hogan; Ted DiBiase; Bam Bam Bigelow; Honky Tonk Man; Randy Savage; Andre the Giant | **H**,8fc57b8b six separate full routes; **C7a80 Easy**, all six real M/F60/+25, mature Star/35/music64/cue32/1000score/+25 and hidden1UP/delayed2→3 life credit/cue64/+25 | All four stock families are individually covered per wrestler. Star expiry/protected contact, original endurance/gear, audible output and current full stages remain separate. Earlier Bigelow/Savage gap input failures are retained; later-edge controls pass using the existing native helper. See `wwf-natural-star-native-1115.md` and `wwf-hidden-oneup-native-1115.md` |
 | Excitebike | **H**,Nov2 full route; a76 natural M/60-tick resume | Natural F/S/L; first-M freeze was repaired, not a current defect |
@@ -68,12 +68,16 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
 
 ## Assign next, without resetting completed work
 
-1. DK Jr. remains an active **private repair** gate. Root independently closed
-   the compact floor/visible-entry primitive, caller and ISR proofs, then granted
-   exactly five existing owned spans in `allocations/dkjr-floor-entry-fit-1114.json`.
-   Current-parent composition and full ordinary source route are in progress;
-   no successor is installed. Do not call the older delivered clear a failed
-   current run or claim an idle-performance improvement from this repair.
+1. DK Jr. remains an active **private repair** gate. Actualbc5 root31697
+   establishes the first X72to71 writer at camera-shiftBB27 after a fresh
+   current-camera platform anchor. The new source-only carry-order lease
+   `allocations/dkjr-carry-camera-source-1116.json` owns214+16 bytes over6a3;
+   candidate6d7 reconciles the camera before importing an accepted position.
+   All13 native helper placements remain exact. Source camera/ABI/lifecycle/
+   header/ISR/retainedvertical/fullroute gates precede any physical promotion.
+   Historical floor/visible-entry grants are not authority for this new span.
+   Current6a3 leaves the full publicbc5 DK owner unchanged; no DK successor
+   is installed or newly claimed as a full native clear.
 2. **U0 (previously U1):** classicDonkeyKong now has the actual571 full
    earned-M route93535/4601, including25 living grounded1-2 updates. Natural
    DK's natural M/F/S/L are now covered by the separately versioned row above;
