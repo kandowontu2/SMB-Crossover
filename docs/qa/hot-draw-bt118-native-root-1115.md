@@ -1,8 +1,9 @@
 # Battletoads shared drawing optimization: root native checks
 
-Public Downloads remains exact `67e3b8e7d4b01ea549fe9dc15c09b5a0b5f7085ee396d672a9c963d24287d0b5`.
-Private candidate is `bc5e275d1dd4dabab4b5b2def66f7643ae46aee17a31ab37887528b791594040`.
-It is not delivered yet. See `hot-draw-bt118-source-1115.md` for the frozen
+Verified Downloads is now `bc5e275d1dd4dabab4b5b2def66f7643ae46aee17a31ab37887528b791594040`,
+the exact qualified private candidate. Its parent is
+`67e3b8e7d4b01ea549fe9dc15c09b5a0b5f7085ee396d672a9c963d24287d0b5`.
+See `hot-draw-bt118-source-1115.md` for the frozen
 118-byte envelope, exact inverse, live following108 bytes, public-entry,
 foreign-character, lifecycle, fault and reached-interrupt proofs.
 
@@ -76,5 +77,15 @@ and controls; there are no game writes, captures or output files. The new
 policy fixes the replay stall without an additional game patch.
 
 Separate direct-delivery grant: `allocations/hot-draw-bt118-delivery-1115.json`.
-Actual Downloads cadence and both full-stage repetitions remain required
-before claiming delivery verification.
+Source was pushed through `f054f882` before direct installation57031.
+Pre/post CLI nightly-patch guards pass with no matching IPS/BPS/UPS.
+Installed2097168 bytes exactly match the qualified candidate and its exact
+118-byte inverse to67; no backup, patch or release was created.
+
+Root16786 then passes all three tests from the actual Downloads launch
+context: cadence `be4c1904...`, Zitz `0ae6016f...`, Rash `ba148da3...`.
+Each complete receipt equals its private counterpart, including the same
+measured idle/walk gain and full-stage25 grounded endpoints. Both other
+Mesen processes remain untouched. No game writes, images or capture files.
+The broader goal remains incomplete; other stages/items/characters are not
+automatically requalified by this delivery.
