@@ -138,3 +138,15 @@ presses, followed by the unchanged actual Select/Start/parser/constructor.
 The source menu still lacks physical vblank. No game/helper byte changes
 or synthetic item/state placements are involved; actual route and all
 genuine acquisition/credit/return gates remain required.
+
+Initial5-1 source71268 is negative, receipt
+`9f07085d0b3347d3c2b6ff55e3522d3a1ac57bc93c352ef0339271e1af5629a4`,
+Lua `142659ce8e86e27632e6b25bea582368069e21bbd9f5728e6728fcb92c786bb2`.
+Actual level48 opening and5-1 constructor succeed. The first running jump4
+requests at92/176 against real Koopa233/184 (gap141), admits Main47,
+reaches minimum161, then lands by Main83 at202/176 against Koopa214/184.
+The existing unarmed injury path drains5HP in that contact; no natural1UP
+is born. Its early jump policy is retained. The separate contact successor
+requests at real gap70..90, from the observed closing distance and jump
+peak, and releases A after the original6C0 jump lock clears. This is one
+directed control adaptation, not a timing sweep or a game-byte repair.
