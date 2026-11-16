@@ -16,6 +16,8 @@ GRANT = C.R/'docs/qa/allocations/dkjr-entry-private-root-1116.json'
 def main():
     g = json.loads(GRANT.read_bytes())
     assert g['private_staging_and_native_authorized'] and not g['Downloads_delivery_authorized']
+    assert isinstance(g['source_IRQ_receipt_SHA256'], str) and len(g['source_IRQ_receipt_SHA256']) == 64
+    assert g['root_full_source_receipt_SHA256'] == '83da446ed50d0117591c19b005dab74110745cc4ce1aa317f1b58f31dd9762ae'
     assert C.H(Path(C.__file__).read_bytes()) == g['composer_SHA256']
     assert C.H(Path(F.__file__).read_bytes()) == g['factory_SHA256']
     official = C.BT.ROM
