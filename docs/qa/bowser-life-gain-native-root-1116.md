@@ -49,3 +49,24 @@ every unowned byte is preserved. The single Downloads nightly is verified6a3.
 The root queue is free after37075. Existing shared candidate/controller are
 the only two run files; all eight runs produced zero captures/images/files.
 Other projects' Mesen instances were left untouched. No release or patch.
+
+## Earn the 1UP and finish1-1
+
+Both further actual Downloads regressions pass with the separate frozen
+full-route factory `replay_bowser_life_full11_1116.py` and source checkpoint
+39a67b62. They retain every earlier1UP assertion, wait for a real landing,
+then continue ordinary controls through flagpole, castle and actual1-2.
+Only the genuine next-area construction is allowed after the life pickup.
+
+| Choice / root run | Main / physical | Final HP / tier / lives | Receipt SHA256 |
+|---|---|---|---|
+| SMB1 Bowser7245 |4696 /7627|4 /1 /3|`63ad0d76357283070ed26b1e6d6df08bee90e9c6bf6d212d7e8641232daa9d0a`|
+| SMB3 Bowser55517 |3619 /6141|33 /1 /3|`2883a154ff95d877e49964ec2d7d484a3e706b7eedfab951580b15f05a29428a`|
+
+Each ends at40/176 in1-2 with25 living grounded **completed** original core
+and outer-tail pairs at actual Main return/SP252, tier1/native status1 and
+the earned third life. Movement/core/tail entry and return counts balance.
+The route can include ordinary HP loss, as recorded. Both use zero game-state
+writes, images, captures, new helpers or output files. Actual native timings
+differ from the source simulator and are retained without relabeling them.
+The root queue is free after55517; the installed ROM remains exact6a3.
