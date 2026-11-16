@@ -27,3 +27,13 @@ The checker is a separate static copy of the negative harness with only its faca
 - Terminal Main807 is328/113/engine8/life2, Tanks1/status1, raw health99/19, gear/missiles/max0. No pending scopes or unexpected postgrant reset. No60-growth requirement was imposed; hosted-growth/timerControl remain0 in the retained witnesses.
 
 This is source-model natural M only. Actual native M/F/S/L, current full-stage revalidation, full eight-gear arsenal, other abilities, audio/visual and performance remain separate. Root may now validate an independently frozen native M controller; natural raw1/D9 source access can follow from the genuinely earned prefix.
+
+## Frozen native-ready M callback gate
+
+`replay_rogue_natural_tank_1327_1116.py` SHA `d6366b1f77ee08e9a0edef33400ebc9c5548c24d517db4a3e2189454e2517fb6` exposes `controller(raw1327)` and `metadata(raw1327)`. Exact generated Lua is `0fe0bd5ee083207be58aa03346b54018ea3627e68dca3ff302b08ba3441cff4e`; its tracked template `tools/playthroughs/rogue_natural_tank_1327_1116.lua` SHA `aed0a1708c366196c28203d936cd38c1e316209d67ee6504096160037202c4c9` embeds the same policy791df30b. Real native frontend uses actual title/roster, Right2+Select1, Start; the source callback fixture alone begins from genuine compiled cold.
+
+`check_rogue_natural_tank_native_source_1327_1116.py` executes that exact text with the actual1327 CPU. Source23045 PASS `ed47da99b824477741b6a978bd4b568defda329e63c4364fc28ddc7831118bb2` confirms executed top-level registration:13 fixed exec addresses,10 write addresses and two event handlers, followed by dynamic PC/SP/map-paired return hooks. All807 original/wrapper/public Main entries=returns and the same mature D8/C1/refill/erase/cues/1000 writer/+25 original returns complete. The model's physical-frame counter is not a native cadence claim. No PNG, renderer or Mesen was used.
+
+Initial callback gate46524 stopped on my fixture's incorrect expectation of14 fixed exec addresses; the template has13 and adds dynamic return addresses during play. The corrected fixture checks exact13/10/2 without dropping any callback. Numeric cue-map JSON keys were also quoted before the successful source callback run. These are observer/fixture corrections; ordinary inputs and all game assertions remain intact.
+
+Native endpoint retains25 new public Main entries versus26 public returns including the writer Main's return, plus exactly25 new returned original and movement-wrapper workers. It never labels those26 snapshots as26 postwriter complete updates. Source and native-ready factories do not claim all-items, full1-1, no injury, audio output, art or a helper contact. All native execution remains root-owned.
