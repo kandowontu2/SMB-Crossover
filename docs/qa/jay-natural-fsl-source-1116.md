@@ -50,3 +50,39 @@ timeout600, Python-B and zero generated files. No mutable Downloads reread
 occurs after a job captures its owning input. Any future DK-delivered
 parent requires a separately named typed bridge; the91dc facade stays
 strict and actual future CPU bytes must be preserved.
+
+## Explicit current7c0f preservation bridge
+
+The official input changed to
+`7c0f7902e5ef17ff552c2ce36ba08534fdd48f00fddc62a54834df18e68f3c98`.
+Root explicitly authorized a new typed bridge; the91dc APIs above remain
+unchanged. `current_jay_natural_stock_7c0f_1116.py`, SHA256
+`b8c128b51bd47cb2c3f7dce828277a06c54ed034b7d2e1071f667fee41016aeb`,
+accepts only exact7c0f. It invokes the portable inverses of
+`compose_dkjr_forced_entry_current_1116.py`67b6ccef and
+`compose_dkjr_footer_bt91dc_current_1116.py`44f7ece4 to recover exact91dc
+for metadata only. Actual model bundles and CPU execution retain7c0f.
+All six Jay carriers plus all nine shared Steve-packet pages and both
+cookie/162B cold spans are byte-identical to91dc. Native hook prefixes
+remain exact and actual wholePRG126 SHA is refreshed to
+`5bd9cd2fce2eaa0b6bd14b403a3ea0fb4c979499087d3df5c2c330bdffa5a331`.
+
+Static preservation98672 terminal0. New checker
+`check_jay_natural_fsl_current_7c0f_1116.py`, SHA256
+`434f86dec92e6f8691a86691b54c5963adcb8e77da4c4cf929222ad7a39e323b`,
+83094 terminal0/PASS, receipt
+`8949d8cc64c144ae216cd3cdf159d87312351df8d6ae4703cd9f198e175064dd`.
+It reuses the frozen16-update motor pairing contract through a scoped
+new facade, without modifying the old function or its acceptance rules.
+Actual7c0f again has16 balanced Main/private/original-integrator returns,
+RAM3:A369/SP207 toB882/SP209, ending48/176/HP6/lives2/ammo63.
+No item or full-stage replay is part of this transfer.
+
+New source-only route development uses the common ordinary-input Lua
+policy `tools/reference/jay_natural_fsl_policy_1116.lua`; it is not yet a
+frozen native controller. A first static attack-hook pattern incorrectly
+expected absolute ObjectOffset stores; direct current bytes prove the
+live zero-page86/85 operands use0D. This was corrected before route CPU,
+binding the actual post-Flower projectile defeat hook at RAM3:BAA8.
+All current natural route results are still pending, without a native
+launch or game-repair allocation.
