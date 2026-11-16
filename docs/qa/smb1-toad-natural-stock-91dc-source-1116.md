@@ -207,3 +207,11 @@ All current M/F/S/L source gates are now closed with the stated versions and
 injury scope. Current native M/F are recorded above; native S/L are separate.
 No further broad source tests are needed for these gates. All fixtures and
 previous negatives remain frozen; every output root is absent/zero files.
+
+Root24797 actual Downloads91dc subsequently passes frozen1acaa/0ed1 hidden1UP:
+`a716846ae15d3e51d1fcdca9b1101f4874bde2f7f67e46950e6df0aa50a1ce47`.
+Native totals1504 Main/1193 Bm/1519 physical, real birth1375/mature1440,
+collector1473 at1055/176 versus1058/165 positive10x3, delayed INC1478 life2→3,
+then25 completed Bm returns at Main82BE/SP252,1084/176/tier1/lives3. The M
+prefix passes unchanged. Source1254/1194 and1082/176 stay separately versioned.
+No native Star result is claimed by this L receipt.
