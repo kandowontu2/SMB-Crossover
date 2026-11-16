@@ -1,6 +1,6 @@
 # Rogue natural Bomb progression — source checkpoint, 2026-11-16
 
-Scope: actual owning cb95 CPU, genuine frozen MF prefix, retained v9/v7 ordinary stage controls, then read the real parsed 1-2 cache. **No Bomb acquisition or ability pass yet.** No game/actor/resource seeds, ROM edits, new helpers, captures or native run.
+Latest scope: **source38899 PASS** on actual owning cb95 CPU, genuine frozen MF prefix, retained v9/v7 ordinary stage controls, actual authored1-2 D0 acquisition/score+25, then normal morph+B/source bomb lifecycle+25. Native validation remains root-owned/pending. No game/actor/resource seeds, ROM edits, new helpers or captures. This closes one source gear gate, not all eight natural/native abilities.
 
 Input was captured once as exact9826 `98261effbc214d24a00b2f8bd2950eca8ea3bf3675b331956a2ad42a7ab819e6` and strictly composed in RAM to `cb95eb8dff9929c8162e019d5e3f33e45b570946f5281c07584a9f11cacdba07`. The owning cb95 composer, facade and all qualified M/MF/ML/MS/missile/full factories are unchanged. New research module: `tools/audit/explore_rogue_natural_bomb_cb95_1116.py`; `load_current()` captures exact9826 or validates exactcb95 through its inverse; `run(raw, limit=7000)` executes current CPU.
 
@@ -18,7 +18,7 @@ Source70524 **PASS**, receipt `e1221d5c93aa2ee44f0dcd0d230aa61c21eaa28a680aa5c36
 - At25 consecutive completed grounded 1-2 public returns: x40/Y177/high1/native0/action0/VY0/life2; tank1/gear0/ammo5/max5/rawHP19h,19h. These are source-model counts, not a native replay.
 - Actual current screen pages0..0 contain power-up metatile **C1 at world160/Y144**. `BrickQBlockMetatiles` file1035818 is `c1c05f6055565758595a5b5c5d5e`; actual BumpBlock index0 dispatches MushFlowerBlock. Thus this is an authored ordinary next raw0→powered raw1 opportunity, not a fabricated typed actor.
 
-The next directed ordinary-input scope is this exact x160/Y144 block. With genuine MaxMissiles5/Gear0 and status1, the already inspected selector should choose typedD0 at actual construction. A successful follow-up must observe that real birth/maturity, physical grant0/C1, OR01 without health/ammo refill, once erase/popup/cue/source request, actual score writer and25 new completed original/public returns before normal morph+B placement/lifecycle. No such success is claimed here.
+This initial cache checkpoint established the next directed ordinary-input scope at x160/Y144. Its genuine MaxMissiles5/Gear0/status1 selector lead is qualified by the later source collection below; the cache receipt alone is not relabelled as that acquisition.
 
 The generic retained route sources remain pinned by `replay_rogue_full11_current_1114.route()`, including v9 `c9d98bf554ead8e3976cfee0bccbc4693de938985024139f59aaf10c5dde2eed` and v7 `c064b5e8c682c8a0bef078984a753ba141c376fad2c0a3ec964a783a766800bc`. No timing matrix, source-world inventory invention or new item variant was introduced.
 
@@ -35,4 +35,19 @@ Actual reached witnesses in that negative:
 - Actual Down morph5009, fresh B64 at5010, native source slotD0 action8 at158/133. Original placement request1 and explosion request10h are observed. Source8→9→10→0, exactly one each terrain phase1..5, actual F7 removal at5056. These are real native bomb-point query calls, **not proof of a broken tile, earned second item, enemy hit, pixels or audio waveform**.
 - At5082: at least25 new post-expiry entries and returns, no pending scope; actual differences entries Main25/Step26/Life25, returns Main26/Step26/Life26. Final150/120/morph action3/life2/gear1/tank1/ammo5/max5/rawHP19h,19h/score5610.
 
-`gear.complete` was true and reason `natural-Bomb-and-lifecycle25`, but the final inherited boolean still required active `credit`. That variable is intentionally cleared after storing the actual `gear.acquisition.credit` to avoid repeating acquisition processing. Only that final reference was corrected; controls/game assertions remain identical. Exact full repeat38899 is pending at this checkpoint. The negative is not silently promoted to a passing final controller or native claim.
+`gear.complete` was true and reason `natural-Bomb-and-lifecycle25`, but the final inherited boolean still required active `credit`. That variable is intentionally cleared after storing the actual `gear.acquisition.credit` to avoid repeating acquisition processing. Only that final reference was corrected; controls/game assertions remain identical. The negative is not silently promoted to a passing final controller or native claim.
+
+## Final frozen source/native-ready handoff
+
+Exact full repeat38899 **PASS**, outer receipt `01747919e085154928617025cf4d31c44ee8f6a952553e0d76d595a3a00a7614`, inner `fd8333af26d55d02dfe8401ae26adc69c500598f1f3137e7a56c4f60787b5bcb`. Removing only the final `passed` field makes the complete observed receipt byte-for-byte identical to59825's observed receipt. No control, game byte, timing or outcome changed for the fix. All5082 public Main and3982 original Dispatch/Step/Life entries/returns balance; pending scopes0. Executed registration18 fixed exec addresses/12 write addresses/two events. Captured input remained9826, executed image was exact owningcb95 throughout; zero generated files/PNGs/Mesen runs.
+
+Frozen packet:
+
+| Path/API | SHA256 |
+| --- | --- |
+| `tools/audit/replay_rogue_natural_bomb_cb95_1116.py` — `controller(rawcb95)`, `metadata(rawcb95)` | 5de4679e9d1726a81cfd08afe1d5fd5c953848832443041849fa5945b6fee1ac |
+| Generated Lua | 3395fd00a8ffae0e8448850be7b5d299d2f3e67876da6de71625acf1bf15665b |
+| `tools/audit/check_rogue_natural_bomb_cb95_1116.py` — direct actual-CPU callback runner | d096843776cd812c4885cddf2a5c435775ffffa3e795fee20ff6b555e11e4c52 |
+| `tools/playthroughs/rogue_natural_bomb_cb95_1116.lua` — ordinary continuation | 0182c5a55e3d6247ecd9c58bbd1e96015c99d4e11c8c54e3c91649d7034bbbf2 |
+
+Final acquisition and Bomb details/counts are exactly those enumerated above: D0C1/OR01, actual score writer plus25 new original work, then original slotD0 fuse/explosion/terrain-query/F7 removal and at least25 new completed work. Native playback still needs root's single queue; pixel/audio output, actual terrain destruction/enemy hit, additional Bomb placements and the other seven gear abilities remain outside this source pass. Existing helper inventory/geometry and all old source/stock/negative packets remain unchanged.
