@@ -46,6 +46,21 @@ mailbox unit followed by actual Select/Start/parser/constructor. It does
 not reproduce physical vblank; a future native controller contains the full
 title/options/level-setting navigation. No native or delivery claim is made.
 
+Mount-release21495 stops at275/265/176, HP5/lives2, receipt
+`4a28743099d49b4b8de521a29d49047e11313543bb6efce1095a6377a1ab2389`.
+Actual action8 at248/176 is an initial reach/step admission, not a completed
+roof witness. Releasing there was premature. The separate roof successor
+uses measured height and donor foot row, then requires real neutral idle.
+
+Roof42281 reaches neutral idle299/113/foot145 with HP5/lives2 and stays
+there safely. It times out on an overly strict enemy-despawn predicate,
+receipt `69b4a3abb75aa43320e326b5d17ad54c4ad838c3c2bac4c2ee749ff1044d4734`,
+Lua `ba4cc3f1…`. Actual actor0/Goomba moves Left below the roof:302/184 at
+the wait entry. It survives on the left ground, so disappearance is not
+required for a safe phase. The new actor successor waits until it passes
+left of the platform's approach (x<208), preserving every other control.
+No health changes, game-byte edits or helper changes occur in these cases.
+
 Every producer uses an absent bounded root, max1 with0 generated files.
 Root retains the only emulator queue. No game bytes, ROM files, patch or
 release assets, helpers, health or ability seeds are written.
