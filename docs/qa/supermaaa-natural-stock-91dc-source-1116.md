@@ -128,3 +128,83 @@ This is faithful emerging contact, not a full-maturity or native pass claim.
 Root may test this exact controller; real native timer/neck cadence remains
 separate and may expose a new honest control negative. No further broad M/F
 source tests are required. Hidden1UP and Star remain open in this namespace.
+
+## Hidden1UP source pass
+
+API `replay_supermaaa_stock_91dc_1116.controller(raw91dc,'oneup')`, or
+`family('oneup')`, frozen factory97c8f76b above. LF Lua SHA256
+`74d4bc0101d3141636dea9ce9f77b40e4fa2d9f098dd370156ba1096d29ebf24`.
+Source22308 passes in42.78 seconds:
+`f5e79c73e81637c71fdbb84112ab9f1e06c5fa701ad2609b6fc0adf85db7b917`.
+
+After the complete genuine M/60/1000/+25 prefix, the actual hidden60 at1024/128
+is head-bumped from1019/176/neck27. First observed birth1102 is state2 at
+1024/119, then full128 maturity1166 at1024/103. Actual9B28/SP243 collector1189
+has hero1036/176/neck31 versus1UP1048/132; actual inclusive boxes meet1x1.
+This is a reached genuine collector, not a boxes-only inference. Erase,
+popup11/cue20 and native delayed INC8987→898F at1194 change lives2→3/cue64.
+Exactly25 later Source returns finish at actual Main82BE/SP252:1220 balanced
+Main/1160 Source,1053/176/life3/tier1/neck32. Neck and earned tier survive INC.
+Unlike the distinct emerging-F scope, this L episode requires and reaches
+full128 maturity. No native, expiry/ability/audio/performance or full-stage
+claim follows from this source receipt. Native launcher uses raw0/variant2.
+
+## Star ground/head and injury recovery
+
+Frozen base Star Luaa0d88745 aligns on the roof at1610/112/neck38, above the
+target block. Source70972 negative
+`b8bee6225f2fe7d0e07ac919fcd00a24d452fbd468564962c093a59abbc57e5d`
+ends1538 Main/1478 Source/life2/tier1 with no Star birth. This is an invalid
+head-bump input position, not a geometry defect. A separate actual-row controller
+walks off measured left edge1600/clear1576, lands1542/176 and returns underneath.
+Its old zeroVX/eight-neutral alignment waits into a real Goomba contact:
+source75758 negative
+`3a3279d63b3d610a007ba9e441cad96598557aa8376a38ad27695e152d662a99`.
+
+New ground takeoff factorya73c1f30 omits that fixture-only delay: fresh crouch-A
+at actual supported1608/176/neck43. MaaHead B6F1/SP222 queries1616/145 with
+index14/+18, returns actual tile87 at016E/SP224 and produces real Star birth1491.
+Ceiling contact brings the body back down; actual BD4A/SP230 injury1497 has
+hero1612/176 versus native Goomba1623/184/Left, positive boxes. Full128 Star
+maturity1558 follows while actual60-shrink completes. Powered guard negative
+`b1e2ffc657b364f5442365f428ae4e01f86a29c73ac4a920a72c7618ef1aca47`
+is retained. Source also observes a genuine MaaStomp at714/169, neck33→16,
+without a dedicated neck input or state seed.
+
+Separate same-controls API
+`replay_supermaaa_star_recovery_91dc_1116.controller(raw91dc,'star')`, or
+`family()`, requires actual injury/old1-target0/60 shrink and power0 collection.
+Factory SHA256
+`1dc18fb4e7266a158a38b7358ed714fb561e4b1e2039a3f065f8a32e523b4f35`;
+LF Lua `d2ec16a072beaa041ea8b6884e85eec6e10c875bbb65663551148b85e28b2f92`.
+Source38747 passes in60.80 seconds:
+`c183dfc983b092cdcda94ddf887c75a7975375fed0592a0bf113640e9a0afb7a`.
+
+Actual injury1497 completes after60 original updates at1557/016E/SP224, life2.
+Star birth1491 at1616/136 and full128 maturity1558 at1616/119 precede9B28/SP243
+collector1605: hero1661/143/neck45 versus1664/97, positive9x1. Actual AF88/SP219
+hasC0, AF8A writes35/music64; erase/popup6/cue20 occur. DEC897C→83D6 credits
+1105→2105 at1610. Exactly25 later Source returns finish at Main82BE/SP252:
+1636 balanced Main/1516 Source,1699/176/life2/power0/Star33/neck47. This is
+explicit post-injury Star, not a powered-Star or new full-stage claim.
+
+## Subsequent root native F/L
+
+Root56804 actual Downloads91dc passes frozen9d2144/910816 emerging Flower:
+`4fa00110f20893b515ae0418420422c21b6c6fecc0aa301d215613585a96fb6b`.
+Native totals1685 Main/1293 Source/1701 physical. Actual state6 positive9x5,
+15 below6 rejects, returnedC1,60 tier2 and25 returned Source assertions pass;
+terminal1246/176/life2/neck37. This retains the explicit faithful early-contact
+scope, with no full128 Flower maturity claim. The genuine M prefix passes.
+
+Root71250 actual Downloads91dc passes frozen97c8/74d4 hidden1UP:
+`d94ac1042d7c874e5e27fe7f619d98bd60f1b1b6f4b8eeea45a5e2e4234cbb90`.
+Native totals1495 Main/1163 Source/1511 physical; full128 maturity1436 precedes
+collector1464 positive1x13. Actual INC1469 gives life3, then25 Source returns
+finish1058/176/tier1/neck32. Its genuine M prefix passes. Source1220/1160 stays
+separate. Native Star remains root-owned, currently queued after source closure.
+
+All source processes are terminal and exact bounded roots remain absent,
+zero generated files. Original source/controls/negative scopes remain frozen.
+No game/ROM/helper changes, seeded state, release asset, standalone native M,
+audio/performance/complete ability or current full-stage claim is introduced.
