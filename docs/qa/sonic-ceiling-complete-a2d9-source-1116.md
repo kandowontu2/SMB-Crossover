@@ -154,10 +154,112 @@ private/SMC/map/CHR/VRAM state matches without any foreign mask; zero new
 helper instructions are entered. This is constructor/neutral shared-boundary
 scope, not their separate fullstage/item suites.
 
-All required game-source gates are closed. Root's physical/native/delivery
-lease is still separate and absent here. A new retained-stage native factory
-for both forms is being compiled/callback-qualified at root's request; its
-unqualified fullstage Lua pins are not offered as tested controls yet.
+All required game-source gates are closed. Physical/native/delivery grants
+and results are owned separately by root. The following later entries close
+the retained-stage native factory and the replacement resource observer.
 Both Sonic/Super motor fidelity and natural F/Star work stay
 separate; no native, 60Hz or whole-arsenal claim is made. Every producer uses
 absent `build/sonic-ceiling-complete-source-1116`, max1/600s/zero files.
+
+The retained-stage native factory is now source-qualified:
+`replay_sonic_ceiling_full11_a2d9_1116.py`, SHA256
+`75e04f0cec7e2a9484fb2d1c3c449f42c7672d8ae144da42b618225e169474d9`.
+The controller APIs are `controller(raw, 'sonic'|'super')` and `bindings`.
+Sonic Lua is `b74ff9b9d032b444f9566d0d945461d5104f84349986bbdc2053c614de32b7f6`
+(16665 bytes); Super Lua is
+`f1b8c39c3485da7b684b14c80bc63fb6905f03e178ee23d50e937565ece9260a`
+(16671 bytes). Both retain policy SHA256
+`48ce6c4641e2273638763b540d1638df3891575a4fd26bb1948ffa7ead651008`.
+New callback checker SHA256 is
+`2c7b8462d87998f264b8a426d6e4c544f84ac3de0a4c73a0b21bd14e6efb2db0`;
+job46064 passes receipt
+`0a4e8d46d2a2a5bfbc18a7cc76fa295d89548f648195f0b4794b0b853124b8d9`.
+Its 328564 actual dispatches include 2660 balanced Main and 1464 balanced
+OriginalFrame/HostMain returns, one balanced TimerCancel, zero pending,
+flag/castle/entrance and 25 grounded original-worker updates in1-2. The full
+observer replaces the complete item afterMain function and contains no fixed
+five-ring resource assertion.
+
+Root private native2047 subsequently passes both exact a2 fullstage controls:
+Sonic `88f1d54f83f80a15f45d01138dfe9f86b5ab27e4f49adcc2d109f88318af3a5c`
+has 2974 total/2660 route Main, 1466 OriginalFrame/HostMain and 5030 physical
+frames; Super `a7a3a0fc08b25995b63f3383df197daeddca0661e590d52e57046f689c7cf554`
+has 2995 total/2660 route Main, 1466 original returns and 5056 physical frames.
+Each reaches flag route1407, castle1469 and entrance2225, then 25 living,
+grounded original updates in1-2 at40/176/two lives, no pending and balanced
+TimerCancel1. Native fullstage has rings5 before transition and0 after the
+existing area constructor. These private native results are root-owned;
+neither this source checkpoint nor the fullstage result claims delivery.
+
+Root private natural-life9824 retains observer negative
+`3d8600aa4e6d7dde2286ba32910e9c0166e4d819e269043f930bdcf441765b31`
+for frozen9b2/e361. Actual gameplay reaches hidden head616, birth617, eight
+Timer0/gravity updates, physical C0-state1UP collector683, delayed INC688 to
+three lives/cue64 and 25 further original returns through714 with zero
+pending. Only the final fixed source-fixture rings5 assertion fails: this
+native run starts and retains rings0/ringLives0. The negative remains intact;
+the source and native observations do not justify a gameplay-byte change.
+
+The source replay's five rings are later acquisitions from an existing,
+conditional test fixture, not initial inventory or native SMB coin credits.
+`sonic_sms_ring_adapter_1110.s` SHA256
+`14a3e78cf0c33088a0e94fb78ef9672b24f1dc33826b8d99f7b89152830fc017`
+places ContextEnd at C378; `sonic_sms_ring_live_1110.s` SHA256
+`dd0ea067ef83f2fd1df36381261557c3ef7834f4df4ccf2ed9ab059322dbd4ee`
+declares SceneTiles C378..C37A as three GHZ1 row5/columns82..84 test cells.
+RingConstruct writes7A/7B/7B only for World0/Level0/Area5. RingProject uses
+actual source position and AcquireRingTile to update those cells and credit
+RingBCD. Source cold begins at0; the ordinary replay later reaches1..5 around
+X197/212/230/245/260. This binds the source fixture provenance, without a
+claim explaining the complete native fixture lifecycle or requiring native5.
+A separate dynamic-resource observer now compares actual captured pre-head
+resources against the pre/post physical collector, pre/post delayed life INC
+and the final state after25 returned workers; frozen9b2 remains unchanged.
+
+The new ready life factory is
+`replay_sonic_ceiling_life_resources_a2d9_1116.py`, SHA256
+`09b1f486b1650847eaf469275e6068be78961cdd0e8ebf530f1baf6930909ff5`.
+It exports `controller(raw, 'sonic'|'super')`, `bindings(raw, form)` and
+`F/J/R/ROM/H/PIN`. Sonic Lua is
+`fdba93a9c552cdfb59ec550d79c4f9f083c2d8a1b29c122c30dd83be9eb8a1ce`
+(19346 bytes); Super is
+`2314051207cd1f203fe4fe430e7b08e4722e79ec4f12f9bc711588df9f296bdb`
+(19352 bytes). Both keep the exact right-side policy
+`1a64889cf7fadfbd422f7bf7c520a72d4ef2cc62e2c03e9f7b0b72126fadf56b`
+and all head/ceiling/eight-gravity/physical-overlap/native-admission/erase/
+popup/cue/INC/25-return assertions. Only the resource observer changes. Its
+five fields are rings, ringLives, hurt, privateStar and status; none are seeded.
+The API-only predicate passes12 cases: both0 and5 ring baselines are admitted,
+and changing any one captured resource is rejected. Both forms compile;
+three parent/dirty/wrong-role inputs reject, and the fullstage factory also
+has no fixed-five assertion.
+
+New checker `check_sonic_ceiling_resources_callback_a2d9_1116.py` SHA256
+`55abb1e757b2136d2711ed020fdf37433cb698420994b59b6c8b7e567d4b21e1`
+job19639 passes receipt
+`bdae2171883411fa33d2cb6e011e876b1c56daa4ffc908fa379af7808d8a9821`.
+Actual a2 production callbacks execute584 balanced Main/HostMain/OriginalFrame
+returns with zero pending, head489, eight Timer0/nonnegative-VY updates,
+positive physical state128 collector554, popup11/erase/cue32, life INC559/
+cue64, then25 further original returns through584. Captured source resources
+remain rings5/ringLives0/hurt0/privateStar0/status0 at every required boundary.
+The observer's native zero-ring acceptance is separately finite-qualified;
+this source execution does not stand in for a native replay.
+
+Additional sparse source observations bind initializer LDA7A at D5A7 and
+three stores at D5A9/D5AE/D5B1 to C378/C379/C37A with World0/Level0/Area5.
+RingBCD changes at actual D48F are0→1→2→3→4→5 at X197/212/230/245/260.
+These support the retained producer provenance above, without claiming a
+complete arbitrary writer census or native fixture lifecycle. The earlier
+extra census assertion in job83060 (checker
+`f26373298292523be11d92b50ed13f830f4776a37bbb06236804f85a9b0bbdaa`)
+ran every production/gameplay assertion successfully, then expected exactly
+three writes with values7A/7B. That loose value filter also counted two legal
+RingProject replacement writes at D63E, so the count was five. This is retained
+as an observer-only negative, not a game failure; the required production
+callback gates remain strict. No further provenance or lifecycle run was added.
+
+All new factories/checkers write no files and invoke no emulator. Root's
+native replay of the final dynamic-resource life observer and any subsequent
+installation remain separate. Natural Flower/Star, broader Sonic3 fidelity,
+art/audio and performance are still outside this ceiling/1UP/fullstage scope.
