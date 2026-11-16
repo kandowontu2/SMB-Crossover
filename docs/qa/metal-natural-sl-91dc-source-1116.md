@@ -187,3 +187,54 @@ Its first pit clears; its second48px-pit jump requests at1313 and reaches
 not a Star or geometry defect. A separately named Star successor moves only
 that takeoff to32px before the edge and records actual head-row cells and
 flight extrema. No source Star, native L or native Star pass is claimed here.
+
+The later second-pit takeoff passes the actual floor and flight witnesses:
+request1344, minimum Y104, living far-bank1424. It retains the earlier first
+pit and four caps. Its next source receipt
+`dfff82a7d314b1da010c4de04177a93c028847c5fa718a0e1f77ea08af06cf66`
+stops before Star birth at the head-admission bound. AD54/SP183/Main1210 sees
+hero1611/164, source1603/158 and query1607/160; its returned packet is tile51.
+The authored Star cell1616 is tile87. As with the first Mushroom, the original
+head path is working but the fixture stood in the adjacent cell. The separate
+`replay_metal_star_cell_7c0f_1116.py` successor changes only that final approach
+to1620 so the authentic left head point reaches1616. It preserves all item,
+timer, credit, inventory and25 actual original-return requirements.
+
+## Actual 7c0f natural Star source pass
+
+Source receipt
+`bca870eb186e3477f0a18f3933013f1a2587a73196ae172406f60cc9484fcdae`
+passes on the actual current image, with genuine compiled cold/readback and
+the same earned M prefix. Frozen factory
+`replay_metal_star_cell_7c0f_1116.py` has SHA256
+`8200726d1653f84158f62c7164790d8da0848ce5dbe7f03566d18c0ee7e8c439`;
+`controller(raw7c0f,'star')` emits LF-only Lua SHA256
+`70622af40c9afb210733b7160ce13c264436ca3fd15af299b4094046bf20c9a4`.
+`family()` exposes W/N/controller/metadata for the existing runner. All real
+menu inputs are in the controller; Metal is variant0. No old API is widened.
+
+At AD54/SP183/Main1216, hero1620/164 and source1612/158 produce actual
+query1616/160. The deferred packet contains Star metatile87, contactY158,
+source DY FA and native contact Y164. The first observed Star is Main1217
+at1616/135/state2; this is not a state1 spawn assertion. Maturity is Main1281,
+1616/119/state128. Actual 9B28/SP243 collector at Main1343 (worker1344)
+has inclusive8x6 overlap: hero1674/148 versus Star1679/140. The compiled
+Star branch at AF88/SP208 has carry0, then the real35 writer, music64,
+cue32, erasure and popup6 occur. The source write callback sees instruction
+start AF8A; native callbacks may report the completed-store PC instead.
+
+Actual delayed DEC897C/SP245 returns to83D6/SP247 at Main1348/worker1349
+with score1605 to2605. Exactly25 original MsFrame returns, accepted movement
+returns and HostStep returns then finish at actual Main82BE/SP252, Main1374.
+All1374 entries/returns in each worker and Main counter balance; pending
+transactions are clear. Terminal1676/161 is airborne/native2/VY4, lives2,
+native tier1, armor128, weapon0 and Star33. No grounded endpoint, full-stage,
+native, audible audio, art, performance or all-abilities claim follows.
+
+Only ordinary controls changed between retained negatives and this pass:
+the measured first-M cell alignment, actual native cap coordinates, later
+second-pit takeoff and measured Star head-cell alignment. Game bytes, actors,
+terrain, health, upgrades and outcomes are never written or seeded. Full
+source/native title timing remains separate. Root owns subsequent Mesen
+qualification and the independent life-reset repair. All source handles are
+terminal; the sole allowed output root remains absent and generated files0.
