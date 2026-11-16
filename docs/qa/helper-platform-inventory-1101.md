@@ -2,7 +2,7 @@
 
 ## November16 current platform qualification
 
-Installed6a3 preserves every helper and the complete public DK Jr. owner
+Installed91dc preserves every helper and the complete public DK Jr. owner
 frombc5. **Donkey Kong Jr. (Donkey Kong, Select once)** still uses the twelve
 vertical32-pixel actors and one horizontal48-pixel actor listed below; no
 world left edge, center, initial top, width or actor kind changed. Current
@@ -22,6 +22,13 @@ same vertical failure: first944 carry929/106, sourceY121/footer136, plane138;
 next support admits138, then passenger loss and plane139 miss precede the
 original fatal guard at945/168. This is an unreleased diagnostic negative,
 not an assisted-crossing pass. Existing13 positions remain unchanged.
+
+Later historical privatef544 SOURCE tests clear the fourth descent and both
+early gaps with the ordinary vertical first-Goomba hop. They still fail at
+the first late static staircase; no new native/full clear or current helper
+qualification follows. Root QA `dkjr-ordinary-ledge-stair-root-1116.md` retains
+the exact negative/partial scopes. The current91dc join has only a new
+source-only allocation; none of its camera/footer changes are installed.
 
 ## November13 Karnov complete five-pickup route
 
