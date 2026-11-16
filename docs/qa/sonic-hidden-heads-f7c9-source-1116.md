@@ -144,6 +144,15 @@ original Suppress clearflag08 naturally. No flag/motor patch or new RAM is
 proposed; the single extra JSR requires separate live-stack/IRQ proof. This
 plan is not an allocation, composer or CPU test.
 
-Shared MrGimmick/Bub/Bob actual paired cold regression is pending. Both forms'
+Shared MrGimmick/Bub/Bob source39887 paired cold regression passes receipt
+`606b35b3aba63a11b99c4f6118cae2d18aca4bd94e8a6dceec9e55c438cbcdad`.
+Each real compiled slot25 form is independently cold-started on actual1327
+and f7,167 cold steps plus16 ordinary neutral Main updates: MrGimmick raw26
+Select0; Bub raw39 Select1; Bob raw39 Select2. All native/private/SMC/map/CHR/
+VRAM state compares exactly with no foreign state mask, and no new helper
+instruction is entered. This closes shared-family constructor/neutral scope,
+not their already separate fullstage or powerup evidence. All oldf7 source
+jobs are terminal; the real held-ascent hold still blocks physical promotion.
+Both forms'
 natural F/Star routes and Sonic3 fidelity remain separate goal work. Every source invocation uses
 absent `build/sonic-hidden-heads-source-1116`, max1/600 seconds and zero files.
