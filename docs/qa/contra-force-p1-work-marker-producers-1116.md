@@ -228,6 +228,83 @@ Intermediate Turn publication changes are still pending actual reached ISR
 reader/continuation proof. The flat matrix does not replace mounted active
 shots/packet/owner/header/lifecycle/full-stage or native timing qualification.
 
+## Actual reached ISR, public guards and ordinary loan retirement
+
+`check_contra_force_marker_reached_isr_1116.py` SHA256
+`9fd0a83d3affa925f0b02a946369336bccd080a2f7395bce60464a5deb4ec1d5`;
+15068 terminal PASS, receipt
+`d53770865de98142b4dafe9ae942eed736bd85e73a8ebc21f824b98564910350`.
+All four genuine cold starts then32 ordinary crouch/B Main updates produce26
+active-shot and26 loan-palette updates each, preserving two lives at40/176
+and removing all64 OAM tags after each complete update.
+
+The gate covers4,138 distinct reached PC/SP/full-status/class/marker-phase
+contexts (355 reached PCs per class), with4,138 genuine IRQ and4,138 busy NMI
+fixtures. Every sampled original A/X/Y is compared exactly; this is not an
+exhaustive A/X/Y Cartesian product. IRQ is120 cycles, busy NMI2219..4107,
+minimumSP160. AXYP/SP, all33 SMC bytes, full privateRAM1/2/3, live stack,
+borrowed scratch and maps/shadows are exact. Actual interrupt read tracing
+sees no C2DF marker or C2FB intermediate Turn read. Regular NMI inside busy
+Main is not invented. Forks are ephemeral, not stored state dumps.
+
+Public gate86326 stopped on an overstrong test assumption at foreignSelected0:
+NrDraw executes no new CF instruction but legitimately draws native OAM.
+Diagnostic21536 confirms publicA0/X12/Y0/P51/1984cycles/minSP188, OAM changed,
+and no private-cache change. These are observer negatives, not game failures.
+The old `--guards` diagnostic in `check_contra_force_marker_public_1116.py`
+retains that rejected assumption; it is not the authoritative foreign gate.
+
+The corrected same-context gate is
+`check_contra_force_marker_foreign_1116.py` SHA256
+`96aa964212abc02c71147a3847ed5ed6ad3bc50a6db39307d0a5638cd7ac61c2`.
+99189 PASS receipt
+`d08fe8d11d808d43991621860ab87558d0073a23f64bd92faa03cca9a6212fcd`.
+Using the same genuine completed warm prefix, it couples only actual owning
+code and full expected header, then compares255 foreign selected contexts.
+Public AXYP/cycles/minSP, all lowRAM/stack/SMC/OAM/protocol and unowned data
+match. Both sides enter zero CF instructions and write no CF cache. Native
+OAM publication for selected0..13,19,24,30 is preserved. All16 own header
+faults and a full old warm code/header cache reject; valid NrDraw followed
+by NrInjuryStatus executes actual CfCallA and the full native packet. This
+is explicit foreign component parity, not all natural foreign transitions.
+
+Independent `check_contra_force_marker_public_1116.py --retire`, source93234,
+passes receipt
+`9354cc30d6c90ac4ca1f48e7396a4165516ba6f46d2881fdf72a8a2e6e24415c`.
+Each class has26 real loan-palette updates, seven neutral updates until all
+shots retire, then four more completed native-packet updates. Packet is
+`3f15031a302700`, PendingC0/LastBlueC0/Choice0/marker0; Turn is unchanged,
+two lives remain at40/176. No actor, item, health, position or terrain seed.
+
+## Root-only private timing package
+
+New `replay_contra_force_marker_cadence_1116.py` SHA256
+`de056f20e943c71a208c207bfc38adeb03d1502a934afbbac9a38af745932c4d`
+accepts exact6a3 or exactffbb, Burns only, with `controller(raw,'burns')`.
+Parent LF Lua SHA256`94012d8bfb38eae43a19ee49e7e684bbcceef7a94871a701c6944711440d89f3`;
+candidate`564fcbee9e3f9f34c0b5b506e373c13dd1a6119be1c4c8daa3aaa010a729771f`.
+Both retain the frozen8752 observer BODY byte-for-byte,
+SHA256`6e1bababb077ad935556b7b2202f001c76c40a1119e8add52d2a9b41086e1a31`.
+Only config image/bank hashes/cookie/payload binding change. The three private
+hook PCs/readback bytes are unchanged; the five leased ROM span identities
+are metadata, not extra runtime callbacks. Source cold separately verifies
+full RAM1/RAM3 readback. The same runtime PC/SP/mapping/cookie acknowledgments
+and literal4016/4017 read histograms remain mandatory.
+
+Packaging checker `check_contra_force_marker_cadence_1116.py` SHA256
+`d6270ae9fb4b7eeb04bcc2dca0967a9c99b03e6be010d2ff61d12cf26087fc3a`
+compiles both and rejects six unknown/dirty/wrong-identity inputs; receipt
+`2b21e0c88eb5eb09490c7c0f5fdda5d7dbfd78d1189026e576081ba34d1412c4`.
+The old8752 callback proof remains versioned; no duplicate full callback
+model or native run is claimed by packaging.
+
+This is **private Burns empty-idle/Right timing-ready** only. Root must issue
+a separate physical/native lease and operate its single queue. Four full
+source routes plus area/death/member/owner lifecycle remain delivery gates.
+No CF ROM file, Mesen launch, Downloads update or cadence improvement has been
+performed or claimed by this helper. Source gain3966 cycles/Main alone does
+not qualify physical lag improvement.
+
 ## Preliminary pending status (historical)
 
 Root owns the separate acquisition/Pending/LastBlue reader audit. Its genuine
