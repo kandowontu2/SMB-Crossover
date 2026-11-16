@@ -67,3 +67,37 @@ and one-way769 proposals are not silently included.
 
 All jobs use bounded absent output roots, zero game-state seeds, files,
 captures and Mesen launches. The verified Downloads nightly stays91dc.
+
+## Current join: support cause and original backward-jump crossing
+
+New root61283 actually executes current privatea3fb. Receipt
+`3fa5bf5784f955a45d1c10331a620e41804d307e79aa019794a86ace085d4426`
+retains68 per-query events and drops0. At5384 the camera/cache are2047 and
+the freshly built list contains rectangle97,192,112,207. At5385 both remain
+2047; the fresh support list becomes empty because the grounded body right
+edge is96 instead of the jumping97. The one-pixel pose change, not a stale
+camera or stale terrain list, loses support. Earlier observer limitations
+above remain historical rather than the current unresolved cause.
+
+Original backward jumping keeps the grounded right edge24; forward jumping
+uses25. The original ability component6e2812c1 proves a Left acknowledgement,
+neutral release and fresh Right+A enters the existing backward-jump phase3
+while retaining the rightward jump direction. No body shape is edited.
+Root `replay_dkjr_backward_stairs_current_root_1116.py` only adds the actual
+Left acknowledgement to the existing retreat/release/jump controller.
+
+Source25084 reaches all10 late staircase targets, the third gap, and the
+fifth-pipe roof/descent. Receipt
+`300d35d121fd24563ec566ea888d18d4199d227129cf72cd0f133708106e3d31`
+is still a full-route negative after departure. The same-input diagnostic50719,
+`48a74141d60e4917c39ba22250b7b153471bd432682e363084613d0f8b686ca3`,
+proves actual native injuryBD93 at2684/176: two Goombas are at2696/184 and
+2719/184. OriginalDamageA2DA writes source phase5. Fall distance14 is below
+the original24 limit; this is an enemy encounter, not a fall-limit defect.
+
+The old pipe5-depart controller holds Right until2704 and never invokes its
+existing near-enemy hop there. A separately frozen successor tests that hop
+with its original grounded/rearm/live-enemy guards. This is ongoing ordinary
+controller work. No current full-stage native pass or private delivery is
+claimed. All13 helper placements and all game bytes remain unchanged by these
+controller studies; the383/281 current camera/footer candidate is source-only.
