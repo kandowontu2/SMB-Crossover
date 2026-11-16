@@ -129,5 +129,24 @@ The existing direct dispatch source sends Mini to actual PRG84:B43E. A new
 same-input observer binds that owning path plus source MiniNativeTileACBF,
 recording upward world point, mask, signed source/native velocity, returned
 raw tile, cell and flags, with an aggregate minimum and first hidden-cell
-latch. Source run3043 is pending. No control threshold, engine byte, helper,
+latch. Source run3043 follows below. No control threshold, engine byte, helper,
 head geometry or collision constant is changed for this diagnostic.
+
+## Actual owning ascent point: row144, not hidden row128
+
+Observer factory3e606f490a99f027506bab24f37018058408e7ef38ab58a0c4a4994c22dd2c7a,
+LF Lua8f03a0f4ba053a54e5ebd6e5150af677a348b4e1f0b23e1a08e8610e90ee29cf,
+diagnostic receipt4d9693dc85a84028e559600e869a9ccb967aea25c234e1419cdd991ef701b3bf
+records26 genuine upward source queries on unchanged guarded inputs. At the
+minimum, actual MiniNativeTileACBF/SP218 samples world1024/144 with mask2,
+negative1, sourceVY−1184, native VY0 (pre-export). ReturnA81E/SP220 isA0,
+flags0/raw tile0/cell0x370. The world point never enters128..143, and no raw60
+query occurs. There is no evidence of a hidden admission or query defect.
+
+Root accepted a directed existing Up+Select support input under the authored
+block. A separate factory aligns naturally, issues that one chord, observes
+the native ID25 constructor and source carrying, then requests fresh standing
+A from actual supported nativeY<=160. It steps away while the real item rises
+and keeps full128 maturity, physical wholeC1/INC/cue64 and25 returned-update
+gates. Source run91248 is pending. No platform coordinate/formula, pool rule,
+body form, motion, physics or engine byte is modified by this successor.
