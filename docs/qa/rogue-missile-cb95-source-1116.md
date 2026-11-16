@@ -1,0 +1,19 @@
+# Owning cb95 missile join source qualification
+
+Lease `rogue-missile-9826-source-root-1116.json` SHA `6029cd1290975bef1e59a20e2d89287385656610daab1ac5ca5aa56aacaf927d` authorizes only the same2B/1changed995207 operand over owning9826. Candidate `cb95eb8dff9929c8162e019d5e3f33e45b570946f5281c07584a9f11cacdba07` preserves all Mini20/Sonic94 exactly. Native/physical ROM/Downloads/image output remains unauthorized here. Every producer uses absent `build/rogue-missile-9826-source-1116`, max1file/600s/zero outputs. Existing qualified54b/1327 APIs and controls remain unchanged.
+
+New composer `compose_rogue_missile_9826_1116.py` SHA `f38d2e2859631b1156ad5805d29a481a89f6e68e77b17a4f509de8af7d19d3a1`, API `proposal(raw9826)`/`inverse(rawcb95)`. New owning facade `current_rogue_missile_cb95_1116.py` SHA `aba571d7bc7740fb84af705c6e06371b0d09e03d4406e321c485c9716736ee38`, API `bindings`/`reference`/`cold`/`load_current_image`. Exact installed a2 may construct leased9826 in RAM, or exact9826 may be read directly; the input is captured once. Owning CPU fetches cb95 throughout. The54b projection supplies metadata only; exact inverse/unowned-byte checks and protected Mini/Sonic spans pass before CPU.
+
+Unified factory `replay_rogue_missile_cb95_1116.py` SHA `723f56157c1fa5602ef4a68fc248979109f36bc1adbc48a5468f23af8e0b502a`, API `controller(rawcb95, kind)`/`metadata(rawcb95, kind)`, kinds `missile`, `full`, `pictures`. It changes only the actual ROM SHA in each frozen config, asserts config contains no stale full-bank hashes, refreshes owning facade bank metadata and reverses byte-for-byte to the frozen54b text. All functional bodies/assertions are exact. No new opcodes, physics, helpers, damage mapping, art or resources are added.
+
+## Genuine owning attack
+
+Actualcb95 source93570 PASS `a0a36d8178935251f50e48be3cdd1d0e1ac336174618b22f0fa702bde4e09d75`, inner `d6f5d1e123f90cc3c68e8736a400110e7c14709b91c35efd4cb78cffc4c8aa24`. New Lua `614b87d9365dcd07268084e47824874a4055b9b1b90d70459efe4ccf18a303d3`, exact reverse to frozenff66. Actual compiled cold and20exec/12write/two events execute1868 balanced Main/Dispatch/Step/Life scopes. Genuine M/F effects and each credit/+25 gate are preserved; original missile11 spends5→4 and publishes request20, moves43×4pixels, performs43 cell/animation and42 renderer calls, actually expires offscreen, then satisfies at least25 new admitted/public entries+returns. Final1238/113/lives2/Tanks1/Gear0/ammo4/max5/rawHP25,25/score2200 has no pending scopes/reset. Renderer calls are not pixel proof.
+
+## Foreign Mini/Sonic and focused combined interrupts
+
+Source61949 PASS `6a05da4e32c85e185e5a4f37989745dfb863b0c2696e973931f5cd3b916716ae`. Both9826 andcb95 use genuine compiled Mini41 Select8 and Sonic43 Select3 cold. Current Mini5120 and Sonic kernel/metadata readback, both full16-byte cookies and owner identities pass. Thirty-four neutral/Right/Left public updates per family match parent9826 in every private/native/map/CHR/SMC byte; MiniPublic/MiniStep34/34 and SonicHostMain34/34 pair dynamically with returned scopes. Neither family enters the changed Rogue updater. Life2 and real engine8 remain.
+
+Focused public missile cuts AF76/AFE2 execute2 actual IRQ plus2 busyNMI, minimum SP185, with complete public Main continuation parity for meaningful registers/status/live stack/full private/SMC/maps. Only the actual busyNMI skipped-counter increment is excepted, with no blanket native-state mask. The source record in this small IRQ fixture is explicitly a declared component, separate from the genuine earned attack above. Unchanged255-action/510-fullcaller matrices and broad old22+22IRQ cases transfer from their exact54b code/consumer domain and were not rerun.
+
+Owningcb95 full1-1/25grounded1-2 source70610 is currently running on frozen retained controls. No full/current-native/physical delivery claim is made by the source attack or this document.
