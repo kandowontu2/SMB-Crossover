@@ -3,7 +3,9 @@
 Actual current67 has a newly observed first-pipe negative. This does not erase
 the November11 delivered-version full pass or turn the separate private769
 failure into the same observation. No game change is proposed from the evidence
-below; the first native bad writer/contact is still being investigated.
+below. Subsequent passive native80300 identifies the original fatal-drop
+branch; the separately source-qualified cap-departure controller is recorded
+in [dkjr-public-cap-depart-67-1115.md](dkjr-public-cap-depart-67-1115.md).
 
 ## Native negative94565
 
@@ -88,7 +90,14 @@ eight **specific transition witnesses**, without per-frame/Main state arrays:
 
 The first writer also retains its eight live stack bytes for caller provenance.
 Counts and fields describe observation boundaries, not inferred completed
-physical gameplay updates. Native replay remains root-owned and pending.
+physical gameplay updates. Native replay remains root-owned.
+
+Root80300 then completed this exact passive diagnostic, receipt
+`3b87a46813d934605ff0db14c84a86afcc22bcad3a7724774f1be4c8173007f7`.
+The original route still failed. First pending source5 was RAM3:A8DD/SP194,
+Main1135/frame2804, native450/144, source/prior4, originalY159/origin101/limit24.
+Its real pipe support and original fall check explain the58-pixel fatal drop.
+No game correction or successful native controller result is implied.
 
 All producers used absent bounded roots `build/dkjr-public-first-pipe-67-1115`
 or `build/dkjr-public-first-pipe-probe-67-1115`, max-files1/600 seconds.
