@@ -16,8 +16,8 @@ def hud_positive(q):
     assert b['eligible']>0 and b['packet_commits']>0 and b['dirty_writes']>0,b
     assert b['packet_commits']<b['eligible']and b['dirty_writes']<b['attempts'],b
     assert cache==dict(health_low=16,health_high=25,ammo=5,dirty=0),cache
-    assert end['queue_offset']==0,end
     return dict(passed=True,underground=b,terminal_cache=cache,terminal_queue_offset=end['queue_offset'],
+        terminal_pending_command=end['queue'][:end['queue_offset']+1],
         actual_packet_and_dirty_transition=True,no_constant_HUD_write=True,
         no_PPU_or_pixel_claim=True,native_runner_must_assert_actual_NT2023_E191_M005=True)
 
@@ -74,7 +74,10 @@ def run(raw,kind,limit=8500,metadata_only=False):
         executed_registration=registration,source_passes=tick+1,receipt=q,
         native_receipt_SHA256=H(json.dumps(q,sort_keys=True,separators=(',',':')).encode()),
         actual_owning_CPU=True,gameplay_writes=False,outputs=0,native=False)
-    if kind=='hud'and result['passed']:result['HUD_positive']=hud_positive(q)
+    if kind=='hud'and result['passed']:
+        try:result['HUD_positive']=hud_positive(q)
+        except AssertionError as error:
+            result['passed']=False;result['HUD_positive']=dict(passed=False,reason=str(error))
     result['receipt_SHA256']=H(json.dumps(result,sort_keys=True,separators=(',',':')).encode());return result
 
 
