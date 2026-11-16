@@ -243,3 +243,44 @@ Terminal Main1295 is1675/167/HP6/max3/tier1/lives2, native Star34,
 weapon0/ammo63 and score1500 (precollector500). This is natural Star
 source proof, with native coverage still pending; it is not a full-stage,
 all-ability, render or cadence claim.
+
+## Frozen root-native S/L package
+
+New strict factory `replay_jay_natural_sl_7c0f_1116.py` SHA256
+`3f31948b4e00328c3cb20807164c51cb590d1971c34c8314ff9603e9de1d7396`.
+`controller(actual7c0f_bytes, 'life'|'star')` returns LF text only;
+`bindings(raw, kind)` reports exact current hook/readback/bank pins,
+complete AA header, current authored stream, physical work-RAM fields and
+the same cbee9977 policy used by the source routes. It rejects other ROMs
+and Flower; no mutable default or frozen API is broadened.
+
+| Kind | LF bytes | Lua SHA256 |
+|---|---:|---|
+| life | 21580 | `3fbf3c43befcc52e54f1197458b3fdc5f8ca26e810d8b50c11eb901a16770927` |
+| star | 21580 | `f83bdb48d7c28bfecdf0e0d0f52027e49cd3dabef84e20b7ec1b39297319fc69` |
+
+Package source11314 terminal PASS, receipt
+`46823acd48ee30d5693fc8a1f5e93c2e17e8268abea298cf62a6c4379c7ee947`;
+checker `check_jay_natural_sl_native_pack_1116.py` SHA256
+`0174111603295ae5a65a987613b7dc65e6b3d32c927db2c442fc304030ff56c2`.
+Both texts compile and reject dirty/91dc/unknown-kind input. Sixteen actual
+compiled-cold game updates acknowledge16 Main and16 original integrator
+entries/returns, pending0, at52/176/HP6/max3/tier1/lives2/ammo63.
+Only observer activation follows the proven cold constructor in that
+small callback smoke; the controller's physical-frame menu coroutine and
+natural late collector callbacks still need root-native acknowledgment.
+It does not repeat either full pickup source route or claim a Mesen pass.
+
+The first package attempt68030 rejected the obsolete observer label
+`FloateyNumbersRoutine` before CPU; the current public label is
+`FloateyNumbersCore`. The final factory authenticates its real EE life
+increment at PRG126:8987 and dynamically pairs every entered scope's
+actual PC/SP/mapped-bank return. It observes cue/music writes during the
+real collector, allowing the ordinary audio consumer to clear a queue;
+it does not require a cue to remain unconsumed at a later return.
+
+Root owns all future staging/native runs. No game-byte/candidate write,
+emulator launch, capture, sidecar, build file or new helper was produced.
+Existing Jay helpers are unchanged in1-1: width32, left/center/top
+384/400/192 (necessary M prefix),688/704/192 and880/896/192 (traversal).
+Output root `build/jay-natural-fsl-source-1116` remains absent, max-files1.
