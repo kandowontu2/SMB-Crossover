@@ -74,3 +74,26 @@ updates, and prove all legal import/phase ordering before excluding/resyncing
 the player. No source/game repair lease has been granted yet. The different
 source-only later vertical loss remains a regression target after this cause
 is addressed; it has not been waived.
+
+## Source candidate and the independent vertical mismatch
+
+The later root source-only carry-camera lease authorizes exact214+16 bytes
+over the Bowser6a3 parent. Frozen in-memory6d7 candidate/C97764027/F3f09d9b4
+keeps all helper coordinates, the delivered pending-transition stub and
+every unowned byte. Public/camera components39796 and remaining guards91443
+pass with explicit complete-return contracts; reached ISR qualification is
+still pending. No physical6d7 file or delivery has been authorized.
+
+The unchanged ordinary source route14132 is negative509f6e92 despite the
+corrected camera ordering. Separate diagnostic1719/738628d2 proves the next
+cause: original source Y is nativeY+15 and its footer adds15, so nativeY+30.
+Native platform positioning subtracts32 from the139 plane, leaving bbox
+footer137. Next actual native LPC rejects that2-pixel vertical gap and clears
+passenger3; helper139→140 moves without another position. The source window
+138..139 then misses140, source4 begins and the original fatal-fall threshold
+is eventually crossed. Camera/cache848/delta0 rule out the previous cause.
+
+This is a required separate platform-only repair proposal, not grounds to
+inflate enemy collision globally, bypass original fall checks or move helpers.
+The proposed source camera correction remains undelivered until the stronger
+crossing and native regression gates are satisfied.

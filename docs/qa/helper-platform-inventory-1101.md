@@ -1,5 +1,22 @@
 # Helper platform inventory — functional pass in progress
 
+## November16 current platform qualification
+
+Installed6a3 preserves every helper and the complete public DK Jr. owner
+frombc5. **Donkey Kong Jr. (Donkey Kong, Select once)** still uses the twelve
+vertical32-pixel actors and one horizontal48-pixel actor listed below; no
+world left edge, center, initial top, width or actor kind changed. Current
+native proof remains partial. The private in-memory6d7 camera-order candidate
+has not been delivered or newly qualified as a full clear.
+
+After that candidate removes the camera double-adjustment, separate source
+diagnostic738628d2 shows native platform snap subtracting32 while the DK body
+footer is nativeY+30. A139-plane carry leaves footer137; the next native
+collision clears its passenger, then plane140 misses the old source window.
+A platform-only repair is being measured. This does not authorize broader
+enemy/body collision, source fatal-fall thresholds, new helpers or locations.
+Earlier full clears and current partial native receipts keep their versions.
+
 ## November13 Karnov complete five-pickup route
 
 Actual Downloads7ef now passes all five natural stock pickups and the full
