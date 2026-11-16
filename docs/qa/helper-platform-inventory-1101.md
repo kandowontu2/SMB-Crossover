@@ -941,3 +941,37 @@ The endpoint includes25 living grounded original-worker returns at40/176,
 HP6/max3/lives2. This proves the assisted route; it does not assign a new
 per-platform carry count. Separate natural-food tests cover the first
 pickup's existing support. See `jay-status-size-native-root-1116.md`.
+
+### November 16: Mini Mario's installed1327 pickup crossings
+
+**Mini Mario (Mario, Select eight times)** retains three width32 native
+vertical `$25` platforms in1-1. No actor, formula or placement changes:
+
+|Purpose|World left X|World center X|Initial top Y|Width|
+|---|---:|---:|---:|---:|
+|Second pipe|560|576|192|32|
+|Third pipe|688|704|192|32|
+|Fourth pipe|864|880|192|32|
+
+Actual Downloads hidden1UP, Flower and Star routes board all three. Their
+completed-Main support snapshots / matching vertical-motion samples are
+67/12,47/22 and106/25, respectively. These demonstrate observed support
+and motion, not a count of distinct carry callbacks. Flower and Star routes
+also cross the first pit.
+
+The same routes use the existing **Up+Select** manual vertical platform.
+These are measured replay spawns, not new fixed placements:
+
+|Pickup route|Stage|World left X|World center X|Initial top Y|Width|Support snapshots / matching motion|
+|---|---|---:|---:|---:|---:|---:|
+|Hidden1UP|1-1|1011|1027|208|32|55 /8|
+|Flower|1-1|1203|1219|208|32|121 /43|
+|Star, after ordinary injury|1-1|1604|1620|208|32|73 /21|
+
+All manual actors are native `$25`, constructor64:B378/SP214 returning
+016E/SP216, width32. Hidden1UP and Flower are actual22335 receipts205e3ebc
+and83b6a9df; Star27016/77557 shares receiptf0ad9af7. Source-model manual
+positions1012/1028,1204/1220 and1603/1619 remain separately versioned and
+must not replace these native measurements. These runs prove the assisted
+pickup crossings, not a fresh full-stage or final flagpole crossing.
+See `mini-stock-native-root-1116.md`.

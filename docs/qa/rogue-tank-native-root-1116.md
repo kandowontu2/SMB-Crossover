@@ -82,3 +82,49 @@ render sweep, a whole-stage visual review or an audible sound test.
 Both PNGs exist only in tool memory; zero image/capture files were created.
 The existing controller slot is the only rewritten file. The ROM and clear
 sidecar guard remain unchanged; root's native queue is free afterward.
+
+## Natural missile tank and hidden1UP: installed1327
+
+Root31099 passes the fresh energy-tank then missile-tank route, exit0,
+receipt `0bb87954b6b9cb9d19b0441a31f0a4d8f21726f06965f3328375c059ec1ca1ab`.
+Frozen MF factory1e91a4a7 / Lua5ac54723 retain the real M807-worker prefix
+and its later25-return gate. Powered raw1 produces actual typedD9, full
+state128 at1248/119. The physical collector at Main1915/worker1759 gives
+positive1x13 overlap, original A9/carry1, missile/max0→5, one D9 erase,
+popup6 and new cue32/source request. Raw health19/19 is preserved exactly
+from the actual pre-F capture, not supplied or refilled. The real six-digit
+writer at1920 changes1200→2200, then25 new original/wrapper returns and26
+writer-inclusive Main returns finish at1946. Final1240/113,1789
+original/wrapper returns,3132 physical frames, tank1/gear0/status1/life2,
+missiles5/max5/health19,19. Source1792 counts remain separately versioned.
+
+Root12756 repeats with two passive RAM PNGs, exit0, receipt
+`32870b7161f13c8041248fe27e76f72da8cfbdcb0cb4a7b3e101d7f01063e199`.
+Runtime Lua c1034857; removing only visual reporting exactly recovers the
+native functional0bb87954 receipt. Root viewed mature-D9 PNG
+`b02bea8cc621cb23e1cbe1b970b7960b58da4c5da28133df027f3967d94d8907`
+(2905 bytes) and earned-ammo PNG
+`e8c0b594a28d392bdd0b6403aa96e6e60f2699b52c60278b836a3bfce3a2a469`
+(2655 bytes). The missile icon is visibly distinct from the energy tank;
+the later HUD shows M005. Dawn, the visible Goomba, terrain and1000 popup
+look coherent in these scenes. No whole-stage art or exact-donor comparison
+is claimed. Both PNGs are RAM
+only; zero capture/image files are created.
+
+Root82339 passes fresh M then hidden native1UP, exit0, receipt
+`fb181c84f4107311084699cd03c07a2d5dbedeb6b4dba4ce2f8e3ce4b0c57cc1`.
+Frozen ML factorye4b4218a / Lua14e9417d bind actual raw3/FC native fallback,
+not a typed upgrade grant. At Main1665, full-stateC0 actor1056/158 physically
+overlaps Rogue1051/177 by6x2. Native direct control11 publication and the
+authenticated EE opcode at8987/SP245 produce life2→3 at timer42, cue64.
+The original11 score branch keeps1000 unchanged. After25 new original/
+wrapper returns and26 writer-inclusive Main returns, final1696 Main/1539
+workers/2733 physical at1051/177, life3/tank1/status1/health99,19 and ammo0.
+No source NewLife reset or lost equipment occurs. Original native admission6
+and full emergence remain separate milestones; no false SetupFloatey(A11)
+call is required where native code directly writes11.
+
+All three stock families M/F/L now have current1327 native witnesses.
+Star, eight gear upgrades, actual missile attacks, expiry/protected hits,
+current full stage and broader audio/art/performance remain open. No helper
+placement, game bytes, ROM installation, backup or release changes occurred.
