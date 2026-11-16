@@ -1,5 +1,15 @@
 """Actual Main-return endpoint for a genuine collected/credited Prince 1UP."""
 def install(text):
+    if 'local stockMainEndpoint\n'in text:
+        # Partial-Up already carries the fixed, stronger1UP endpoint. Keep
+        # that exact observer instead of installing a second return hook.
+        for token in("assert(not stockUpdatePending and not verifiedPendingMain,'Actual Prince and Main returned after1UP credit')",
+            "s.lives==3,'Genuine delayed life retained through25 Prince returns'",
+            "s.star==0,'1UP preserves actual Prince inventory/tier'",
+            'stock.completed_at_main_return=',
+            'if stockMainEndpoint and stockMainEndpoint()then return end'):
+            assert text.count(token)==1,token
+        return text
     def change(a,b):
         nonlocal text
         assert text.count(a)==1,a[:100];text=text.replace(a,b,1)
