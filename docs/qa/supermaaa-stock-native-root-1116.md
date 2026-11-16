@@ -10,6 +10,7 @@ there is no unnecessary standalone repeat of that prefix.
 |---|---|---|---|
 | Mushroom then emerging Fire Flower |56804 PASS|`4fa00110f20893b515ae0418420422c21b6c6fecc0aa301d215613585a96fb6b`|1685 /1293 /1701|
 | Mushroom then mature hidden1UP |71250 PASS|`d94ac1042d7c874e5e27fe7f619d98bd60f1b1b6f4b8eeea45a5e2e4234cbb90`|1495 /1163 /1511|
+| Mushroom then Star after genuine injury |40963 PASS|`2894c7c96b59624210e2b177a09e90b9d073c31ad4d7e0db260ec5c7198e7401`|1906 /1514 /1956|
 
 In56804, real Mushroom birth747 at336/136 matures812 at336/119. Actual
 collector884 sees hero405/176/neck26 versus409/151, positive8x3 contact.
@@ -36,9 +37,21 @@ Erase/popup11 and delayed INC8987→898F at1469 give lives2→3/cue64. Exactly25
 later Source returns finish at completedMain82BE/SP252,1058/176/lives3/
 tier1/neck32. Unlike the Flower episode, this episode reaches full maturity.
 
-Star remains open here. The helper is separately qualifying a real injury/
-shrink recovery after the ordinary crouch head strike; powered control
-negatives are preserved. Older full-stage evidence retains its own ROM.
+Star factory1dc18fb4/Luad2ec16a0 keeps the frozen ground/crouch takeoff.
+Original stomp1110 at714/169 halves the neck33→16. Actual crouch head1760
+queries1616/145/index14/Yadder18 and returns tile87. Real Star birth1761 is
+at1616/136. Ground Goomba injury1767 enters actualBD4A/SP230: hero1612/176
+versus1623/184, positive contact. Exactly60 original shrink updates finish
+1827 with power0/life2 retained. Full128 Star maturity1828 precedes real
+9B28/SP243 collector1875:1661/143/neck45 versus1664/97, positive9x1.
+Actual AF88/SP219 C0, AF8D timer35 writer, music64, erase/popup/cue20 and
+1105→2105 at1880 precede25 completed Source returns at Main82BE/SP252.
+Endpoint1683/170/native1/VY3/lives2/power0/Star33/neck47 is airborne; no
+grounded endpoint is claimed. Powered-route negatives remain preserved.
+
+All four stock families now have current91dc native acquisition/resumed-play
+evidence, with Star expressly following legitimate injury recovery. This
+does not claim powered Star collection. Older full-stage evidence retains its own ROM.
 Complete abilities, expiry/protected hits, art, audible audio and performance
 are not closed by these pickups. Source counts in
 `supermaaa-natural-stock-91dc-source-1116.md` are distinct from native counts.
