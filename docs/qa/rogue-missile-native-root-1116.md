@@ -1,6 +1,6 @@
 # Rogue Dawn missile dispatch: nativecb95 qualification
 
-Public Downloads is verified9826. Candidatecb95 changes only the low byte
+Public Downloads is now verifiedcb95. This repair changes only the low byte
 of the native121 action11 dispatch target, AFAF→AFE2, preserving every
 Mini20/Sonic94 location and every other byte. Original Rogue Dawn dispatches
 both normal1 and missile11 through its normal projectile updater; the host
@@ -77,3 +77,21 @@ VRAM presentation; they do not establish an ammo-counter defect. No HUD
 code, queue timing or health representation is changed. The private slot
 is restored to the public9826 parent. This check creates no images or
 output files. Direct delivery and exact Downloads replay follow separately.
+
+## Verified Downloads delivery
+
+Source was pushed throughf3f71e71 before direct replacement. Installer17819
+finished with exactly2097168 bytes, no backup, and SHA256
+`cb95eb8dff9929c8162e019d5e3f33e45b570946f5281c07584a9f11cacdba07`.
+All Mini20/Sonic94 and unowned parent bytes are exact. CLI patch guards
+passed before replacement, after it, and after actual Downloads testing;
+there are no same-name IPS/BPS/UPS sidecars.
+
+Actual Downloads36683 exits0 with **both cases passing**. Missile receipt
+is exactly5b4fb48d above; full-level receipt is exactlyd11ef5cb above.
+The complete receipt hashes match private7132, including all controls,
+contacts, resource writes, returned workers and endpoints. This is a local
+verified nightly delivery, not merely a source push. No additional
+captures, helper positions, game changes, patch assets or releases were
+created. The earlier9826-only statements in this note describe the
+chronological private checks before this delivery.

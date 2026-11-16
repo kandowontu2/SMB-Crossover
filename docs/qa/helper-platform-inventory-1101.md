@@ -1,5 +1,14 @@
 # Helper platform inventory — functional pass in progress
 
+Current local delivery is verifiedcb95eb8d, preserving all helper geometry
+from9826. No helper was added or moved for the Rogue Dawn missile repair.
+Mini Mario's current fixed1-1 actor25 placements are world left/center/
+initial top **560/576/192, 688/704/192, 864/880/192**, each32 pixels wide.
+The manual Flower-route vertical lift spawns at1203/1219/208, also32 wide.
+His9826 native full clear and the pickup-specific support evidence remain
+versioned in the later sections below; Rogue Dawn's cb95 full clear uses
+no new helper. Older current-ROM statements below are historical.
+
 ## November16 current platform qualification
 
 Installed91dc preserves every helper and the complete public DK Jr. owner
