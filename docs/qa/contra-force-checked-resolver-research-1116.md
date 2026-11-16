@@ -205,3 +205,65 @@ cold/retired15/18/19 fallbacks. Any following private-check deduplication or
 caller-fast path requires its own complete domination/ABI/funding proposal.
 No native trial is requested until actual CPU contracts and total source
 cost justify a material improvement.
+
+
+## Exact current entry and data-reader closure (no new-code CPU)
+
+Root requested a hold before all proposed-opcode execution; it is observed.
+Only metadata/source/census code ran. Fitting arrays4cf5328f are unchanged.
+
+`audit_contra_force_checked_entry_consumers_1116.py` SHA256
+`a868abc461defb4facd4513c8eda800f32622d72cd5afa34024e9d48f1841467`,
+parent-only20719 PASS, receipt
+`6b783930d063d3f18ac5734d30df668ded348827f1f1f4462d46c0a2ed579f4d`.
+The preceding34030 negative was a wrong observer expectation B0C5; the
+actual unique old helper setup starts at R87:B0C3/file717011. No game bytes
+were executed or changed by that correction.
+
+The sole standard E0 helper publisher is that Router setup. The144 Hu,
+36 Wf,8 Bowser and thirteen5-entry Nr descriptor domains publish no old
+B796..B848 target. All same/fixed-bank contiguous entry words and standard
+push-address/RTS producers are absent. The current Wf table's old alias
+entries point at the genuine B2CB/B2CD leaves, not B799/B79B.
+The proposed Router updates the sole published helper entry to B797.
+Its own function-local return producers (current JSR B639 atB7AE, returnB7B1;
+current SFC JSR015A atB7CD, returnB7D0) are inside the changed helper and are
+reassembled with it, not external immutable return targets.
+
+Six other literal near-control leads are mapped to their own69/78/124 PRG
+pages: two69 JSR B798, one78 JMP B799, three124 JSR B796. A near JSR/JMP
+cannot change the mapper, so these are not PRG96 entries. This is opcode
+semantics plus current operand/bank binding, not proposed-code CPU execution.
+
+The source census also rebinds the declared common native code rows, current
+Prince runtime/metadata/staged-state decoded streams, and retained FF/Arthur/
+QW/BW/BT/CF/WWF/Karnov containers. They contain no additional standard E0
+helper setup. These are the explicitly enumerated producer/descriptor domains;
+byte scans are not a claim about arbitrary malformed numeric pointers.
+Three retained compiler contexts are reported with current span readback.
+The retired status local source/sole removed descriptor evidence remains the
+independent cca834fd scope above.
+
+`audit_contra_force_tail_readers_1116.py` SHA256
+`0c3617d149ec7bc0bebaf75823ac4d31b3e85d357b00fabc4c74aaaf9c373cf6`,
+parent-only22446 PASS, receipt
+`5a30e8cd670841424e9edb96d38b40a300d98cf75202ef9327c01b30d60f63b4`.
+It reuses root's exact capacity audit and closes these nonliteral data extents:
+
+- All224 actual Rogue immutable page descriptors include **zero bank69 rows**.
+- All8 actual S2 DMC descriptors use only119/120, with bounded lengths.
+- A conservative every-byte scan of all69 code/data for absolute-indexed read
+  bases that could reach the tail finds only CMP BFAD,X at BF7B. The retained
+  actual/source LDX15/DEX loop bounds that read to cookieBFAD..BFBD.
+- Final Zelda2 data tables BEEA..BEEE and BEEE..BEF2 are indexed only after
+  CMP4 rejects out-of-range Y. Z2ReadCell BEF2..BF23 derives a native block
+  buffer pointer; Z2MenuPrepare BF23..BF47 is code with no tail table. All
+  original Z2_LOGIC ends exactly BF47. Guard/retire's DFE0/1/2 accesses are in
+  explicitly mapped RAM2, not the ROM69 tail.
+
+The exact cfg source partition and unchanged whole69 hash remain root's
+44432cce proof. This is source-bounded current reader/producer closure, not an
+assertion that an arbitrary malformed pointer cannot address another page.
+Both new bounded roots remained absent/zero files, and no source process is
+left live. Physical allocation/CPU execution/mount/native/delivery still need
+the root's separate decisions; none is inferred from metadata success.
