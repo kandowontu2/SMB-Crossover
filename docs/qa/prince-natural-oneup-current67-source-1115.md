@@ -250,3 +250,16 @@ the exact original F449 feet-material return, actual takeoff source/native
 pose and roof cells, and requires the game itself to admit action4 through
 its unchanged feet, running-pose and lock checks. Item/health/credit/cue64/
 25 completed-return requirements are unchanged; no gameplay field is seeded.
+
+Actual admission17668 is a genuine input-policy negative, receipt
+`301ee0d3f7982686ffe562bf698fe8b4eafa0c81a79142d8a13008e0e98d6445`,
+Lua `3012f4a2cc9e348d29bb0df8106873e3f41da4d3ceca064abcb624d8c1e684fe`.
+Original F449 atAD33/SP198 returns material1 before the actual takeoff.
+Request625 x292/y115/sourceY65/poseDelta5 has pose6, and action4 is admitted
+at627. It reaches pose37/x314/y115, then changes to fall7 by641/x318/y121
+before the original upward arc at40..42. Held-grab reaches B1DA/SP198
+with material0, no hang. Actual idle715 is318/160 HP5/lives2/native1.
+No head hit or1UP birth occurs. This is not a body-code or collision patch
+proposal. A separate runway successor makes one additional original
+B+Left careful step before turning/running; this supplies room for the
+observed running-jump startup and records the actual original action writer.
