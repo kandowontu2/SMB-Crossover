@@ -52,3 +52,42 @@ Both native runs use root's single Mesen queue and bounded capture watchdog,
 zero state writes, seeds, images or new output files. No backups, patches or
 releases. Existing13 helper coordinates and their left/center/initial-height
 definitions remain in [inventory](helper-platform-inventory-1101.md).
+
+## Ordinary-input successors and actual1-1 crossing
+
+The first new earlier-edge register attempt4767 stopped before Lua/CPU because
+the frozen first-pipe transform had already split the old edge expression.
+Correct binding75293 compiles and exactly reverses factory4eb854c5/Lua260a73a6.
+It changes only pipe4 edge909→897 and recognizes actual source-grounded cap
+support despite native2, requiring real cap/contact heights and safe X bounds.
+Native83526 is negative0676b45da9b980944d28cd557c0e7feec6eedc1c1290f4fb39c5d1a5a16b4b1d:
+departure2444 is897/111 with880 top143 on its rising half-cycle;880 positions
+continue through2474 at913/88, then2489 at914/112/source5. There is no944
+attachment or cap-recognition event. No near-apex or new physics defect is
+inferred from that limited record.
+
+Factorybe07c26f/Lua880443bb adds only actual downward motion
+`up>priorTop[u]` to pipe4 departure. Native84510, receipt
+22b08d72547d90bd478c6a6cf2284d27f71d4732105ea8a40c1cbb381cc1d7c2,
+now crosses the fourth pipe:160 genuine944-position callbacks, first2689 at
+940/109 and last2848 at977/166, then grounded980/176 at2860. All three gaps
+and later pipes pass. The overall route remains negative at final riser4,
+2959/96, physical16523, with the original no-height guard retained.
+
+Factory6699cd35/Luad06fad3c uses the already authenticated original backward
+jump for final risers4..6: anchor-12, actual Left acknowledgement, four neutral
+updates, then fresh Right+A8. No game byte or helper changes. Native21199,
+receipt30f29f4b1ab042cb19852ff5d6db257d77de1f1eb57663b72c86fe69168362d7,
+passes all1-1 obstacles: actual flag physical17956, castle18050, parsed actual
+underground1-2 at19289,40/48/source4/native2. Final helper3040 has257 real
+position callbacks, first17123 at3038/45 and last17640 at3073/163. Original
+height, injury and strong next-stage assertions are unchanged.
+
+The overall native result is still negative: after65 actual originalD65E
+returns in1-2, zero grounded returns, source5 at40/176/physical19418/lives2.
+This independently reproduces the forced-entry problem from source diagnostic
+62ea4048: the host-imposed drop exceeds the original fall limit before snap.
+See [entry cause](dkjr-underground-entry-cause-source-1116.md). The route's
+`Main` counter freezes during flag/scene transitions; it is not a count of all
+balanced host Main executions. No full strong-endpoint pass or private delivery
+is claimed. Root's shared candidate is restored to public91dc after each test.

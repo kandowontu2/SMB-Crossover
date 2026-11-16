@@ -880,3 +880,36 @@ The separate full1-1→grounded1-2/native-machine-gun regression also passes:
 receipt4e1140c6872cc1e91b7cbb0055a4938d614f51ed1ebc8d4f2d4fb3d2a089b9da.
 No jump-physics or existing-helper coordinates changed. Delivery status is
 recorded in `jay-pickup-helper-delivery-1113.md`.
+
+### November 16: DK Jr. unchanged helper layout, private1-1 crossing
+
+Donkey Kong Jr. (Donkey Kong, Select once) retains the following13 native
+helpers in1-1. No placement was added or moved in the current camera/footer
+candidate. Initial top Y is the spawn value, not the oscillator center or the
+height at which the rider later boards.
+
+|Native actor|World left X|World center X|Initial top Y|Width|
+|---|---:|---:|---:|---:|
+|Vertical `$25`|416|432|192|32|
+|Vertical `$25`|480|496|192|32|
+|Vertical `$25`|560|576|192|32|
+|Vertical `$25`|624|640|192|32|
+|Vertical `$25`|688|704|192|32|
+|Vertical `$25`|752|768|192|32|
+|Vertical `$25`|880|896|192|32|
+|Vertical `$25`|944|960|192|32|
+|Horizontal `$28`|1408|1432|208|48|
+|Vertical `$25`|2576|2592|192|32|
+|Vertical `$25`|2640|2656|192|32|
+|Vertical `$25`|2832|2848|192|32|
+|Vertical `$25`|3040|3056|192|32|
+
+On privatea3fb, actual native21199/receipt30f29f4b reaches the flag and castle
+using ordinary descending-half-cycle boarding and original backward jumps.
+The fourth944 helper has160 actual position callbacks and final3040 has257.
+The horizontal actor has26 source-plane observations and zero native carries;
+that count alone is not26 successful support events. All three gaps cross.
+This qualifies the assisted1-1 traversal on that private image, not the strong
+next-stage endpoint: the forced1-2 entry still produces source5 after65 motor
+returns/zero grounded returns. No private successor is delivered. See
+`dkjr-footer-native-admission-root-1116.md` and the separate entry-cause report.
