@@ -58,4 +58,11 @@ natural stock items and complete donor abilities remain separate.
 Root has authorized direct no-backup replacement with these exact tested
 bytes and a repeat from the actual Downloads path. The installed repeat must
 match this receipt and both PNG hashes before delivery is called verified.
-At this checkpoint the installed native repeat is still pending.
+Actual Downloads96918 now passes the exact same receipt
+`4ca23a66888de9ef342380182016c9464b25ced720f0bafe628e6a56434942ee`
+and both PNG hashes byte for byte. The complete native route, two observed
+entry scenes and resumed original grounded work are therefore verified from
+the user's launch path. Installed and shared-candidate SHA256 both equal7c0f;
+CLI guards before installation, after installation and after the repeated
+test are clear. Sourcepush1007ede0 preceded installation. The single nightly
+was replaced directly, with no backup, patch asset, release or capture files.

@@ -913,3 +913,16 @@ This qualifies the assisted1-1 traversal on that private image, not the strong
 next-stage endpoint: the forced1-2 entry still produces source5 after65 motor
 returns/zero grounded returns. No private successor is delivered. See
 `dkjr-footer-native-admission-root-1116.md` and the separate entry-cause report.
+
+### November 16: same DK Jr. layout verified in the delivered7c0f build
+
+Private97412 and actual Downloads96918 now pass the complete assisted1-1
+route and the forced1-2 entry with the exact same receipt4ca23a66888de9ef342380182016c9464b25ced720f0bafe628e6a56434942ee.
+All13 positions, initial top heights, widths and actor types in the table
+above remain unchanged; there is no new helper placement. The fourth944
+and final3040 crossings pass, all three gaps cross, and25 grounded native
+D65E returns plus26 original SourcePhase Move+Clock returns finish at40/176
+with both lives in1-2. Root reviewed actual falling/grounded images and both
+installed image hashes match private. The native horizontal bridge supplies26
+plane evaluations, not26 proven support events or native carries. See
+`dkjr-entry-native-root-1116.md`. Earliera3fb failure remains versioned.

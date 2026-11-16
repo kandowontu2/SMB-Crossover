@@ -1,7 +1,7 @@
 # Expanded-roster next native checklist — November 14
 
-Current delivery: `LATEST_1116_91DC_DOWNLOADS_VERIFIED`, exact installed
-`91dc4ac58ae749bc81f1ef91953c7c3e5aba73dd07e4b6ea2cd3059d1cdb41cc`.
+Current delivery: `LATEST_1116_7C0F_DOWNLOADS_VERIFIED`, exact installed
+`7c0f7902e5ef17ff552c2ce36ba08534fdd48f00fddc62a54834df18e68f3c98`.
 Rows retain their explicitly recorded ROMs; a later delivery does not
 silently promote earlier stage receipts to the new image. Current opening
 enemy/powerup pictures cover Prince on16a and DK/all six wrestlers on590
@@ -57,7 +57,7 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
 | Bub; Bob | **H**,f88 full stage. **C67 M/F/S**, actual Downloads12602 matches private50103: Bub2979Main/6339physical, Bob2986/6374; real M/F then Star/1000credit and25 completed workers, lives2/flags7/power2. **L C67**, actual Downloads61151: Bub1586Main/3504physical,c874ada6; Bob1585/3522,a055b306; real hidden birth/maturity/collector/erase/popup11/cue64/delayed timer42 lives2→3 and25 later original worker entries, score1500 retained. All four standard families now have native current67 witnesses for both identities | **Player Star flash repaired C67:** all6 actual RAM PNGs reviewed; physical P0/P2 hero64/66 matches completed selected draws while original private Bub67/Bob64 and worldP3 remain intact. Both Downloads receipts and all6PNG hashes match private exactly. Failed3080 capture and31581 diagnostic remain recorded: only request scheduling was corrected, no physical assertion weakened. Full current stage, expiry/protected hit, audible audio and wider ability/performance coverage remain separate. Hidden1UP counts25 worker entries, not a new completed-Main-return claim. See `bub-star-prince-native-root-1115.md` and `bub-selected-star-source-prince-1115.md`; all older stock/stage receipts retain their versions |
 | Sonic; Super Sonic | **H**,c4568faf separate full clears, rings/loss and M | Natural F/S/L; distinct Super mechanics remain later review, not an unselectable-name problem |
 | SMB3 Bowser; SMB1 Bowser | **C6a3 full earned1UP routes:** actual Downloads55517 SMB3/2883a154 (3619Main/6141physical/HP33),7245 SMB1/63ad0d76 (4696/7627/HP4), both full flag/castle/entrance then25 living grounded completedcore+tail pairs in1-2 at40/176, tier1/lives3. Separate **L/S C6a3**37075 all4 match private83453/94864; genuineM/F60 precede Star, tier2/lives2/actual+1000/+25; SMB1Star ends airborne | **Earned-life reset repaired/delivered6a3:** signed40B Ensure plus two cookie views,72owned/56changed/allunownedbc5exact. Genuine emergence/maturity/contact/INC/cue64, savedlife3/noCtor until legitimate nextarea; retained baseline36997 proves old upgrade reset/heal. Sourcefull39a67b62/native results retain distinct timing. Naturaldeath/expiry/protected-hit/audio/performance remain separate. See `bowser-life-gain-native-root-1116.md`, `bowser-life-gain-candidate-source-1116.md` and baseline QA |
-| Donkey Kong Jr. | **H**,Nov11 delivered full route. **Private a3fb native21199** reaches actual1-1 flag17956/castle18050 using all13 unchanged helpers and original backward jump on final steps; it then fails forced1-2 entry, so it is not a strong full-route pass or a delivery | Receipt30f29f4b: fourth944 support160 and final3040 support257; real1-2 entrance19289/40,48 is followed by65 motor returns but0 grounded original updates and original fall guard at40,176. Source62ea4048 isolates forced drop versus22 limit. New7c0f entry-only repair is source-only with fruit/draw components passed; pending gravity/body/lifecycle/IRQ/full route precede native. No helper changes, no new DK nightly or natural all-item claim. See `dkjr-footer-native-admission-root-1116.md` and the helper inventory |
+| Donkey Kong Jr. | **C7c0f**, actual Downloads96918 matches private97412/4ca23a66: full1-1 flag18018/castle18112, real1-2 entry then25 grounded D65E returns and26 grounded original SourcePhase Move+Clock returns; final40/176/lives2/power0/Ready2/source1/camera0. All13 native helpers unchanged | Delivered forced-entry gravity/body/admission repair preserves original22 fall limit. Both falling/grounded PNGs reviewed clean and match installed hashes exactly; public1453owned/1131changed/allunowned91dc and wholeBT8192/header487 exact. Earliera3fb strong-entry negative30f29 retained. Current natural M/F/S/L remain missing: older private firstM requires a different336 helper/head bridge; seeded fixtures do not close acquisition. Performance/full donor abilities remain open. See `dkjr-entry-native-root-1116.md` and helper inventory |
 | Hulk Hogan; Ted DiBiase; Bam Bam Bigelow; Honky Tonk Man; Randy Savage; Andre the Giant | **H**,8fc57b8b six separate full routes; **C7a80 Easy**, all six real M/F60/+25, mature Star/35/music64/cue32/1000score/+25 and hidden1UP/delayed2→3 life credit/cue64/+25 | All four stock families are individually covered per wrestler. Star expiry/protected contact, original endurance/gear, audible output and current full stages remain separate. Earlier Bigelow/Savage gap input failures are retained; later-edge controls pass using the existing native helper. See `wwf-natural-star-native-1115.md` and `wwf-hidden-oneup-native-1115.md` |
 | Excitebike | **C91dc**, actual Downloads96571/21e23eb6 full nonshortcut1-1 flag/castle/exterior+underground entrance and25 grounded originalMotor+Movement returns atMain82D0/SP252;4175Main/2636workers/6468physical,125/176/life2/power0/1-2Area2/type2, no helpers. **M/F/S/L C91dc**, actual46091/7014b9e8,F58625/cd66639c,S40074/cc12713e,L30568/1a80d9bd; genuine items/credit/25returned workers, F60ticks→power2,L INC2→3 | S uses actual moving-actor feedback and a four-pixel earlier target:84 feedback calls, positive3x1 contact at1690/176 versus1700/163, nativeC0/timer35/music64/actual1000/25returned Motor+Movement;3014Main/2619workers/4745physical,lives2/tier1/Star34. Earlier fixed-head/stationary/chase negatives remain versioned. Other abilities, Star expiry/protected hits, audio, visuals and performance remain open. See `excitebike-stock-native-root-1116.md` |
 | Prince Persia | **C7fb Easy**, actual Downloads97939 matches private37914: full earned-M/F/sword1-1/flag/castle then25 living grounded completed1-2 returns;9336Main/7757Prince/17249physical,HP5/lives2/native2/Sword1. Hidden5F/60 point-query false wall/backward snap is repaired; native head path/real pipes remain intact. Current67 leaves the full Prince packet/code/cookie exact, without relabeling this as a new67 route | **S C7fb Easy**, actual Downloads97939 matches private28784:4707Main/4015Prince/8508physical, genuine collector/erase/cue/credit and25 completed Prince updates,HP4/lives2/native2/Sword1/Star33. Natural L, equal-facing target loss, wider abilities/Hard/audio/art/performance remain open. 1-1 cap/running/grounded-Up controls genuinely do not reach hidden row128; retained negatives do not establish a head-query rejection. A typed67 2-1 authored ledge/controller investigation is active. No helpers changed. See `prince-hidden-point67-native-root-1115.md` and `prince-hidden-point67-ace-source-1115.md` |
@@ -69,17 +69,14 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
 
 ## Assign next, without resetting completed work
 
-1. DK Jr. remains an active **private repair** gate. Actual private a3fb
-   native21199/30f29f4b now passes the complete1-1 geometry using ordinary
-   descending-helper timing and the original final-step backward jump.
-   The retained26754/38586 earlier negatives are not reopened. Actual forced
-   1-2 entry dies before25 grounded original updates; source62ea4048 proves
-   origin63 versus final sourceY191 trips the unchanged original22 fall limit.
-   New source-only7c0f retains all13 helpers and that guard, holding donor
-   admission pending actual host gravity/landing. Fruit/draw relocation
-   components passed; lifecycle/IRQ/full source and root private native remain.
-   No private successor has been delivered. See
-   `dkjr-footer-native-admission-root-1116.md`.
+1. DK Jr.'s7c0f repair is now **delivered and native-verified**. Both private
+   97412 and actual Downloads96918 pass the same complete1-1/grounded1-2
+   receipt4ca23a66 and both entry PNG hashes. Source full83da and reached
+   IRQ7290 passed before staging; original fall22 and all13 helpers remain.
+   Do not replay the closed earlier fourth/stair/forced-entry failures.
+   Next is read-only natural-item policy/access inventory: all four current
+   families remain open, and private336-helper/head-bridge M positives are
+   not current7c evidence. See `dkjr-entry-native-root-1116.md`.
 2. **U0 (previously U1):** classicDonkeyKong now has the actual571 full
    earned-M route93535/4601, including25 living grounded1-2 updates. Natural
    DK's natural M/F/S/L are now covered by the separately versioned row above;
