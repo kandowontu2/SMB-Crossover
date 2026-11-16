@@ -143,3 +143,67 @@ Main82BE/SP252:1478 balanced Main/1358 balanced Bm,1250/112/lives2/power2/size0,
 age60/active0/timer0/CHR131. No injury observer was reached. The actual firstM
 scope and initial64-byte native movement readback remain required and pass.
 Native Flower remains a separate root gate at this checkpoint; Star/L are open.
+
+Root35385 actual Downloads91dc subsequently passes the same d18e/a77c Flower
+controller: `06d785a6d330ef5cc418b53761d0f8e19505804468e1eb6b451b972e3d8fb006`.
+Native totals1729 Main/1358 Bm/1756 physical; F birth1473/mature1540, actual
+collector1643 at1258/97 versus1248/119 positive3x2, delayed1100→2100 at1648,
+60 growth ticks and25 completed Bm updates at82BE/SP252 finish1250/112,
+lives2/tier2. The M prefix passes unchanged. Source1478/1358 counts remain
+separate. Root reports no game writes, captures or generated files.
+
+## Genuine hidden1UP source pass
+
+The frozen base stock factory1acaa handles key`oneup` without another control
+variant: `replay_smb1_toad_native_stock_91dc_1116.controller(raw91dc,'oneup')`
+or `family('oneup')`. LF Lua SHA256
+`0ed162ab840ec9649d6a87651370003e68ef6324a61cfb2da56efad109c5f19d`.
+Source38074 passes in19.79 seconds:
+`77e6570cd909326542144fea9acc17fc8c25157b1640eb19e608e6e714b2f708`.
+
+The genuine M/60/credit/+25 prefix remains required. Actual hidden tile60
+head admission at1019/176 produces1UP birthMain1125 at1024/120 and mature1190
+at1024/103. Actual9B28/SP243 collector Main1223 has hero1055/176 versus1UP
+1058/165, positive10x3. Real erase/popup11/cue20 and delayed INC8987→898F
+at Main1228/SP245 change lives2→3 and publish cue64. Exactly25 subsequent
+completed Bm updates finish at actual Main82BE/SP252,1254 balanced Main/1194
+balanced Bm,1082/176/lives3/tier1/CHR131. No synthetic actor, upgrade, life,
+terrain or position was used. Native L remains a separate root gate.
+
+## Star after actual injury and shrink
+
+The base powered-Star route, LF110d, remains a negative:
+`ef523d7e2ca457665587b19264c782321d9865ab9a106190942338e9cde4a26a`.
+It genuinely produces Star birth1372/mature1438 but later loses its earned M
+through real injury. The optional powered-route preservation assertion stops
+at1521 with power0 and no collector. That is not a powered Star pass.
+
+Root approved a separate natural-Star damage-recovery scope. Its ordinary
+input policy is unchanged; original M/+25 proof remains strong and untouched.
+Only this explicit scope allows the native injury/shrink already observed,
+then requires actual unpowered Star acquisition, original life2 and25 actual
+native movement returns. No life loss, fall, seeded health or ability is allowed.
+
+API `replay_smb1_toad_star_damage_recovery_91dc_1116.controller(raw91dc,'star')`,
+or `family()`. Factory SHA256
+`f8dd1da45054086a1458f4b0c4a15f53619f2246eac40a90dad79a85a5a131ef`;
+LF Lua `9b5f86fc5c29db6758d7a6f2357055b9ea5dfbe430969151ad970074a2e19e35`.
+Source49616 passes in22.47 seconds:
+`609b216f50f835aeb95a30ed3c2f82807f080d9565f2241e9ddd124cbd44cb5b`.
+
+First actual injury is BD4A/SP230 at Main1460: hero1620/176/tier1 versus live
+slot1/id0/Left at1632/184, boxes[116,184,128,208]/[128,193,140,205]. The real
+native shrink completes to power0 while lives stay2. Actual9B28/SP243 Star
+collector Main1555 has unpowered hero1668/123 versus1674/124, positive6x3.
+Exact mapped AF88/SP219 effect and actual AF8A timer35 writer both haveC0;
+music64, native erase/popup6/cue20 are required. DEC897C→83D6 at1560 changes
+score1420→2420. Exactly25 completed Bm returns finish at Main82BE/SP252,
+1586 balanced Main/1466 Bm,1682/176/lives2/power0/size1/Star34/CHR131.
+This explicitly qualifies a post-injury small Toad Star route. It does not
+close a powered-Star route, protected-contact behavior or complete audio/ability
+coverage. Native Star remains root-owned and pending at this source checkpoint.
+
+All current M/F/S/L source gates are now closed with the stated versions and
+injury scope. Current native M/F are recorded above; native S/L are separate.
+No further broad source tests are needed for these gates. All fixtures and
+previous negatives remain frozen; every output root is absent/zero files.
