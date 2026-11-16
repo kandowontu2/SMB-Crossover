@@ -203,6 +203,31 @@ The earlier nativebc5 severe-lag baseline remains the only current CF timing
 acceptance evidence. Full renderer/active-shot/header-fault/foreign/area/death/
 retirement/new-PC ISR/all-four-route qualification is still pending.
 
+## Detached renderer and actual loop transport
+
+`check_contra_force_marker_renderer_1116.py` SHA256
+`b75d1928c72e9664c5b7e9e0ebe55645c7e7ea05ae1802080404193c29aa172c`;
+13489 terminal PASS, receipt
+`c17a6363efeecbdfe6276d82e500c5f2842bed16479323942721614916123a24`.
+35,944 cases execute the real flat renderer and C2 physical publisher; no
+Shot-handler return fixture is used.32,768 absent-body loop cases cross all256
+frame modulo values with128 hardware status values, calling the actual twelve
+inactive Shot handlers in order.1,920 body cases cover all192 input frames,
+encoded facings, clipping, capacity, rotated OAM and invalid records.1,256 Shot
+cases cover all139 frames plus invalid slot/state/type/frame paths.
+
+Final twelve indices/order/Turn/Slot/X, public AXYP/SP, OAM and all mutable data
+match, apart from the intended pending40 marker. Incoming Shot A/C are dead
+before use through the actual STX/CPX/load sequence. MinimumSP218. Differing
+dead stack cells are exactly01DB/01DD/01DE/01DF/01E0. A memory-access ledger
+requires each cell's last written value to be consumed by an actual PLA/PLP/
+RTS before public return; every live caller byte and all other mutable data
+are compared. This is not a blanket mask of addresses below SP.
+
+Intermediate Turn publication changes are still pending actual reached ISR
+reader/continuation proof. The flat matrix does not replace mounted active
+shots/packet/owner/header/lifecycle/full-stage or native timing qualification.
+
 ## Preliminary pending status (historical)
 
 Root owns the separate acquisition/Pending/LastBlue reader audit. Its genuine
