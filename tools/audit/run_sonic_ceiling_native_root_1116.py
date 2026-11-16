@@ -11,6 +11,7 @@ from run_stdout_mesen_1110 import run
 
 OUT = C.R/'build/smb2-flag-native-1113'
 FACTORIES = {'replay_sonic_ceiling_life_a2d9_1116',
+             'replay_sonic_ceiling_life_resources_a2d9_1116',
              'replay_sonic_ceiling_full11_a2d9_1116'}
 
 
