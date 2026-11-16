@@ -70,3 +70,120 @@ living state. No source item or native-ready S/L claim exists at this checkpoint
 All source producers use the granted absent build/metal-natural-sl-source-1116,
 max1-file/600s, zero generated files; the earlier readonly inventory root also
 remains absent. No ROM copies, patches, releases, screenshots or native launches.
+
+## Typed 7c0f continuation and retained input negatives
+
+After root's verified DK delivery, new executions use actual
+`7c0f7902e5ef17ff552c2ce36ba08534fdd48f00fddc62a54834df18e68f3c98`.
+The old 91dc facade and factories remain strict. New facade
+`current_metal_stock_7c0f_1116.py`, SHA256
+`6bd911e82b9891ce1c9ae39d4f8c3acdf2492731c83edf23612f27d76a857956`,
+uses forced-entry inverse 67b6ccef to a3fb and footer inverse 44f7ece4 to
+91dc for symbols and reference comparisons only. Its CPU bundle contains
+actual 7c0f. All complete Metal carriers, extra page499, resident code,
+16-byte cookies and relevant native hook instructions are unchanged. New
+bank hashes bind the actual image; there is no historical Metal tree input.
+
+Actual 7c0f cold receipt
+`8e83ad8cf735eb4a0418ea8c6e1f8822a425cc9994bf2ad0a7bb425ee5b1270f`
+repeats the complete publication/first-private/first-worker witnesses above.
+An initial missing Python `patch` import failed before CPU execution; it was
+corrected in the new facade without changing any frozen 91dc API.
+
+The first S/L controller's 91dc source attempt reached its 5000-pass driver
+ceiling before the Lua bound, leaving an empty receipt (SHA256 44136fa3).
+Progress stayed at 428/176 without native tier1. This is an unqualified
+input/observer-bound negative, not a Mushroom or life-persistence defect.
+The same controls on actual 7c0f produced a timely 800-Main diagnostic receipt
+`72d642450d9dd9b040b5fdcb7fd74830d8bc8f0e409621ff8bd2f3b36f11907f`:
+no item birth, no upgrade, lives2. Its twelve unconditional getter samples
+filled before the jump, so they do not establish absent source head contact.
+
+A separate unchanged-input causal observer then returned receipt
+`299fc509507a4e25d3ec15fff890ed7328ab58e34947ff735963175239df1c11`.
+At Main205, actual accepted head seam AD54/SP183 sees hero338/164,
+source330/158, query334/160 and source DY FA. Its returned deferred packet
+contains tile51, contact Y158 and native contact Y164. Thus the jump was
+admitted but hit the cell left of the Mushroom column336. Source0031 is
+the reversed controller pad; source0053 is the original clock, not a pad.
+
+The raw armor-v26 reference was itself a historical failed coin-block route.
+The retained successful upgrades generator explicitly adds held B and changes
+its approach from240 to336; that qualified policy informed the new controls.
+It is inspected as source text only and is not invoked, because its runtime
+factory reads removed/mutable build controllers.
+
+## Measured first Mushroom alignment
+
+New `replay_metal_head_column_7c0f_1116.py`, SHA256
+`32d1f99b8638f4ab7425ee2315bbf2eb00200c3c16d2446ea6f0fe20ac6106a5`,
+changes only the ordinary approach target336 to340, preserving the standing
+A jump and all game bytes. Source prefix receipt
+`54926db1b75c5997a18f3542f4260c81a17bd28a53dbfce8a9d2ba2279382b27`
+passes in 383 balanced Main/Ms12Movement/HostStep returns. At AD54/SP183,
+Main207, hero341/164 queries337/160; the deferred packet contains native C1.
+Real Mushroom birth is Main208 at336/136/state1, maturity Main273 at336/119.
+The actual 9B28/SP243 collector sees mature state192 and inclusive overlap
+1x12 at hero428/176 versus item416/174. Erasure, cue32, native tier1 and
+original armor128 are observed. Real delayed DEC897C/SP245 returns to
+83D6/SP247 with score100 to1100, then25 accepted returned movement and
+HostStep calls finish at actual Main82BE/SP252, lives2. This source prefix
+does not request a separate native M repeat or claim S/L acquisition.
+
+Continuing that prefix stopped honestly before the second pipe, receipt
+`2b664bd498d628aeeafa22cec9b25edf2d1740f11ae1638e0a343d0d83fb7ff0`:
+first cap at461/144 is reached, but the fixture incorrectly expected the
+second cap at592. Actual native authored left edges are448,608,736,912
+(right edges480,640,768,944), as retained native route source documents.
+This is a controller geometry assertion error, not a gameplay collision bug.
+A separate successor uses those actual cells and additionally counts entered
+and returned original MsFrame B461, excluding epoch-repeat acceptance from
+the required25 original updates. Natural S/L and earned-life constructor
+effects remain open until their actual receipts pass.
+
+## Genuine hidden life: constructor loss, not a collection pass
+
+The corrected-cap factory is frozen:
+`replay_metal_native_caps_7c0f_1116.py`, SHA256
+`b801807675bd16beafcbc2e217839615fc77396ced9494e533e285b9df74ccc5`.
+API `controller(raw7c0f,'oneup')` emits LF-only Lua SHA256
+`0411e2c3197664ad5657efc4de0e4762fe3a5b8b5221b8792baea10f4047ea6e`.
+It executes its own compiled Metal frontend (variant0, not a variant3 launcher).
+The original MsFrame B461 hook is actually registered and entered/returned;
+movement, HostStep and original frame counts are separate and balanced.
+
+Source receipt
+`0f6c8c04f0e41da4a62b6b6abb01c6d574f10a3651595ece4b817fe549bdbdc5`
+is a strict negative. It first earns the Mushroom, then reaches all four
+actual pipe caps. Real hidden tile60 is queried by the original head path;
+accepted AD54 contact at Main818 records query1038/144 and the deferred tile60.
+The hidden 1-UP is born Main819 at1024/120/state1 and matures Main885 at
+1024/103/state128. Actual 9B28/SP243 collector Main918 sees state192 and
+positive inclusive8x2 overlap, hero1053/176 versus item1058/164. Native
+erasure, popup11 and cue32 occur. Actual INC8987 then898F/SP245 at Main923
+changes lives2 to3 and publishes cue64. Collection and delayed life credit
+are real, but the mandatory retained-inventory/+25 gate does not pass.
+
+At the next movement, D4A7/SP198/Main924 reads native075F=3 and savedC83E=2.
+The exact current renderer preimage at D4A7 is `AD5F07CD3EC8F039`:
+LDA075F, CMP C83E, BEQ D4E8. Inequality falls through D4AF to the actual
+B90D/SP193 constructor. Before it, original armor is128 and actor528 is48;
+its real return016E/SP195 has both0 while native tier1 remains. Post-constructor
+code updates the saved life to3. Main925 therefore fails the inventory
+assertion after only one resumed MsFrame/movement/HostStep, not25.
+
+Fresh D58B preimage `A9008D00C83860` clears readyC800, and the constructor
+B90D starts `08488A489848A9008D00C8` before its original eight-page clear.
+This separates legitimate Fresh/new-player/death construction from the newly
+reproduced earned-life reset. Root owns repair review/funding; this helper
+has not changed or composed any game byte. The L input, observer and negative
+remain frozen for the same-controls comparison.
+
+The independent Star route on the same frozen factory stopped before Star
+birth, source receipt
+`f88312fc0b85c40e086977a64341dab14b80bc1c843ea9dda2cca5196196ed1d`.
+Its first pit clears; its second48px-pit jump requests at1313 and reaches
+1406/243/engine11 before far bank1424. This is an ordinary control negative,
+not a Star or geometry defect. A separately named Star successor moves only
+that takeoff to32px before the edge and records actual head-row cells and
+flight extrema. No source Star, native L or native Star pass is claimed here.
