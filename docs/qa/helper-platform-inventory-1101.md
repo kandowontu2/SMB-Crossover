@@ -993,3 +993,9 @@ left1203 / center1219 / initial top208**, width32,121/43 support/motion
 samples. No formula, placement or actor changes. These are private9826
 native proofs at this point; actual Downloads repetition is recorded in
 `mini-weapon-owner-native-root-1116.md` when completed.
+
+Actual Downloads21549 now repeats both private9826 cases with exact full
+receipt hashes531922c1/f95e3631. The three fixed1-1 lifts atleft/center/top
+560/576/192,688/704/192,864/880/192 and the two-shot route's manual Flower
+lift1203/1219/208, all width32, retain the same actual native support/motion
+measurements. No helper is added or moved by this delivered weapon fix.

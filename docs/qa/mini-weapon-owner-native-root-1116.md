@@ -73,3 +73,20 @@ No PNG/capture file, state dump or video is created. The existing candidate
 is restored toa2. Both functional private cases now qualify direct9826
 installation, followed by exact actual Downloads repeats; those results
 are recorded separately when complete.
+
+## Delivered9826: installed repeats pass
+
+After source push788084a7, the installer directly replaces Downloads with
+exact98261effbc214d24a00b2f8bd2950eca8ea3bf3675b331956a2ad42a7ab819e6,
+2097168 bytes, and updates the existing candidate slot. The automatic-patch
+CLI guards pass before on a2 and afterward on9826, no sidecars. No backup,
+new ROM copy, patch asset or release is created.
+
+Actual Downloads21549 passes both cases, exit0. Complete functional receipt
+hashes equal the two private89875 hashes exactly: two-shot531922c1 and
+fullf95e3631. Thus the installed launch context earns both normal fireballs,
+rejects a third, updates their motion/bounce and clears1-1 into25 grounded
+living original/public1-2 returns with the same existing platforms. Exact
+GBC sprites stay6x6 visually with4x4 collision, as the user selected.
+All94 Sonic locations and all unowned a2 bytes remain exact. No general
+frame-rate or wider all-character requalification is claimed.
