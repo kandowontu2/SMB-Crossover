@@ -38,7 +38,7 @@ def run(parent,image):
             z=Families.family_cold(image,slot,cycles,name);z.controller_pad=0;Frames.frame(z,whole_pass=True)
     assert captures and len(captures)<=1024,len(captures)
     print('PROGRESS '+json.dumps(dict(reached_instruction_transport_contexts=len(captures))),flush=True)
-    counts=Counter();arms=Counter();rows=[]
+    counts=Counter();arms=Counter();rows=[];early_commits=Counter()
     def finish(seed,regs,endpoint):
         z=Model.reimage(seed,image);c=base(memory=z,pc=regs['pc'])
         for name,value in regs.items():setattr(c,name,value)
@@ -56,15 +56,36 @@ def run(parent,image):
                 z=Model.reimage(arena,raw);c=base(memory=z,pc=regs['pc'])
                 for name,value in regs.items():setattr(c,name,value)
                 original=tuple(regs[n]for n in('pc','sp','a','x','y','p'));skipped=N.get(z,'NmiSkipped')
-                c.irq()if kind=='IRQ'else c.nmi()
+                c.irq()if kind=='IRQ'else c.nmi();recent=[]
                 for _ in range(200000):
                     minimum=min(minimum,c.sp)
                     if(c.pc,c.sp)==original[:2]:break
-                    assert z[c.pc],('Actual ISR BRK',key,kind,c.pc);c.step()
+                    assert z[c.pc],('Actual ISR BRK',key,kind,c.pc)
+                    recent.append((z.rawtags[(c.pc-0x8000)//8192]if c.pc>=0x8000 else-1,c.pc,c.sp))
+                    if len(recent)>12:recent.pop(0)
+                    c.step()
                 else:raise AssertionError(('Actual ISR return bound',key,kind))
                 actual=tuple(getattr(c,n)for n in('pc','sp','a','x','y','p'))
                 assert actual[:5]==original[:5]and actual[5]&0xef==original[5]&0xef,(key,kind,original,actual)
-                assert z.rawtags==arena.rawtags and bytes(z[0x15a:0x17b])==bytes(arena[0x15a:0x17b])
+                delta=[dict(address=at,before=arena[at],after=z[at])for at in range(0x15a,0x17b)if arena[at]!=z[at]]
+                assert not delta,('ISR SMC restore',key,kind,delta)
+                if z.rawtags!=arena.rawtags:
+                    # FarCall updates its software shadow immediately before
+                    # STA5115. A busy NMI's unchanged audio farcalls may return
+                    # with that future bank already mapped. Qualify only this
+                    # real pending commit, not arbitrary mapper differences.
+                    assert regs['pc']==0x166 and bytes(arena[0x166:0x169])==bytes.fromhex('8d1551')
+                    shadow=N.get(arena,'CurrentBank')
+                    assert regs['a']==shadow==arena[0x162]
+                    expected=list(arena.rawtags);expected[1]=shadow
+                    assert z.rawtags==expected,('Unexpected ISR mapper effect',key,kind,arena.rawtags,z.rawtags,shadow)
+                    one=Model.reimage(arena,image);commit=base(memory=one,pc=regs['pc'])
+                    for name,value in regs.items():setattr(commit,name,value)
+                    commit.step()
+                    assert commit.pc==0x169 and one.rawtags==z.rawtags
+                    assert tuple(getattr(commit,n)for n in('sp','a','x','y','p'))==tuple(regs[n]for n in('sp','a','x','y','p'))
+                    assert bytes(one[0x15a:0x17b])==bytes(arena[0x15a:0x17b])
+                    early_commits[kind,arena.rawtags[1],shadow]+=1
                 assert bytes(z[0x101+regs['sp']:0x200])==bytes(arena[0x101+regs['sp']:0x200])
                 if kind=='NMI'and busy:assert(N.get(z,'NmiSkipped')-skipped)&255==1
                 results.append((z,{n:getattr(c,n)for n in('pc','sp','a','x','y','p')}))
@@ -83,6 +104,10 @@ def run(parent,image):
         actual_unmodified_parent_ISR_oracle=True,continuations_execute_actual_candidate=True,
         exact_AXYP_SP_SMC_maps_native_private_RAM_PPU_VRAM_and_live_stack=True,
         normalized_status_deepest_reached_stack_contexts_retained=True,
+        exact_pending_STA5115_early_publications=[dict(kind=k,previous_bank=a,pending_bank=b,parent_and_candidate_events=n)
+            for(k,a,b),n in sorted(early_commits.items())],
+        pending_commit_PC=0x166,pending_commit_opcode='8d1551',
+        each_early_map_matches_actual_one_instruction_commit=True,no_blanket_mapper_or_SMC_mask=True,
         no_forced_NmiDisable_or_unreachable_ISR_arm=True,
         complete_rows_SHA256=C.H(json.dumps(rows,sort_keys=True,separators=(',',':')).encode()),sparse_rows=rows[:32])
 
