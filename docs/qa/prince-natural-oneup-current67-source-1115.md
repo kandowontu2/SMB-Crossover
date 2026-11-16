@@ -161,3 +161,32 @@ existing injury path. The donor action4 stream applies Y deltas-3 at40,
 was late at43 and the89-gap collision early at40. A single script-derived
 116..124-gap successor observes actual boxes at that same injury writer;
 it preserves both failures and every genuine item gate.
+
+Peak96466 is negative, receipt
+`634fbfdc02a38efa7d8ed807c6b624a7d403721db5218064b774313795a44e3e`,
+Lua `52d5eadfb746b940ad8336a23b1abb1e4cc37e22b33ff2b4d24d5856b16a8dc6`.
+Request106/176 vsKoopa229/184 (gap123), admission55. The first injury is
+Main85 at208/161, action4 pose42, HP5, native0/Sword0/lives2. At reported
+PC A343/SP201 (WRAM3 offset835, the existing injury writer return boundary),
+the recorded player box is[132,169,144,193] and real Koopa slot0 box is
+[137,193,149,205]. Their vertical bounds share193. The original injury
+path then drains5HP. No hidden1UP has been born or acquired.
+
+The peak receipt's explicit `enemy_gap_window:[116,124]` is its actual
+policy. The inherited metadata boolean named `actual_enemy_gap70_to90...`
+describes the parent adaptation and was not renamed in this frozen
+negative; it must not be read as this successor's literal window. The
+top-level generated Lua pin and reached request gap123 disambiguate it.
+The observer's `minimum_y:169` is its last completed control sample before
+the Main85 injury callback; the actual callback/terminal Y161 is separately
+recorded and is not overwritten by that earlier sample.
+
+This closes the directed timing comparison, not the natural1UP gate or
+a false-collision diagnosis. The shared edge may be the existing inclusive
+native collision convention; no native carry/caller comparison here proves
+it incorrect. Further progress needs a different intended control/earned
+ability route, or an explicitly reviewed causal collision investigation.
+All producer jobs in this batch are terminal with0 generated files. The
+new current67 and5-1 boundaries, all source negatives and strict item/INC/
+cue64/+25 returned-update requirements remain frozen. No native controller
+is proposed for acquisition qualification from these failed routes.
