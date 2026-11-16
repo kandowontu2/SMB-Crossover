@@ -405,3 +405,42 @@ Both bounded output roots remain absent with zero generated files. All older
 source positives, native negatives and frozen control texts retain their exact
 versions. No additional broad source gates were run after this scoped pass.
 
+## Native near-catch and measured four-pixel lead
+
+Root58128 on actual Downloads91dc retains ready5/39d3 as native negative
+`731e910e682fe9d1a1bacdd4e6d6f1feab2436c5a3d3eb42d9bdd80f75f8a20a`.
+M, exact head forecast, real Star birth/maturity and582 feedback calls pass,
+but no collector occurs. AtMain2989/original2594, hero1691/176/speed210 is
+about2 pixels short of Star1705/175/nativeVX16/VY2. Earlier samples2942/2958/
+2973 show hero1675/1676/1680 while the actual bouncing Star advances1658/1674/
+1689. Continued following later loses the actor; terminal3650 Main/3255 workers/
+6019 physical is2129/176/lives2/tier1/Star0.
+
+The18 `stock.jumpSequences` are generic travel sequences, not evidence of failed
+Star fallback jumps. No bounce prelean/takeoff/minimum-Y witness exists in that
+native receipt, so no jump-admission defect is inferred. The existing fallback
+already holds Up for four actual original movement returns before fresh A.
+
+Separate successor API
+`replay_excitebike_star_bounce_lead4_91dc_1116.controller(raw91dc,'star')`,
+or `family()`. Factory SHA256
+`76075a742d35c83461f0743527756b308eb398a419c4b69ea1dbfdef160ba2ff`;
+LF Lua `7b2b931a8c057004523ab5ef178e211a8bfd605dfc70cc39bbcd8fa6b590acd0`.
+Its only input-policy change sets the moving target to actorX+speedMatchLead−4,
+instead of−8:4 pixels earlier, against the measured2-pixel miss. Head controls,
+prelean timing, M prefix and all item/effect/credit/25-return requirements remain
+unchanged. A passive mapped ExAirLaunch observer records actual original launch
+entries during bounce mode; caller/context must still be assessed before
+attributing an entry specifically to fresh-A admission. It changes no game state.
+
+Source47079 passes in71.85 seconds:
+`dcef980662ccd027214c3f26fab0b8c81f164142d4104d3dc9d54776b5be63cc`.
+There are68 reached feedback calls and exact head X/Y error0/0. Actual collector
+Main2625,9B28/SP243 has hero1703/176 versus Star1700/163, positive10x1, with
+native C0/35/music64/erase/popup6/cue20. Real delayed1100→2100 at2630 precedes
+25 completed original motor/movement returns at Main82BE/SP252. Totals2656
+balanced Main/2596 balanced workers,1705/176/lives2/power1/Star34/heat0/crash0.
+No fallback jump is needed or claimed by this source episode. Native
+qualification of the new lead remains a separate root gate. The bounded output
+root remains absent; source process is terminal and generated files remain0.
+
