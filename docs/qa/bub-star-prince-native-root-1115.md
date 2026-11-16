@@ -113,3 +113,30 @@ byte matches. Each run has3 RAM PNGs and0 files. Prior Prince/carry changes
 remain intact. Final guard and protected-file/storage checks are recorded in
 the continuation note. Broader performance, full stages and native1UP remain
 versioned/open as stated above.
+
+## Fresh actual67 natural hidden1UP: root61151
+
+Both ordinary-controller replays pass on the actual Downloads67 ROM without
+changing either ROM file. No captures, game-state writes or output files.
+Factoryf73b20f9 preserves the already source-qualified controls and assertions.
+
+Bub Lua6364d990, receipt
+`c874ada6fd6e37a770a0545701b816d9d869057f20bd4272569e032560db7fe3`:
+1586 Main/source updates,3504 physical frames. Hidden actor kind3 is born1453,
+matures1520, physically collected1556, and the real timer42 writer increments
+lives2→3 at1561. Exactly25 later original worker entries finish at1586,
+1059/176,flags1/native power1/score1500/lives3.
+
+Bob Luadead491a, receipt
+`a055b306e469ed62128fe0ed7113c74d42bd4f282e5b273ace0de113f2d03438`:
+1585 Main/source updates,3522 physical frames. Real birth1453/maturity1519/
+collector1555/credit1560 and25 later original worker entries; same terminal
+1059/176,flags1/native power1/score1500/lives3. Both retain the genuine
+Mushroom prefix and native setup6/final popup11/cue64 lifecycle.
+
+These frozen controllers explicitly count postwriter worker entries; they do
+not add a new claim of25 completed Main returns. The natural pickup, delayed
+life credit and resumed play are verified. Together with12602's M/F/Star
+routes, all four standard item families now have current67 native witnesses
+for each identity. Full current stage, broader abilities, expiry/protected
+hits, audible audio and performance remain open. Final sidecar guard is clear.
