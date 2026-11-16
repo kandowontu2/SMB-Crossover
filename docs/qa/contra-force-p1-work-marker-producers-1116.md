@@ -313,3 +313,48 @@ classified; do not waive them or assume only the original Samus source reads
 LastBlue. The detached descriptor is contingent on that closure and the owning
 entry/actor contracts. Exact proposed instruction/flag/loop/ISR behavior remains
 unqualified. No source overlay or ROM/native/delivery lease exists for CF.
+
+## Native timing negative and scoped Burns source route
+
+Root4846 measured exact6a3 and privateffbb with the frozen8752 observer body.
+Both observer runs passed, but cadence did **not** improve:48 idle Main still
+took96 physical frames, with71 missed-read frames out of95 complete frames,
+384 port reads and Main histogram0:48/1:47. Right16 Main still took32 physical
+frames, with23 missed-read frames out of31 and128 reads. Both had400 balanced
+Main and65 balanced original input/body returns overall,511 physical frames,
+zero actors/shots, two lives and the same58/176 endpoint. Parent receipt is
+`12420f353236da4a02316e488f6e60bb2486b8161ad75de4f42e212b788ad4d6`;
+candidate receipt is
+`f08a9d7ef207bbe66637b54cc4612f0d7dc3e6fafc996c64a84f0a84d750f35c`.
+The3966 source-cycle saving remains measured; this is not a physical lag fix.
+No CF candidate was delivered. Other three full source routes are deferred by
+root while the larger dispatch costs are investigated.
+
+Source20941 finished the already-running Burns route on exactffbb, receipt
+`9672f208e9ab54ae98b62679ea87b807de7fef676322f682bbbe2b1d66ab5782`.
+It passes3939 balanced Main,2809 genuine CF movement returns,76 in1-2;
+flag2733/castle2796/entrance3322 and25 living grounded1-2 updates, ending40/176,
+two lives, power0/Star0. The13 recorded source impacts are not13 kills.
+Compiled BURNS/slot30/variant0 and both stage cookies are authenticated.
+No actor, health, position, terrain, ability or helper seed was used.
+This is source-model scope, not a new native full-stage receipt.
+
+New `replay_contra_force_marker_full11_1116.py` preserves the completed-return
+factory SHA256`5801e20bc6bad597b1abc2649461d72e8d3f4e3cc711d90bcaa1867b66a328ed`,
+Burns control body, SHA256
+`94aadd9764083873598a420241619a1c08d586c2aded103e5e11e3375d8ed8d3`;
+only the strict owning image and truthful hook/header bindings change.
+Its exactffbb LF controller is
+`76d9af88edcbe4318251daa6978ea9852ba1603f18ce11c19c18e617c6fe1a4f`.
+The new checker is `check_contra_force_marker_full11_1116.py`, SHA256
+`ef8ef46d8da10e0b7b1d4fbc1f9f1bbbc73f284a29f31fcb4790be48157fdae2`; both use the
+actualffbb CPU image and strict historical421 only for reference bindings.
+Source20941 terminated0; its bounded root remained absent with zero files.
+
+Finer per-service attribution98005 stopped before any CPU execution at a
+frozen metadata object's identity assertion. Reusing the cached authenticated
+reference object corrects only that observer binding. A following restart
+also correctly rejected the newly installed91dc at the frozen6a3 loader;
+the new read-only profiler explicitly extracts6a3 through the strict BT
+inverse and still executes versioned RAMffbb. Neither negative is a game
+failure or a qualified service-attribution result.
