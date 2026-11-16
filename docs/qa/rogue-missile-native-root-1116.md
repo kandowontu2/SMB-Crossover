@@ -59,3 +59,21 @@ opcode is changed or misclassified from these early pictures.
 Both pictures exist only in memory; no capture files are created. The slot
 is restored to9826 after this private run. Native functionality qualifies
 the narrow operand fix; installed repeat remains required for delivery.
+
+## Passive HUD refresh, private94269
+
+The unchanged missile controller with the passive995e0f30/39f01791 HUD
+observer passes, exit0. Receipt
+`5144a8f553dc1623cc6d715732b350da26826a34f9d84e57d3a9a2900471c549`
+reduces to the exact qualified5b4fb48d receipt after removing only
+`hud_diagnostic`. The native ammo write is Main1953; the HUD ammo cache
+becomes4 at1955. Terminal actual PPU bytes at2023..202D are
+`0e 01 09 01 24 16 00 00 04 24 24`, displaying **E191 M004**.
+Current ammo and cache are4, dirty is0 and both queue offsets are0.
+
+The aggregate observer records1865 early/HUD calls,12 own packets,6 own
+retractions and1016 eligible calls. The early pictures showed deferred
+VRAM presentation; they do not establish an ammo-counter defect. No HUD
+code, queue timing or health representation is changed. The private slot
+is restored to the public9826 parent. This check creates no images or
+output files. Direct delivery and exact Downloads replay follow separately.
