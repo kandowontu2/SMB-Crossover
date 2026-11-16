@@ -76,3 +76,48 @@ Both bounded roots stay absent/0files, max-files1/600s:
 `build/jay-status-natural-flower-source-1116` and
 `build/jay-status-shared-regression-source-1116`. No Mesen, capture,
 ROM/Downloads write, helper placement or old dependency restoration.
+
+## Bounded physical-approach negatives, preserved
+
+One side launch source9106 preserves receipt
+`efd26720466c28b72530d7e0fd32ad27feddcd4c6f43f1150e04a9b511d81bb4`.
+It keeps the V3 prefix through actual mature private82, retreats1184,
+faces right and launches at1200. At1324 balanced Main/motor it is still
+alive HP8/lives2, without a collector. Native side separation holds it
+near1218 beside the brick row. The intended bounded final diagnostic
+itself had a Lua table.concat/Python-list formatting error; this is kept
+as an observer negative, not a game failure. Actual states/boxes remain
+recorded. No minimum jump value is inferred from the failed formatter.
+
+Existing raw16 large-head source/oracle suggested trying a real native
+brick head rather than adding a helper. Source50959, receipt
+`4e5f3f0b1684da93c9e5455738ccf767ec46368dba27e9c43ce0775e41321431`,
+heads actual tile51 at1229/161, waits64 normal updates and then hops.
+The player has drifted left to1217 before that hop. It bounds at1383
+balanced Main/motor, alive HP8/lives2, no Flower collector. Its file name
+describes the attempted brick-clearing policy, not proof of a removed tile.
+
+A separate corrected alignment source86706, receipt
+`45affc50a85ff4285497abbabb168d2538740f0623c06f6e1826700b008911e9`,
+walks back to1228 facing right, releases A8 updates and makes one ordinary
+18-A hop. All1405 Main/motor entries/returns balance. It again sees the
+real tile51 head at1230/161 after the64-update wait. Measured hop minimum
+Y is161, player box89/169/101/193 at camera1143; Flower remains1248/120,
+with normal item vertical box129..141. No collector, reward or credit
+occurs. These data still demonstrate a ceiling hit, not a proven original
+jump maximum or a need for a platform.
+
+Further controller variants are held for a concrete consumer check:
+`CrossoverBlockSize` returns incoming Y=PlayerSize early when PlayerStatus
+is nonzero, while status0 reaches the raw16 cold override Y0. Original
+JnMovement publishes parity and then clears PlayerSize. The proposed
+eight-byte leaf publishes only parity. Actual genuine-heart PlayerSize
+and the owning block-size component must therefore be measured before
+calling this merely navigation or proposing any new code/helper.
+
+The three new controller/observer modules preserve the previous negatives
+and use no game writes: `check_jay_status_flower_side_df0e_1116.py`0f57cc75,
+`check_jay_status_flower_brick_df0e_1116.py`8d35d98e and
+`check_jay_status_flower_aligned_df0e_1116.py`681664c9. The source candidate
+and both frozen compositor/facade hashes remain unchanged. No active
+source child or generated build file remains after86706.
