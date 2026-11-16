@@ -228,3 +228,25 @@ Read-only F89B/F8D5/F90D observations retain the input, row and material
 admission if it fails. Its new bc5 facade changes only the whole-ROM pin;
 all Prince packet/cookie and actual native hook bytes remain unchanged.
 No current natural1UP or full-stage pass is claimed while this test is pending.
+
+Owningbc5 running69693 stops before A on a fixed-screen-height observer,
+receipt `8e37e590f8730dd3a859ee4258fe0f930ee632006c361af6bab33f61bf1e0483`,
+Lua `55f7d4e4e9b7835eb7150ef9668e0dfede66d680b17d1ac5646bc61497cb2a62`.
+At625 the actual original running gate has pose6/mode1/lock0, x292/y115,
+foot147/ground2, HP5/lives2/native1. The controller's111..114 screen-Y
+guard rejects that animation before any jump request; it does not prove
+an original running-admission failure. A separate pose successor requires
+the genuine first-roof source actor row64 to remain stable, recording
+source pose delta, animated native height and actual roof cells, then lets
+the unchanged original pose6..13 gate and action4 decide admission.
+
+Pose88456 is a second observer negative, receipt
+`b2a7448b27cdeeed46302b355debe1cdb94364daae60451dcdb28316ddc29149`,
+Lua `63967766cdb360bcc17f13e00865b711529f75f99beba1dbc6ad28446422144d`.
+The actual settled roof state599 is270/113/foot145 and source actorY65,
+not the assumed64. No running jump was requested. Both artificial height
+guards are retained as negatives. A separate admission successor records
+the exact original F449 feet-material return, actual takeoff source/native
+pose and roof cells, and requires the game itself to admit action4 through
+its unchanged feet, running-pose and lock checks. Item/health/credit/cue64/
+25 completed-return requirements are unchanged; no gameplay field is seeded.
