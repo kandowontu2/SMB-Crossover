@@ -116,7 +116,7 @@ New checkers (all `tools/audit/`):
 | check_dkjr_carry_camera_components_1116.py | `f728b0c5ee5e136aee7389baccc2509fba9734b4f2384244e9eda3206caa014e` |
 | check_dkjr_carry_camera_guards_1116.py | `1e90450d8f9f8447e78fdc5ad48b47c995560b403f6d3c3fcae7be4607b582a2` |
 | check_dkjr_carry_camera_lifecycle_1116.py | `69ef2848654f3ffc02b36a161c58f79a751ca3020e8f7b4f406ecda6336f8f75` |
-| check_dkjr_carry_camera_vertical_1116.py | `9079ed3c1cba3f66936b4c09da0b4347abb03055b84cafee85af310dd91f4fdd0` |
+| check_dkjr_carry_camera_vertical_1116.py | `9079ed3c1cba3f66936b4c09da0b4347abb03055b84cafe85af310dd91f4fdd0` |
 | check_dkjr_carry_camera_irq_1116.py | `294938a708cc24a3123182073af4f24e13b61665014c7cc85c781de3c3ca3a27` |
 
 Every producer ran through the bounded runner at its exact absent own
