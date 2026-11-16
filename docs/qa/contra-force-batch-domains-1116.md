@@ -104,3 +104,74 @@ All three producers ran through the bounded runner under
 `build/contra-force-cf-batch-research-1116`, max-files1/timeout600. The root
 remains absent and generated files remain zero. No frozen C/F, old arrays,
 root-owned grants/QA/continuation, user roster JSON or Steve note changed.
+
+## Terminal stack and exact lookup result; batch deferred
+
+Parent-only `inspect_contra_force_batch_stack_1116.py`, SHA256
+`0ff8678c69c7112b79010292ccfbf63f426546adeb0091587c1762cfe807991d`,
+source81614 terminal0/PASS, receipt
+`9f256b4de9e666888a2decabb7e81abf249615d86e35cb46c7622a5350a46622`.
+Both idle and Right have one balanced Main and14 balanced R87 query
+returns. Actual CurrentBankC and mappedC remain208/D0 at every query.
+The source Main entry is SP250; query entry depths are:
+
+| Service | Depth below Main entry |
+|---|---:|
+|29 palette|14|
+|0 movement|31|
+|13 box profile|24|
+|12 adder|32|
+|10 head|40|
+|14 side, four calls|35|
+|34 shots|18|
+|9 visible|25|
+|1 graphics|20|
+|2 draw|34|
+|6 late paint|26|
+
+The dynamically read existing source Main return word is33469/82BD.
+It is recorded as observed source transport, not hardcoded as a native
+capability or claimed allocated frame. No stack byte is written. These
+two active-opening cases do not close all36 services, forced-blank,
+menu/pause/death/pipe callers, hardware stack positions, or ISR ingress.
+No busy component was launched in this pass.
+
+The exact executed A4FB..A509 linear search costs **744 cycles per Main**,
+all outside the CF query union, with11 calls. It is not the entire roughly
+5400-cycle caller/front layer. Replacing only that lookup cannot be
+credited with removing the whole layer. This corrects an optimistic
+combined-budget assumption before any new bytes were executed.
+
+Even a static optimistic per-query floor of53 SFC cycles plus20 for C2/D0
+mapping,12 target publication and4 return-A reload is89 cycles before
+capability recognition, original-register transport or the once-per-Main
+full check. A full two-byte frame recognition adds work. No funded
+protocol currently meets the remaining roughly1500-cycle total
+transport/validation allowance implied by the optimistic routing floor,
+5400 whole-caller saving and4300 NMI allowance. That5400 saving itself is
+not implemented or qualified. The new batch is therefore deferred, not a
+source-ready candidate or a cadence prediction.
+
+The next largest observed outside-query rows remain actual native
+OAM/render work1601, six actor-loop calls1201, and collision/state1078.
+They are real behavior, not NoOps. Four side-caller layers total
+744+728+568+392=2432 before their query bodies; any later collapse must
+separate overlap with the caller-front estimate and preserve every
+consumed result. No such collapse was implemented.
+
+One final metadata-only funding census,
+`inspect_contra_force_caller_planes_1116.py`, SHA256
+`dbf5213b809157cd1f08270bf86b6ff262531b24b4fe79ed743510d425e46d8b`,
+receipt `80d1e79f46a632c3b9d3bfd1cd5d7cf57f9e1305f6d42757d50801ecb12a4fa2`,
+finds55 actual unique current bank-plane bytes for13x5 frontends, already
+sharing two planes. Six fully deduplicated value groups would occupy30,
+so the theoretical capacity is25 bytes, not35 from gross65 traversed
+bytes. A preliminary gross-count overestimate was corrected before any
+funding claim. External readers, exact containing extents and all old row
+contracts remain open; this is not an allocation. It ran statically under
+absent `build/contra-force-caller-planes-research-1116`, max1/600,0 outputs.
+
+Root directed no further speculative CF batch generations in this pass.
+All old C2-only/587/ffbb negatives, full guards, source APIs and public91dc
+remain unchanged. The next lane is Jay McCray F/S/L read-only foundation
+and controller inventory, without repeating closed M/fullstage receipts.
