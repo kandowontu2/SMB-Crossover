@@ -242,3 +242,52 @@ movement updates finish at Main82BE/SP252:2488 balanced Main/2368 workers,
 1254/112/life2/status2/no crash or heat. Native qualification of this successor
 remains separate; no previous native negative is relabeled.
 
+Root58625 repeats this frozen1762c/2e2e successor on actual Downloads91dc and
+passes `cd66639cebef439b80727f6b1e8b32aa3e59225a0fb63981f7f07b9e7efc7108`.
+Native projected stand1348 equals actual1348, error0; prelean1301/speed630,
+fresh-A1291/speed693. Genuine Flower collector9B28/SP243 atMain2696/original2302
+has player1260/117 versus1248/119, positive1x13 overlap, erase/cue20, real1000
+to2105,60 ticks→status2 and25 completed original updates. Native totals2782
+balanced Main/2327 motor and movement/4295 physical,1249/112/life2/status2,
+no crash or heat. Source74ea's2488/2368/stand1364 remains distinct. Root reports
+unchanged installed91dc, clear guards and zero files/images/game writes.
+
+## Star typed native-return source closure
+
+The earlier-brake4440 control actually collects the real Star, but its inherited
+blanket carry-set observer fails, receipt
+`be4ec1a3d79647c59ccc131795d2d42847ffbb63d0f4d525e9a5ad6f1b2e3691`.
+This is an observer negative. The original generic kind2 branch CMP3 leaves
+carry clear before its35 timer/music64 writes; M/F/L use different paths.
+The separate successor retains every input and authenticates that exact current
+branch and return contract without masking or forcing flags.
+
+SOURCE PASS
+`cacd7bb4c5e585de5ec01d5c9f19e1f59e52e6c1873f72f00f8f32ccbc4b027e`.
+API `replay_excitebike_star_return_91dc_1116.controller(raw91dc,'star')`,
+factory `6b133a91d3accc927b3787f7e8cadeee61b9afe98b5b1bf021f02ce25eede053`,
+LF Lua `44e7d3992b51a0fa8d7834c2a6d2748d23f243563e7fcc31de9630e5f42c7d56`.
+The real M and its25-return endpoint remain required first.
+
+Authored Star birthMain2476 at1616/136, maturity2542 at1616/119. Actual9B28/
+SP243 collection atMain2625/original2566 has player1692/176 versusStar1700/163,
+positive5x1 overlap. Erase/popup6/cue20 occur. The mapped native AF88/SP219
+effect branch hasC0; actual AF8A timer35 write hasC0, and actual public return
+B809/SP245 hasC0. Native Star35/music64 and unchanged power1 are required.
+The current ROM code pattern explicitly binds CMP3/BEQ before the actual effect.
+These are PRG-mapped hooks; the same CPU-page private graphics alias remains a
+different owner and is unchanged.
+
+Actual DEC897C/SP245 and authenticated83D6/SP247 return prove delayed1100→2100.
+Exactly25 subsequent returned original motor and accepted movement updates
+finish at actual Main82BE/SP252:2656 balanced Main/2596 workers,
+1692/176/life2/status1/Star34/engine8/no crash or heat/recovery5. Original bike
+crash/recovery encounters are allowed; this is not an injury-free claim.
+Both pending worker and Main states are clear. Native qualification of this
+Star controller remains root-owned and pending at this source checkpoint.
+
+All four current M/F/S/L source scopes are now closed. Current native M/F/L
+receipts are recorded separately above; historical full-stageH is not promoted
+by these stock routes. No game fix, helper relocation, extra layout or ROM
+replacement was needed. No additional broad tests were run after these gates.
+
