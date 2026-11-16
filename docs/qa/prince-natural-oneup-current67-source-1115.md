@@ -122,3 +122,19 @@ the actual350/128 stair contact. Every attempt requires a fresh original
 partial/full/no-step decision and then completed idle; it stops if that
 completed step makes no progress. No geometry defect or natural1UP pass
 is inferred from these input-policy negatives.
+
+Careful27376 stops on the required no-progress check, receipt
+`3ae4345043142231d9b04770d0b1b2667736dd519e0435f1b16f863b64794b0a`,
+Lua `9d66cd606226196e20aa1d84a2561dabf04207f549f98aeef956899f6221b54b`.
+The real AF2E/SP198 partial selectors halve distances7,6,6. Completed
+positions are352,353,353 atY128, HP5/lives2/native1. This does not make
+the2-1 block unreachable or establish an incorrect game writer.
+
+A new5-1 route uses only the authored level selector (setting48) and
+ordinary Prince controls. Its hidden1UP2368/144 is on the head-query row
+already reached by grounded Up in the qualified Star route. The new source
+arena executes actual67, using a compiled menu-input unit for16 Right
+presses, followed by the unchanged actual Select/Start/parser/constructor.
+The source menu still lacks physical vblank. No game/helper byte changes
+or synthetic item/state placements are involved; actual route and all
+genuine acquisition/credit/return gates remain required.
