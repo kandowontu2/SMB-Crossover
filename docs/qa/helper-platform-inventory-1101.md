@@ -17,6 +17,12 @@ A platform-only repair is being measured. This does not authorize broader
 enemy/body collision, source fatal-fall thresholds, new helpers or locations.
 Earlier full clears and current partial native receipts keep their versions.
 
+Private6d7 root99344 later confirms the corrected horizontal support but the
+same vertical failure: first944 carry929/106, sourceY121/footer136, plane138;
+next support admits138, then passenger loss and plane139 miss precede the
+original fatal guard at945/168. This is an unreleased diagnostic negative,
+not an assisted-crossing pass. Existing13 positions remain unchanged.
+
 ## November13 Karnov complete five-pickup route
 
 Actual Downloads7ef now passes all five natural stock pickups and the full

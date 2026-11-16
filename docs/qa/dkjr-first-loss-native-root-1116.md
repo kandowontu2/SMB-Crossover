@@ -97,3 +97,37 @@ This is a required separate platform-only repair proposal, not grounds to
 inflate enemy collision globally, bypass original fall checks or move helpers.
 The proposed source camera correction remains undelivered until the stronger
 crossing and native regression gates are satisfied.
+
+## Private6d7 native causal run
+
+After all scoped source component/lifecycle/IRQ gates passed at checkpoint
+a2e521f8, root separately authorized a **private diagnostic**, retaining the
+known source full-route negative. This does not authorize promotion/delivery.
+New probe89f98ae1/Luae17d41 rebinds only ROM/cookie and two moved state-writer
+addresses, restoring exactly to the frozen e07 v2/ed3e controls afterward.
+All hook preimages match. Executed registration18831 passes36 static callbacks,
+2 events and3 dynamic PC/SP pairs, receipt12e6c511. No old guard is relaxed.
+
+Root99344 actual private6d7 is negative:
+`54e2bc553da57ff9997efb62d6e237bc4ab894da84519ee3be673285bd2d1976`.
+First944 carry occursMain3651/frame8913 at929/106, sourceX73/sourceY121,
+helperraw138/passenger3. Next supportMain3652 has query[80,121,97,136],
+window[80,97,137,138], plane138: both horizontal and vertical overlap pass,
+and four support bytes append. This closes the earlier first horizontal
+miss in this actual native sample; original sourceX is not shifted left.
+
+There is only one944 position. Source4 is writtenMain3653/frame8917 with
+query[81,121,98,136], window[81,98,137,138], next plane139 and passenger255.
+The next origin is121; the original fall/injury guard stopsMain3711/frame9036
+at945/168/source5/lives2. No flag/castle/1-2 returns. This agrees with the
+separate32-snap/30-footer mechanism rather than waiving it.
+
+Native state is also a qualification warning: support/wall entry before
+export shows state0, while completedMain3652's actual ride-adoption event
+already shows state2 with original source1. A future platform-only selector
+must not assume native state0 means the only grounded donor passenger.
+The same-slot passenger/exactgap/jump predicates need their actual caller proof.
+
+The official Downloads file remains verified6a3. Only the existing shared
+candidate/controller slot contains private6d7/e17d; zero captures/images/files,
+game writes, helper changes or backups. Root queue is free after99344.
