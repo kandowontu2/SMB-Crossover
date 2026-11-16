@@ -4,9 +4,9 @@ The installed7c0f build awards a real hidden1UP, then treats the life-count
 change as a request to reconstruct the original Metal actor. Reconstruction
 clears earned armor even though native power remains1. This is reproduced
 through ordinary input in both the source model and actual Downloads Mesen.
-Source qualification and both private native tests now pass on00bb. The
-Downloads install and exact native repeats are the next delivery gate; the
-installed file remains7c0f until that gate is run.
+The fix is delivered on00bb. Source qualification, both private native tests
+and both exact actual Downloads repeats pass. The baseline7c0f failure below
+is retained as historical evidence, not the current installed behavior.
 
 ## Current native baseline and independent Star
 
@@ -115,3 +115,16 @@ passive growth Active/Age remain0/0, as the original armor policy requires.
 The separately recorded delivery allocation authorizes only direct replacement
 with these exact tested bytes and both actual Downloads repeats. No new
 full-stage, audible quality, graphical review or performance claim follows.
+
+## Verified Downloads delivery
+
+After source pushbcde9a24, the bounded installer replaced the Downloads file
+directly with exact tested00bb,2097168B, without a backup. CLI patch guards
+before and after installation find no same-name IPS/BPS/UPS. Actual Downloads
+native53024 exits0 with both tests passing and exact private receipt matches:
+L `a8b7d81cc483d00217fe62622ba854b4274c881dd7df8d36b3cdac8bf1498922`,
+Star `d343704691cbeb5a7952ba3a145486605d322cba6ac4bcfe91c4b964d5a8eee1`.
+The counts, real collections, native credit and25 returned original workers
+therefore match the private cases above. Installed/shared candidate bytes
+remain identical; no images, videos, output files, patches or releases were
+created. Root's single Mesen queue is free. Whole-roster work remains open.

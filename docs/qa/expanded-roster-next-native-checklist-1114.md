@@ -1,7 +1,7 @@
 # Expanded-roster next native checklist — November 14
 
 Current delivery: `LATEST_1116_7C0F_DOWNLOADS_VERIFIED`, exact installed
-`7c0f7902e5ef17ff552c2ce36ba08534fdd48f00fddc62a54834df18e68f3c98`.
+`00bb2664647a4ef47b5dfa01c96d50549581d215a33d19a2a6390d1e09078e21`.
 Rows retain their explicitly recorded ROMs; a later delivery does not
 silently promote earlier stage receipts to the new image. Current opening
 enemy/powerup pictures cover Prince on16a and DK/all six wrestlers on590
@@ -44,7 +44,7 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
 | Quick Man | **H**, aa501128 full/grounded1-2 plus four authored items | No uncovered authored stock item in these receipts; physical F is not claimed under the existing no-growth policy |
 | Shinobi | **H**, exact6f319d20 native full8924 physical/lives2→2/no helpers; retained packet and all12 current421 carriers inspected | Current421 full rerun remains a separate regression: resident65 changed408bytes. Natural stock items/remaining abilities are open; do not reopen old locked-menu/contact negatives |
 | Thomas | **H**,65ee94ca full M/F/S route plus separate natural L/Downloads repeat | Four stock families covered across separate runs; not one uninterrupted all-item route |
-| Metal Storm | **H**,8fc57b8b full route and natural M/F/upgraded shot | Natural S/L; do not reopen the repaired head/maturity/stream-wait failures |
+| Metal Storm | **H**,8fc57b8b full route and natural M/F/upgraded shot | **M/S/L C00bb**, actual Downloads53024 exactly matches private84341: La8b7d81c real INC2→3 retains armor128/actor52848/native tier1/saved3 without constructor,1241Main/948workers/1855physical; Stard3437046 genuine mature contact/C0/35/music64/1000,1670Main/1377workers/2557physical, armor128/lives2/Star34/airborne1676,153. Both complete25 returned MsFrame+Movement+HostStep at completedMain and genuine immediate M prefixes. Delivered34owned30changed repair; source lifecycle/ABI/reached11IRQ+11busyNMI pass. Preserve baseline7c0f L failure898c1b5f. No60-growth claim for original Metal armor. Current F/upgraded-shot and full-stage regression remain separate. See `metal-life-snapshot-root-1116.md` |
 | Mike Tyson; Alex | **H**,33d2c7a7 Tyson Hard4861 frames;4cbd0191 Alex6018 | Complete natural stock-item evidence per identity remains unqualified in these route receipts |
 | Jay McCray | **H**,aa501128/62ba full stage, machine gun and authored first health pickup | Natural F/S/L and intended donor upgrade policy; first-pickup clamp negative is superseded by delivered helper route |
 | Steve Hermann | **H**,62ba full stage;7ef four stock pickups | Four-stock route closed by combat chase; do not reopen the earlier death-before-Star controller failures |
