@@ -263,3 +263,31 @@ No head hit or1UP birth occurs. This is not a body-code or collision patch
 proposal. A separate runway successor makes one additional original
 B+Left careful step before turning/running; this supplies room for the
 observed running-jump startup and records the actual original action writer.
+
+Runway76242 is negative, receipt
+`17e85c4cef0e82366dde1c43f44cfc4cfb5f3facc8ff9a9aff06fbe8dc7c7e57`,
+Lua `b1f9c4870751dfeecd3f040bb74cab0eff7e293ee896b71492580607cfdbdfd4`.
+The extra original Left step completes261→242/112. Actual running4
+admission679 is273/112; the full arc reaches minimum96 and pose42 at
+375/98. It does not grab, and settles791 at350/128, HP5/lives2/native1.
+
+The concrete grip distinction is in original F8A2. The query admits
+actions7/23/18/21 only. Actions4 and10 skip that query;10 has separate
+hoist handling. The retained controller's grip observations during4
+therefore do not reach the row/material query. Its lock-clear policy then
+releases A before actual A352/SP200 writes fall7 at724 (material0,
+sourceX356/Y65). A separate successor keeps ordinary Right+A through that
+fall, authenticating all four exact whitelist branches and the excluded10
+branch against current owning code. This is an intended-control change,
+not a game-code repair or an acquisition claim.
+
+Held-grip23625 is negative, receipt
+`4039711c81d77db59d2a6b56d766da0b2ea5a36468291cf904f56920b016a253`,
+Lua `a651194bf577e547a269c5c13e47465c5ab46f6dc3a25a94bd499f0f6e35ff82`.
+It ends at the same healthy350/128. The trace reveals a controller phase
+bug: the broad `age>=45 and action~=3/4` predicate calls fall7 a landing
+and changes the input to neutral before the next original control update.
+Thus this run does not disprove held-grip admission. The separate landing
+successor waits for the actual observed original landing17/mode5 before
+releasing flight input. The game must still admit grab/hoist itself and
+all real item/credit/return requirements remain unchanged.
