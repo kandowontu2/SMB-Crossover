@@ -291,3 +291,52 @@ receipts are recorded separately above; historical full-stageH is not promoted
 by these stock routes. No game fix, helper relocation, extra layout or ROM
 replacement was needed. No additional broad tests were run after these gates.
 
+## Native Star head miss and responsive takeoff successor
+
+Root10699 on actual Downloads91dc retains the frozen6b13/44e7 controller as an
+honest native control negative:
+`ef73e0c5444250b5abd8f38ce2eeeefcf1536bacce7283ac3091d89672bf0db5`.
+The M scope passes, but no Star is born and the C0 observer is never reached.
+Actual prelean Main2819/original2424 starts1571/176/speed567; fresh-A Main2823/
+original2428 starts1580/176/speed630. Both snapshots have crash/recovery/heat0,
+grounded native0/air0, poses6 then7. In the positive source run the corresponding
+speeds are756/819. The slower native trajectory misses the1616 brick from
+underneath, lands on the row and stops at1609/112. Its final3063 balanced Main/
+2668 workers/4748 physical bound is not a Star or game-defect proof.
+
+The separate source successor changes only the ordinary head takeoff decision:
+`replay_excitebike_star_head_feedback_91dc_1116.controller(raw91dc,'star')`.
+Factory SHA256 `689526fe949bd3925c20ebd6e6bf18bf49bcf5510fc4068ece199c8f81de7d58`,
+LF Lua `e2c8ebae6dfc29e9692ed20de14777a080a1b1cd61b2f9dd3d972efa7517fe97`,
+control template `a564c16efad65fc933b653ba2498ff17b593b0214f17a5bbdc56baa02d1714a2`,
+checker `174e38cacdad49141e2ae9979624ab3b80842322b823e0cea8a29461ad0ed16a`.
+Metadata compiles the actual callbacks and rejects three wrong images.
+
+The controller reads actual speed,03F quarter-step,0394 fractional-X and the
+original0388 half-launch flag. It authenticates the native head profile30 with
+X/Y adders8/8. Its read-only forecast follows original ground acceleration63/
+cap832, Up-air decrement60 on quarter-phase0, DA58 fractional-X, launch bias175,
+initial vertical accumulator15 and Up gravity24. Original pose is recorded;
+no angle, velocity, position or emulated state is written. After at least four
+completed original prelean updates, ordinary Up+Right+B continues until the
+projected upward head query enters the actual1616 brick cell with3px margin.
+Fresh A and the existing Up hold then execute through the unchanged engine.
+
+Source36864 passes in72.4 seconds:
+`c5a837294bffd6c6598f69cc5ca3395a6005afefacc7917e57dee0514ddc7806`.
+At source request1586/176/speed819/fraction73/tick103, the forecast predicts the
+first admissible head query nine original updates later at1622/157. Actual
+player1614/149 gives exactly1622/157, fraction33/tick112/speed712: X/Y error0.
+The Star is genuinely born at1616/136 then matures at1616/119; actual collection
+9B28/SP243 has positive5x1 overlap at1692/176 versus1700/163. Exact C0 native35/
+music64/erase/popup6/cue20 and real DEC897C→83D6 delayed1100→2100 remain required.
+Exactly25 returned original updates finish at Main82BE/SP252 with2656 balanced
+Main/2596 balanced motor and movement,1692/176/lives2/power1/Star34/crash0/heat0.
+The genuine M prefix, constructor6144+2048/both full cookies, all effect/credit
+assertions and completed-return endpoint are unchanged. Native qualification
+of this successor is still a separate root gate at this source checkpoint.
+
+The bounded output root `build/excitebike-91dc-star-head-feedback-route-1116`
+remained absent, with zero generated files; max1/600 seconds was the reservation.
+No additional broad tests, game bytes or helper changes were introduced.
+
