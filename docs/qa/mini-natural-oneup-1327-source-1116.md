@@ -148,5 +148,74 @@ block. A separate factory aligns naturally, issues that one chord, observes
 the native ID25 constructor and source carrying, then requests fresh standing
 A from actual supported nativeY<=160. It steps away while the real item rises
 and keeps full128 maturity, physical wholeC1/INC/cue64 and25 returned-update
-gates. Source run91248 is pending. No platform coordinate/formula, pool rule,
+gates. Source run91248 follows below. No platform coordinate/formula, pool rule,
 body form, motion, physics or engine byte is modified by this successor.
+
+## Existing vertical constructor and retained full-maturity negative
+
+Vertical factory e2fa9d1cd035583e5bf185fea1b48b668916134ec8b5cf51d3b6f064b57a7eda,
+LF Lua 2b229095a4a05b30cdee0138a4aca830d40623c7d1e8388d4ba6ab4b0532df15,
+receipt ab9c1c65a585354c5d47222f42a7c36eb37de7a02921bd28451994d090d32ce1
+is an observer-bound negative. Ordinary Up+Select actually creates the
+vertical actor and carries Mini, but the observer incorrectly expected the
+fixed-girder InitEnemyObject path. The shared manual constructor publishes
+its native fields directly; its real entry is PRG64:B378, not that initializer.
+
+The separate constructor observer, factory
+455c7b479efcbfea5460439effb72902c0b37783d2e445a446c94d76367047a5,
+retains those inputs. Receipt
+719a8edccf8357b44adf533d4e1934607650ef734fb3b77bb1ff3bd7278f6652
+is a genuine item-route negative: real hidden birth Main1667 and full128
+maturity Main1734, no collector by Main2115/2055 returned MiniStep/public
+updates. Retreat to1000 leaves Mini below the item; no gameplay defect is
+inferred. A subsequent read-only chase diagnostic stops on a missing
+Player_BoundBox binding, receipt
+56f8c673f4856cb6d0b8b7e9fbeff8bd04e458e64b4689cf4ae4164d7f993ee6.
+That is an observer-binding failure, with no interception evidence claimed.
+
+## Original-admitted supported hidden 1-UP: source pass
+
+`replay_mini_oneup_support_contact_1327_1116.py` is frozen at
+118ed54d324f13f35e84a8c43cc5ae76a2de2d12bb2c7623a954047ee15f5579.
+API: `controller(raw,'oneup')`, `metadata(raw,'oneup')`, `family()`.
+LF Lua: 5416c569534ccafd5c14b74a617ea82f3e8c4e2278a01e22fca039c62c56c54d.
+Source receipt:
+ab9cd68c9671da0fe00e751dea306e83f874be7d5459d0bc6e8a6db6716fe661.
+Source checker: `check_mini_oneup_support_contact_1327_1116.py`.
+
+The frozen mature-M prefix is unchanged. After the three fixed lift
+crossings, ordinary Up+Select at1024/176 invokes actual PRG64:B378/SP214,
+return016E/SP216 with A=X=1. Native actor slot0 is ID25/state41/BBoxCtrl5,
+stage1-1/area0, actual initial **left1012, center1028, top208, width32**.
+These coordinates are read at constructor return, not inferred from a
+formula. Before pickup the route observes55 support samples and8 matching
+vertical player/platform deltas. The three fixed actors retain actual
+initial left/center/top560/576/192,688/704/192,864/880/192, width32;
+this source run boards all three. Native crossing authority remains pending.
+
+Fresh A from actual supported1024/160 yields MiniNativeTileACBF/SP218
+world1024/136, raw60/cell0x360/flags15, returningA81E/SP220. Hidden actor
+kind3 is born Main1667 at1024/120/state1. Remaining on the moving support
+then reaches the unchanged native state>=6 branch. At Main1686, state6
+actor1024/115 physically overlaps Mini1024/118 by5x2; collector9B28/SP237
+has actual boxes[111,135,116,149]/[112,124,124,136]. This is **legal early
+admission, not full128 maturation**. The earlier full-maturity route stays
+negative above. No game rule or maturity threshold is changed.
+
+Vector24, private pickup and native AF71 each run exactly once. Whole C1,
+erase, popup11 and cue32 are observed. Real INC8987/SP245 at Main1691
+changes lives2→3;898F records cue64. Exactly25 later completed original
+MiniStep and public movement calls finish at actual Main82BE/SP252.
+Entries equal returns:1717 Main,1657 public movement and1657 MiniStep.
+Terminal1024/76, earned native/source tier1, life3, all pending calls clear.
+The terminal remains on the existing moving support; no grounded-floor or
+full-stage claim is made. Score1300 includes prior genuine M and ordinary
+stomp credit; the1-UP effect is the delayed life increment.
+
+Actual1327 CPU and compiled Select8/cold16 foundation are used. Source
+prefill lacks real vblank; the Lua includes the real compiled native menu,
+full5120-byte first-code readback and both16-byte headers. All executed
+source callbacks are read-only; game seeds, state writes, ROM deltas,
+generated files and helper Mesen runs are zero. Bounded root
+`build/mini-natural-stock-1327-source-1116` remains absent. Root owns later
+native qualification and the canonical helper inventory.
