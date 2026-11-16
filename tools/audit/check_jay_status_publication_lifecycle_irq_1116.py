@@ -156,8 +156,10 @@ def irq(raw):
         'JnHealth','JnMaxHearts','JnOwnedTier','JnSelected','GameEngineSubroutine','Player_X_Position','Player_PageLoc',
         'Player_Y_Position','Player_Y_HighPos','Player_State','Player_Y_Speed'))
     def finish(m,c,stop):
+        entered=0
         for _ in range(500000):
-            if(c.pc,c.sp)==stop:return
+            if(c.pc,c.sp)==stop:return entered
+            if c.pc==q['hooks']['GameLoop']['PC']and m.rawtags[(c.pc-0x8000)//8192]==q['hooks']['GameLoop']['tag']:entered+=1
             assert m[c.pc],('ContinuationBRK',hex(c.pc));base.step(c)
         raise AssertionError(('Complete caller continuation bound',hex(c.pc),c.sp,stop))
     def paired(cpu,kind,stop):
@@ -189,19 +191,32 @@ def irq(raw):
         for at,(a,b)in enumerate(zip(prior[0]['native'],native[0])):
             if a!=b and not 0x100<=at<0x200:effects[kind,at,a,b]+=1
         plain=fork(original);cp=base(memory=plain,pc=cpu.pc);cp.a,cp.x,cp.y,cp.p,cp.sp=cpu.a,cpu.x,cpu.y,cpu.p,cpu.sp
-        finish(plain,cp,stop)
-        for m,c in models:backing(m,False);finish(m,c,stop)
+        assert active_main_return is not None
+        finish(plain,cp,active_main_return)
+        for m,c in models:backing(m,False);finish(m,c,active_main_return)
         a,ca=models[0];b,cb=models[1]
-        assert regs(ca)==regs(cb)==regs(cp)
+        assert regs(ca)==regs(cb)==regs(cp),('Complete GameLoop meaningful registers',kind,hex(cpu.pc),regs(ca),regs(cb),regs(cp))
         assert[bytes(v)for v in a.ram]==[bytes(v)for v in b.ram]==[bytes(v)for v in plain.ram]
         assert transport(a)==transport(b)==transport(plain)and critical(a)==critical(b)==critical(plain)
         assert bytes(a[:0x800])==bytes(b[:0x800])
         assert bytes(a[0x101+ca.sp:0x200])==bytes(b[0x101+cb.sp:0x200])==bytes(plain[0x101+cp.sp:0x200])
-        counts[kind]+=1;counts['complete_caller_returns']+=2
-    stop=(W.address(seed.bundle,'IdleLoop'),253);active_label=''
+        counts['complete_GameLoop_returns_no_extra_ISR']+=2
+        # NmiSkipped is a real native busy-NMI effect. The idle caller may
+        # therefore run a catch-up GameLoop, which must pair parent/candidate
+        # exactly but cannot be equated with a no-extra-NMI idle pass.
+        again_a=finish(a,ca,stop);again_b=finish(b,cb,stop)
+        assert again_a==again_b
+        assert regs(ca)==regs(cb)and[bytes(v)for v in a.ram]==[bytes(v)for v in b.ram]
+        assert transport(a)==transport(b)and critical(a)==critical(b)and bytes(a[:0x800])==bytes(b[:0x800])
+        counts[kind+':native_catchup_Main_entries']+=again_a
+        counts[kind]+=1;counts['complete_idle_returns_paired']=counts['complete_idle_returns_paired']+2
+    q=J.bindings(raw);stop=(W.address(seed.bundle,'IdleLoop'),253);active_label='';active_main_return=None
     class CPU(base):
         def step(self):
+            nonlocal active_main_return
             m=self.memory;tag=m.rawtags[(self.pc-0x8000)//8192]if self.pc>=0x8000 else-1
+            if(tag,self.pc)==(q['hooks']['GameLoop']['tag'],q['hooks']['GameLoop']['PC']):
+                active_main_return=((m[0x101+self.sp]+256*m[0x102+self.sp]+1)&65535,(self.sp+2)&255)
             own=tag==3 and(self.pc in(0xb825,0xb828,0xb82a,0xb82b,0xb82c,0xb82f,0xb832,0xb835)or 0xbed7<=self.pc<0xbedf)
             if own:
                 key=(self.pc,self.sp,self.p&207,N.get(m,'JnStars'),m.ram[2][0x33])
@@ -221,9 +236,10 @@ def irq(raw):
     return dict(passed=True,candidate_SHA256=J.PIN,parent_native_backing_SHA256=C.PIN,actual_heart_seed=heart,
         counts=dict(counts),reached_cuts=cuts,minimum_ISR_SP=minimum,
         full_AXYP_and_native_parent_ISR_effects_equal=True,all_private_SMC_maps_live_stack_preserved=True,
-        complete_idle_return_matches_no_extra_ISR_gameplay=True,no_changed_ISRs_or_cookie_reads=True,
+        complete_GameLoop_return_matches_no_extra_ISR=True,complete_idle_catchup_returns_paired=True,no_changed_ISRs_or_cookie_reads=True,
+        retained73680_fixture_negative='Whole idle compared to no-extra-NMI despite actual NmiSkipped catch-up control; strict comparison now stops at dynamic GameLoop return, then full idle is paired native-parent/candidate.',
         native_effects=[dict(kind=k[0],address=k[1],before=k[2],after=k[3],cases=v)for k,v in sorted(effects.items())],
-        scope='Reached cold0 and realheart80 header/leaf paths; complete actual idle caller return, no deepest-nesting or fullstage claim',outputs=0)
+        scope='Reached cold0 and realheart80 header/leaf paths; strict actual GameLoop return and paired full idle/catch-up, no deepest-nesting or fullstage claim',outputs=0)
 
 
 def run(kind):
