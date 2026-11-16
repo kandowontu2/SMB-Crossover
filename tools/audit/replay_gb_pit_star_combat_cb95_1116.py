@@ -9,11 +9,14 @@ PIN=Previous.PIN
 PREVIOUS_SHA='98556fad3fe3db8cd0d059a9cc80d365363d1ed28dcdad627dd23d7dc2a3529e'
 INSERT=r'''  local e=c.enemy()
   if e and e.dx>0 and e.dx<112 and math.abs(e.y-c.y)<48 then
+   local b=travel(c);local arrows={}
+   for i=0,3 do if r('MmBulletType',i)>0 then arrows[#arrows+1]={slot=i,kind=r('MmBulletType',i),x=r('MmBulletX',i)+256*r('MmBulletPage',i),y=r('MmBulletY',i)}end end
    stock.combat=stock.combat or{first={state=state(),enemy=e},samples={}}
-   local q=stock.combat;q.last={state=state(),enemy=e}
+   local q=stock.combat;q.last={state=state(),enemy=e,buttons=b,arrows=arrows}
    if #q.samples<8 and(not q.sampleAt or guestReturns-q.sampleAt>=8)then q.samples[#q.samples+1]=q.last;q.sampleAt=guestReturns end
-   return travel(c)
+   return b
   end
+  stock.alignment_last={state=state(),enemy=e,lastA=lastA,phaseStart=stock.phaseStart,camera=c.camera,feet={c.block(c.x+3,c.y+32),c.block(c.x+12,c.y+32)}}
 '''
 
 def bindings(raw,kind='star'):
