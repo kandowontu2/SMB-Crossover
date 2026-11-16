@@ -101,3 +101,24 @@ The next directed input hypothesis authenticates original F89B's actual
 admission, leaving the original A-or-B grab gate closed. The separate grab
 successor retains Right+A in flight and switches to Up only after actual
 hang/hoist admission. This changes controller inputs, not game code.
+
+Held-grab7660 is negative, receipt
+`a3934240919dffa587d81772caa33475bce66694b88a764f196ddf2d0d277bab`,
+Lua `a7c504067a27989fc74ad0f1097f54c1b0d808aff3d75b8492b7f0b7b0108ff6`.
+Actual action3 at350/128 reaches minimum126 and remains blocked near353.
+No hang is admitted; HP5/lives2/native1 are retained. The exact original
+action3 script has a small vertical arc. A separate roof-grab policy starts
+from the already-reached higher299/113 roof rather than first retreating
+Left and landing at the lower stair foothold. It still requires an actual
+jump admission, then actual grab/hoist and all genuine1UP gates.
+
+Higher-roof61299 is negative, receipt
+`f4b8eeede9d962c36b39b89601dc513edb5d0f51b67da3679bc301273889a1bc`,
+Lua `309c5d1a8bc922cbcac5c624ae51c69c1a8f12866414732d77ddb5481406cdb6`.
+Actual fresh A3 begins299/113, reaches minimum111 and369/112 near the
+next step, but admits no hang and eventually returns to353/128. HP5/lives2
+remain. A separately named careful successor uses intended B+Right from
+the actual350/128 stair contact. Every attempt requires a fresh original
+partial/full/no-step decision and then completed idle; it stops if that
+completed step makes no progress. No geometry defect or natural1UP pass
+is inferred from these input-policy negatives.
