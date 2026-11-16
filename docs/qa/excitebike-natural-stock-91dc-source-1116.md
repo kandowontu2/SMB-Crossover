@@ -444,3 +444,14 @@ No fallback jump is needed or claimed by this source episode. Native
 qualification of the new lead remains a separate root gate. The bounded output
 root remains absent; source process is terminal and generated files remain0.
 
+Root40074 actual Downloads91dc subsequently passes frozen76075/7b2b:
+`cc12713e763b7a5f45366d7d52a496d26a1f4bb404f390ca8372546ca6297f5a`.
+There are84 actual feedback calls. Real9B28/SP243 collection Main2983 has
+hero1690/176 versus Star1700/163, positive3x1. AF88/SP219 hasC0 and the actual
+timer35 writer is observed atAF8D with music64. Delayed1300→2300 at2988 precedes
+25 completed original motor and accepted movement returns at Main82D0/SP252.
+Native totals3014 Main/2619 workers/4745 physical,1696/176/lives2/tier1/Star34,
+no heat/crash. Source2656/2596 and score1100→2100 remain separate. Current
+Excitebike M/F/S/L acquisition and root96571 full-stage scopes are now closed
+in their exact versions. No further Excitebike tests or game changes are needed.
+
