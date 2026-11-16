@@ -86,3 +86,32 @@ live zero-page86/85 operands use0D. This was corrected before route CPU,
 binding the actual post-Flower projectile defeat hook at RAM3:BAA8.
 All current natural route results are still pending, without a native
 launch or game-repair allocation.
+
+## First Flower controller negative, retained
+
+Source74509 terminal0 with `passed:false`, receipt
+`fb61b5c4584d5bc3809eed65850a7d8515e27ac57832446a30f0b97913918f1b`.
+Actual7c0f, checker SHA256
+`d0c40eff5dc0f9cc8f458f7f446e311bc94d330fa284c024c482e9fa750a6f5c`,
+policy SHA256
+`4e7488dcd2674de3e22dffacf8eb83bc25af7840c60af980e36cd0a637143e7e`.
+All1800 Main and1800 original integrator entries/returns balance, HP6 and
+lives2 retained. This was the required real M prefix for Flower, not a
+standalone M regression or a successful item route.
+
+Real C1 head effect occurs at Main218, X333/Y161; actual prepared heart
+birth219 at336/136/private81/owner16, and it matures naturally to336/120.
+The original pistol genuinely defeats one Goomba en route, score100.
+No collector runs. The policy approaches the existing helper, transitions
+to M-lift-board at Main283/X413/Y176, then enters M-lift-ride only at
+Main1032/X414/Y176. Its boarding equality therefore accepted top208, the
+native floor-height coincidence. It ends415/176 in that phase without an
+above-floor carry or collection. The receipt did not include helper rows
+in the tail, so the exact later platform/contact trajectory is still
+unclassified. This supports a controller/observer investigation, not a
+physics/helper repair or a claim of an item defect.
+
+The original policy is kept immutable. A separately named successor may
+use an approach margin, require a genuine above-floor board, recover when
+boarding is lost, and include bounded passive helper/input witnesses.
+No new helper placement, jump change or game byte is authorized.
