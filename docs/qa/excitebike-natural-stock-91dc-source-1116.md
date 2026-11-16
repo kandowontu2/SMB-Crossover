@@ -159,3 +159,57 @@ speed504/stop1346, remaining before the real1392 pit and its unchanged safety
 bound. This is an ordinary-input correction, not a timing matrix or game patch.
 Star and hidden1UP remain independently open at this checkpoint.
 
+## Hidden1UP source and actual Downloads native closure
+
+The separate legal-drop controller passes source receipt
+`a800d0321454d0200c5ddfd8ad49e4004b718b79c85221078eaddaad2193250e`.
+API `replay_excitebike_oneup_drop_91dc_1116.controller(raw91dc,'oneup')`,
+factory `bdc39d90cd0e43f22414c948d35aca50a3fd369f9bae03bedb1c7f4e33e9e1c2`,
+LF Lua `e6a71d0554a5b097cf77fd32e4f015eaf08bfe43dc4b7a7d07356ebd88ba80a8`.
+The first genuine M and its25-return endpoint are retained.
+
+Actual engine-supported fourth cap902/112 has leftfoot0/rightfoot16, with
+authored pipe halves16/17. Ordinary right throttle drops to974/176, then a
+normal left/coast return stops at the real pipe943/176. Both ground feet are84.
+The original run-up starts prelean980/176/speed567, then fresh-A989/176/speed630
+and held airborneUp. The actual hidden60 produces kind3 birthMain1864 at
+1024/120, mature1930 at1024/103. Neutral parking lets its real native walk/fall
+reach the bike. Actual9B28/SP243 collection atMain1963/original1904 has positive
+12x2 boxes, player1057/176 versus1UP1058/164. Erase/popup11/cue20, real
+INC8987→898F/SP245 atMain1968 changes lives2→3 with cue64. Exactly25 completed
+original motor and movement returns finish at Main82BE/SP252,1994 balanced
+Main/1934 workers,1057/176/life3/status1/no crash or heat.
+
+Root30568 repeats frozen e6a71d on actual Downloads91dc and passes
+`1a80d9bd1a20f2198e8df8ec369b1e6b530b5cb9a8040cdf9a140a7c5bcf5b09`.
+Native counts:2348 balanced Main/1953 balanced original motor and movement,
+3645 physical frames. Both preconstructor cookies/static8192 bytes, real M,
+fourth cap901/112 with0/16 feet, normal drop973/176, pipe stand943/176,
+fresh launch990/176/speed630, hidden birth/maturity,13x2 actual collection and
+delayed life3/cue64/+25 all pass. Terminal1058/176/life3/status1/score1100,
+no crash or heat. Root reports zero images/files/game writes and unchanged
+installed91dc with clear guards. These are separate native counts, not source
+frame claims. No helper or supporting actor was added or moved.
+
+## Native Flower control negative and remaining Star scope
+
+Root8542 frozen6d2c/418d on actual Downloads91dc is an honest control negative:
+`dba8d124c9cd14bcff1879c127a1eb4233f22a05fcb2823d1306bf3cdfa3f925`.
+Genuine M fully passes. F birth2506/mature2572 are real, but its native head
+launch speed693 produces a different mature stand1311 than source1280.
+The fixed release1312 therefore begins almost at the existing stand, reaches
+only speed63 and coasts to1315. Reverse reaches1284 with speed504; the original
+speed qualification correctly fails before any Flower collector. Counts2624
+balanced Main/2229 workers/4073 physical, lives2/status1. The sourcebd2be pass
+remains valid only in its source scope. No Flower/native gameplay defect or
+relaxed speed/collection endpoint is inferred. A new feedback controller must
+fund runway from the actual reached stand within the unchanged pit bounds.
+
+Separate Star source policies have real birth/maturity but no collection yet:
+late head `d5ea5e3d54f39264d72ff75f922b323a5ccfc0df94526ceb7742fc4be94d4c8f`;
+aligned head/chase `8f9c9a1b9037bc370c7b2948130d4e7c183b98b28d514d295dc0ecab00149df2`;
+ground intercept `de919b506c452864aee14c22a44a6229edc0e178fe9af4d880120c844ddf0c26`.
+The last release1679/speed441 coasts to1650 and misses the actual bounce.
+A separately frozen earlier-brake successor is being qualified. No native
+Star controller or natural Star closure is claimed by these negatives.
+
