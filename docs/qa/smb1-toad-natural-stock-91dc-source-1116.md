@@ -215,3 +215,15 @@ collector1473 at1055/176 versus1058/165 positive10x3, delayed INC1478 life2→3,
 then25 completed Bm returns at Main82BE/SP252,1084/176/tier1/lives3. The M
 prefix passes unchanged. Source1254/1194 and1082/176 stay separately versioned.
 No native Star result is claimed by this L receipt.
+
+Root76000 actual Downloads91dc subsequently passes frozenf8dd/9b5f Star recovery:
+`957229652e09b46ec76cc6d6c5083d26f82d112509bf3acb3502922b91d62981`.
+Native totals1836 Main/1465 Bm/1849 physical. Actual injury BD4A/SP230 at1710
+shrinks1→0 with life2, hero1620/176 versus enemy1632/184. Star birth1622/mature1688
+precedes collector1805, hero1668/123 versus1674/124 positive6x3. Native AF88/SP219
+hasC0, and the memory-write observer reportsAF8D for the actual35/music64
+effect; the source callback reports the STA startAF8A. Both are explicitly
+versioned. Actual1420→2420 credit1810 precedes25 Bm returns at82BE/SP252,
+1682/176/life2/power0/Star34. Source1586/1466 stays separate. All four current
+Toad M/F/S/L native acquisition gates are now closed with the stated Star
+injury scope; this does not requalify the old421 full-stage route on91dc.
