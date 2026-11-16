@@ -90,3 +90,53 @@ Main/1373 balanced Bm,1251/112/lives2/tier2/variant6/CHR131/age60/active0.
 No injury is observed. Visible Flower event snapshots have float_active0;
 this does not independently qualify float use. Native F and source/native
 S/L remain separate gates at this checkpoint. No game bytes or helpers change.
+
+## Hidden1UP source pass
+
+The same frozen Peach stock factoryd34a uses key`oneup` via
+`controller(raw91dc,'oneup')` or `family('oneup')`. LF Lua SHA256
+`dd84fcbf73107f6797435adc926e37320e5feab7ed9e80a3f5192b0596d1981a`.
+Source99547 passes in18.51 seconds:
+`dad2ab38e3d7e9681e6a7fbb08d65f90464827293f96cefbbdbc2f181fe317b9`.
+
+The actual hidden60 head jump at1018/176 produces birth1144 at1024/120 and
+maturity1210 at1024/103 after the complete genuine M/+25 prefix. Actual
+9B28/SP243 collector1255 has hero1058/176 versus1UP1070/184, positive1x13
+inclusive overlap. Real erase/popup11/cue20 and delayed INC8987→898F at1260
+change lives2→3 and publish cue64. Exactly25 later completed Bm returns finish
+at Main82BE/SP252:1286 balanced Main/1226 Bm,1086/176/lives3/tier1/variant6/
+CHR131. No health, ability, terrain, position or outcome is seeded.
+
+## Powered Star and exact native effect source pass
+
+Base stock key`star`, LF Lua
+`2aeafd45ceb241093755bae5996d8fb1fdc278506957a38e8e78549803564430`,
+passes source92330:
+`3705f7174f77aa4eb9a2a65f2b1e03693b30f687fd0d9d608a633b3a60670172`.
+Unlike Toad's separate injury-recovery episode, this Peach route retains the
+genuinely earned tier1. No damage/tier assertion is relaxed or transferred.
+
+A separate observer-only wrapper preserves those exact controls and adds the
+actual mapped native Star effect and timer35 writer. API
+`replay_smb1_peach_star_effect_91dc_1116.controller(raw91dc,'star')` or
+`family()`. Factory SHA256
+`e3ff17b8951361ba459b0013866f45872c06c039bfacb3b2702be9daa7e87a80`;
+LF Lua `408ba0ea5121cd8afcf86a42fa68dce1e1ab3d64641aea416cd118bc9a0bf887`.
+Source26073 passes in21.59 seconds:
+`98d7ada84de4b91df242c647769cc45003fd2e7d0a671dcd5870a1adb2b26653`.
+
+After genuine M/60/credit/+25, actual Star birth1380 at1616/136 and maturity1446
+at1616/119 precede collector1504,9B28/SP243. Hero1669/135 versus1675/127 has
+positive7x6 overlap, still at power1. Actual AF88/SP219 effect and AF8A timer35
+write haveC0; music64, erase/popup6/cue20 and publicC0 are required. Actual
+DEC897C→83D6 at1509 credits1720→2720; earlier enemy/coin credit is not counted
+as Star's1000. Exactly25 later returned Bm updates finish at actual Main82BE/
+SP252:1535 balanced Main/1475 Bm,1682/176/lives2/tier1/Star33/variant6/CHR131.
+No powered-Star injury exception is used. Event float_active snapshots are0;
+full float/ability coverage is not inferred from this acquisition.
+
+All four current Peach natural stock source scopes are now qualified with
+their exact pins. Native M is recorded above; native F/S/L remain root-owned
+and pending at this checkpoint. No further broad source tests are required.
+All source processes are terminal and their exact bounded roots remain absent,
+with zero generated build files and no new helpers or game bytes.
