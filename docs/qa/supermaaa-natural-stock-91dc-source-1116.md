@@ -70,3 +70,61 @@ clears the head column. The powered Flower requirement is retained unchanged.
 All producer roots are bounded absent max1-file/600s, zero generated files.
 No historical archive/tree is restored. Native queue, existing full proof and
 protected user progress files remain untouched.
+
+## Standing head and crouch control causality
+
+Separate clear-head factoryeae8fe02 waits on supported ground until the actual
+two upper-row Goombas clear the launch column. It retains tier1/life2 but no
+Flower is born: source23764 negative
+`8d9211650156cf8ad47847ebc397fd4bed5272c4f594433b2fded2397d433490`.
+Actual wait1234→1313 ends at1242/176/neck36; A admits1314, then the body passes
+onto the row. No geometry defect is inferred from the failed input policy.
+
+Same-controls query47293 is diagnostic-only, gameplay false:
+`e6135f4bad0243acc231e4b12f6c08d8eb94060d7a70a67c60d0d63a8d704e22`.
+Actual MaaHead B6F1/SP222→native9587/SP219→016E/SP224 uses standing index0,
+Yadder4 and neck36. First heroY170 temporarily becomes134, so the actual head
+query1250/138 returns raw/R3/A0. Following Y133/128/124/119/115 also return
+empty. The head is already above row144; no block should be bumped there.
+
+The unchanged source Mario owner accepts Down before freshA when big, and
+the original collision table selects crouch index14/Yadder18. New crouch
+factorye88061fa applies only those ordinary inputs. Actual query1250/152
+returns tile193 at016E/SP224 and produces real Flower observed1314/state2.
+Its full128-maturity collector assertion then fails at1329:
+`4c6a42bded963e07721c6db4355b431ddf0b7fa3f8192f66a57ae2e8612f8584`.
+That stricter fixture negative remains frozen.
+
+Same-controls first-admission12458 diagnostic is gameplay false:
+`c6c1a15f4c5e2f9aa5a730235fb77e3f9784dab651959f5102241b7537e38080`.
+Native PowerUpObjHandler B77D/SP245 enters state5/Y132, increments to6/Y131
+and reaches actual9B28/SP237/callerB809/ObjectOffset5. Player1244/176/neck36
+box[121,148,133,208] versus Flower[125,140,137,152] has positive9x5 overlap.
+The native handler explicitly permits geometry/contact at state>=6 before
+full128 emergence. Early physical contact under that rule is not automatic
+pickup or a game defect, and no behavior change is proposed.
+
+## Faithful emerging Flower source pass
+
+API `replay_supermaaa_flower_native6_91dc_1116.controller(raw91dc,'flower')`,
+or `family()`. Factory SHA256
+`9d21445a5d365858a58aa6e4bbe849f94044f4982bddea692465c47346628d7d`;
+LF Lua `9108168759458bbf86e9f4a0330e664e864370192aa97b9111074f493f94aa76`.
+Controls equal the frozen crouch episode. This new, explicitly named scope
+requires original native state6 admissibility rather than full128 maturity.
+Actual compiled CMP6/BCC flags and public returnedC1 are additional gates;
+positive physical overlap, erase/cue/credit/60growth/25 returns remain strict.
+
+Source37630 passes in23.92 seconds:
+`b17a35442aa15303bc054945583dea613885df9a4a6dbfcac9ce68e6575796e8`.
+Actual B7E4/SP239 rejects15 earlier below6 checks, then admits state6 withC1.
+NrPickupCollision A7A8/SP234 returns016E/SP236/C1. The same real state6
+collector1329,9B28/SP237, has9x5 overlap as above. Native erase/popup6/cue20,
+old1/target2/freeze9, DEC897C→83D6 score1100→2100 at1334 and60 real growth
+ticks occur. Exactly25 later Source returns finish at Main82BE/SP252:
+1415 balanced Main/1295 Source,1246/176/life2/tier2/neck37/age60/active0.
+This is faithful emerging contact, not a full-maturity or native pass claim.
+
+Root may test this exact controller; real native timer/neck cadence remains
+separate and may expose a new honest control negative. No further broad M/F
+source tests are required. Hidden1UP and Star remain open in this namespace.
