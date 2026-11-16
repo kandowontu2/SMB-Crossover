@@ -13,6 +13,8 @@ DefaultEasy, cheats0, normal inputs, zero images/files/game-state writes.
 | M then Flower, responsive runway | PASS58625 | `cd66639cebef439b80727f6b1e8b32aa3e59225a0fb63981f7f07b9e7efc7108` |
 | M then Star, fixed head offset | NEGATIVE10699, head-admission input bound | `ef73e0c5444250b5abd8f38ce2eeeefcf1536bacce7283ac3091d89672bf0db5` |
 | M then Star, responsive head offset | NEGATIVE4958, bouncing-item intercept | `2e44e26e23c3b9cb4ef3e54d0f063ae36a21e2c5e17d02c9de0c8aad57bf1d87` |
+| M then Star, responsive moving-actor chase | NEGATIVE58128, near ground catch missed | `731e910e682fe9d1a1bacdd4e6d6f1feab2436c5a3d3eb42d9bdd80f75f8a20a` |
+| M then Star, four-pixel earlier intercept target | PASS40074 | `cc12713e763b7a5f45366d7d52a496d26a1f4bb404f390ca8372546ca6297f5a` |
 | Full nonshortcut1-1 and grounded1-2 | PASS96571 | `21e23eb6da4328ee00cfe33c5bcad2b06ccd509473aa6e6c7d26c07b3977240d` |
 
 Mushroom's60 native upgrade ticks/real1000 then25 completed original Motor
@@ -62,7 +64,7 @@ Then25 completed original Motor/Movement returns finish atMain82BE/SP252:
 crash, recovery or pending return. The separate source74ea357a has2488/2368
 counts and a different predicted/actual stop1364; it is not a native receipt.
 
-## Star head alignment resolved; native collection remains open
+## Star controls: retained negatives and current native pass
 
 Sourcecacd7bb4/6b133a91/LF44e7d399 includes genuineStar/realC0 native branch,
 1000 and25 resumed workers. Native10699 does not reach that collector: its
@@ -83,6 +85,41 @@ bound:4104 balancedMain/3709 original workers/6461physical, lives2/power1,
 Star0. No collector, C0 timer or Star credit is claimed. Sourcec5a83729 is a
 separate positive; the remaining work is ordinary interception of the actual
 native actor, not another change to the now exact head predictor.
+
+Factory3cd4f3a4/Lua39d397f6 replaces only the mature-actor interception and
+keeps that head predictor. Original CD6C explicitly admits released recovery5;
+ordinary B releases the source374 gate. Source11f947b2 reaches68 feedback
+calls and completes real Star/credit/25 original returns; its first ready0
+predecessor's standing-only/truncated output is not a qualified feedback pass.
+
+Actual native58128 remains negative. It reaches582 feedback calls and the
+same real birth/maturity, but misses a ground catch narrowly: Main2989,
+player1691/176/speed210 versus Star1705/175/VX16/VY2. It subsequently follows
+behind the bounces, reaches the step at2129/176 and stops at the retained
+bounded-interception guard,3650 balancedMain/3255 workers/6019physical,
+lives2/power1/Star0. Sixteen bounded actor samples/eight turns are retained;
+there is no collector or C0/credit claim. The generic stock.jumpSequences18
+counter is not a record of18 fallback attempts. No fallback prelean/takeoff
+witness is present, so no jump defect is inferred. The next controller may
+lead the moving catch earlier; no game or head-control change is justified.
+
+NEW factory76075a74/Lua7b2b931a changes the feedback target from actor+lead-8
+to actor+lead-4 and adds a passive original air-launch witness. All head,
+prelean, real item and resumed-return assertions stay intact. Actual40074
+passes after84 reached feedback calls. Real collector9B28/SP243 atMain2983
+sees player1690/176 and Star1700/163, positive3x1 contact. Actual AF88/SP219
+executes the C0 effect; AF8D observes the timer35 write with C0, followed by
+music64, erase/popup/cue20. Actual DEC897C→83D6 awards1300→2300 atMain2988.
+Then25 completed original Motor+accepted Movement returns finish at actual
+Main82D0/SP252:3014 balancedMain/2619 workers/4745physical,1696/176,
+lives2/tier1/Star34, no heat/crash/recovery or pending return. No fallback
+jump is needed or claimed. Sourcedcef9806 has2656Main/2596workers and a
+different contact1703/176; that positive is kept separately.
+
+M/F/S/L natural acquisition and resumed play are now native-qualified on91dc,
+alongside the separate full-stage pass below. Earlier negatives remain valid
+records of their frozen controls. Star expiry/protected hits, complete original
+abilities, graphics, audible audio and performance remain separate work.
 
 ## Current full-stage native pass
 

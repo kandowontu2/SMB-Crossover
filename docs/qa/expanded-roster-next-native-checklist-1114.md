@@ -58,7 +58,7 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
 | SMB3 Bowser; SMB1 Bowser | **C6a3 full earned1UP routes:** actual Downloads55517 SMB3/2883a154 (3619Main/6141physical/HP33),7245 SMB1/63ad0d76 (4696/7627/HP4), both full flag/castle/entrance then25 living grounded completedcore+tail pairs in1-2 at40/176, tier1/lives3. Separate **L/S C6a3**37075 all4 match private83453/94864; genuineM/F60 precede Star, tier2/lives2/actual+1000/+25; SMB1Star ends airborne | **Earned-life reset repaired/delivered6a3:** signed40B Ensure plus two cookie views,72owned/56changed/allunownedbc5exact. Genuine emergence/maturity/contact/INC/cue64, savedlife3/noCtor until legitimate nextarea; retained baseline36997 proves old upgrade reset/heal. Sourcefull39a67b62/native results retain distinct timing. Naturaldeath/expiry/protected-hit/audio/performance remain separate. See `bowser-life-gain-native-root-1116.md`, `bowser-life-gain-candidate-source-1116.md` and baseline QA |
 | Donkey Kong Jr. | **H**,Nov11 delivered full route. **Currentbc5 partial native49704:** earlier-hop controls clear first3pipes/Goomba and ascendfourthpipe; helpers880/944 have38/150 support samples. The old special fourth descent still trips original fall/injury guard at985/176, noflag/1-2. Older uninstalled private769 final3040 negative remains separate | Currentbc5 preserves complete public11433-byte DK Jr owner and13 helpers; private769/floor repair is absent. Earlier43b5 firstpipe fall and5c65 late Goomba contact remain scoped negatives. Newb09c native receipt e8c055b5, actual earlyhop3025 at783/176. Helper investigates safe fourth descent; no game/helper repair inferred. Strong endpoint counts25 completed grounded D65E motor returns, not fullhostMain; zeroobservedinnegative. No current fullclear or naturalall-item claim. See `dkjr-current-native-first-pipe-1115.md`, `dkjr-public-early-depart-bc5-1115.md` and helper inventory |
 | Hulk Hogan; Ted DiBiase; Bam Bam Bigelow; Honky Tonk Man; Randy Savage; Andre the Giant | **H**,8fc57b8b six separate full routes; **C7a80 Easy**, all six real M/F60/+25, mature Star/35/music64/cue32/1000score/+25 and hidden1UP/delayed2→3 life credit/cue64/+25 | All four stock families are individually covered per wrestler. Star expiry/protected contact, original endurance/gear, audible output and current full stages remain separate. Earlier Bigelow/Savage gap input failures are retained; later-edge controls pass using the existing native helper. See `wwf-natural-star-native-1115.md` and `wwf-hidden-oneup-native-1115.md` |
-| Excitebike | **C91dc**, actual Downloads96571/21e23eb6 full nonshortcut1-1 flag/castle/exterior+underground entrance and25 grounded originalMotor+Movement returns atMain82D0/SP252;4175Main/2636workers/6468physical,125/176/life2/power0/1-2Area2/type2, no helpers. **M/F/L C91dc**, actual46091/7014b9e8, responsiveF58625/cd66639c andL30568/1a80d9bd, genuine items/credit/25returned workers; F60ticks→power2, L actualINC2→3 | **S responsive native4958 NEG2e44e26e:** head forecast exact, real Star born/mature, stationary1675/176 intercept misses bouncing actor. No collector/C0 credit is claimed. Earlier10699 head-offset negative and8542 Flower runway negative retained; responsive F closes its item gate without game changes. Other abilities/audio/visual/performance remain open. See `excitebike-stock-native-root-1116.md` |
+| Excitebike | **C91dc**, actual Downloads96571/21e23eb6 full nonshortcut1-1 flag/castle/exterior+underground entrance and25 grounded originalMotor+Movement returns atMain82D0/SP252;4175Main/2636workers/6468physical,125/176/life2/power0/1-2Area2/type2, no helpers. **M/F/S/L C91dc**, actual46091/7014b9e8,F58625/cd66639c,S40074/cc12713e,L30568/1a80d9bd; genuine items/credit/25returned workers, F60ticks→power2,L INC2→3 | S uses actual moving-actor feedback and a four-pixel earlier target:84 feedback calls, positive3x1 contact at1690/176 versus1700/163, nativeC0/timer35/music64/actual1000/25returned Motor+Movement;3014Main/2619workers/4745physical,lives2/tier1/Star34. Earlier fixed-head/stationary/chase negatives remain versioned. Other abilities, Star expiry/protected hits, audio, visuals and performance remain open. See `excitebike-stock-native-root-1116.md` |
 | Prince Persia | **C7fb Easy**, actual Downloads97939 matches private37914: full earned-M/F/sword1-1/flag/castle then25 living grounded completed1-2 returns;9336Main/7757Prince/17249physical,HP5/lives2/native2/Sword1. Hidden5F/60 point-query false wall/backward snap is repaired; native head path/real pipes remain intact. Current67 leaves the full Prince packet/code/cookie exact, without relabeling this as a new67 route | **S C7fb Easy**, actual Downloads97939 matches private28784:4707Main/4015Prince/8508physical, genuine collector/erase/cue/credit and25 completed Prince updates,HP4/lives2/native2/Sword1/Star33. Natural L, equal-facing target loss, wider abilities/Hard/audio/art/performance remain open. 1-1 cap/running/grounded-Up controls genuinely do not reach hidden row128; retained negatives do not establish a head-query rejection. A typed67 2-1 authored ledge/controller investigation is active. No helpers changed. See `prince-hidden-point67-native-root-1115.md` and `prince-hidden-point67-ace-source-1115.md` |
 | Burns | **C**, actual421 root16139/94b,8864physical/4442Main/2818CF, full flag/castle/entrance and25 grounded1-2; no helpers | **Currentbc5 idle lag OPEN/measured:** root77416/c95fafe9, idle48Main takes96physical frames (71/95 missing port-read frames); Right16 takes32 (23/31 missing),0actors/shots/lives2. Actual RAM1 Input/Body and Main returns balance; observer pass is not a lag fix. Source attribution and detached proposals precede any overlay lease. Natural weapon/container ensemble and other abilities remain separate. See `contra-force-idle-native-root-1115.md` and `contra-force-full11-source-1114.md` |
 | Smith; Beans | **C**, actual421 root93241,8954/8951physical, full flag/castle/entrance/25grounded1-2 at40/176/lives2; no helpers | Natural weapon/container ensemble and remaining abilities are separate; idle30Hz deficit remains open. Evidence: `contra-force-full11-source-1114.md` |
@@ -68,16 +68,17 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
 
 ## Assign next, without resetting completed work
 
-1. DK Jr. remains an active **private repair** gate. Actualbc5 root31697
-   establishes the first X72to71 writer at camera-shiftBB27 after a fresh
-   current-camera platform anchor. The new source-only carry-order lease
-   `allocations/dkjr-carry-camera-source-1116.json` owns214+16 bytes over6a3;
-   candidate6d7 reconciles the camera before importing an accepted position.
-   All13 native helper placements remain exact. Source camera/ABI/lifecycle/
-   header/ISR/retainedvertical/fullroute gates precede any physical promotion.
-   Historical floor/visible-entry grants are not authority for this new span.
-   Current6a3 leaves the full publicbc5 DK owner unchanged; no DK successor
-   is installed or newly claimed as a full native clear.
+1. DK Jr. remains an active **private repair** gate. Current privatea3fb joins
+   the383-byte camera/footer repair over91dc, all13 placements unchanged.
+   Actual native26754/97d02 and passive38586/875b68 reproduce an initial
+   fourth-helper admission failure: the replay misses source-grounded/native2
+   pipe-roof support and walks off while helper944 is too low. It never
+   attaches944. This is separate from the earlier retained-passenger loss;
+   safe earlier roof recognition/boarding is the next ordinary-input study.
+   Source29031/da5f passes1-1 but fails the strong grounded1-2 entry endpoint;
+   the source entry cause is also under investigation. See
+   `dkjr-footer-native-admission-root-1116.md`. The installed91dc DK owner is
+   unchanged; no private successor or new full native clear is delivered.
 2. **U0 (previously U1):** classicDonkeyKong now has the actual571 full
    earned-M route93535/4601, including25 living grounded1-2 updates. Natural
    DK's natural M/F/S/L are now covered by the separately versioned row above;
@@ -107,7 +108,7 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
    actor placement/allocation and must record the assisted crossing.
 3. Reuse existing natural-item source controllers for **Jay F/S/L, both
    Bowsers S/L, Prince L,
-   Metal S/L and Excitebike S**. A mature-actor seed is diagnostic only;
+   Metal S/L and SMB1 Peach M/F/S/L**. A mature-actor seed is diagnostic only;
    collector/erase/score/sound/resumed-play effects must follow ordinary access.
    All four FF M/F/S/L are already covered in their recorded versions; their
    next work is expiry, protected hits and remaining abilities/audio/art/lag.
