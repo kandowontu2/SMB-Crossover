@@ -926,3 +926,18 @@ with both lives in1-2. Root reviewed actual falling/grounded images and both
 installed image hashes match private. The native horizontal bridge supplies26
 plane evaluations, not26 proven support events or native carries. See
 `dkjr-entry-native-root-1116.md`. Earliera3fb failure remains versioned.
+
+### November 16: Jay's existing layout verified in delivered1327
+
+Jay McCray (Mike Jones, Select once) retains three native vertical `$25`
+helpers in1-1, each width32. Their **world left / center / initial top**
+coordinates remain **384/400/192**, **688/704/192** and **880/896/192**.
+No helper was added or moved by the status-and-size repair.
+
+Private94610 and actual Downloads52522 pass the same complete assisted1-1
+route into1-2, receipt
+`786ccd62b884a0c5445891883c02bfd7730c5934bc18c1c0cf2bd9241da27b28`.
+The endpoint includes25 living grounded original-worker returns at40/176,
+HP6/max3/lives2. This proves the assisted route; it does not assign a new
+per-platform carry count. Separate natural-food tests cover the first
+pickup's existing support. See `jay-status-size-native-root-1116.md`.

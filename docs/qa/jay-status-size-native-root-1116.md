@@ -1,7 +1,7 @@
 # Jay original powerup status and full head size
 
-The complete1327 repair passes four private native cases. Downloads remains
-verified00bb pending direct installation and four exact native repeats.
+The complete1327 repair passes four private native cases and all four
+repeats from the installed Downloads nightly. Delivery is verified.
 Candidate `13272464e34237f09c7fce87ac276b20da299f8028640cc51155759d6c642a4d`
 has116 owned/72 changed bytes over00bb, including three existing cookies.
 All other bytes, Metal's34-byte repair, packed primary,54 transfer bytes,
@@ -66,4 +66,19 @@ passes on this candidate; the shared inventory remains unchanged.
 
 Full arsenal, additional food/drop families, Star expiry/protected hits,
 complete audio/art review, Hard mode and steady performance remain separate.
-Actual Downloads verification is still required before delivery is complete.
+
+## Installed Downloads verification
+
+After source push `fd115d8c`, the installer replaced
+`C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes` directly, without
+a backup. Its 2,097,168 bytes hash to the candidate SHA256 above. The command
+line patch guard passed before and after installation; no matching automatic
+IPS/BPS/UPS patch was present.
+
+Actual Downloads run52522 completed all four cases with exit0. Every receipt
+SHA256 exactly matches the corresponding private94610 row above, including
+the full-stage endpoint and all tracked entry/return counts. The installed
+launch context, not merely an isolated candidate path, is therefore covered.
+The shared two-file native slot now contains1327 and the full-stage controller.
+Root's Mesen queue is free. No screenshots, videos, backup ROMs, patch assets
+or GitHub releases were created for these four repeats.

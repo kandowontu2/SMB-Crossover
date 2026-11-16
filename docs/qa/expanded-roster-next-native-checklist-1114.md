@@ -1,7 +1,7 @@
 # Expanded-roster next native checklist — November 14
 
-Current delivery: `LATEST_1116_7C0F_DOWNLOADS_VERIFIED`, exact installed
-`00bb2664647a4ef47b5dfa01c96d50549581d215a33d19a2a6390d1e09078e21`.
+Current delivery: `LATEST_1116_1327_DOWNLOADS`, exact installed
+`13272464e34237f09c7fce87ac276b20da299f8028640cc51155759d6c642a4d`.
 Rows retain their explicitly recorded ROMs; a later delivery does not
 silently promote earlier stage receipts to the new image. Current opening
 enemy/powerup pictures cover Prince on16a and DK/all six wrestlers on590
@@ -46,7 +46,7 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
 | Thomas | **H**,65ee94ca full M/F/S route plus separate natural L/Downloads repeat | Four stock families covered across separate runs; not one uninterrupted all-item route |
 | Metal Storm | **H**,8fc57b8b full route and natural M/F/upgraded shot | **M/F/S/L C00bb**: Downloads53024 matches private84341, La8b7d81c real INC2→3 retains armor128/native1/saved3/noctor/+25; Stard3437046 genuine nativeC0/35/music64/1000/+25, armor128/lives2/Star34. Flower8004/05a98205: genuine mature contact1x13/original item0/weapon128/native2/1000credit then25 returned MsFrame+Movement+HostStep; later real moving81 shot/nativeGoomba defeat/shot retirement.1631Main/1338workers/2525physical,1502/176/lives2. Immediate original armor/weapon policy, no60growth. Delivered34owned30changed life repair; source lifecycle/ABI/reached11IRQ+11busyNMI pass; baseline7c0f failure retained. Full-stage regression, complete arsenal, audio/art/performance remain separate. See `metal-life-snapshot-root-1116.md` and `metal-flower-native-root-1116.md` |
 | Mike Tyson; Alex | **H**,33d2c7a7 Tyson Hard4861 frames;4cbd0191 Alex6018 | Complete natural stock-item evidence per identity remains unqualified in these route receipts |
-| Jay McCray | **H**,aa501128/62ba full stage, machine gun and authored first health pickup | **S/L C00bb**, actual Downloads41487: L3c0280bf,1245globalMain/910returned original/2152physical, real matureC0/privateFC collect/popup11/INC2→3/cue64/+25,1058/176/HP6; Star08df9069,1634/1299/2777, real mature80 collect/nativeC0/35/music64/1000/+25,1676/170 airborne/HP4 retained/lives2/Star34. No pending returns/seeds. Source and native counters/health endpoints remain distinct. F is blocked by proven omitted NativeStatus mirror and has no repair yet; donor weapon/ammo policy remains original. See `jay-sl-native-root-1116.md` |
+| Jay McCray | **C1327**, actual Downloads52522 exactly matches private94610/full786ccd62: 3885 Main/2391 original workers/5674 physical frames; full flag/castle/grounded1-2 entrance then25 completed original returns at40/176, HP6/max3/lives2/size0. Earlier machine-gun proof remains versioned | **M/F/S/L C1327:** actual Downloads52522 matches all private receipts: F2d745e96 (1821 Main/1486 workers/3040 physical), L97ecb448 (1245/910/2154), S08af4e40 (1634/1299/2779). Real first heart HP6→8/max3→4, correct private82 Flower/tier2, actual brick51 shatter/chunks/noise and1000 score writer followed by more than25 returns and a pistol defeat. Life2→3/cue64/+25; Star35/music64/1000 by endpoint/+25 after collector, HP4 already present and retained. Full original Status+Size0 publication repaired;116 owned/72 changed bytes, all unowned00bb/Metal/graphics/helpers exact. No seeded outcomes. Full arsenal, Hard, Star expiry/protected contact, audio/art/performance remain separate. See `jay-status-size-native-root-1116.md`; earlier00bb and failed private-only status-only df0e retain their scopes |
 | Steve Hermann | **H**,62ba full stage;7ef four stock pickups | Four-stock route closed by combat chase; do not reopen the earlier death-before-Star controller failures |
 | SMB3 Toad; SMB3 Peach | **C**, actual Downloads421 native95857/52d post-damage Toad and33056/30e Peach; full flag/castle/entrance and25 living grounded1-2 | Individually earned SMB3 powerup ensemble remains separate; preserve old c8f second-pit input negative without reopening the now-cleared identity |
 | Popo; Nana | **H**,a7ccbaaa natural clears5190/5285 frames, tier0→1 | F/S/L and additional original abilities; do not reuse the old pipe/route negatives |
@@ -104,8 +104,10 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
    and `48619365f3fbb73a02c9c205df2a8330d602d82049b4645e836d3ec4f1397579`.
    Use their intended abilities. If assistance is needed, root owns native
    actor placement/allocation and must record the assisted crossing.
-3. Reuse existing natural-item source controllers for **Jay F/S/L, Prince L,
-   and Metal S/L**. Peach, Kamikaze and SuperMaaa M/F/S/L are now native91dc
+3. Jay's **M/F/S/L and full stage are now native1327**; Metal's four stock
+   families are native00bb. Continue current Mini, Rogue Dawn and Sonic item
+   work, and retain **Prince L** as an open natural acquisition. Peach,
+   Kamikaze and SuperMaaa M/F/S/L are now native91dc
    passes; both Bowsers S/L are already native6a3 passes. A mature-actor seed is diagnostic only;
    collector/erase/score/sound/resumed-play effects must follow ordinary access.
    All four FF M/F/S/L are already covered in their recorded versions; their
