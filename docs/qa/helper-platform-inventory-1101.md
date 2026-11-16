@@ -193,6 +193,14 @@ partial current proof does not relabel the older full clear as current67.
 See `dkjr-current-native-first-pipe-1115.md` and
 `dkjr-public-goomba-after-pipe3-67-1115.md`.
 
+The verified November15 bc5 nightly leaves that complete owner and all13
+placements exact. Root49704's earlier-hop controls clear the Goomba and
+reach the fourth pipe's roof. Helpers880/944 have38/150 actual support
+samples; all first eight helpers are born at their listed initial top192.
+The fourth special descent then trips the original fall/injury guard at
+985/176. Its full-stage and remaining five helper crossings are still open;
+this additional partial proof is not a new full clear or a placement change.
+
 | Pipe | World left X | Center X | Initial top Y |
 |---|---:|---:|---:|
 | First, ascent | 416 | 432 | 192 |

@@ -36,3 +36,52 @@ the same controls and real current game. A control-phase issue, original fall
 rule and collision regression remain hypotheses. No engine repair is inferred
 before the first wrong transition is established. A separate successor must
 qualify25 grounded completed1-2 returns after the original active1-2 endpoint.
+
+## Subsequent current-native progress and retained negatives
+
+Root80300 passive probe2ad6 retains the original controls and identifies
+the real original fatal-fall comparison after a high first-helper departure.
+The source5 store is at original A8DD/A8E1, sourceY159 versus origin101 and
+limit24. Receipt
+`3b87a46813d934605ff0db14c84a86afcc22bcad3a7724774f1be4c8173007f7`.
+No engine/floor repair is inferred from an intended original fall rule.
+
+New ordinary cap-depart controller5c65 clears the first three pipes in
+actual public67, root28894, then jumps too late into the Goomba near791/175.
+Receipt `7372c6db04423cfc6d575208c87ef09dae357a79ac7b5dafed2271cf57dba4ce`.
+Root44172 passive4c819 preserves those controls and proves actual native
+jump admission followed by ascending side contact, InjurePlayer and source5.
+Receipt `df00dc37a4e897cedd55ce8498196bd62281f8f8f2fee95bd539fc1a814a2e06`.
+The collision rectangles meet at X97; this is not a missing jump request or
+a false floor. See `dkjr-public-goomba-after-pipe3-67-1115.md`.
+
+## Actual bc5 earlier-hop route: fourth-pipe descent remains open
+
+Root49704 uses the actual verified Downloadsbc5, not its normalized67
+reference. Factory3981/Luab09c preserve all11433 DK owner bytes and13 helper
+rows, add ordinary earlier-hop inputs and a stronger endpoint. See
+`dkjr-public-early-depart-bc5-1115.md` and root allocation
+`allocations/dkjr-early-depart-bc5-native-1115.json`.
+
+The new earlier-hop branch is now exercised in the real game: Main3025,
+frame7484, X783/Y176, sourceY191/origin189/limit24; Goomba811/Y184.
+It clears the previous Goomba contact, ascends the fourth pipe and reaches
+its roof. Real support/carry counts are45/46/15/41/19/10/38/150 for helpers
+at416/480/560/624/688/752/880/944 respectively. All eight are born at initial
+top192 with the exact left/center coordinates in the helper inventory.
+
+The route is still **negative**, receipt
+`e8c055b5b2b11fe50563a5537daa144b5b22205cf9d40f2265c930a35b035a21`.
+Fourth roof begins Main3636/frame8852 at917/112. The old special fourth-pipe
+policy waits until Main6520/frame14625, then requests `jump-down` at940/112
+while helper944 has top102. At Main6594/frame14782, X985/Y176, it trips the
+original fall/injury guard: source5/native0/lives2/timer126. The last actual
+944 support sample was Main6236/frame14057 at940/36. No flag/castle/entrance
+or1-2 return is observed. A safer ordinary descent policy is the next source
+investigation; no ROM/helper/floor change or game-defect claim is made.
+
+The new endpoint counts25 consecutive living grounded **completed private
+DK D65E motor returns** with matching dynamic PC/SP and no pending motor.
+It does not count completed full host NES Main routines. There are zero
+such1-2 returns in this retained negative. Both ROMs stay exact; no game
+writes, captures, images, backup, patch or release is created.
