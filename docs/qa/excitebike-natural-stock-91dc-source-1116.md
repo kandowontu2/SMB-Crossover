@@ -213,3 +213,32 @@ The last release1679/speed441 coasts to1650 and misses the actual bounce.
 A separately frozen earlier-brake successor is being qualified. No native
 Star controller or natural Star closure is claimed by these negatives.
 
+## Feedback Flower source successor
+
+The fixed-runway source/native divergence above remains frozen. A separate
+current91dc feedback controller passes source receipt
+`74ea357a99e895661b7d3d9424212cf8f798bd6123f951d32127177abb3324a1`.
+API `replay_excitebike_flower_feedback_91dc_1116.controller(raw91dc,'flower')`;
+factory `1762c20a3b348117cf8779cf2deec32cd9023f68fb283db3f85e493274d197cf`,
+LF Lua `2e2e53a7b1dbca25b248745d58c044254bea49dacd07dc659d33cd52f4b3110b`.
+
+It observes the actual private speed, original quarter-step counter and
+fractional-X byte. Controller-local projection uses the unchanged CE58 ground
+decrement56 on quarter-phase0 and DA58 fractional-X accumulation, with current
+table bytes authenticated. It does not write or replace original physics.
+Only the actual flat, grounded, facing-right, no-crash/recovery/heat domain is
+admitted. The projected ground support and existing stop-before1380 guard
+protect the real1392 pit. Actual standing position funds the return run-up;
+a finite re-funding branch handles an actual obstruction, without weakening the
+original speed, physical collection,60-tick or25-return conditions.
+
+Source release1317/176/speed567 projects1364 and actually stops1364, error0.
+Original acceleration is discrete, so release may pass the nominal1348 target;
+the unchanged1380 guard still applies. Reverse prelean1301/176/speed693 and
+fresh-A1290/176/speed756 produce real Flower collection Main2402/original2343,
+9B28/SP243 at1259/117 versus1248/119, positive2x13 overlap. Real erase/popup6/
+cue20, DEC897C→83D6 credit1105→2105,60 ticks→tier2, then25 returned motor and
+movement updates finish at Main82BE/SP252:2488 balanced Main/2368 workers,
+1254/112/life2/status2/no crash or heat. Native qualification of this successor
+remains separate; no previous native negative is relabeled.
+
