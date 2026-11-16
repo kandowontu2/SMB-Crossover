@@ -5,6 +5,10 @@ three pipes, preserving original fall rules and all game/helper bytes. It then
 enters native injury near a Goomba after pipe3. Full1-1 remains unqualified.
 The available receipt does not retain jump age or the first collision caller,
 so it does not yet select an ordinary input correction or establish a defect.
+Later native44172 closes that observation: the jump starts only one pixel
+before normal ascending Goomba side contact. The separate successor and strict
+currentbc5 binding are recorded in
+[dkjr-public-early-depart-bc5-1115.md](dkjr-public-early-depart-bc5-1115.md).
 
 ## Native28894
 
