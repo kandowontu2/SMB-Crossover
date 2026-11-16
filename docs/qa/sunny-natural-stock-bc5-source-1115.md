@@ -77,10 +77,52 @@ native or full-stage claim follows from this source result.
 
 ## Star
 
-First ordinary Star source job84267 is pending under absent
-`build/sunny-natural-star-bc5-1115`, max1file/600s, zero outputs. It requires real
-birth/maturity/physical collection, Star35/music64/grab cue32, the actual delayed
-popup1000 score return, then25 actual returned Sunny updates at Main return.
+First ordinary Star source84267 is a retained observer-bound negative, receipt
+`25d7c6670c11a94aba9990a97509e7342c6c365856b140ff8c1afc3764d48e46`,
+LF Lua `bd1f9106e579e8c2ff7333d0cd4e5ae40982b0171fe870193d9890f5e04cd92a`.
+Bounded absent `build/sunny-natural-star-bc5-1115`, max1file/600s, files0.
+Real birth Main1247, mature1314, physical collector1431/Sunny1312 at1678/123
+against Star1674/124, inclusive overlap8x3. Actual return016E/SP239,
+erase/popup6/Star35/music64/grab cue32 all passed. A real preceding injury reduced
+form1 to0; no injury-free claim is made. The neutral continuation reached
+Main4501/Sunny4381, x1681/176/lives2/score2640 versus1440 at collection, but its
+target-slot/timer score observer did not finish. No missing-credit game bug is
+inferred from that observer negative.
+
+A separate same-input observer69134 under absent
+`build/sunny-star-credit-observed-bc5-1115` closed the causal diagnostic, receipt
+`714449a5a4cb3a4ea17060c6bc8a35092ea9883802528cc453c6d5dd9c73a0db`.
+At most8 popup/core/score events were retained in memory. Popup6/slot5 timer43
+at Main1436/Sunny1316 became42 with score2440 at returnedMain1437. Actual
+AddToScore return016E/SP244 independently measured1440→2440. The assumed
+FloateyNumbersCore entry callback was not reached, although its downstream
+native credit executes. The entry-only observer was insufficient. No game
+bytes, input policy or score/return requirements were changed.
+
+### Reached-writer successor33346: PASS
+
+New factory `tools/audit/replay_sunny_star_credit_bc5_1115.py` SHA
+`14d741be867e35faee2cd8feec395ed4e5de10b53f4c4d73e17f5d130337fc19`.
+`F.controller(raw, 'star')` LF Lua SHA
+`1452dc2ecaf9bc86e7d274e78fcf96f20d545db855942daa7e8794c32540398f`.
+The original factory/template and both first controller texts remain frozen.
+This successor changes only configuration and the credit observer, retaining
+the same ordinary gameplay inputs.
+
+Bounded absent `build/sunny-star-credit-bc5-1115`, max1file/600s, files0. Source
+receipt `8c87c1fb33136657937688a047a7a8174f94cceb4f6a4451b431ebabd62047f4`.
+Actual DEC897C/SP245/A43/Y6 authenticates popup6/slot5/timer43, then actual
+83D6/SP247 return proves1440→2440 at Main1436/Sunny1317. Exactly25 further
+Sunny returns end at Main1462, actual Main return82BE/SP252, pending Main and
+Sunny clear. Terminal1681/176, Player_State0, form/status0, lives2, Star34;
+Sunny entries=returns1342. The preceding real injury remains part of the
+ordinary route. Birth, maturation, positive physical overlap, erase and cues
+are the same observed lifecycle as the first controller.
+
+Both current bc5 S/L source controllers are native-ready narrow item scopes.
+Root has the exact APIs and Lua pins. No emulator was launched by this helper.
+All Sunny source jobs are terminal, output roots remain absent and no ROM or
+release assets were created.
 
 Natural native S/L, audio fidelity, idle performance and a fresh current full
 stage remain separate scopes. Historical Hard/M/F/fireball receipts stay
