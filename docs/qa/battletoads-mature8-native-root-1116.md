@@ -48,11 +48,23 @@ physical, HP39; Zitz4611/3037/5005, HP43; both lives2/power0. Main and original
 entries/returns balance. No native Star expiry/protected-hit/audio-listening,
 complete abilities or broad performance claim is made.
 
-## Delivery gate
+## Verified Downloads delivery
 
-Private gates are complete. Root must push source/grants/QA before direct
-replacement, run CLI patch guards before/after, verify installed bytes and
-repeat all eight exact receipts from actual Downloads. No delivery claim yet.
-No CF/DK private prototype is part of this image. All runs produced zero
-captures/images/files/game writes; only the shared candidate/controller were
-used. No backup, patch or release. Root queue is free after71807.
+Source checkpoint608f9c85 preceded direct replacement of
+`C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes`.
+The installed2097168 bytes match the private91dc candidate exactly. CLI
+patch guards before and after installation report no same-name automatic
+patch. No backup, patch asset or GitHub release was created.
+
+Actual Downloads root22050 exited0: all eight cases above passed again and
+each receipt SHA256 matched its private71807 receipt exactly. This includes
+both natural Mushroom,1UP and Star episodes, and both full nonshortcut1-1
+clears followed by25 living grounded completed original-worker returns in1-2.
+The delivery grant and runner enforce the exact image and all eight matches.
+The earlier6a3 Bowser receipts retain their own version; all Bowser repair
+bytes are preserved, without claiming an additional91dc Bowser rerun.
+
+No CF/DK private prototype is part of this image. All16 private/Downloads
+runs produced zero captures/images/files/game writes; only the shared
+candidate/controller were used. Root queue is free after22050. The broad
+roster/ability/performance goal remains active and incomplete.
