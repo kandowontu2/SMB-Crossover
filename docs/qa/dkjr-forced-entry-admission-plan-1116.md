@@ -46,4 +46,3 @@ V2 fit receipt `e8de1ab6f825b9c3eb303ff4793c5cef68bbc808d929c12c95d5b7f16f21371b
 
 Predicted V2 identity is `7c0f7902e5ef17ff552c2ce36ba08534fdd48f00fddc62a54834df18e68f3c98`, packet `bbdb7d84eb2485d69d23df750ce08a3ed703b2b4de495aa08aa8c6806b7cb3e1`, cookie `a72801bbdb7d84eb2485d69d23df750c`. Terminal source-planning55989 exited0, no outputs. An initial v2 assembly rejected unsupported `.res`; explicit12-byte NOP data fixed only the planner representation. All original C/F and revision1 files remain immutable. Root alone may grant a new source overlay or physical/native test; no such authority is implied here.
 
-
