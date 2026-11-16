@@ -104,3 +104,60 @@ Main/1312 Source,1238/112/lives2/tier2/age60/active0/timer0. No injury occurs.
 All inherited M/60/1000/+25 assertions remain required. Native F is root-owned
 and pending; S/L remain open. All helper processes are terminal at this checkpoint,
 their bounded output roots remain absent and generated build files stay zero.
+
+## Genuine hidden1UP source pass
+
+API `replay_kamikaze_mario_ground_stock_91dc_1116.controller(raw91dc,'oneup')`,
+or `family('oneup')`, factory SHA256
+`58e1680356c1a30ea16d8beba9dd5305362b28222bf38b71b2de35f6025fdf01`;
+LF Lua `d5e6763b9151ad740a2a6ad011dc82c10e3f974fed663aa199ec886e6d48140b`.
+This route leaves the actual fourth cap normally, lands976/176 and makes a
+fresh grounded jump1019/176 under the authenticated hidden60 at1024/128.
+
+Source40027 passes in20.43 seconds:
+`4e9f6b7659625bdc375112edaa181930929b5510423cebd0841880f05aa9e957`.
+Real birth1116 at1024/120 and maturity1182 at1024/103 precede9B28/SP243
+collector1215, hero1048/176 versus1058/165, positive3x3. Erase/popup11/cue20
+and actual delayed INC8987→898F at1220 produce lives2→3/cue64. Exactly25 later
+Source movement returns finish at actual Main82BE/SP252:1246 balanced Main/
+1186 Source,1066/176/life3/tier1. The real M/60/1000/+25 prefix is retained.
+No power, health, position, actor or terrain is seeded. Native L remains
+root-owned and pending at this source checkpoint.
+
+## Star after actual injury and shrink
+
+Frozen powered Star ground-route58e1/Lua1323f6e6 reaches real birth1391 and
+maturity1458 but fails its tier-retention guard after ordinary enemy contact.
+Source2585 negative is retained:
+`3cbc32e5ba41f2c11e6c7bd408ce50c9b444dde644fd74aacfc196c992de6981`.
+It ends1540 Main/1420 Source at1625/176/life2/power0. This is not labeled a game
+defect or silently promoted to a powered Star route.
+
+New same-controls API
+`replay_kamikaze_mario_star_recovery_91dc_1116.controller(raw91dc,'star')`,
+or `family()`, factory SHA256
+`85ffb317c80972847b891f5eed212619e17d23d5ce87bd29665effcb37b4480a`;
+LF Lua `6aedcf261a9d252d554189e48bb00879aea1753568f1434da3e08fe3c0748249`.
+The separate scope requires the actual reached injury, old1/target0 native
+transaction,60 original shrink calls and returned completion. Power0 without
+that evidence fails. It adds exact mapped AF88 C0/timer35 write observers and
+preserves physical contact, erase/cue/credit and25 returned Source requirements.
+
+Source40179 passes in26.99 seconds:
+`e82d42b794b85ed9d6f2c53879a08faaa889b0052b9dcf3e607fa2a3d5a433ed`.
+Actual BD4A/SP230 injury at1479 has hero1625/176 and native Goomba slot1,
+ID0/direction2,1636/184 with overlapping actual boxes. The genuine1→0 shrink
+completes after60 calls at1539/016E/SP224, life2 retained. Star birth1391 at
+1616/136 and maturity1458 at1616/119 precede physical9B28/SP243 collector1573:
+hero1668/118 versus1672/118, positive8x2, power0. Actual AF88/SP219 hasC0 and
+AF8A writes35; music64/erase/popup6/cue20 occur. DEC897C→83D6 at1578 credits
+1220→2220. Exactly25 later Source returns finish at Main82BE/SP252:1604
+balanced Main/1484 Source,1698/112/life2/power0/Star34/variant3/CHR132.
+
+All four actual91dc source natural-stock scopes are qualified, with Star
+explicitly post-injury/unpowered. Native remains root-owned and separately
+pending. No complete ability, protected-hit/expiry, art, audible audio,
+performance or current full-stage claim follows. All source processes are
+terminal; bounded output roots remain absent, zero generated files, no added
+helpers, ROM changes or gameplay seeds. Frozen Toad/Peach APIs and earlier
+Kamikaze controls/negative receipts remain intact.
