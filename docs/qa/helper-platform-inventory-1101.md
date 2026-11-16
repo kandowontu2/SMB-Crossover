@@ -975,3 +975,21 @@ positions1012/1028,1204/1220 and1603/1619 remain separately versioned and
 must not replace these native measurements. These runs prove the assisted
 pickup crossings, not a fresh full-stage or final flagpole crossing.
 See `mini-stock-native-root-1116.md`.
+
+### November 16: Mini Mario's private9826 full-level crossing
+
+Actual native89875 passes the complete1-1 route into25 living grounded
+original MiniStep/public returns in1-2, receiptf95e3631dd099f4a82db280e0aa4b36326ec35928f1c0d47d0ea4ed5824609b1.
+Mini Mario (Mario Select8) keeps the same three width32 native `$25` lifts
+in1-1: **world left / center / initial top560/576/192,688/704/192,
+864/880/192**. Each is boarded; native completed-Main support/motion counts
+are67/12,47/22 and106/25. All four pipes and three pits clear, with no wall
+restart or manually summoned platform in this full route. Final40/176 in
+1-2 is grounded with life2/power0 after ordinary injury.
+
+The separate earned two-shot native531922c1 route retains these three and
+uses the existing Up+Select native `$25` Flower lift at **1-1 world
+left1203 / center1219 / initial top208**, width32,121/43 support/motion
+samples. No formula, placement or actor changes. These are private9826
+native proofs at this point; actual Downloads repetition is recorded in
+`mini-weapon-owner-native-root-1116.md` when completed.

@@ -82,3 +82,26 @@ All four private native gates now pass. Candidate is restored to1327 before
 installation. Delivery grants authorize only exacta2 and require matching
 actual Downloads repeats before a verified-delivery claim. The old9824
 negative remains recorded; no60Hz or audible fidelity claim is made.
+
+## Delivered a2: exact installed repeats pass
+
+After source pushaeb80ec8, Rootinstaller10241 directly replaces
+`C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes`,2097168 bytes,
+with exacta2d9d1218504dedf186cfe352ee4c927160529af4f8d09fe6e2aafccfae477c7.
+The existing shared candidate matches byte-for-byte. CLI automatic-patch
+guards pass before installation on1327 and afterward on a2 with no sidecars.
+No backup, new ROM copy, patch asset or release is created.
+
+Actual Downloads27306 passes both corrected1UP cases and45911 passes both
+full-stage cases, exit0. All four complete receipt SHA256s match their
+private counterparts in the tables above exactly. Thus both forms reveal
+the real hidden block, stop held ascent at the ceiling, collect the1UP with
+actual resources preserved, clear1-1 and complete25 living grounded original
+updates in1-2 from the installed launch context. No helper is used or moved.
+
+The fix owns94 bytes/changes91 over1327; all5526 original movement bytes,
+graphics, music and every unowned byte remain exact. The underlying ladder
+of prior delivered repairs stays intact. Mini's20-byte weapon repair and
+Rogue's2-byte missile repair remain separate source candidates at this
+delivery; they are not silently included or claimed tested here. Start a
+fresh game after reopening the ROM so its loaded source-code pages refresh.
