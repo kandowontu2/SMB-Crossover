@@ -82,3 +82,14 @@ All producers used absent `build/mini-natural-stock-1327-source-1116`,
 max1file/600s and zero generated files. Successful source handle53003 is
 terminal. Writes, process/native launches and output artifacts are trapped.
 No ROM, Mesen, capture, helper, backup, patch or release output is produced.
+
+## Root native follow-up
+
+Root actual Downloads1327 run61463 independently passes, receipt
+`d58d9f72877d42013ddf2606f0b43a884121bc6d04d0972cf4e6b26e13d56bf3`.
+The frozen factory/Lua remain5f5f803b/fecd1826. Native848 Main,453 public and
+original Step returns,872 physical frames; mature positive1x5 wholeC1/native1,
+real1000/all60/+25, final423/176/tier1/pose39/lives2, all pending clear.
+Native first private readback verifies full code/headers. No helper or capture
+is used. These native counts remain separate from source497/437; root owns
+the authoritative native QA/checklist.
