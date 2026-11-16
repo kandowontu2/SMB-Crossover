@@ -31,7 +31,11 @@ def controller(raw,kind='star'):
     needle=" if stock.phase=='align'then\n"
     assert old.count(needle)==1 and INSERT not in old
     text=old.replace(needle,needle+INSERT,1)
-    assert text.replace(INSERT,'',1)==old,'Only ordinary align combat controls and passive samples change'
+    predictor='local stop=c.x+v*math.abs(v)/32;local center=C.target_x-6'
+    assert text.count(predictor)==1
+    text=text.replace(predictor,'local stop=c.x;local center=C.target_x-6',1)
+    restored=text.replace(INSERT,'',1).replace('local stop=c.x;local center=C.target_x-6',predictor,1)
+    assert restored==old,'Only ordinary align combat/direct-stop controls and passive samples change'
     Previous.Prefix.M.Previous.LuaRuntime().compile(text)
     assert not any(s in text for s in('emu.write','emu.setState','io.open','dofile','takeScreenshot','loadState','saveState'))
     return text
@@ -41,8 +45,9 @@ def metadata(raw,kind='star'):
     q.update(factory_SHA256=H(Path(__file__).read_bytes()),controller_SHA256=H(controller(raw,kind).encode()),
         previous_factory_SHA256=PREVIOUS_SHA,
         retained_alignment_injury_negative='32832749b3485e9044fdb9a7ff569da0f1dab4512be43938e71ec5d743859a0a',
-        ordinary_control_delta='During actual nearby enemy contact risk at Star alignment, call unchanged Pit travel/bow policy; otherwise whole frozen controller exact.',
-        restoration_proof='Removing one inserted combat-input/passive-sample fragment reconstructs the entire frozen Star controller byte-for-byte.')
+        ordinary_control_delta='During actual nearby enemy risk at Star alignment, call unchanged Pit travel/bow policy; steer actual X then neutral-settle because Pit loads constant directional speed, not Mario acceleration.',
+        restoration_proof='Removing one combat-input/passive-sample fragment and restoring the old input stop predictor reconstructs the entire frozen Star controller byte-for-byte.',
+        retained_predictor_control_negative='697a3d7a414efbeb392a6e83a35c64d72ffd4f5f9cfa47bff15a301cce2e083f')
     return q
 
 def family(kind='star'):
