@@ -148,3 +148,18 @@ state2 matures1564; actual collector1669 at1260/99 versus1248/119 has positive
 1x4 overlap. Real1100→2100 at1674,60 growth ticks and25 completed Bm returns
 at82BE/SP252 finish1251/112/lives2/tier2. Source1493/1373 stays separate.
 Native Star/L remain root-owned queued gates at this update.
+
+Root46914 actual Downloads91dc subsequently passes frozen e3ff/408b Star:
+`534f7d50f3a098b09300d07e7dd093949cd7f2941bf7f9771f0747d0cfb2e44d`.
+Native totals1803 Main/1471 Bm/1825 physical. Real birth1650/maturity1716
+precede collector1772, hero1664/133 versus1673/121, positive4x2. Actual AF88C0,
+AF8D timer35/music64 and1720→2720 at1777 precede25 Bm returns at82BE/SP252,
+1682/176/lives2/tier1/Star34. Source1535/1475 remains separately versioned.
+
+Root36803 actual Downloads91dc passes frozen d34a/dd84 hidden1UP:
+`4f07c003dfdba5d78dad2762ec0a8e8a63126952ca89cbeb165654e54865562f`.
+Native totals1547 Main/1215 Bm/1563 physical. Birth1406/maturity1472 precede
+collector1516, hero1057/176 versus1069/184, positive1x13. Real delayed INC1521
+produces life3;25 Bm returns finish at1085/176/tier1. Source1286/1226 remains
+separate. All four current native Peach stock scopes are now closed; no new
+game bytes, ROM delivery, helper, complete ability, audio or performance claim.
