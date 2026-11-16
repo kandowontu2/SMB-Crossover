@@ -58,4 +58,76 @@ and keeps A through the donor's queued boarding jump. Those steps are absent
 from the older448e policy. A third separately named factory source-retains
 that exact fragment and adds the already observed native constructor table.
 The factory itself never reads or executes the old build controller. One
-bounded source run23911 is pending; no native-ready L/crossing is claimed yet.
+bounded source run23911 follows below; no native-ready L is claimed.
+
+## Retained input component success, later item negative
+
+Factory712f91248acb98a446f6565fd69886300bf27a4e2d2ad8bd3fff79a8a58a122e,
+LF Lua7990b5798721a19337764e2e3f549b22ea8d38c15778a86cb41d68f4d4267d2c,
+receipt e0e46452cf4fae623aae4494c2b9a6dc730eabf1e0dfb48da0b6b3a5cb9d1140
+is an overall negative. The source-retained pure fragment hash is
+3f110a5a4e190d5faf6315d2116cd5dcbd909b4b69b3c1cb8a334303bd9c4a7f;
+one optional provenance check compared it byte-for-byte with the single
+authenticated d20 file. The factory has no old build/runtime call.
+
+The actual source route boards and departs all three fixed native girders:
+
+| 1-1 left/center/initial top | Native slot | Support samples | Matching moving hero/platform vertical deltas | Board/depart physical source frames |
+| --- | --- | --- | --- | --- |
+| 560/576/192 | 4 | 67 | 12 | 791/858 |
+| 688/704/192 | 5 | 47 | 22 | 969/1016 |
+| 864/880/192 | 3 | 90 | 24 | 1422/1512 |
+
+These are actual source-gameplay observations, not a current1327 Mesen
+crossing claim. All births are1-1/area0, width32, before viewport entry at
+relative263/262/263. No coordinates/formulas or actor data were changed.
+The third native constructor occurs Main1025 at713/98 while still powered.
+
+Later, the fresh hidden-block jump is requested at Main1622,x993/176, but
+native power/source tier are already0. No L birth occurs before the admission
+bound Main1722,1607 public/original Step returns,1121/204/lives2. No real head
+point/cell trace exists in this negative, so it does not establish a hidden
+head-height or geometry defect.
+
+## Same-input first injury cause
+
+Separate diagnostic factory0d2ca25d73c37c46fd52811a1a5ed402fb286d934a858f6f3fec93df156d5420,
+LF Lua5d7e1975dd6a58b3f58bafef535ad8b7a79914e1dee7407a3b8a03627329cf77,
+receipt e901a379f3b6732d4f6edfb8ce67916ccdd48dcbf72271742994eda3f3ca191a
+stops after the first actual native1→0 writer, not a game pass.
+
+At Main1220/Step1161 Mini is880/176 on actual floor, neutral inputs, waiting
+for the third girder at864/top64. Live Goomba slot2 is868/184, moving RIGHT
+with speed8/direction1. Actual boxes [113,193,118,207]/[103,198,113,204] have
+positive1x7 inclusive overlap. ForceInjury9771/SP243 calls actual MiniAC82/
+SP223; its original `A9001860` returns A0/carry0 to016E/SP225. Native STA97A4/
+SP243 writes075B1→0, then returnsA48B/SP245 with engine10/InjuryTimer8/lives2.
+Source tier remains1 until normal resynchronization. This is ordinary enemy
+injury while waiting, not constructor/life loss or a shared-loader defect.
+
+The next separate input experiment adds a fresh-A guard only during a true
+grounded lift wait when a real approaching Goomba is within48px. It retains
+the queued original jump press, records the guard episode and requires the
+earned tier to survive. A passive mapped nativeBFB0 observer records actual
+pending head world point/cell/raw tile/native VY if the hidden block is reached.
+No head or physics fix is proposed.
+
+## Guard component succeeds; actual head query remains to be diagnosed
+
+Guard factory b91def8e906e98383cb889ebde183ff83cc1536146e8b6d8d1cc84ef3c9cf698,
+LF Lua b9d6e81eda4b1e602f6635e6112f4e3e6bbee6338c101b234f4028296e59751c,
+receipt c4cf7ef23b92e44cae93f0502665798a3c0b51e361b1e8bc40ef331feecd6d9c
+is still an item-route negative. Three real fresh-A guards admit queued12,
+return to support and retain power/source tier1/lives2. Ordinary Goomba
+stomps give1100→1300; that200 is not an item award. All three existing fixed
+lifts are boarded/departed. The powered hidden jump requests at Main1595,
+992/176/vx5602, but no L is born by Main1695/Step1635,1121/202/lives2/tier1.
+
+The initial BFB0 picture/query observer targeted the legacy path, not the
+Mini branch. Its absent rows are an observer gap, not head/geometry evidence.
+The existing direct dispatch source sends Mini to actual PRG84:B43E. A new
+same-input observer binds that owning path plus source MiniNativeTileACBF,
+recording upward world point, mask, signed source/native velocity, returned
+raw tile, cell and flags, with an aggregate minimum and first hidden-cell
+latch. Source run3043 is pending. No control threshold, engine byte, helper,
+head geometry or collision constant is changed for this diagnostic.
