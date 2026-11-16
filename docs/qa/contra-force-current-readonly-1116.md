@@ -477,3 +477,43 @@ public-vs-private ingress discrimination, writer/ISR lifetime and a concrete
 dual-entry router layout. New game bytes, batch flag, mapper changes, proposed
 opcode CPU tests, ROM composition, native runs and delivery remain unauthorized
 on this lane. All producer roots stayed absent; generated files remain0.
+
+## Static Main-scope funding outline, held for the status-sheet priority
+
+Actual cb95 fixed GameLoop125 at126:82D9 has SHA256
+`7691d0dc57393348bcd6ade38bc74c9e4d35388a729a2fe8b2c3824d488f5b44`.
+Its sole OperModeExecutionTree call is126:834D/file1033053, `209887`.
+This is after pause/UI/timers; tree8798 begins `ad710720098a` and then its
+unchanged four native mode targets. Unlike RdsMainGate, this is a real call
+that can be wrapped. A valid-only A2 wrapper could save actual oldC on stack,
+mapC2, JSR8798 and JMP existing CfA2Return BF18, restoring C/AXYP/SP before
+GameLoop's normal NMI publication. Ineligible cold/menu/death contexts must
+tail to the original tree before creating a capability or borrowing C2.
+
+No arrays were generated. The measured old185-byte guard reorganization has
+22 helper bytes: BF94..BFA8 can theoretically hold a20-byte selected31-only
+Main admission, calling the unchanged full BF47 checker then tail-SFC to the
+same physical-RAM2 entryBF94, with foreign/failed JMP8798. This preserves the
+public full checker, cookie16 and retire36; its source-relay/branch/ISR proof
+would be a NEW lease. Private BF94 is inside the known79-byte tail, not the
+withdrawn116-byte capacity. Eligibility, a unique live-frame capability and
+safe fast-entry fallback remain unproved; mappedC2/CFReady alone are rejected.
+
+The fixed call needs15 bytes instead of3, a12-byte deficit. Conditional code
+funders, NOT qualified edits, are a6-byte compaction of the ACTUAL existing
+RNG feedback/unrolled-first-iteration sequence (retain R0 and all seven LFSR
+bytes; A/SMC liveness still needs proof), plus two3-byte incoming-SafeA stores
+at the UI and UpdateTopScore calls. UpdateTopScore's real first functional A
+consumer overwrites it; the complete current UI chain and every later SMC
+consumer are not closed. The donor source game.s alone is insufficient: the
+actual125-byte RNG sequence already differs from that retained source.
+Neither fixed126 nor native3 has a free tail: later loaded segments fill
+both, including native3 HUD_TAIL_COLD, WORLD_SPRITE_PALETTE and PN_HUD_TEXT.
+
+Even if that admission fits, immutable fast-entry discrimination, all cache/
+owner writers and ISR lifetime, private-CFArg/NativeC semantics and the dual
+router layout still need funding/proof. CfP1NativeC could not be repurposed
+as a frame pointer without a separate complete reader/writer/allocation
+review; its one-Main lack of reads is not a lease. Thus there is no ready
+>=25k plan, no change to the frozen four readers or any game bytes. Research
+is checkpointed here while the new101-character status dataset takes priority.
