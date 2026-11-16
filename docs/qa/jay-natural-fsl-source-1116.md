@@ -115,3 +115,24 @@ The original policy is kept immutable. A separately named successor may
 use an approach margin, require a genuine above-floor board, recover when
 boarding is lost, and include bounded passive helper/input witnesses.
 No new helper placement, jump change or game byte is authorized.
+
+The separate V2 module `jay_natural_fsl_controls_v2_1116.py` has SHA256
+`e934706d99b0fc6668dc1782b9e285434a987f2b33889a617deea679ec19eeaf`;
+its derived policy is2e88259c. Source70082 returns a bounded controller
+negative at795 balanced Main/original returns, receipt
+`00a720f26d3f8aec4afe0c45c2b81594672cc3a0300b88172586a9e74a58fe26`.
+HP6/lives2 retained; the same genuine first heart remains mature and no
+collector runs. Last eight passive witnesses show Jay414/Y174, source
+flags4/control0, requested input0, helper slot5 at384/Y206/contact5.
+Thus the player is exactly foot-aligned with the native helper while the
+end-of-Main donor grounded flag is false. The controller's donor-ground
+boarding test is not the authoritative native-helper contract.
+
+Retained `jay_silius_native_sync_1111.s::ImportNativePosition` explicitly
+requires native PlayerState0, native VY0, high1, actual native25 contact
+slot and matching PlayerY+32. It then clears donor flag4 and VY before
+the next original input. A passive observer must expose those native
+fields; a separately named control successor can use this complete
+support predicate. It must not infer support from native state0 alone.
+V2 and its negative remain preserved; no native helper or game-code fault
+is established, and no M/F success is claimed.
