@@ -136,3 +136,30 @@ fields; a separately named control successor can use this complete
 support predicate. It must not infer support from native state0 alone.
 V2 and its negative remain preserved; no native helper or game-code fault
 is established, and no M/F success is claimed.
+
+## V3 native-helper support and second-block negative
+
+Source46243 terminal0, `passed:false`, receipt
+`6fe04914bf5e4f8b7bae0c43382a1668941be62c03c3f15b5fde1bbc691e7bda`.
+The separate V3 module SHA256 is
+`6746cbe6239e67c08ee6d5cdd9207902bd3b83f86c4d4e1c3fd1be5ef2e58704`;
+derived ordinary policy is
+`cbee9977f74f301b92026cac516f9e088a002636fe21ccdbf44c2daccaa7a443`.
+The passive route checker is407f51f1. No game or helper geometry changed.
+
+Actual7c0f has1800 balanced Main/original-integrator returns. The complete
+native25 support predicate permits a real above-floor carry and first
+heart collection at Main440, X348/Y112: HP6 to8, max3 to4, tier1,
+lives2, native status0. Private collector returns C1, erases the actor,
+and publishes popup6/sound32; score subsequently gains1000. This is only
+the necessary M prefix inside the Flower attempt.
+
+The same ordinary route crosses the four pipes and first gap, reaches
+X1244/Y176, and physically heads the second authored C1 at Main1167.
+Birth1168 at1248/136 is again native kind1/private81/owner16 (a heart),
+maturing at1248/120. PlayerStatus remains0/tier1. No Flower is born or
+collected, and no Flower success or usable earned attack is claimed.
+The final repeated jump below that block is a controller negative, not
+evidence about intended Flower reach. The actual inherited upgrade
+publication path must be measured before any game-repair proposal.
+All files remain source only; the bounded output root stays absent.

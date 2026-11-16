@@ -17,6 +17,7 @@ def run(raw,kind,limit):
     def state():
         r=lambda n,i=0:N.get(m,n,i)
         return dict(x=r('Player_X_Position')+256*r('Player_PageLoc'),y=r('Player_Y_Position'),
+            native_state=r('Player_State'),native_vy=r('Player_Y_Speed'),native_yhigh=r('Player_Y_HighPos'),
             source_flags=m.ram[2][0x12],source_control=m.ram[2][0x13],grounded=not(m.ram[2][0x12]&4),
             hp=r('JnHealth'),maximum=r('JnMaxHearts'),tier=r('JnOwnedTier'),lives=r('NumberofLives'),
             status=r('PlayerStatus'),star=r('StarInvincibleTimer'),engine=r('GameEngineSubroutine'),
@@ -25,7 +26,7 @@ def run(raw,kind,limit):
     def actor(i):
         r=lambda n:N.get(m,n,i)
         return dict(slot=i,flag=r('Enemy_Flag'),id=r('Enemy_ID'),kind=r('PowerUpType'),state=r('Enemy_State'),
-            x=r('Enemy_X_Position')+256*r('Enemy_PageLoc'),y=r('Enemy_Y_Position'),private=r('InvPickup'),owner=r('InvPickupOwner'),contact=r('PlatformCollisionFlag'))
+            x=r('Enemy_X_Position')+256*r('Enemy_PageLoc'),y=r('Enemy_Y_Position'),yhigh=r('Enemy_Y_HighPos'),private=r('InvPickup'),owner=r('InvPickupOwner'),contact=r('PlatformCollisionFlag'))
     def actors():return[a for i in range(6)if(a:=actor(i))['flag']]
     def label(a):
         if a['owner']==16 and a['private']==129:return'mushroom'
