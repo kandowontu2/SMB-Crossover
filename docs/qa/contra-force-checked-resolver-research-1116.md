@@ -133,3 +133,75 @@ proven private-header dominance and caller-side savings. Any later removal
 of a duplicate private check needs a separate complete ingress proof that a
 full16 ROM check precedes every private opcode; none is removed here.
 No new native trial is requested for this incomplete component.
+
+
+## Fitting detached successor after root's X/carry review
+
+The227-byte plan above remains frozen and rejected. New
+`plan_contra_force_checked_resolver_fit_1116.py` SHA256
+`4cf5328ff33d1e68aa28cde924c3ad024447ed76b75fc7d20402008bf90e29a1`
+fits224/185/178 exactly,587 bytes **if separately granted**. Bounded
+constructor PASS, receipt
+`e0dbdba50d1e0fdd116bde7d65235d00c668f31fc62f7a8fb71da0fd762dda28`.
+No CPU test, mounted image, allocation, native or delivery is claimed.
+
+| Exact file span | Old SHA256 | New SHA256 | Changes |
+|---|---|---|---:|
+|716848..717072|`bca680209849a80d2e3901070954bba08c1805024eec17682047df941d032535`|`18b6a8136c95ede8cfe8d55d55b37de9044d396d1154756d624486bf88026407`|97|
+|573271..573456|`cd0041177c211e64f57a1669930108020c5f7b8759905087934f2c9858d82475`|`667ed3aa4a65236ec6bb59b4c22dd04c58fbe26f266431ccbb9895933292aad3`|54|
+|792486..792664|`60a44f0fb207ec5ceb2498f62d6650a0c042fe3dbe91d5afb6a1b79ca51704f0`|`aa3e97af3817d8e635e39277504315f7bde2e307c38944b2c8ea0b5d5844d075`|52|
+
+The actual old WfFast **does consume** X=AD in STX016D and C1 in BCS Fast.
+They were not dead in the installed Router. In the new Router, Common CPY2
+sets C1 again for cohortY3, so its earlier SEC is redundant. The relocated
+WfFast now explicitly loads AD into the high target field before the complete
+BtCheck. This changes its private X dependency rather than silently deleting
+it. All real callback X/Y/P are still saved/restored by the outer Router;
+actual whole-caller proof remains required.
+
+| Cohort Y | Owner | CPY2 C | Path |
+|---:|---:|---:|---|
+|0|27|0|Legacy Wf→Bw|
+|1|29|0|Legacy Wf own row|
+|2|31|1|New checked CF resolver; on failure C0 enters full legacy fallback|
+|3|33|1|Legacy WfFast with explicit AD setup|
+
+The Wf entry moves B799→B797. Its69-byte code now ends at the unchanged
+B7DC table; all108 table bytes and endB848 are exact. This requires the
+complete current source/indirect entry census, not treating the old entry as
+an external arbitrary root. The new BF97 CF helper retains the entire
+fixed/class check. The new split check epilogue keeps shadowC and hardware
+mapper publications adjacent after its jump. Original cookieBFAD..BFBD and
+CfRetireBFBD..BFE1 are byte-identical.
+
+Read-only `audit_contra_force_wf_status_funding_1116.py` SHA256
+`8d058fa48b9d85a819f30a76710ce6f741f5cafcfa0a21237657dd452f2b90a9`
+passes receipt
+`cca834fdda972be583783d08cf3a922691a518c23c81f3b2a7a84f82b907bccb`.
+Retained current all-six-WWF runtime.s758271c1/runtime.lst8bd3a47d and
+candidate.dbg582ed316 bind the local, unexported WfOneLifeStatus at B796.
+The sole old source reference is its three-field slot6 descriptor (same
+reference ID repeated three times). Current slot6 is86:A6DB P1Late.
+All36 actual Wf and144 Hu targets exclude the old address. There are zero
+same/fixed-bank word candidates, zero standard E0 farcall or triple targets,
+and no source relative branch into the three bytes. The preceding B795 is
+RTS. Other direct-word leads are three PRG124 JSR B796 instructions: their
+near calls retain PRG124 and do not select PRG96. Other raw-word matches in
+76/111/116 remain data/owner classification leads, not a claim that arbitrary
+computed addresses cannot exist.
+
+The proposed resource is exactly the retired local three-byte status body,
+file792486..792489. It is not new padding. Reclaiming it and the14-byte CF
+tail still needs root review/lease. Root independently authenticated the tail
+capacity in `audit_cf_guard_tail_capacity_root_1116.py`, receipt
+`44432cce0bbebf2afa821634ec4215c0c5f7ebf798bf8fc30b72663b68030483`:
+current source cfg explicitly declares unloaded CF_GUARD_POST BFF2..C000,
+with no SEGMENT load and no native literal/standard C5-SFC targets. Its
+remaining data-reader/producer extent closure is still a gate before allocation.
+
+This successor is a direct-resolver foundation, not a complete idle-lag fix.
+It preserves both current complete header checks, all14 services and the
+cold/retired15/18/19 fallbacks. Any following private-check deduplication or
+caller-fast path requires its own complete domination/ABI/funding proposal.
+No native trial is requested until actual CPU contracts and total source
+cost justify a material improvement.
