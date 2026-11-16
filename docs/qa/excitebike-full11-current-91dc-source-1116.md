@@ -88,3 +88,17 @@ There was no game-byte repair.
 This source replay does not measure native physical frames, raster/APU timing
 or FPS. Natural M/F/L native receipts and the source-positive/native-negative
 Star policy remain separately versioned in `excitebike-natural-stock-91dc-source-1116.md`.
+
+## Root actual Downloads full replay
+
+Root96571 separately passed this exact b79e/64b0 controller on installed91dc:
+`21e23eb6da4328ee00cfe33c5bcad2b06ccd509473aa6e6c7d26c07b3977240d`.
+Native totals are4175 balanced Main/2636 balanced motor and movement/6468
+physical frames. The actual constructor witness is in `route.constructors[]`
+and verifies6144+2048/both cookies; an empty generic `readback` map is not a
+missing transport check. Flag2908/castle2971/exterior3573/underground4072 precede
+25 completed grounded original updates at Main82D0/SP252,125/176/lives2/power0,
+World0/Level1/Area2/AreaType2/offset0/ready167/no heat or crash. All16045 helper
+samples have empty seen/support maps, with no added helpers. These native
+counts and endpoint remain distinct from source92e3; root owns the native
+runner, guard and installed-byte verification receipts. No new ROM was needed.
