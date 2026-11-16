@@ -340,3 +340,16 @@ The bounded output root `build/excitebike-91dc-star-head-feedback-route-1116`
 remained absent, with zero generated files; max1/600 seconds was the reservation.
 No additional broad tests, game bytes or helper changes were introduced.
 
+Root4958 separately runs6895/e2c8 on actual Downloads91dc and retains an honest
+native intercept negative:
+`2e44e26e23c3b9cb4ef3e54d0f063ae36a21e2c5e17d02c9de0c8aad57bf1d87`.
+The responsive head phase now predicts the native trajectory exactly, error0/0,
+and genuinely produces Star birthMain2835/original2440 at1616/136. Maturity
+Main2900/original2505 occurs at1616/119, with hero1675/176/speed0/recovery0.
+The inherited fixed ground intercept never collects the bouncing Star; it
+passes overhead and escapes. Terminal4104 Main/3709 workers/6461 physical
+remains1675/176/life2/power1/Star0. The C0 collector observer is not reached.
+Sourcec5a8 remains positive, while current native Star stays open. A future
+ordinary intercept must follow the actual actor/bounce state; this result gives
+no reason to change the now proven head phase or any game bytes.
+

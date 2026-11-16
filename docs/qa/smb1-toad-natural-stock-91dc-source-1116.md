@@ -89,3 +89,57 @@ this checkpoint. Next planned separate current routes are genuine M→F at1248,
 Star1616 and hidden1UP1024, each with actual emergence/maturity/physical
 collector/erase/cue, real score or delayed life credit, and25 returned native
 Toad updates at authenticated completed Main. No F/S/L closure is claimed.
+
+## Root current Mushroom replay
+
+Root85032 actual Downloads91dc passes frozen8932/a7aa:
+`8d18bd7528b9148fbdf1104a7d5328ccfcfbb47a7a3c1ef824e3ac4a2f93f5e9`.
+Native totals926 balanced Main/615 Bm returns/938 physical. Genuine birth695,
+mature760, collector840 at416/176 versus417/177 positive11x3, score credit845,
+60 growth ticks and25 returned Bm updates at Main82BE/SP252 finish427/176,
+lives2/tier1. Root reports zero files/images/game writes, unchanged installed
+bytes and clear pre/post guards. Source676/616 counts remain separate.
+
+## Flower control negatives and intended running-jump solution
+
+The new separate F/S/L base is `replay_smb1_toad_native_stock_91dc_1116.py`,
+SHA256 `1acaa08a55128dbf10d4cbfeb92d5d5611f183492c732b4dc060f19c5f8a7e1b`.
+It requires the genuine M/60/credit/+25 prefix and counts actual Bm returns.
+Its first Flower source47103, LF6480, genuinely produces birth1223 at1248/136
+and maturity1290 at1248/119, but repeated jumping underneath the spent brick
+cannot collect the stationary Flower above it. Bound negative:
+`8e11904f1d344f0a1715a5b271699133bcf4ed65e974db1bfd780a6015da6f6e`.
+
+The source proposals and outcomes remain distinct:
+
+| Policy | Source receipt | Actual cause/scope |
+| --- | --- | --- |
+| Mature-then-left mount,8d04/f4bc | `670ea985875d897ebe2a7fc477ef5a462db6099eaa652f3e523f664d554e5769` | Earned M is lost while returning to the left ground column; no F collection. |
+| Prepare during emergence,c83c/92e0 | `98c72193b17777e17023655f64861bfe669ffa045035e4e19922e0cd771e31ca` | First injury BD4A/SP230 atMain1261: hero1210/176 versus live slot0/Goomba6/state1/Left at1213/165; actual boxes[86,184,98,208]/[90,179,100,185]. Native hurt completes to tier0. |
+| Left fresh-A evasion,a5f7/ebd7 | `d2beea9cf46604e5646a16c9a4cbb5135d1cd7d087b7d0a70bcb04d7f35b7355` | Goomba is already falling above the jump column. First injury1256 at1213/160 versus1215/148, boxes[89,168,101,192]/[92,162,102,168]. Rising into it is not a stomp. |
+| Clear right standing jump,ae9c/88d3 | `ca24962bd5e95cfb342e1861071bc163c0fa9766ddd4333e6e7971808d5bf6f7` | Avoids damage, retains life2/tier1. Vertical jump at1296 briefly reaches112 but lacks horizontal travel to support the foot on the row before landing below. |
+
+The actual row is1232..1279 with clear ground to its right, before pit1392.
+The successful successor uses that existing runway and the native speed-based
+jump class, rather than changing height, reach or collision. `PlayerPhysicsSub`
+selects native jump class4 when actual absolute speed reaches28. Source takeoff
+uses actual class36; no ability, speed, state or geometry is granted.
+
+API `replay_smb1_toad_flower_runup_91dc_1116.controller(raw91dc,'flower')`,
+or `family()`. Factory SHA256
+`d18e2f63bccf343a3ff332a8d6f8ddaeb25cc7938c1ac3ed18a1f6094d1eeae6`;
+LF Lua `a77c07b6ffe071f3a6d999fce37c20dc1cc84d39f39f5e8e9a3ae91479068180`.
+One initial metadata import typo aborted before CPU; the corrected recipe
+changes no gameplay or frozen input. All prior controls stay unchanged.
+
+Source98437 passes in23.19 seconds:
+`c9b91463826f3ef6e2356652e65dcd0cdfe4fcf01ac094340f029c7d12397a40`.
+The controller walks out to1353/176 and uses ordinary Left+B to charge back;
+actual speed class36 admits fresh Left+A+B at1320/176. The live mature Flower
+is collected at Main1392,9B28/SP243, hero1258/97 versus1248/119, positive3x2.
+Real erase/popup6/cue20, DEC897C→83D6 score1100→2100 and60 actual Flower growth
+ticks complete to tier2. Exactly25 later returned Bm updates finish at
+Main82BE/SP252:1478 balanced Main/1358 balanced Bm,1250/112/lives2/power2/size0,
+age60/active0/timer0/CHR131. No injury observer was reached. The actual firstM
+scope and initial64-byte native movement readback remain required and pass.
+Native Flower remains a separate root gate at this checkpoint; Star/L are open.
