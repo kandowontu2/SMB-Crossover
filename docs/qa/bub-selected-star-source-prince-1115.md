@@ -50,6 +50,7 @@ composer or CPU calls, and obtained67e3 with exact inverse to7fb3.
 | Bub natural M/F/Star + Pair callbacks /6689 |2960 returned Main; complete frozen ordinary controls/assertions, real acquisition/score/post25 and all selected OAM callbacks|ad721348f56beab8d35dbf42b3165909ae3a6cd77e34df5bfff8f90f03108f98|
 | Bob natural M/F/Star + Pair callbacks /74605 |2960 returned Main; independently executes the same owning combined image and all gates|ed23e9d7079651593906489fec7e9120d264fb8ab38e0a76abf065abb385e5ca|
 | Bub M/hidden1UP /7659 |Real hidden born1439/mature1505/collector1541, delayed INC1546 lives2→3/timer42/cue64, exactly25 later completed updates to1571; score1500 retained|7daa792b7b3ad32f828bfa0f7b35c4cc6fcb7f2f37a61604e0674953d74c083a|
+| Bob M/hidden1UP /58882 |Independent actual combined1571 returned Main/entries; real1439/1505/1541 birth/maturity/collector, native delayed INC1546/timer42/cue64 lives2→3, exactly25 later updates; score1500/flags1/power1 retained|cb1f6967266199fb4197a8a94c763c9d61bb42b275e31a70d7ed24b5bcfac524|
 | Metadata /58270 |All six controllers compile and restore to frozen ACE text after only owning ROM identity reversal|6ac7e122a735c4719f3c5b471c488c28f958ced25bfdb74c554a43cff407ecae|
 
 The full natural callback-source receipt hashes are
@@ -64,10 +65,10 @@ Star erase/popup6/35/music64/cue32, actual timer43 +1000 writer and25 later
 complete workers remain the frozen functional assertions. No actors, health,
 ability, position, terrain or inventory are seeded.
 
-Bob's independent combined1UP source58882 is still running at this checkpoint;
-the earlier e9d6 Bob1UP receipt remains valid under its named version. This
-does not leave a natural Star/picture-source gate open. No native acquisition
-or rendered Star flash is claimed by these source results.
+All combined source jobs are terminal. Both identities independently close
+the required natural M/F/S/L source gates; the earlier e9d6 receipts retain
+their named version as well. No native acquisition or rendered Star flash
+is claimed by these source results.
 
 ## Frozen native-ready APIs and pins
 
