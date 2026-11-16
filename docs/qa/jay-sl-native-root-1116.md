@@ -39,8 +39,11 @@ has1634 balanced global Main entries/returns,1299 balanced original
 integrator entries/returns and2777 physical frames. Target collection is
 route Main1273/motor1274: mature state80/privateFC/owner16 actor1645/154
 meets Jay1642/164. Actual privateC0/native erase, popup6/cue32, timer35
-and music64 pass. Ordinary score later increases400→1400, followed by
-25 returned integrator updates. Terminal1676/170 is airborne, HP4/max3/
+and music64 pass. Twenty-five returned integrator updates follow collection;
+ordinary delayed score has increased400→1400 by that endpoint. The observer's
+Star `credit` marker is the collector acknowledgement, not the delayed score
+writer. This receipt therefore does not establish25 returns after the score
+writer. Terminal1676/170 is airborne, HP4/max3/
 tier1/lives2/Star34/weapon0/ammo63. Health4 is already present before
 Star collection and is retained; this native episode is not relabeled
 with the source route's HP6 endpoint or a grounded endpoint.
