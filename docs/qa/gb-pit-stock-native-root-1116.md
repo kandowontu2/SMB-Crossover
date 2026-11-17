@@ -83,3 +83,25 @@ follow at actual Main return82BE/SP252. Final1047/176 retains tier1/fuel60
 and all three lives. No helper, game patch, state seed or capture is used.
 The earlier source interception/jump-chase negatives remain versioned in
 the owning source QA. Star acquisition remains open at this checkpoint.
+
+## Star: actual Downloads35493, completed before the pause
+
+Native cb95 passes, exit0, receipt
+`76fb3813f0ad1fbb04439199eea002d4371273223b658f8986a135196f54e7e8`.
+Factoryd685aa27/Lua98e78a40 uses ordinary bow combat and actual-X neutral
+alignment after the frozen real Mushroom prefix. There are2321 balanced
+Main calls,1989 balanced movement/flight workers and3148 physical frames.
+
+This is a bodily hit: Main2057,1609/149, MmBlockAttack0, native head9EF5/
+SP230 nests Setup8F34/SP221. Birth2058 reaches full maturity2124. Physical
+collection2290 at hero1777/120 versus Star1783/143 has positive9×1 overlap;
+the actual AF88 branch carries clear, then AF8D writes35. Erase, cue32 and
+music64 occur. Real score writer2295 changes1625→2625. Twenty-five new
+completed movement/flight workers finish at Main82D0/SP252,1777/176,
+tier1/life2/fuel60/Star34. The terminal score2725 includes another100 points
+that this pickup check does not independently attribute.
+
+All M/F/L/S natural pickup scopes now pass on cb95. This does not promote
+the older full-stage run or close all abilities, expiry/protected hits,
+graphics, audible sound or idle/walk performance. No game patch, helper,
+inventory seed or capture file was added. Gameplay work is now user-paused.

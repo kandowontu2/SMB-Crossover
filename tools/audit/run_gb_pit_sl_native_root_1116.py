@@ -19,9 +19,12 @@ def H(raw):
 
 
 def main():
+    global F
     p = argparse.ArgumentParser()
     p.add_argument('--kind', choices=('oneup', 'star'), required=True)
     a = p.parse_args()
+    if a.kind == 'star':
+        import replay_gb_pit_star_combat_cb95_1116 as F
     g = json.loads((R/'docs/qa/allocations'/('gb-pit-'+a.kind+'-native-root-1116.json')).read_bytes())
     assert g['actual_Downloads_native_authorized'] and not g['game_changes_or_seeds_authorized']
     assert g['kind'] == a.kind and H(Path(F.__file__).read_bytes()) == g['factory_SHA256']
