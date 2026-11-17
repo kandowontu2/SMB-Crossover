@@ -2,7 +2,19 @@
   "passed": true,
   "nativeSheetURL": "https://docs.google.com/spreadsheets/d/1dKEE3rEYYGUjTpaIuDxaeQJ-k5J70tA2xgQ-UIrenbM/edit",
   "characters": 101,
-  "allNamesMenusAndStageMFLSMatchSource": true,
+  "allCharactersAndRecordedPassingChecksRetained": true,
+  "completion_policy": "A passing check remains Completed across builds unless a relevant character change or regression affects that result. A new ROM hash alone is not a reason to reset or repeat it.",
+  "display_statuses": {
+    "Completed": "A recorded passing check, regardless of unrelated ROM changes.",
+    "Not recorded": "A qualifying result was not found in the reviewed records. Search past records before retesting.",
+    "Needs playtest": "The available result is limited to a fixture or private test.",
+    "Code checks only": "Code checks exist, but the gameplay check remains open.",
+    "Needs review": "The remaining review is open; this does not mean the feature is unimplemented.",
+    "Partly checked": "Some checks passed; the full review is still open.",
+    "Needs fixing": "A known issue remains.",
+    "Severe lag": "Heavy lag while standing or walking remains a known issue.",
+    "Retest needed": "Use only after a relevant change or regression affects a prior result."
+  },
   "evidenceRows": 101,
   "nativeTables": [
     {
@@ -29,8 +41,8 @@
   "statusDropdownColumns": 9,
   "counts": {
     "names": 101,
-    "stageCurrent": 1,
-    "earlierOrPreserved": 100
+    "stageCompleted": 101,
+    "pickupsCompleted": 176
   },
   "nativeVisualReview": "Both tabs at 100%; labels/chips fit, frozen headers/identifiers, no header overlap",
   "gameplayGoal": "paused",
@@ -41,8 +53,8 @@
   "created_in": "My Drive/ChatGPT",
   "native_conversion_verified": true,
   "visual_verification": "Authenticated Google Sheets, both tabs at100% zoom; repaired clipped chips and frozen-pane header overflow.",
-  "format_checks": "Native tables cover all101rows; nine dropdowncolumns; textstatus conditionalformatting usesCUSTOM_FORMULA andeffectiveCurrentgreen/Issuered verified.",
-  "local_outputs": "One22KB XLSX retained as importsource; both temporarypreviewPNGs pruned; no backups or extra workbook variants.",
+  "format_checks": "Both native tables retain all 101 character rows. Nine dropdown columns have plain-language choices; conditional formatting uses CUSTOM_FORMULA. Characters and Test details contain simplified menu instructions, next steps and readable links. No Current, Earlier or Preserved completion labels remain.",
+  "local_outputs": "One 22 KB XLSX retained as the original import snapshot. The native sheet contains the revised presentation and is authoritative. Both temporary preview PNGs were pruned; no backups or extra workbook variants were created.",
   "gameplay_status": "Userpaused; all helperjobs stopped; cb95 nightlyunchanged; no79fd native/install.",
   "source_pause_candidate": "79fd sourcegates complete; nativeHUD pin/export andMesen/Downloads qualificationnotdone."
 }
