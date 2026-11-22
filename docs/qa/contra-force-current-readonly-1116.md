@@ -541,3 +541,18 @@ This identifies space to examine for the Main entry. The transport still
 needs a proved frame lifetime, working fallback and measured savings. The
 November 22 nightly contains the Rogue Dawn repair with all Contra Force
 bytes intact.
+
+The 23-byte RNG candidate was compared with the installed 29-byte sequence
+in the 6502 model for all 65,536 pairs of the two feedback bytes, with varied
+remaining seed bytes. All seven output bytes, `$03`, X, Y, P and SP agreed.
+A differed in 64,512 cases. The shorter routine took 118 cycles versus 112,
+so its value here is code space. The candidate bytes are
+`ada007290285034da1074a4aa200a0077ea007e888d0f9`.
+
+The current TopScore entry at bank 3 `$B83F` calls `$B88C`, which loads
+score data before any functional use of the incoming A. Current NMI paths
+at bank 63 `$B467` and bank 82 `$BF15` copy the existing `$016A` parameter
+to `$7279` and restore it before returning. A paired interrupt test must
+check that a stale value left in that backup cannot feed a later consumer.
+The direct relocation calls found are `126:$82DE`, `126:$8352` for Pause
+and `4:$A000` for HP graphics. The fireball bridge remains at `$837B`.

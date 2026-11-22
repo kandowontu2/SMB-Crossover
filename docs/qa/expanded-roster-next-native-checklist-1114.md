@@ -119,7 +119,9 @@ Items: **M** mushroom/health token, **F** flower/second upgrade, **S** Star,
    **actual571 four close-inhale runs plus green-shell/full1-1 and red catch**
    are now in `kirby-current-native-1114.md`; green's falling1-2 endpoint
    is kept distinct from25 grounded updates. The earlier current421 source
-   preservation remains in `kirby-shell-current-audit-1114.md`. Mini's exact retained carrier/
+   preservation remains in `kirby-shell-current-audit-1114.md`. Kirby also
+   passed all four natural pickups from the November 22 Downloads nightly.
+   Mini's exact retained carrier/
    hooks and Bub/Bob's disjoint preserved carrier have their own proof notes.
    Do not extrapolate that evidence into101 new native passes.
 

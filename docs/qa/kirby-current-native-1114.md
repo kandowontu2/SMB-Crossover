@@ -69,14 +69,31 @@ The test verified each item's graphics and the heal animation. The same
 food replay still authenticates its code and graphics table in the November 16
 nightly. See [Kirby's food pickup tests](kirby-natural-food-1111.md).
 
-Separate Mesen fixtures verified the Star and 1-UP effects after staging the
-items. Natural pickup tests for both items are still open.
+## All four natural pickups verified in the November 22 nightly
 
-The next controller can reuse the mushroom start from the food replay. For
-the 1-UP, turn off the flower approach after the fourth pipe and jump into
-the hidden block at world X1024/Y128. For the Star, keep the food replay
-through the Flower, cross the first pit with jump and float, then hit the
-Star brick at X1616/Y144. Observe each item from block hit through maturity
-and native contact. The 1-UP should add a life through the delayed score
-popup. The Star should start its timer and music. Check that both preserve
-Kirby's copy and food state. These routes use the existing level and controls.
+Two [controller replays](../../tools/audit/replay_kirby_stock_native_1122.py)
+passed in Mesen from the installed `79fd089f` nightly. Both started at the
+title and selected Easy Kirby. The Star route also collected the mushroom and
+Fire Flower from their regular blocks at X336 and X1248. Both food pickups
+played the heal animation and restored Kirby to six HP.
+
+- **Hidden 1-UP.** A normal jump reached Y127, leaving Kirby's head probe at
+  Y144, one pixel short of the hidden block's row. Jumping and holding Up to
+  float reached the block at X1024/Y128. The item emerged and matured before
+  Kirby collected it. The delayed 1-UP popup raised his lives from two to
+  three and queued the extra-life sound. Kirby finished alive after another
+  25 active updates. 2,105 physical frames, receipt
+  `daf44f75fae019d9c24af652f731df2313df6c84ccb16e4acdac5d024b1ad1c4`.
+- **Star.** After the two food pickups, Kirby crossed the first pit with his
+  jump and float and struck the brick at X1616/Y144. He collected the mature
+  Star, which set the native invincibility timer to 35, queued Star music
+  and awarded 1,000 points. Both stock pickups preserved his health, mouth,
+  copy ability and food state at collection. The replay continued for
+  25 active updates after the score award with the Star still active.
+  3,138 physical frames, receipt
+  `fe72a3eb1d1dca836d3d4dc8b56e33b744b5e89ee9e7f240968509a65925b333`.
+
+The replays used controller input and read-only emulator callbacks. They
+created zero capture files and reused the existing two-file test slot.
+Protected contact and Star expiry, the remaining copy abilities and a full
+graphics, sound and lag review are open.
