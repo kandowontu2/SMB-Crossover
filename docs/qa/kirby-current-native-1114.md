@@ -95,5 +95,18 @@ played the heal animation and restored Kirby to six HP.
 
 The replays used controller input and read-only emulator callbacks. They
 created zero capture files and reused the existing two-file test slot.
-Protected contact and Star expiry, the remaining copy abilities and a full
-graphics, sound and lag review are open.
+
+### Star protection and expiry
+
+The `star-lifecycle` controller replay passed in Mesen from the Downloads
+nightly `a6d91e36`. Kirby used the same earned Star route and ran into a
+Goomba at X1785 while the timer was 30. The native body-contact path defeated
+the Goomba and Kirby kept five HP. The game called its area-music routine at
+timer 4. The timer reached zero with Kirby still at five HP.
+
+Kirby then ran into a different Goomba at X1949 and lost one HP. He remained
+alive and playable for another 25 game updates. The replay took 4,048 physical
+frames and produced no capture files. Receipt
+`e81b0e417472227ff622cb7f110bd16201a37882ee58d4c37c362e00ede0968f`.
+The remaining copy abilities and the full graphics, sound and lag reviews
+are still open.

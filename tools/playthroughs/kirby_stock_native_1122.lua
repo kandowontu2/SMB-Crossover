@@ -65,6 +65,65 @@ hook('starReturn', function(slot)
  stock.star = {timer=35, music=64, cue=r('Square2SoundQueue')}
 end)
 
+if C.stockLifecycle then
+ hook('starDefeat', function(slot)
+  if not stock.star or stock.defeat then return end
+  local enemy = actor(slot)
+  local timer = r('StarInvincibleTimer')
+  if timer == 0 or enemy.id >= 21 or enemy.flag == 0 or enemy.state & 32 ~= 0 then return end
+  assert(math.abs(enemy.x - x()) <= 24 and pad & 64 == 0, 'Star defeat uses genuine body contact')
+  stock.defeatPending = {enemy=enemy, player=player(), timer=timer}
+ end)
+ hook('restoreMusic', function()
+  if stock.star and r('StarInvincibleTimer') == 4 then
+   stock.musicRestored = {timer=4, player=player()}
+  end
+ end)
+ hook('injury', function(slot)
+  if not stock.star or stock.injury then return end
+  assert(r('StarInvincibleTimer') == 0, 'Star contact must protect Kirby from injury')
+  stock.injuryPending = {enemy=actor(slot), player=player()}
+ end)
+end
+
+local function continueStar()
+ local timer = r('StarInvincibleTimer')
+ local defeat = stock.defeatPending
+ if defeat and not stock.defeat then
+  local enemy = actor(defeat.enemy.slot)
+  assert(enemy.state & 32 ~= 0 and r('KbHealth') == defeat.player.hp,
+         'Protected contact defeats the enemy without costing health')
+  stock.defeat = defeat
+  stock.defeatPending = nil
+ end
+ if not stock.defeat then
+  assert(timer > 0, 'The Star must defeat an enemy before it expires')
+  pad = 1
+  return
+ end
+ if timer > 0 then return end
+ if not stock.expiry then
+  local atExpiry = stock.injuryPending and stock.injuryPending.player or player()
+  assert(stock.musicRestored, 'Area music returns as the Star winds down')
+  assert(atExpiry.hp == stock.defeat.player.hp, 'Health remains intact through expiry')
+  stock.expiry = {player=atExpiry, step=step}
+ end
+ local injury = stock.injuryPending
+ if injury and not stock.injury then
+  assert(r('KbHealth') == injury.player.hp - 1 and r('KbHurt') > 0,
+         'Ordinary enemy contact costs one HP once protection expires')
+  stock.injury = injury
+  stock.injuryStep = step
+  stock.injuryPending = nil
+ end
+ if not stock.injury then
+  pad = 1
+  return
+ end
+ stock.resume = step - stock.injuryStep
+ if stock.resume >= 25 then finish('natural-star-lifecycle') end
+end
+
 local function steer(px, target, speed)
  local stopping = px + speed * math.abs(speed) / 0.25
  if stopping < target - 1 then return 1 end
@@ -75,6 +134,10 @@ end
 local function stockControl(px, y, ground, item)
  if stock.collected then
   pad = 0
+  if C.stockLifecycle then
+   continueStar()
+   return true
+  end
   if stock.life or (stock.star and score() >= stock.collector.score + 1000) then
    if not stock.credit then
     stock.credit = {player=player(), score=score(), step=step}

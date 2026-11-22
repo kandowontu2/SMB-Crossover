@@ -927,3 +927,11 @@ updates. Beans earned the mushroom, 1-UP and flower in the paired replay.
 Both builds reached the same death at X1597 before Beans could hit the
 Star block. Beans still needs a Star route, and Smith, Iron and Beans still
 need the pickup checks in Mesen.
+
+### Other characters on the installed nightly
+
+Smith earned all four in the same order and stayed active for another 25
+game updates at tier 2, with three lives and the Star still active.
+Mushroom at update 782, 1-UP at 1471, flower at 1786 and Star at 2314.
+The run took 4,131 physical frames. Receipt
+`7e52ede3e3216690c90ae79beff2f22571d5192e531ad6eb9182e7f6a0af2175`.

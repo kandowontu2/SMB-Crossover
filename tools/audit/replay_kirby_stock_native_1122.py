@@ -29,7 +29,8 @@ def replace_once(text, old, new):
     return text.replace(old, new, 1)
 
 
-def controller(raw, kind):
+def controller(raw, kind, *, lifecycle=False):
+    assert not lifecycle or kind == 2
     authority = Food.Cpu.Authority
     bundle = authority.scoped_load(authority.AUTHORITY)
     addresses = {name: Food.Cpu.Host.address(bundle, name) for name in (
@@ -46,9 +47,17 @@ def controller(raw, kind):
         expected = bytes.fromhex(hex_bytes)
         assert raw[16 + offset:16 + offset + len(expected)] == expected, name
         hooks[name] = dict(pc=pc, offset=offset, bytes=list(expected))
+    if lifecycle:
+        for name, symbol in (('starDefeat', 'ShellOrBlockDefeat'),
+                             ('restoreMusic', 'GetAreaMusic')):
+            at = Food.Cpu.Host.location(bundle, symbol)
+            expected = bundle['raw'][at:at+4]
+            assert raw[at:at+4] == expected, symbol
+            hooks[name] = dict(pc=Food.Cpu.Host.address(bundle, symbol),
+                               offset=at-16, bytes=list(expected))
 
     base = Food.controller(raw)
-    bindings = [f'C.stockKind={kind}',
+    bindings = [f'C.stockKind={kind}', f'C.stockLifecycle={str(lifecycle).lower()}',
                 f'for k,v in pairs({authority.lua(addresses)}) do C.ram[k]=v end',
                 f'for k,v in pairs({authority.lua(hooks)}) do C.hooks[k]=v end']
     base = replace_once(base, "C.sha=assert(os.getenv('SMB_STDOUT_ROM_SHA'))",
@@ -56,8 +65,11 @@ def controller(raw, kind):
     base = replace_once(base, 'local pad=0', 'local pad=0\nlocal stock={resume=0}')
     before = base.index(" local passed=reason=='both-earned-food'")
     after = base.index(" print('SMB_NATIVE_RECEIPT '", before)
+    expectation = ("reason=='natural-star-lifecycle' and stock.defeat and stock.musicRestored"
+                   " and stock.expiry and stock.injury and stock.resume>=25"
+                   if lifecycle else "reason=='natural-stock-credit' and stock.credit and stock.resume>=25")
     base = base[:before] + (
-        " local passed=reason=='natural-stock-credit' and stock.credit and stock.resume>=25\n"
+        f" local passed={expectation}\n"
         "   and active() and stage() and identity()\n"
     ) + base[after:]
     base = replace_once(base, 'phase=phase,initial=firstActive', 'stock=stock,phase=phase,initial=firstActive')
@@ -78,6 +90,9 @@ def controller(raw, kind):
     base = replace_once(base, " and r('NumberofLives')==2,'Live native World 1-1')",
                         " and r('NumberofLives')==(stock.life and 3 or 2),'Live native World 1-1')")
     base = replace_once(base, " if #heals==2 then finish('both-earned-food');return end\n", '')
+    if lifecycle:
+        base = replace_once(base, " assert(frame<=5400,'Bounded physical Kirby food route')",
+                            " assert(frame<=7200,'Bounded physical Kirby Star lifecycle route')")
     return replace_once(base, 'if #heals==0 then pad=mushroom(px,y,ground,item) else pad=flower(px,y,ground,item) end',
                         "if stockControl(px,y,ground,item) then return end\n"
                         " if #heals==0 then pad=mushroom(px,y,ground,item) else pad=flower(px,y,ground,item) end")
@@ -85,7 +100,7 @@ def controller(raw, kind):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('item', choices=('oneup', 'star'))
+    parser.add_argument('item', choices=('oneup', 'star', 'star-lifecycle'))
     args = parser.parse_args()
     kind = 3 if args.item == 'oneup' else 2
     initial = check(ROM)
@@ -97,7 +112,7 @@ def main():
     script = OUT / 'controller.lua'
     previous = script.read_bytes()
     try:
-        script.write_bytes(controller(raw, kind).encode())
+        script.write_bytes(controller(raw, kind, lifecycle=args.item == 'star-lifecycle').encode())
         result = run(script, ROM, OUT / 'capture', initial['ROM_sha256'], 120)
         print('RESULT ' + json.dumps(result, sort_keys=True), flush=True)
         assert result['passed'] and result['outputs_written'] == 0 and not result['images']
