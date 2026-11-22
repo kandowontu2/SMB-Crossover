@@ -552,7 +552,10 @@ so its value here is code space. The candidate bytes are
 The current TopScore entry at bank 3 `$B83F` calls `$B88C`, which loads
 score data before any functional use of the incoming A. Current NMI paths
 at bank 63 `$B467` and bank 82 `$BF15` copy the existing `$016A` parameter
-to `$7279` and restore it before returning. A paired interrupt test must
-check that a stale value left in that backup cannot feed a later consumer.
+to `$7279` and restore it before returning. The only direct instruction reads
+of `$7279` in the current PRG are those two restores. The Contra Force RAM
+images contain no reference to that word. The indexed release reads from
+`$71DD` top out at index 18, below `$7279`. A paired interrupt test still
+needs to verify the save/restore lifetime and the next `$016A` overwrite.
 The direct relocation calls found are `126:$82DE`, `126:$8352` for Pause
 and `4:$A000` for HP graphics. The fireball bridge remains at `$837B`.
