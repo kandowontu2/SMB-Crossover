@@ -91,8 +91,103 @@ emu.addMemoryCallback(guard(function()
 end),emu.callbackType.exec,0xa0ba)
 '''
 
+IMPACT_PREIMAGES = {
+    0xB7F9: bytes.fromhex('20f59a'),
+    0xB7FC: bytes.fromhex('aefcc22044a04c12b8'),
+    0xB812: bytes.fromhex('68850da200689503e8e00890f868'),
+}
+IMPACT_OBSERVER = r'''
+local function source(at)return emu.read(2*8192+at,emu.memType.nesWorkRam)end
+local function impactRead(name)return emu.read(impactConfig.ram[name],emu.memType.nesDebug)end
+local function nativeImpactHook(name,fn)
+ local h=impactConfig.hooks[name]
+ emu.addMemoryCallback(guard(function()
+  if not first or not impactPending then return end
+  local mapped=emu.convertAddress(h.pc)
+  if not mapped or mapped.memType~=emu.memType.nesPrgRom or mapped.address~=h.offset then return end
+  for i,v in ipairs(h.bytes)do assert(emu.read(h.pc+i-1,emu.memType.nesDebug)==v,'Exact native impact seam '..name)end
+  fn(emu.getState())
+ end),emu.callbackType.exec,h.pc)
+end
+emu.addMemoryCallback(guard(function()
+ if not first or not active() or not identity() then return end
+ local mapped=emu.convertAddress(0xa0ba)
+ if not mapped or mapped.memType~=emu.memType.nesWorkRam or mapped.address~=0x20ba then return end
+ local cpu=emu.getState();local slot=cpu['cpu.y']
+ impactAllocations[slot]={tier=r('PlayerStatus'),kind=cpu['cpu.a'],Main=updates+1}
+end),emu.callbackType.exec,0xa0ba)
+itemHook(0xb7f9,function()
+ if not active() or not identity() then return end
+ assert(not impactPending,'Previous native contact must complete')
+ local shot,foe=source(0x2fc),source(0x2fd)
+ local tier=r('PlayerStatus')
+ assert(shot>=10 and shot<=21 and foe<6 and tier>=0 and tier<=2,'Real source shot, enemy and tier')
+ assert(source(0x7f+C.variant)==(0x10|tier),'Contact uses actual earned class gear')
+ if tier>0 then
+  local grant=earned[tier==1 and 1 or 3]
+  assert(grant and grant.kind==tier-1 and grant.tier_after==tier,'Upgrade collected before powered contact')
+ end
+ local flag,kind,st=r('Enemy_Flag',foe),r('Enemy_ID',foe),r('Enemy_State',foe)
+ assert(flag>0 and flag<128 and kind<21 and(st&32)==0,'Naturally live ordinary enemy before source hit')
+ assert(impactRead('ObjectOffset')==foe,'Actual native defender origin')
+ impactPending={Main=updates+1,frame=frame,tier=tier,shot_slot=shot,shot_kind=source(0x382+shot),
+  radius=source(0x420+shot),shot_x=source(0x34e+shot)+pos('ScreenLeft_X_Pos','ScreenLeft_PageLoc'),
+  shot_y=source(0x368+shot),enemy_slot=foe,enemy_id=kind,enemy_state_before=st,
+  enemy_x=pos('Enemy_X_Position','Enemy_PageLoc',foe),enemy_y=r('Enemy_Y_Position',foe),
+  last_allocation=impactAllocations[shot],native_calls=0,score_calls=0}
+ assert(impactPending.shot_kind>0 and impactPending.radius>0,'Actual active source projectile')
+ local row=weaponImpacts[tostring(tier)];row.contacts=row.contacts+1
+end)
+nativeImpactHook('ShellOrBlockDefeat',function(cpu)
+ local q=impactPending
+ assert(cpu['cpu.x']==q.enemy_slot and impactRead('ObjectOffset')==q.enemy_slot,'Native defeat receives real defender')
+ q.native_calls=q.native_calls+1
+end)
+nativeImpactHook('SetupFloateyNumber',function(cpu)
+ local q=impactPending
+ assert(cpu['cpu.x']==q.enemy_slot,'Native score receives real defender')
+ q.score_calls=q.score_calls+1;q.score_code=cpu['cpu.a']
+end)
+cfHook('CfSourceImpact',function()
+ if not first or not active() or not identity() then return end
+ local q=assert(impactPending,'Observed ordinary contact before source impact')
+ assert(q.Main==updates+1 and source(0x2fc)==q.shot_slot and source(0x2fd)==q.enemy_slot,'Same contact at source impact')
+ assert(q.native_calls==1 and q.score_calls>=1,'Real native defeat and score calls before source action')
+ q.enemy_state_after=r('Enemy_State',q.enemy_slot)
+ q.popup=r('FloateyNum_Control',q.enemy_slot);q.sound=impactRead('Square1SoundQueue')
+ assert((q.enemy_state_after&32)~=0 and q.popup>0,'Actual native defeated state and score popup')
+ if q.enemy_id==6 then
+  assert(q.popup==1 and q.sound==impactConfig.defeat_sound,'Goomba native score and smack request')
+ end
+ assert(source(0x382+q.shot_slot)==q.shot_kind and source(0x420+q.shot_slot)==q.radius,'Source shot preserved until its own impact action')
+ q.source_impact=true
+end)
+itemHook(0xb812,function()
+ local q=impactPending
+ if not q then return end
+ assert(q.source_impact and q.Main==updates+1 and source(0x2fc)==q.shot_slot,'Same source action returns at authored seam')
+ -- Kind6 is specific to the pistol. Other real weapons can retain or change
+ -- kind differently; retain the actual post-action fields instead of guessing.
+ q.post_kind=source(0x382+q.shot_slot);q.post_radius=source(0x420+q.shot_slot)
+ q.post_frame=source(0x31a+q.shot_slot);q.post_PC=0xb812
+ local row=weaponImpacts[tostring(q.tier)]
+ row.defeats=row.defeats+1;row.source_actions=row.source_actions+1
+ row.unreturned=row.unreturned+1
+ if not row.first then row.first=q end
+ impactPending=nil
+end)
+local function impactTick()
+ assert(not impactPending,'Native contact and source action finish before Main returns')
+ for _,row in pairs(weaponImpacts)do
+  row.Main_returned=row.Main_returned+row.unreturned;row.unreturned=0
+  if row.first and row.first.Main==updates then row.first.completed_Main=updates end
+ end
+end
+'''
 
-def controller(parent, candidate, identity, *, weapons=False):
+
+def controller(parent, candidate, identity, *, weapons=False, impacts=False):
+    weapons = weapons or impacts
     text, _ = build_controller(parent, candidate, identity, 'all', native=True)
 
     def once(old, new):
@@ -118,14 +213,37 @@ def controller(parent, candidate, identity, *, weapons=False):
         once('earned=earned,updates_after_pickups=', 'earned=earned,weapon_shots=weaponShots,updates_after_pickups=')
         observer += '\nlocal weaponKinds={' + ','.join(map(str, kinds)) + '}\n'
         observer += WEAPON_OBSERVER
+    if impacts:
+        from check_contra_force_fast_route_1122 import Current
+
+        bundle = Current.bindings(Hud.inverse(parent))['bundle']
+        base = Current.P.CHR + 951 * 1024
+        for pc, code in IMPACT_PREIMAGES.items():
+            assert candidate[base+(pc & 8191):base+(pc & 8191)+len(code)] == code
+        native = {}
+        for name in ('ShellOrBlockDefeat', 'SetupFloateyNumber'):
+            pc, at = Current.W.address(bundle, name), Current.W.location(bundle, name)
+            native[name] = dict(pc=pc, offset=at-16, bytes=list(candidate[at:at+8]))
+        config = dict(hooks=native, ram={name: Current.W.address(bundle, name)
+                      for name in ('ObjectOffset', 'Square1SoundQueue')},
+                      defeat_sound=Current.W.address(bundle, 'Sfx_EnemySmack'))
+        rows = {str(tier): dict(contacts=0, defeats=0, source_actions=0,
+                              Main_returned=0, unreturned=0) for tier in range(3)}
+        declarations = ('local weaponImpacts=' + Frozen.Frozen.lua(rows)
+                        + '\nlocal impactPending,impactAllocations=nil,{}\n')
+        once('local function finish(reason)', declarations + 'local function finish(reason)')
+        once('earned=earned,weapon_shots=', 'earned=earned,weapon_impacts=weaponImpacts,weapon_shots=')
+        observer += '\nlocal impactConfig=' + Frozen.Frozen.lua(config) + '\n' + IMPACT_OBSERVER
     once("hook('GameLoop',function()", observer + "\nhook('GameLoop',function()")
     once(' pendingReturn=nil;updates=updates+1\n cfOwner()',
-         ' pendingReturn=nil;updates=updates+1\n cfOwner();earnedTick()')
+         ' pendingReturn=nil;updates=updates+1\n cfOwner();'
+         + ('impactTick();' if impacts else '') + 'earnedTick()')
     Frozen.Frozen.LuaRuntime().compile(text)
     return text
 
 
-def verified_run(script, rom, candidate, identity, *, weapons=False):
+def verified_run(script, rom, candidate, identity, *, weapons=False, impacts=False):
+    weapons = weapons or impacts
     expected = Hud.H(candidate)
     assert check(rom)['ROM_sha256'] == expected
     result = run(script, rom, OUT / 'capture', expected, 110, variant=Frozen.IDENTITIES[identity][1])
@@ -138,6 +256,13 @@ def verified_run(script, rom, candidate, identity, *, weapons=False):
     assert receipt['terminal']['power'] == 2 and receipt['terminal']['star'] > 0
     assert check(rom)['ROM_sha256'] == expected
     weapon_report = {'weapons': receipt['weapon_shots']} if weapons else {}
+    if impacts:
+        rows = receipt['weapon_impacts']
+        assert set(rows) == {'0', '1', '2'}
+        for row in rows.values():
+            assert row['contacts'] == row['defeats'] == row['source_actions'] == row['Main_returned']
+            assert row['unreturned'] == 0
+        weapon_report['impacts'] = rows
     print('NATIVE EARNED ' + json.dumps(dict(identity=identity, ROM=expected,
         location='downloads' if rom == Hud.ROM else 'private', script=result['script_SHA256'],
         receipt=result['receipt_SHA256'], earned=receipt['earned'], terminal=receipt['terminal'],
@@ -149,7 +274,7 @@ def verified_run(script, rom, candidate, identity, *, weapons=False):
         assert [shots[str(i)]['kind'] for i in range(3)] == list(expected_kinds)
 
 
-def main(identity, install, weapons=False):
+def main(identity, install, weapons=False, impacts=False):
     before = check(Hud.ROM)
     installed = Hud.ROM.read_bytes()
     parent = comparison_base(installed)
@@ -161,22 +286,22 @@ def main(identity, install, weapons=False):
     require_free_workspace(Hud.R, Hud.ROM, allow_interactive=True)
     _, candidate, _, _ = compose(parent, repair_pickup=True)
     assert comparison_base(candidate) == parent
-    text = controller(parent, candidate, identity, weapons=weapons)
+    text = controller(parent, candidate, identity, weapons=weapons, impacts=impacts)
     old_script = script.read_bytes()
     try:
         script.write_bytes(text.encode())
         if installed == candidate:
-            verified_run(script, Hud.ROM, candidate, identity, weapons=weapons)
+            verified_run(script, Hud.ROM, candidate, identity, weapons=weapons, impacts=impacts)
         else:
             target.write_bytes(candidate)
-            verified_run(script, target, candidate, identity, weapons=weapons)
+            verified_run(script, target, candidate, identity, weapons=weapons, impacts=impacts)
         assert check(Hud.ROM) == before and Hud.ROM.read_bytes() == installed
         if install and installed != candidate:
             preflight(OUT / 'capture', reserved_files=0)
             require_free_workspace(Hud.R, Hud.ROM, allow_interactive=True)
             try:
                 Hud.ROM.write_bytes(candidate)
-                verified_run(script, Hud.ROM, candidate, identity, weapons=weapons)
+                verified_run(script, Hud.ROM, candidate, identity, weapons=weapons, impacts=impacts)
                 assert Hud.ROM.read_bytes() == candidate
             except BaseException:
                 Hud.ROM.write_bytes(installed)
@@ -196,5 +321,6 @@ if __name__ == '__main__':
     args.add_argument('--identity', default='burns', choices=Frozen.IDENTITIES)
     args.add_argument('--install', action='store_true', help='Install only after the private Mesen replay passes.')
     args.add_argument('--weapons', action='store_true', help='Also verify actual projectile births at each weapon tier.')
+    args.add_argument('--impacts', action='store_true', help='Also observe real native defeats and source impact actions by earned tier; implies --weapons.')
     options = args.parse_args()
-    main(options.identity, options.install, options.weapons)
+    main(options.identity, options.install, options.weapons, options.impacts)

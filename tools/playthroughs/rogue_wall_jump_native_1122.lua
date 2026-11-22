@@ -163,7 +163,7 @@ local function wallJumpDrive(c)
   if r('RdAction')==3 then return {up=true} end
   return {}
  end
- if wall.phase=='prepare' and not wall.gapRemoved then
+ if wall.phase=='prepare' and not C.wallLeft and not wall.gapRemoved then
   local b=aim(2384,2387)
   if not b.left and not b.right and grounded and c.y<=98 then
    assert(c.block(2384,128)==0x52,'Actual ordinary brick beside the used upgrade brick')
@@ -196,7 +196,8 @@ local function wallJumpDrive(c)
  end
  if wall.phase=='prepare' then
   if r('RdAction')==3 then return {up=true} end
-  local b=aim(2382,2384)
+  wall.side=C.wallLeft and 'left' or 'right'
+  local b=C.wallLeft and aim(2421,2424) or aim(2382,2384)
   if not b.left and not b.right and grounded and c.y>=174 and releasedA then
    assert(c.block(2400,128)==0xc4,'The used upgrade brick provides the actual wall')
    wall.start=state()
@@ -204,9 +205,12 @@ local function wallJumpDrive(c)
   end
   return b
  end
- local toward={right=true}
+ local toward={[wall.side]=true}
+ local direction=C.wallLeft and 2 or 1
  if wall.phase=='run' then
-  if grounded and r('RdAction')==1 and releasedA and c.x>=2384 then
+  local aligned=C.wallLeft and c.x<=2421 or not C.wallLeft and c.x>=2384
+  if grounded and r('RdAction')==1 and releasedA and aligned
+     and (not C.wallLeft or r('RdHeld')&3==direction) then
    wallJumpPhase('rise-at-wall')
    toward.a=true
   end
@@ -216,7 +220,7 @@ local function wallJumpDrive(c)
   if not grounded then
    -- Rise in the opening before leaning toward the elevated wall.
    -- Neutral horizontal input in the air keeps the running jump action.
-   if c.y<=140 then
+   if c.y<=(C.wallLeft and 132 or 140) then
     wallJumpPhase('release')
     return toward
    end
@@ -231,16 +235,17 @@ local function wallJumpDrive(c)
    wallJumpPhase('prepare')
    return {}
   end
-  if c.y<=140 and releasedA and r('RdHeld')&3==1 then
+  local leftContact=c.x+7-r('RdRadiusX')<2416
+  if c.y<=140 and (not C.wallLeft or leftContact) and releasedA and r('RdHeld')&3==direction then
    wallJumpPhase('press')
    toward.a=true
   end
   return toward
  end
  if wall.phase=='press' then
-  if wall.launches.right then
+  if wall.launches[wall.side] then
    assert(r('RdMaxSpeed')==0x12,'Native wall jump publishes the dry maximum speed')
-   wall.launches.right.maxSpeed=r('RdMaxSpeed')
+   wall.launches[wall.side].maxSpeed=r('RdMaxSpeed')
    wallJumpPhase('land')
    return {a=true}
   end
@@ -257,14 +262,14 @@ local function wallJumpDrive(c)
  end
  if wall.phase=='land' then
   if grounded and updates-wall.entered>=10 then
-   wall.landings.right=state()
+   wall.landings[wall.side]=state()
    wallJumpPhase('settled')
    return {}
   end
   return {a=r('RdVY')>=128}
  end
  if wall.phase=='settled' and updates-wall.entered>=25 then
-  assert(wall.launches.right and wall.landings.right
+  assert(wall.launches[wall.side] and wall.landings[wall.side]
          and r('RdGear')==7 and r('RdTanks')==1 and r('RdMissiles')==5,
          'Earned Wall Jump and earlier resources survive landing')
   wall.complete=true

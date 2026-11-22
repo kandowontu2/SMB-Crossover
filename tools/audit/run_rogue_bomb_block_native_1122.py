@@ -40,7 +40,7 @@ end)
 """
 
 
-def controller(raw, *, high_jump=False, wall_jump=False):
+def controller(raw, *, high_jump=False, wall_jump=False, wall_left=False):
     parent = comparison_base(raw)
     bundle = J.bindings(parent)['bundle']
     old = current_bomb(parent, 'bomb')
@@ -88,8 +88,10 @@ def controller(raw, *, high_jump=False, wall_jump=False):
         assert raw[at:at+3] == b'\x20' + W.address(bundle, 'RdC_CD40').to_bytes(2, 'little')
         jump_gate = dict(PC=W.address(bundle, gate), offset=at-16, bytes=list(raw[at:at+6]))
         additions.append(f'C.hooks.WallJumpGate={bindings(jump_gate)}')
-        for name in ('RdMaxSpeed', 'RdFrozenSupport', 'Enemy_Y_HighPos'):
+        for name in ('RdMaxSpeed', 'RdFrozenSupport', 'Enemy_Y_HighPos', 'RdRadiusX'):
             additions.append(f'C.ram.{name}={W.address(bundle, name)}')
+        if wall_left:
+            additions.append('C.wallLeft=true')
     edit(line, '\n'.join([line, *updates, *additions]))
     edit("gear.morph=state();gear.phase='release'", "gear.morph=state();gear.phase='position'")
     edit("elseif gear.phase=='release'then", POSITION)
@@ -235,7 +237,7 @@ def extend_wall_jump(edit):
     wall.pending=nil
     launch.vy=r('RdVY');launch.gravity=r('RdGravity')
     assert(launch.vy==0xfc and launch.gravity==0x12,'Native launch after a blocked wall probe')
-    wall.launches.right=launch
+    wall.launches[wall.side]=launch
    end
   elseif n=='RdStartJump'and gear.high then""")
     edit("local age=0", """hook('PlayerHeadCollision',function()
@@ -257,13 +259,16 @@ hook('WallJumpGate',function()
  local wall=gear.wall
  if not wall or wall.phase~='press' or not active() or not identity() then return end
  local before=state()
- local atWall=before.source_x>=2390 and before.source_x<=2404
+ local facing=wall.side=='left' and 2 or 1
+ local reach=r('RdRadiusX')+1
+ local probeX=before.source_x+(facing==1 and reach or -reach)
  assert(r('RdGear')==7 and r('RdAction')==1 and r('Player_State')~=0
-        and r('RdFresh')&128~=0 and r('RdHeld')&3==1
-        and cpu()['cpu.ps']&1==0 and atWall and context().block(2400,128)==0xc4,
+        and r('RdFresh')&128~=0 and r('RdHeld')&3==facing
+        and cpu()['cpu.ps']&1==0 and probeX>=2400 and probeX<2416
+        and context().block(2400,128)==0xc4,
         'Fresh A toward a real blocked wall while airborne')
- assert(not wall.pending and not wall.launches.right)
- wall.pending={before=before,side='right'}
+ assert(not wall.pending and not wall.launches[wall.side])
+ wall.pending={before=before,side=wall.side}
 end)
 local age=0""")
     # Wall Jump is the fifth earned pickup in this replay.
@@ -274,9 +279,12 @@ local age=0""")
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--high-jump', action='store_true')
-    parser.add_argument('--wall-jump', action='store_true')
+    stages = parser.add_mutually_exclusive_group()
+    stages.add_argument('--high-jump', action='store_true')
+    stages.add_argument('--wall-jump', action='store_true')
+    stages.add_argument('--wall-jump-left', action='store_true')
     args = parser.parse_args()
+    wall_jump = args.wall_jump or args.wall_jump_left
     initial = check(ROM)
     raw = ROM.read_bytes()
     script = OUT / 'controller.lua'
@@ -286,19 +294,20 @@ def main():
     require_free_workspace(R, ROM, allow_interactive=True)
     previous = script.read_bytes()
     try:
-        script.write_bytes(controller(raw, high_jump=args.high_jump, wall_jump=args.wall_jump).encode())
-        timeout = 240 if args.wall_jump else 180 if args.high_jump else 120
+        script.write_bytes(controller(raw, high_jump=args.high_jump, wall_jump=wall_jump,
+                                      wall_left=args.wall_jump_left).encode())
+        timeout = 240 if wall_jump else 180 if args.high_jump else 120
         result = run(script, ROM, OUT / 'capture', initial['ROM_sha256'], timeout)
         receipt = result['receipt']
         bomb = receipt['natural_Bomb']
-        label = 'ROGUE WALL JUMP ' if args.wall_jump else 'ROGUE HIGH JUMP ' if args.high_jump else 'ROGUE BOMB BLOCK '
+        label = 'ROGUE WALL JUMP ' if wall_jump else 'ROGUE HIGH JUMP ' if args.high_jump else 'ROGUE BOMB BLOCK '
         print(label + json.dumps({
             'passed': result['passed'], 'rom': initial['ROM_sha256'],
             'reason': receipt['reason'], 'receipt': result['receipt_SHA256'],
             'script': result['script_SHA256'], 'block': bomb.get('block'),
             'shot': bomb.get('bomb'), 'terminal': receipt['terminal'],
             'phase': bomb.get('phase'), 'nearby_blocks': bomb.get('cache', {}).get('near'),
-            'high_jump': None if args.wall_jump else bomb.get('high'),
+            'high_jump': None if wall_jump else bomb.get('high'),
             'wall_jump': compact_wall_receipt(bomb.get('wall')),
         }), flush=True)
         assert result['passed'] and result['outputs_written'] == 0 and not result['images']

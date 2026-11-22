@@ -77,3 +77,9 @@ open. Receipt
 `750a60f2b404fd7c219ddd704ae5b5ccbfcff95da0aadf4b7f41d380f0537f26`.
 Controller SHA-256 is
 `097bc20c658398f969e4b95d607bb40f3d4881cea6bb06d9c1e2e2766fdffcac`.
+
+The first `--wall-jump-left` replay also collected Wall Jump. Its approach
+moved under the brick row before the jump was in position, and the route
+ended before a left-facing launch. The revised approach rises beside the row before
+steering left. The left-facing check remains open. First attempt receipt
+`785889449b3f0790de20c7f33093fd971192ea57530bed7852305e2f763a5cb9`.

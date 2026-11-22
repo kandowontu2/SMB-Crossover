@@ -980,3 +980,10 @@ Each finished the pickup route on the same physical frame as before.
 
 Impacts, appearance and sound still need separate verification for the
 upgraded weapons.
+
+The `--impacts` observer records a real contact, native enemy defeat, score
+and source impact action through the completed gameplay update. Its report
+includes the projectile's last recorded allocation so an old shot can be
+distinguished from a shot fired after an upgrade. All four observers
+compiled against the installed ROM. The existing pickup and firing scripts
+are byte-identical. Live impact runs are still pending.
