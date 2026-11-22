@@ -24,6 +24,13 @@ PIN='3466637dc3e75d7768eb6ba3c49af03e548e24a44a027394e3934b22579605cf'
 WALL_PIN='8f8d4a13507799fff9de2351b4b1da59d7f0d3bd0eb0675c476d061d7e8c98bc'
 SLOW_PIN='fe58e7d9f498ebc2a863027eaf71916574de206d414f4659e661708826c7c77d'
 AIR_PIN='c40ca81acc3bb271041c79c2062806e06c93314e097bac5dd48b4586a0ad2bcc'
+SPIN_CONTACT_PIN='59e1a591d5ea31d62dafa9332990598b74b5b0852194ef7cc7ad22788196b723'
+SPIN_PRIVATE_PASSES={
+    'sonic': ('3c2e48641dc04bca3d94f78ccc1d8562b9223e0062cdf2791c00369f053c7d4d',
+              '97003aac6624560c660eb51580631c15d958b1119247f75f6e8772f3d9733c81'),
+    'super': ('d4ceab5565878691b76789a1699d9a1c93c8581355e0a84e3a3e45d72ca201c4',
+              '2952a5effe7b7ebbe6d9d8c8b0842ceb969211568d91ac25a3fc0b80b74ff457'),
+}
 BASE='32eaf1786695d7ac1e69eb4957cc76dee011664e642710d02acc7ae624ca3ad1'
 SMOKE_RUNNER_SHA='d5e2acc8e74e25d5f8daa0d4087f1307daaf400687583e8d816646b2ed2624f8'
 SMOKE_LUA_SHA='80a278b2288f5a089f94d5ff193823a754384c1cfe015921f8fb983cc1184389'
@@ -40,18 +47,22 @@ def strict(parent,candidate):
     assert H(Path(Smoke.__file__).read_bytes())==SMOKE_RUNNER_SHA
     assert H(Smoke.LUA.read_bytes())==SMOKE_LUA_SHA
     digest=H(candidate)
-    assert H(parent)==BASE and digest in (PIN,WALL_PIN,SLOW_PIN,AIR_PIN),'Exact installed Beans32 and reviewed Sonic candidate'
+    assert H(parent)==BASE and digest in (PIN,WALL_PIN,SLOW_PIN,AIR_PIN,SPIN_CONTACT_PIN),'Exact installed Beans32 and reviewed Sonic candidate'
     expected,receipt=Smoke.proposal(parent)
     assert receipt['declared_spans_disjoint'] and receipt['Beans_preserved']
-    if digest in (WALL_PIN,SLOW_PIN,AIR_PIN):
+    if digest in (WALL_PIN,SLOW_PIN,AIR_PIN,SPIN_CONTACT_PIN):
         expected,wall=Wall.proposal(parent,expected)
         receipt=dict(receipt,wall_recovery=wall,cookie=wall['cookie'],candidate_SHA256=WALL_PIN)
-    if digest in (SLOW_PIN,AIR_PIN):
+    if digest in (SLOW_PIN,AIR_PIN,SPIN_CONTACT_PIN):
         expected,slow=Slow.proposal(expected)
         receipt=dict(receipt,slow_roll=slow,cookie=slow['cookie'],candidate_SHA256=SLOW_PIN)
-    if digest==AIR_PIN:
+    if digest in (AIR_PIN,SPIN_CONTACT_PIN):
         expected,air=Air.proposal(expected)
         receipt=dict(receipt,air_roll=air,cookie=air['cookie'],candidate_SHA256=AIR_PIN)
+    if digest==SPIN_CONTACT_PIN:
+        import compose_sonic_original_contact_1122 as Contact
+        expected,contact=Contact.proposal(expected,expected_parent=AIR_PIN)
+        receipt=dict(receipt,spin_contact=contact,cookie=contact['cookie'],candidate_SHA256=SPIN_CONTACT_PIN)
     assert candidate==expected
     return receipt
 
@@ -68,6 +79,8 @@ def bindings(parent,candidate,form):
     import current_sonic_stock_binding_1122 as Metadata
     a6=Smoke.reference(parent)
     b=Metadata.Sonic.bindings(Metadata.reference(a6))['bundle']
+    for name in ('FloateyNum_Control','Square1SoundQueue'):
+        q['ram'][name]=Metadata.W.address(b,name)
     for name in ('FlagpoleCollision','KillPlayer'):
         pc,at=Metadata.W.address(b,name),Metadata.W.location(b,name)
         assert candidate[at:at+32]==parent[at:at+32]
@@ -80,6 +93,15 @@ def bindings(parent,candidate,form):
         pc=Slow.RESUME_PC
         code=Smoke.Motion.page(candidate,Slow.RESUME_PAGE)[pc-0xd800:pc-0xd800+16]
         q['hooks']['ResumeRunning']=dict(pc=pc,tag=2,offset=2*8192+(pc&8191),hex=code.hex())
+    if 'spin_contact' in composition:
+        pc,tag=0xd37c,2
+        code=Smoke.Motion.page(candidate,328)[pc-0xd000:pc-0xd000+16]
+        q['hooks']['SpinContact']=dict(pc=pc,tag=tag,offset=tag*8192+(pc&8191),hex=code.hex())
+        pc,bank=0x9b04,126
+        offset=bank*8192+(pc&8191)
+        code=candidate[16+offset:16+offset+16]
+        assert code==parent[16+offset:16+offset+16]
+        q['hooks']['NativeSpinDefeat']=dict(pc=pc,tag=bank|128,offset=offset,hex=code.hex())
     q.update(run_kind='full11',fatal={'KillPlayer':True,'MetaDeath':True},
              proven_sensor_source_SHA256=STAGE_SHA)
     return q
@@ -113,6 +135,12 @@ def body():
     start,end=text.index('local function grounded('),text.index('local function returned(')
     text=text[:start]+functions+'\n'+text[end:]
     text=once(text,'motor=motor+1;if game then drive(state())end','motor=motor+1')
+    text=once(text,"count(p.name..'_returns')","count(p.name..'_returns')\n if p.name=='SpinContact'then finishSpinContact(p,c)end")
+    text=once(text,"count(name..'_entries');pending[#pending+1]={name=name,pc=pc,sp=(sp+2)&255,tag=mapped(pc)}",
+              """count(name..'_entries')
+ local p={name=name,pc=pc,sp=(sp+2)&255,tag=mapped(pc)}
+ if name=='SpinContact'then beginSpinContact(p,c)end
+ pending[#pending+1]=p""")
     text=once(text,"if name~='GameLoop'and(not armed or not identity())then return end",
               "if name~='GameLoop'and(not armed or not identity())then return end\n if C.fatal[name]and game then error('Actual native death entry '..name)end")
     text=once(text,"frame<=6000,'Bounded physical motion frames'","frame<=16000,'Bounded physical full-route frames'")
@@ -189,17 +217,25 @@ def main():
     parser.add_argument('--run',action='store_true')
     parser.add_argument('--validate',action='store_true')
     parser.add_argument('--shared-slot',action='store_true')
+    parser.add_argument('--deliver-nightly',action='store_true',
+                        help='Install the pinned private two-form pass and replay both forms from Downloads')
     motion=parser.add_mutually_exclusive_group()
     motion.add_argument('--wall-restart',action='store_true',help='Test directional recovery after an airborne roll hits a wall')
     motion.add_argument('--slow-roll',action='store_true',help='Also test returning to running from a slow grounded roll')
     motion.add_argument('--air-roll',action='store_true',help='Also test directional recovery from a slow airborne roll')
+    motion.add_argument('--spin-contact',action='store_true',help='Also verify actual native enemy defeat from Sonic spin contact')
     parser.add_argument('--form',choices=(*FORMS,'both'),default='both')
     args=parser.parse_args();assert not(args.run and args.validate)
     assert not args.shared_slot or args.run
+    assert not args.deliver_nightly or (args.run and args.spin_contact and args.form=='both')
     parent=ROM.read_bytes();candidate,_=Smoke.proposal(parent)
-    if args.wall_restart or args.slow_roll or args.air_roll:candidate=Wall.proposal(parent,candidate)[0]
-    if args.slow_roll or args.air_roll:candidate=Slow.proposal(candidate)[0]
-    if args.air_roll:candidate=Air.proposal(candidate)[0]
+    if args.wall_restart or args.slow_roll or args.air_roll or args.spin_contact:candidate=Wall.proposal(parent,candidate)[0]
+    if args.slow_roll or args.air_roll or args.spin_contact:candidate=Slow.proposal(candidate)[0]
+    if args.air_roll or args.spin_contact:candidate=Air.proposal(candidate)[0]
+    if args.spin_contact:
+        import compose_sonic_original_contact_1122 as Contact
+        candidate=Contact.proposal(candidate,expected_parent=AIR_PIN)[0]
+        assert H(candidate)==SPIN_CONTACT_PIN,'Requested contact candidate has not been pinned'
     strict(parent,candidate)
     if not args.run:
         def deny(*a,**kw):raise AssertionError('Full-route source validation attempted output/process')
@@ -216,21 +252,60 @@ def main():
     target,script=SHARED/'candidate.nes',SHARED/'controller.lua'
     originals=target.read_bytes(),script.read_bytes()
     forms=FORMS if args.form=='both' else (args.form,)
+    launch=target
+    installed_guard=None
+    delivery_started=False
+    delivered=[]
+    if args.deliver_nightly:
+        from mesen_session_guard_v1 import require_free_workspace
+        assert originals[0]==parent,'Exact previous nightly in the shared slot'
+        for form in forms:
+            assert H(controller(parent,candidate,form).encode())==SPIN_PRIVATE_PASSES[form][0]
+        require_free_workspace(R,ROM,allow_interactive=True)
+        launch=ROM
     try:
-        target.write_bytes(candidate)
+        if args.deliver_nightly:
+            assert ROM.read_bytes()==parent and check(ROM)==guard
+            delivery_started=True
+            ROM.write_bytes(candidate)
+            installed_guard=check(ROM)
+            assert ROM.read_bytes()==candidate and installed_guard['ROM_sha256']==SPIN_CONTACT_PIN
+            assert not installed_guard['matching_patch_files']
+        else:
+            target.write_bytes(candidate)
         for form in forms:
             script.write_text(controller(parent,candidate,form),encoding='utf-8',newline='\n')
-            try:q=run(script,target,SHARED/'capture',H(candidate),240,extra_env={'SMB_STDOUT_IMAGES':'0'})
+            try:q=run(script,launch,SHARED/'capture',H(candidate),240,extra_env={'SMB_STDOUT_IMAGES':'0'})
             except Exception as error:
                 print('SONIC FULL11 RUNNER FAILURE '+json.dumps(dict(form=form,ROM_SHA256=H(candidate),error=repr(error)),separators=(',',':')),flush=True);raise
             report(form,q,validation)
-        assert target.read_bytes()==candidate and ROM.read_bytes()==parent
+            if args.deliver_nightly:
+                assert ROM.read_bytes()==candidate and check(ROM)==installed_guard
+                assert q['script_SHA256']==SPIN_PRIVATE_PASSES[form][0]
+                delivered.append(dict(form=form,script_SHA256=q['script_SHA256'],
+                                      private_receipt_SHA256=SPIN_PRIVATE_PASSES[form][1],
+                                      Downloads_receipt_SHA256=q['receipt_SHA256']))
+        if args.deliver_nightly:
+            target.write_bytes(candidate)
+            assert target.read_bytes()==candidate and check(ROM)==installed_guard
+            delivery_started=False
+        else:
+            assert target.read_bytes()==candidate and ROM.read_bytes()==parent
     finally:
-        target.write_bytes(originals[0]);script.write_bytes(originals[1])
-        assert (target.read_bytes(),script.read_bytes())==originals
+        if delivery_started:
+            ROM.write_bytes(parent)
+        if not args.deliver_nightly or delivery_started:
+            target.write_bytes(originals[0])
+        script.write_bytes(originals[1])
         assert {p.name for p in SHARED.iterdir()}=={'candidate.nes','controller.lua'}
-        assert check(ROM)==guard and ROM.read_bytes()==parent
-        print('SONIC FULL11 SHARED RESTORED '+json.dumps(dict(files=2,Downloads_SHA256=BASE,patch_guards_before_after=True,no_delivery=True),separators=(',',':')),flush=True)
+        assert script.read_bytes()==originals[1]
+        if not args.deliver_nightly or delivery_started:
+            assert target.read_bytes()==originals[0] and check(ROM)==guard and ROM.read_bytes()==parent
+            print('SONIC FULL11 SHARED RESTORED '+json.dumps(dict(files=2,Downloads_SHA256=BASE,patch_guards_before_after=True,no_delivery=True),separators=(',',':')),flush=True)
+    if args.deliver_nightly:
+        assert target.read_bytes()==ROM.read_bytes()==candidate and check(ROM)==installed_guard
+        print('SONIC NIGHTLY DELIVERED '+json.dumps(dict(files=2,backups=0,Downloads_SHA256=SPIN_CONTACT_PIN,
+              patch_guards_before_after=True,real_Downloads_launches=delivered),separators=(',',':')),flush=True)
 
 
 if __name__=='__main__':main()

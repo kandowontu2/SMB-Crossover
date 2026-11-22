@@ -6,6 +6,8 @@ local routeClock,lastJump,bestX,advancedAt,grounded12,lastRouteMotor=0,-100,40,0
 local eventOrder,lastPhase=0,nil
 local recovering=false
 local previousMove,rollResumes,airResumes=nil,{},{}
+local spinDefeats,spinCount={},0
+local undergroundHandoff=nil
 
 -- FULL_ROUTE_FINISH
 local function finish(ok,why)
@@ -15,6 +17,8 @@ local function finish(ok,why)
   run_kind='full11',physical_frames=frame,input_polls=polls,Main=mains,accepted_motor=motor,
   active_route_updates=routeClock,cold=cold,events=routeEvents,jumps=jumpRequests,
   grounded_roll_resumes=rollResumes,airborne_roll_resumes=airResumes,
+  native_spin_defeats=spinDefeats,native_spin_defeat_count=spinCount,
+  underground_handoff=undergroundHandoff,
   grounded_1_2_returns=grounded12,support_samples=supportSamples,tail=tail,terminal=s,counts=counts,pending=#pending,
   controller_only=true,no_game_actor_inventory_health_seeds=true,no_shortcut_down_input=true,
   real_native_support_required=true,files=0,images=0,
@@ -26,6 +30,30 @@ end
 local function read(at)return emu.read(at,emu.memType.nesDebug)end
 local function pos(lo,hi,i)return r(lo,i)+256*r(hi,i)end
 FULL_ROUTE_SENSORS
+local function beginSpinContact(p,c)
+ local i=c['cpu.x']
+ if i>=6 then return end
+ p.spin={slot=i,id=r('Enemy_ID',i),state=r('Enemy_State',i),flag=r('Enemy_Flag',i),
+         x=pos('Enemy_X_Position','Enemy_PageLoc',i),y=r('Enemy_Y_Position',i),
+         player=state(),defeats=counts.NativeSpinDefeat_returns or 0}
+end
+local function finishSpinContact(p,c)
+ if c['cpu.ps']&1==0 then return end
+ local before=assert(p.spin,'Accepted contact has an actual actor slot')
+ local slot=before.slot
+ local after=r('Enemy_State',slot)
+ local points=r('FloateyNum_Control',slot)
+ assert(before.flag>0 and before.flag<128 and before.state<2 and after&32~=0,
+        'Live native enemy enters defeated state')
+ assert((counts.NativeSpinDefeat_returns or 0)==before.defeats+1,
+        'Accepted spin body contact entered and returned from native enemy defeat')
+ assert(before.player.flags&5~=0 and before.player.charge==0 and before.player.hurt&64==0,
+        'Real active spin on the accepted contact')
+ assert(points==(before.id==6 and 1 or 2),'Native score popup matches the defeated enemy')
+ spinCount=spinCount+1
+ bounded(spinDefeats,{before=before,after_enemy_state=after,points=points,
+         sound=r('Square1SoundQueue'),after_player=state()},16)
+end
 local function nearbyEnemies(s)
  local result={}
  for i=0,5 do
@@ -95,7 +123,19 @@ local function afterMain()
  elseif s.level==0 and s.engine==5 and s.x>=3000 then recordEvent('castle',s)
  elseif s.level==1 and s.engine==7 then recordEvent('entrance',s)end
  if s.mode~=1 or s.task~=3 or s.engine~=8 then pad=0;return end
+ if s.ready==0 then
+  -- The pipe script restores engine 8 before the native entrance fall
+  -- finishes and the incoming Sonic owner has constructed its new body.
+  assert(eventOrder==3 and s.level==1 and s.area==0 and s.area_type==2 and not progressed,
+         'Only the verified 1-2 entrance may run before ownership resumes')
+  if not undergroundHandoff then undergroundHandoff={first_native=s,ready_pending_returns=0}end
+  assert(not undergroundHandoff.first_ready and frame-undergroundHandoff.first_native.frame<=600,
+         'One bounded ownership handoff after the underground entrance')
+  undergroundHandoff.ready_pending_returns=undergroundHandoff.ready_pending_returns+1
+  pad=0;return
+ end
  assert(s.ready==1,'Ordinary movement owner ready')
+ if undergroundHandoff and not undergroundHandoff.first_ready then undergroundHandoff.first_ready=s end
  assert((s.width==24 or s.width==28)
         and(s.height==24 or s.height==32),'Owned body or actual hurt pose')
  if progressed then
@@ -127,6 +167,7 @@ local function afterMain()
     if not C.fatal[name]then assert(counts[name..'_entries']==counts[name..'_returns'],'Balanced full-route '..name)end
    end
    assert(#pending==0 and(counts.MetaFeet_returns or 0)>=25,'Actual returned native foot services')
+   if H.SpinContact then assert(spinCount>0,'Normal route included a native spin defeat')end
    finish(true,'Full native1-1 flag/castle/entrance plus25 living grounded1-2 returns')
   end
   return

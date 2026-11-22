@@ -272,3 +272,47 @@ The current enemy-collision path sends Sonic through the legacy guest
 handler at PRG10:`$B5A1`, which disables native stomps and ignores his roll
 and air-spin state. The private motion changes leave that path intact. Both forms'
 full-stage runs and the dedicated spin-hit check remain open.
+
+## Native spin defeats
+
+Private `59e1a591` routes Sonic's existing body contact into his
+authenticated combat handler. A moving ground roll or airborne spin can
+defeat a live Goomba or standard Koopa through the native defeat routine.
+The handler uses the normal score popup and sound. Walking, charging,
+stationary ground rolls, injury and unsupported enemy contacts retain
+the ordinary injury path. A descending spin can bounce without changing
+the upward velocity of an ascending attack.
+
+The exact `c40ca81a` successor changes 214 bytes. Bounded CPU checks
+recorded 144 defeats across both forms and all six actor slots, rejected
+1,536 corrupt-header cases with the correct actor slot preserved, and
+matched the previous dispatch for foreign owners and Kirby. The actual
+native collision entry distinguishes overlap from disjoint hitboxes, and
+ordinary injury matches the parent. The full-route controller observes the
+actual defeat return, the live actor becoming defeated, and its score
+popup. Source qualification creates no ROM or emulator captures.
+
+The first full Sonic replay on `59e1a591` defeated four Goombas at
+X1526, X1794, X2045 and X2760. Each native return set the defeated state,
+awarded the Goomba popup and queued the enemy-hit sound. Sonic reached
+the flag at frame 3,849, the castle at frame 3,944 and the next-level
+entrance at frame 4,992, with two lives.
+
+The replay then stopped on its own readiness assertion when the
+underground level reported engine 8 at X40/Y48. The native entrance
+had begun falling before Sonic's movement owner finished loading. The
+observer now waits for that handoff without input and still requires
+25 grounded movement returns in 1-2. First replay receipt
+`31cf7b8f474dd250f3f8a65996d7c622065df32c177401be8ac1569d574ba6b6`.
+
+Both complete private replays passed. Each defeated four live Goombas
+while spinning, climbed the final staircase, and crossed the flag,
+castle and next-level entrance states. Each waited one native return for
+the underground handoff, then ended at X40/Y176 with two lives after
+25 grounded source and Main returns in 1-2. These tests created no
+capture files.
+
+| Form | Physical frames | Native receipt SHA-256 | Controller SHA-256 |
+| --- | ---: | --- | --- |
+| Sonic | 5,658 | `97003aac6624560c660eb51580631c15d958b1119247f75f6e8772f3d9733c81` | `3c2e48641dc04bca3d94f78ccc1d8562b9223e0062cdf2791c00369f053c7d4d` |
+| Super Sonic | 5,673 | `2952a5effe7b7ebbe6d9d8c8b0842ceb969211568d91ac25a3fc0b80b74ff457` | `d4ceab5565878691b76789a1699d9a1c93c8581355e0a84e3a3e45d72ca201c4` |
