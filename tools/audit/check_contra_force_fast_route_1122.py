@@ -190,6 +190,27 @@ def build_controller(parent, raw, identity, pickup=None, *, native=False):
       b=aim(item.x+4,2)
       if c.grounded and math.abs(item.x-c.x)<24 and item.y<c.y-16 and not c.heldA then b.a=true end
      else phase='item-retreat';jumpStart=nil;releaseUntil=c.update+4 end''')
+            if native and identity == 'iron':
+                # Approach from beyond the right brick, come to a stop, then
+                # jump straight up before crossing left over the row.
+                wait = "phase~='item-retreat'and phase~='item-rise'"
+                start = "local start=math.max(target.x-32,c.camera+1)\n    b=aim(start,2)"
+                takeoff = """     phase='item-rise';jumpStart=c.update
+    end
+   elseif phase=='item-rise'then"""
+                cross = "if c.y<=target.y-32 then phase='item-cross';b.right=true"
+                assert all(controls.count(part) == 1 for part in (wait, start, takeoff, cross))
+                controls = controls.replace(wait, wait + "and phase~='item-stop'")
+                controls = controls.replace(start, "local start=target.x+25\n    b=aim(start,3)")
+                controls = controls.replace(takeoff, """     phase='item-stop';releaseUntil=c.update+8
+    end
+   elseif phase=='item-stop'then
+    b={down=c.update+2<releaseUntil}
+    if c.update>=releaseUntil and c.grounded and not c.heldA then
+     phase='item-rise';jumpStart=c.update;b.a=true
+    end
+   elseif phase=='item-rise'then""")
+                controls = controls.replace(cross, "if c.y<=target.y-32 then phase='item-cross';b.left=true")
             if native and identity == 'beans':
                 # Approach the Star from the far side of its brick row.
                 # Stopping under the western edge leaves Beans trapped

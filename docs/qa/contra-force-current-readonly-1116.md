@@ -936,11 +936,14 @@ Mushroom at update 782, 1-UP at 1471, flower at 1786 and Star at 2314.
 The run took 4,131 physical frames. Receipt
 `7e52ede3e3216690c90ae79beff2f22571d5192e531ad6eb9182e7f6a0af2175`.
 
-Iron earned the mushroom at update 958 and the hidden 1-UP at 1867 in
-Mesen. He retained tier 1 and three lives for the rest of the replay.
-The flower emerged from X1248/Y144. The controller failed to land on its
-ledge, and the replay ended before the Star block. The flower and Star
-still need emulator confirmation for Iron.
+Iron's first native runs earned the mushroom and hidden 1-UP before missing
+the flower ledge. The successful run stopped to the right of the ledge,
+jumped straight up, and steered left only after clearing the brick row.
+Iron earned the mushroom at update 958, hidden 1-UP at 1867, flower at
+2256 and Star at 2902. He remained active for 25 more updates with tier-2
+gear, three lives and the Star still active. The run took 5,174 physical
+frames. Receipt
+`3291c4f312ac5692e69df5c5b00763b9ca3c0b40a2df30fd685dbc6bf6dcf0b1`.
 
 Beans earned the mushroom at update 786, hidden 1-UP at 1443, flower at
 1745 and Star at 2390. The successful route jumped over the low brick row,
