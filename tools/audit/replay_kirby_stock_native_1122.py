@@ -17,6 +17,7 @@ ROM = Food.Cpu.ROM
 OUT = R / 'build/smb2-flag-native-1113'
 TAIL = R / 'tools/playthroughs/kirby_stock_native_1122.lua'
 GROUND_CHARGE = R / 'tools/playthroughs/kirby_ground_charge_native_1122.lua'
+SPIT_STAR = R / 'tools/playthroughs/kirby_spit_star_native_1122.lua'
 
 # Verify the native instructions used as pickup witnesses before launching.
 HOOKS = {
@@ -102,7 +103,7 @@ def controller(raw, kind, *, lifecycle=False):
                         " if #heals==0 then pad=mushroom(px,y,ground,item) else pad=flower(px,y,ground,item) end")
 
 
-def charge_controller(raw):
+def inhale_parts(raw, hook_names, ram_names):
     authority = Food.Cpu.Authority
     host = Food.Cpu.Host
     assert authority.sha(authority.AUTHORITY) == authority.AUTHORITY_ROM
@@ -122,15 +123,22 @@ def charge_controller(raw):
         at = 16 + hook.offset
         assert raw[at:at+len(expected)] == expected, name
     hooks = {}
-    for name, symbol in (('chargeStart', 'KbWeapons::CopyAttack'), ('chargeDefeat', 'KbBodyContact::Defeat')):
+    for name, symbol in hook_names:
         at = host.location(bundle, symbol)
         expected = bundle['raw'][at:at+6]
         assert raw[at:at+6] == expected, symbol
         hooks[name] = dict(pc=host.address(bundle, symbol), offset=at-16, bytes=list(expected))
-    addresses = {name: host.address(bundle, name) for name in ('MmVX', 'KbFloat', 'FrameCounter')}
+    addresses = {name: host.address(bundle, name) for name in ram_names}
     config += ('\nC.hooks.erased.bytes={169,1,141,12,92}'
                f'\nfor k,v in pairs({authority.lua(addresses)}) do C.ram[k]=v end'
                f'\nfor k,v in pairs({authority.lua(hooks)}) do C.hooks[k]=v end')
+    return config, body, lua
+
+
+def charge_controller(raw):
+    config, body, lua = inhale_parts(raw, (('chargeStart', 'KbWeapons::CopyAttack'),
+                                          ('chargeDefeat', 'KbBodyContact::Defeat')),
+                                    ('MmVX', 'KbFloat', 'FrameCounter'))
     body = replace_once(body, 'local function finish(reason)',
                         'local charge={spawns={},pipes={},lastJump=-100,resumed=0}\nlocal function finish(reason)')
     begin = body.index(" local passed=reason=='natural-first-inhale'")
@@ -155,9 +163,41 @@ def charge_controller(raw):
     return text
 
 
+def spit_controller(raw):
+    config, body, lua = inhale_parts(raw, (('spitSpawn', 'KbWeapons::Spawn'),
+                                          ('spitContact', 'KbWeapons::Defeat'),
+                                          ('spitConsumed', 'KbWeapons::Consumed'),
+                                          ('spitUpdate', 'KbWeapons')),
+                                    ('KbFloat', 'KbSavedSlot', 'KbShotType', 'KbShotX',
+                                     'KbShotPage', 'KbShotY', 'KbShotVXHi', 'KbShotAge', 'Square1SoundQueue'))
+    body = replace_once(body, 'local function finish(reason)',
+                        'local spit={actors={},jumps={},resumed=0}\nlocal function finish(reason)')
+    begin = body.index(" local passed=reason=='natural-first-inhale'")
+    end = body.index(" print('SMB_NATIVE_RECEIPT '", begin)
+    body = body[:begin] + """ local passed=reason=='earned-spit-star' and constructor and capture and erased
+    and spit.spawn and spit.hit and spit.defeated and spit.resumed==25 and not injury
+    and identity() and active() and stage() and last.hp==6 and last.lives==2
+    and last.mouth==0 and last.copy==0
+""" + body[end:]
+    body = replace_once(body, 'native_erase_return=erased,injury=injury',
+                        'native_erase_return=erased,spit=spit,injury=injury')
+    marker = 'emu.addEventCallback(guarded(function()\n polls=polls+1'
+    body = replace_once(body, marker, SPIT_STAR.read_text(encoding='utf-8') + '\n' + marker)
+    body = replace_once(body, 'if erased then input={}', 'if erased then input=spitPad()')
+    body = replace_once(body, "  if erased and frame>=erased.player.frame+2 then finish('natural-first-inhale');return end\n"
+                        "  if x()>=400 then finish('passed-first-encounter-without-capture');return end",
+                        "  if erased then spitTick()\n"
+                        "  elseif x()>=400 then finish('passed-first-encounter-without-capture');return end")
+    body = replace_once(body, "if frame>=1600 then finish('bounded-first-encounter-timeout') end",
+                        "if frame>=2400 then finish('bounded-spit-star-route') end")
+    text = config + '\n' + body
+    lua.compile(text)
+    return text
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('item', choices=('oneup', 'star', 'star-lifecycle', 'ground-charge'))
+    parser.add_argument('item', choices=('oneup', 'star', 'star-lifecycle', 'ground-charge', 'spit-star'))
     args = parser.parse_args()
     kind = 3 if args.item == 'oneup' else 2
     initial = check(ROM)
@@ -169,10 +209,15 @@ def main():
     script = OUT / 'controller.lua'
     previous = script.read_bytes()
     try:
-        charge = args.item == 'ground-charge'
-        text = charge_controller(raw) if charge else controller(raw, kind, lifecycle=args.item == 'star-lifecycle')
+        variant = 0
+        if args.item in ('ground-charge', 'spit-star'):
+            make_controller = charge_controller if args.item == 'ground-charge' else spit_controller
+            text = make_controller(raw)
+            variant = 2
+        else:
+            text = controller(raw, kind, lifecycle=args.item == 'star-lifecycle')
         script.write_bytes(text.encode())
-        result = run(script, ROM, OUT / 'capture', initial['ROM_sha256'], 120, variant=2 if charge else 0)
+        result = run(script, ROM, OUT / 'capture', initial['ROM_sha256'], 120, variant=variant)
         print('RESULT ' + json.dumps(result, sort_keys=True), flush=True)
         assert result['passed'] and result['outputs_written'] == 0 and not result['images']
     finally:

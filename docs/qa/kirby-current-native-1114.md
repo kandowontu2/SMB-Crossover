@@ -123,3 +123,18 @@ The replay took 922 physical frames and produced no capture files. Receipt
 `e0e73de599f8df100f3db21bf372e54e628a90f46059210e3e83988e6a240d4a`.
 Controller SHA-256 is
 `48083aac951292d2af633016ed98582faf9d86d3861928a1666cf7baa8052337`.
+
+### Spitting an inhaled Goomba as a star
+
+In a separate Easy 1-1 replay, Kirby inhaled the first Goomba and carried it
+past two pipes with ordinary jumps. He pressed B while descending at
+X665/Y156. The star travelled right at four pixels per update and hit a
+second Goomba at X712/Y184 on its fifth update. The game removed the shot
+and defeated the enemy. Kirby kept all six HP and both lives, gained no
+copy ability, and completed 25 more weapon updates.
+
+The Downloads replay on `a6d91e36` took 911 physical frames and created no
+capture files. Receipt
+`79c2dc20f2617f88c360ea44c78b92460dcc82ea55d13e09b14fabc7d3799a8b`.
+Controller SHA-256
+`2ba8e3674b4b486d182522704d40a2094de4311ac6ee141bdea92266850a877a`.

@@ -1007,3 +1007,23 @@ each tier defeated a Goomba, queued the score popup, and set the enemy-hit
 sound request. Smith collected all four pickups and finished at tier 2 with
 three lives and the Star active. The replay took 4,131 physical frames.
 Receipt `0b16fca7da0ffb057e7b75a86bd656889f246ded74ac8239193e3efcabaa78f2`.
+
+### Iron's upgraded weapons and Beans's pistol defeat enemies
+
+On the Downloads nightly `a6d91e36`, Iron's Mushroom weapon defeated a Goomba
+and his Fire Flower weapon defeated two enemies. The first Fire Flower hit
+defeated a Green Koopa and queued its score popup and the enemy-hit sound.
+Both upgraded weapons completed their own impact action. Iron's pistol fired
+on the same route. The route did not produce a pistol hit. Iron finished
+with all four pickups, three lives and an active Star after 5,174 physical
+frames. Receipt `b8bc46c7bfc7ac32aa5e241b8ce37e54ba5a2445e06a5ffc6bf3d3d7f82ca5fa`.
+
+Beans's starting pistol defeated the first Goomba and ran its native score,
+sound and impact actions. His Mushroom and Fire Flower weapons fired and
+need an enemy contact with the placed explosive to finish their hit checks.
+The same run still collected all four pickups and finished with three lives
+and an active Star after 3,721 physical frames. Receipt
+`951124b844196a76bdd1a5601c0e58783524447eb0a261cfde12b684639cddbc`.
+
+Neither check created capture files. In-game appearance, audible playback and
+combat lag still need review for both characters.
