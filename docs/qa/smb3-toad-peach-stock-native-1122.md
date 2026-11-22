@@ -46,5 +46,20 @@ captures.
 - Receipt `2937bf320ee1354d58d24e7c76b93c56a70b341a87c54bec35de2a383ab2ba77`
 - Controller `9972c690c16976644f0236bab00774eb77938b79fae6691f4b3d75befc509724`
 
-The natural Mushroom and randomly selected suit upgrades still need their
-own acquisition checks for both characters.
+## Peach collects the Mushroom
+
+On the installed `32eaf178` nightly, Peach hit the Mushroom block at
+X336/Y136 in Easy 1-1. The Mushroom finished emerging after 48 updates,
+and Peach collected it at X428. The game awarded 1,000 points and ran
+the 47-update growth animation. Peach kept Super form and two lives
+through 25 further movement updates.
+
+The same run then released a Fire Flower at X1248/Y144. The replay
+stopped while the bumped block was temporarily off its tile, before Peach
+collected the Flower. The Mushroom checkpoint had already passed.
+
+- Receipt `0b539309f0ead330d560717fb7a1261c2f7e8c7b32b60fe3846e0621e5f1853f`
+- Controller `bab9e5a739c235ebe98cbb6dd171794c42c86cab82d2a221649f50608b7915aa`
+
+Toad's Mushroom and both characters' suit upgrades still need either
+a recorded passing test or a new playtest.
