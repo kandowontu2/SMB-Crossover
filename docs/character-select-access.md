@@ -45,13 +45,13 @@ Numbers before names are Select presses from that portrait's first name: **0** m
 
 | Character | Where to find them | Current limits |
 |---|---|---|
-| SONIC | Row 4, column 2, MR GIMMICK, Select 3 times | Master System movement, new standing art and working rings. Mesen verified the menu and lives portraits, 1-1 clear, earned mushroom and ring loss. |
-| SUPER SONIC | Row 4, column 2, MR GIMMICK, Select 4 times | Gold standing art from the same sheet and the same verified 1-1 route. Shares Sonic's movement, ring and mushroom rules in this nightly. |
-| JAY MCCRAY | Row 2, column 8: MIKE JONES, Select once | Original sprite core using Mike's movement, weapons, health and audio. Original Journey to Silius abilities/audio remain unfinished. |
-| STEVE HERMANN | Row 2, column 8: MIKE JONES, Select twice | Original sprite core with a rough palette/limb fit, using Mike's behavior. Original Shatterhand abilities/audio remain unfinished. |
-| PRINCE PERSIA | Row 4, column 6: EXCITEBIKE, Select once | Original movement and ledge climb. Mesen verified four pipes and two gaps with both lives. The later route and pickup progression remain in testing. |
-| DONKEY KONG JR | Row 4, column 4: DONKEY KONG, Select once | Original movement crosses the first two pipes in 1‑1 with stock vertical girders. Full-stage and ability review remain in testing. |
+| SONIC | Row 4, column 2, MR GIMMICK, Select 3 times | Rolling, spin dash and variable jump height. Cleared 1-1 and resumed movement in 1-2 from the Downloads nightly. |
+| SUPER SONIC | Row 4, column 2, MR GIMMICK, Select 4 times | Gold form shares Sonic's movement and ring rules. His separate spin combat and full 1-1 replay passed. |
+| JAY MCCRAY | Row 2, column 8, MIKE JONES, Select once | Uses his own movement and gun. The four basic pickups and a full 1-1 route passed. Further weapons remain in development. |
+| STEVE HERMANN | Row 2, column 8, MIKE JONES, Select twice | Uses his own movement and punch. Cleared 1-1, and separately earned both Alpha tokens, the Star and hidden 1-UP. |
+| PRINCE PERSIA | Row 4, column 6, EXCITEBIKE, Select once | Can climb ledges and draw an earned sword. Cleared 1-1 into playable 1-2. Hidden 1-UP access still needs testing. |
+| DONKEY KONG JR | Row 4, column 4, DONKEY KONG, Select once | Cleared 1-1 with native lifts and a backward jump at the final stairs. Pickup testing continues. |
 | GETSU FUMA | Row 1, column 6: SIMON BELMONT, Select 4 times | Startable through the existing Simon-family cycle. |
 | MEGA GIANT MARIO | Row 1, column 1: MARIO, Select 9 times | Startable through the Mario-family cycle. |
 
-The earlier a5 CPU check exercised stage initialization and 60 opening updates for the previous 100 names. The Sonic update confirms Start and A for all 101 menu names and verifies both Sonic forms through 1-1 in Mesen. [Earlier startup evidence](qa/roster-active-starts-1110.md) · [Sonic update](qa/sonic-vol2-delivery-1111.md)
+Each of the 101 menu names has a recorded 1-1 clear. A pass still counts after unrelated changes. [Roster checklist](qa/expanded-roster-next-native-checklist-1114.md) · [Sonic playtests](qa/sonic-ceiling-native-root-1116.md) · [Jay powerups](qa/jay-status-size-native-root-1116.md) · [Steve powerups](qa/steve-four-pickups-current-1113.md) · [Prince's 1-1 route](qa/prince-full-native-current-1115.md) · [DK Jr.'s route](qa/dkjr-entry-native-root-1116.md)
