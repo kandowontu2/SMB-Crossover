@@ -51,12 +51,13 @@ def assemble(start, source):
 
 
 @cache
-def worker_code(entry=FAST_ENTRY):
+def worker_code(entry=FAST_ENTRY, bank_selector=None):
     # On entry native87 has saved P,A,X,Y. X holds the byte offset into its
     # three-byte service vectors. Y=2 identifies the Contra Force cohort and
     # the admission gate's successful comparison supplies carry set.
     # Subtraction leaves FD, FE or FF. ROL folds in the range comparison's
     # carry, so only an aligned, in-range service gives FA.
+    select_bank = f'JSR ${bank_selector:04X}' if bank_selector is not None else 'INY\nSTY $C2EE'
     code = assemble(entry, '''
         TXA
         LDX #$FF
@@ -79,8 +80,7 @@ def worker_code(entry=FAST_ENTRY):
         STA $C2EC
         LDA $DF6D,X
         STA $C2ED
-        INY
-        STY $C2EE
+        BANK_SELECT
         PLA
         TAY
         PLA
@@ -88,7 +88,7 @@ def worker_code(entry=FAST_ENTRY):
         PLA
         PLP
         JMP $CA0B
-    ''')
+    '''.replace('BANK_SELECT', select_bank))
     assert len(code) <= COOKIE - (entry & 8191)
     return code
 

@@ -27,6 +27,12 @@ RESTORE = 0xBFED
 RETURN = 0xBF18
 RETURN_SCOPED = 0xBF1C
 RETURN_END = 0xBF49
+DEATH_HANDLER = 0xAF3A
+DEATH_BANK = 0x88
+SERVICE_BANK = 0xDF0B
+PUBLIC_FAILURE = 0xBEE8
+DEATH_BRANCHES = (0xBE9E, 0xBEAE, 0xBEC8)
+DEATH_TABLE_BYTES = (0xBF51, 0xBF75)
 
 
 def proposed_window(raw):
@@ -312,7 +318,73 @@ def check_return():
     return count
 
 
-def candidate_image(parent):
+def route_death(payload):
+    # Let service 8 use the native timed guest death worker. The common
+    # transport already maps and restores the raw A bank around any target.
+    # Share the two stack rotations to keep both public routes in place.
+    first = 0xBECA
+    code = assemble(first, '''
+        LDA $BF49,X
+        STA $A2EC
+        LDA $BF6D,X
+        STA $A2ED
+        JSR $DF0B
+        JSR ${rotate:04x}
+        PLA
+        TAY
+        PLA
+        TAX
+        PLA
+        PLP
+        JSR $CA0B
+        JMP $BF18
+    failure:
+        JSR ${rotate:04x}
+        PLA
+        TAY
+        PLA
+        TAX
+        PLA
+        PLP
+        CLC
+        JMP $BF18
+    rotate:
+        TSX
+        LDA $0105,X
+        TAY
+        LDA $0106,X
+        STA $0105,X
+        LDA $0107,X
+        STA $0106,X
+        TYA
+        STA $0107,X
+        RTS
+        LDY #$03
+        CPX #$08
+        BNE ${publish:04x}
+        LDY #$88
+    publish:
+        STY $C2EE
+        RTS
+    ''')
+    fail_at = PUBLIC_FAILURE - first
+    assert code[fail_at:fail_at + 3] == bytes.fromhex('20f5be')
+    bank_at = SERVICE_BANK - 0x2000 - first
+    assert code[bank_at:bank_at + 4] == bytes.fromhex('a003e008')
+    assert first + len(code) == RETURN - 1
+    for pc, opcode in zip(DEATH_BRANCHES, (0xD0, 0xD0, 0xB0), strict=True):
+        at = pc & 8191
+        assert payload[at:at + 2] == bytes((opcode, 0xBEFC - pc - 2))
+        payload[at + 1] = PUBLIC_FAILURE - pc - 2
+    payload[first & 8191:RETURN & 8191] = code + b'\xff'
+    for pc, want, replace in zip(DEATH_TABLE_BYTES, (0xFE, 0xB8),
+                                 DEATH_HANDLER.to_bytes(2, 'little'), strict=True):
+        at = pc & 8191
+        assert payload[at] == want
+        payload[at] = replace
+
+
+def candidate_image(parent, *, repair_death=False):
     image = bytearray(Layout.fixed_layout(parent, via_farcall=True))
     address = offset(126, Layout.SLOT)
     assert image[address:address + 2] == bytes.fromhex('a9f2')
@@ -332,7 +404,8 @@ def candidate_image(parent):
         JMP $BF1C
     ''')
     assert len(wrapper) == 21
-    tail = bytes.fromhex('4ce4b0') + wrapper + worker_code(FAST)
+    worker = worker_code(FAST, SERVICE_BANK if repair_death else None)
+    tail = (bytes.fromhex('4ce4b0') + wrapper + worker).ljust(COOKIE - TAIL, b'\xff')
     assert len(tail) == COOKIE - TAIL == 79
     payload_at = Layout.Current.P.CHR + 935 * 1024
     tail_at = payload_at + 8192 + TAIL
@@ -343,12 +416,52 @@ def candidate_image(parent):
                                     '9d0401bd02019d0301bd01019d0201e89a68a868aa682860')
     assert image[return_at:return_at + len(original_return)] == original_return
     image[return_at:return_at + len(original_return)] = return_code()
+    if repair_death:
+        start = payload_at + 8192
+        payload = bytearray(image[start:start + 8192])
+        route_death(payload)
+        image[start:start + 8192] = payload
     digest = Hud.H(image[payload_at:payload_at + 24 * 1024])
     cookie = bytes.fromhex('a71f0005') + bytes.fromhex(digest)[:12]
     for at in (573373, 642966):
         assert parent[at:at + 16] == bytes.fromhex('a71f00053a7d2d9a77d5accd30e79766')
         image[at:at + 16] = cookie
     return bytes(image), tail, cookie
+
+
+def check_death_routes(parent):
+    raw, _, _ = candidate_image(parent, repair_death=True)
+    start = Layout.Current.P.CHR + 943 * 1024
+    old = parent[start:start + 8192]
+    new = raw[start:start + 8192]
+    mem = bytearray(65536)
+    mem[0xC000:0xE000] = new
+    cpu = MPU(memory=mem)
+
+    def finish(at):
+        while cpu.pc != at:
+            assert cpu.processorCycles < 160 and mem[cpu.pc], hex(cpu.pc)
+            cpu.step()
+
+    for service in range(36):
+        cpu.pc, cpu.sp, cpu.x, cpu.processorCycles = SERVICE_BANK, 0xE0, service, 0
+        mem[0x1E1:0x1E3] = bytes.fromhex('0f5b')
+        finish(0x5B10)
+        assert (mem[0xC2EE], cpu.sp) == (DEATH_BANK if service == 8 else 3, 0xE2)
+    for stack in (0xA0, 0xE0):
+        for shadow in (2, 0x8C, 0xD0):
+            for flags in (0x30, 0x31, 0x34, 0xB0, 0xF1):
+                rows = []
+                for image, entry in ((old, 0xBEFC), (new, PUBLIC_FAILURE)):
+                    mem[0xA000:0xC000] = image
+                    cpu.pc, cpu.sp, cpu.a, cpu.x, cpu.y = entry, stack, 15, 83, 69
+                    cpu.p, cpu.processorCycles = 0x31, 0
+                    mem[0x101 + stack:0x108 + stack] = bytes((23, 63, shadow, 93, flags, 0x0F, 0x5B))
+                    mem[0x7DA1] = mem[0x5116] = 0xCE
+                    finish(0x5B10)
+                    rows.append((registers(cpu), mem[0x7DA1], mem[0x5116]))
+                assert rows == [((93, 63, 23, flags & 0xFE, stack + 7), shadow, shadow)] * 2
+    return dict(SHA256=Hud.H(raw), service_banks=36, paired_rejected_returns=30)
 
 
 def normalize_payload(comparable, reference):
@@ -597,11 +710,14 @@ if __name__ == '__main__':
     parser.add_argument('--warm', action='store_true')
     parser.add_argument('--cold', nargs='+', choices=('Burns', 'Smith', 'Iron', 'Beans', 'Mario'))
     parser.add_argument('--interrupts', action='store_true', help='Exercise the real handlers after Burns boots.')
+    parser.add_argument('--check-death-router', action='store_true')
     args = parser.parse_args()
     if args.interrupts and 'Burns' not in (args.cold or []):
         parser.error('--interrupts requires --cold Burns')
     parent = Hud.ROM.read_bytes()
     print(json.dumps(dict(check(parent), return_checks=check_return()), sort_keys=True), flush=True)
+    if args.check_death_router:
+        print('DEATH ROUTER ' + json.dumps(check_death_routes(parent)), flush=True)
     if args.warm:
         warm_candidate(parent)
     if args.cold:

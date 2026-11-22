@@ -751,3 +751,60 @@ ordinary update gives a false mismatch. Running those handlers at one
 sampled update does not cover physical scanline timing, later scene changes,
 enemy combat or the complete 1-1 route on this candidate. The Downloads
 nightly remains `79fd089f`. Physical cadence still needs Mesen verification.
+
+### Paired Burns combat and 1-2 entrance
+
+The [paired route](../../tools/audit/check_contra_force_fast_route_1122.py)
+used the frozen Burns controller after a compiled cold start, with the same
+pad input sent to the installed baseline and `add288c3` each update. The
+replay reached 13 source projectile impacts, the flagpole, the castle and
+25 grounded active updates in 1-2. It ended at X40/Y176 with two lives. All
+3,939 paired updates matched in native gameplay RAM, mutable WRAM, PRG and
+CHR mappings and video RAM. The model ran the normal NMI handler through RTI
+before each whole Main update. Its aggregate foreground cycle count fell
+from 214,188,796 to 164,177,440. The compact controller receipt is
+`3f271827344065cc98ebc9deb0671f07f4548f13f2caff5115ca4b1c7a8124b8`.
+
+A separate run held Right from the same cold start. The opening enemy
+collision set engine state 11 at update 199, X282/Y176, lives 2. Both builds
+then stayed in that state for 900 updates with no buttons pressed, while the
+normal NMI continued to run. The installed service table maps the death
+update to RAM3 `$B8FE`, whose `CLC; RTS` leaves the death clock untouched.
+This behavior predates the fast dispatcher. The full clear above avoided death.
+
+### Contra Force death and retry repair
+
+The repaired dispatcher routes service 8 to the existing timed guest death
+routine in PRG bank 8. The ordinary router shares its two identical stack
+rotations to fit a bank selector that both router paths can call. Service 7
+still uses the shared death-start behavior, which initializes the death
+clock in the original caller. All other service targets are unchanged.
+
+With the repaired candidate `34fad874`, all four characters matched the
+installed build through a natural opening enemy collision. The installed
+build remained in engine state 11 in each run. Every repaired character
+called the timed worker 168 times, lost one life, rebuilt the Contra Force
+state, returned to X40/Y176 in 1-1 and completed 25 grounded active updates
+with initial gear. Burns, Smith and Beans reached the terminal check at
+update 549. Iron reached it at update 570. The public service also advanced
+the death clock by one and restored the caller's bank mappings outside the
+fast scope in all four classes. Detached checks covered all 36 target-bank
+choices and 30 paired rejection returns after the stack rotation change.
+The harness used controller input and the existing ROM frame schedule.
+The candidate SHA-256 is
+`34fad8741613aad6aff2a1e02e2b05dd0abb92f3ef2ea5fc2a6277bb8e89e70a`.
+
+The complete Burns replay also passed on `34fad874`. Both images again
+matched across 3,939 updates, with 13 projectile impacts, flagpole on update
+2,733, castle on 2,796, 1-2 entrance on 3,322 and 25 final grounded updates.
+The repaired dispatcher used 165,185,030 foreground cycles against the
+original 214,188,796. This retains a 22.9% reduction across the replay.
+Receipt SHA-256 is
+`0b899fc74173de9a9adf6c190c58fdf73546bb56c914917de4069c470f75cc69`.
+
+The [Mesen timing runner](../../tools/audit/run_contra_force_current_cadence_1122.py)
+compiled the same observer body for both builds and each of the four
+characters. `--compare` reached the existing free-space preflight, which
+stopped the run before Mesen started or either shared test file was changed.
+The installed `79fd089f` passed the sidecar patch guard. Approximately 7.8 GB
+was free on C: at the check, against the 25 GB floor plus reservation.
