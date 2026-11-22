@@ -969,6 +969,14 @@ endpoint matched the previous successful Burns replay.
 
 Downloads Mesen receipt
 `3f98bb83afada82c48deb4c1149c5e83a01cf74fec1428507cace8f78df07d22`.
-The same observation is available for Smith, Iron and Beans. Impacts,
-appearance and sound still need separate verification for the upgraded
-weapons.
+Smith, Iron and Beans then passed the same native projectile check.
+Each finished the pickup route on the same physical frame as before.
+
+| Character | Pistol type / count | Mushroom type / count | Flower type / count | Mesen receipt |
+| --- | ---: | ---: | ---: | --- |
+| Smith | `$01` / 14 | `$0C` / 41 | `$04` / 15 | `8a67c6a5d5362de682c3fda748d353505f8c65dc87014bf126b36cda57b7a25f` |
+| Iron | `$01` / 22 | `$03` / 66 | `$05` / 33 | `68bf5ecfff532b2c439c947aca502fd20b676a5a10a9349c2267a688836abff9` |
+| Beans | `$01` / 2 | `$0D` / 4 | `$07` / 14 | `0138ac3522fd841a8a81ffaf8ce1eaca5ddc3fb71128d290c994f3b8ef9faf0b` |
+
+Impacts, appearance and sound still need separate verification for the
+upgraded weapons.
