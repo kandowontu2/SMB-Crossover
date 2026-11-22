@@ -61,5 +61,23 @@ collected the Flower. The Mushroom checkpoint had already passed.
 - Receipt `0b539309f0ead330d560717fb7a1261c2f7e8c7b32b60fe3846e0621e5f1853f`
 - Controller `bab9e5a739c235ebe98cbb6dd171794c42c86cab82d2a221649f50608b7915aa`
 
-Toad's Mushroom and both characters' suit upgrades still need either
-a recorded passing test or a new playtest.
+## Both collect the Mushroom and Fire Flower
+
+The replay now lets the second block finish bouncing before checking the
+tiles that support the flower row. Both characters passed the full pickup
+sequence in Easy 1-1 on installed `32eaf178`.
+
+Both hit the Mushroom block at X336 and the upgrade block at X1248.
+After the Mushroom rose from its block, they collected it, finished the
+47-update growth animation and played 25 more movement updates in Super
+form. They then climbed onto the row from the left and collected the Fire
+Flower. The item was the Fire upgrade (D2), and each character gained
+1,000 points and stayed in Fire form for another 25 movement updates.
+Both ended with two lives. The runs created no captures.
+
+| Character | Physical frames | Mesen receipt SHA-256 | Controller SHA-256 |
+| --- | ---: | --- | --- |
+| Toad (SMB3) | 1,526 | `b8861e5f8a1444424242d2486bbb38749d299a94c06693665d148c89b56d7a72` | `20d84622508433026bc336e6140944952a3a546d8b6f7e6f574ad97be315ef6b` |
+| Peach (SMB3) | 1,484 | `18e7cede829ec2414279356da5c44ba97bf49f302787d43ed8393ea5cef05f01` | `19f336e3978969a434dc7ebfbc7441be2f3ded15359aa8f7ce392b137dc457eb` |
+
+The other randomly selected suits and Fire attacks still need playtests.
