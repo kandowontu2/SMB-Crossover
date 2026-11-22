@@ -44,9 +44,9 @@ The retained bindings authenticate both paths and their current pickup tests.
 
 The recorded code reference target is the standalone USA Genesis revision
 listed in [the donor inventory](additional-alternate-donors-2026-10-31.json).
-Sonic Retro publishes a standalone Sonic 3 source tree that can help verify
-movement behavior against that revision. The match against the local donor
-still needs verification. [Sonic Retro standalone source entry](https://github.com/sonicretro/skdisasm/blob/master/buildS3.lua)
+The local donor's SHA-256 matches the inventory. Sonic Retro publishes a
+standalone Sonic 3 source entry at revision `5ce79296`. Its movement code
+still needs to be checked against the local donor. [Sonic Retro standalone source entry](https://github.com/sonicretro/skdisasm/blob/5ce792968973cdf6a5b4858a01d28af9d9f151b7/buildS3.lua)
 
 The public nightly remains1327. Proposeda2d9 is94 owned/91 changed bytes,
 with all5526 original movement bytes unchanged. Both source full stages,
