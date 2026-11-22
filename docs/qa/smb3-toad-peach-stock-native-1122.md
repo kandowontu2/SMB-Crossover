@@ -139,3 +139,22 @@ play, Raccoon flight and Frog swimming still need playtests.
 | Peach | Raccoon | 1,599 | `b33983e90f4adcfb5f1a9281f2d32402d3b23ccee9cb12c1b12317d8198f5854` | `55deedf4f50d6f29d03273a3296e855d43e6c84ad6a0fad4945ce117f0c829fa` |
 | Peach | Frog | 1,587 | `fa8e13404c4c09766c5382c6a21286668a170be0b1bb932258a11691428baed2` | `b260234e5f10a616b94269d6344e499fb981ed98102473d30064a50fc02cbd6e` |
 | Peach | Hammer | 1,572 | `7d78e07ac86323592115da9fd55c7c13f2c3621008049a9698bf394f409c9859` | `0ca39d32c583da065d0ce2f77d094d17ff54c10d2683c59edbd4d6889681d7db` |
+
+## Mario and Luigi's standard pickups
+
+Each brother collected all four standard powerups in the November 22
+Downloads nightly `59e1a591`, starting through the normal character menu.
+Each Mushroom and Fire Flower emerged from its authored block and finished
+its grant and appearance changes. The hidden 1-UP at X1024 awarded the third
+life after the native delay. Each Star from X1616 activated invincibility,
+queued Star music and awarded 1,000 points. Every check included 25 further
+movement updates. The replays made no captures.
+
+| Character | Pickup | Physical frames | Mesen receipt SHA-256 | Controller SHA-256 |
+| --- | --- | ---: | --- | --- |
+| Mario | Mushroom and Fire Flower | 1,579 | `24e3975a0a0eb38361dc910eb66353029069433a34734455662f50b4b0b8bdc5` | `5bc49482e5853b2e05b2012783939b6c8a8b7fcd859442c753a7719197ecc7b3` |
+| Mario | Hidden 1-UP | 1,355 | `6c3f7250f75f68182eedccd3b8ee39610a63aac5f94fb535971362bb8e05cbd6` | `bf6d0fc47203688e553494afa1ae1d60aab1063e28646d0c3e6f07480c4de364` |
+| Mario | Star | 1,852 | `17629660e18be6839a3b42b7f4a3aca5e788901dee936effe3b4c275e5c9012c` | `53bf3530e4fb7b63ff27ce9510398bdcf177145c92cce905cdd8e45dff531944` |
+| Luigi | Mushroom and Fire Flower | 1,579 | `16393e23fcadcd32340e5d6a074766fa3ffe21f14eba1563bfab9c2ec6c2013b` | `63d258c0218c04e0a89db2a78c2d33b22e7fe21c39acd59541031bbb3bab6044` |
+| Luigi | Hidden 1-UP | 1,355 | `36219824377f71b7d14e19ddaf98df65ee97ecab599c02686110c7c77a48623e` | `990b507f68006df372be87e4de84e0821cbd92b700a27f47d05c09b891106403` |
+| Luigi | Star | 1,849 | `0f0b3aa87cf6675c376a993510938fb27ed3298468d3bc553ab629d303d91774` | `c7a35fa5fbc00e9b9ec8f1423704da36b8b950f8dc10d69afb5dacacef128f84` |
