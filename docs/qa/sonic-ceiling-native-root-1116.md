@@ -323,3 +323,13 @@ It also reached 40 nested IRQs and completed 3,556 contact continuations.
 The native register, stack, scratch and mapper effects matched. Minimum
 stack pointer was 180 in foreground code and 159 in the handlers.
 Receipt `3fafd9f659cbf5b90c4f16b7d84864b2ddb89a9b61243857f4f7c5bb3e6623ad`.
+
+## Verified Downloads nightly
+
+The Downloads file was directly replaced with the exact tested
+`59e1a591d5ea31d62dafa9332990598b74b5b0852194ef7cc7ad22788196b723`
+build. Each form cleared 1-1 and reached its grounded 1-2 endpoint again
+when Mesen launched that Downloads file. Both full receipts matched the
+private runs above byte for byte. The installed ROM and shared test slot
+match, the same-name patch guards passed, and the run created no backups
+or captures.
