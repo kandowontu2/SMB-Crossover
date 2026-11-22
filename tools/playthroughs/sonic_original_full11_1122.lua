@@ -5,7 +5,7 @@ local routeEvents,jumpRequests,supportSamples={},{},{}
 local routeClock,lastJump,bestX,advancedAt,grounded12,lastRouteMotor=0,-100,40,0,0,0
 local eventOrder,lastPhase=0,nil
 local recovering=false
-local previousMove,rollResumes=nil,{}
+local previousMove,rollResumes,airResumes=nil,{},{}
 
 -- FULL_ROUTE_FINISH
 local function finish(ok,why)
@@ -14,7 +14,7 @@ local function finish(ok,why)
  print('SMB_NATIVE_RECEIPT '..json({passed=ok,reason=why,ROM_SHA256=C.sha,form=C.form,character=C.name,
   run_kind='full11',physical_frames=frame,input_polls=polls,Main=mains,accepted_motor=motor,
   active_route_updates=routeClock,cold=cold,events=routeEvents,jumps=jumpRequests,
-  grounded_roll_resumes=rollResumes,
+  grounded_roll_resumes=rollResumes,airborne_roll_resumes=airResumes,
   grounded_1_2_returns=grounded12,support_samples=supportSamples,tail=tail,terminal=s,counts=counts,pending=#pending,
   controller_only=true,no_game_actor_inventory_health_seeds=true,no_shortcut_down_input=true,
   real_native_support_required=true,files=0,images=0,
@@ -105,6 +105,9 @@ local function afterMain()
   if p and p.flags&129==129 and s.flags&129==128 and math.abs(p.vx)>0 and math.abs(p.vx)<256
      and s.vx*p.vx>0 and math.abs(s.vx)>math.abs(p.vx) and s.y==p.y then
    bounded(rollResumes,{before=p,after=s},8)
+  elseif p and p.flags&129==1 and s.flags&129==1 and math.abs(p.vx)>0 and math.abs(p.vx)<256
+         and s.vx*p.vx>0 and math.abs(s.vx)==256 then
+   bounded(airResumes,{before=p,after=s},8)
   end
   previousMove=s
  end

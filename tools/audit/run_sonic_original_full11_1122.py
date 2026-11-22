@@ -17,11 +17,13 @@ import re
 import run_sonic_original_motion_smoke_1122 as Smoke
 import compose_sonic_roll_wall_restart_1122 as Wall
 import compose_sonic_slow_roll_1122 as Slow
+import compose_sonic_air_roll_1122 as Air
 
 R,ROM,SHARED=Smoke.R,Smoke.Motion.ROM,Smoke.SHARED
 PIN='3466637dc3e75d7768eb6ba3c49af03e548e24a44a027394e3934b22579605cf'
 WALL_PIN='8f8d4a13507799fff9de2351b4b1da59d7f0d3bd0eb0675c476d061d7e8c98bc'
 SLOW_PIN='fe58e7d9f498ebc2a863027eaf71916574de206d414f4659e661708826c7c77d'
+AIR_PIN='c40ca81acc3bb271041c79c2062806e06c93314e097bac5dd48b4586a0ad2bcc'
 BASE='32eaf1786695d7ac1e69eb4957cc76dee011664e642710d02acc7ae624ca3ad1'
 SMOKE_RUNNER_SHA='d5e2acc8e74e25d5f8daa0d4087f1307daaf400687583e8d816646b2ed2624f8'
 SMOKE_LUA_SHA='80a278b2288f5a089f94d5ff193823a754384c1cfe015921f8fb983cc1184389'
@@ -38,15 +40,18 @@ def strict(parent,candidate):
     assert H(Path(Smoke.__file__).read_bytes())==SMOKE_RUNNER_SHA
     assert H(Smoke.LUA.read_bytes())==SMOKE_LUA_SHA
     digest=H(candidate)
-    assert H(parent)==BASE and digest in (PIN,WALL_PIN,SLOW_PIN),'Exact installed Beans32 and reviewed Sonic candidate'
+    assert H(parent)==BASE and digest in (PIN,WALL_PIN,SLOW_PIN,AIR_PIN),'Exact installed Beans32 and reviewed Sonic candidate'
     expected,receipt=Smoke.proposal(parent)
     assert receipt['declared_spans_disjoint'] and receipt['Beans_preserved']
-    if digest in (WALL_PIN,SLOW_PIN):
+    if digest in (WALL_PIN,SLOW_PIN,AIR_PIN):
         expected,wall=Wall.proposal(parent,expected)
         receipt=dict(receipt,wall_recovery=wall,cookie=wall['cookie'],candidate_SHA256=WALL_PIN)
-    if digest==SLOW_PIN:
+    if digest in (SLOW_PIN,AIR_PIN):
         expected,slow=Slow.proposal(expected)
         receipt=dict(receipt,slow_roll=slow,cookie=slow['cookie'],candidate_SHA256=SLOW_PIN)
+    if digest==AIR_PIN:
+        expected,air=Air.proposal(expected)
+        receipt=dict(receipt,air_roll=air,cookie=air['cookie'],candidate_SHA256=AIR_PIN)
     assert candidate==expected
     return receipt
 
@@ -187,12 +192,14 @@ def main():
     motion=parser.add_mutually_exclusive_group()
     motion.add_argument('--wall-restart',action='store_true',help='Test directional recovery after an airborne roll hits a wall')
     motion.add_argument('--slow-roll',action='store_true',help='Also test returning to running from a slow grounded roll')
+    motion.add_argument('--air-roll',action='store_true',help='Also test directional recovery from a slow airborne roll')
     parser.add_argument('--form',choices=(*FORMS,'both'),default='both')
     args=parser.parse_args();assert not(args.run and args.validate)
     assert not args.shared_slot or args.run
     parent=ROM.read_bytes();candidate,_=Smoke.proposal(parent)
-    if args.wall_restart or args.slow_roll:candidate=Wall.proposal(parent,candidate)[0]
-    if args.slow_roll:candidate=Slow.proposal(candidate)[0]
+    if args.wall_restart or args.slow_roll or args.air_roll:candidate=Wall.proposal(parent,candidate)[0]
+    if args.slow_roll or args.air_roll:candidate=Slow.proposal(candidate)[0]
+    if args.air_roll:candidate=Air.proposal(candidate)[0]
     strict(parent,candidate)
     if not args.run:
         def deny(*a,**kw):raise AssertionError('Full-route source validation attempted output/process')

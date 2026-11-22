@@ -242,3 +242,30 @@ from its raised floor. Receipt
 `a8b34163edf4ba301b323322890fdecab5fbb71b3e4784ffd5c678327ab72a89`.
 This test used a private candidate. The Downloads build still has the
 verified Beans repair.
+
+## Steering into the final staircase
+
+The revised replay launched from X2430/Y112 and crossed the final pit.
+It reached the staircase before the flagpole at X2888. From that step,
+a fresh jump carried only 16 subpixels of horizontal speed and the
+airborne roll retained that speed. Sonic repeatedly landed on the same
+step. Receipt
+`0a32456da1349913075423f1cf52a37c9a21d4e9e20b6d53d02454e15fb4ad84`.
+
+Private candidate `c40ca81a` applies the existing one-pixel steering
+recovery to very slow airborne rolls while the matching direction is
+held. The source checks cover both directions from 16 and 136 subpixels.
+Vertical motion, pose, charge and flags match the prior frame. Ten
+control cases also match for faster rolls, neutral or opposite input,
+Down and injury. Stationary wall recovery, both normal walking directions,
+jump height, charge, ceiling contact and rejected-frame rollback pass.
+
+The first Mesen run on `c40ca81a` observed four airborne transitions to
+one pixel per update. The changed pace brought Sonic into an enemy at
+X2010 after a jump. He died before the staircase. Receipt
+`7e1e6d5fdb6a8e6bd7945435f9433e420e1700fe9b213da903bf017048a4ffb1`.
+
+The current enemy-collision path sends Sonic through the legacy guest
+handler, which disables native stomps and ignores his roll and air-spin
+state. The private motion changes leave that path intact. Both forms'
+full-stage runs and the dedicated spin-hit check remain open.
