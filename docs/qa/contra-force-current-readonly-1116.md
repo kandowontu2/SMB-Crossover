@@ -559,3 +559,39 @@ images contain no reference to that word. The indexed release reads from
 needs to verify the save/restore lifetime and the next `$016A` overwrite.
 The direct relocation calls found are `126:$82DE`, `126:$8352` for Pause
 and `4:$A000` for HP graphics. The fireball bridge remains at `$837B`.
+
+### Fixed layout executed in the CPU model
+
+The [paired layout check](../../tools/audit/check_contra_force_fixed_layout_1122.py)
+constructs the exact proposed relocation from the installed `79fd089f` ROM
+in memory. It puts a 15-byte slot at `$8344..$8352`, moves Pause to `$8359`
+and HP graphics to `$836B`, retargets the three known transfers, and leaves
+the fireball entry at `$837B`. The slot uses the existing mode tree, then
+jumps over the reserved bytes. The test image SHA-256 is
+`95bec287bd0c76b365fa95b59ff027eb2d6e166c3b94240ab555cbb7d35df11c`.
+
+After selecting Burns in the compiled menu and loading World 1-1, the
+paired model passed eight idle, eight walking, one pause input and four
+paused updates. Native RAM, work RAM, live caller stack bytes, mapping and
+video state agreed at the sampled boundaries. Three paired IRQ sites and
+three paired busy NMI sites also agreed at GameLoop return. An explicit
+two-byte RNG fixture made the intermediate A differ as expected (2 versus
+45) and the removed latch store differ (2 versus 0). Each interrupt restored
+its own incoming registers, and the resumed paths converged at GameLoop
+return. The lowest observed SP was `$C6`. These checks cover the relocation
+and the reached Burns paths. Other interrupt domains and the actual
+dispatcher admission and fast return still need verification.
+
+The [four-character timing runner](../../tools/audit/run_contra_force_current_cadence_1122.py)
+compiles all four controller scripts against the current ROM. Each measures
+48 completed idle updates and 16 walking updates, along with literal
+controller port reads. Mesen preflight stopped at about 11.9 GB free on C:.
+The existing capture guard requires 25 GB plus its 128 MB reservation.
+No emulator run or capture was started by this attempt. The next measured
+comparison should use the same runner for the installed parent and the
+first actual performance candidate.
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/cf-fixed-layout-1122 --max-files 1 --timeout 420 -- python -B tools/audit/check_contra_force_fixed_layout_1122.py
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 450 -- python -B tools/audit/run_contra_force_current_cadence_1122.py
+```
