@@ -34,6 +34,20 @@ The Sonic Fire Flower controller hash is
 The Super Sonic Fire Flower controller hash is
 `3f6e27e6fa2eaf0183670fb793102d3ed6da70b8b86d3e2c7a8f044c64e504f6`.
 
+## Sonic 3 movement reference
+
+The frame bridge still runs the Master System motor. The held-jump latch,
+rolling state, and acceleration tables come from that source. The native
+frame bridge generates its active prefix from the same motor, so a future
+movement change has to reach the native frame path as well as its fallback.
+The retained bindings authenticate both paths and their current pickup tests.
+
+The recorded code reference target is the standalone USA Genesis revision
+listed in [the donor inventory](additional-alternate-donors-2026-10-31.json).
+Sonic Retro publishes a standalone Sonic 3 source tree that can help verify
+movement behavior against that revision. The match against the local donor
+still needs verification. [Sonic Retro standalone source entry](https://github.com/sonicretro/skdisasm/blob/master/buildS3.lua)
+
 The public nightly remains1327. Proposeda2d9 is94 owned/91 changed bytes,
 with all5526 original movement bytes unchanged. Both source full stages,
 natural1UP routes, header/lifecycle/IRQ and shared-family checks pass; see

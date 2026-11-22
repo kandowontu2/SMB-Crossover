@@ -986,4 +986,24 @@ and source impact action through the completed gameplay update. Its report
 includes the projectile's last recorded allocation so an old shot can be
 distinguished from a shot fired after an upgrade. All four observers
 compiled against the installed ROM. The existing pickup and firing scripts
-are byte-identical. Live impact runs are still pending.
+are byte-identical.
+
+### Burns defeats enemies at all three weapon tiers
+
+The installed `a6d91e36` Mesen replay recorded one pistol defeat, two
+Mushroom-tier defeats, and four Fire Flower-tier defeats. The first hit at
+each tier defeated an ordinary Goomba, queued the score popup, and set the
+enemy-hit sound request. The first Fire Flower hit used a live fragment
+produced by the upgraded projectile. Burns collected all four pickups and
+finished with tier 2, three lives and the Star active. The replay took
+3,977 physical frames. Receipt
+`ddb6897480673b39c01a1e8b110ff3703d4b715dc3311cd7eb242b92055538f8`.
+
+### Smith defeats enemies at all three weapon tiers
+
+Smith's installed `a6d91e36` replay recorded one pistol defeat, two
+Mushroom-tier defeats, and three Fire Flower-tier defeats. The first hit at
+each tier defeated a Goomba, queued the score popup, and set the enemy-hit
+sound request. Smith collected all four pickups and finished at tier 2 with
+three lives and the Star active. The replay took 4,131 physical frames.
+Receipt `0b16fca7da0ffb057e7b75a86bd656889f246ded74ac8239193e3efcabaa78f2`.
