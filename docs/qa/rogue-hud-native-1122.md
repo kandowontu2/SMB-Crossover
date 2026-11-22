@@ -41,3 +41,20 @@ The Bomb expired normally. Another 25 gameplay updates passed with the
 same health, energy tank and five missiles. The test used controller input
 and read-only observers and created zero capture files. Receipt
 `6f8ad6f3e869b378c5562ccd4af32cb6cc651992028e9cee9d7cbd2927107d48`.
+
+### Earned High Jump in 1-2
+
+The `--high-jump` replay continued from the verified coin-block Bomb. Rogue
+Dawn rolled under the low ceiling, stood up, and walked under the hanging
+bricks. She jumped up from the open pocket to the right of the upgrade brick
+at X1104/Y128 and placed a Bomb above it. Its downward explosion activated
+the brick and revealed the typed High Jump pickup. The normal reward routine
+granted it, changed gear from `$01` to `$03`, and awarded 1,000 points.
+
+Rogue Dawn then returned to the floor and jumped using normal controller
+input. The source jump began with the same vertical velocity and used
+gravity `$12`, compared with `$18` on the dry jump before the pickup. She
+rose 111 pixels from Y177 to Y66 and landed back at Y177. The replay
+continued for 25 updates after landing with the upgrade, one tank, and
+five missiles. Receipt
+`affa692dc427deaa9994ba53730feb83f60bb45468ec8fce740f6d5e146ed196`.

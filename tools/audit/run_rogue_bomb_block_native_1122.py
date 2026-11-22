@@ -1,5 +1,6 @@
-"""Verify a naturally earned Rogue Dawn Bomb opens an authored 1-2 coin block."""
+"""Verify Rogue Dawn's Bomb and optionally continue to the earned High Jump."""
 
+import argparse
 import json
 
 from capture_budget import preflight
@@ -12,6 +13,7 @@ from run_stdout_mesen_1110 import run
 
 
 OUT = R / 'build/smb2-flag-native-1113'
+HIGH_JUMP_ROUTE = R / 'tools/playthroughs/rogue_high_jump_native_1122.lua'
 
 POSITION = """elseif gear.phase=='position'then
   assert(r('RdAction')==3,'Stay morphed while approaching the coin block')
@@ -37,7 +39,7 @@ end)
 """
 
 
-def controller(raw):
+def controller(raw, *, high_jump=False):
     parent = comparison_base(raw)
     bundle = J.bindings(parent)['bundle']
     old = current_bomb(parent, 'bomb')
@@ -72,6 +74,12 @@ def controller(raw):
             updates.append(f'C.hooks.GameLoop.bytes={bindings(list(current))}')
     additions = [f'C.hooks.{hook}={bindings(config)}',
                  f'for name,at in pairs({bindings(addresses)})do C.ram[name]=at end']
+    if high_jump:
+        at = W.location(bundle, 'RdStartJump')
+        assert raw[at:at+8] == parent[at:at+8]
+        jump = dict(PC=W.address(bundle, 'RdStartJump'), offset=at-16, bytes=list(raw[at:at+8]))
+        additions.append(f'C.hooks.RdStartJump={bindings(jump)}')
+        additions.append("C.ram.AreaAddrsLOffset=" + str(W.address(bundle, 'AreaAddrsLOffset')))
     edit(line, '\n'.join([line, *updates, *additions]))
     edit("gear.morph=state();gear.phase='release'", "gear.morph=state();gear.phase='position'")
     edit("elseif gear.phase=='release'then", POSITION)
@@ -83,11 +91,93 @@ def controller(raw):
            and gear.block.coinsAfter==(gear.block.coins+1)%100,
            'Used block and exactly one coin after Bomb expiry')
     gear.complete=true;finish('natural-Bomb-and-lifecycle25');return{}""")
+    if high_jump:
+        extend_high_jump(edit)
     lua.compile(text)
     return text
 
 
+def extend_high_jump(edit):
+    edit("local function bombDrive()", HIGH_JUMP_ROUTE.read_text(encoding='utf-8') + "\nlocal function bombDrive()")
+    edit("if gear.phase=='travel'then", "if gear.high then return highJumpDrive(c)end\n if gear.phase=='travel'then")
+    edit("if not gear.block or not gear.bomb or not active() or not identity() then return end",
+         "if gear.high or not gear.block or not gear.bomb or not active() or not identity() then return end")
+    edit("local function bombReturned(n,p)\n if not gear.started then return end", """local function bombReturned(n,p)
+ if not gear.started then return end
+ if gear.high then
+  if n=='RdBombAllocate'and gear.high.phase=='place-bomb'then
+   for _,i in ipairs({0xd0,0xe0,0xf0})do
+    if r('RdWAction',i)==8 and p.bombs[i]==0 then
+     assert(not gear.high.bomb and r('RdGear')==1 and r('RdAction')==3,'One earned Bomb on the powerup brick')
+     gear.high.bomb=bombShot(i)
+    end
+   end
+  end
+  return
+ end""")
+    edit("local age=0", """hook('PlayerHeadCollision',function()
+ local high=gear.high
+ if not high or not high.bomb or high.hit or not active() or not identity() then return end
+ if r('RdBombTerrainPhase')~=3 or r('MmBulletType')~=10 then return end
+ local x,y=pos('MmBulletX','MmBulletPage'),r('MmBulletY')
+ assert(x==high.bomb.x and y==high.bomb.y+16 and x>=1104 and x<1120
+        and y>=128 and y<144 and cpu()['cpu.a']==0x5a,'Bomb hits the authored High Jump brick')
+ high.hit={x=x,y=y,Main=updates}
+end)
+local age=0""")
+    edit("gear.complete=true;finish('natural-Bomb-and-lifecycle25');return{}", """gear.complete=true
+    gear.high={started=updates,phase='unmorph',steps={},areaOffset=r('AreaAddrsLOffset'),initialLink=c.area}
+    stock='high-jump';born=nil;mature=nil;collector=nil;credit=nil
+    return{}""")
+    edit("reason=='natural-Bomb-and-lifecycle25'and gear.complete",
+         "reason=='natural-high-jump-and-landing'and gear.complete and gear.high.complete")
+    edit("(a.private==208 and a.owner==2)", "(a.private==(gear.high and 209 or 208) and a.owner==2)")
+    edit("(tank and 216 or(gear.started and 208 or 217))",
+         "(tank and 216 or(gear.high and 209 or(gear.started and 208 or 217)))")
+    edit("born=born or{actor=a,player=state()}",
+         """if gear.high and not born then
+   assert(a.x==1104 and a.state<128 and a.saved_raw==1, 'Correct authored High Jump actor')
+  end
+  born=born or{actor=a,player=state()}""")
+    edit("p.actor=actor(i);p.boxes=", """p.actor=actor(i)
+  -- Contact can run during the same Main update that makes the item mature.
+  if gear.high and born and not mature and p.actor.slot==born.actor.slot
+     and p.actor.private==209 and p.actor.state&128~=0 then
+   mature={actor=p.actor,player=state()}
+  end
+  p.boxes=""")
+    edit("r('RdGear')==(stock=='bomb-credit'and 1 or 0)",
+         "r('RdGear')==(stock=='high-jump-credit'and 3 or(stock=='bomb-credit'and 1 or 0))")
+    edit("   else\n    gear.acquisition=", """   elseif stock=='high-jump-credit'then
+    gear.high.acquisition={birth=born,mature=mature,collector=collector,credit=credit}
+    highJumpPhase(gear.high,'clear');stock='high-jump-earned';credit=nil
+   else
+    gear.acquisition=""")
+    edit("(stock=='tank'and 8 or(stock=='bomb'and 0 or 9))",
+         "(stock=='tank'and 8 or(stock=='high-jump'and 1 or(stock=='bomb'and 0 or 9)))")
+    edit("r('RdGear')==(stock=='bomb'and 1 or 0)",
+         "r('RdGear')==(stock=='high-jump'and 3 or(stock=='bomb'and 1 or 0))")
+    edit("(a.private==216 or a.private==217 or a.private==208)",
+         "(a.private==216 or a.private==217 or a.private==208 or a.private==209)")
+    edit("'RdControlDispatch','RdLifeMovement','RdBombAllocate'",
+         "'RdControlDispatch','RdLifeMovement','RdStartJump','RdBombAllocate'")
+    edit("  elseif n=='RdBombAllocate'or", """  elseif n=='RdStartJump'and gear.high then
+   local launch={Main=updates,vy=r('RdVY'),gravity=r('RdGravity'),player=state()}
+   if gear.high.phase=='rise' then
+    assert(launch.vy==0xfc and launch.gravity==0x18,'Ordinary dry jump before High Jump')
+    gear.high.baseLaunch=gear.high.baseLaunch or launch
+   elseif gear.high.phase=='test-arc'then
+    assert(not gear.high.launch and launch.vy==0xfc and launch.gravity==0x12,
+           'Fresh A uses the earned dry High Jump gravity')
+    gear.high.launch=launch
+   end
+  elseif n=='RdBombAllocate'or""")
+
+
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--high-jump', action='store_true')
+    args = parser.parse_args()
     initial = check(ROM)
     raw = ROM.read_bytes()
     script = OUT / 'controller.lua'
@@ -97,16 +187,18 @@ def main():
     require_free_workspace(R, ROM, allow_interactive=True)
     previous = script.read_bytes()
     try:
-        script.write_bytes(controller(raw).encode())
-        result = run(script, ROM, OUT / 'capture', initial['ROM_sha256'], 120)
+        script.write_bytes(controller(raw, high_jump=args.high_jump).encode())
+        result = run(script, ROM, OUT / 'capture', initial['ROM_sha256'], 180 if args.high_jump else 120)
         receipt = result['receipt']
         bomb = receipt['natural_Bomb']
-        print('ROGUE BOMB BLOCK ' + json.dumps({
+        label = 'ROGUE HIGH JUMP ' if args.high_jump else 'ROGUE BOMB BLOCK '
+        print(label + json.dumps({
             'passed': result['passed'], 'rom': initial['ROM_sha256'],
             'reason': receipt['reason'], 'receipt': result['receipt_SHA256'],
             'script': result['script_SHA256'], 'block': bomb.get('block'),
             'shot': bomb.get('bomb'), 'terminal': receipt['terminal'],
             'phase': bomb.get('phase'), 'nearby_blocks': bomb.get('cache', {}).get('near'),
+            'high_jump': bomb.get('high'),
         }), flush=True)
         assert result['passed'] and result['outputs_written'] == 0 and not result['images']
     finally:
