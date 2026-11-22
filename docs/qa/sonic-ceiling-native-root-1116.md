@@ -1,5 +1,25 @@
 # Complete Sonic ceiling repair: native qualification
 
+## Natural pickups in the November 22 nightly
+
+The [stock-item replay](../../tools/audit/run_sonic_natural_stock_1122.py)
+starts from the normal title and uses controller input through the roster
+and 1-1. On the installed `a6d91e36` nightly, Sonic and Super Sonic each hit
+the brick at X1616/Y144, collected the Star after it emerged, and triggered
+the native timer and music. Both finished with the Star active after 25
+original movement updates. These tests used the current Master System
+movement port.
+
+| Form and item | Physical frames | Mesen receipt SHA-256 |
+| --- | ---: | --- |
+| Sonic Star | 2,368 | `85ec618d2aef160c84f221d7581f8b443c02ae448a1d6e75c808378c4bdcaf3d` |
+| Super Sonic Star | 2,392 | `30eb2743f368c77bad01f7480b7729be443dc19eade97bfb8b9287d1089ae851` |
+
+The Sonic Star controller hash is
+`bf553fd1c4b976fddba459e6f507e2b51fcc757a5c6e9431dc9b0251d99025f2`.
+The Super Sonic Star controller hash is
+`1dfa78fba450f945a62806fcd4b54cb3afeb58b7777156fe4ffe456a9f7eb0cf`.
+
 The public nightly remains1327. Proposeda2d9 is94 owned/91 changed bytes,
 with all5526 original movement bytes unchanged. Both source full stages,
 natural1UP routes, header/lifecycle/IRQ and shared-family checks pass; see
