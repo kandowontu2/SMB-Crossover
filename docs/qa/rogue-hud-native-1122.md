@@ -25,8 +25,8 @@ The Downloads sidecar checks passed before and after installation, and the
 Downloads replay matched the private HUD and Bomb receipt exactly. The run
 reused the existing two-file test slot and created zero capture files.
 
-The remaining upgrades still need playtests, along with missile impacts and
-the full sound and performance review.
+The remaining upgrades and the full sound and performance review still need
+playtests.
 
 ### Bomb hit on a 1-2 coin block
 
@@ -101,3 +101,19 @@ The replay created no capture files.
 
 - Receipt `4424558cb7423761d9b00fc9fa8beddd46f58862ed9dc780d16d2238ae227ce7`
 - Controller `de6461b64045d59eb1d525f83d788d7144e9ed6db82a684060a281fd417e58a9`
+
+### Missile damage against a live Goomba
+
+On installed `32eaf178`, Rogue Dawn earned the Missile through ordinary
+play and used it in 1-2. She fired from the floor as a Goomba fell from
+the ledge. The missile reached X1120/Y187 while the Goomba was at
+X1122/Y171. The actual collision lowered the Goomba from two HP to one
+and it flashed on the hit.
+
+The missile played its normal impact and expired. The replay observed
+26 further gameplay returns after expiry with two lives, the same
+health as at the start of the encounter, and four of the five missiles
+remaining. The run took 9,069 physical frames and created no captures.
+
+- Receipt `c60c4b6aa9dd3004254b4a8870212a46df74b05bee05de26038f3a451d98ab03`
+- Controller `5b608700704e84387e772e6272b6f77d40884585980c68c0505e49040e9d6ba4`
