@@ -153,3 +153,25 @@ of prior delivered repairs stays intact. Mini's20-byte weapon repair and
 Rogue's2-byte missile repair remain separate source candidates at this
 delivery; they are not silently included or claimed tested here. Start a
 fresh game after reopening the ROM so its loaded source-code pages refresh.
+
+## Original rolling, spin dash and variable jump
+
+A source candidate based on `a6d91e36` adds stationary Down+A charging,
+release to launch a spin dash, momentum-based rolling and separate tap and
+held jump heights. The implementation is newly written for this NES mod.
+The assembly keeps the existing terrain, camera, sprites and controller
+bridge. The normal walking and braking trace without a roll matched the
+prior build for 224 updates.
+
+The bounded CPU checks measured a 28.25-pixel tap jump and an 80.5-pixel
+held jump. Holding A through landing triggered one jump. Charging and
+release worked in both directions, with up to 6.5 pixels of travel per
+update. The native constructor, ceiling contact, pause, game-engine freezes
+and failed terrain sweep preserved their expected behavior. The run executed
+1,188 CPU invocations and produced zero files.
+
+The in-memory candidate fingerprint is
+`d1b2138dc59e714ae653cbb7067cb32766f5f14de24965f7c980b81dac48903c`.
+Mesen controls, the full stage routes, pickups and interrupts still need
+verification on this candidate. Other Sonic 3 behavior and Super Sonic's
+distinct mechanics remain open.
