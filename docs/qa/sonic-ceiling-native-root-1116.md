@@ -194,3 +194,18 @@ The test slot was restored to the verified Downloads ROM after both runs.
 The candidate's full stage routes, affected pickups and interrupts still need
 verification before delivery. Other Sonic 3 behavior and Super Sonic's
 distinct mechanics remain open.
+
+### Recovering a stopped airborne roll
+
+The private `3466637d` run reached the tall pipe with Sonic at X712.
+The roll rose above the lip, but repeated Right+A jumps could never pass
+it after the side sweep reset horizontal speed to zero. The candidate kept
+zero horizontal speed for an airborne roll even while a direction was held.
+
+The successor `8f8d4a13` restarts an airborne roll at one pixel per update
+when the player holds a direction and horizontal speed is zero. Existing
+wall sweeps still prevent movement into solid tiles. The CPU fixture places
+a stopped roll above a real swept pipe shape and confirms motion from each
+side. The 224-update walking comparison, jump, charge, ceiling and rollback
+checks also pass. The scope of this change is the Sonic roll recovery. The
+installed Beans nightly remains the named base for the composed candidate.
