@@ -72,14 +72,19 @@ releases A, and presses A again while holding Right against the wall. The
 native jump routine sets upward velocity to `$FC` and gravity to `$12`.
 She lands on the floor at X2387/Y177 with one energy tank and five missiles.
 The replay passes 25 further game updates with the same health, lives and
-gear. Left-facing Wall Jump and missile and Bomb impacts on enemies remain
-open. Receipt
+gear. Receipt
 `750a60f2b404fd7c219ddd704ae5b5ccbfcff95da0aadf4b7f41d380f0537f26`.
 Controller SHA-256 is
 `097bc20c658398f969e4b95d607bb40f3d4881cea6bb06d9c1e2e2766fdffcac`.
 
-The first `--wall-jump-left` replay also collected Wall Jump. Its approach
-moved under the brick row before the jump was in position, and the route
-ended before a left-facing launch. The revised approach rises beside the row before
-steering left. The left-facing check remains open. First attempt receipt
-`785889449b3f0790de20c7f33093fd971192ea57530bed7852305e2f763a5cb9`.
+The `--wall-jump-left` replay collected the same upgrade, rose in the open
+pocket to the right of the brick, then pressed A again while holding Left
+against it at X2412/Y131. The native branch used upward velocity `$FC` and
+gravity `$12`. Rogue Dawn landed at X2412/Y177 and kept the same health,
+energy tank, and five missiles through another 25 game updates. Receipt
+`6eb3cf24a12ccf59a3efee099c9e12389726336757867124a1ced9f34352a1bf`.
+Controller SHA-256 is
+`1f8406cf1693e2dac5e7e2108b72090b4bc0ff5d76c266dfb9d1fefc133baa7a`.
+
+Both Wall Jump directions have passed. Missile and Bomb impacts on enemies
+remain open.
