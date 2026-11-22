@@ -125,6 +125,14 @@ def proof(raw):
     labels = {n: int(v, 16) for v, n in re.findall(
         r'al ([0-9A-Fa-f]+) \.(\w+)',
         (R / 'build/contra-force-projectile-contact-1031-v3/kernel/runtime.lbl').read_text())}
+    # The delivered work-marker renderer moved this seam five bytes. Match
+    # its complete borrowed-pointer prefix, rather than using the old label.
+    record_prefix = bytes.fromhex('68a868aaa50348a5044886038404')
+    code3 = raw[CARRIER + 16384:CARRIER + 24576]
+    records = [m.start() for m in re.finditer(re.escape(record_prefix), code3)]
+    assert records == [0x14FB]
+    record_ready = 0xA000 + records[0] + len(record_prefix)
+    assert record_ready == 0xB509 and code3[0x1509:0x150C] == bytes.fromhex('adde06')
     out = dict(metadata=metadata(raw), cold=[], unchanged=[], lanes=[], contacts=[],
                fixture_scope='Exact image cold menu/loading; later component gear/NPC/air setups disclosed. No natural-acquisition or Mesen claim.')
 
@@ -190,13 +198,18 @@ def proof(raw):
         m.ram[2][0x82] = 0x10 | tier
         if target:
             for name, value in dict(Enemy_Flag=1, Enemy_ID=6, Enemy_State=0,
-                                    Enemy_X_Position=84, Enemy_PageLoc=0,
+                                    Enemy_X_Position=96, Enemy_PageLoc=0,
                                     Enemy_Y_Position=176, Enemy_Y_HighPos=1).items():
                 m[addr(name)] = value
             N.invoke(m, 'InitGoomba', x=0)
-            for _ in range(8):
+            # Let native gravity settle the initialized NPC. Eight updates
+            # was an unqualified timing assumption, not a floor-state test.
+            for settle in range(48):
+                if N.get(m, 'Enemy_Y_Position') == 184:
+                    break
                 tick(m, 0)
-            assert N.get(m, 'Enemy_Y_Position') == 184
+            assert N.get(m, 'Enemy_Y_Position') == 184, ('Stock floor settling',
+                N.get(m, 'Enemy_X_Position'), N.get(m, 'Enemy_Y_Position'))
         trace = dict(fixed=fixed, tier=tier, transitions=[], renders=[], hits=[],
                      allocations=[], retirements=[])
         frame = 0
@@ -222,13 +235,14 @@ def proof(raw):
                         radius_index=radius, radii=radii,
                         enemy=foe, enemy_x=N.get(m, 'Enemy_X_Position', foe),
                         enemy_y=N.get(m, 'Enemy_Y_Position', foe)))
-                if (tag, self.pc) == (3, labels['CfRenderRecord'] + 14):
+                if (tag, self.pc) == (3, record_ready):
                     slot = m.ram[2][0x2F1]
                     if 10 <= slot < 22:
                         row = dict(update=frame, kind=m.ram[2][0x382 + slot],
                                    frame=m.ram[2][0x31A + slot],
                                    x=m.ram[2][0x34E + slot] + N.get(m, 'ScreenLeft_X_Pos'),
-                                   y=m.ram[2][0x368 + slot])
+                                   y=m.ram[2][0x368 + slot],
+                                   renderer_x=m.ram[2][0x2F3], renderer_y=m.ram[2][0x2F5])
                         if not trace['renders'] or any(row[k] != trace['renders'][-1][k]
                                                       for k in ('kind', 'frame', 'y')):
                             if len(trace['renders']) < 16:
@@ -279,7 +293,9 @@ def proof(raw):
 
 
 if __name__ == '__main__':
-    report = proof(ROM.read_bytes())
+    installed = ROM.read_bytes()
+    assert digest(installed) in (PARENT, CANDIDATE), 'Require the exact old or delivered new nightly'
+    report = proof(inverse(installed) if digest(installed) == CANDIDATE else installed)
     encoded = json.dumps(report, sort_keys=True, separators=(',', ':'))
     print('BEANS_GROUND ' + encoded, flush=True)
     print('RECEIPT_SHA256 ' + digest(encoded.encode()), flush=True)

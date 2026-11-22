@@ -170,8 +170,27 @@ update. The native constructor, ceiling contact, pause, game-engine freezes
 and failed terrain sweep preserved their expected behavior. The run executed
 1,188 CPU invocations and produced zero files.
 
-The in-memory candidate fingerprint is
+The in-memory candidate fingerprint over `a6d91e36` is
 `d1b2138dc59e714ae653cbb7067cb32766f5f14de24965f7c980b81dac48903c`.
-Mesen controls, the full stage routes, pickups and interrupts still need
-verification on this candidate. Other Sonic 3 behavior and Super Sonic's
+
+### Private Mesen motion checks for both forms
+
+The same motion patch on the verified Beans nightly produced private
+candidate `3466637dc3e75d7768eb6ba3c49af03e548e24a44a027394e3934b22579605cf`.
+The Sonic and Beans changes cover disjoint ROM bytes. Both characters
+started through the real roster and ran the test on the opening 1-1 floor.
+For each, a two-update tap rose about 35 pixels and a 20-update hold rose
+about 81 pixels. After both jumps, the player held Down, tapped A twice,
+released Down and started rolling at 4.5 pixels per update. The body stayed
+24 pixels high during the roll and the feet stayed on the floor. Each run
+verified 118 complete movement returns with two lives and no injury.
+
+| Character | Physical frames | Mesen receipt SHA-256 |
+| --- | ---: | --- |
+| Sonic | 581 | `1e1bf5e307af15b7fefce4ce9580860e62842e6621aaac3d0296047179f48087` |
+| Super Sonic | 602 | `768b1f44362771dc0ee85b13ecd1155f4cadea3393bbfc65da2fb2f5a99158b9` |
+
+The test slot was restored to the verified Downloads ROM after both runs.
+The candidate's full stage routes, affected pickups and interrupts still need
+verification before delivery. Other Sonic 3 behavior and Super Sonic's
 distinct mechanics remain open.

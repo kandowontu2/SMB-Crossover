@@ -1054,3 +1054,11 @@ The Downloads nightly was replaced directly with
 The installed Mesen run returned the same complete receipt as the private
 run. The installed ROM and the shared candidate match byte for byte, and the
 automatic patch guard found no matching patch before or after delivery.
+
+The separate CPU checks loaded all four characters from the real menu with
+the new carrier. Twelve same-input comparisons covered unchanged weapon
+behavior, including Beans's airborne placements. Grounded mine and bomb
+checks covered the original fuse, renderer coordinates and contact with a
+stock Goomba. The checker reconstructed the exact prior ROM from the
+installed build in memory. Receipt
+`fd1fd63f00f2b7c977aa8377820d7124ea77eeca379dbc1b591f75a88bbda85f`.
