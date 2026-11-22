@@ -80,4 +80,35 @@ Both ended with two lives. The runs created no captures.
 | Toad (SMB3) | 1,526 | `b8861e5f8a1444424242d2486bbb38749d299a94c06693665d148c89b56d7a72` | `20d84622508433026bc336e6140944952a3a546d8b6f7e6f574ad97be315ef6b` |
 | Peach (SMB3) | 1,484 | `18e7cede829ec2414279356da5c44ba97bf49f302787d43ed8393ea5cef05f01` | `19f336e3978969a434dc7ebfbc7441be2f3ded15359aa8f7ce392b137dc457eb` |
 
-The other randomly selected suits and Fire attacks still need playtests.
+Fire attacks and the other suit-specific moves still need separate playtests.
+
+## Targeting an authored suit with ordinary controller input
+
+The suit block chooses its pickup from the game's random state when the
+player hits it. The replay pauses under the block with Start. The world
+stays frozen while the native random state advances. When that state will
+select the requested suit, the replay resumes and jumps into the block
+with Start+A. The observer verifies the actual random byte, spawned actor,
+pickup collision, full 24-update transformation and 25 further movement
+updates.
+
+Peach's first replay scheduled Start between two game updates in one
+physical frame. The game's input poll still held the previous input.
+The observer now waits for the native pause routine to accept Start,
+then uses the actual Start+A consumption and random state to qualify
+the jump.
+
+All runs below used installed `32eaf178` and the authored block at X1248.
+The characters finished in the requested form with two lives. The replays
+created no captures.
+
+| Character | Suit | Spawn tag | Random byte | Physical frames | Mesen receipt SHA-256 |
+| --- | --- | --- | ---: | ---: | --- |
+| Toad | Raccoon | `$D3` | 16 | 1,587 | `a132e5255173da2e3bf43f635ac94447fcc182db7507096502b83fab0613f83d` |
+| Toad | Frog | `$D4` | 12 | 1,593 | `9cfaf59b23c325b36808fa9ae0ebe66175095728c7cd221aa843c7b7a615b5b2` |
+| Toad | Tanooki | `$D5` | 98 | 1,590 | `083979a5936e7029a2ab8057dc7b35b323f35c80f846fced37b6b4673c0494e4` |
+| Toad | Hammer | `$D6` | 49 | 1,591 | `ff6cb319cf2b3d5f9210473df45102f16e39b0995fa03c3feed1ef6fecc217af` |
+| Peach | Raccoon | `$D3` | 121 | 1,555 | `4152c7f39ee79b51255389fb33aae54613b4ce9e6a583a59cc70940a76b3296f` |
+| Peach | Frog | `$D4` | 107 | 1,549 | `8916cbf8455960b01ac2b0064bf1eaf0b01c5553702e389f5b43a2098c8458b9` |
+| Peach | Tanooki | `$D5` | 53 | 1,550 | `773b7ba76931d9df15e4b7f280830f6a9702bd2a1a49bddab25a128d93654aa6` |
+| Peach | Hammer | `$D6` | 189 | 1,545 | `4d7a8535ccabee5c66dbb72ab15a39a593ea27a028c354f60a6dcf505d12d9c0` |

@@ -145,7 +145,7 @@ def once(text, old, new):
     return text.replace(old, new, 1)
 
 
-def body():
+def body(*, targeted=False):
     assert H(Path(Stock.__file__).read_bytes()) == STOCK_SHA
     s = Stock.body()
     s = once(s, 'local expected={C.stockKind}', "local expected=C.route=='mushroom'and{0}or{0,1}")
@@ -164,20 +164,65 @@ def body():
     s = once(s, " if name=='HandlePowerUpCollision' then", EXTRA_ENTRY + "\n if name=='HandlePowerUpCollision' then")
     s = once(s, '  entered=physical;clockInput=choose(context())',
              "  assert(r('M3Form')==0,'Real cold Small form before any earned upgrade')\n  entered=physical;clockInput=choose(context())")
+    if targeted:
+        s = once(s, 'logical_item_policy=C.logical_item_classifier',
+                 'logical_item_policy=C.logical_item_classifier,requested_suit=C.target_suit_name,requested_stamp=C.target_stamp')
+        s = once(s, " if name=='M3RNGRead'then", """ if name=='TargetPauseInput'then
+  local q=SMB3_UPGRADE_STATE.rng
+  if q and SMB3_UPGRADE_STATE.phase=='rng-unpause'and r('GamePauseStatus')&129==1
+     and r('GamePauseTimer')==0 and r('SavedJoypad1Bits')&144==144 then
+   local prediction=assert(q.prediction,'A current predicted draw precedes actual Start+A consumption')
+   assert(not q.accepted,'Only one genuine target unpause')
+   local random={};for i=0,6 do
+    random[i+1]=r('PseudoRandomBitReg',i)
+    assert(random[i+1]==prediction.rng_before[i+1],'Actual consumed Start+A uses the latest refreshed LFSR origin')
+   end
+   prediction.scheduled_read_before_update=prediction.read_before_update
+   prediction.read_before_update=updates+q.jump_steps-1
+   q.accepted={before_update=updates,input=r('SavedJoypad1Bits'),random=random,
+    pause=r('GamePauseStatus'),pause_timer=r('GamePauseTimer'),player=state()}
+  end
+  return
+ end
+ if name=='M3RNGRead'then""")
+        s = once(s, "  activePreparation.rng=r('PseudoRandomBitReg',2);return",
+                 """  local prediction=assert(SMB3_UPGRADE_STATE.rng and SMB3_UPGRADE_STATE.rng.prediction,'Real pause prediction before suit RNG read')
+  activePreparation.rng=r('PseudoRandomBitReg',2)
+  assert(SMB3_UPGRADE_STATE.rng.accepted and r('GamePauseStatus')&1==0 and updates==prediction.read_before_update,
+   'Unpaused actual RNG source read occurs at the predicted native head clock')
+  assert(activePreparation.rng==prediction.draw and activePreparation.rng%5+2==C.target_suit,
+   'Actual naturally evolving RNG byte equals the predicted requested suit')
+  activePreparation.prediction=prediction;return""")
+        s = once(s, " q.prepare={actor=a,before=p.prepare.before,rng_at_source_read=p.prepare.rng}",
+                 """ if p.prepare.kind==1 then
+  assert(a.stamp==C.target_stamp and p.prepare.prediction,'Actual source stamps the explicitly requested suit')
+  SMB3_UPGRADE_PROGRESS.suit_prepared=true
+ end
+ q.prepare={actor=a,before=p.prepare.before,rng_at_source_read=p.prepare.rng,
+  prediction=p.prepare.prediction,requested_suit=p.prepare.kind==1 and C.target_suit_name or nil}""")
+        s = once(s, ' local growth=p.before.power==0 and 47 or 0',
+                 " if a.kind==1 then assert(target==C.target_suit and a.stamp==C.target_stamp,'Natural physical collection applies the requested suit')end\n local growth=p.before.power==0 and 47 or 0")
+        s = once(s, ' mask=0;for k,v in pairs(bits) do if b[k] then mask=mask|v end end',
+                 """ if entered and scope()then
+  local refreshed=SMB3_UPGRADE_POLL(context())
+  if refreshed then b=refreshed;clockInput=refreshed end
+ end
+ mask=0;for k,v in pairs(bits) do if b[k] then mask=mask|v end end""")
     assert 'SMB3_PICKUP_STATE' not in s
     return s
 
 
-def controller(raw, form='peach3', route='mushroom-suit', *, mode='easy'):
-    config = Current.bindings(raw, form, route, mode=mode)
+def controller(raw, form='peach3', route='mushroom-suit', *, mode='easy', suit=None):
+    config = Current.bindings(raw, form, route, mode=mode, suit=suit)
     navigation = Stock.Navigation.policy()
     policy = POLICY.read_text(encoding='utf-8')
-    observer = body()
+    observer = body(targeted=suit is not None)
     config.update(base_policy_SHA256=H(navigation.encode()), upgrade_policy_SHA256=H(policy.encode()),
                   observer_SHA256=H(observer.encode()))
     text = '\n'.join((
         'local C=' + value(config), "local ROSTER_CONFIG={name='smb3'}",
         'local SMB3_UPGRADE_PROGRESS={}', 'local SMB3_UPGRADE_MODE=C.route',
+        'local SMB3_UPGRADE_TARGET=C.target_suit',
         'local SMB3_UPGRADE_BASE=(function()\n' + navigation + '\nend)()',
         'local choose=(function()\n' + policy + '\nend)()', observer,
     ))
