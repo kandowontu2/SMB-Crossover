@@ -953,3 +953,22 @@ crouch and short B presses from his full-stage replay. It ended after
 25 more updates at tier 2 with three lives and the Star still active.
 The run took 3,721 physical frames. Receipt
 `3041982b08a45a9f611d51baeb32747c1918e5c1b4a5a829d15b6a3b8e03633b`.
+
+### Burns's weapon tiers
+
+The `--weapons` replay observed the projectile slot immediately after the
+original allocator stored it. It verified the actual shot type against the
+current class and earned gear. The pickup route inputs and 3,977-frame
+endpoint matched the previous successful Burns replay.
+
+| Gear tier | Original projectile type | Allocations |
+| --- | --- | ---: |
+| Starting pistol | `$01` | 12 |
+| Mushroom weapon | `$02` | 21 |
+| Flower weapon | `$0E` | 21 |
+
+Downloads Mesen receipt
+`3f98bb83afada82c48deb4c1149c5e83a01cf74fec1428507cace8f78df07d22`.
+The same observation is available for Smith, Iron and Beans. Impacts,
+appearance and sound still need separate verification for the upgraded
+weapons.

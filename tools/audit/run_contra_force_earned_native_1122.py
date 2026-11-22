@@ -70,8 +70,29 @@ local function earnedTick()
 end
 '''
 
+WEAPON_ALLOCATE_OFFSET = 2006215
+WEAPON_ALLOCATE_CODE = bytes.fromhex('9982c3c90af0034ce7a0a90099b2c34c')
+WEAPON_KINDS = ((1, 2, 14), (1, 12, 4), (1, 3, 5), (1, 13, 7))
+WEAPON_OBSERVER = r'''
+emu.addMemoryCallback(guard(function()
+ if not first or not active() or not identity() then return end
+ local mapped=emu.convertAddress(0xa0ba)
+ if not mapped or mapped.memType~=emu.memType.nesWorkRam or mapped.address~=0x20ba then return end
+ local cpu=emu.getState()
+ local slot,kind=cpu['cpu.y'],cpu['cpu.a']
+ local tier=r('PlayerStatus')
+ assert(slot>=10 and slot<=21 and kind==weaponKinds[tier+1],'Original weapon allocation for the earned tier')
+ assert(emu.read(2*8192+0x382+slot,emu.memType.nesWorkRam)==kind,'Original weapon kind stored in its actual slot')
+ assert(emu.read(2*8192+0x7f+C.variant,emu.memType.nesWorkRam)==(0x10|tier),'Actual class gear selects the shot')
+ local key=tostring(tier)
+ local existing=weaponShots[key]
+ if existing then existing.allocations=existing.allocations+1
+ else weaponShots[key]={kind=kind,slot=slot,update=updates+1,allocations=1}end
+end),emu.callbackType.exec,0xa0ba)
+'''
 
-def controller(parent, candidate, identity):
+
+def controller(parent, candidate, identity, *, weapons=False):
     text, _ = build_controller(parent, candidate, identity, 'all', native=True)
 
     def once(old, new):
@@ -87,14 +108,24 @@ def controller(parent, candidate, identity):
     assert count == 1
     once('game_state_writes=false,outputs=0',
          'earned=earned,updates_after_pickups=earnedUpdates,game_state_writes=false,outputs=0')
-    once("hook('GameLoop',function()", PICKUP_OBSERVER + "\nhook('GameLoop',function()")
+    observer = PICKUP_OBSERVER
+    if weapons:
+        at = WEAPON_ALLOCATE_OFFSET
+        assert candidate[at:at+len(WEAPON_ALLOCATE_CODE)] == WEAPON_ALLOCATE_CODE
+        kinds = WEAPON_KINDS[Frozen.IDENTITIES[identity][1]]
+        # Declare the table before finish() so its receipt can include it.
+        once('local function finish(reason)', 'local weaponShots={}\nlocal function finish(reason)')
+        once('earned=earned,updates_after_pickups=', 'earned=earned,weapon_shots=weaponShots,updates_after_pickups=')
+        observer += '\nlocal weaponKinds={' + ','.join(map(str, kinds)) + '}\n'
+        observer += WEAPON_OBSERVER
+    once("hook('GameLoop',function()", observer + "\nhook('GameLoop',function()")
     once(' pendingReturn=nil;updates=updates+1\n cfOwner()',
          ' pendingReturn=nil;updates=updates+1\n cfOwner();earnedTick()')
     Frozen.Frozen.LuaRuntime().compile(text)
     return text
 
 
-def verified_run(script, rom, candidate, identity):
+def verified_run(script, rom, candidate, identity, *, weapons=False):
     expected = Hud.H(candidate)
     assert check(rom)['ROM_sha256'] == expected
     result = run(script, rom, OUT / 'capture', expected, 110, variant=Frozen.IDENTITIES[identity][1])
@@ -106,12 +137,19 @@ def verified_run(script, rom, candidate, identity):
     assert [item['kind'] for item in receipt['earned']] == [0, 3, 1, 2]
     assert receipt['terminal']['power'] == 2 and receipt['terminal']['star'] > 0
     assert check(rom)['ROM_sha256'] == expected
+    weapon_report = {'weapons': receipt['weapon_shots']} if weapons else {}
     print('NATIVE EARNED ' + json.dumps(dict(identity=identity, ROM=expected,
         location='downloads' if rom == Hud.ROM else 'private', script=result['script_SHA256'],
-        receipt=result['receipt_SHA256'], earned=receipt['earned'], terminal=receipt['terminal'])), flush=True)
+        receipt=result['receipt_SHA256'], earned=receipt['earned'], terminal=receipt['terminal'],
+        **weapon_report)), flush=True)
+    if weapons:
+        shots = receipt['weapon_shots']
+        expected_kinds = WEAPON_KINDS[Frozen.IDENTITIES[identity][1]]
+        assert set(shots) == {'0', '1', '2'}, ('Actual firing coverage by tier', shots)
+        assert [shots[str(i)]['kind'] for i in range(3)] == list(expected_kinds)
 
 
-def main(identity, install):
+def main(identity, install, weapons=False):
     before = check(Hud.ROM)
     installed = Hud.ROM.read_bytes()
     parent = comparison_base(installed)
@@ -123,22 +161,22 @@ def main(identity, install):
     require_free_workspace(Hud.R, Hud.ROM, allow_interactive=True)
     _, candidate, _, _ = compose(parent, repair_pickup=True)
     assert comparison_base(candidate) == parent
-    text = controller(parent, candidate, identity)
+    text = controller(parent, candidate, identity, weapons=weapons)
     old_script = script.read_bytes()
     try:
         script.write_bytes(text.encode())
         if installed == candidate:
-            verified_run(script, Hud.ROM, candidate, identity)
+            verified_run(script, Hud.ROM, candidate, identity, weapons=weapons)
         else:
             target.write_bytes(candidate)
-            verified_run(script, target, candidate, identity)
+            verified_run(script, target, candidate, identity, weapons=weapons)
         assert check(Hud.ROM) == before and Hud.ROM.read_bytes() == installed
         if install and installed != candidate:
             preflight(OUT / 'capture', reserved_files=0)
             require_free_workspace(Hud.R, Hud.ROM, allow_interactive=True)
             try:
                 Hud.ROM.write_bytes(candidate)
-                verified_run(script, Hud.ROM, candidate, identity)
+                verified_run(script, Hud.ROM, candidate, identity, weapons=weapons)
                 assert Hud.ROM.read_bytes() == candidate
             except BaseException:
                 Hud.ROM.write_bytes(installed)
@@ -157,5 +195,6 @@ if __name__ == '__main__':
     args = argparse.ArgumentParser(description=__doc__)
     args.add_argument('--identity', default='burns', choices=Frozen.IDENTITIES)
     args.add_argument('--install', action='store_true', help='Install only after the private Mesen replay passes.')
+    args.add_argument('--weapons', action='store_true', help='Also verify actual projectile births at each weapon tier.')
     options = args.parse_args()
-    main(options.identity, options.install)
+    main(options.identity, options.install, options.weapons)
