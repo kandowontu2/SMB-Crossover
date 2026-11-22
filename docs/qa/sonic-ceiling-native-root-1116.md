@@ -316,3 +316,10 @@ capture files.
 | --- | ---: | --- | --- |
 | Sonic | 5,658 | `97003aac6624560c660eb51580631c15d958b1119247f75f6e8772f3d9733c81` | `3c2e48641dc04bca3d94f78ccc1d8562b9223e0062cdf2791c00369f053c7d4d` |
 | Super Sonic | 5,673 | `2952a5effe7b7ebbe6d9d8c8b0842ceb969211568d91ac25a3fc0b80b74ff457` | `d4ceab5565878691b76789a1699d9a1c93c8581355e0a84e3a3e45d72ca201c4` |
+
+The linked CPU interrupt check reached all 115 active contact instructions
+and compared 889 real IRQs and 889 busy NMIs against the prior handler state.
+It also reached 40 nested IRQs and completed 3,556 contact continuations.
+The native register, stack, scratch and mapper effects matched. Minimum
+stack pointer was 180 in foreground code and 159 in the handlers.
+Receipt `3fafd9f659cbf5b90c4f16b7d84864b2ddb89a9b61243857f4f7c5bb3e6623ad`.
