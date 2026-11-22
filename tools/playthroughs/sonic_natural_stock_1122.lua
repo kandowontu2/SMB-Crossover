@@ -28,7 +28,8 @@ local function stockInput(s,item,targetX)
     return beginJump(s,1,20)
    end
    if s.x>=282 and ground then phase='align' else direction=1 end
-  elseif s.x>=targetX-56 and (C.item=='flower' or (ground and s.y==176)) then phase='align'
+  elseif s.x>=targetX-56 and (C.item=='flower' or (ground and s.y==176)) then
+   phase=targetX==1248 and C.form=='super' and s.y<160 and 'descend-from-row' or 'align'
   else
    direction=1
    if jumpReady and jumpReason(s) then return beginJump(s,1,20) end
@@ -41,6 +42,14 @@ local function stockInput(s,item,targetX)
  elseif phase=='mushroom-land' and ground and s.y==176 then
   phase='align'
  end
+ if targetX==1248 and phase=='align' and ground and s.y<160 then
+  phase='descend-from-row'
+ end
+ if phase=='descend-from-row' then
+  if ground and s.y==176 then phase='align'
+  elseif C.form=='super' then return steer(s,1183,1189)
+  else return steer(s,1308,1314) end
+ end
  if phase=='align' then
   direction=steer(s,targetX-9,targetX-6)
   if jumpReady and s.y==176 and s.x>=targetX-10 and s.x<=targetX-5 and math.abs(s.vx)<=75 then
@@ -51,8 +60,23 @@ local function stockInput(s,item,targetX)
    return beginJump(s,direction,20)
   end
  elseif phase=='reveal' then
-  if item then phase='catch'
+  if item then phase=targetX==1248 and 'mount-flower-row' or 'catch'
   elseif jumpReady and s.motor-launch>60 then phase='align' end
+ end
+ if phase=='catch' and targetX==1248 and ground and s.y==176 then
+  phase='mount-flower-row'
+ end
+ if phase=='mount-flower-row' then
+  if jumpReady and s.y==176 and s.x>=1290 and s.x<=1294 and math.abs(s.vx)<=75 then
+   phase='rise-beside-flower-row'
+   return beginJump(s,0,24)
+  end
+  return steer(s,1290,1294)
+ end
+ if phase=='rise-beside-flower-row' then
+  if s.y<=112 and not ground then phase='catch'
+  elseif jumpReady then phase='mount-flower-row';return 0
+  else return s.motor<holdA and 128 or 0 end
  end
  if phase=='catch' and item then
   local dx=item.x-s.x

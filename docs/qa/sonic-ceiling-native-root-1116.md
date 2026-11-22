@@ -14,11 +14,25 @@ movement port.
 | --- | ---: | --- |
 | Sonic Star | 2,368 | `85ec618d2aef160c84f221d7581f8b443c02ae448a1d6e75c808378c4bdcaf3d` |
 | Super Sonic Star | 2,392 | `30eb2743f368c77bad01f7480b7729be443dc19eade97bfb8b9287d1089ae851` |
+| Sonic Fire Flower | 3,068 | `4c6845cc39d93f091ed97028207b5ad35a0b98a85dd3513e2a06316e92f53512` |
+| Super Sonic Fire Flower | 2,813 | `7cc7b4dee9c6020a1536b9de277c0f190860fa487df488b4cf51f7e37d023717` |
 
 The Sonic Star controller hash is
 `bf553fd1c4b976fddba459e6f507e2b51fcc757a5c6e9431dc9b0251d99025f2`.
 The Super Sonic Star controller hash is
 `1dfa78fba450f945a62806fcd4b54cb3afeb58b7777156fe4ffe456a9f7eb0cf`.
+
+For the Flower, both forms earned the Mushroom at X336, returned underneath
+the row to reveal the Fire Flower at X1248/Y144, and jumped onto the row
+from the right. Super Sonic dropped to the floor earlier on the left to
+avoid an enemy on the row. The collector advanced each form from tier 1 to
+tier 2 through the normal powerup sequence. Both continued another 25
+original movement updates at tier 2.
+
+The Sonic Fire Flower controller hash is
+`da245b3cabf74354ac1f060ebb1f04c0301bb8572afdbf3e45338d7eaa3129c3`.
+The Super Sonic Fire Flower controller hash is
+`3f6e27e6fa2eaf0183670fb793102d3ed6da70b8b86d3e2c7a8f044c64e504f6`.
 
 The public nightly remains1327. Proposeda2d9 is94 owned/91 changed bytes,
 with all5526 original movement bytes unchanged. Both source full stages,
