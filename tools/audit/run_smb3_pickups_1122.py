@@ -48,7 +48,8 @@ def validate(raw):
 def native(raw, forms, items, mode):
     """Root invokes this only after the shared queue is free."""
     before = check(ROM)
-    assert before['ROM_sha256'] == Current.PIN == H(raw) and not before['matching_patch_files']
+    expected = H(raw)
+    assert before['ROM_sha256'] == expected and expected in Current.ALLOWED_PINS and not before['matching_patch_files']
     rom, script = OUT / 'candidate.nes', OUT / 'controller.lua'
     assert {p.name for p in OUT.iterdir()} == {'candidate.nes', 'controller.lua'}
     assert rom.read_bytes() == raw, 'Use the existing exact installed candidate slot'
@@ -61,7 +62,7 @@ def native(raw, forms, items, mode):
         for form in forms:
             for item in items:
                 script.write_bytes(Replay.controller(raw, form, item, mode=mode).encode())
-                result = run(script, ROM, OUT / 'capture', Current.PIN, 180)
+                result = run(script, ROM, OUT / 'capture', expected, 180)
                 assert result['outputs_written'] == 0 and not result['images']
                 receipt = result['receipt']
                 summary = {key: receipt.get(key) for key in (

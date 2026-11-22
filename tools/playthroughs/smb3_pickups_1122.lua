@@ -50,6 +50,16 @@ local function starBeforeBirth(c,ordinary)
   change(c,'star-position')
  end
  if phase=='star-position'then
+  local e=c.enemy()
+  if not T.enemy_jump and c.grounded and c.y>=160 and not c.lastA
+     and e and e.dx>=12 and e.dx<=56 and math.abs(e.y-c.y)<32 then
+   -- One actual forward jump clears the two24px-spaced ground enemies.
+   -- Keep the running button released and arrest its later air drift before
+   -- the Star row, instead of spending another ground update in contact.
+   T.enemy_jump={update=c.update,x=c.x,y=c.y,vx=c.vx,enemy=e}
+   lastJump=c.update;hold=c.update+18
+   change(c,'star-enemy-jump');return {right=true,a=true}
+  end
   -- The prior question block at1504 can leave Small Mario atY128. Get off
   -- that row near1536, actively arrest drift in air, and land below the
   -- actual Star row1600..1631 before advancing to its underside.
@@ -61,6 +71,9 @@ local function starBeforeBirth(c,ordinary)
    change(c,'star-bump');return {a=true}
   end
   return starSteer(c,aim)
+ elseif phase=='star-enemy-jump'then
+  if c.grounded and c.update-at>4 then change(c,'star-position');return starSteer(c,target-8)end
+  local b=starSteer(c,target-32);b.a=c.update<hold;return b
  elseif phase=='star-bump'then
   if c.update-at>75 and c.grounded then change(c,'star-position')end
   local b=starSteer(c,target-8);b.a=c.update<hold;return b

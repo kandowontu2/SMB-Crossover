@@ -8,6 +8,7 @@ from capture_budget import preflight
 from check_contra_force_combined_palette_1122 import comparison_base, compose
 from check_contra_force_fast_route_1122 import build_controller, Frozen
 import compose_rogue_hud_scene_dirty_cb95_1116 as Hud
+import repair_contra_force_beans_ground_1122 as Beans
 from mesen_session_guard_v1 import require_free_workspace
 from nightly_patch_guard_v1 import check
 from run_contra_force_current_cadence_1122 import OUT
@@ -330,12 +331,8 @@ def main(identity, install, weapons=False, impacts=False, pistol=False, beans_gr
     assert not beans_ground or (identity == 'beans' and impacts and not pistol)
     before = check(Hud.ROM)
     installed = Hud.ROM.read_bytes()
-    base = installed
-    if beans_ground:
-        import repair_contra_force_beans_ground_1122 as Beans
-
-        if Hud.H(base) == Beans.CANDIDATE:
-            base = Beans.inverse(base)
+    has_floor_repair = before['ROM_sha256'] == Beans.CANDIDATE
+    base = Beans.inverse(installed) if has_floor_repair else installed
     parent = comparison_base(base)
     target, script = OUT / 'candidate.nes', OUT / 'controller.lua'
     assert {entry.name for entry in OUT.iterdir()} == {target.name, script.name}
@@ -345,7 +342,7 @@ def main(identity, install, weapons=False, impacts=False, pistol=False, beans_gr
     require_free_workspace(Hud.R, Hud.ROM, allow_interactive=True)
     _, candidate, _, _ = compose(parent, repair_pickup=True)
     assert comparison_base(candidate) == parent
-    if beans_ground:
+    if beans_ground or has_floor_repair:
         candidate = Beans.compose(candidate)
     text = controller(parent, candidate, identity, weapons=weapons, impacts=impacts,
                       pistol=pistol, beans_ground=beans_ground)
