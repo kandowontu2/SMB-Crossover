@@ -138,3 +138,19 @@ capture files. Receipt
 `79c2dc20f2617f88c360ea44c78b92460dcc82ea55d13e09b14fabc7d3799a8b`.
 Controller SHA-256
 `2ba8e3674b4b486d182522704d40a2094de4311ac6ee141bdea92266850a877a`.
+
+### Buzzy Beetle guard
+
+The Mesen replay on `32eaf178` used the Start Level menu to enter 8-1.
+Kirby stopped to start inhaling before the opening Buzzy Beetle reached him.
+The Beetle spawned at X288/Y184, walked left and was captured at X195.
+Pressing Down gave Kirby the Buzzy guard at six HP.
+
+Kirby held B and guarded a real Goomba contact at X312/Y184. The native
+contact handler returned protection and Kirby kept all six HP. After
+releasing B he continued for 25 further movement updates with both lives
+and the copied ability. The replay took 1,143 physical frames and created
+no captures.
+
+- Receipt `b9eaa4f3e4bbbde8197ac7dc768394084c31d93dd0ca4e9f1fa6b6714ab9370f`
+- Controller `ae588b542ca0b9b0bf75f4d51329a18662d22dd1400b85b73bc21cdca053d5de`

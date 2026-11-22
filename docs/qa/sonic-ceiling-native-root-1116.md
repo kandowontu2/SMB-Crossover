@@ -264,8 +264,11 @@ The first Mesen run on `c40ca81a` observed four airborne transitions to
 one pixel per update. The changed pace brought Sonic into an enemy at
 X2010 after a jump. He died before the staircase. Receipt
 `7e1e6d5fdb6a8e6bd7945435f9433e420e1700fe9b213da903bf017048a4ffb1`.
+Super Sonic reproduced the same lethal contact at X2010 while rolling.
+His test also observed four airborne recoveries. Receipt
+`f3ad57db40743061e1d5a3c7c8c891558187658ee4657806a8e51cc2f9d1f87c`.
 
 The current enemy-collision path sends Sonic through the legacy guest
-handler, which disables native stomps and ignores his roll and air-spin
-state. The private motion changes leave that path intact. Both forms'
+handler at PRG10:`$B5A1`, which disables native stomps and ignores his roll
+and air-spin state. The private motion changes leave that path intact. Both forms'
 full-stage runs and the dedicated spin-hit check remain open.
