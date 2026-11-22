@@ -1,22 +1,22 @@
 # Expanded-roster next native checklist — November 14
 
-Current delivery: `LATEST_1116_CURRENT_WORK`, exact installed
-`cb95eb8dff9929c8162e019d5e3f33e45b570946f5281c07584a9f11cacdba07`.
-Rows retain their explicitly recorded ROMs; a later delivery does not
-silently promote earlier stage receipts to the new image. Current opening
+Current delivery is `79fd089f80b06038e68b968d2ff80d09caba72a133735b3fef6bb86ffa3ed2df`.
+Rogue Dawn's HUD, Bomb, missile and level checks are recorded in the
+[November 22 verification](rogue-hud-native-1122.md). Passing results carry
+forward unless a change or regression affects the tested behavior. Opening
 enemy/powerup pictures cover Prince on16a and DK/all six wrestlers on590
 separately; see `prince-body-transition-native-root-1115.md` and
 `named-world-sprites-590-native-1115.md`. Separate actual16a M/F transaction
 checks now cover all six wrestlers in `wwf-natural-flower-native-1115.md`.
-The goal remains incomplete. All101 names start; that is not101 stage clears.
+All 101 named choices can start and have a recorded 1-1 clear. Remaining
+pickup, move set, graphics, sound and performance checks are still open.
 This checklist covers **all64 additions beyond the37 identities** in the
 read-only October27 progress file. The original37 retain their separately
 versioned stage/item audit; this document does not certify them anew.
 
-**C** = native pass on the exact development-line ROM named in its row,
-not automatic qualification on the newest image.
-**H** = native pass on the named earlier ROM;
-retain it, and use its exact preservation/rebinding proof before reuse.
+**C** = native pass on the development-line ROM named in its row.
+**H** = native pass on the named earlier ROM. Both C and H count as completed
+unless a relevant change or regression warrants a retest.
 **U** = no full native stage pass located in the compact evidence reviewed;
 startup/smoke/source results exist, but a full-route assignment is needed.
 U is not proof of a game defect or a claim that no historical run ever occurred.

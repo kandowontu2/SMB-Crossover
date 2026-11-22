@@ -55,3 +55,19 @@ capture watchdog and pre/post Downloads sidecar/hash guards all pass. There
 are zero capture files, images, videos, backups, patches or releases. These
 results confirm the delivered reported repairs on this build; exhaustive
 copy/enemy/water/pool-pressure/visual/audio coverage remains separate.
+
+## Checks carried forward on November 22
+
+The six tests above remain completed. The November 16 nightly has the same
+Kirby code bank and the same RAM addresses and hook bytes used by the tests.
+A read-only check regenerated all six scripts with identical hashes. The
+November 22 Rogue Dawn change only touches her HUD lifecycle routine.
+
+Kirby's natural mushroom and Fire Flower checks passed in Mesen on `e6b152e2`.
+Both pickups came from their World 1-1 blocks and restored Kirby to six HP.
+The test verified each item's graphics and the heal animation. The same
+food replay still authenticates its code and graphics table in the November 16
+nightly. See [Kirby's food pickup tests](kirby-natural-food-1111.md).
+
+Separate Mesen fixtures verified the Star and 1-UP effects after staging the
+items. Natural pickup tests for both items are still open.

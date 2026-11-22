@@ -1,7 +1,7 @@
 # Helper platform inventory — functional pass in progress
 
-Current local delivery is verifiedcb95eb8d, preserving all helper geometry
-from9826. No helper was added or moved for the Rogue Dawn missile repair.
+The current local nightly is `79fd089f`, with all helper geometry carried
+forward from `9826`. See the [Rogue Dawn HUD verification](rogue-hud-native-1122.md).
 Mini Mario's current fixed1-1 actor25 placements are world left/center/
 initial top **560/576/192, 688/704/192, 864/880/192**, each32 pixels wide.
 The manual Flower-route vertical lift spawns at1203/1219/208, also32 wide.
