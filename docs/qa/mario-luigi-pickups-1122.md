@@ -24,18 +24,22 @@ Mario and Luigi each hit the hidden block at X1024/Y128, collected the
 item after it fell to the floor and gained a third life. Both stayed
 grounded before the pit through 25 further movement updates.
 
-Mario also hit the Star block at X1616/Y144 and collected the Star on its
-bounce. It started the invincibility timer and Star music, awarded 1,000
-points and remained active through his grounded finish.
+Both hit the Star block at X1616/Y144 and collected the Star on its bounce.
+It started the invincibility timer and Star music, awarded 1,000 points
+and remained active through the grounded finish.
 
 | Playtest | Physical frames | Mesen receipt SHA-256 | Controller SHA-256 |
 | --- | ---: | --- | --- |
 | Mario 1-UP | 1,166 | `dc04b36842e89a05bfa705d3554f18ad388c686df52d69d696b84f433c9b014a` | `934d8a551e45b4ec37d35974f0ca651a4dac127738578d21ea7b3791eea2564b` |
 | Mario Star | 1,564 | `8bea033f9826327aa9454eefd88b8d2ee852e29645eccad1a0a3e42504b344aa` | `a76fc30ff0bdd83a48325d668c102041d9a1bacf7b1e7bf33e99aa83747986e7` |
 | Luigi 1-UP | 1,221 | `a6295b8a8f16ea3d262b1d17e2d9e059987181828b966c0315e07d178f74b613` | `d1d7cf79d722c6ea8af137bf2acd95dc26d252d432c6d2998a4b27cd878e8ae7` |
+| Luigi Star | 1,881 | `857a89c7f11d3879b658ab8af52354b874b6d6421129f81632ac715db93dd998` | `50a965c620d92b525b91de1a34f89af06cd03d5bda8241db53e5b9225441754a` |
 
 In the first Luigi Star replay, Luigi died at X1224/Y112 on the way to
 the Star block when he came down beside a Goomba on the Fire Flower row.
 That attempt stopped at physical frame 1,030.
 Receipt `07a654ce3eb4cb61d7a328d8c7c1ced6f8bfd8391babf8d129af2a99d28d1abe`.
-Luigi's Star needs a passing replay. These tests created no captures.
+The passing replay built running speed and jumped from X1190/Y176,
+then landed on the far side of the row. Luigi collected the Star at X1832
+and finished grounded with two lives and an active Star through 25
+further movement updates. These tests created no captures.
