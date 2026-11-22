@@ -925,8 +925,8 @@ Smith and Iron also earned all four pickups in paired CPU replays against
 the pickup-only build. Their full comparisons matched for 2,029 and 2,377
 updates. Beans earned the mushroom, 1-UP and flower in the paired replay.
 Both builds reached the same death at X1597 before Beans could hit the
-Star block. Beans still needs a Star route, and Smith, Iron and Beans still
-need the pickup checks in Mesen.
+Star block. The Mesen follow-up below used a different approach through that
+part of the level.
 
 ### Other characters on the installed nightly
 
@@ -935,3 +935,18 @@ game updates at tier 2, with three lives and the Star still active.
 Mushroom at update 782, 1-UP at 1471, flower at 1786 and Star at 2314.
 The run took 4,131 physical frames. Receipt
 `7e52ede3e3216690c90ae79beff2f22571d5192e531ad6eb9182e7f6a0af2175`.
+
+Iron earned the mushroom at update 958 and the hidden 1-UP at 1867 in
+Mesen. He retained tier 1 and three lives for the rest of the replay.
+The flower emerged from X1248/Y144. The controller failed to land on its
+ledge, and the replay ended before the Star block. The flower and Star
+still need emulator confirmation for Iron.
+
+Beans earned the mushroom at update 786, hidden 1-UP at 1443, flower at
+1745 and Star at 2390. The successful route jumped over the low brick row,
+returned from the right and accepted a wider range of positions where
+the head probe could reach the Star block. It used the settled
+crouch and short B presses from his full-stage replay. It ended after
+25 more updates at tier 2 with three lives and the Star still active.
+The run took 3,721 physical frames. Receipt
+`3041982b08a45a9f611d51baeb32747c1918e5c1b4a5a829d15b6a3b8e03633b`.

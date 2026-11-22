@@ -135,6 +135,8 @@ def build_controller(parent, raw, identity, pickup=None, *, native=False):
     q['sha'] = Fast.Hud.H(raw)
     if pickup:
         q['ram']['PowerUpType'] = Current.W.address(bundle, 'PowerUpType')
+        if pickup == 'all' and native and identity == 'beans':
+            q['ram']['PlayerFacingDir'] = Current.W.address(bundle, 'PlayerFacingDir')
     if native:
         for label in ('FloateyNum_Control', 'Square2SoundQueue', 'AreaMusicQueue', 'Enemy_Y_HighPos'):
             q['ram'][label] = Current.W.address(bundle, label)
@@ -188,12 +190,81 @@ def build_controller(parent, raw, identity, pickup=None, *, native=False):
       b=aim(item.x+4,2)
       if c.grounded and math.abs(item.x-c.x)<24 and item.y<c.y-16 and not c.heldA then b.a=true end
      else phase='item-retreat';jumpStart=nil;releaseUntil=c.update+4 end''')
+            if native and identity == 'beans':
+                # Approach the Star from the far side of its brick row.
+                # Stopping under the western edge leaves Beans trapped
+                # between the low ceiling and the oncoming Goombas.
+                controls = controls.replace("local combatSlot,combatStart=nil,0",
+                    "local combatSlot,combatStart=nil,0\nlocal starApproach,starJump")
+                travel = " local e=c.enemy()\n local clearLane=true"
+                # Use the settled crouch and fresh B rhythm from Beans'
+                # full-stage route, and move on if terrain blocks the shot.
+                combat = """ local b={right=true,b=c.update%12<8}
+ -- Stop in genuine muzzle range and use original Down+B against low enemies.
+ -- The controller backs off or jumps when contact is too close; never grants HP.
+ local e=c.enemy()
+ if e and e.id~=13 and e.dx>18 and e.dx<92 and math.abs(e.y-c.y)<36"""
+                assert controls.count(combat) == 1
+                controls = controls.replace(combat, """ local b={right=true}
+ local e=c.enemy()
+ local clearLane=true
+ if e and e.dx>18 and e.dx<92 then
+  for wx=c.x+16,e.x-1,8 do
+   if solid(wx,c.y+24) then clearLane=false;break end
+  end
+ end
+ if e and clearLane and (not target or target.kind~=2)
+    and e.id~=13 and e.dx>18 and e.dx<92 and math.abs(e.y-c.y)<=12""")
+                pulse = "  return{down=true,b=c.update%12<8},'crouch-fire'"
+                assert controls.count(pulse) == 1
+                controls = controls.replace(pulse, """  if c.facing==2 then
+   combatStart=c.update+1
+   return{right=true},'face-enemy'
+  end
+  local elapsed=c.update-combatStart-4
+  return{down=true,b=elapsed>=0 and elapsed%8<2},'crouch-fire'""")
+                assert controls.count(travel) == 1
+                controls = controls.replace(travel, """ local e=c.enemy()
+ if c.status==2 and c.star==0 and not target and starApproach~='done' and c.x>=1548 then
+  if not starApproach and c.grounded and not c.heldA then
+   starApproach='rise';starJump=c.update
+  end
+  if starApproach=='rise' then
+   if c.x>=1658 then
+    starApproach='land'
+   else
+    return{right=true,a=c.update-starJump<44},'over-star-row'
+   end
+  end
+  if starApproach=='land' then
+   if not c.grounded or c.y<160 then return{},'past-star-row' end
+   starApproach='done';jumpStart=nil;releaseUntil=c.update+4
+  end
+ end
+ local clearLane=true""")
+                window = "if c.x>=nextX-50 and c.x<=nextX+20 then"
+                assert controls.count(window) == 1
+                controls = controls.replace(window,
+                    "if c.x>=nextX-50 and c.x<=nextX+(kind==2 and 80 or 20) then")
+                before_star = "elseif c.star==0 then kind=2 end"
+                assert controls.count(before_star) == 1
+                controls = controls.replace(before_star,
+                    "elseif c.star==0 and starApproach=='done' then kind=2 end")
+                align = "    b=aim(target.x+1,1)"
+                assert controls.count(align) == 1
+                controls = controls.replace(align, """    if target.kind==2 then
+     -- The head probe is at x+8. A wider window still hits the same
+     -- tile and lets Beans stop without oscillating across one pixel.
+     b=aim(target.x-5,9)
+    else b=aim(target.x+1,1) end""")
         body = policy_first + controls + policy_last + body[keep:]
         anchor = '\n c.enemy=function()'
         assert body.count(anchor) == 1
         body = body.replace(anchor, PICKUP_CONTEXT + anchor)
         if pickup == 'all':
             body = body.replace(anchor, "\n c.lives=r('NumberofLives');c.star=r('StarInvincibleTimer')" + anchor)
+            if native and identity == 'beans':
+                body = body.replace(anchor, "\n c.facing=r('PlayerFacingDir')" + anchor)
             life_guard = "if not identity()or r('NumberofLives')~=2 or r('GameEngineSubroutine')==11"
             assert body.count(life_guard) == 1
             body = body.replace(life_guard, "if not identity()or r('NumberofLives')<2 or r('NumberofLives')>3"
