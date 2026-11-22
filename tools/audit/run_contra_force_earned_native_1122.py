@@ -186,7 +186,8 @@ end
 '''
 
 
-def controller(parent, candidate, identity, *, weapons=False, impacts=False):
+def controller(parent, candidate, identity, *, weapons=False, impacts=False, pistol=False, beans_ground=False):
+    assert not pistol or (impacts and identity == 'iron')
     weapons = weapons or impacts
     text, _ = build_controller(parent, candidate, identity, 'all', native=True)
 
@@ -238,11 +239,47 @@ def controller(parent, candidate, identity, *, weapons=False, impacts=False):
     once(' pendingReturn=nil;updates=updates+1\n cfOwner()',
          ' pendingReturn=nil;updates=updates+1\n cfOwner();'
          + ('impactTick();' if impacts else '') + 'earnedTick()')
+    if beans_ground:
+        once('local function finish(reason)', 'local groundWeapons={}\nlocal function finish(reason)')
+        once('weapon_impacts=weaponImpacts,weapon_shots=',
+             'ground_weapons=groundWeapons,weapon_impacts=weaponImpacts,weapon_shots=')
+        once("kind=cpu['cpu.a'],Main=updates+1}",
+             "kind=cpu['cpu.a'],Main=updates+1,floor=r('Player_State')==0 and r('Player_Y_Position')==176}")
+        once("local function impactTick()\n assert(not impactPending,'Native contact and source action finish before Main returns')",
+             """local function impactTick()
+ assert(not impactPending,'Native contact and source action finish before Main returns')
+ for slot,shot in pairs(impactAllocations)do
+  local elapsed=updates-shot.Main
+  if shot.floor and shot.tier>0 and elapsed>=2 and source(0x382+slot)==shot.kind
+     and source(0x368+slot)==199 then
+   local key=tostring(shot.tier)
+   if not groundWeapons[key] or elapsed>groundWeapons[key].updates_after_birth then
+    groundWeapons[key]={slot=slot,kind=shot.kind,y=199,updates_after_birth=elapsed,allocation=shot.Main}
+   end
+  end
+ end""")
+    if pistol:
+        once(' local b={right=true,b=c.update%12<8}', ' local b={right=true}')
+        once('local e=c.enemy()\n if e and e.id~=13 and e.dx>18 and e.dx<92',
+             'local e=c.enemy()\n if e and e.id~=13 and e.dx>18 and e.dx<58')
+        once("  return{down=true,b=c.update%12<8},'crouch-fire'", """  local elapsed=c.update-combatStart-4
+  return{down=elapsed>=24,b=elapsed>=0 and elapsed%8<2},'pistol-fire'""")
+        once(" local ok=reason=='contra-force-earned-four'and#earned==4 and earnedUpdates==25",
+             " local ok=reason=='iron-pistol-hit'and weaponImpacts['0'].Main_returned>0 and earnedUpdates==25")
+        once('local function earnedTick()', '''local function earnedTick()
+ local hit=weaponImpacts['0'].first
+ if hit then
+  assert(identity()and active()and r('PlayerStatus')==0 and r('NumberofLives')==2,'Pistol hit at starting gear')
+  earnedUpdates=updates-hit.completed_Main
+  if earnedUpdates==25 then finish('iron-pistol-hit')end
+  return
+ end
+ assert(pos('Player_X_Position','Player_PageLoc')<330,'Opening Goomba must be defeated by pistol')''')
     Frozen.Frozen.LuaRuntime().compile(text)
     return text
 
 
-def verified_run(script, rom, candidate, identity, *, weapons=False, impacts=False):
+def verified_run(script, rom, candidate, identity, *, weapons=False, impacts=False, pistol=False, beans_ground=False):
     weapons = weapons or impacts
     expected = Hud.H(candidate)
     assert check(rom)['ROM_sha256'] == expected
@@ -251,9 +288,14 @@ def verified_run(script, rom, candidate, identity, *, weapons=False, impacts=Fal
     if not result['passed']:
         print('FAILED ' + json.dumps(receipt), flush=True)
     assert result['passed'] and result['outputs_written'] == 0 and not result['images']
-    assert receipt['updates_after_pickups'] == 25 and receipt['terminal']['lives'] == 3
-    assert [item['kind'] for item in receipt['earned']] == [0, 3, 1, 2]
-    assert receipt['terminal']['power'] == 2 and receipt['terminal']['star'] > 0
+    assert receipt['updates_after_pickups'] == 25
+    if pistol:
+        assert not receipt['earned'] and receipt['terminal']['lives'] == 2
+        assert receipt['terminal']['power'] == 0 and receipt['terminal']['star'] == 0
+    else:
+        assert receipt['terminal']['lives'] == 3 and receipt['terminal']['power'] == 2
+        assert [item['kind'] for item in receipt['earned']] == [0, 3, 1, 2]
+        assert receipt['terminal']['star'] > 0
     assert check(rom)['ROM_sha256'] == expected
     weapon_report = {'weapons': receipt['weapon_shots']} if weapons else {}
     if impacts:
@@ -263,6 +305,8 @@ def verified_run(script, rom, candidate, identity, *, weapons=False, impacts=Fal
             assert row['contacts'] == row['defeats'] == row['source_actions'] == row['Main_returned']
             assert row['unreturned'] == 0
         weapon_report['impacts'] = rows
+    if beans_ground:
+        weapon_report['ground_weapons'] = receipt['ground_weapons']
     print('NATIVE EARNED ' + json.dumps(dict(identity=identity, ROM=expected,
         location='downloads' if rom == Hud.ROM else 'private', script=result['script_SHA256'],
         receipt=result['receipt_SHA256'], earned=receipt['earned'], terminal=receipt['terminal'],
@@ -270,14 +314,29 @@ def verified_run(script, rom, candidate, identity, *, weapons=False, impacts=Fal
     if weapons:
         shots = receipt['weapon_shots']
         expected_kinds = WEAPON_KINDS[Frozen.IDENTITIES[identity][1]]
-        assert set(shots) == {'0', '1', '2'}, ('Actual firing coverage by tier', shots)
-        assert [shots[str(i)]['kind'] for i in range(3)] == list(expected_kinds)
+        tier_count = 1 if pistol else 3
+        assert set(shots) == {str(i) for i in range(tier_count)}, ('Actual firing coverage by tier', shots)
+        assert [shots[str(i)]['kind'] for i in range(tier_count)] == list(expected_kinds[:tier_count])
+    if beans_ground:
+        planted = receipt['ground_weapons']
+        assert set(planted) == {'1', '2'}, ('Actual grounded placement and retention by tier', planted)
+        assert [planted[str(i)]['kind'] for i in (1, 2)] == list(expected_kinds[1:])
+        assert all(receipt['weapon_impacts'][str(i)]['defeats'] > 0 for i in (1, 2)), 'Both earned placements must hit real enemies'
+    return result['receipt_SHA256']
 
 
-def main(identity, install, weapons=False, impacts=False):
+def main(identity, install, weapons=False, impacts=False, pistol=False, beans_ground=False):
+    assert not pistol or not install
+    assert not beans_ground or (identity == 'beans' and impacts and not pistol)
     before = check(Hud.ROM)
     installed = Hud.ROM.read_bytes()
-    parent = comparison_base(installed)
+    base = installed
+    if beans_ground:
+        import repair_contra_force_beans_ground_1122 as Beans
+
+        if Hud.H(base) == Beans.CANDIDATE:
+            base = Beans.inverse(base)
+    parent = comparison_base(base)
     target, script = OUT / 'candidate.nes', OUT / 'controller.lua'
     assert {entry.name for entry in OUT.iterdir()} == {target.name, script.name}
     assert target.read_bytes() == installed
@@ -286,22 +345,29 @@ def main(identity, install, weapons=False, impacts=False):
     require_free_workspace(Hud.R, Hud.ROM, allow_interactive=True)
     _, candidate, _, _ = compose(parent, repair_pickup=True)
     assert comparison_base(candidate) == parent
-    text = controller(parent, candidate, identity, weapons=weapons, impacts=impacts)
+    if beans_ground:
+        candidate = Beans.compose(candidate)
+    text = controller(parent, candidate, identity, weapons=weapons, impacts=impacts,
+                      pistol=pistol, beans_ground=beans_ground)
     old_script = script.read_bytes()
     try:
         script.write_bytes(text.encode())
         if installed == candidate:
-            verified_run(script, Hud.ROM, candidate, identity, weapons=weapons, impacts=impacts)
+            verified_run(script, Hud.ROM, candidate, identity, weapons=weapons, impacts=impacts,
+                         pistol=pistol, beans_ground=beans_ground)
         else:
             target.write_bytes(candidate)
-            verified_run(script, target, candidate, identity, weapons=weapons, impacts=impacts)
+            private_receipt = verified_run(script, target, candidate, identity, weapons=weapons,
+                                           impacts=impacts, pistol=pistol, beans_ground=beans_ground)
         assert check(Hud.ROM) == before and Hud.ROM.read_bytes() == installed
         if install and installed != candidate:
             preflight(OUT / 'capture', reserved_files=0)
             require_free_workspace(Hud.R, Hud.ROM, allow_interactive=True)
             try:
                 Hud.ROM.write_bytes(candidate)
-                verified_run(script, Hud.ROM, candidate, identity, weapons=weapons, impacts=impacts)
+                installed_receipt = verified_run(script, Hud.ROM, candidate, identity, weapons=weapons,
+                                                 impacts=impacts, beans_ground=beans_ground)
+                assert installed_receipt == private_receipt, 'Downloads replay must match the private replay'
                 assert Hud.ROM.read_bytes() == candidate
             except BaseException:
                 Hud.ROM.write_bytes(installed)
@@ -322,5 +388,9 @@ if __name__ == '__main__':
     args.add_argument('--install', action='store_true', help='Install only after the private Mesen replay passes.')
     args.add_argument('--weapons', action='store_true', help='Also verify actual projectile births at each weapon tier.')
     args.add_argument('--impacts', action='store_true', help='Also observe real native defeats and source impact actions by earned tier; implies --weapons.')
+    args.add_argument('--opening-pistol', action='store_true', help='Focus on Iron’s first real enemy defeat with the starting pistol; implies --impacts.')
+    args.add_argument('--beans-ground', action='store_true', help='Test the Beans grounded explosive repair; implies --impacts.')
     options = args.parse_args()
-    main(options.identity, options.install, options.weapons, options.impacts)
+    main(options.identity, options.install, options.weapons,
+         options.impacts or options.opening_pistol or options.beans_ground,
+         options.opening_pistol, options.beans_ground)

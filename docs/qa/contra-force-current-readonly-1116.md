@@ -1027,3 +1027,24 @@ and an active Star after 3,721 physical frames. Receipt
 
 Neither check created capture files. In-game appearance, audible playback and
 combat lag still need review for both characters.
+
+### Beans's grounded explosives survive and hit enemies
+
+The source projectile handler retired Beans's grounded mine and bomb when
+their center reached Y200. Both could fire without remaining active long
+enough to hit. The repair lets the original motion run and keeps those two
+grounded placements at Y199, one pixel inside the existing limit. Their
+fuses and the shared projectile cutoff continue to use the original code.
+
+Private Mesen verification on `32eaf178` followed the normal pickup route.
+Beans earned all four pickups and recorded one pistol defeat, two mine
+defeats and two bomb-tier defeats. The first mine hit a Goomba at X695/Y184.
+The first bomb's explosion hit a Goomba at X1507/Y184 after the original fuse.
+The observed mine survived 89 updates at Y199 and the observed bomb survived
+46 updates there before its explosion. The replay finished with three lives,
+tier 2 and the Star active. No capture files were created.
+
+Private receipt after 3,787 physical frames
+`ac6cf29f864dba8fc64852911ea15bca6c367608e91970f439907050e6f5bc87`.
+Controller SHA-256
+`234a6d8e1024e504bca411ce9a680ffcbe54e8ad046991b2822e107aa16449e6`.
