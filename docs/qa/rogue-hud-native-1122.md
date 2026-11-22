@@ -25,8 +25,8 @@ The Downloads sidecar checks passed before and after installation, and the
 Downloads replay matched the private HUD and Bomb receipt exactly. The run
 reused the existing two-file test slot and created zero capture files.
 
-Missile and Bomb impacts on enemies and breakable bricks remain to be tested,
-along with the remaining upgrades and the full sound and performance review.
+The remaining upgrades still need playtests, along with missile impacts and
+the full sound and performance review.
 
 ### Bomb hit on a 1-2 coin block
 
@@ -86,5 +86,18 @@ energy tank, and five missiles through another 25 game updates. Receipt
 Controller SHA-256 is
 `1f8406cf1693e2dac5e7e2108b72090b4bc0ff5d76c266dfb9d1fefc133baa7a`.
 
-Both Wall Jump directions have passed. Missile and Bomb impacts on enemies
-remain open.
+### Bomb damage against a live Goomba
+
+The Mesen replay on installed `32eaf178` earned the Bomb in normal play
+and repeated the coin-block check. A first approach jumped over the
+Goomba's floor pocket. The passing run landed on the step at X433/Y129
+and rolled into the pocket to plant a Bomb.
+
+The explosion at X466/Y199 struck the Goomba at X467/Y184. The enemy's
+health went from two to one and it flashed on contact. Rogue Dawn
+retreated, the Bomb expired, and 26 further movement updates passed
+with the same health, two lives, one tank and five missiles.
+The replay created no capture files.
+
+- Receipt `4424558cb7423761d9b00fc9fa8beddd46f58862ed9dc780d16d2238ae227ce7`
+- Controller `de6461b64045d59eb1d525f83d788d7144e9ed6db82a684060a281fd417e58a9`
