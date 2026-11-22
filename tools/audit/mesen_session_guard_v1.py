@@ -3,6 +3,7 @@ from pathlib import Path
 import json
 import re
 import subprocess
+import time
 
 
 def workspace_sessions(records, workspace, rom):
@@ -27,9 +28,16 @@ def interactive_session(record, workspace, rom):
 def require_free_workspace(workspace, rom, *, allow_interactive=False):
     command = ('Get-CimInstance Win32_Process -Filter "Name like \'%Mesen%\'" '
                '| Select-Object ProcessId,Name,CommandLine | ConvertTo-Json -Compress')
-    output = subprocess.run(['powershell', '-NoProfile', '-Command', command],
-                            capture_output=True, text=True, check=True).stdout.strip()
-    records = json.loads(output) if output else []
+    for attempt in range(3):
+        try:
+            output = subprocess.run(['powershell', '-NoProfile', '-Command', command],
+                                    capture_output=True, text=True, check=True, timeout=12).stdout.strip()
+            records = json.loads(output) if output else []
+            break
+        except (subprocess.CalledProcessError, subprocess.TimeoutExpired, json.JSONDecodeError):
+            if attempt == 2:
+                raise
+            time.sleep(0.25 * (attempt + 1))
     if isinstance(records, dict):
         records = [records]
     active = workspace_sessions(records, workspace, rom)

@@ -33,6 +33,8 @@ SERVICE_BANK = 0xDF0B
 PUBLIC_FAILURE = 0xBEE8
 DEATH_BRANCHES = (0xBE9E, 0xBEAE, 0xBEC8)
 DEATH_TABLE_BYTES = (0xBF51, 0xBF75)
+MATURITY_HANDLER = 0xDF40
+MATURITY_TABLE_BYTES = (0xBF60, 0xBF84)
 
 
 def proposed_window(raw):
@@ -384,7 +386,7 @@ def route_death(payload):
         payload[at] = replace
 
 
-def candidate_image(parent, *, repair_death=False):
+def candidate_image(parent, *, repair_death=False, repair_pickup=False):
     image = bytearray(Layout.fixed_layout(parent, via_farcall=True))
     address = offset(126, Layout.SLOT)
     assert image[address:address + 2] == bytes.fromhex('a9f2')
@@ -416,10 +418,31 @@ def candidate_image(parent, *, repair_death=False):
                                     '9d0401bd02019d0301bd01019d0201e89a68a868aa682860')
     assert image[return_at:return_at + len(original_return)] == original_return
     image[return_at:return_at + len(original_return)] = return_code()
-    if repair_death:
+    if repair_death or repair_pickup:
         start = payload_at + 8192
         payload = bytearray(image[start:start + 8192])
-        route_death(payload)
+        if repair_death:
+            route_death(payload)
+        if repair_pickup:
+            # Object drawing asks service 23 whether native contact can run.
+            # Carry reports the live actor's maturity bit, while the incoming
+            # accumulator and both indices survive the callback.
+            at = MATURITY_HANDLER & 8191
+            gate = assemble(MATURITY_HANDLER, '''
+                PHA
+                LDA $1F,X
+                ASL A
+                PLA
+                RTS
+            ''')
+            assert at + len(gate) <= RETURN_END & 8191
+            assert payload[at:at + len(gate)] == b'\xff' * len(gate)
+            payload[at:at + len(gate)] = gate
+            for pc, old, value in zip(MATURITY_TABLE_BYTES, (0xFE, 0xB8),
+                                      MATURITY_HANDLER.to_bytes(2, 'little'), strict=True):
+                at = pc & 8191
+                assert payload[at] == old
+                payload[at] = value
         image[start:start + 8192] = payload
     digest = Hud.H(image[payload_at:payload_at + 24 * 1024])
     cookie = bytes.fromhex('a71f0005') + bytes.fromhex(digest)[:12]
@@ -462,6 +485,25 @@ def check_death_routes(parent):
                     rows.append((registers(cpu), mem[0x7DA1], mem[0x5116]))
                 assert rows == [((93, 63, 23, flags & 0xFE, stack + 7), shadow, shadow)] * 2
     return dict(SHA256=Hud.H(raw), service_banks=36, paired_rejected_returns=30)
+
+
+def check_pickup_route(parent):
+    raw, _, _ = candidate_image(parent, repair_death=True, repair_pickup=True)
+    start = Layout.Current.P.CHR + 943 * 1024
+    mem = bytearray(65536)
+    mem[0xC000:0xE000] = raw[start:start + 8192]
+    cpu = MPU(memory=mem)
+    for slot in range(6):
+        for state in range(256):
+            mem[0x1F + slot] = state
+            mem[0x1E1:0x1E3] = bytes.fromhex('0f5b')
+            cpu.pc, cpu.sp, cpu.a, cpu.x, cpu.y, cpu.p = MATURITY_HANDLER, 0xE0, 47, slot, 62, 0x31
+            cpu.processorCycles = 0
+            while cpu.pc != 0x5B10:
+                assert cpu.processorCycles < 35 and mem[cpu.pc], hex(cpu.pc)
+                cpu.step()
+            assert registers(cpu) == (47, slot, 62, 0x30 | (state >> 7), 0xE2)
+    return dict(SHA256=Hud.H(raw), actors=6, states_each=256)
 
 
 def normalize_payload(comparable, reference):
@@ -711,6 +753,7 @@ if __name__ == '__main__':
     parser.add_argument('--cold', nargs='+', choices=('Burns', 'Smith', 'Iron', 'Beans', 'Mario'))
     parser.add_argument('--interrupts', action='store_true', help='Exercise the real handlers after Burns boots.')
     parser.add_argument('--check-death-router', action='store_true')
+    parser.add_argument('--check-pickup-router', action='store_true')
     args = parser.parse_args()
     if args.interrupts and 'Burns' not in (args.cold or []):
         parser.error('--interrupts requires --cold Burns')
@@ -718,6 +761,8 @@ if __name__ == '__main__':
     print(json.dumps(dict(check(parent), return_checks=check_return()), sort_keys=True), flush=True)
     if args.check_death_router:
         print('DEATH ROUTER ' + json.dumps(check_death_routes(parent)), flush=True)
+    if args.check_pickup_router:
+        print('PICKUP ROUTER ' + json.dumps(check_pickup_route(parent)), flush=True)
     if args.warm:
         warm_candidate(parent)
     if args.cold:

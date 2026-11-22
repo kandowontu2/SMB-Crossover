@@ -5,7 +5,7 @@ import json
 import re
 
 from capture_budget import preflight
-import check_contra_force_fast_ingress_1122 as Fast
+from check_contra_force_combined_palette_1122 import compose
 import compose_rogue_hud_scene_dirty_cb95_1116 as Hud
 import current_contra_force_readonly_9826_1116 as Current
 from mesen_session_guard_v1 import require_free_workspace
@@ -20,7 +20,7 @@ ROSTER = ('burns', 'smith', 'iron', 'beans')
 
 def bind(raw, *, parent=None):
     if parent is not None:
-        assert raw == Fast.candidate_image(parent, repair_death=True)[0]
+        assert raw == compose(parent, repair_pickup=True)[1]
     q = Current.bindings(Hud.inverse(parent if parent is not None else raw))
     b = q['bundle']
     body = Replay.body()
@@ -59,12 +59,15 @@ def bind(raw, *, parent=None):
 
 
 def controller(config, body, variant):
-    choice = dict(config, slot=30, key=ROSTER[variant], variant=variant, cycle=variant)
+    cookie = config['cf']['cookie'].copy()
+    cookie[2] = variant
+    private = dict(config['cf'], cookie=cookie)
+    choice = dict(config, slot=30, key=ROSTER[variant], variant=variant, cycle=variant, cf=private)
     return 'local C=' + Replay.Clock.Frozen.lua(choice) + '\n' + body
 
 
 def bindings_only(parent):
-    candidate, _, _ = Fast.candidate_image(parent, repair_death=True)
+    _, candidate, _, _ = compose(parent, repair_pickup=True)
     for image, control in ((parent, None), (candidate, parent)):
         config, body = bind(image, parent=control)
         compiled = {}
@@ -87,7 +90,7 @@ def main(*, compare=False):
     require_free_workspace(Hud.R, Hud.ROM, allow_interactive=True)
     jobs = [('BASELINE', Hud.ROM, raw, bind(raw))]
     if compare:
-        optimized, _, _ = Fast.candidate_image(raw, repair_death=True)
+        _, optimized, _, _ = compose(raw, repair_pickup=True)
         jobs.append(('OPTIMIZED', target, optimized, bind(optimized, parent=raw)))
     script = OUT / 'controller.lua'
     original = script.read_bytes()

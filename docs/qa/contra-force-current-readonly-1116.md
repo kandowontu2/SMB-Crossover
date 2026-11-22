@@ -808,3 +808,122 @@ characters. `--compare` reached the existing free-space preflight, which
 stopped the run before Mesen started or either shared test file was changed.
 The installed `79fd089f` passed the sidecar patch guard. Approximately 7.8 GB
 was free on C: at the check, against the 25 GB floor plus reservation.
+
+### Palette work on the repaired dispatcher
+
+The [paired palette test](../../tools/audit/check_contra_force_combined_palette_1122.py)
+rebuilt the existing palette work optimization from its pinned source and
+verified its five code preimages against the repaired dispatcher. The code
+spans are disjoint. The test computes the combined payload digest for both
+loader cookie locations and verifies that the normal loader installs all
+five spans on a cold start for each class.
+
+| Character | Additional cycles saved per idle or walking update | Source projectile updates in crouch-fire sample |
+| --- | ---: | ---: |
+| Burns | 3,966 | 20 |
+| Smith | 3,990 | 20 |
+| Iron | 3,954 | 20 |
+| Beans | 3,930 | 20 |
+
+All four passed eight idle, eight walking and 26 crouch-fire updates with
+matching compared gameplay, OAM, mapper and video state. The comparison
+accounts for the five code spans, the loader cookie and the palette work
+bit. Baseline for these measurements is the death-repaired `34fad874`.
+The combined candidate is
+`f22f34ee4d87220b695f7bf0794fd28e7c2123da220ea58ba945ff907a5b3f85`.
+Full-stage and Mesen cadence checks remain open for this composition.
+
+### Earned pickup collision
+
+Both `79fd089f` and `34fad874` produced a real mushroom after Burns bumped
+the first 1-1 block at X336/Y144. The actor was born at X336/Y136 and matured
+at X336/Y119. It rolled off the ledge, fell, bounced off the next pipe and
+passed Burns during a stationary intercept at X410 without credit.
+
+In both earlier ROMs, the Contra Force maturity query uses the same
+`CLC; RTS` stub as the old death update. `PowerUpObjHandler` tests that carry
+and skips the ordinary contact test. The proposed maturity gate returns
+bit 7 of the actual actor's state in carry and preserves A, X and Y. Detached
+tests passed all 256 states on each of the six actor slots. The pickup
+repair candidate is
+`147607f744d710008b0db89f0d47bb927e4e08268c6833daa912457bf96c382f`.
+
+Burns collected all four earned items in a single cold-start replay on this
+candidate. The mushroom and flower advanced weapon gear from `$10` to `$11`
+to `$12`. The 1-UP awarded the extra life through the ordinary popup timer.
+The Star set the usual protection timer and area music and kept gear `$12`.
+All four collectors erased the live item and requested the pickup sound.
+Burns retained three lives, tier 2 and the active Star for 25 further updates.
+
+| Item | Real block X/Y | Collection update |
+| --- | --- | ---: |
+| Mushroom | 336/144 | 411 |
+| Hidden 1-UP | 1024/128 | 1048 |
+| Flower | 1248/144 | 1361 |
+| Star | 1616/144 | 1839 |
+
+The installed control remained at weapon tier 0 under those same inputs.
+The comparison matched through the first 333 updates, before the mushroom
+became collectible. The maturity fix intentionally changes contact from
+that point.
+
+The fully combined candidate
+`a6d91e368657a0ee1458391542e98adafcec45991ebecbe4521a648513cfa4df`
+passed the same four-class cold-start, idle, walking and crouch-fire
+comparisons against the pickup-repaired image. The additional cycle savings
+were unchanged. The Mesen comparison runner now binds this exact candidate
+and compiled the same timing observer body for both ROMs and all four classes.
+
+### Mesen cadence on the combined build
+
+With capture storage available, all four classes passed matched Mesen runs
+on the installed `79fd089f` and the private `a6d91e36`. The observer uses the
+same body for both ROMs and binds the class-specific loader cookie. The
+sample opens after a normal start, with no actors, shots or cheats active.
+It runs 48 completed updates without input and 16 with Right held.
+
+| Measurement | Original | Combined |
+| --- | ---: | ---: |
+| Frames for 48 idle updates | 96 | 72 |
+| Frames for 16 walking updates | 32 | 24 |
+| Skipped NMIs during idle | 72 | 48 |
+| Skipped NMIs during walking | 24 | 16 |
+
+All four reported the same counts, equivalent to about 30 versus 40 game
+updates per second at the measured NTSC cadence. The input read totals and
+completed movement calls agreed. No capture files were generated and the
+runner restored the shared private slot after the comparison.
+
+| Character | Original receipt SHA-256 | Combined receipt SHA-256 |
+| --- | --- | --- |
+| Burns | `34c0a41d3813ffe6540e23254a0b89f0996f5a3790b6c37fd0117fc802abaae0` | `1fbbb6ef465c821ba66b6664fda6bc29da4d1c6c1f4879999f0333c7cb75b292` |
+| Smith | `8244f7038b5513f94f3925484a1e6878fb61a223a1a5dcd0be5d238710646034` | `f7fedc0e3c0b896df40bfeb762bc2f68efacb134452cf305e904e719447d1e45` |
+| Iron | `d003cdbc608f6cc71437b4e55476c0986836fd3f66ea427b998831ececb5900b` | `25d41a517adfd1ec201db0c9892c22f2f9718f22f520cb78608cb02f26c41f66` |
+| Beans | `858f92ef3e921bbf5783b3916cab3a03becc49a3b0938c8dfc32f731c930b39d` | `5414a7218ccc79859f994ae782ce6ed82d85b655488c65f4dc94c27f87504c50` |
+
+### Earned pickups in the Downloads nightly
+
+Burns earned all four items in a single 1-1 run in Mesen. The private
+candidate and the Downloads launch produced the same receipt
+`a6c481c6e3697a20770aee910c6076907b1e9b4be125adb2381bd5e25ec37840`.
+The controller test did not inject items or change game state.
+
+| Item | Collection update | Confirmed effect |
+| --- | ---: | --- |
+| Mushroom | 746 | Weapon tier 1 |
+| Hidden 1-UP | 1,415 | Three lives |
+| Flower | 1,728 | Weapon tier 2 |
+| Star | 2,222 | Active protection with tier 2 retained |
+
+The replay ended 25 game updates after the Star pickup, with three lives,
+weapon tier 2 and the Star still active. The nightly at
+`C:/Users/kando/Downloads/SMB-Crossover-Latest-WIP-MMC5.nes` was replaced
+directly with the exact `a6d91e36` bytes. The patch guard found no matching
+sidecar patches. The run made no captures or backup ROM copies.
+
+Smith and Iron also earned all four pickups in paired CPU replays against
+the pickup-only build. Their full comparisons matched for 2,029 and 2,377
+updates. Beans earned the mushroom, 1-UP and flower in the paired replay.
+Both builds reached the same death at X1597 before Beans could hit the
+Star block. Beans still needs a Star route, and Smith, Iron and Beans still
+need the pickup checks in Mesen.
