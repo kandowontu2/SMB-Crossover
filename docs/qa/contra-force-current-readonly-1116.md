@@ -1048,3 +1048,9 @@ Private receipt after 3,787 physical frames
 `ac6cf29f864dba8fc64852911ea15bca6c367608e91970f439907050e6f5bc87`.
 Controller SHA-256
 `234a6d8e1024e504bca411ce9a680ffcbe54e8ad046991b2822e107aa16449e6`.
+
+The Downloads nightly was replaced directly with
+`32eaf1786695d7ac1e69eb4957cc76dee011664e642710d02acc7ae624ca3ad1`.
+The installed Mesen run returned the same complete receipt as the private
+run. The installed ROM and the shared candidate match byte for byte, and the
+automatic patch guard found no matching patch before or after delivery.
