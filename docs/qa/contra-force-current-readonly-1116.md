@@ -639,3 +639,99 @@ as a scope witness. A failed call can use their stack slots for ordinary
 data. The wrapper also needs an explicit way to survive and restore the
 native graphics work that borrows C. Space for the native check, its scope
 marker, and the fallback return contract remains open.
+
+## Compact worker and native entry checks
+
+The [worker check](../../tools/audit/check_contra_force_fast_worker_1122.py)
+assembled the compact 55-byte dispatcher, verified all 36 legal service
+offsets in both palette states and rejected all 440 invalid combinations.
+It executed 28 requests taken from the original Burns idle and walking
+updates through both the real old router and the new worker. Both sides
+returned to their actual outer farcall callers. The paired registers, real
+leaf entry arguments, gameplay RAM and video state agreed. The fixture
+supplied the old C mapping in an enclosing stack slot and closed only the
+individual service call.
+
+Each set of 14 service calls took 18,538 fewer cycles before the native
+admission and mapping overhead. A whole Main model runs the same fast code
+with the entry and C mapping supplied by the harness. It preserves the
+observed final RAM and video state, with these cycle counts:
+
+| Burns, empty area | Original | Fast path with supplied entry |
+| --- | ---: | ---: |
+| Idle | 56,256 | 37,718 |
+| Walk | 57,122 | 38,584 |
+
+The three differing parameter bytes `$0162`, `$016C`, and `$016D` were
+overwritten before their next read after all 28 original service returns.
+An earlier comparison stopped inside SafeFarCall, before its final `LDA`
+derived N/Z from returned A. The retained comparison includes that epilogue.
+
+The [native entry check](../../tools/audit/check_contra_force_fast_ingress_1122.py)
+fits the 15-byte gate without extending bank 87's 224-byte window. Its
+isolated cases cover 36 fast, 324 slow and 432 unselected entries with the
+scope marker supplied explicitly. Bank 69 fits its full existing header
+check, inline mode-tree fallback and bank restoration in the 185-byte
+window. It passed all four valid class headers, 64 corrupted headers and 12
+foreign cases. The assembled 79-byte RAM2 tail has the wrapper at `$BF94`,
+the worker at `$BFA9` and its C2 entry at `$DFA9`.
+
+### Assembled entry during warm play
+
+The assembled candidate `0d79ffc3` ran with its own admission, C-bank
+mapping, service worker and scope restoration. With the exact loader tail
+and cookie loaded into the warm Burns model, it passed paired empty-area
+updates with the original gameplay RAM, mapper and video state. The
+comparison accounts for the declared RAM2 code and cookie bytes.
+
+| Burns, empty area | Original | Assembled candidate | Cycles saved |
+| --- | ---: | ---: | ---: |
+| Idle | 56,256 | 42,505 | 13,751 |
+| Walk | 57,122 | 43,371 | 13,751 |
+
+Each update admitted the scope once, ran 11 of 14 services on the fast path
+and restored the original caller before returning. The other three services
+used the full router. These measurements cover one warm update per input.
+Candidate SHA-256 is
+`0d79ffc3b4edc142066624e712616eed49f64ab87e7428ce7816a8ffc5169dd8`.
+
+### Cold boot and pause with mapper restoration
+
+The first cold run exposed a C-map mismatch at 1-1 entry. The original
+mode tree published `$D0` while the first wrapper restored its entry map
+`$8C`. The revised wrapper preserves a native C-map publication and restores
+its saved map when the scoped RAM2 mapping is still active. The normal
+public service return still restores its own incoming map. The shared return
+saves A, X and P and leaves Y untouched, freeing the required space inside
+the existing return routine. The alternate tail at `$DDB9..$DDD0` is live
+palette attribute storage and is unchanged.
+
+The revised candidate `add288c3` passed 240 detached AXYP, stack and mapper
+checks. Burns, Smith, Iron, Beans and Mario started through the compiled
+menu in paired CPU models with unloaded RAM2. All five reached active 1-1
+in 167 updates with matching position, lives, power, mode and frame count
+throughout startup. At entry and after each subsequent idle, walking,
+pause and paused update, the compared gameplay RAM, mapper and video
+state agreed. The four Contra Force classes loaded their own cookie and
+the new payload through the original loader. Mario used the fallback.
+
+| Character | Idle, original → candidate | Walk, original → candidate |
+| --- | ---: | ---: |
+| Burns | 57,063 → 43,185 | 57,616 → 43,738 |
+| Smith | 57,416 → 43,538 | 57,968 → 44,090 |
+| Iron | 56,892 → 43,014 | 57,445 → 43,567 |
+| Beans | 56,537 → 42,659 | 57,100 → 43,222 |
+| Mario | 17,890 → 17,971 | 18,008 → 18,089 |
+
+The four Contra Force classes each saved 13,878 cycles in the sampled idle
+and walking updates. The shared wrapper added 81 cycles to Mario's sampled
+active updates. Service 29 ran before the mode-tree admission. Services 2
+and 6 used the ordinary router after the native drawing code published `$D0`.
+An optimization of those two services must restore the native map before
+the following actor and palette work.
+
+The repaired candidate SHA-256 is
+`add288c383c1c20a435c8e3accb23c798e90ea96b1986d2d573aaf63919b79ad`.
+The Downloads nightly remains `79fd089f`. These CPU-model measurements
+cover the recorded startup and input windows. IRQ and busy NMI during the
+new scope, later transitions and Mesen cadence remain open.
