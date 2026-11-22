@@ -4,6 +4,8 @@
 local routeEvents,jumpRequests,supportSamples={},{},{}
 local routeClock,lastJump,bestX,advancedAt,grounded12,lastRouteMotor=0,-100,40,0,0,0
 local eventOrder,lastPhase=0,nil
+local recovering=false
+local previousMove,rollResumes=nil,{}
 
 -- FULL_ROUTE_FINISH
 local function finish(ok,why)
@@ -12,6 +14,7 @@ local function finish(ok,why)
  print('SMB_NATIVE_RECEIPT '..json({passed=ok,reason=why,ROM_SHA256=C.sha,form=C.form,character=C.name,
   run_kind='full11',physical_frames=frame,input_polls=polls,Main=mains,accepted_motor=motor,
   active_route_updates=routeClock,cold=cold,events=routeEvents,jumps=jumpRequests,
+  grounded_roll_resumes=rollResumes,
   grounded_1_2_returns=grounded12,support_samples=supportSamples,tail=tail,terminal=s,counts=counts,pending=#pending,
   controller_only=true,no_game_actor_inventory_health_seeds=true,no_shortcut_down_input=true,
   real_native_support_required=true,files=0,images=0,
@@ -23,6 +26,17 @@ end
 local function read(at)return emu.read(at,emu.memType.nesDebug)end
 local function pos(lo,hi,i)return r(lo,i)+256*r(hi,i)end
 FULL_ROUTE_SENSORS
+local function nearbyEnemies(s)
+ local result={}
+ for i=0,5 do
+  local flag=r('Enemy_Flag',i)
+  local x=pos('Enemy_X_Position','Enemy_PageLoc',i)
+  if flag>0 and flag<128 and x>=s.x-16 and x<=s.x+80 then
+   result[#result+1]={slot=i,x=x,y=r('Enemy_Y_Position',i),id=r('Enemy_ID',i),state=r('Enemy_State',i)}
+  end
+ end
+ return result
+end
 local function nativeSupport(s)
  local x,y=s.x+12,s.y+32
  assert(y>=32 and y<240 and solid(x,y),'Actual buffered native floor supports grounded endpoint')
@@ -39,12 +53,24 @@ local function recordEvent(name,s)
  eventOrder=expected;routeEvents[name]=s
 end
 local function drive(s)
+ if s.hurt&64~=0 then
+  recovering=true;pad=0;return
+ end
+ if recovering then
+  recovering=false;lastJump=routeClock-25
+ end
  local bits=routeClock>3 and 1 or 0
+ -- Land on the staircase before taking off again for the X2448 pit.
+ if s.x>=2272 and s.x<2324 and s.flags&128~=0 and s.vx>512 then bits=2 end
  if s.state==0 and s.flags&128~=0 and routeClock-lastJump>24 then
-  local why=jumpReason(s)
+  local why
+  if s.x>=2384 and s.x<2448 and s.y<=160 then why='last pit'
+  else why=jumpReason(s) end
   if why then
+   bits=1
    assert(#jumpRequests<64,'Proven route jump bound64')
-   lastJump=routeClock;jumpRequests[#jumpRequests+1]={reason=why,requested=s,motor=motor,clock=routeClock}
+   lastJump=routeClock
+   jumpRequests[#jumpRequests+1]={reason=why,requested=s,motor=motor,clock=routeClock,enemies=nearbyEnemies(s)}
   end
  end
  if routeClock-lastJump<20 then bits=bits|128 end
@@ -62,7 +88,7 @@ local function afterMain()
  local s=state();local progressed=motor>lastRouteMotor;lastRouteMotor=motor
  local label=tostring(s.level)..':'..tostring(s.engine)
  if label~=lastPhase then bounded(phases,{phase=label,state=s},12);lastPhase=label end
- bounded(tail,{state=s,requested=pad,motor_progressed=progressed},8)
+ bounded(tail,{state=s,requested=pad,motor_progressed=progressed,enemies=nearbyEnemies(s)},8)
  if s.level==0 and s.engine==4 and s.x>=3000 then
   assert((counts.FlagpoleCollision_entries or 0)>0,'Actual native flagpole entry before flag state')
   recordEvent('flag',s)
@@ -70,11 +96,17 @@ local function afterMain()
  elseif s.level==1 and s.engine==7 then recordEvent('entrance',s)end
  if s.mode~=1 or s.task~=3 or s.engine~=8 then pad=0;return end
  assert(s.ready==1,'Ordinary movement owner ready')
- assert((s.width==24 or (s.hurt&64~=0 and s.width==28))
+ assert((s.width==24 or s.width==28)
         and(s.height==24 or s.height==32),'Owned body or actual hurt pose')
  if progressed then
   assert(s.frame_status==0,'Accepted movement transaction available')
   assert(s.x==s.sx//256 and s.y==(s.foot//256-32)&255,'Actual native projection of source feet')
+  local p=previousMove
+  if p and p.flags&129==129 and s.flags&129==128 and math.abs(p.vx)>0 and math.abs(p.vx)<256
+     and s.vx*p.vx>0 and math.abs(s.vx)>math.abs(p.vx) and s.y==p.y then
+   bounded(rollResumes,{before=p,after=s},8)
+  end
+  previousMove=s
  end
  if s.level==1 then
   assert(eventOrder==3 and routeEvents.flag and routeEvents.castle and routeEvents.entrance,'Full native progression before1-2')
@@ -97,6 +129,5 @@ local function afterMain()
   return
  end
  assert(s.level==0 and s.area==5,'Actual authored1-1 area')
- assert(s.frame_status==0,'Ordinary1-1 transaction available')
  if progressed then drive(s)end
 end

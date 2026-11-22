@@ -16,10 +16,12 @@ import re
 
 import run_sonic_original_motion_smoke_1122 as Smoke
 import compose_sonic_roll_wall_restart_1122 as Wall
+import compose_sonic_slow_roll_1122 as Slow
 
 R,ROM,SHARED=Smoke.R,Smoke.Motion.ROM,Smoke.SHARED
 PIN='3466637dc3e75d7768eb6ba3c49af03e548e24a44a027394e3934b22579605cf'
 WALL_PIN='8f8d4a13507799fff9de2351b4b1da59d7f0d3bd0eb0675c476d061d7e8c98bc'
+SLOW_PIN='fe58e7d9f498ebc2a863027eaf71916574de206d414f4659e661708826c7c77d'
 BASE='32eaf1786695d7ac1e69eb4957cc76dee011664e642710d02acc7ae624ca3ad1'
 SMOKE_RUNNER_SHA='d5e2acc8e74e25d5f8daa0d4087f1307daaf400687583e8d816646b2ed2624f8'
 SMOKE_LUA_SHA='80a278b2288f5a089f94d5ff193823a754384c1cfe015921f8fb983cc1184389'
@@ -35,12 +37,16 @@ def H(data): return sha256(data).hexdigest()
 def strict(parent,candidate):
     assert H(Path(Smoke.__file__).read_bytes())==SMOKE_RUNNER_SHA
     assert H(Smoke.LUA.read_bytes())==SMOKE_LUA_SHA
-    assert H(parent)==BASE and H(candidate) in (PIN,WALL_PIN),'Exact installed Beans32 and reviewed Sonic candidate'
+    digest=H(candidate)
+    assert H(parent)==BASE and digest in (PIN,WALL_PIN,SLOW_PIN),'Exact installed Beans32 and reviewed Sonic candidate'
     expected,receipt=Smoke.proposal(parent)
     assert receipt['declared_spans_disjoint'] and receipt['Beans_preserved']
-    if H(candidate)==WALL_PIN:
+    if digest in (WALL_PIN,SLOW_PIN):
         expected,wall=Wall.proposal(parent,expected)
         receipt=dict(receipt,wall_recovery=wall,cookie=wall['cookie'],candidate_SHA256=WALL_PIN)
+    if digest==SLOW_PIN:
+        expected,slow=Slow.proposal(expected)
+        receipt=dict(receipt,slow_roll=slow,cookie=slow['cookie'],candidate_SHA256=SLOW_PIN)
     assert candidate==expected
     return receipt
 
@@ -65,6 +71,10 @@ def bindings(parent,candidate,form):
     for name,pc,tag,size in (('MetaFeet',0xbfd2,3,14),('SceneFeet',0xd2e9,2,12),('MetaDeath',0xd0ec,2,16)):
         code=kernel[pc-0xa000:pc-0xa000+size] if tag==3 else Smoke.Motion.page(candidate,328)[pc-0xd000:pc-0xd000+size]
         q['hooks'][name]=dict(pc=pc,tag=tag,offset=tag*8192+(pc&8191),hex=code.hex())
+    if 'slow_roll' in composition:
+        pc=Slow.RESUME_PC
+        code=Smoke.Motion.page(candidate,Slow.RESUME_PAGE)[pc-0xd800:pc-0xd800+16]
+        q['hooks']['ResumeRunning']=dict(pc=pc,tag=2,offset=2*8192+(pc&8191),hex=code.hex())
     q.update(run_kind='full11',fatal={'KillPlayer':True,'MetaDeath':True},
              proven_sensor_source_SHA256=STAGE_SHA)
     return q
@@ -174,12 +184,15 @@ def main():
     parser.add_argument('--run',action='store_true')
     parser.add_argument('--validate',action='store_true')
     parser.add_argument('--shared-slot',action='store_true')
-    parser.add_argument('--wall-restart',action='store_true',help='Test directional recovery after an airborne roll hits a wall')
+    motion=parser.add_mutually_exclusive_group()
+    motion.add_argument('--wall-restart',action='store_true',help='Test directional recovery after an airborne roll hits a wall')
+    motion.add_argument('--slow-roll',action='store_true',help='Also test returning to running from a slow grounded roll')
     parser.add_argument('--form',choices=(*FORMS,'both'),default='both')
     args=parser.parse_args();assert not(args.run and args.validate)
     assert not args.shared_slot or args.run
     parent=ROM.read_bytes();candidate,_=Smoke.proposal(parent)
-    if args.wall_restart:candidate=Wall.proposal(parent,candidate)[0]
+    if args.wall_restart or args.slow_roll:candidate=Wall.proposal(parent,candidate)[0]
+    if args.slow_roll:candidate=Slow.proposal(candidate)[0]
     strict(parent,candidate)
     if not args.run:
         def deny(*a,**kw):raise AssertionError('Full-route source validation attempted output/process')

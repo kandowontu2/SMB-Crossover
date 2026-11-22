@@ -209,3 +209,36 @@ a stopped roll above a real swept pipe shape and confirms motion from each
 side. The 224-update walking comparison, jump, charge, ceiling and rollback
 checks also pass. The scope of this change is the Sonic roll recovery. The
 installed Beans nightly remains the named base for the composed candidate.
+
+The first private Mesen run with the fix cleared the tall pipe and reached
+X1489 alive. It stopped on the replay's body-width assertion during the
+update that ended an ordinary hurt animation. The returned body was still
+28 pixels wide on that update. The replay now accepts both authentic body
+widths and waits for injury input suppression to end before making a new
+jump decision. The pipe-crossing receipt is
+`76c11385354f09416b390f9b0dad118f5de25b8036a779177473128c9ee6e1d1`.
+
+## Return to running after a slow roll
+
+The next Mesen run reached X1605. Sonic stayed curled on the ground while
+Right was held and slowed from 0.53 to 0.27 pixels per update before an
+enemy contact killed him near the Star block. Receipt
+`594505366d15984a746339cd8eac6819475f8e0d84ed67013e3d4e0db21be77c`.
+
+The private `fe58e7d9` candidate restores the normal running controls
+when a grounded roll is slower than one pixel per update and the player
+holds the direction of travel. Down still keeps Sonic curled. The
+CPU checks cover both directions, show the exact same foot position
+through the pose change and confirm acceleration resumes. Faster
+rolls, opposite or neutral input, airborne travel and injury retain
+their previous behavior in the matched controls.
+
+Mesen confirmed seven actual transitions from roll to run in 1-1,
+including X1529 to X1530 near the earlier failure. Sonic reached X2459
+before falling into the final pit at X2448–2479. The replay launched a
+single jump from the flat ground at X2324 and reached the far side below
+its rim. The next route brakes before the staircase and jumps again
+from its raised floor. Receipt
+`a8b34163edf4ba301b323322890fdecab5fbb71b3e4784ffd5c678327ab72a89`.
+This test used a private candidate. The Downloads build still has the
+verified Beans repair.
