@@ -80,7 +80,7 @@ Both ended with two lives. The runs created no captures.
 | Toad (SMB3) | 1,526 | `b8861e5f8a1444424242d2486bbb38749d299a94c06693665d148c89b56d7a72` | `20d84622508433026bc336e6140944952a3a546d8b6f7e6f574ad97be315ef6b` |
 | Peach (SMB3) | 1,484 | `18e7cede829ec2414279356da5c44ba97bf49f302787d43ed8393ea5cef05f01` | `19f336e3978969a434dc7ebfbc7441be2f3ded15359aa8f7ce392b137dc457eb` |
 
-Fire attacks and the other suit-specific moves still need separate playtests.
+Suit acquisition and suit-specific moves are checked separately below.
 
 ## Targeting an authored suit with ordinary controller input
 
@@ -112,3 +112,30 @@ created no captures.
 | Peach | Frog | `$D4` | 107 | 1,549 | `8916cbf8455960b01ac2b0064bf1eaf0b01c5553702e389f5b43a2098c8458b9` |
 | Peach | Tanooki | `$D5` | 53 | 1,550 | `773b7ba76931d9df15e4b7f280830f6a9702bd2a1a49bddab25a128d93654aa6` |
 | Peach | Hammer | `$D6` | 189 | 1,545 | `4d7a8535ccabee5c66dbb72ab15a39a593ea27a028c354f60a6dcf505d12d9c0` |
+
+## Moves with an earned suit
+
+Toad and Peach each collected the five suits from normal 1-1 blocks in
+Downloads nightly `59e1a591`, then used the move for that suit. Fire launched
+and bounced a fireball. Raccoon's tail swipe reached both hit phases and
+expired. Right triggered the Frog suit's land hop. Down+B entered Tanooki's
+stone pose, and releasing the controls completed the exit. Both effects ran
+for 24 updates. The Hammer suit threw a hammer in its native arc.
+
+Each run retained the form and both lives for 25 further movement updates and
+created no captures. Separate CPU fixtures verified fireball and hammer hits
+and a stone contact defeat. Projectile, tail and stone contact in regular
+play, Raccoon flight and Frog swimming still need playtests.
+
+| Character | Suit action | Physical frames | Mesen receipt SHA-256 | Controller SHA-256 |
+| --- | --- | ---: | --- | --- |
+| Toad | Fire | 1,606 | `7a0f8dedb392a4a8cddd2940f75ce0e9a1b77c5a5e60495c7decf46d44f9af13` | `90f5ba5b1b81ae5c4fe09fbdab4f3da77bbcafb466911232cd7923b618d8ba41` |
+| Toad | Tanooki | 1,668 | `93a895cfd093baf2d77b04edf57b495c9ee1fa25ecd2aa1470ca63a1d0659204` | `5401be988ec22124080387d71ed01a52e51b716b6ca64300286ca4168846e1d5` |
+| Peach | Fire | 1,558 | `5e87aa650cc90ed6fd56732dd771c42eb3f320118f1b04c4b53aac0566e79ac4` | `eed7dd8cd6f946f2edca2c4fa89e6bc675cd607fccc8c1cda12882d5bab02afe` |
+| Peach | Tanooki | 1,628 | `db163390d1b7b234d1397a756668a95a47d0b4eed700fe33ef01fea8c530e38d` | `a33ceb67b4de3212c08e3c531f3f2613c12b7c6291eeab7fa7aa014a24ab8bc9` |
+| Toad | Raccoon | 1,631 | `fb0296010e94c220b06b54f91293aa6d8c86d626333f1e6c7f9af1be048bc324` | `894d6e606349fa5acc17b05d490a715346a8a59a30fe639b7017ada8d90f99da` |
+| Toad | Frog | 1,631 | `3bfaf2cda790f06b60dcfd254ad0e78adaa44c7daaff58178a9df0ad62f3abf7` | `72ae7e6ccc2478f779787fffd9bbb2e1c1be67a7d2eeb455d1e25fe45f36e08d` |
+| Toad | Hammer | 1,618 | `acf8a0c7dad79ef3fb2be3ea76daae9ca10ea3be6a48dd5fdec4b01259012bf8` | `32ee98bf041339d59e904c6e4cadefaf192aecac3d0f7c69a9672461781a784d` |
+| Peach | Raccoon | 1,599 | `b33983e90f4adcfb5f1a9281f2d32402d3b23ccee9cb12c1b12317d8198f5854` | `55deedf4f50d6f29d03273a3296e855d43e6c84ad6a0fad4945ce117f0c829fa` |
+| Peach | Frog | 1,587 | `fa8e13404c4c09766c5382c6a21286668a170be0b1bb932258a11691428baed2` | `b260234e5f10a616b94269d6344e499fb981ed98102473d30064a50fc02cbd6e` |
+| Peach | Hammer | 1,572 | `7d78e07ac86323592115da9fd55c7c13f2c3621008049a9698bf394f409c9859` | `0ca39d32c583da065d0ce2f77d094d17ff54c10d2683c59edbd4d6889681d7db` |
