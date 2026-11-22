@@ -25,5 +25,19 @@ The Downloads sidecar checks passed before and after installation, and the
 Downloads replay matched the private HUD and Bomb receipt exactly. The run
 reused the existing two-file test slot and created zero capture files.
 
-Missile and Bomb impacts on enemies and breakable blocks remain to be tested,
+Missile and Bomb impacts on enemies and breakable bricks remain to be tested,
 along with the remaining upgrades and the full sound and performance review.
+
+### Bomb hit on a 1-2 coin block
+
+The [Bomb block replay](../../tools/audit/run_rogue_bomb_block_native_1122.py)
+earned the Bomb through ordinary play on the installed `a6d91e36` nightly.
+Rogue Dawn rolled along the top of the block row and placed a Bomb at
+X186/Y140. Its downward explosion point at X186/Y156 activated the authored
+question block at X176/Y144. The native block state changed from `$C0` to
+`$C4`, the coin count rose from one to two, and the score rose by 20.
+
+The Bomb expired normally. Another 25 gameplay updates passed with the
+same health, energy tank and five missiles. The test used controller input
+and read-only observers and created zero capture files. Receipt
+`6f8ad6f3e869b378c5562ccd4af32cb6cc651992028e9cee9d7cbd2927107d48`.
