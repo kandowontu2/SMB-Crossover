@@ -115,6 +115,26 @@ local function decide(c,ordinary)
  end
  if clock-routeAt>1500 then fail('Finite '..target.kind..' route bound',c)end
  if target.kind=='flower'and power==0 then fail('Lost the earned parka before Flower',c)end
+ if c.variant==1 and target.kind=='flower' and S.phase=='route' then
+  if not S.nana_pipe_jump and c.grounded and not c.lastA
+      and c.y==112 and c.x>=752 and c.x<=758 then
+   -- A fresh jump from the pipe keeps the jump hammer active on descent.
+   -- Walking off the pipe falls into the enemy pair in the Hard replay.
+   S.nana_pipe_jump=snapshot(c);S.nana_pipe_jump.enemies={}
+   for i=0,5 do
+    local id,flag=c.r('Enemy_ID',i),c.r('Enemy_Flag',i)
+    if id<0x15 and flag>0 and flag<128 then
+     local x=c.r('Enemy_X_Position',i)+256*c.r('Enemy_PageLoc',i)
+     S.nana_pipe_jump.enemies[#S.nana_pipe_jump.enemies+1]={id=id,x=x,y=c.r('Enemy_Y_Position',i)}
+    end
+   end
+  end
+  if S.nana_pipe_jump and not S.nana_pipe_land then
+   local age=clock-S.nana_pipe_jump.update
+   if c.grounded and age>4 then S.nana_pipe_land=snapshot(c)
+   else return {right=true,a=age<2}end
+  end
+ end
  minimumY=math.min(minimumY,c.y);S.minimum_y=minimumY
  if seen and a then
   if target.kind=='flower'then
@@ -147,6 +167,29 @@ local function decide(c,ordinary)
     local b=direction(geometry.sign);b.a=clock<pulseUntil;return b
    elseif S.phase=='flower-walk'then return moveToward(c,a.x-4,2)end
   else
+   if target.kind=='star' and c.variant==1 then
+    S.star_path=S.star_path or {}
+    if #S.star_path<12 and (not S.star_path[#S.star_path] or clock-S.star_path[#S.star_path].update>=24)then
+     S.star_path[#S.star_path+1]={update=clock,x=c.x,y=c.y,actor=a}
+    end
+    -- The first bounce peaks high above the brick and drops farther right.
+    -- Settle ahead of it, then jump straight up into the descending Star.
+    if S.star_intercept_jump and clock-S.star_intercept_jump.update<42 then
+     return {a=clock<pulseUntil}
+    end
+    if not S.star_intercept_jump and a.x<target.x+80 then
+     if not S.star_intercept_stop then
+      if c.x<target.x+51 then return {right=true}end
+      S.star_intercept_stop=snapshot(c)
+     end
+     if a.state>=128 and a.x>=target.x+48 and a.y>=110
+        and math.abs(a.x-c.x-6)<=13 and c.grounded and not c.lastA then
+      S.star_intercept_jump=snapshot(c)
+      return launch(c,'star-intercept',{})
+     end
+     return defend(c)
+    end
+   end
    -- Star and 1-UP leave their source block. Use the same physically moving
    -- actor catch as the first Mushroom; jump only from a fresh grounded edge.
    local b=moveToward(c,a.x-4,6)
@@ -172,7 +215,8 @@ local function decide(c,ordinary)
  elseif S.phase=='brake'then
   if not floor(c)then phase('approach',c);return {}end
   if clock-phaseAt>=24 and still>=3 then
-   if c.x>=target.x-10 and c.x<=target.x+1 then
+   local leftOfBlock=target.kind=='life' and 7 or 10
+   if c.x>=target.x-leftOfBlock and c.x<=target.x+1 then
     S.attempts=S.attempts+1
     if S.attempts>8 then fail('Bounded '..target.kind..' head attempts exhausted',c)end
     S.last_bump=snapshot(c)
