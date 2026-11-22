@@ -517,3 +517,27 @@ as a frame pointer without a separate complete reader/writer/allocation
 review; its one-Main lack of reads is not a lease. Thus there is no ready
 >=25k plan, no change to the frozen four readers or any game bytes. Research
 is checkpointed here while the new101-character status dataset takes priority.
+
+## November 22 follow-up on fixed-bank space
+
+A read-only review found a possible way to recover the required 12 bytes
+while retaining the UI call's register save. In the actual fixed bank, a
+Y-counted carry-preserving loop plus a shorter feedback calculation can
+save six bytes from the RNG routine at `$82F3` through `$830F`. The candidate
+still writes `$03`, rotates all seven bytes starting at `$07A0`, and ends
+with X=7 and Y=0. Its final A differs. The TopScore path loads score data
+before consuming A. Removing the incoming `STA $016A` would save three
+bytes if all live users of `$016A`, including interrupt paths, allow it.
+
+The remaining three bytes are NOPs in the retained Pause and HP graphics
+routines at `$8368`, `$8379` and `$837A`. Using them would move `PauseRoutine`
+to `$8359` and `HpGraphicsBankCopy` to `$836B`. The fireball bridge entry at
+`$837B` stays fixed. Audit their direct and computed entry points and the
+live mapping, stack and self-modifying call parameters before relocating
+either routine. A loop that uses `CPX` between the rotate instructions would
+corrupt the carry chain and must be excluded.
+
+This identifies space to examine for the Main entry. The transport still
+needs a proved frame lifetime, working fallback and measured savings. The
+November 22 nightly contains the Rogue Dawn repair with all Contra Force
+bytes intact.

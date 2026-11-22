@@ -71,3 +71,12 @@ nightly. See [Kirby's food pickup tests](kirby-natural-food-1111.md).
 
 Separate Mesen fixtures verified the Star and 1-UP effects after staging the
 items. Natural pickup tests for both items are still open.
+
+The next controller can reuse the mushroom start from the food replay. For
+the 1-UP, turn off the flower approach after the fourth pipe and jump into
+the hidden block at world X1024/Y128. For the Star, keep the food replay
+through the Flower, cross the first pit with jump and float, then hit the
+Star brick at X1616/Y144. Observe each item from block hit through maturity
+and native contact. The 1-UP should add a life through the delayed score
+popup. The Star should start its timer and music. Check that both preserve
+Kirby's copy and food state. These routes use the existing level and controls.
