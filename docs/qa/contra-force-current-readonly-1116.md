@@ -1062,3 +1062,21 @@ checks covered the original fuse, renderer coordinates and contact with a
 stock Goomba. The checker reconstructed the exact prior ROM from the
 installed build in memory. Receipt
 `fd1fd63f00f2b7c977aa8377820d7124ea77eeca379dbc1b591f75a88bbda85f`.
+
+### Iron's starting pistol and the opening Goomba
+
+On `32eaf178`, five pistol shots passed over the opening Goomba despite
+coming within three horizontal pixels of it. Standing shots were at Y177,
+settled crouch shots were at Y182, and the Goomba's projectile collision box
+began at Y192. The exact crouched firing records set the muzzle ten
+pixels above Iron's source anchor. A six-pixel shot radius cannot bridge that
+vertical gap. This matches the preserved source-only test, which recorded a
+hit when Down and B were first pressed together at the start of the duck.
+
+The focused Mesen replay on `32eaf178` pressed Down and B together when the
+opening Goomba approached. The pistol spawned at X245/Y186 and hit the live
+Goomba at X307/Y184. The defeat, score popup, sound request and source impact
+all ran, and Iron remained alive with starting gear for 25 further updates.
+It took 748 physical frames. Receipt
+`5c2d93314f28d7ed1e7171f27eb9254c7aadb300edf0aa13fb2ec3b016d1d9c3`.
+The ROM's muzzle positions are unchanged.

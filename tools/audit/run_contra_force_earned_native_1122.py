@@ -260,11 +260,40 @@ def controller(parent, candidate, identity, *, weapons=False, impacts=False, pis
   end
  end""")
     if pistol:
+        once('local function finish(reason)', 'local pistolTrace={}\nlocal function finish(reason)')
+        once('weapon_impacts=weaponImpacts,weapon_shots=',
+             'pistol_trace=pistolTrace,weapon_impacts=weaponImpacts,weapon_shots=')
+        once("local function impactTick()\n assert(not impactPending,'Native contact and source action finish before Main returns')",
+             """local function impactTick()
+ assert(not impactPending,'Native contact and source action finish before Main returns')
+ local camera=pos('ScreenLeft_X_Pos','ScreenLeft_PageLoc')
+ for slot,shot in pairs(impactAllocations)do
+  if source(0x382+slot)==1 then
+   local sx,sy=source(0x34e+slot)+camera,source(0x368+slot)
+   if not shot.trace and #pistolTrace<8 then
+    shot.trace={slot=slot,born=shot.Main,x=sx,y=sy,placed_at=state().x}
+    pistolTrace[#pistolTrace+1]=shot.trace
+   end
+   local trace=shot.trace
+   if trace then
+    for i=0,5 do
+     local flag=r('Enemy_Flag',i)
+     if flag>0 and flag<128 and r('Enemy_ID',i)==6 and r('Enemy_State',i)<2 then
+      local x=pos('Enemy_X_Position','Enemy_PageLoc',i)
+      local gap=math.abs(x-sx)
+      if not trace.closest or gap<trace.closest.gap then
+       trace.closest={Main=updates,gap=gap,shot_x=sx,shot_y=sy,
+                      enemy_x=x,enemy_y=r('Enemy_Y_Position',i),radius=source(0x420+slot)}
+      end
+     end
+    end
+    trace.last={Main=updates,x=sx,y=sy}
+   end
+  end
+ end""")
         once(' local b={right=true,b=c.update%12<8}', ' local b={right=true}')
-        once('local e=c.enemy()\n if e and e.id~=13 and e.dx>18 and e.dx<92',
-             'local e=c.enemy()\n if e and e.id~=13 and e.dx>18 and e.dx<58')
-        once("  return{down=true,b=c.update%12<8},'crouch-fire'", """  local elapsed=c.update-combatStart-4
-  return{down=elapsed>=24,b=elapsed>=0 and elapsed%8<2},'pistol-fire'""")
+        once("  return{down=true,b=c.update%12<8},'crouch-fire'", """  local elapsed=c.update-combatStart
+  return{down=true,b=elapsed%8<2},'pistol-fire'""")
         once(" local ok=reason=='contra-force-earned-four'and#earned==4 and earnedUpdates==25",
              " local ok=reason=='iron-pistol-hit'and weaponImpacts['0'].Main_returned>0 and earnedUpdates==25")
         once('local function earnedTick()', '''local function earnedTick()
@@ -308,6 +337,8 @@ def verified_run(script, rom, candidate, identity, *, weapons=False, impacts=Fal
         weapon_report['impacts'] = rows
     if beans_ground:
         weapon_report['ground_weapons'] = receipt['ground_weapons']
+    if pistol:
+        weapon_report['pistol_trace'] = receipt['pistol_trace']
     print('NATIVE EARNED ' + json.dumps(dict(identity=identity, ROM=expected,
         location='downloads' if rom == Hud.ROM else 'private', script=result['script_SHA256'],
         receipt=result['receipt_SHA256'], earned=receipt['earned'], terminal=receipt['terminal'],
