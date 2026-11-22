@@ -108,5 +108,18 @@ Kirby then ran into a different Goomba at X1949 and lost one HP. He remained
 alive and playable for another 25 game updates. The replay took 4,048 physical
 frames and produced no capture files. Receipt
 `e81b0e417472227ff622cb7f110bd16201a37882ee58d4c37c362e00ede0968f`.
-The remaining copy abilities and the full graphics, sound and lag reviews
-are still open.
+The full graphics, sound and lag reviews are still open.
+
+### Goomba ground charge
+
+The `ground-charge` replay passed on the Downloads nightly `a6d91e36`. Easy
+Kirby inhaled the first Goomba in 1-1 and pressed Down to swallow it, with
+six HP throughout. After jumping the first two pipes, Kirby pressed B at
+X679/Y176. The native charge moved him three pixels per game update and
+defeated a second Goomba at X711/Y184. Kirby kept the copy ability and
+completed 25 more game updates without taking damage.
+
+The replay took 922 physical frames and produced no capture files. Receipt
+`e0e73de599f8df100f3db21bf372e54e628a90f46059210e3e83988e6a240d4a`.
+Controller SHA-256 is
+`48083aac951292d2af633016ed98582faf9d86d3861928a1666cf7baa8052337`.

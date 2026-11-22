@@ -1,10 +1,13 @@
 """Check Kirby's natural 1-UP and Star pickups from the installed MMC5 nightly."""
 
 import argparse
+from hashlib import sha256
 import json
 
 import replay_kirby_food_native_1111 as Food
+import replay_kirby_current_checks_1114 as Kirby
 from capture_budget import preflight
+from check_ff_stdout_controller_source_1110 import LuaRuntime
 from mesen_session_guard_v1 import require_free_workspace
 from nightly_patch_guard_v1 import check
 from run_stdout_mesen_1110 import R, run
@@ -13,6 +16,7 @@ from run_stdout_mesen_1110 import R, run
 ROM = Food.Cpu.ROM
 OUT = R / 'build/smb2-flag-native-1113'
 TAIL = R / 'tools/playthroughs/kirby_stock_native_1122.lua'
+GROUND_CHARGE = R / 'tools/playthroughs/kirby_ground_charge_native_1122.lua'
 
 # Verify the native instructions used as pickup witnesses before launching.
 HOOKS = {
@@ -98,9 +102,62 @@ def controller(raw, kind, *, lifecycle=False):
                         " if #heals==0 then pad=mushroom(px,y,ground,item) else pad=flower(px,y,ground,item) end")
 
 
+def charge_controller(raw):
+    authority = Food.Cpu.Authority
+    host = Food.Cpu.Host
+    assert authority.sha(authority.AUTHORITY) == authority.AUTHORITY_ROM
+    assert authority.sha(authority.AUTHORITY.with_suffix('.dbg')) == authority.AUTHORITY_DBG
+    bundle = authority.scoped_load(authority.AUTHORITY)
+    start = 16 + 74 * 8192
+    assert sha256(raw[start:start+8192]).hexdigest() == Kirby.BANK_SHA
+    assert authority.sha(Kirby.INHALE) == Kirby.PINS[Kirby.INHALE]
+    config, body = Kirby.INHALE.read_text(encoding='utf-8').split('\n', 1)
+    lua = LuaRuntime()
+    q = lua.execute(config + '\nreturn C')
+    for name, address in q.ram.items():
+        assert host.address(bundle, name) == address, name
+    for name, hook in q.hooks.items():
+        expected = bytes.fromhex('a9018d0c5c') if name == 'erased' else bytes(
+            value for _, value in sorted(hook.bytes.items()))
+        at = 16 + hook.offset
+        assert raw[at:at+len(expected)] == expected, name
+    hooks = {}
+    for name, symbol in (('chargeStart', 'KbWeapons::CopyAttack'), ('chargeDefeat', 'KbBodyContact::Defeat')):
+        at = host.location(bundle, symbol)
+        expected = bundle['raw'][at:at+6]
+        assert raw[at:at+6] == expected, symbol
+        hooks[name] = dict(pc=host.address(bundle, symbol), offset=at-16, bytes=list(expected))
+    addresses = {name: host.address(bundle, name) for name in ('MmVX', 'KbFloat', 'FrameCounter')}
+    config += ('\nC.hooks.erased.bytes={169,1,141,12,92}'
+               f'\nfor k,v in pairs({authority.lua(addresses)}) do C.ram[k]=v end'
+               f'\nfor k,v in pairs({authority.lua(hooks)}) do C.hooks[k]=v end')
+    body = replace_once(body, 'local function finish(reason)',
+                        'local charge={spawns={},pipes={},lastJump=-100,resumed=0}\nlocal function finish(reason)')
+    begin = body.index(" local passed=reason=='natural-first-inhale'")
+    end = body.index(" print('SMB_NATIVE_RECEIPT '", begin)
+    body = body[:begin] + """ local passed=reason=='earned-ground-charge' and constructor and capture and erased
+    and charge.swallowed and charge.hit and charge.defeated and not injury and identity() and active()
+    and stage() and last.hp==6 and last.lives==2 and last.mouth==0 and last.copy==1
+""" + body[end:]
+    body = replace_once(body, 'native_erase_return=erased,injury=injury',
+                        'native_erase_return=erased,charge=charge,injury=injury')
+    marker = 'emu.addEventCallback(guarded(function()\n polls=polls+1'
+    body = replace_once(body, marker, GROUND_CHARGE.read_text(encoding='utf-8') + '\n' + marker)
+    body = replace_once(body, 'if erased then input={}', 'if erased then input=chargePad()')
+    body = replace_once(body, "  if erased and frame>=erased.player.frame+2 then finish('natural-first-inhale');return end\n"
+                        "  if x()>=400 then finish('passed-first-encounter-without-capture');return end",
+                        "  if erased then chargeTick()\n"
+                        "  elseif x()>=400 then finish('passed-first-encounter-without-capture');return end")
+    body = replace_once(body, "if frame>=1600 then finish('bounded-first-encounter-timeout') end",
+                        "if frame>=3200 then finish('bounded-ground-charge-route') end")
+    text = config + '\n' + body
+    lua.compile(text)
+    return text
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('item', choices=('oneup', 'star', 'star-lifecycle'))
+    parser.add_argument('item', choices=('oneup', 'star', 'star-lifecycle', 'ground-charge'))
     args = parser.parse_args()
     kind = 3 if args.item == 'oneup' else 2
     initial = check(ROM)
@@ -112,8 +169,10 @@ def main():
     script = OUT / 'controller.lua'
     previous = script.read_bytes()
     try:
-        script.write_bytes(controller(raw, kind, lifecycle=args.item == 'star-lifecycle').encode())
-        result = run(script, ROM, OUT / 'capture', initial['ROM_sha256'], 120)
+        charge = args.item == 'ground-charge'
+        text = charge_controller(raw) if charge else controller(raw, kind, lifecycle=args.item == 'star-lifecycle')
+        script.write_bytes(text.encode())
+        result = run(script, ROM, OUT / 'capture', initial['ROM_sha256'], 120, variant=2 if charge else 0)
         print('RESULT ' + json.dumps(result, sort_keys=True), flush=True)
         assert result['passed'] and result['outputs_written'] == 0 and not result['images']
     finally:
