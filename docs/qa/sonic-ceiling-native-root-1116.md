@@ -351,3 +351,15 @@ checks as a target for reducing the measured empty-area lag.
 | --- | --- | --- |
 | Sonic | `4dd200d50a27d42340217fab5756c3fae87f0154c100ae9eaf2c1aed447a8400` | `c26cbaa64d18e16309702a89c6dca2e51b78cb2ee6b8e96378e879af3a4d633c` |
 | Super Sonic | `100bb0a7c4a5a55c9a18cd00be38c4ef6c68275050cfeb57335c44d9152702e8` | `9dfbe6daffafb6cdb3ae46f97a44feb7a42569b16e214a88138f787b34b0de02` |
+
+The installed code reaches 14 shared dispatches during each sampled update.
+All 14 arrive with RAM bank C3 mapped. The first dispatch checks ownership
+before the frame marker is set. That ordering matters for any attempt to
+reuse the first check. The historical Sonic collision batch expected an
+inline upper-side predicate. The installed predicate now calls Prince's
+flagpole and ledge-climb handler. A batch must preserve that call.
+
+The [source trace](../../tools/audit/audit_sonic_empty_scope_1122.py) covers
+these current entry conditions and records the exact preimage mismatch for
+the historical batch. Receipt
+`1f8614dd4d03646d46c3a92e6726d92ae3793f52e673a11fd55f22bbc5022a5b`.
