@@ -7,7 +7,7 @@ from unittest.mock import patch
 
 from py65.devices.mpu6502 import MPU
 
-from check_contra_force_fast_worker_1122 import assemble, COOKIE, TAIL, worker_code
+from check_contra_force_fast_worker_1122 import assemble, COOKIE, registers, TAIL, worker_code
 import check_contra_force_fixed_layout_1122 as Layout
 
 
@@ -384,7 +384,87 @@ def cold_menu(bundle, name, slot, inputs, selects):
     return model
 
 
-def cold_candidate(parent, picks):
+def interrupt_scope(original, candidate):
+    # Fire the real handler at paired gameplay boundaries. A busy NMI still
+    # updates audio and other interrupt state, so the control also needs it.
+    n, frames = Layout.N, Layout.Frames
+    cuts = (
+        ((254, 0x8798), (197, 0xBFA3), 'marked before mapping', 0x84),
+        ((254, 0x8798), (2, 0xBF9D), 'between mapper writes', 0x84),
+        ((215, 0xB0A9), (215, 0xB0A7), 'public service gate', 0x84),
+        ((215, 0xB0A9), (2, FAST), 'fast service entry', 0x84),
+        ((2, 0xCA0B), (2, 0xCA0B), 'worker transport', 0x84),
+        ((254, 0x8350), (2, 0xBFA3), 'native tree returned', 0x84),
+        ((254, 0x8350), (2, RETURN_SCOPED), 'scope returned', 0x83),
+        ((254, 0x8350), (2, 0xBF3E), 'return status restored', 0x83),
+    )
+
+    def run_cut(seed, at, label, kind, expected_marker=None):
+        bank, address = at
+        model = n.fork(seed)
+        model.controller_pad = 0
+        sample = []
+        mode_entered = False
+        retirement_entered = False
+
+        def compare_cut(m, cpu):
+            nonlocal mode_entered, retirement_entered
+            if sample or cpu.pc < 0x8000:
+                return
+            location = (m.rawtags[(cpu.pc - 0x8000) // 8192], cpu.pc)
+            if location == (254, 0x8798):
+                mode_entered = True
+            if location == (2, RETURN_SCOPED):
+                retirement_entered = True
+            if location != (bank, address):
+                return
+            if address in (0xB0A9, 0xCA0B) and not mode_entered:
+                return
+            if expected_marker is not None and m[0x1FA] != expected_marker:
+                return
+            if address == 0xBF3E and not retirement_entered:
+                return
+            state = registers(cpu)
+            params = bytes(m[0x15A:0x17B])
+            assert m[0x139] & 128, (label, 'Expected busy foreground')
+            cpu.nmi() if kind == 'NMI' else cpu.irq()
+            delivered = (cpu.pc, cpu.sp) != (address, state[-1])
+            lowest_sp = cpu.sp
+            for _ in range(10000):
+                if (cpu.pc, cpu.sp) == (address, state[-1]):
+                    break
+                assert m[cpu.pc], (kind, label, hex(cpu.pc), 'BRK')
+                cpu.step()
+                lowest_sp = min(lowest_sp, cpu.sp)
+            else:
+                raise AssertionError((kind, label, 'Interrupt did not return'))
+            assert state == registers(cpu), (kind, label, state, registers(cpu))
+            assert expected_marker is None or m[0x1FA] == expected_marker
+            assert bytes(m[0x15A:0x17B]) == params, (kind, label, 'Farcall parameters changed')
+            assert lowest_sp >= 0x7B and delivered, (kind, label, lowest_sp, delivered)
+            sample.append(dict(site=label, kind=kind, delivered=delivered, lowest_sp=lowest_sp))
+
+        frames.frame(model, observe=compare_cut, whole_pass=True)
+        assert len(sample) == 1, (label, kind, at, 'Cut was not reached')
+        return model, sample[0]
+
+    results = []
+    for old_at, new_at, label, marker in cuts:
+        for kind in ('IRQ', 'NMI'):
+            before, a = run_cut(original, old_at, label, kind)
+            after, b = run_cut(candidate, new_at, label, kind, marker)
+            normalize_payload(after, before)
+            try:
+                Layout.compare(before, after, allow_backup=kind == 'NMI')
+            except AssertionError as error:
+                raise AssertionError((label, kind, a, b, error)) from error
+            results.append(b)
+            print('INTERRUPT ' + json.dumps(b), flush=True)
+    print('INTERRUPTS ' + json.dumps(dict(cases=len(results),
+                                          lowest_sp=min(row['lowest_sp'] for row in results))), flush=True)
+
+
+def cold_candidate(parent, picks, *, interrupts=False):
     raw, tail, cookie = candidate_image(parent)
     bundle = Layout.Current.bindings(Hud.inverse(parent))['bundle']
     old = dict(bundle, raw=parent)
@@ -447,6 +527,8 @@ def cold_candidate(parent, picks):
                                        sites=sites, services=[(*key, count) for key, count in services.items()],
                                        c_maps=[m[0x7DA1] for m in (original, candidate)])), flush=True)
         compare_models()
+        if interrupts and name == 'BURNS':
+            interrupt_scope(original, candidate)
         for phase, buttons in (('idle', 0), ('walk', 1), ('pause', 16), ('paused', 0)):
             sites.clear()
             services.clear()
@@ -514,7 +596,10 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--warm', action='store_true')
     parser.add_argument('--cold', nargs='+', choices=('Burns', 'Smith', 'Iron', 'Beans', 'Mario'))
+    parser.add_argument('--interrupts', action='store_true', help='Exercise the real handlers after Burns boots.')
     args = parser.parse_args()
+    if args.interrupts and 'Burns' not in (args.cold or []):
+        parser.error('--interrupts requires --cold Burns')
     parent = Hud.ROM.read_bytes()
     print(json.dumps(dict(check(parent), return_checks=check_return()), sort_keys=True), flush=True)
     if args.warm:
@@ -523,4 +608,4 @@ if __name__ == '__main__':
         names = ('Burns', 'Smith', 'Iron', 'Beans')
         picks = [(name.upper(), 30, [4] * 3 + [1] * 6, names.index(name))
                  if name in names else ('MARIO', 0, (), 0) for name in args.cold]
-        cold_candidate(parent, picks)
+        cold_candidate(parent, picks, interrupts=args.interrupts)

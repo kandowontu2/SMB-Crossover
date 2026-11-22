@@ -732,6 +732,22 @@ the following actor and palette work.
 
 The repaired candidate SHA-256 is
 `add288c383c1c20a435c8e3accb23c798e90ea96b1986d2d573aaf63919b79ad`.
-The Downloads nightly remains `79fd089f`. These CPU-model measurements
-cover the recorded startup and input windows. IRQ and busy NMI during the
-new scope, later transitions and Mesen cadence remain open.
+
+### Interrupts during the fast call
+
+After a fresh Burns startup, the candidate passed eight IRQ and eight busy
+NMI cuts paired with the original at the same gameplay boundaries. These
+include the gap between the C shadow and mapper writes, the service gate,
+the worker transport and the two-step return status restore. Each real
+handler ran and returned to its interrupted instruction with registers,
+stack, scope marker and live farcall parameters intact. The lowest measured
+stack pointer inside an interrupt was `$B9`. Both models then finished the
+game update with the same compared state, allowing the existing interrupt
+scratch byte and the declared loader code and cookie differences.
+
+The original model also receives each interrupt. A busy NMI legitimately
+ticks audio and other interrupt state, so an interruption compared with an
+ordinary update gives a false mismatch. Running those handlers at one
+sampled update does not cover physical scanline timing, later scene changes,
+enemy combat or the complete 1-1 route on this candidate. The Downloads
+nightly remains `79fd089f`. Physical cadence still needs Mesen verification.
