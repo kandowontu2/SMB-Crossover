@@ -22,26 +22,30 @@ local function actor(c)
   end
  end
 end
-local function starSteer(c,goal)
+local function starSteer(c,goal,tolerance)
  -- Native Player_GroundHControl also handles air movement: neutral air input
  -- retains X velocity, while the opposite direction brakes it. The native
  -- non-running reversal loses roughly one Q4 unit per update. Brake early
  -- enough to keep both the hero and the scrolling camera left of the block.
  local vx=c.vx>=128 and c.vx-256 or c.vx
  local dx=goal-c.x
+ local margin=tolerance or 4
  local lead=vx*vx/24+6
  if vx>3 and dx<=lead then return {left=true}end
  if vx< -3 and -dx<=lead then return {right=true}end
- if dx>4 then return {right=true}end
- if dx< -4 then return {left=true}end
+ if dx>margin then return {right=true}end
+ if dx< -margin then return {left=true}end
  if vx>0 then return {left=true}end
  if vx<0 then return {right=true}end
  return {}
 end
 local function starBeforeBirth(c,ordinary)
  local vx=c.vx>=128 and c.vx-256 or c.vx
+ local aim=target-4 -- Keep the head probe over X1616, clear of the brick at X1600.
  if phase=='route'then
-  if c.x<target-160 then return ordinary end
+  -- The proven stage route already clears the Goombas at X1504. Take
+  -- over in the air just after the row, early enough to brake before X1616.
+  if c.x<target-72 then return ordinary end
   change(c,'star-brake')
  end
  if phase=='star-brake'then
@@ -51,7 +55,7 @@ local function starBeforeBirth(c,ordinary)
  end
  if phase=='star-position'then
   local e=c.enemy()
-  if not T.enemy_jump and c.grounded and c.y>=160 and not c.lastA
+  if not T.enemy_jump and c.x<target-24 and c.grounded and c.y>=160 and not c.lastA
      and e and e.dx>=12 and e.dx<=56 and math.abs(e.y-c.y)<32 then
    -- One actual forward jump clears the two24px-spaced ground enemies.
    -- Keep the running button released and arrest its later air drift before
@@ -60,23 +64,22 @@ local function starBeforeBirth(c,ordinary)
    lastJump=c.update;hold=c.update+18
    change(c,'star-enemy-jump');return {right=true,a=true}
   end
-  -- The prior question block at1504 can leave Small Mario atY128. Get off
-  -- that row near1536, actively arrest drift in air, and land below the
+  -- The prior question block can leave the player at Y128. Get off
+  -- that row near X1560, actively arrest drift in air, and land below the
   -- actual Star row1600..1631 before advancing to its underside.
-  if not(c.grounded and c.y>=160)then return starSteer(c,target-80)end
-  local aim=target-8
-  if math.abs(c.x-aim)<=4 and math.abs(vx)<=3 and not c.lastA and c.update-lastJump>24 then
+  if not(c.grounded and c.y>=160)then return starSteer(c,target-56)end
+  if math.abs(c.x-aim)<=2 and math.abs(vx)<=3 and not c.lastA and c.update-lastJump>24 then
    attempts=attempts+1;assert(attempts<=8,'Bounded real SMB3 Star head attempts')
    lastJump=c.update;hold=c.update+18;T.attempts=attempts
    change(c,'star-bump');return {a=true}
   end
-  return starSteer(c,aim)
+  return starSteer(c,aim,2)
  elseif phase=='star-enemy-jump'then
-  if c.grounded and c.update-at>4 then change(c,'star-position');return starSteer(c,target-8)end
+  if c.grounded and c.update-at>4 then change(c,'star-position');return starSteer(c,aim,2)end
   local b=starSteer(c,target-32);b.a=c.update<hold;return b
  elseif phase=='star-bump'then
   if c.update-at>75 and c.grounded then change(c,'star-position')end
-  local b=starSteer(c,target-8);b.a=c.update<hold;return b
+  local b=starSteer(c,aim,2);b.a=c.update<hold;return b
  end
  return ordinary
 end
@@ -88,10 +91,19 @@ return function(c)
  if a and math.abs(a.x-target)<=32 and not seen then seen=true;change(c,'collect');T.birth=a end
  if seen then
   if not a then return {}end -- The observer, never disappearance, grants credit.
-  if a.state&128==0 then return {}end -- Let the actual actor clear its block before a catch jump.
+  if a.state&128==0 then
+   -- The Star needs several source ticks to emerge. Get out from under its
+   -- row so a left-moving Koopa cannot pin the player against the ceiling.
+   if kind==2 then return starSteer(c,target-50)end
+   return {}
+  end
   local dx=a.x-4-c.x
   local b={right=dx>6,left=dx< -6}
-  if c.grounded and not c.lastA and c.update-lastJump>24 and a.y<c.y-12 and math.abs(dx)<40 then
+  local e=kind==2 and c.enemy()
+  local enemyAhead=e and e.dx>12 and e.dx<=38 and math.abs(e.y-c.y)<32
+  if kind==2 and dx>30 then b.b=true end
+  if c.grounded and not c.lastA and c.update-lastJump>24
+     and (enemyAhead or (a.y<c.y-12 and math.abs(dx)<40)) then
    lastJump=c.update;hold=c.update+18
   end
   b.a=c.update<hold
