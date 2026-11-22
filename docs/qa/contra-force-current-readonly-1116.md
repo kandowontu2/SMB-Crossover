@@ -593,5 +593,49 @@ first actual performance candidate.
 
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/cf-fixed-layout-1122 --max-files 1 --timeout 420 -- python -B tools/audit/check_contra_force_fixed_layout_1122.py
+python -B tools/audit/run_bounded_build_v1.py --output build/cf-fixed-farcall-layout-1122 --max-files 1 --timeout 420 -- python -B tools/audit/check_contra_force_fixed_layout_1122.py --farcall
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 450 -- python -B tools/audit/run_contra_force_current_cadence_1122.py
 ```
+
+With `--farcall`, the same 15 bytes call the existing bank-switching helper
+and enter a three-byte jump at the unused PRG69 `$BFF2` tail. The real mode
+tree runs and returns through both calls. This second test image
+`5412a2a8e9ad790cf1d0e9a2b5f7635afacbd8e48662ae7546c9def81e2332cc`
+also passed all 21 sampled updates and four paired IRQ and four paired busy
+NMI sites, including the mode tree entry after the bank switch. Return
+registers, flags, native event counts and the compared memory and video
+state agreed. The extra call used three more stack bytes in the direct
+foreground fixture, lowering the minimum from 158 to 155, above the live
+variables and farcall helper ending at `$017A`. A stricter first comparison
+correctly exposed the depth change, which is now verified separately from
+the returned register values. This bridge qualifies the call path. The
+fast service code will replace it only after its own checks.
+
+### Private dispatcher fit to examine next
+
+The existing RAM2 tail can hold a dispatcher without moving the public
+router or its two service tables. Preliminary layout: `$BF91..$BF93`
+jumps to the native failure return, `$BF94..$BFA5` holds a wrapper that
+saves C and calls the mode tree, and `$BFA6..$BFDE` holds the fast worker.
+One byte remains before the cookie at `$BFE0`. This plan depends on a
+separate immutable native check before the jump into the C2 alias at
+`$DFA6`. The old public entry and full checks remain available.
+
+On the recorded empty-area call weights, the proposed worker spends about
+2,900 cycles in dispatch setup. Removing the old repeated guard and routing
+work projects a gross saving of about 16,000 cycles per Main before the new
+scope and mapping costs. That estimate excludes the real game work and
+needs an executed candidate and emulator measurement.
+
+The native fast branch must be taken before the existing service offset is
+stored to `$016A`. That byte holds the original accumulator the private
+worker will consume. Failed admission must rejoin the old offset store and
+guard path. Preserve the original first consumers of the farcall target and
+next-bank fields when validating either branch.
+
+The new call's outer live return word would be `$8352` at `$01F9/$01FA` on
+both successful and failed admission. Deeper return words alone are unsafe
+as a scope witness. A failed call can use their stack slots for ordinary
+data. The wrapper also needs an explicit way to survive and restore the
+native graphics work that borrows C. Space for the native check, its scope
+marker, and the fallback return contract remains open.

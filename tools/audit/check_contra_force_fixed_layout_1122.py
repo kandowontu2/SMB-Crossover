@@ -4,6 +4,7 @@ The test image calls the existing mode tree and jumps over the reserved
 space. It is built in memory and is never installed as a nightly.
 """
 
+import argparse
 from collections import Counter
 import json
 from unittest.mock import patch
@@ -31,7 +32,7 @@ def offset(bank, pc):
     return 16 + 8192 * bank + (pc & 8191)
 
 
-def fixed_layout(parent):
+def fixed_layout(parent, via_farcall=False):
     assert Hud.H(parent) == Hud.CANDIDATE
     begin, end = offset(126, MAIN), offset(126, END)
     code = parent[begin:end]
@@ -54,8 +55,13 @@ def fixed_layout(parent):
     offset_in_proc = len(initial) + len(RNG) + len(timers_and_score)
     assert MAIN + offset_in_proc == SLOT
     after_slot = SLOT + SLOT_LENGTH
-    # Equivalent call with padding skipped. A dispatcher can use all 15 bytes.
-    slot = bytes((0x20, 0x98, 0x87, 0x4C, after_slot & 255, after_slot >> 8)) + bytes((0xEA,)) * 9
+    if via_farcall:
+        # Use the spare tail in PRG69 to qualify the real bank-switch and
+        # return path. The mode tree starts by loading A from OperMode.
+        slot = bytes.fromhex('a9f28d6c01a9bf8d6d01a9c5205a01')
+    else:
+        # Equivalent call with padding skipped. The dispatcher can use all 15 bytes.
+        slot = bytes((0x20, 0x98, 0x87, 0x4C, after_slot & 255, after_slot >> 8)) + bytes((0xEA,)) * 9
     tail = original(0x8350, 0x8352) + bytes((0x4C, NEW_PAUSE & 255, NEW_PAUSE >> 8, 0x60))
     assert after_slot + len(tail) == NEW_PAUSE
     pause = original(PAUSE, GRAPHICS - 1)
@@ -68,6 +74,10 @@ def fixed_layout(parent):
     image = bytearray(parent)
     image[begin:end] = new_code
     image[pointer + 1] = NEW_GRAPHICS & 255
+    if via_farcall:
+        tail_start = offset(69, 0xBFF2)
+        assert parent[tail_start:tail_start + 14] == b'\xff' * 14
+        image[tail_start:tail_start + 3] = bytes.fromhex('4c9887')
     return bytes(image)
 
 
@@ -107,6 +117,8 @@ def warm_pairs(seed, parent, candidate):
                 m.controller_pad = pad
                 Frames.frame(m, whole_pass=True)
             compare(a, b)
+            if name == 'paused':
+                assert N.get(a, 'GamePauseStatus') & 1, 'Expected the paused control path'
             compared[name] += 1
     return dict(compared)
 
@@ -114,7 +126,7 @@ def warm_pairs(seed, parent, candidate):
 def interrupt_pairs(seed, parent, candidate):
     base = N.NesMPU
     # The first two sites bracket the removed STA; the third is the game call.
-    cuts = ((0x8310, 0x830A), (0x831F, 0x8316), (0x834D, SLOT))
+    cuts = ((0x8310, 0x830A), (0x831F, 0x8316), (0x834D, SLOT), (0x8798, 0x8798))
     results = []
     for locations in cuts:
         for kind in ('IRQ', 'NMI'):
@@ -150,10 +162,11 @@ def interrupt_pairs(seed, parent, candidate):
                 with patch.object(N, 'NesMPU', CPU):
                     ret = N.invoke(model, 'GameLoop', a=0, x=0, y=0, p=0x31)
                 assert len(rows) == 1, (kind, hex(at))
-                results.append(rows.pop())
+                results.append(dict(rows.pop(), foreground_min_sp=ret['minimum_SP']))
                 models.append(model)
-                returns.append({k: v for k, v in ret.items() if k != 'CPU'})
-            assert returns[0] == returns[1]
+                assert ret['minimum_SP'] >= 0x7B, 'Foreground stack must stay above $017A'
+                returns.append({k: v for k, v in ret.items() if k not in ('CPU', 'minimum_SP')})
+            assert returns[0] == returns[1], (kind, tuple(map(hex, locations)), returns, results[-2:])
             differences = compare(*models, allow_backup=kind == 'NMI')
             if differences:
                 assert differences[INTERRUPT_SAFE_A] == [r['saved_a'] for r in results[-2:]]
@@ -165,8 +178,11 @@ def interrupt_pairs(seed, parent, candidate):
 
 
 def main():
+    cli = argparse.ArgumentParser(description=__doc__)
+    cli.add_argument('--farcall', action='store_true', help='Exercise the actual scoped call path through PRG69.')
+    opt = cli.parse_args()
     parent = Hud.ROM.read_bytes()
-    candidate = fixed_layout(parent)
+    candidate = fixed_layout(parent, via_farcall=opt.farcall)
     seed = cold(parent)
     for _ in range(4):
         seed.controller_pad = 0
@@ -175,7 +191,8 @@ def main():
     interrupts = interrupt_pairs(seed, parent, candidate)
     print('RESULT ' + json.dumps(dict(parent=Hud.H(parent), fixed_layout_test_image=Hud.H(candidate),
         slot=hex(SLOT), bytes=SLOT_LENGTH, pause=hex(NEW_PAUSE), graphics=hex(NEW_GRAPHICS),
-        interrupts=interrupts, interrupt_fixture_rng_input=[0x20, 0xB6], installed=False, generated_files=0)), flush=True)
+        interrupts=interrupts, via_prg69=opt.farcall, interrupt_fixture_rng_input=[0x20, 0xB6],
+        installed=False, generated_files=0)), flush=True)
 
 
 if __name__ == '__main__':
