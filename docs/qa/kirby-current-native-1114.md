@@ -154,3 +154,19 @@ no captures.
 
 - Receipt `b9eaa4f3e4bbbde8197ac7dc768394084c31d93dd0ca4e9f1fa6b6714ab9370f`
 - Controller `ae588b542ca0b9b0bf75f4d51329a18662d22dd1400b85b73bc21cdca053d5de`
+
+### Discard, recover and reuse the Goomba copy
+
+The `copy-recovery` replay passed in Mesen from the Downloads nightly
+`59e1a591`. Kirby inhaled the first Goomba in Easy 1-1 and swallowed it.
+Select discarded the charge at X298. The copy star rose from Y196 and
+bounced off the ground at X318/Y200 after 40 game updates. Kirby inhaled it,
+pressed Down to recover the same charge, and then crossed the first two
+pipes. He used the recovered charge to defeat another live Goomba at
+X712/Y184 and kept six HP and two lives through 25 more updates.
+
+The replay used ordinary controller input with cheats off. It took 992
+physical frames and produced no captures.
+
+- Receipt `cbf1d46a9347c47c396045d7a15c9f9f103a8ed37be5b9db8eebe3a33b28956a`
+- Controller `40224a77cb6a401cd2e68a32db47012138f8149ebc23288d6f557686ff499968`

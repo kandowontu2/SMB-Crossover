@@ -17,6 +17,7 @@ ROM = Food.Cpu.ROM
 OUT = R / 'build/smb2-flag-native-1113'
 TAIL = R / 'tools/playthroughs/kirby_stock_native_1122.lua'
 GROUND_CHARGE = R / 'tools/playthroughs/kirby_ground_charge_native_1122.lua'
+COPY_RECOVERY = R / 'tools/playthroughs/kirby_copy_recovery_native_1122.lua'
 SPIT_STAR = R / 'tools/playthroughs/kirby_spit_star_native_1122.lua'
 
 # Verify the native instructions used as pickup witnesses before launching.
@@ -110,7 +111,18 @@ def inhale_parts(raw, hook_names, ram_names):
     assert authority.sha(authority.AUTHORITY.with_suffix('.dbg')) == authority.AUTHORITY_DBG
     bundle = authority.scoped_load(authority.AUTHORITY)
     start = 16 + 74 * 8192
-    assert sha256(raw[start:start+8192]).hexdigest() == Kirby.BANK_SHA
+    bank = raw[start:start+8192]
+    if sha256(bank).hexdigest() != Kirby.BANK_SHA:
+        # The Sonic contact update shares bank 74 with Kirby. Compare the bank
+        # after undoing only the two known native Sonic ingress changes.
+        import compose_sonic_original_contact_1122 as Sonic
+        assert sha256(raw).hexdigest() == '59e1a591d5ea31d62dafa9332990598b74b5b0852194ef7cc7ad22788196b723'
+        program = Sonic.program()['images']
+        for at, before, after in ((0xBDC, Sonic.OLD_GATE, program['INGRESS'].ljust(64, b'\xea')),
+                                  (0x1F03, Sonic.OLD_BODY_GATE, program['BODY_GATE'])):
+            assert len(before) == len(after) and bank[at:at+len(after)] == after
+            bank = bank[:at] + before + bank[at+len(after):]
+    assert sha256(bank).hexdigest() == Kirby.BANK_SHA
     assert authority.sha(Kirby.INHALE) == Kirby.PINS[Kirby.INHALE]
     config, body = Kirby.INHALE.read_text(encoding='utf-8').split('\n', 1)
     lua = LuaRuntime()
@@ -135,10 +147,13 @@ def inhale_parts(raw, hook_names, ram_names):
     return config, body, lua
 
 
-def charge_controller(raw):
-    config, body, lua = inhale_parts(raw, (('chargeStart', 'KbWeapons::CopyAttack'),
-                                          ('chargeDefeat', 'KbBodyContact::Defeat')),
-                                    ('MmVX', 'KbFloat', 'FrameCounter'))
+def charge_controller(raw, *, recover_copy=False):
+    hooks = [('chargeStart', 'KbWeapons::CopyAttack'), ('chargeDefeat', 'KbBodyContact::Defeat')]
+    ram = ['MmVX', 'KbFloat', 'FrameCounter']
+    if recover_copy:
+        hooks.extend((('dropCopy', 'KbDropCopy'), ('weaponDone', 'KbWeapons::Done')))
+        ram.extend(('KbDropKind', 'KbDropAge', 'KbDropX', 'KbDropPage', 'KbDropY', 'KbDropVY'))
+    config, body, lua = inhale_parts(raw, hooks, ram)
     body = replace_once(body, 'local function finish(reason)',
                         'local charge={spawns={},pipes={},lastJump=-100,resumed=0}\nlocal function finish(reason)')
     begin = body.index(" local passed=reason=='natural-first-inhale'")
@@ -150,8 +165,15 @@ def charge_controller(raw):
     body = replace_once(body, 'native_erase_return=erased,injury=injury',
                         'native_erase_return=erased,charge=charge,injury=injury')
     marker = 'emu.addEventCallback(guarded(function()\n polls=polls+1'
-    body = replace_once(body, marker, GROUND_CHARGE.read_text(encoding='utf-8') + '\n' + marker)
-    body = replace_once(body, 'if erased then input={}', 'if erased then input=chargePad()')
+    controls = GROUND_CHARGE.read_text(encoding='utf-8')
+    pad = 'chargePad()'
+    if recover_copy:
+        controls += '\n' + COPY_RECOVERY.read_text(encoding='utf-8')
+        pad = 'recoveryPad() or chargePad()'
+        body = replace_once(body, 'and charge.swallowed and charge.hit',
+                            'and charge.recovery.restored and charge.swallowed and charge.hit')
+    body = replace_once(body, marker, controls + '\n' + marker)
+    body = replace_once(body, 'if erased then input={}', f'if erased then input={pad}')
     body = replace_once(body, "  if erased and frame>=erased.player.frame+2 then finish('natural-first-inhale');return end\n"
                         "  if x()>=400 then finish('passed-first-encounter-without-capture');return end",
                         "  if erased then chargeTick()\n"
@@ -197,7 +219,8 @@ def spit_controller(raw):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('item', choices=('oneup', 'star', 'star-lifecycle', 'ground-charge', 'spit-star'))
+    parser.add_argument('item', choices=('oneup', 'star', 'star-lifecycle', 'ground-charge',
+                                        'copy-recovery', 'spit-star'))
     args = parser.parse_args()
     kind = 3 if args.item == 'oneup' else 2
     initial = check(ROM)
@@ -210,9 +233,11 @@ def main():
     previous = script.read_bytes()
     try:
         variant = 0
-        if args.item in ('ground-charge', 'spit-star'):
-            make_controller = charge_controller if args.item == 'ground-charge' else spit_controller
-            text = make_controller(raw)
+        if args.item in ('ground-charge', 'copy-recovery'):
+            text = charge_controller(raw, recover_copy=args.item == 'copy-recovery')
+            variant = 2
+        elif args.item == 'spit-star':
+            text = spit_controller(raw)
             variant = 2
         else:
             text = controller(raw, kind, lifecycle=args.item == 'star-lifecycle')
