@@ -333,3 +333,21 @@ when Mesen launched that Downloads file. Both full receipts matched the
 private runs above byte for byte. The installed ROM and shared test slot
 match, the same-name patch guards passed, and the run created no backups
 or captures.
+
+### Enemy-free idle and walking cadence
+
+Both forms were measured separately from the actual Downloads nightly. Each
+completed 48 idle updates over 96 video frame intervals, then 16 updates
+holding Right over 32 intervals. The 129-frame inclusive window recorded 64
+gameplay returns, a maximum of one per frame, and 96 skipped game NMIs. Both
+moved from X40 to X47 during the walk. All six enemy slots stayed empty.
+
+The linked CPU trace measured 14 full code-header checks per update. The
+checks and their caller used about 9,142 cycles per update. The original Sonic
+movement routine used about 6,450 cycles. This trace identifies repeated code
+checks as a target for reducing the measured empty-area lag.
+
+| Form | Mesen receipt SHA-256 | Controller SHA-256 |
+| --- | --- | --- |
+| Sonic | `4dd200d50a27d42340217fab5756c3fae87f0154c100ae9eaf2c1aed447a8400` | `c26cbaa64d18e16309702a89c6dca2e51b78cb2ee6b8e96378e879af3a4d633c` |
+| Super Sonic | `100bb0a7c4a5a55c9a18cd00be38c4ef6c68275050cfeb57335c44d9152702e8` | `9dfbe6daffafb6cdb3ae46f97a44feb7a42569b16e214a88138f787b34b0de02` |

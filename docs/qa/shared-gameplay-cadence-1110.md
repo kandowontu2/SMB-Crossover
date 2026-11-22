@@ -111,3 +111,27 @@ The actual Downloads ROM repeated Mini's route with identical audio and lift
 timing. The sole Latest IPS reconstructs those tested bytes.
 [Interrupt and audio shadow proof](../../build/shared-side-tank-precheck-1110/shadow.json) ·
 [Delivery receipt](../../build/shared-side-tank-delivery-1110/verified-delivery.json)
+
+## Empty-area comparison on the 59e1a591 Downloads nightly
+
+These controller replays start through the normal menu, take four warm-up
+updates in Easy 1-1, then measure 48 idle updates and 16 while holding Right.
+All six enemy slots stay empty. Native game-loop returns and literal
+controller port reads are counted separately. The replay uses the existing
+two-file test slot, with no captures.
+
+| Character | Completed updates | Video frames in the measured window | Frames without a gameplay return | Frames without controller port reads | Mesen receipt SHA-256 |
+| --- | ---: | ---: | ---: | ---: | --- |
+| Mario | 64 | 64 | 0 | 0 | `1f877af33ca4a94087d990bbe79a73ca5d49a2001f4e6378e3103c2cfd7a3c05` |
+| Mini Mario | 64 | 64 | 0 | 0 | `8aec6c70a1f718e7399f9cf4c66512fed1e8767535c3642b71ba08123dfb98cb` |
+| Mario the Tank | 64 | 64 | 0 | 0 | `69b500802bc83cd48f9dc3e7752e99ae41d761410a2585460ddfac1f2f55d906` |
+| Kirby | 64 | 64 | 6 | 6 | `40aea987513b90f79b36aecb71a0ae3c4ac33a0d5baa510576bfd57d3e766680` |
+| Sonic | 64 | 129 | 65 | 97 | `4dd200d50a27d42340217fab5756c3fae87f0154c100ae9eaf2c1aed447a8400` |
+| Super Sonic | 64 | 129 | 65 | 97 | `100bb0a7c4a5a55c9a18cd00be38c4ef6c68275050cfeb57335c44d9152702e8` |
+
+Kirby completed two updates on six frames, making up the six frames that had
+no return. The first and last frames in each interval can be partial. The
+sample covers stationary and Right-only movement in the empty 1-1 opening.
+
+[Roster replay driver](../../tools/audit/run_roster_empty_cadence_1122.py) ·
+[Sonic measurements](sonic-ceiling-native-root-1116.md#enemy-free-idle-and-walking-cadence)
