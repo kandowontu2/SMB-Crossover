@@ -58,3 +58,22 @@ rose 111 pixels from Y177 to Y66 and landed back at Y177. The replay
 continued for 25 updates after landing with the upgrade, one tank, and
 five missiles. Receipt
 `affa692dc427deaa9994ba53730feb83f60bb45468ec8fce740f6d5e146ed196`.
+
+### Earned Wall Jump and ordinary brick break in 1-2
+
+On the installed `a6d91e36` nightly, the `--wall-jump` route crosses the
+long gap using the existing descending lift at world X2236. A Bomb above
+the authored brick at X2400/Y128 reveals Wall Jump. The normal reward
+routine collects the item and changes gear from `$03` to `$07`.
+
+A second Bomb breaks the ordinary brick at X2384/Y128 and opens a gap on
+the left side of the used upgrade brick. Rogue Dawn jumps into that gap,
+releases A, and presses A again while holding Right against the wall. The
+native jump routine sets upward velocity to `$FC` and gravity to `$12`.
+She lands on the floor at X2387/Y177 with one energy tank and five missiles.
+The replay passes 25 further game updates with the same health, lives and
+gear. Left-facing Wall Jump and missile and Bomb impacts on enemies remain
+open. Receipt
+`750a60f2b404fd7c219ddd704ae5b5ccbfcff95da0aadf4b7f41d380f0537f26`.
+Controller SHA-256 is
+`097bc20c658398f969e4b95d607bb40f3d4881cea6bb06d9c1e2e2766fdffcac`.
