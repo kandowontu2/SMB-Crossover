@@ -84,10 +84,26 @@ The native collector started protection and music. Shinobi received
 and wrote zero captures. Mesen receipt
 `0a8304a1fee27092ae850fb625dba944a0d1ec6d3f14b55661f61c3ca948ebf3`.
 
-The hidden 1-UP is Shinobi's remaining 1-1 pickup test.
-
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/shinobi-pickups-1123 --resume --max-files 8 --timeout 335 -- python -B tools/audit/compose_shinobi_pickups_1123.py --run
+```
+
+## Hidden 1-UP
+
+Shinobi passed the fourth pickup test in Easy 1-1 on the Downloads build
+`6201e3b6`. He collected the first Mushroom, crossed the opening pipes
+and jumped from X1015/Y176. His upper-right probe hit the hidden block at
+X1024/Y128 and released the 1-UP. He collected it at X1036/Y176, and the
+native life counter went from two to three before the pickup cue. After
+25 more original movement updates, he had three lives, six HP, 1,000
+points and the same weapon tier. The run took 2,221 video frames and
+wrote no captures.
+
+Mesen receipt `442ec2f6dc6faf959f7387c6c73874595c2a5c54831f117e711cfecae7489b2f`.
+Linked CPU receipt `15dbb2b805854cfdeb7563c909d19b6a074385261d62a95e81d71d8ca49eac1f`.
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/shinobi-life-source-1123 --resume --max-files 1 --timeout 300 -- python -B tools/audit/probe_shinobi_life_1123.py --run
 ```
 
 To reproduce the original block failure on `93f140ba`:
