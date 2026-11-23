@@ -160,12 +160,51 @@ def center_flag_takeoff(program):
     return centered.encode()
 
 
+def recover_flag_takeoff(program):
+    """Allow the original vertical jump to clear the pole base before steering."""
+    text = program.decode()
+    old = """  if not flagHop and player>=3152 and settled and y==176 and camera()>=3072 then
+   hold=updates+8;flagHop=snapshot();remember('flag-hop')
+  end"""
+    new = """  if not flagRecovery and player>=3152 and settled and y==176 and camera()>=3072 then
+   flagRecovery={started=updates,phase='release',trace={}}
+  end
+  if flagRecovery and not flagHop then
+   local q=flagRecovery
+   assert(updates-q.started<90,'Bounded flagpole jump recovery')
+   local held,sampled=ram(2,0x14),ram(2,0x15)
+   if #q.trace<40 then
+    q.trace[#q.trace+1]={Main=updates,x=player,y=y,held=held,sampled=sampled,requested=bits,
+     native_state=read(0x1e),source=ram(2,0x6b),facing=ram(2,0x6d),direction=ram(2,0x54)}
+   end
+   if q.phase=='release' then
+    hold=0
+    if settled and y==176 and updates-q.started>=4 and (held|sampled)&128==0 then
+     q.phase='vertical';q.takeoff=updates;bits=128;return
+    end
+    bits=0;return
+   end
+   if y+30<192 then
+    flagHop=snapshot();remember('flag-hop')
+    q.phase='forward';bits=1;return
+   end
+   assert(updates-q.takeoff<32,'Original vertical jump rises before approaching the flag base')
+   bits=128;return
+  end"""
+    prefix = 'local flagRecovery\n'
+    marker = 'events=events,'
+    assert text.count(old) == text.count(marker) == 1
+    updated = prefix + text.replace(old, new, 1).replace(marker, marker+'flag_recovery=flagRecovery,', 1)
+    LuaRuntime().compile(updated)
+    return updated.encode()
+
+
 def report(result, image, full_stage):
     receipt = result['receipt']
     if full_stage:
         names = ('passed', 'reason', 'updates', 'physical_frames', 'terminal', 'events',
                  'original_work_grounded_returns', 'original_work_entries', 'original_work_returns',
-                 'final_cap_trace')
+                 'final_cap_trace', 'flag_recovery')
     else:
         names = ('passed', 'reason', 'character', 'phases', 'inclusive_video_frames',
                  'measured_Main', 'no_controller_read_frames', 'native_lag_NMI',
@@ -192,6 +231,8 @@ def main():
                         help='Wait on solid stairs for the final lift to reach the boarding height')
     parser.add_argument('--center-flag-takeoff', action='store_true',
                         help='Wait for the flagpole camera to reach the tested takeoff position')
+    parser.add_argument('--recover-flag-hop', action='store_true',
+                        help='Jump vertically after an acknowledged A release, then steer into the pole')
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument('--full-stage', action='store_true')
     mode.add_argument('--sonic', choices=('sonic', 'super', 'both'), help='Check the combined dispatcher with the retained Sonic full-stage routes')
@@ -200,9 +241,12 @@ def main():
     shared_dispatch = args.combined or args.public_side_forward
     if (args.sonic or args.mini) and not shared_dispatch:
         parser.error('--sonic and --mini require a shared dispatcher candidate')
-    full_stage_options = args.baseline or args.cap_trace or args.time_cap_approach or args.center_flag_takeoff
+    full_stage_options = (args.baseline or args.cap_trace or args.time_cap_approach
+                          or args.center_flag_takeoff or args.recover_flag_hop)
     if full_stage_options and not (shared_dispatch and args.full_stage):
         parser.error('Full-stage controls require a shared dispatcher candidate and --full-stage')
+    if args.recover_flag_hop and not args.center_flag_takeoff:
+        parser.error('--recover-flag-hop requires --center-flag-takeoff')
     rom = Roster.Timing.ROM
     parent = rom.read_bytes()
     reference = parent
@@ -245,6 +289,8 @@ def main():
         cases = [(name, image, time_final_cap_approach(program)) for name, image, program in cases]
     if args.center_flag_takeoff:
         cases = [(name, image, center_flag_takeoff(program)) for name, image, program in cases]
+    if args.recover_flag_hop:
+        cases = [(name, image, recover_flag_takeoff(program)) for name, image, program in cases]
     if args.cap_trace:
         cases = [(name, image, trace_final_cap(program)) for name, image, program in cases]
     if not args.run:

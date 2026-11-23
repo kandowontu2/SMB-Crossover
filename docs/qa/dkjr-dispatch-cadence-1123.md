@@ -233,6 +233,17 @@ after 19,551 video frames. Receipt
 `7b76392f38cf2730da56ec5766a23943ab0772d96b7875cbe40eb46b077d3a49`.
 The faster candidate remains private while the flagpole timing is checked.
 
+The next controller released all buttons, waited four game updates and
+then used A without a direction. The actual input edge entered the original
+jump state and raised DK Jr. from Y176 to Y165 at X3150 with 54 on the
+timer. The 12-update observation expired during the rise. Receipt
+`e3bf4b50d6e79ae2c454447c4f77cbed271469ed7274e546bb3d8d1b9e8f96a9`.
+The longer observation reached X3150/Y161, then issued Right alone.
+DK Jr. still returned to X3150/Y176 and timed out after 19,549 video
+frames. The run confirms that the neutral jump can rise at the base.
+It leaves the horizontal flagpole contact unresolved. Receipt
+`914818c187977efd4f3e07c820df02e79ce600daead7ca6bc7544feb318134c2`.
+
 The next terrain-dispatch change could save about 2,464 more cycles per
 game update by reusing the existing epoch check for the four side probes.
 Even with that estimated saving, walking would remain above a frame's
