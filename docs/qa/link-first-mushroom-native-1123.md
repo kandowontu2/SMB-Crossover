@@ -26,7 +26,22 @@ The replay used 825 video frames.
 Mesen receipt `ab8d58c8dfcc19fdc6acadb205254359b58a874e3c1258b2694476dda1fe60b5`.
 Controller SHA-256 `07dd433297e28f9f5233504cf78b68f8d1c7a2725026b9e089913d48921e236d`.
 
+## Zelda II Link's hidden 1-UP
+
+The Mesen continuation earned Jump and cast it with Select. The spell
+reduced MP from 127 to 31 and helped reach the hidden block at X1024.
+The normal 1-UP emerged and was collected. The delayed award advanced
+the life counter from two to three and queued the extra-life cue. Zelda
+II Link kept full health and the third life through 25 more movement
+updates. The run took 1,693 video frames and saved zero captures.
+
+Mesen receipt `fee955344d72cd896da97d1c9d79015d09aa189696b1b3f445c0c72f29ae6faa`.
+Controller SHA-256 `d91e5610f8d7ff94907b06b53ab658f37961d3e5cdac753549c115877c28b2a1`.
+On `3af597a7` the runner checks the same Link gameplay hooks and changes
+only the expected ROM hash. The original Mesen pass still counts.
+
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_link_family_mushroom_1123.py --run --form link
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_link_family_mushroom_1123.py --run --form zelda2 --pursuit
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_link_family_stock_1123.py --form zelda2 --route life --run
 ```
