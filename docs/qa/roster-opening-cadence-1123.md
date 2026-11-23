@@ -406,3 +406,43 @@ overhead while preserving terrain and exit handling.
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 8 --timeout 600 -- python -B tools/audit/run_roster_empty_cadence_current_1123.py KIRBY 'META KNIGHT' LEONARDO DONATELLO ARTHUR KARNOV
 ```
+
+## Arthur terrain and cache timing trials
+
+The first Arthur trial called the collision routine directly. It saved
+3,196 CPU cycles per linked update and cleared 1-1 in Mesen with both
+lives. A directed trace exposed a missing cache check in that route.
+The route was rejected for delivery.
+
+The revised terrain route enters Arthur's original authenticated
+dispatcher. It saves 712 linked CPU cycles per update. The native
+traces matched 117 Arthur updates, 540 directed terrain cases, 40
+paired IRQ returns and 40 paired busy NMI returns. Donkey Kong,
+Donkey Kong Jr., Little Mac, Samus and Bass matched across 41 linked
+updates per character.
+
+A combined trial reused Arthur's successful cache check within the
+same game update. It ran a fresh check before gameplay and cleared the
+prior stamp in the pause update. The linked test matched 125 Arthur
+updates and 612 directed header cases. The two changes saved a combined
+1,131 CPU cycles per ordinary standing or walking update. In Mesen,
+both the installed ROM and the combined trial took 96 video frames for
+64 game updates, with 32 frames without an update and 64 skipped NMIs.
+The runs created zero captures. Both changes stay in the audit tools.
+
+| Mesen observation | ROM | Receipt SHA-256 |
+| --- | --- | --- |
+| Installed empty opening | `2f1e4b8d` | `de6c293ca26c71b2611376a2ff2e9dfa307b3694d9aa6cd5a632ead6fe4b8f03` |
+| Combined empty opening | `9a955882` | `3388bf74a420886c587cc9a665fee3a61a50cd06ab9af4d5048cb5ad7c2a79e5` |
+
+## Karnov's repeated cache validation
+
+The linked trace on the installed `2f1e4b8d` build measured about
+40,257 foreground CPU cycles per standing update and 40,358 per
+walking update. The four side probes cost 7,468 cycles combined. The
+two complete owner-header loops in native bank 29 account for roughly
+7,293 cycles per update across the menu, movement, collision and
+rendering callbacks. Karnov's pause callback checks the prior frame
+before movement advances the frame counter. The first movement call
+then precedes the repeated terrain work. A shortcut needs to preserve
+the complete first check and both owner-bank identities.
