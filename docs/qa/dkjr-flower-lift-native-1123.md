@@ -52,8 +52,51 @@ lives and 25 grounded movement updates. This run verified the level route.
 The two pickup runs are still pending. The lifts are private.
 Mesen receipt `e5c110217da4b6e3b3ec9b4f56a594a299ce53a4b457734f36cc51b1ce1f1f0c`.
 
+The hidden 1-UP route on that private build released the actual item
+from X1024 in Mesen. DK Jr. then entered his original hard-landing state
+before he could reach it. Receipt
+`a58c049e434f44b3a082df91760a87f530942511b2f9c8c8db183c4ba7fa36d4`.
+A linked-code run reached the item and gained a life under different
+platform timing. That source result leaves the actual Mesen pickup open.
+
+A second linked-code run aimed for the 1-UP while the same lift rose.
+It collected the real item, gained a third life and kept it through 25
+grounded movement updates. Receipt
+`04a468f0b62c12f24ec296103b7220d16d65045caa294b5787b4e340a681c6fb`.
+With the same controls in Mesen, DK Jr. started the jump two movement
+updates after the request, by which time the lift had risen two more
+pixels. The jump missed the block from that height. Receipt
+`5ff7c6f2369df14ae2e2030f6c89094162c2a7792f769e040f4e676cbe984eaf`.
+
+Requesting the jump at top Y164 gave Mesen time to accept A by top Y162.
+DK Jr. hit the hidden 1-UP at X1024, collected it while it was rising,
+and reached X1070/Y176 with three lives and 25 grounded movement updates.
+Mesen receipt `920ef37f7a21f510aca50b170e0805f725d83647f437446851835011c74b0c94`.
+
+The Star route in the linked build hit the brick at X1616, collected the
+item while it rose, and earned 1,000 points. The Star timer and music
+started, and DK Jr. completed 25 grounded movement updates after stepping
+off the lift. Receipt
+`96354953caa973b573a5822aa0d8d4954b1c91c658fc3a0ce6e8fdc2ca3a854f`.
+On the combined `a8727de4` test build, the same Star route waited until
+the platform was rising at top Y178 before pressing A. Mesen reached
+the lift with both lives, but that jump missed the underside of the brick.
+Receipt `3d663641d0d5c2cec2e1d65fe93a89b9bbd30ecd5a23a1720c4298099b8d1387`.
+Requesting A at top Y176 made the jump start even higher, at lift top
+Y175 and source origin Y158. DK Jr. remained healthy on the lift, but
+the brick stayed intact. Receipt
+`c4d6e19d06c63edbfcd17b3c11cbe85f1deb90eb35b4cf68a241b63ad65a3cf3`.
+Requesting A on the rise at top Y180 accepted the jump at Y178.
+It hit the real brick and spawned the Star at X1616/Y136. DK Jr. fell
+left of the lift and entered the hard-landing state before reaching the
+Star. Receipt `a5ab8edab1e7f133fc38833c53a21e54e728344ec49a759eccd0730820ce25ee`.
+Pressing Right as the Star appeared produced the same receipt. Both
+runs first touched down at X1614/Y176, left of the lift's X1632 edge.
+The Star run needs a way to stay over the lift as the brick bounces.
+
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 600 -- python -B tools/audit/run_dkjr_flower_draw_native_1123.py --run
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 600 -- python -B tools/audit/install_dkjr_flower_draw_1123.py
 python -B tools/audit/run_bounded_build_v1.py --output build/dkjr-life-star-source-1123 --max-files 8 --timeout 600 -- python -B tools/audit/probe_dkjr_life_star_1123.py --kind star --limit 5200
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 8 --timeout 560 -- python -B tools/audit/compose_dkjr_shinobi_1123.py --run star --star-top 180
 ```
