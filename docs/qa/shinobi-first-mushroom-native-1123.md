@@ -73,7 +73,18 @@ lives. A crouch and B press then fired the upgraded shot, which moved
 69 pixels. Mesen receipt
 `979806204fffcfa53d9354c18c792c2fa27f4a8d5cb9e37ad4917aeedc49f483`.
 
-The hidden 1-UP and Star still need ordinary playthrough checks.
+## Star
+
+From Downloads `6201e3b6`, Shinobi earned and used the Fire Flower
+upgrade, crossed the second pit, and hit the authored brick at X1616.
+The Star emerged from X1616/Y136 and he collected it at X1612/Y176.
+The native collector started protection and music. Shinobi received
+1,000 points and kept four HP, both lives, and weapon tier one through
+25 more original movement updates. The run took 3,674 video frames
+and wrote zero captures. Mesen receipt
+`0a8304a1fee27092ae850fb625dba944a0d1ec6d3f14b55661f61c3ca948ebf3`.
+
+The hidden 1-UP is Shinobi's remaining 1-1 pickup test.
 
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/shinobi-pickups-1123 --resume --max-files 8 --timeout 335 -- python -B tools/audit/compose_shinobi_pickups_1123.py --run

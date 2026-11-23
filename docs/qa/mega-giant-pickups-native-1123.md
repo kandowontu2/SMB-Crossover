@@ -44,11 +44,22 @@ it at X1264/Y176 on the normal route and obtained his second tier after
 had both lives and tier two after 25 grounded returns at X1307/Y176.
 Receipt `a72472685c9e7d767f03247f2be25ea0ead6cdc2a7bea9a24d12390eae288dce`.
 
-The hidden 1-UP and Star have passing controller-only linked-code
-tests. Both still need a Mesen run on the installed build. In the
-linked Star run, the exact brick at X1616 released a Star, which started
-protection and music and gave 1,000 points. In the linked 1-UP run,
-Giant jumped from X1016, released the hidden life at X1024, and kept
-three lives. Both continued for 25 grounded returns. Receipts
-`7bdb8ad9cda71a47161f0f08a4345bb52eafaab265a1e6fedb9a7f19446c1de1`
-and `3f783b5a63b0e327510c3c43134b969dd5dd4b8fdc8a72c11ba50bd16cecf9ba`.
+## Hidden 1-UP and Star
+
+On the Downloads nightly, Giant jumped from X1016 to reveal the 1-UP
+from X1024/Y128. He caught it at X1020/Y166, gained a third life, and
+retained that life and the Mushroom upgrade through 25 grounded returns
+at X1049/Y176. Mesen receipt
+`8593d60a65c450849a185db80fc3ba3c44636709ce84e2b243525d65c415aef5`.
+
+On the same Downloads nightly, the Star brick at X1616 released the
+item, which Giant collected at X1627/Y176. The native collector started
+the timer at 35 and queued the Star music. The game awarded 1,000
+points, and he reached X1671/Y176 with tier two, both lives and 25
+grounded returns. Mesen receipt
+`0a4757368d1ab585adf549ef2a76cdf4b2a56c896f2a5f94889612eafb3c15ab`.
+
+The first observer checked the music queue after the interrupt had
+already read it. The passing replay observed the mapped collector's
+actual timer and music writes before the interrupt. Earlier diagnostic
+`bf55d07e8fadd07747c30a309402a9fbeee3153c9fe3b35d8f70a884f2afa65d`.
