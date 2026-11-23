@@ -40,8 +40,34 @@ Controller SHA-256 `d91e5610f8d7ff94907b06b53ab658f37961d3e5cdac753549c115877c28
 On `3af597a7` the runner checks the same Link gameplay hooks and changes
 only the expected ROM hash. The original Mesen pass still counts.
 
+## Link's hidden 1-UP
+
+Link also passed the hidden 1-UP in Easy 1-1 on Downloads `3af597a7`.
+After earning the Mushroom, he hit the hidden block at X1024. He jumped
+back for the 1-UP when it reached X1047/Y129. The extra-life cue played
+and the counter increased from two to three. He kept the Mushroom and
+three lives through at least 25 more movement updates and landed at
+X1018/Y176. The replay took 2,814 video frames and saved zero captures.
+
+Mesen receipt `a599dfb49b1c1caeede66b65dd6134f9a631840cdfe2fb2c831cc998c40c3820`.
+Controller SHA-256 `1e2631a2cb27a1fed4acc20762edc197cbe33733e503bd974716c1f3e5d60057`.
+
+## Zelda II Link's Shield reward
+
+Zelda II Link earned and cast Jump, released the reward from the Fire
+Flower block at X1248, and collected it on the block row. The reward
+unlocked Shield and awarded 1,000 points. He kept Jump active, full
+health and both lives through 25 further updates. The Easy 1-1 replay
+took 1,841 video frames on Downloads `3af597a7` and saved zero captures.
+Casting Shield in combat remains a separate check.
+
+Mesen receipt `f8c0198bccd78de7701cbf8a93ea6906ed1d9d9efa73f08030376fa92653a9c3`.
+Controller SHA-256 `c15b95a83ae2e605e78690294db87ffb365903681ec42047bc096d122859ba2c`.
+
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_link_family_mushroom_1123.py --run --form link
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_link_family_mushroom_1123.py --run --form zelda2 --pursuit
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_link_family_stock_1123.py --form zelda2 --route life --run
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_link_family_stock_1123.py --form link --route life --run
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_link_family_stock_1123.py --form zelda2 --route flower --run
 ```
