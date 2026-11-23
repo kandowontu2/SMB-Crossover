@@ -45,6 +45,26 @@ and confirms that Shinobi also stutters in an empty area.
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 8 --timeout 480 -- python -B tools/audit/run_roster_empty_cadence_current_1123.py 'SHINOBI' 'DONKEY KONG JR'
 ```
 
+### Donkey Kong Jr. rectangle lookup trial
+
+Private test build `b66f046e` computes the tile table address once per
+collision rectangle check. It saved 383 CPU cycles per standing or
+walking game update in the tested opening. The linked CPU suite passed
+166 paired gameplay updates, 1,280 call cases, 75 IRQ cuts and 75 busy NMI
+cuts. The change stayed inside Donkey Kong Jr.'s rectangle code and its
+verification header. CPU receipt
+`01a40fc48ccf751f53dd8f5e33e9ba7c71eb3aa3146842f49149d7a75f167084`.
+
+Mesen still measured 96 video frames for 64 updates, with 32 frames
+without an update and 64 skipped NMIs. The walking endpoint stayed at
+X50. The test build stays private. Mesen receipt
+`949d9838e0e47e15370bb9d515626899f4523a3ba4bce08332c621cc9ae291d3`.
+Controller `429e0ff2c4ad58a8f385c3221c88a30b47634be89bc459e74755097936b3d864`.
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 8 --timeout 300 -- python -B tools/audit/run_dkjr_rect_cadence_1123.py
+```
+
 ## Prince of Persia
 
 The Prince stayed at X40 for the first 16 updates with Right held. With
