@@ -1,5 +1,6 @@
 """Small isolated checks of the fail-closed build storage policy."""
 from pathlib import Path
+from unittest.mock import patch
 import json
 import tempfile
 import sys
@@ -21,6 +22,38 @@ def main():
             (task/'one.bin').write_bytes(bytes(20))
             q=G.preflight(private_root=task,reserved_bytes=20,reserved_files=1,fresh=True)
             assert q['build_bytes']==20 and q['build_files']==1;passed.append('admit_bounded_task')
+            disposable = G.BUILD / 'finishing'
+            disposable.mkdir()
+            abandoned_file = G.BUILD / 'disappearing.bin'
+            abandoned_file.write_bytes(bytes(10))
+            scandir = G.os.scandir
+
+            class RemovedFile:
+                path = str(abandoned_file)
+
+                def stat(self, *, follow_symlinks):
+                    assert not follow_symlinks
+                    abandoned_file.unlink()
+                    raise FileNotFoundError(self.path)
+
+            class BuildEntries:
+                def __enter__(self):
+                    with scandir(G.BUILD) as entries:
+                        return [RemovedFile() if Path(item.path)==abandoned_file else item for item in entries]
+
+                def __exit__(self, *exc):
+                    return False
+
+            def scan_during_cleanup(path):
+                if path == G.BUILD:
+                    return BuildEntries()
+                if path == disposable:
+                    disposable.rmdir()
+                return scandir(path)
+
+            with patch.object(G.os, 'scandir', side_effect=scan_during_cleanup):
+                assert G.inventory(G.BUILD,100,4)==(20,1)
+            passed.append('count_remaining_outputs_during_cleanup')
             denied('reject_global_byte_reservation',lambda:G.preflight(reserved_bytes=81,fresh=True))
             denied('reject_global_file_reservation',lambda:G.preflight(reserved_files=4,fresh=True))
             denied('reject_workspace_escape',lambda:G.preflight(private_root=root/'outside',fresh=True))

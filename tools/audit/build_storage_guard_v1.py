@@ -1,6 +1,7 @@
 """Fail closed on build-cache size/file growth, independently of capture limits."""
 from pathlib import Path
 import os
+import stat
 import time
 
 BUILD=Path(__file__).resolve().parents[2]/'build'
@@ -23,13 +24,23 @@ def inventory(root,byte_cap,file_cap):
         directories+=1
         if directories>max(file_cap,64):
             raise BuildStorageExceeded('Build directory count exceeds the bounded storage scan.')
-        with os.scandir(pending.pop())as items:
+        directory = pending.pop()
+        try:
+            entries = os.scandir(directory)
+        except FileNotFoundError:
+            # The bounded producer can remove its temporary directory
+            # after the workspace scan has already queued it.
+            continue
+        with entries as items:
             for item in items:
-                st=item.stat(follow_symlinks=False)
-                if item.is_symlink()or getattr(st,'st_file_attributes',0)&0x400:
+                try:
+                    st = item.stat(follow_symlinks=False)
+                except FileNotFoundError:
+                    continue
+                if stat.S_ISLNK(st.st_mode) or getattr(st,'st_file_attributes',0)&0x400:
                     raise BuildStorageExceeded('Build storage contains a link/reparse point; inspect before writing.')
-                if item.is_dir(follow_symlinks=False):pending.append(Path(item.path))
-                elif item.is_file(follow_symlinks=False):count+=1;size+=st.st_size
+                if stat.S_ISDIR(st.st_mode):pending.append(Path(item.path))
+                elif stat.S_ISREG(st.st_mode):count+=1;size+=st.st_size
                 if size>byte_cap or count>file_cap:
                     raise BuildStorageExceeded(f'Build storage limit exceeded at {size:,} bytes / {count:,} files. Prune superseded outputs; do not raise the cap.')
     return size,count
