@@ -71,13 +71,18 @@ def deliver(installed, candidate, programs):
             assert result['passed'] and not result['images'] and result['outputs_written'] == 0
             assert result['script_SHA256'] == Combined.H(program) and receipt['character'] == name
             assert receipt['measured_Main'] == 64
-            if name in PRIVATE_CADENCE:
-                assert result['receipt_SHA256'] == PRIVATE_CADENCE[name]
             fields = ('character', 'measured_Main', 'inclusive_video_frames',
                       'no_controller_read_frames', 'native_lag_NMI')
             row = {key: receipt[key] for key in fields}
             row['receipt_SHA256'] = result['receipt_SHA256']
+            if name in PRIVATE_CADENCE:
+                row['private_receipt_match'] = result['receipt_SHA256'] == PRIVATE_CADENCE[name]
             print('COMBINED DOWNLOADS CADENCE '+json.dumps(row,separators=(',',':')), flush=True)
+            if name == 'DONKEY KONG JR':
+                assert receipt['inclusive_video_frames'] < 128, row
+            if name == 'MINI MARIO':
+                assert receipt['inclusive_video_frames'] == 64 and receipt['no_controller_read_frames'] == 0, row
+                assert receipt['native_lag_NMI'] == 0, row
         assert rom.read_bytes() == target.read_bytes() == candidate
         guard(rom, Combined.CANDIDATE)
         guard(target, Combined.CANDIDATE)

@@ -206,6 +206,16 @@ hit him at X1646/Y109 before he could land. This run reached video frame
 The next physical replay needs to time the pipe jump against the plant's
 observed movement.
 
+With that timing, Toad waited for the first plant to retract at Y144
+before jumping, landed on the pipe and crossed the gap. He also cleared
+the next two plants and kept Frog and both lives. The replay stopped at
+X2065/Y176 after missing the next tall pipe. The input had waited for that
+plant to retract at Y128, but the character landed short of the cap.
+The next replay needs to retry the climb from solid ground.
+Mesen receipt `98403523f23da445c57de898fc8804629c041b81c04e6c9a716edec36a767601`.
+The matching linked replay completed the swim with receipt
+`267c39963d0ae91bbdfeedb924fdd0d1b94cd9184723378872dc31f0ce538335`.
+
 To reproduce the recorded linked route, choose `toad3` or `peach3`.
 
 ```powershell
