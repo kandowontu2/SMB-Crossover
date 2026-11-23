@@ -47,3 +47,31 @@ through 25 more movement and owner updates. He finished at X1262/Y112 in
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_darkwing_stock_1123.py --route upgrades --run
 ```
+
+## Hidden 1-UP and Star
+
+In separate Easy 1-1 runs on the same nightly, Darkwing first earned Arrow
+from the Mushroom block and then collected the hidden 1-UP or the Star.
+
+- Hidden 1-UP. He hit the block at X1024 from below and caught the 1-UP
+  at X1039/Y128. The game queued the life sound and later awarded a third
+  life. He kept four HP, four gas and Arrow through 25 more movement
+  and owner updates. The replay ended at X1039/Y176 after 1,924 video frames.
+- Star. He struck the brick at X1616 and caught the moving Star at
+  X1638/Y139. It started invincibility, queued the Star music and awarded
+  1,000 points. He kept four HP, five gas, Arrow and both lives through
+  25 more movement and owner updates. The replay ended at X1638/Y176
+  with the Star active after 2,759 video frames.
+
+Both tests used the normal controller and saved no captures. This completes
+Darkwing's four standard pickup tests.
+
+| Replay | Controller SHA-256 | Mesen receipt SHA-256 |
+| --- | --- | --- |
+| Hidden 1-UP | `c924cca62834b14dd54ca7e012a5425f317b01d18e28e8d4425e58873e6d16a9` | `61274506eb0cd9c91ddd66ab6eded1d349ad561e4f5c7ee75a8ed56c6885b8b1` |
+| Star | `6d0693c899180a8e8f904d70ed730cd6b08018ffb8acce6ccea8b0c4a6027966` | `1643f7cf092247dfbe968817d58e8d30e456de1686c092e4fa9076c9832863f2` |
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_darkwing_stock_1123.py --route life --run
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_darkwing_stock_1123.py --route star --run
+```

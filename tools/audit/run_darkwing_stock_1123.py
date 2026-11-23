@@ -23,8 +23,8 @@ PIN='06336f15fae4d24afa8025e972764091def63b6c01d41f206828a5105939661f'
 ROUTES={'mushroom':(0,),'upgrades':(0,1),'life':(0,3),'star':(0,2)}
 PINS={'mushroom':'3edcba9a21c8d4b221e554b5263e03246109cee15f3eb4f04d1ff4356621a3be',
       'upgrades':'93fcee85ca766daebd3330cc4732a93832def45c170dd2d24636a0d20ddf2675',
-      'life':'55c6c414da3b434a2f81fe04e374db9b0b55a410ad9b8d33bb964722ed7f8b1d',
-      'star':'7943a5391121662eb83011f901bb249fe577c67a8e8997617db473d24cc22c1d'}
+      'life':'c924cca62834b14dd54ca7e012a5425f317b01d18e28e8d4425e58873e6d16a9',
+      'star':'6d0693c899180a8e8f904d70ed730cd6b08018ffb8acce6ccea8b0c4a6027966'}
 OBSERVER=R/'tools/audit/ice_climbers_stock_observer_1122.lua'
 CHAIN=('current_roster_darkwing_stairs_v8.lua','current_roster_darkwing_air_arrow_v7.lua',
        'current_roster_darkwing_gap_v6.lua','current_roster_darkwing_arrow_v5.lua','full_roster_policy_og.lua')
@@ -315,6 +315,15 @@ def controller(raw,route):
     edit('local b=not entered and menu() or (scope() and choose(context()) or {})', 'local b=not entered and menu()or(scope()and clockInput or{})')
     edit('  entered=physical', '  entered=physical;clockInput=choose(context())')
     edit('physical<=6900','physical<=11000')
+    if route in('life','star'):
+        extra=""" if a.kind>=2 then
+  assert(s.hp==p.before.hp and s.power==p.before.power and s.gas==p.before.gas and s.mode==p.before.mode and s.status==p.before.status,
+         'Native Star/life preserves actual Darkwing health, adaptor, gas and mode')
+ end
+"""
+        edit(' if a.kind<2 then',extra+' if a.kind<2 then')
+        for message in("'Native life and cue persist'","'Native Star and score persist'"):
+            edit(','+message,' and s.hp==q.grant.hp and s.power==q.grant.power and s.gas==q.grant.gas and s.mode==q.grant.mode and s.status==q.grant.status,'+message)
     restored=text
     for a,b in reversed(edits):assert restored.count(b)==1;restored=restored.replace(b,a,1)
     assert restored==OBSERVER.read_text()
