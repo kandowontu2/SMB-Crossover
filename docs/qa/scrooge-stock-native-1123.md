@@ -25,6 +25,15 @@ completed on the same ROM.
 Mesen receipts `265c06be532cb5f711b292d60b530397576448162161ab7b4603bab5798aa966`
 and `cc96e555dd46ebc3fae989dc6a9592f4a859e8a2ed345fea9488789f0c74b3a7`.
 
+A bounded Mesen trace stopped at the descending stack before it reached
+the far-call trampoline in RAM. It recorded the pogo's block probe,
+the native head collision and a long chain of pickup preparation calls,
+ending at stack pointer `$85`. The linked trace independently reached the
+same chain after creating a real 1-UP at X1024. The X1024/Y128 reading is
+the temporary block position used by the pogo's native block effect.
+The short Mesen trace receipt is
+`e5a841fb923e8e1124d8d35612355a301dd280188555376b6c72a7ac91efb0af`.
+
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_simon_ryu_stock_1123.py --form scrooge --route life --run
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_simon_ryu_stock_1123.py --form scrooge --route star --run

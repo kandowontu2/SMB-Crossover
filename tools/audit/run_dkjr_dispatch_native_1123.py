@@ -275,6 +275,8 @@ def main():
                                 help='Qualify the DK Jr. bank-33 shortcut on the combined nightly')
     candidate_mode.add_argument('--fast-side-epoch', action='store_true',
                                 help='Qualify fast authorization for the DK Jr. terrain probes')
+    candidate_mode.add_argument('--head-bridge', action='store_true',
+                                help='Qualify native block effects from DK Jr. head contacts')
     parser.add_argument('--baseline', action='store_true', help='Run only the full-stage replay on the installed nightly')
     parser.add_argument('--cap-trace', action='store_true', help='Record the last staircase position and lift predicates')
     parser.add_argument('--time-cap-approach', action='store_true',
@@ -288,12 +290,16 @@ def main():
                            help='Use the original backward-facing jump at the pole')
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument('--full-stage', action='store_true')
+    mode.add_argument('--head-contact', action='store_true',
+                      help='Observe the X416 lift and native effect on the underside of the X384 brick')
     mode.add_argument('--sonic', choices=('sonic', 'super', 'both'), help='Check the combined dispatcher with the retained Sonic full-stage routes')
     mode.add_argument('--mini', action='store_true', help='Compare Mini Mario idle and walking cadence')
     args = parser.parse_args()
-    shared_dispatch = args.combined or args.public_side_forward or args.fast_side_epoch
+    shared_dispatch = args.combined or args.public_side_forward or args.fast_side_epoch or args.head_bridge
     if (args.sonic or args.mini) and not shared_dispatch:
         parser.error('--sonic and --mini require a shared dispatcher candidate')
+    if args.head_contact and not args.head_bridge:
+        parser.error('--head-contact requires --head-bridge')
     full_stage_options = (args.baseline or args.cap_trace or args.time_cap_approach
                           or args.center_flag_takeoff or args.recover_flag_hop or args.backward_flag_hop)
     if full_stage_options and not (shared_dispatch and args.full_stage):
@@ -307,7 +313,14 @@ def main():
         import compose_dkjr_sonic_dispatch_1123 as Combined
         import compose_sonic_current_auth_epoch_1122 as Sonic
         import repair_rogue_side_pipe_1123 as Pipe
-        if args.fast_side_epoch:
+        if args.head_bridge:
+            import compose_dkjr_head_bridge_current_1123 as Bridge
+            import compose_dkjr_public_side_forward_1123 as Side
+            import compose_dkjr_side_epoch_fast_1123 as Fast
+            base = Bridge.inverse(parent) if Dispatch.h(parent) == Bridge.CANDIDATE else parent
+            original = Combined.inverse(Side.inverse(Fast.inverse(base)))
+            candidate, spans = (parent, []) if args.baseline else Bridge.proposal(base)
+        elif args.fast_side_epoch:
             import compose_dkjr_public_side_forward_1123 as Side
             import compose_dkjr_side_epoch_fast_1123 as Fast
             original = Combined.inverse(Side.inverse(parent))
@@ -326,7 +339,12 @@ def main():
         reference = Sonic.inverse(Pipe.restore_pipe_bytes(original))
     else:
         candidate, spans = Dispatch.proposal(parent)
-    if args.sonic:
+    if args.head_contact:
+        from check_dkjr_head_bridge_current_1123 import controller
+        program = controller(candidate)
+        LuaRuntime().compile(program)
+        cases = [('head-contact', candidate, program.encode())]
+    elif args.sonic:
         from run_sonic_auth_full11_1123 import controllers
         programs = controllers(reference, candidate)
         forms = tuple(programs) if args.sonic == 'both' else (args.sonic,)
@@ -381,7 +399,11 @@ def main():
                          long_no_capture=args.cap_trace)
             assert result['script_SHA256'] == Dispatch.h(program)
             assert result['outputs_written'] == 0 and not result['images']
-            if args.sonic:
+            if args.head_contact:
+                print('DK HEAD NATIVE '+json.dumps(dict(passed=result['passed'], ROM_SHA256=result['ROM_SHA256'],
+                    receipt_SHA256=result['receipt_SHA256'], script_SHA256=result['script_SHA256'],
+                    receipt=result['receipt']), separators=(',', ':')), flush=True)
+            elif args.sonic:
                 print('COMBINED SONIC NATIVE '+json.dumps(dict(form=name, passed=result['passed'],
                     ROM_SHA256=result['ROM_SHA256'], receipt_SHA256=result['receipt_SHA256'],
                     script_SHA256=result['script_SHA256'], receipt=result['receipt']),separators=(',', ':')), flush=True)

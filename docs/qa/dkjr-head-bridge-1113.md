@@ -1,6 +1,9 @@
 # DK Jr. accepted-head bridge and first mushroom
 
-This is a private source/CPU qualification. Root owns native Mesen tests,
+The November 11 qualification below is historical. The [current replay](#november-23-current-build) uses the
+existing X416 lift and qualifies the block-hit fix independently of the Mushroom.
+
+The original section is a private source/CPU qualification. Root owns native Mesen tests,
 installation and publication. The already delivered November11 full-stage
 clear remains historical evidence; this report does not replace it with a
 new native claim.
@@ -214,3 +217,43 @@ including the equal-left short circuit. This is an isolated compaction
 proof. It has not been applied to f116. The existing pure fall leafA31F is
 also byte-identical to the duplicated six-byte OriginalFall, providing a
 measured source-factoring lead. Current f116/fa9/full2057 remain frozen.
+
+## November 23 current build
+
+Candidate `06336f15` applies the accepted-head fix to `3af597a7` in 383
+changed bytes. It uses the existing code space, preserves all 2,048 live
+art bytes, and keeps the 13 existing helper placements. The X336 private
+lift described above is outside this candidate. The source checks passed
+224 IRQ and 224 busy-NMI interruptions against a matched native control.
+The native audio writes and skipped-frame increment matched that control.
+
+In Mesen, DK Jr. rode the existing lift at X416, jumped Left toward the
+underside of the X384 brick and hit it at X401/Y144. His original fall
+began and the native block handler changed the tile from `$51` to `$23`
+and started a 16-update bounce in the same game update. He continued for
+25 further movement returns with both lives. The earlier controller
+stopped at X402 because its launch range was one pixel too narrow.
+
+| Mesen check | Result | Receipt SHA-256 |
+| --- | --- | --- |
+| Block hit from the X416 lift | Native bounce and 25 further movement returns | `36d395014b68dcc0d730f5dc3783d36767ea688a37e6ec5371b30138e62c1fe9` |
+| Full 1-1 and 1-2 opening | 17,696 video frames, 26 grounded movement returns in 1-2 and both lives | `15d7c2bf7e271a985a19e38af1a1ea288173f42a8701a304263bf38e6a5b3247` |
+| Empty 1-1 standing and walking | 96 video frames for 64 game updates, including 24 frames for 16 walking updates | `fc5ac6f6fa109a08507bcf9df24d2c3949d112fbca28771c277acce20594f549` |
+
+The opening matched the previous nightly's cadence. The full route took
+65 more video frames for the same 8,358 game updates. Linked opening work
+was about 194 CPU cycles higher per update. The X416 approach still needs
+a route to a Mushroom. After the brick bounce, DK Jr. reached X344/Y112
+on the row and jumped from there, leaving the Mushroom block unchanged.
+
+Downloads now has `06336f15`. Its DK Jr. opening matched the private
+receipt exactly. The same launch checks took 97 video frames for 64
+updates with each Sonic form and 64 with Mini Mario. The automatic patch
+guard passed before and after direct replacement. No backup was created.
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/dkjr-head-final-interrupts-1123 --max-files 1 --timeout 460 -- python -B tools/audit/check_dkjr_head_bridge_current_1123.py --fixtures --interrupts
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_dkjr_dispatch_native_1123.py --head-bridge --head-contact --run
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 410 -- python -B tools/audit/run_dkjr_dispatch_native_1123.py --head-bridge --full-stage --time-cap-approach --center-flag-takeoff --backward-flag-hop --run
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 520 -- python -B tools/audit/install_dkjr_head_bridge_1123.py --install
+```
