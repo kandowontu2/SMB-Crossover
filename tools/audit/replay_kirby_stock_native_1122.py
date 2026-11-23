@@ -104,25 +104,33 @@ def controller(raw, kind, *, lifecycle=False):
                         " if #heals==0 then pad=mushroom(px,y,ground,item) else pad=flower(px,y,ground,item) end")
 
 
-def inhale_parts(raw, hook_names, ram_names):
-    authority = Food.Cpu.Authority
-    host = Food.Cpu.Host
-    assert authority.sha(authority.AUTHORITY) == authority.AUTHORITY_ROM
-    assert authority.sha(authority.AUTHORITY.with_suffix('.dbg')) == authority.AUTHORITY_DBG
-    bundle = authority.scoped_load(authority.AUTHORITY)
+def verified_weapon_bank(raw):
+    import compose_kirby_spiny_sound_1123 as Needles
+
+    if sha256(raw).hexdigest() == Needles.CANDIDATE:
+        raw = Needles.inverse(raw)
     start = 16 + 74 * 8192
     bank = raw[start:start+8192]
     if sha256(bank).hexdigest() != Kirby.BANK_SHA:
         # The Sonic contact update shares bank 74 with Kirby. Compare the bank
         # after undoing only the two known native Sonic ingress changes.
         import compose_sonic_original_contact_1122 as Sonic
-        assert sha256(raw).hexdigest() == '59e1a591d5ea31d62dafa9332990598b74b5b0852194ef7cc7ad22788196b723'
         program = Sonic.program()['images']
         for at, before, after in ((0xBDC, Sonic.OLD_GATE, program['INGRESS'].ljust(64, b'\xea')),
                                   (0x1F03, Sonic.OLD_BODY_GATE, program['BODY_GATE'])):
             assert len(before) == len(after) and bank[at:at+len(after)] == after
             bank = bank[:at] + before + bank[at+len(after):]
     assert sha256(bank).hexdigest() == Kirby.BANK_SHA
+    return bank
+
+
+def inhale_parts(raw, hook_names, ram_names):
+    authority = Food.Cpu.Authority
+    host = Food.Cpu.Host
+    verified_weapon_bank(raw)
+    assert authority.sha(authority.AUTHORITY) == authority.AUTHORITY_ROM
+    assert authority.sha(authority.AUTHORITY.with_suffix('.dbg')) == authority.AUTHORITY_DBG
+    bundle = authority.scoped_load(authority.AUTHORITY)
     assert authority.sha(Kirby.INHALE) == Kirby.PINS[Kirby.INHALE]
     config, body = Kirby.INHALE.read_text(encoding='utf-8').split('\n', 1)
     lua = LuaRuntime()

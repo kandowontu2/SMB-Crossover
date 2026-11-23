@@ -449,11 +449,11 @@ NeedleLoop:
   sta KbShotVXHi,x
   lda NeedleVY,y
   sta KbShotVYHi,x
+  lda #Sfx_Fireball
+  sta Square1SoundQueue          ; A partial fan still launches real needles.
   iny
   cpy #3
   jcc NeedleLoop
-  lda #Sfx_Fireball
-  sta Square1SoundQueue
   rts
 NeedleVX:.byte $fe,0,2
 NeedleVY:.byte $ff,$fd,$ff

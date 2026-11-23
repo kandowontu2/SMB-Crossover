@@ -170,3 +170,42 @@ physical frames and produced no captures.
 
 - Receipt `cbf1d46a9347c47c396045d7a15c9f9f103a8ed37be5b9db8eebe3a33b28956a`
 - Controller `40224a77cb6a401cd2e68a32db47012138f8149ebc23288d6f557686ff499968`
+
+### Spiny needles and the launch sound
+
+In 4-1, Kirby inhaled a live Spiny thrown by Lakitu, pressed Down to gain
+the needle copy, and launched a needle fan to defeat a second Spiny.
+Easy and Hard both passed with six HP and two lives through 25 additional
+weapon updates. The replay used Start Level to select 4-1, with
+invincibility off and ordinary controller inputs throughout the encounter.
+
+A second B press exposed an audio bug on `ae28a3ec`. One needle from the
+first shot still occupied a slot. The second press launched two needles
+and left the sound queue empty. The native failure receipt is
+`43541fd51031fa7e9e713bc9ed0239ace96001f99fe6bcce8815edf9d6061bc0`.
+
+Nightly `2f1e4b8d` queues the launch sound after a needle is created, so
+one or two available slots still produce a cue. The 32 linked CPU cases
+cover every three-slot occupancy pattern, both facings, and two initial
+sound-queue values. Every successful partial fan queues the cue. A full
+pool keeps the previous queue. The projectiles and other checked gameplay
+state match. The full fan costs up to 12 more cycles on its launch update.
+Linked receipt `63a15a25334e4f06ee3deb3be4a7a8e63cb31ef82f001c258832f544a07f4bae`.
+
+| Controller replay | Video frames | Native result receipt |
+| --- | ---: | --- |
+| Easy, capture and full fan | 2,084 | `6dc188e2e47a2a5ee83b03cdbb2399059466ea53ecb80d033853b995070df1a4` |
+| Hard, capture and full fan | 1,982 | `0059ff95a40d0283b718bff3ed57dbfa9560fbafcf53cdd850fd7efd7477bd4f` |
+| Easy, partial fan and sound, also from Downloads | 2,084 | `cded8f0d48c09210e954b869560379b546424f416e123265e26190f6fac5ac7f` |
+
+On the partial-fan replay, the actual guest sound routine processed the
+first cue at frame 2,009 and the second at frame 2,042. The Downloads ROM
+matched the tested candidate and the replay receipt. No captures were
+written. The four earlier inhale and two shell controller hashes still
+match after accounting for the separate Sonic routing bytes and this
+needle-only change. Their prior passing results carry forward.
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/kirby-spiny-audio-source-1123 --max-files 1 --timeout 140 -- python -B tools/audit/check_kirby_spiny_sound_1123.py
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 8 --timeout 575 -- python -B tools/audit/replay_kirby_spiny_native_1123.py --install
+```
