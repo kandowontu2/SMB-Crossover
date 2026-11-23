@@ -13,14 +13,16 @@ import run_roll_stock_1123 as Base
 import check_contra_force_fixed_layout_1122 as Layout
 
 R,ROM,W,N,H,Stock,Engine=Base.Stock.R,Base.ROM,Base.W,Base.N,Base.H,Base.Stock,Base.Engine
+# Retained as the frozen cold-conflict probe's prior-image identity.
 PIN='27e01af3ad9e581ac1b77227bc4ba491af76eaf9c7995c3a6eea10d891087866'
+CURRENT='bcc26bb5f6d11bbd38e46d5a5025eb30d2bc146e1bd293a44ca104eec5f40a0e'
 BODY=R/'tools/playthroughs/arthur_mushroom_1123.lua'
-LUA=None
+LUA='89eae6038d4d55be004d236b33381efbc0c7d42775ea197d9b65bc056aeb314e'
 
 
 @lru_cache(maxsize=1)
 def controller(raw):
-    assert H(raw)==PIN
+    assert H(raw)==CURRENT
     b=dict(W.Symbols.bundle(),raw=raw)
     names=('SelectedCharacter Player_X_Position Player_PageLoc Player_Y_Position Player_Y_HighPos '
            'Player_X_Speed Player_State PlayerStatus ScreenLeft_X_Pos ScreenLeft_PageLoc '
@@ -28,7 +30,7 @@ def controller(raw):
            'PowerUpType ObjectOffset GameEngineSubroutine OperMode OperMode_Task CrossoverBehaviorVersion '
            'CrossoverMenuState CrossoverMenuIndex CrossoverTitleDrawn DisableScreenFlag A_B_Buttons PreviousA_B_Buttons '
            'PlayerScoreDisplay InjuryTimer ArR_04F0 ArR_053A ArMode ArJumpCount ArLastPickup ArHostReady '
-           'R2 R6 R7').split()
+           'WorldNumber LevelNumber R2 R6 R7').split()
     cheats=[n for n in b['syms']if n.startswith('Cheat')and n not in('CheatsInjuryTimer',)
             and b['segs'].get(b['syms'][n].get('seg'),{}).get('type')=='bss']
     # The seven live preference bytes are exported in SRAM. Check actual
@@ -43,7 +45,7 @@ def controller(raw):
         tag=((at-16)//8192)|128
         assert at-16==(tag&127)*8192+(pc&8191)
         hooks[event]=dict(name=name,pc=pc,tag=tag,offset=at-16,bytes=list(raw[at:at+12]))
-    cfg=dict(sha=PIN,ram=ram,hooks=hooks,cheats=cheats)
+    cfg=dict(sha=CURRENT,ram=ram,hooks=hooks,cheats=cheats)
     text='local C='+Stock.value(cfg)+'\n'+BODY.read_text()
     assert not any(x in text for x in('emu.write','emu.setState','saveState','loadState','io.open','dofile','takeScreenshot'))
     Stock.LuaRuntime().compile(text)
@@ -72,7 +74,7 @@ def cold(raw):
 
 def source(raw,limit):
     program=controller(raw)
-    with patch.object(Engine.J,'cold',cold),patch.object(Engine.J,'PIN',PIN):
+    with patch.object(Engine.J,'cold',cold),patch.object(Engine.J,'PIN',CURRENT):
         return Engine.run(raw,limit,text=program.decode())
 
 
@@ -81,10 +83,11 @@ def native(raw):
     assert LUA and H(program)==LUA,'Root may run only the frozen source-qualified controller'
     out=Stock.OUT;candidate,script=out/'candidate.nes',out/'controller.lua'
     before=script.read_bytes();guard=Stock.check(ROM)
-    assert guard['ROM_sha256']==PIN and set(out.iterdir())=={candidate,script}and candidate.read_bytes()==raw
+    assert guard['ROM_sha256']==CURRENT and not guard['matching_patch_files']
+    assert set(out.iterdir())=={candidate,script}and candidate.read_bytes()==raw
     try:
         with Stock.preserve_script(script,candidate,raw)as stage:
-            stage(program);q=Stock.run(script,ROM,out/'capture',PIN,210)
+            stage(program);q=Stock.run(script,ROM,out/'capture',CURRENT,210)
         assert q['script_SHA256']==LUA and q['outputs_written']==0 and not q['images']
     finally:
         assert script.read_bytes()==before and candidate.read_bytes()==raw and ROM.read_bytes()==raw and Stock.check(ROM)==guard
@@ -95,13 +98,13 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     g=p.add_mutually_exclusive_group();g.add_argument('--source',action='store_true');g.add_argument('--run',action='store_true')
     p.add_argument('--limit',type=int,default=1900);a=p.parse_args();assert 400<=a.limit<=2200
-    raw=ROM.read_bytes();assert H(raw)==PIN
+    raw=ROM.read_bytes();assert H(raw)==CURRENT
     if a.run:q=native(raw)
     else:
         def deny(*a,**k):raise AssertionError('Arthur source attempted output/emulator')
         with patch.object(Path,'write_bytes',deny),patch.object(Path,'write_text',deny),patch('subprocess.Popen',deny):
             if a.source:q=source(raw,a.limit)
-            else:q=dict(passed=True,ROM_SHA256=PIN,controller_SHA256=H(controller(raw)),route_executed=False,outputs=0)
+            else:q=dict(passed=True,ROM_SHA256=CURRENT,controller_SHA256=H(controller(raw)),route_executed=False,outputs=0)
     print('ARTHUR_MUSHROOM '+json.dumps(q,separators=(',',':')),flush=True)
     return int(not q['passed'])
 
