@@ -26,3 +26,40 @@ updates per frame. These samples cover the empty opening only.
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 390 -- python -B tools/audit/run_roster_empty_cadence_1122.py 'STEVE HERMANN' 'BASS' 'DONKEY KONG'
 ```
+
+## Shinobi and Donkey Kong Jr.
+
+The Downloads nightly `6201e3b6` took 96 video frames for 64 game updates
+for each character, with no enemies active. In both runs, 32 frames had no
+completed game update and 64 had one. Mesen recorded 64 skipped NMIs. The
+walking sample began at X40 and finished at X56 for Shinobi and at X50 for
+Donkey Kong Jr. This reproduces Donkey Kong Jr.'s previous opening cadence
+and confirms that Shinobi also stutters in an empty area.
+
+| Character | Controller SHA-256 | Mesen receipt SHA-256 |
+| --- | --- | --- |
+| Shinobi | `66fb56a605c859f0a57bf8572c0f6ec691eb6fb457957cc2ca938d9e6e30d0d4` | `54228608c734c4535be4de2407f33acef22be3d746730aa11357e7a09477162b` |
+| Donkey Kong Jr. | `6c9a4f87bfa30d3488f0afbd7fd56dc2fb8d977383ccbd67899e8b7dfa4134eb` | `e46ba3e39e608f58418bb08147d993a4e3facdd42a05d1912b3c06f0068c4c83` |
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 8 --timeout 480 -- python -B tools/audit/run_roster_empty_cadence_current_1123.py 'SHINOBI' 'DONKEY KONG JR'
+```
+
+## Prince of Persia
+
+The Prince stayed at X40 for the first 16 updates with Right held. With
+Right held for 48 updates, he reached X92 at the same ground height.
+The longer Mesen run spent 168 video frames on 96 game updates, split
+between 48 idle updates and 48 updates with Right held. There were 72
+frames without a completed game update and 120 skipped NMIs. All six
+enemy slots stayed empty. The sample covers the delay before he begins
+walking as well as his movement.
+
+Controller `1512e50dcf140ca72abb4244e094e0812c8cdea948e5e635ba166093a8656a4b`.
+Mesen receipt `880190c8d40864af564321b1bfbf96f7f82bc0ae7ee72a2c6fd7e50ee63540e0`.
+The original shorter sample ended at X40 and failed its movement check,
+receipt `ee6b119f69637ecdab677760198d0b0b7c778d6547c1336f2046dd3fe21bf6c3`.
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 8 --timeout 300 -- python -B tools/audit/run_roster_empty_cadence_current_1123.py 'PRINCE PERSIA'
+```
