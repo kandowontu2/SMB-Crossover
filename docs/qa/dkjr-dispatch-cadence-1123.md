@@ -93,7 +93,31 @@ this combined candidate.
 Full-stage receipt
 `9a29c99b9db5e459f3919a306f288a71bc0ab418e9668c906ab8070c510d10b3`.
 
+## Full-stage comparison from Downloads
+
+The first comparison on `28708fa9` stopped at the second gap because the
+replay required the native movement state to be grounded while checking
+for a transient native State 2. One update had State 2 and original
+standing state 1, with the original body at Y191 and the native player at
+X1366/Y176 over solid tile `$54`. The revised check accepts this supported
+wait and still requires native State 0 before sending the jump.
+
+With that correction, the Downloads replay reached the staircase top at
+X3026/Y48 and continued to X3038/Y48. It caught the native lift at
+X3038/Y41 with the lift top at Y73, then left the lift at X3067/Y160.
+DK Jr. touched the flag with time remaining, entered 1-2 and completed 25
+grounded movement updates at X40/Y176 with both lives. The run took 22,242
+video frames and wrote zero captures.
+
+- First comparison receipt `0f35ed56c3738347085d0821896c2ecf1520c2ebec3a1af543461b613e5c055b`.
+- Passed comparison receipt `3264106dfaa17ec8c92884167cafa9fff9ce8221aeecc32737f5d729a3ea8ec0`.
+- Passed controller SHA-256 `1b21ff42fb0a25bfe1ded82070efab52689897c6f65bdec44c053705dfc5044f`.
+
+The installed route demonstrates the support and input sequence to compare
+with the private candidate before delivery.
+
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/dkjr-sonic-combined-dispatch-1123 --max-files 1 --timeout 600 -- python -B tools/audit/check_dkjr_sonic_dispatch_1123.py --interrupts
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 360 -- python -B tools/audit/run_dkjr_dispatch_native_1123.py --combined --run
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 575 -- python -B tools/audit/run_dkjr_dispatch_native_1123.py --combined --full-stage --baseline --cap-trace --run
 ```

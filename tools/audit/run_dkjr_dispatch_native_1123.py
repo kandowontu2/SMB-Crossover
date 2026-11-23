@@ -56,9 +56,18 @@ def prepare_full_stage(parent, candidate):
     wait = """  assert(player==takeoffX and y==176 and grounded and read(0x1e)==0 and groundTile(player)==0x54,
    'Supported second-gap bank while waiting')"""
     steady = """  local nativeState=read(0x1e)
-  assert(player==takeoffX and y==176 and grounded and (nativeState==0 or nativeState==2)
-   and groundTile(player)==0x54,'Supported second-gap bank while waiting')
-  if nativeState==2 then gap.nativeState2=(gap.nativeState2 or 0)+1 end"""
+  local sourceY=ram(2,0x210)
+  local sourceStanding=ram(2,0x6b)==1 and sourceY==y+15
+  local baseTile=groundTile(player)
+  assert(player==takeoffX and y==176 and sourceStanding and (nativeState==0 or nativeState==2)
+   and baseTile==0x54,'Supported second-gap bank while waiting')
+  if nativeState==2 then
+   gap.nativeState2=(gap.nativeState2 or 0)+1
+   if not gap.nativeState2First then
+    gap.nativeState2First=snapshot()
+    gap.nativeState2First.source_y=sourceY;gap.nativeState2First.ground_tile=baseTile
+   end
+  end"""
     observer = Full.once(observer, wait, steady)
     observer = Full.once(observer, '  if earlyTakeoff or (movingLeft==gapLeft and direction==2) then',
                          '  if nativeState==0 and (earlyTakeoff or (movingLeft==gapLeft and direction==2)) then')
@@ -75,16 +84,55 @@ def prepare_full_stage(parent, candidate):
     return scripts
 
 
+def trace_final_cap(program):
+    text = program.decode()
+    prefix = 'local capTrace={first={},tail={},samples=0,held_right=0,at_gate=0,descending_window=0}\n'
+    marker = " if phase=='final-cap'then\n  right=player<stairDown-2\n"
+    observer = '''  local row=snapshot()
+  local previousTop=priorTop[stairDown]
+  local lift=births[tostring(stairDown)]
+  row.right_requested=right;row.held=ram(2,0x14);row.input_sample=ram(2,0x15)
+  row.source_previous=ram(2,0x6c);row.source_y=ram(2,0x210)
+  row.source_x=camera()+ram(2,0x213);row.source_facing=ram(2,0x6d)
+  row.source_direction=ram(2,0x54)
+  row.contact={ram(2,0x42),ram(2,0x43),ram(2,0x44),ram(2,0x45)}
+  row.contact_camera=ram(2,0x435)+256*ram(2,0x436)
+  row.lift_top=stairTop;row.lift_previous_top=previousTop;row.on_lift=not not onStairDown
+  row.passenger=lift and read(0x566+lift.slot)or nil
+  capTrace.samples=capTrace.samples+1
+  if row.held&1~=0 then capTrace.held_right=capTrace.held_right+1 end
+  if player>=stairDown-2 then capTrace.at_gate=capTrace.at_gate+1 end
+  if stairTop and previousTop and stairTop>=80 and stairTop<=92 and stairTop>previousTop then
+   capTrace.descending_window=capTrace.descending_window+1
+   capTrace.first_window=capTrace.first_window or row
+  end
+  if not capTrace.furthest or player>capTrace.furthest.x then capTrace.furthest=row end
+  if #capTrace.first<8 then capTrace.first[#capTrace.first+1]=row end
+  if #capTrace.tail>=12 then table.remove(capTrace.tail,1)end
+  capTrace.tail[#capTrace.tail+1]=row
+'''
+    receipt = 'events=events,'
+    traced_receipt = receipt+'final_cap_trace=capTrace,'
+    assert text.count(marker) == 1 and text.count(receipt) == 1
+    traced = prefix+text.replace(marker, marker+observer, 1).replace(receipt, traced_receipt, 1)
+    assert traced[len(prefix):].replace(marker+observer, marker, 1).replace(traced_receipt, receipt, 1) == text
+    LuaRuntime().compile(traced)
+    return traced.encode()
+
+
 def report(result, image, full_stage):
     receipt = result['receipt']
     if full_stage:
         names = ('passed', 'reason', 'updates', 'physical_frames', 'terminal', 'events',
-                 'original_work_grounded_returns', 'original_work_entries', 'original_work_returns')
+                 'original_work_grounded_returns', 'original_work_entries', 'original_work_returns',
+                 'final_cap_trace')
     else:
         names = ('passed', 'reason', 'character', 'phases', 'inclusive_video_frames',
                  'measured_Main', 'no_controller_read_frames', 'native_lag_NMI',
                  'inclusive_Main_costs', 'Main_return_histogram')
     fields = {key: receipt[key] for key in names if key in receipt}
+    if full_stage and (bank := receipt.get('second_gap', {})).get('nativeState2'):
+        fields['second_gap_bank'] = dict(count=bank['nativeState2'], first=bank['nativeState2First'])
     fields.update(ROM_SHA256=Dispatch.h(image), receipt_SHA256=result['receipt_SHA256'],
                   script_SHA256=result['script_SHA256'], full_stage=full_stage)
     print('DK NATIVE '+json.dumps(fields, separators=(',', ':')), flush=True)
@@ -94,12 +142,16 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--run', action='store_true')
     parser.add_argument('--combined', action='store_true', help='Use the combined DK Jr. and Sonic candidate on the current nightly')
+    parser.add_argument('--baseline', action='store_true', help='Run only the full-stage replay on the installed nightly')
+    parser.add_argument('--cap-trace', action='store_true', help='Record the last staircase position and lift predicates')
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument('--full-stage', action='store_true')
     mode.add_argument('--sonic', choices=('sonic', 'super', 'both'), help='Check the combined dispatcher with the retained Sonic full-stage routes')
     args = parser.parse_args()
     if args.sonic and not args.combined:
         parser.error('--sonic requires --combined')
+    if (args.baseline or args.cap_trace) and not (args.combined and args.full_stage):
+        parser.error('--baseline and --cap-trace require --combined --full-stage')
     rom = Roster.Timing.ROM
     parent = rom.read_bytes()
     reference = parent
@@ -107,7 +159,11 @@ def main():
         import compose_dkjr_sonic_dispatch_1123 as Combined
         import compose_sonic_current_auth_epoch_1122 as Sonic
         import repair_rogue_side_pipe_1123 as Pipe
-        candidate, spans = Combined.proposal(parent)
+        if args.baseline:
+            assert Dispatch.h(parent) == Combined.PIN
+            candidate, spans = parent, []
+        else:
+            candidate, spans = Combined.proposal(parent)
         reference = Sonic.inverse(Pipe.restore_pipe_bytes(parent))
     else:
         candidate, spans = Dispatch.proposal(parent)
@@ -123,9 +179,11 @@ def main():
             assert before.count(old) == 1
             before = before.replace(old, Dispatch.h(parent).encode(), 1)
             LuaRuntime().compile(before.decode())
-        cases = [('candidate', candidate, after)]
+        cases = [('baseline' if args.baseline else 'candidate', candidate, after)]
         if not (args.combined and args.full_stage):
             cases.insert(0, ('baseline', parent, before))
+    if args.cap_trace:
+        cases = [(name, image, trace_final_cap(program)) for name, image, program in cases]
     if not args.run:
         scripts = {name:Dispatch.h(program) for name,_,program in cases} if args.combined else [Dispatch.h(program) for _,_,program in cases]
         print('DK CADENCE SOURCE '+json.dumps(dict(candidate=Dispatch.h(candidate), spans=spans,
@@ -149,7 +207,9 @@ def main():
                 guard = check(target)
                 assert guard['ROM_sha256'] == Dispatch.h(image) and not guard['matching_patch_files']
             script.write_bytes(program)
-            result = run(script, path, out/'capture', Dispatch.h(image), 240 if args.full_stage or args.sonic else 90)
+            timeout = 300 if args.cap_trace else 240 if args.full_stage or args.sonic else 90
+            result = run(script, path, out/'capture', Dispatch.h(image), timeout,
+                         long_no_capture=args.cap_trace)
             assert result['script_SHA256'] == Dispatch.h(program)
             assert result['outputs_written'] == 0 and not result['images']
             if args.sonic:
