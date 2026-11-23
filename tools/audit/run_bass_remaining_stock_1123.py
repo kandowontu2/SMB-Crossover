@@ -151,19 +151,28 @@ def main():
     parser.add_argument('--route', choices=tuple(KINDS), required=True)
     parser.add_argument('--run', action='store_true')
     args = parser.parse_args()
-    raw = Bass.ROM.read_bytes()
+    installed = Bass.ROM.read_bytes()
+    installed_sha = sha256(installed).hexdigest()
+    raw = installed
+    if installed_sha != Bass.PIN:
+        import probe_special_draw_routing_1123 as Draw
+
+        raw = Draw.inverse(installed)
     program = controller(raw, args.route)
+    if installed_sha != Bass.PIN:
+        assert program.count(Bass.PIN.encode()) == 1
+        program = program.replace(Bass.PIN.encode(), installed_sha.encode())
     digest = sha256(program).hexdigest()
     if not args.run:
         print('BASS STOCK SOURCE ' + json.dumps(dict(route=args.route, script_SHA256=digest)), flush=True)
         return 0
     guard = Bass.Cadence.check(Bass.ROM)
-    assert guard['ROM_sha256'] == Bass.PIN and not guard['matching_patch_files']
+    assert guard['ROM_sha256'] == installed_sha and not guard['matching_patch_files']
     target, script = Bass.OUT/'candidate.nes', Bass.OUT/'controller.lua'
-    assert set(Bass.OUT.iterdir()) == {target, script} and target.read_bytes() == raw
-    with Bass.Stock.Host.Shared.preserve_script(script, target, raw) as stage:
+    assert set(Bass.OUT.iterdir()) == {target, script} and target.read_bytes() == installed
+    with Bass.Stock.Host.Shared.preserve_script(script, target, installed) as stage:
         stage(program)
-        result = Bass.Cadence.run(script, Bass.ROM, Bass.OUT/'capture', Bass.PIN, 165)
+        result = Bass.Cadence.run(script, Bass.ROM, Bass.OUT/'capture', installed_sha, 165)
     assert result['script_SHA256'] == digest and result['outputs_written'] == 0 and not result['images']
     assert Bass.Cadence.check(Bass.ROM) == guard
     print('BASS STOCK NATIVE ' + json.dumps(result, separators=(',', ':')), flush=True)

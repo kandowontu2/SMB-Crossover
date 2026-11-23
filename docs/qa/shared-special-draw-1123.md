@@ -113,6 +113,7 @@ The terminal event occurred at video frame 17,381. Mesen receipt
 Downloads now contains the tested `27e01af3` bytes. Mesen launched that
 file directly and exactly repeated the private opening timing receipts for
 Bass and Zelda II Link. Patch guards passed before and after replacement.
+The installer below uses `ffd70810` as its input.
 
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/shared-special-draw-1123 --max-files 1 --timeout 520 -- python -B tools/audit/probe_special_draw_routing_1123.py 'ZELDA II LINK' 'LEONARDO' 'MIKE JONES' 'SMB3 MARIO' 'BASS' 'DONKEY KONG' 'MINI MARIO' 'ROLL' 'LINK'
