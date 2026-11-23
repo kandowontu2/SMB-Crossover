@@ -1,4 +1,4 @@
-"""Replay ordinary Mega Man and Proto Man pickups in Easy 1-1."""
+"""Replay normal Easy 1-1 pickups for Mega Man, Proto Man and Samus."""
 
 import argparse
 from functools import lru_cache
@@ -22,20 +22,26 @@ W, N = Linked.W, Linked.N
 @lru_cache(maxsize=1)
 def bindings(raw, form, route):
     assert H(raw) == NIGHTLY
-    variant, name = FORMS[form]
+    if form == 'samus':
+        char, variant, name = 2, 0, 'SAMUS ARAN'
+        variant_field, movement = 'RdVariant', 'SamusMovement'
+    else:
+        char = 1
+        variant, name = FORMS[form]
+        variant_field, movement = 'ProtoVariant', 'MegaManMovement'
     bundle = W.Symbols.bundle()
-    menu = W.UI.seed(dict(bundle, raw=raw), 1)
+    menu = W.UI.seed(dict(bundle, raw=raw), char)
     for _ in range(variant):
         W.UI.key(menu, 32)
     assert W.UI.menu_name(menu)[0] == name
-    assert (N.get(menu, 'SelectedCharacter'), N.get(menu, 'ProtoVariant')) == (1, variant)
+    assert (N.get(menu, 'SelectedCharacter'), N.get(menu, variant_field)) == (char, variant)
     fields = [n for n in RAM_FIELDS if not n.startswith('Ic')]
-    fields += ['ProtoVariant', 'GuestPowerupActive', 'GuestPowerupTarget', 'GuestLegacyHurt',
+    fields += [variant_field, 'GuestPowerupActive', 'GuestPowerupTarget', 'GuestLegacyHurt',
                'MmSliding', 'PlayerScoreDisplay']
     ram = {n: W.address(bundle, n) for n in fields}
 
     hooks = {}
-    for tag, symbol in (('GameLoop', 'GameLoop'), ('RobotMovement', 'MegaManMovement'),
+    for tag, symbol in (('GameLoop', 'GameLoop'), ('RobotMovement', movement),
                         ('HandlePowerUpCollision', 'HandlePowerUpCollision'),
                         ('PlayerHeadCollision', 'PlayerHeadCollision')):
         pc, at = W.address(bundle, symbol), W.location(bundle, symbol)
@@ -51,7 +57,9 @@ def bindings(raw, form, route):
         ('up' if i < 24 else 'down') if i%8 == 1 else
         ('right' if i%8 >= 6 or i%8 == 0 else 'left') for i in range(2, 32)
     ]
-    return dict(sha=NIGHTLY, form=form, route=route, name=name, char=1, slot=1,
+    if form == 'samus':
+        navigation[1:3] = ['right', '']
+    return dict(sha=NIGHTLY, form=form, route=route, name=name, char=char, slot=char,
                 variant=variant, mode_value=0, expected=list(ROUTES[route]), ram=ram,
                 hooks=hooks, navigation=navigation)
 
@@ -61,14 +69,30 @@ def controller(raw, form, route):
     base = (R/'tools/playthroughs/megaman_bass_policy.lua').read_text(encoding='utf-8')
     policy = (R/'tools/playthroughs/megaman_proto_stock_1123.lua').read_text(encoding='utf-8')
     observer = (R/'tools/audit/ice_climbers_stock_observer_1122.lua').read_text(encoding='utf-8')
+    if form == 'samus':
+        # Samus chooses horizontal speed directly from the current input.
+        # The robot's braking lead caused alternating Left and Right at the target.
+        robot_lead = 'local distance=goal-c.x-speed(c)/5'
+        assert policy.count(robot_lead) == 1
+        policy = policy.replace(robot_lead, 'local distance=goal-c.x', 1)
+        facing = '  local facing=e.dx>0 and 1 or 2\n'
+        # The original route turned back into the approaching Goomba while
+        # lining up below the second block. Keep the gap and jump if it closes.
+        evade = '''  if e.dx<0 and e.dx>=-70 then
+   return {right=true,a=buttons.a or (c.grounded and not c.lastA and e.dx>-36),b=c.update%8<3}
+  end
+'''
+        assert policy.count(facing) == 1
+        policy = policy.replace(facing, evade+facing, 1)
 
     def edit(old, new):
         nonlocal observer
         assert observer.count(old) == 1, old
         observer = observer.replace(old, new, 1)
 
-    edit("r('SelectedCharacter')==20 and r('IcVariant')==C.variant", "r('SelectedCharacter')==C.char and r('ProtoVariant')==C.variant")
-    edit("r('IcVariant')~=C.variant", "r('ProtoVariant')~=C.variant")
+    variant_field = 'RdVariant' if form == 'samus' else 'ProtoVariant'
+    edit("r('SelectedCharacter')==20 and r('IcVariant')==C.variant", f"r('SelectedCharacter')==C.char and r('{variant_field}')==C.variant")
+    edit("r('IcVariant')~=C.variant", f"r('{variant_field}')~=C.variant")
     edit("power=r('IcPower')", "power=r('PlayerStatus'),growth=r('GuestPowerupActive')")
     edit("local expected=C.route=='life' and {0,3} or {0,1,2}", 'local expected=C.expected')
     edit('c.poll=polls;c.char=20;', 'c.poll=updates;c.char=C.char;c.update=updates;')
@@ -76,7 +100,7 @@ def controller(raw, form, route):
     edit("local lifePending", "local lifePending\nlocal clockInput={}\nlocal sound={}")
     edit("local function afterMain()", "local function score()\n local n=0;for i=0,5 do n=n*10+r('PlayerScoreDisplay',i)end;return n\nend\nlocal function afterMain()")
     edit('if #tail==6 then table.remove(tail,1) end', 'if #tail==12 then table.remove(tail,1) end')
-    edit('Living Ice Climber', 'Living requested robot')
+    edit('Living Ice Climber', 'Living Samus' if form == 'samus' else 'Living requested robot')
     edit("assert(updates<5100,'Bounded pickup route')", "assert(updates<5100 and s.yHigh<2,'Bounded living pickup route')")
     edit(' local complete=true', ''' if checks['0'].after and r('GuestLegacyHurt')==1 then
   local c=context();ROBOT_STOCK_STATE.injury={player=s,nearest=c.enemy(),mask=mask}
@@ -100,7 +124,8 @@ def controller(raw, form, route):
          "assert((sound[32]or 0)>p.cue,'Actual new pickup cue')")
     edit('sound=r(\'Square2SoundQueue\')}', "sound=r('Square2SoundQueue'),score_before=p.score,cue64_before=sound[64]or 0}")
     edit("assert(p.before.power==a.kind and s.power==a.kind+1 and s.status==s.power,'Normal Ice power tier transition')",
-         "assert(p.before.power==a.kind and s.growth~=0 and r('GuestPowerupTarget')==a.kind+1,'Normal robot growth starts');return")
+         "assert(p.before.power==a.kind and s.growth~=0 and r('GuestPowerupTarget')==a.kind+1,'Normal "
+         + ('Samus' if form == 'samus' else 'robot') + " growth starts');return")
     edit("elseif kind==2 then assert(s.star>0,'Earned Star persists during movement')",
          "elseif kind==2 then assert(s.star>0 and score()>=q.collect.score_before+1000,'Earned Star and points persist during movement')")
     edit("if kind==3 then assert(s.lives==q.grant.lives,'Earned life persists during movement')",
@@ -128,7 +153,7 @@ local bits={a=128''')
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--form', choices=tuple(FORMS), default='megaman')
+    parser.add_argument('--form', choices=(*FORMS, 'samus'), default='megaman')
     parser.add_argument('--route', choices=tuple(ROUTES), default='upgrades')
     parser.add_argument('--run', action='store_true')
     args = parser.parse_args()
