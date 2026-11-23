@@ -170,3 +170,20 @@ at the outside staircase at X2899/Y161. The next replay must recognize
 the exterior area and jump the stairs before attempting Screw Attack.
 No captures were written. Native receipt
 `5c2839af7fdadb24c7717835db704cac29598b2457e799866a2191c3b91e9266`.
+
+The replay now reads the loaded area type and terrain offset. This lets
+the same controller switch from the underground approach to the usual
+overworld movement when the pipe exits. The first exterior-only run
+reached X2896/Y87 during the staircase jump after 25 completed game
+updates. Health, Wall Jump and both lives carried through. Its final
+check still expected the live pickup variables to be set after they had
+been cleared for Screw Attack. The exterior-only check now uses the
+recorded Wall Jump pickup. The full route still checks the live Screw
+Attack pickup. The old check is reproducible with
+`--historical-exterior-finish-diagnostic`, receipt
+`eb29b2b4ef1a216da912f57c634346755c040fcefbcfbfbdeec0518e0fd510b9`.
+
+The corrected controller passed in private Mesen with the same movement
+and all 25 game loop, control step, dispatch and movement returns. It
+ran 12,770 video frames and wrote zero captures. The verified receipt is
+`a1b28f926ba78c15ea3eb365352b4d36281eb4e37658b79bbcc3d93ff37cb3fe`.

@@ -76,8 +76,8 @@ def compose(raw):
     return result
 
 
-def inverse(raw):
-    assert CANDIDATE and H(raw) == CANDIDATE
+def restore_pipe_bytes(raw):
+    """Undo the three owned spans. The caller authenticates the full ROM."""
     restored = bytearray(raw)
     # These addresses/preimages are fixed by the authenticated parent spans.
     for pc, old, new in ((0xBF5F, HOOK_OLD[:3], HOOK_NEW),
@@ -86,7 +86,12 @@ def inverse(raw):
         at = file_at(pc)
         assert restored[at:at+len(new)] == new
         restored[at:at+len(new)] = old
-    restored = bytes(restored)
+    return bytes(restored)
+
+
+def inverse(raw):
+    assert CANDIDATE and H(raw) == CANDIDATE
+    restored = restore_pipe_bytes(raw)
     assert H(restored) == PARENT and compose(restored) == raw
     return restored
 

@@ -153,6 +153,36 @@ local function screwDrive(c)
  local grounded=c.yHigh==1 and bombReady(c)
  if c.level==1 then
   assert(r('RdGear')==7 and r('RdTanks')==1 and r('RdMissiles')==5,'All preceding earned upgrades preserved')
+  if c.areaType==1 then
+   assert(r('AreaAddrsLOffset')==5 and f.exit and f.exit.landing,
+          'Native side pipe loads the stock exterior ending after the real lower approach')
+   if not f.exterior then
+    f.exterior={player=state(),area=c.area,areaType=c.areaType,areaOffset=r('AreaAddrsLOffset'),
+                undergroundOffset=gear.high.areaOffset,
+                entered=screwCounts('_entered'),returned=screwCounts('_returned')}
+    screwPhase('exterior')
+   end
+   local e=f.exterior
+   assert(r('RdHealthLo')==e.player.health_raw[1]and r('RdHealthHi')==e.player.health_raw[2],
+          'Native exterior proof preserves its captured health')
+   if not e.complete then
+    local er,rr=screwCounts('_entered'),screwCounts('_returned');local enough=true
+    e.post_returned={};e.post_entered={}
+    for n,v in pairs(er)do
+     e.post_entered[n]=v-e.entered[n];e.post_returned[n]=rr[n]-e.returned[n]
+     if e.post_entered[n]<25 or e.post_returned[n]<25 then enough=false end
+    end
+    if enough then
+     assert(#pending==0,'Exterior checkpoint has no pending gameplay return')
+     e.complete={passed=true,player=state(),entered=e.post_entered,returned=e.post_returned,
+                 scope='native-side-pipe-and25-exterior-play-updates'}
+    end
+   end
+   if C.exterior_only and e.complete then finish('natural-side-pipe-exterior-and25');return{}end
+   return gearTravel(c)
+  end
+  assert(c.areaType==2 and r('AreaAddrsLOffset')==gear.high.areaOffset,
+         'Underground approach applies only to its actual loaded terrain')
   if c.x>=2580 then
    f.exit=f.exit or{phase='back',started=updates,farthest=c.x,lastProgress=updates}
    if c.x>f.exit.farthest then f.exit.farthest=c.x;f.exit.lastProgress=updates end

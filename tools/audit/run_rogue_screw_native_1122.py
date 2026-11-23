@@ -19,8 +19,42 @@ from check_ff_stdout_controller_source_1110 import LuaRuntime
 R, ROM, H = Base.R, Base.ROM, Base.H
 PIN = Parent.CANDIDATE
 POLICY = R/'tools/playthroughs/rogue_screw_native_1122.lua'
-PINNED_CONTROLLER_SHA256 = '08c7ad7fe505a05e8d3969cd992c1604c273db972d25f2411e96d66b747eb311'
+PINNED_CONTROLLER_SHA256 = '389e057b44093d802e47a5a6cdf2de48843854a51097fbbca243f4953ef0e5e9'
+HISTORICAL_CONTROLLER_SHA256 = '08c7ad7fe505a05e8d3969cd992c1604c273db972d25f2411e96d66b747eb311'
+EXTERIOR_ONLY_CONTROLLER_SHA256 = '1fbdc00a8930286826d660b0f5c2089e8cfeaf2310e5eb999d0ddfd0e5ffe86e'
+HISTORICAL_EXTERIOR_FINISH_SHA256 = '3fc3d6f46f13ce64fba496128698543973a0bf5ebed2ca130e34670eda6fd216'
 BASE_CONTROLLER_SHA256 = '1f8406cf1693e2dac5e7e2108b72090b4bc0ff5d76c266dfb9d1fefc133baa7a'
+EXTERIOR_POLICY = """  if c.areaType==1 then
+   assert(r('AreaAddrsLOffset')==5 and f.exit and f.exit.landing,
+          'Native side pipe loads the stock exterior ending after the real lower approach')
+   if not f.exterior then
+    f.exterior={player=state(),area=c.area,areaType=c.areaType,areaOffset=r('AreaAddrsLOffset'),
+                undergroundOffset=gear.high.areaOffset,
+                entered=screwCounts('_entered'),returned=screwCounts('_returned')}
+    screwPhase('exterior')
+   end
+   local e=f.exterior
+   assert(r('RdHealthLo')==e.player.health_raw[1]and r('RdHealthHi')==e.player.health_raw[2],
+          'Native exterior proof preserves its captured health')
+   if not e.complete then
+    local er,rr=screwCounts('_entered'),screwCounts('_returned');local enough=true
+    e.post_returned={};e.post_entered={}
+    for n,v in pairs(er)do
+     e.post_entered[n]=v-e.entered[n];e.post_returned[n]=rr[n]-e.returned[n]
+     if e.post_entered[n]<25 or e.post_returned[n]<25 then enough=false end
+    end
+    if enough then
+     assert(#pending==0,'Exterior checkpoint has no pending gameplay return')
+     e.complete={passed=true,player=state(),entered=e.post_entered,returned=e.post_returned,
+                 scope='native-side-pipe-and25-exterior-play-updates'}
+    end
+   end
+   if C.exterior_only and e.complete then finish('natural-side-pipe-exterior-and25');return{}end
+   return gearTravel(c)
+  end
+  assert(c.areaType==2 and r('AreaAddrsLOffset')==gear.high.areaOffset,
+         'Underground approach applies only to its actual loaded terrain')
+"""
 
 
 @lru_cache(maxsize=1)
@@ -63,7 +97,9 @@ def bundle(raw):
         return baseline,parent,dict(Base.J.bindings(parent)['bundle'],raw=raw)
 
 
-def controller(raw):
+def controller(raw, *, historical=False, exterior_only=False, legacy_exterior_finish=False):
+    assert not(historical and exterior_only)
+    assert not legacy_exterior_finish or exterior_only
     baseline,parent,b=bundle(raw)
     with compilation_bindings():
         original=Base.controller(baseline,wall_jump=True,wall_left=True)
@@ -76,6 +112,8 @@ def controller(raw):
     edit(H(baseline),PIN)
     lua=Base.J.Previous.Previous.Frozen.lua
     additions=[]
+    if exterior_only:
+        additions.append('C.exterior_only=true')
     for name in ('RdControlScrew','RdWxActorContact'):
         at=Base.W.location(b,name);code=raw[at:at+8]
         assert code==baseline[at:at+8]==parent[at:at+8],name
@@ -83,7 +121,11 @@ def controller(raw):
     names=('MmEnemyHealthLo','MmEnemyHealthHi','RdAnimReset','RdAnimIndex')
     additions.append('for n,at in pairs('+lua({n:Base.W.address(b,n)for n in names})+')do C.ram[n]=at end')
     line=text.split('\n',1)[0];edit(line,line+'\n'+'\n'.join(additions))
-    edit('local function bombDrive()',POLICY.read_text(encoding='utf-8')+'\nlocal function bombDrive()')
+    policy=POLICY.read_text(encoding='utf-8')
+    assert policy.count(EXTERIOR_POLICY)==1
+    if historical:
+        policy=policy.replace(EXTERIOR_POLICY,'',1)
+    edit('local function bombDrive()',policy+'\nlocal function bombDrive()')
     edit('local function wallJumpTravel(c, wall, grounded)',
          'local screwPairedGap\nlocal function wallJumpTravel(c, wall, grounded)')
     wall_source=Base.WALL_JUMP_ROUTE.read_text(encoding='utf-8')
@@ -103,8 +145,13 @@ def controller(raw):
     edit(' local c=context();assert(identity()',' local c=context();if gear.screw then return screwDrive(c)end\n assert(identity()')
     edit("finish('natural-wall-jump-and-landing')","""gear.screw={phase='leave-underground',started=updates,steps={},tail={}}
   stock='screw';born=nil;mature=nil;collector=nil;credit=nil""")
-    edit("reason=='natural-wall-jump-and-landing'and gear.complete and gear.high.complete and gear.wall.complete",
-         "reason=='natural-Screw-body-defeat-and-landing'and gear.complete and gear.high.complete and gear.wall.acquisition and gear.wall.acquisition.credit and gear.screw.complete")
+    success="reason=='natural-Screw-body-defeat-and-landing'and gear.complete and gear.high.complete and gear.wall.acquisition and gear.wall.acquisition.credit and gear.screw.complete"
+    if not historical:
+        success="(("+success+" and gear.screw.exterior and gear.screw.exterior.complete)or(reason=='natural-side-pipe-exterior-and25'and gear.complete and gear.high.complete and gear.wall.acquisition and gear.wall.acquisition.credit and gear.screw.exterior.complete))"
+    edit("reason=='natural-wall-jump-and-landing'and gear.complete and gear.high.complete and gear.wall.complete",success)
+    if exterior_only and not legacy_exterior_finish:
+        edit('and collector and gear.acquisition and gear.acquisition.credit and born and mature and not reset',
+             'and gear.wall.acquisition.collector and gear.acquisition and gear.acquisition.credit and gear.wall.acquisition.birth and gear.wall.acquisition.mature and not reset')
     edit("(r('LevelNumber')==0 or(gear.started and r('LevelNumber')==1))",
          "(r('LevelNumber')==0 or(gear.started and r('LevelNumber')==1)or(gear.screw and r('LevelNumber')==2))")
     edit("(a.private==(gear.wall and 210 or(gear.high and 209 or 208)) and a.owner==2)",
@@ -253,9 +300,10 @@ def side_pipe_candidate(installed):
     return owner, bytes(image)
 
 
-def native_program(raw, image):
-    program = controller(raw)
-    assert H(program.encode()) == PINNED_CONTROLLER_SHA256,'Exact frozen native diagnostic controller'
+def native_program(raw, image, *, historical=False, exterior_only=False, legacy_exterior_finish=False):
+    program = controller(raw,historical=historical,exterior_only=exterior_only,legacy_exterior_finish=legacy_exterior_finish)
+    expected=HISTORICAL_CONTROLLER_SHA256 if historical else(HISTORICAL_EXTERIOR_FINISH_SHA256 if legacy_exterior_finish else(EXTERIOR_ONLY_CONTROLLER_SHA256 if exterior_only else PINNED_CONTROLLER_SHA256))
+    assert H(program.encode()) == expected,'Exact frozen native diagnostic controller'
     if H(image) != PIN:
         assert program.count(PIN) == 1
         program = program.replace(PIN, H(image), 1)
@@ -263,7 +311,7 @@ def native_program(raw, image):
     return program.encode()
 
 
-def native(raw, installed=None, *, private=None):
+def native(raw, installed=None, *, private=None, historical=False, exterior_only=False, legacy_exterior_finish=False):
     import build_storage_guard_v1 as Storage
     from capture_budget import preflight
     from mesen_session_guard_v1 import require_free_workspace
@@ -272,7 +320,7 @@ def native(raw, installed=None, *, private=None):
     from run_stdout_mesen_1110 import run
     installed = raw if installed is None else installed
     image = installed if private is None else private
-    program = native_program(raw, image)
+    program = native_program(raw, image,historical=historical,exterior_only=exterior_only,legacy_exterior_finish=legacy_exterior_finish)
     guard=check(ROM);assert guard['ROM_sha256']==H(installed) and not guard['matching_patch_files']
     target,script=Base.OUT/'candidate.nes',Base.OUT/'controller.lua'
     assert {p.name for p in Base.OUT.iterdir()}=={'candidate.nes','controller.lua'}
@@ -308,27 +356,36 @@ def main():
     mode.add_argument('--source',action='store_true');mode.add_argument('--run',action='store_true')
     mode.add_argument('--validate',action='store_true');p.add_argument('--limit',type=int,default=13000)
     p.add_argument('--side-pipe-candidate',action='store_true')
+    p.add_argument('--historical-exterior-diagnostic',action='store_true',
+                   help='Exact08c7/e7adf historical controller that stops at the exterior stairs')
+    p.add_argument('--exterior-only',action='store_true',help='Pass after real exterior entry and25 completed play updates')
+    p.add_argument('--historical-exterior-finish-diagnostic',action='store_true',
+                   help='Exact359bc historical exterior checkpoint with rejected legacy live-field finish')
     a=p.parse_args();assert 8000<=a.limit<=15000
+    if a.historical_exterior_finish_diagnostic:a.exterior_only=True
     installed=ROM.read_bytes();raw=installed;private=None
     if a.side_pipe_candidate:
         assert not a.source
         raw,private=side_pipe_candidate(installed)
     assert H(raw)==PIN
-    if a.run:q=native(raw,installed,private=private)
+    assert not(a.source and(a.historical_exterior_diagnostic or a.exterior_only))
+    assert not(a.historical_exterior_diagnostic and a.exterior_only)
+    if a.run:q=native(raw,installed,private=private,historical=a.historical_exterior_diagnostic,exterior_only=a.exterior_only,legacy_exterior_finish=a.historical_exterior_finish_diagnostic)
     else:
         def deny(*args,**kwargs):raise AssertionError('Source Screw test attempted files or process launch')
         with patch.object(Path,'write_bytes',deny),patch.object(Path,'write_text',deny),patch('subprocess.Popen',deny):
             if a.source:q=source(raw,a.limit)
             else:
                 image=installed if private is None else private
-                program=native_program(raw,image)
+                program=native_program(raw,image,historical=a.historical_exterior_diagnostic,exterior_only=a.exterior_only,legacy_exterior_finish=a.historical_exterior_finish_diagnostic)
                 q=dict(passed=True,route_executed=False,controller_SHA256=H(program),ROM_SHA256=H(image),outputs=0,native=False)
     assert ROM.read_bytes()==installed
     receipt=q.get('receipt',{});gear=receipt.get('natural_Bomb',{})
     print('ROGUE_SCREW_SUMMARY '+json.dumps(dict(passed=q['passed'],reason=receipt.get('reason'),
           controller_SHA256=q.get('script_SHA256',q.get('controller_SHA256')),receipt_SHA256=q.get('receipt_SHA256'),
           terminal=receipt.get('terminal'),high_jump=gear.get('high',{}).get('phase'),
-          wall_jump=Base.compact_wall_receipt(gear.get('wall')),screw=gear.get('screw')),separators=(',',':')),flush=True)
+          wall_jump=Base.compact_wall_receipt(gear.get('wall')),
+          exterior=gear.get('screw',{}).get('exterior'),screw=gear.get('screw')),separators=(',',':')),flush=True)
     print('ROGUE_SCREW '+json.dumps(q,separators=(',',':')),flush=True)
     return 0 if q['passed']else 1
 
