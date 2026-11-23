@@ -161,3 +161,12 @@ Morph Ball both entered with the normal timer, sprite priority and sound
 cue. Controls for blocked contacts, flagpoles and other characters passed.
 The source check also covered cold startup and reached interrupt points.
 Source receipt `c8f6387e5b636edc366a62343549bee19b5732e8933418635dc8cd6f0cf7997e`.
+
+The private build `28708fa9` then carried the same playthrough through
+the side pipe and into the outside part of 1-2. Rogue Dawn reached
+X2872/Y144 with Wall Jump, full health and two lives. The controller
+kept holding Right because the level number was still 1-2, and stopped
+at the outside staircase at X2899/Y161. The next replay must recognize
+the exterior area and jump the stairs before attempting Screw Attack.
+No captures were written. Native receipt
+`5c2839af7fdadb24c7717835db704cac29598b2457e799866a2191c3b91e9266`.
