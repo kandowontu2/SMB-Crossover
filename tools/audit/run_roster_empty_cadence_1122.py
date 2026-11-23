@@ -92,15 +92,47 @@ def controller(raw, row):
     return text
 
 
+def cadence_reference(raw):
+    """Recover the observer's verified source image from the current nightly."""
+    if Timing.H(raw) == Timing.PIN:
+        return raw
+
+    import compose_dkjr_mushroom_slot_order_1123 as Lift
+    import compose_dkjr_head_bridge_current_1123 as Head
+    import compose_dkjr_side_epoch_fast_1123 as Fast
+    import compose_dkjr_public_side_forward_1123 as Side
+    import compose_dkjr_sonic_dispatch_1123 as Combined
+    import compose_sonic_current_auth_epoch_1122 as Sonic
+    import repair_rogue_side_pipe_1123 as Pipe
+
+    assert Timing.H(raw) == Lift.CANDIDATE
+    mushroom_trial = Lift.inverse(raw)
+    scrooge = Lift.Previous.inverse(mushroom_trial)
+    bridge = Lift.Previous.Scrooge.inverse(scrooge)
+    previous = Combined.inverse(Side.inverse(Fast.inverse(Head.inverse(bridge))))
+    reference = Sonic.inverse(Pipe.restore_pipe_bytes(previous))
+    assert Timing.H(reference) == Timing.PIN
+    for pc in (0x82D9, 0x82BE, 0x82D0):
+        offset = 16 + 126 * 8192 + (pc & 8191)
+        assert raw[offset:offset + 16] == reference[offset:offset + 16]
+    return reference
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('characters', nargs='+', type=str.upper)
     args = parser.parse_args()
     guard = check(Timing.ROM)
     raw = Timing.ROM.read_bytes()
-    assert guard['ROM_sha256'] == Timing.H(raw) == Timing.PIN
+    digest = Timing.H(raw)
+    assert guard['ROM_sha256'] == digest and not guard['matching_patch_files']
+    reference = cadence_reference(raw)
     selected = roster(raw)
-    scripts = [controller(raw, selected[name]) for name in args.characters]
+    scripts = []
+    for name in args.characters:
+        text = controller(reference, selected[name])
+        assert text.count(Timing.PIN) == 1
+        scripts.append(text.replace(Timing.PIN, digest, 1))
 
     out = Timing.SHARED
     candidate, script = out/'candidate.nes', out/'controller.lua'
@@ -110,7 +142,7 @@ def main():
     try:
         for text in scripts:
             script.write_bytes(text.encode())
-            result = run(script, Timing.ROM, out/'capture', Timing.PIN, 90)
+            result = run(script, Timing.ROM, out/'capture', digest, 90)
             assert result['outputs_written'] == 0 and not result['images']
             fields = ('passed', 'reason', 'character', 'phases', 'inclusive_video_frames',
                       'measured_Main', 'no_controller_read_frames', 'native_lag_NMI',
@@ -118,6 +150,7 @@ def main():
             report = {name: result['receipt'][name] for name in fields if name in result['receipt']}
             report.update(receipt_SHA256=result['receipt_SHA256'], script_SHA256=result['script_SHA256'])
             print('ROSTER CADENCE ' + json.dumps(report, separators=(',', ':')), flush=True)
+            assert result['passed'], result['receipt']['reason']
     finally:
         script.write_bytes(previous)
         assert candidate.read_bytes() == Timing.ROM.read_bytes() == raw and check(Timing.ROM) == guard
