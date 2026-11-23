@@ -103,3 +103,22 @@ python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-11
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_simon_ryu_stock_1123.py --form simon --route life --run
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_simon_ryu_stock_1123.py --form simon --route star --run
 ```
+
+## Ryu uses Fire Dragon Ball
+
+On Downloads `06336f15`, Ryu earned the Fire Dragon Ball from the Fire
+Flower block in Easy 1-1. The game equipped it as soon as he collected
+it. While descending at X1917, he pressed Select to throw it. The throw
+spent five Ninpo, from 20 to 15, and the projectile appeared at X1938/Y166.
+It moved forward and down, contacted the live Goomba at X1958 and defeated
+it. Ryu kept the upgrade, his Mushroom and both lives for 25 more movement
+updates, finishing on the ground at X1917/Y176.
+
+The replay took 3,145 video frames and saved no captures.
+
+- Controller SHA-256 `50fc39ae6e101b040ed87392af5bd8fa8dbed861e978a474ca7e1dd85cf934b8`
+- Mesen receipt SHA-256 `319c4011db9372d844d29c4c928d5f521e2f109a1d9fcc5cf2c95775355883ce`
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_ryu_dragon_ball_1123.py --run
+```
