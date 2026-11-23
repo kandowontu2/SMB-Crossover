@@ -29,7 +29,22 @@ Mesen confirmed that Donkey Kong Jr. could enter 1-1 and complete the
 passed before and after delivery. Downloads opening receipt
 `1458d1256e1b1bc26882649dab2a4372e3ec3d62357cffbe1e723088f3ca102c`.
 
+## Hidden 1-UP and Star follow-up
+
+Two linked-code replays on `bcc26bb5` checked Donkey Kong Jr.'s reach
+with his own movement. After riding the existing lift at X944, he
+jumped from X977. He reached the hidden 1-UP's height before he reached
+its column at X1024. The block stayed hidden. Receipt
+`4e73741d7f949f5f3fe78a47a42684a99c4034c84c38a3ff44c667dd484ab28f`.
+
+At the Star brick at X1616, a real Koopa bounce brought his head within
+four pixels of the underside. The brick stayed intact. A later standing
+jump also fell short, and he kept both lives through 25 more grounded
+updates. Receipt `0b13cbd47742f2d91e638d72bdfb6d0f9b74048f1ee746df7e9ac912237f97c1`.
+Both pickup checks remain open.
+
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 600 -- python -B tools/audit/run_dkjr_flower_draw_native_1123.py --run
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 600 -- python -B tools/audit/install_dkjr_flower_draw_1123.py
+python -B tools/audit/run_bounded_build_v1.py --output build/dkjr-life-star-source-1123 --max-files 8 --timeout 600 -- python -B tools/audit/probe_dkjr_life_star_1123.py --kind star --limit 5200
 ```
