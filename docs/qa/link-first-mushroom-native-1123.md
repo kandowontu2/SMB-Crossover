@@ -92,6 +92,20 @@ Zelda II Link.
 Mesen receipt `f9deb10ca8f734bd56e493d16854fd77d5cee993b83d3204404c3e218ed82067`.
 Controller SHA-256 `8e81e24a9795722979b04a317dc78744f5865f5484be850da64d11629c5cdd58`.
 
+## Link's Star
+
+Link used his sword against the ground enemies, crossed the upper
+block row and returned to the floor on the far side. He doubled back
+to hit the Star block at X1616 and caught the Star. The pickup started
+invincibility and Star music and awarded 1,000 points. He kept the
+Mushroom, both lives and an active Star through 30 movement updates
+after credit, ending at X1631/Y176. The Easy 1-1 replay took 3,679
+video frames on Downloads `3af597a7` and saved no captures. Both Link
+forms now have passing replays for all four standard pickups.
+
+Mesen receipt `52a5590f9f4daf151f52a9722ed297453a9f510a79e07246a500a46eb2ec6fdc`.
+Controller SHA-256 `badd851021a9a217ce42821f156866c422a3ca9a93c637678426f2e930c954ca`.
+
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_link_family_mushroom_1123.py --run --form link
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_link_family_mushroom_1123.py --run --form zelda2 --pursuit
@@ -100,4 +114,5 @@ python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-11
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_link_family_stock_1123.py --form zelda2 --route flower --run
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_link_family_stock_1123.py --form link --route flower --run
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_link_family_stock_1123.py --form zelda2 --route star --star-guard --run
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_link_family_stock_1123.py --form link --route star --star-guard --run
 ```

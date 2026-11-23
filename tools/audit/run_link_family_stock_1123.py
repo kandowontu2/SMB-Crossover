@@ -27,7 +27,8 @@ PINS={('link','life'):'22db7f901508c1c405ea2121c7c6d9c41e766574a822fcba161cc7252
       ('zelda2','flower'):'a5d6739f086855b2fc5c8c8ced8b8bca9de37be0f9ec769d87ffa432af94be8d'}
 HISTORICAL_STAR={'link':'6d03c9233a34adde56f849ebd033343f947d8ab87b7ce7c9461a1756693fbdc0',
                  'zelda2':'50e8c6dcf6f27202dbbf6421cdf2c05644e33343b9efe7c44425d42415a04e0b'}
-GUARD_PIN='f69e1b06fcf6b853d205e83be99523543e9abf0a89010db23e79e4943a9cf2f9'
+GUARD_PINS={'zelda2':'f69e1b06fcf6b853d205e83be99523543e9abf0a89010db23e79e4943a9cf2f9',
+            'link':'6708b01319d287462c8903c26e2c70ee42ebc1563e3c867bd7dc235a56d523d3'}
 DOWNTHRUST_FLOWER_PIN='b0ba1ae2f3bf86c629fcec4661aa9e3fdb1e940d087f9cdc2e383e57fbb35546'
 
 STAR_GUARD=r'''local function defend(c,b)
@@ -282,7 +283,7 @@ def controller(raw,form,route,*,historical_star=False):
 
 def variant(program,form,route,*,star_guard=False,historical_flower_label=False):
     """Add separately pinned inputs/labels; baseline constructors stay exact."""
-    assert not star_guard or(form=='zelda2'and route=='star')
+    assert not star_guard or(form in First.FORMS and route=='star')
     assert not historical_flower_label or(form=='zelda2'and route=='flower')
     text=program;edits=[]
     if star_guard:
@@ -290,6 +291,20 @@ def variant(program,form,route,*,star_guard=False,historical_flower_label=False)
         old=text[begin:text.index('return function(c)',begin)]
         assert text.count(old)==1
         text=text.replace(old,STAR_GUARD,1);edits.append((old,STAR_GUARD))
+        if form=='link':
+            old='if not T.seen and c.x>=1424 and c.x<1600 and c.grounded and not c.lastA'
+            new='if not T.seen and c.x>=1424 and c.x<1600 and c.grounded and c.y>=160 and not c.lastA'
+            assert text.count(old)==1
+            text=text.replace(old,new,1);edits.append((old,new))
+            old='if not c.grounded or c.y<160 then return defend(c,steer(c,goal-56,2))end'
+            new='''if c.y<160 and not T.upper_exit_complete then T.upper_exit=true end
+  if T.upper_exit then
+   if c.grounded and c.y>=160 then T.upper_exit=nil;T.upper_exit_complete=sample(c)
+   else return{right=c.x<goal+40,left=c.x>goal+44}end
+  end
+  if not c.grounded or c.y<160 then return defend(c,steer(c,goal-56,2))end'''
+            assert text.count(old)==1
+            text=text.replace(old,new,1);edits.append((old,new))
     if form=='zelda2'and route=='flower'and not historical_flower_label:
         old='Actual next Z2 Flower food grants original Shield technology'
         new='Actual next Z2 Flower food grants original Downthrust'
@@ -304,7 +319,7 @@ def variant(program,form,route,*,star_guard=False,historical_flower_label=False)
 
 
 def program_pin(form,route,*,star_guard=False,historical_flower_label=False):
-    if star_guard:return GUARD_PIN
+    if star_guard:return GUARD_PINS[form]
     if form=='zelda2'and route=='flower'and not historical_flower_label:return DOWNTHRUST_FLOWER_PIN
     return PINS[(form,route)]
 
@@ -364,11 +379,11 @@ def native(raw,form,route,*,star_guard=False):
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--form',choices=tuple(First.FORMS),default='link')
     p.add_argument('--route',choices=tuple(KINDS),default='life')
-    p.add_argument('--star-guard',action='store_true',help='Separately pinned Zelda II Star floor-enemy crouched sword guard')
+    p.add_argument('--star-guard',action='store_true',help='Separately pinned Star floor-enemy sword guard and Link upper-block runout')
     mode=p.add_mutually_exclusive_group();mode.add_argument('--source',action='store_true');mode.add_argument('--run',action='store_true')
     p.add_argument('--limit',type=int,default=4200);a=p.parse_args();assert 1600<=a.limit<=4800
     raw=ROM.read_bytes();reference(raw)
-    assert not a.star_guard or(a.form=='zelda2'and a.route=='star')
+    assert not a.star_guard or a.route=='star'
     if a.run:q=native(raw,a.form,a.route,star_guard=a.star_guard)
     else:
         def deny(*args,**kwargs):raise AssertionError('Link continuation attempted files or emulator')

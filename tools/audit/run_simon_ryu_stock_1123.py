@@ -146,6 +146,7 @@ local bits={a=128""")
    else assert(s.power==q.grant.power and s.status==q.grant.status,'Upgrade persists during movement') end""")
     policy = '''local firstFood={}
 local flowerJump
+local starPursuit
 local function flowerRowRightEdge(c,x)
  local edge=x+16
  for j=1,6 do
@@ -255,6 +256,37 @@ local function followFirstFood(c)
   end
  end
 end
+local function catchSimonStar(c)
+ for i=0,5 do
+  if c.r('Enemy_Flag',i)==1 and c.r('Enemy_ID',i)==46 and c.r('PowerUpType',i)==2
+     and c.r('Enemy_State',i)&128~=0 then
+   local x=c.r('Enemy_X_Position',i)+256*c.r('Enemy_PageLoc',i)
+   local y=c.r('Enemy_Y_Position',i)
+   if not starPursuit then
+    starPursuit={x=x,direction=1,attempts={}}
+    ROBOT_STOCK_STATE.simon_star=starPursuit
+   end
+   local p=starPursuit
+   if x~=p.x then p.direction=x>p.x and 1 or -1 end
+   p.x=x
+   if p.launch then
+    local age=c.update-p.launch
+    if c.grounded and age>4 then p.launch=nil
+    else return{right=p.jumpDirection==1,left=p.jumpDirection==-1,a=age<27}end
+   end
+   local ahead=(x-c.x)*p.direction
+   if c.grounded and not c.lastA and y+17<c.y and ahead>=5 and ahead<=21 then
+    p.launch=c.update;p.jumpDirection=p.direction
+    assert(#p.attempts<12,'Bounded Star jump attempts')
+    p.attempts[#p.attempts+1]={x=c.x,y=c.y,update=c.update,itemX=x,itemY=y,direction=p.direction}
+    return{right=p.jumpDirection==1,left=p.jumpDirection==-1,a=true}
+   end
+   -- Easy Simon keeps launch velocity. Let an approaching Star come within
+   -- jump range before committing to its direction of travel.
+   return{right=ahead>21 and p.direction==1,left=ahead>21 and p.direction==-1}
+  end
+ end
+end
 local function choose(c)
  if c.growth~=0 then return{}end
  if c.status==0 then
@@ -271,7 +303,9 @@ local function choose(c)
   local flower=(C.char==5 and reachSimonFlower or reachRyuFlower)(c)
   if flower then return flower end
  end
- return stock(c)
+ local ordinary=stock(c)
+ if C.char==5 and C.route=='star' then return catchSimonStar(c) or ordinary end
+ return ordinary
 end'''
     stock = once(STOCK.read_text(encoding='utf-8'), 'local distance=goal-c.x-speed(c)/5',
                  'local distance=goal-c.x')

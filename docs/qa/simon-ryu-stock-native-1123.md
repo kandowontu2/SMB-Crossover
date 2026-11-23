@@ -61,8 +61,7 @@ On Downloads `3af597a7`, Simon started at X1316 on the ground to the
 right of the row. He held Left through both jump edges. That carried
 him from X1294/Y126 to X1287/Y104 and then onto the row. He collected
 the Fire Flower, finished growing to tier two and kept both lives
-through 25 further movement updates. Simon still needs passing hidden
-1-UP and Star tests.
+through 25 further movement updates.
 
 Ryu faced the right edge from X1290 and moved Left during the rise.
 The wall grab attached at X1278/Y130. Up and a fresh jump with room at
@@ -76,8 +75,31 @@ now has passing replays for all four standard Easy 1-1 pickups.
 | Simon | 2,093 | `5ba6657f057b4baee015dff06d526c073236dcb7e586e2035fae1b86fb852451` |
 | Ryu | 2,340 | `af57ab7504e0c3b21654812fc72aa0efbca15f21f5394a67ebe995dfc1880ecf` |
 
+## Simon's hidden 1-UP and Star
+
+Simon hit the hidden block at X1024 and caught the 1-UP at X1046/Y126.
+The native cue played and his life counter reached three. He landed at
+X1059/Y176 with his Mushroom still active after 29 more movement
+updates. The replay on Downloads `3af597a7` took 1,763 video frames.
+Mesen receipt `231fc59359fadad5402d9211e329a597e4d1c2797c142c1d82a89a2fc0c6297d`.
+
+The first Star attempt released the Star from X1616, but neutral jumps
+did not keep up with it. The actor left reach before collection. That
+negative took 3,206 video frames, receipt
+`7acb8d37a96a09e9001fc854feae6170e92b11b4b43aa989b0c7758b9797503f`.
+
+On the passing replay, Simon waited on the ground at X1650 and jumped
+Right when the moving Star reached X1655. He caught it on that jump,
+started the Star timer and music and earned 1,000 points. He kept his
+Mushroom, both lives and the active Star through 29 more movement
+updates, ending at X1692/Y176. The replay took 2,599 video frames.
+Mesen receipt `3af3aa73a3518bad88c5a31f54da63358851235c9a33aff1ece9fa329f11b94e`.
+Simon and Ryu now have passing replays for all four Easy 1-1 pickups.
+
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_simon_ryu_stock_1123.py --form ryu --route mushroom --run
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_simon_ryu_stock_1123.py --form simon --route upgrades --run
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_simon_ryu_stock_1123.py --form ryu --route upgrades --run
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_simon_ryu_stock_1123.py --form simon --route life --run
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_simon_ryu_stock_1123.py --form simon --route star --run
 ```
