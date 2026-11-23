@@ -28,7 +28,7 @@ def digest(path):
     return sha256(Path(path).read_bytes()).hexdigest()
 
 
-def run(script, rom, output, expected, timeout, variant=0, extra_env=None):
+def run(script, rom, output, expected, timeout, variant=0, extra_env=None, *, long_no_capture=False):
     assert digest(rom) == expected
     before_source = digest(script)
     source = script.read_text(encoding='utf-8')
@@ -38,13 +38,15 @@ def run(script, rom, output, expected, timeout, variant=0, extra_env=None):
     emulator = Path(os.environ.get('MESEN') or shutil.which('Mesen') or 'C:/mesen2/Mesen.exe')
     assert emulator.is_file()
     assert output.resolve().is_relative_to(R / 'build')
-    assert 1 <= timeout <= 240
+    assert 1 <= timeout <= (360 if long_no_capture else 240)
     # This lock already exists in the shared queue. Do not introduce an
     # alternate queue or claim that unrelated emulator sessions are free.
     assert C.LOCK.is_file(), 'Existing shared capture lease is required'
     other = require_free_workspace(R, rom, allow_interactive=True)
     env = dict(os.environ, SMB_STDOUT_ROM_SHA=expected, SMB_TEST_VARIANT=str(variant),
                **(extra_env or {}))
+    if long_no_capture:
+        env['SMB_STDOUT_IMAGES'] = '0'
     command = [str(emulator), '--testRunner', '--enableStdout', f'--timeout={timeout}',
                '--doNotSaveSettings', '--nes.removeSpriteLimit=false',
                '--nes.ramPowerOnState=AllZeros', '--nes.randomizeCpuPpuAlignment=false',
@@ -132,8 +134,10 @@ def run(script, rom, output, expected, timeout, variant=0, extra_env=None):
             assert png[:8] == b'\x89PNG\r\n\x1a\n'
             images.append(dict(base64=encoded, bytes=len(png), SHA256=sha256(png).hexdigest()))
     assert len(images) <= 4
+    if long_no_capture:
+        assert not images, 'Extended tests run without capture images'
     diagnostic_lines = [line[:512] for line in stdout.splitlines()
-        if re.search(r'lua|error|assert|script', line, flags=re.I)]
+        if line.startswith('SMB_NATIVE_PROGRESS ') or re.search(r'lua|error|assert|script', line, flags=re.I)]
     assert len(receipts) == 1, ('Expected exactly one native receipt', process.returncode,
         diagnostic_lines[:12]+diagnostic_lines[-12:], stdout[-3000:], stderr[-3000:])
     receipt = receipts[0]

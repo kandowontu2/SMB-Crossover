@@ -230,3 +230,27 @@ fell short of the later ledge. The next replay needs to land on the
 lower tree at Y208 before jumping toward the Screw Attack block at
 X944. Linked receipt
 `57febf4c8a178d31e659e983d0039abe3e39c84ec5389e7f2377f24ec8b06224`.
+
+### The Screw Attack pickup in 1-3
+
+The linked replay landed on the lower tree at X824/Y177 and reached
+the power block at X944/Y129. Rogue Dawn placed a Bomb on the block,
+collected the exposed Screw Attack and earned 1,000 points from the
+native score writer. She kept full health, five missiles and both
+lives for at least 25 further game updates. Linked receipt
+`40f44a0b9c4dce7c00116cad8e973357a13df40cdd82a5d0e946caa8161fa8f5`.
+
+The first Mesen run reached its 240-second wall limit without a final
+receipt. The retry added progress markers to the same gameplay inputs
+and passed from the Downloads ROM in 15,675 video frames. Rogue Dawn
+collected Screw Attack at X945/Y129. She kept full health, five
+missiles and two lives across at least 25 further completed updates.
+The score rose from 9,140 to 10,140. The replay wrote zero captures.
+Using Screw Attack against a live enemy still needs a playtest.
+
+Mesen receipt
+`90f7d82af3b3dcb39b9859048cd06c0d0f989b1b71d5f9573cdca48d65519863`.
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 600 -- python -B tools/audit/run_rogue_screw_acquisition_progress_1123.py --run
+```
