@@ -524,6 +524,62 @@ def combined_parent(raw):
     return parent
 
 
+def shell_runout(script):
+    """Keep Frog moving off the tall pipe and use a running pit takeoff."""
+    phase = " assert(g.phase=='brake','Known retracted-plant crossing phase')\n"
+    runout = ''' if g.phase=='brake' and g.x==2088 then
+  assert(c.x<=2208 and c.yHigh==1,'Stay over the solid approach before the next pit')
+  for i=0,5 do
+   local x=c.r('Enemy_X_Position',i)+256*c.r('Enemy_PageLoc',i)
+   local y=c.r('Enemy_Y_Position',i)
+   local vx=signed(c.r('Enemy_X_Speed',i))
+   if c.r('Enemy_Flag',i)==1 and c.r('Enemy_ID',i)==0 and c.r('Enemy_State',i)==132
+      and vx>0 and x<c.x and x>=c.x-96 and y>=160 and y<=208 then
+    local shell={motor=c.motor,slot=i,x=x,y=y,vx=vx,player_x=c.x,player_y=c.y}
+    g.rear_shell=g.rear_shell or {first=shell};g.rear_shell.last=shell
+   end
+  end
+  if c.grounded and c.y==176 and c.r('M3Native::Player_InAir')==0
+     and c.r('M3Native::Player_YVel')==0 and c.r('M3Previous')&128==0 then
+   assert(solid(c,c.x+4,208)and solid(c,c.x+12,208),'Actual floor after the tall pipe')
+   g.complete={motor=c.motor,x=c.x,y=c.y,vx=c.vx};F.shell_runout=g.complete;F.plant_active=nil
+  end
+  if c.x>=2168 and c.y<173 then return{left=signed(c.vx)>12,b=true}end
+  return{right=true,b=true}
+ end
+'''
+    approach = " if g.phase=='approach'then\n  local nearest\n"
+    takeoff = ''' if g.phase=='approach' and key=='pit2' and F.shell_runout then
+  assert(c.x<=2208 and c.grounded and c.y==176,'Run on the authored near bank')
+  if c.x>=2192 and c.r('M3Previous')&128==0 and c.r('M3Native::Player_InAir')==0
+     and c.r('M3Native::Player_YVel')==0
+     and solid(c,c.x+4,208)and solid(c,c.x+12,208) then
+   g.jump_input={motor=c.motor,x=c.x,y=c.y,vx=c.vx};g.jump_at=c.motor;g.phase='launch'
+   return{right=true,b=true,a=true}
+  end
+  return{right=true,b=true}
+ end
+'''
+    script=once(script,phase,runout+phase)
+    script=once(script,approach,takeoff+approach)
+    observe = ' if s.level==0 and s.engine==5 then F.castle=F.castle or s end\n'
+    bank_returns = ''' local pit=F.pit2
+ if F.shell_runout and pit and pit.landing and not pit.complete and s.level==0 then
+  if pit.last_motor~=s.motor then
+   if s.x>=pit.bank and s.x<2432 and s.y==176 and s.state==0
+      and s.native_air==0 and s.native_vy==0 then
+    if pit.last_motor~=s.motor-1 then pit.ground=0 end
+    pit.ground=pit.ground+1;pit.last_motor=s.motor
+    if pit.ground==25 then pit.complete={motor=s.motor,x=s.x,y=s.y}end
+   else pit.ground=0;pit.last_motor=nil end
+  end
+ end
+'''
+    script=once(script,observe,bank_returns+observe)
+    LuaRuntime().compile(script)
+    return script
+
+
 def combined_controller(raw,form,*,frozen=False):
     """Strict actual14b0 facade, distinct from every earlier287 script identity."""
     import repair_rogue_side_pipe_1123 as Pipe
@@ -616,7 +672,7 @@ def source_checks(raw):
         scope='Typed exact2ac native water movement/observer with normal and delayed polls, plus actual shared spring publication. No earned pickup or full-stage/native claim.')
 
 
-def cpu_opening(raw,form,*,full=False,frozen=False):
+def cpu_opening(raw,form,*,full=False,frozen=False,runout=False):
     """Actual2-1 parser/inputs/observer from the established source menu arena."""
     b=dict(Base.authority(),raw=raw);execs={};writes={};events={};status=None;receipt=None;current=None
     original_bus=N.Bus
@@ -675,7 +731,8 @@ def cpu_opening(raw,form,*,full=False,frozen=False):
                         addEventCallback=addevent,setInput=setinput,stop=stop).items():g.emu[name]=fn
     g.print=output
     make=combined_controller if H(raw)==COMBINED_NIGHTLY else pipe_controller if H(raw)==PIPE_NIGHTLY else controller
-    lua.execute(make(raw,form,frozen=frozen))
+    script=make(raw,form,frozen=frozen)
+    lua.execute(shell_runout(script) if runout else script)
     g.SMB3_FROG_WATER.menu_configured=lua.table_from(dict(source_menu_arena=True))
     original_cpu=N.NesMPU
     def dispatch(cpu):
@@ -737,6 +794,7 @@ def main():
     p.add_argument('--form',choices=('toad3','peach3','both'),default='toad3')
     p.add_argument('--pipe-nightly',action='store_true',help='Strict disjoint28708 successor; keep exact2ac controls')
     p.add_argument('--combined-nightly',action='store_true',help='Strict actual14b0 full source/native binding')
+    p.add_argument('--shell-runout',action='store_true',help='Use a running landing and pit takeoff past the tall pipe')
     p.add_argument('--frozen-pipe-approach',action='store_true',help='Reproduce exact7dade7aa/e462ba07 earlier controls in memory')
     p.add_argument('--frozen-bridge-approach',action='store_true',help='Reproduce exactd83e3b28/89a9b271 bridge controls in memory')
     p.add_argument('--frozen-adaptive-approach',action='store_true',help='Reproduce exactb99fdf17/09634f64 controls in memory')
@@ -748,6 +806,8 @@ def main():
     assert not(args.pipe_nightly and args.combined_nightly)
     assert sum((args.frozen_pipe_approach,args.frozen_bridge_approach,args.frozen_adaptive_approach,args.frozen_retraction_approach))<=1
     frozen='retraction'if args.frozen_retraction_approach else 'adaptive'if args.frozen_adaptive_approach else 'bridge'if args.frozen_bridge_approach else args.frozen_pipe_approach
+    if args.shell_runout and (not args.combined_nightly or frozen):
+        p.error('--shell-runout requires --combined-nightly with the current route')
     pin=COMBINED_NIGHTLY if args.combined_nightly else PIPE_NIGHTLY if args.pipe_nightly else PIN
     installed=ROM.read_bytes();raw=installed
     if args.pipe_nightly and H(installed)==COMBINED_NIGHTLY:
@@ -755,10 +815,13 @@ def main():
         raw=combined_parent(installed)
     assert H(raw)==pin
     make=combined_controller if args.combined_nightly else pipe_controller if args.pipe_nightly else controller
-    program=lambda raw,form:make(raw,form,frozen=frozen)
+    def program(raw,form):
+        script=make(raw,form,frozen=frozen)
+        return shell_runout(script) if args.shell_runout else script
     if not args.run:
         rows=[dict(form=form,script_SHA256=H(program(raw,form).encode()))for form in forms]
-        opening=[dict(form=form,**cpu_opening(raw,form,full=args.cpu_full,frozen=frozen))for form in forms]if(args.cpu_opening or args.cpu_full)else None
+        opening=[dict(form=form,**cpu_opening(raw,form,full=args.cpu_full,frozen=frozen,runout=args.shell_runout))
+                 for form in forms]if(args.cpu_opening or args.cpu_full)else None
         passed=opening is None or all(case['passed']for case in opening)
         print('SMB3 FROG WATER SOURCE '+json.dumps(dict(passed=passed,ROM_SHA256=pin,cases=rows,
             controller_only=True,source_validated=True,installed_input_SHA256=H(installed),reconstructed_in_memory=raw!=installed,

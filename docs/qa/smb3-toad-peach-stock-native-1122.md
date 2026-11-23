@@ -249,11 +249,24 @@ It went on to clear 2-1 and complete all 17 swim segments in 2-2, with Frog
 power and both lives through 25 neutral updates. Linked receipt
 `67c0204c2f1544780f48ea2890ef312df2921c3c78b152ece36eab81d0513d90`.
 
-The Downloads Mesen replay crossed the same pipes and reached the same
+The first Downloads Mesen replay crossed the same pipes and reached the same
 landing. A sliding Koopa shell approached from behind and hit Toad just
-after landing, removing Frog at X2140/Y176. The full Mesen swim test
-remains open. Receipt
+after landing, removing Frog at X2140/Y176. Receipt
 `9be752dce7ea200e59493992752eda6f6a17e83edee9580edbb35eca9a1ddac0`.
 
+The passing Downloads Mesen replay landed farther right at X2178/Y176,
+ran into the pit jump from X2193 and landed at X2349/Y176. An observer
+tracked 25 consecutive grounded updates on the bank as Toad continued
+toward the third pit. He passed that pit, reached the flag and castle,
+and completed 429 swim returns across 17 exercises in 2-2. He had Frog
+and both lives after 25 final neutral returns. The replay used 6,773 video
+frames and saved zero captures. Peach's physical swim replay remains open.
+
+Mesen receipt
+`2085d40dfd78b3cdcce0284f6f471ac3eaaf409cecf4e2d18e90175c7595f222`.
 Controller SHA-256
-`ea97dc227874dcf318d5ea216483fecb999cff3cefbff9bd3760bc339467809e`.
+`9deb4173121e8f778657664a32f3445aee313aa63f4b8468f34a724a7c9287db`.
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 330 -- python -B tools/audit/replay_smb3_frog_water_1123.py --combined-nightly --shell-runout --run --form toad3
+```
