@@ -120,6 +120,34 @@ def trace_final_cap(program):
     return traced.encode()
 
 
+def time_final_cap_approach(program):
+    text = program.decode()
+    marker = """  if finalRiser>6 then
+   if player>=3026 and settled and y==48 then setPhase('final-cap',stairTop)end
+"""
+    staged = """  if finalRiser>6 then
+   if not capApproach then
+    right=player<stairDown-26
+    if not right then
+     local previousTop=priorTop[stairDown]
+     local sourceStanding=ram(2,0x6b)==1 and ram(2,0x210)==y+15
+     assert(y==48 and player<stairDown-20,'Wait on the last stair clear of the moving lift')
+     if sourceStanding and stairTop and previousTop and stairTop>=66
+        and stairTop<=72 and stairTop<previousTop then
+      capApproach=true;right=true;remember('final-cap-approach-window',stairTop)
+     end
+    end
+   end
+   if capApproach and player>=3026 and settled and y==48 then setPhase('final-cap',stairTop)end
+"""
+    prefix = 'local capApproach=false\n'
+    assert text.count(marker) == 1
+    timed = prefix+text.replace(marker, staged, 1)
+    assert timed[len(prefix):].replace(staged, marker, 1) == text
+    LuaRuntime().compile(timed)
+    return timed.encode()
+
+
 def report(result, image, full_stage):
     receipt = result['receipt']
     if full_stage:
@@ -144,14 +172,16 @@ def main():
     parser.add_argument('--combined', action='store_true', help='Use the combined DK Jr. and Sonic candidate on the current nightly')
     parser.add_argument('--baseline', action='store_true', help='Run only the full-stage replay on the installed nightly')
     parser.add_argument('--cap-trace', action='store_true', help='Record the last staircase position and lift predicates')
+    parser.add_argument('--time-cap-approach', action='store_true',
+                        help='Wait on solid stairs for the final lift to reach the boarding height')
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument('--full-stage', action='store_true')
     mode.add_argument('--sonic', choices=('sonic', 'super', 'both'), help='Check the combined dispatcher with the retained Sonic full-stage routes')
     args = parser.parse_args()
     if args.sonic and not args.combined:
         parser.error('--sonic requires --combined')
-    if (args.baseline or args.cap_trace) and not (args.combined and args.full_stage):
-        parser.error('--baseline and --cap-trace require --combined --full-stage')
+    if (args.baseline or args.cap_trace or args.time_cap_approach) and not (args.combined and args.full_stage):
+        parser.error('--baseline, --cap-trace and --time-cap-approach require --combined --full-stage')
     rom = Roster.Timing.ROM
     parent = rom.read_bytes()
     reference = parent
@@ -182,6 +212,8 @@ def main():
         cases = [('baseline' if args.baseline else 'candidate', candidate, after)]
         if not (args.combined and args.full_stage):
             cases.insert(0, ('baseline', parent, before))
+    if args.time_cap_approach:
+        cases = [(name, image, time_final_cap_approach(program)) for name, image, program in cases]
     if args.cap_trace:
         cases = [(name, image, trace_final_cap(program)) for name, image, program in cases]
     if not args.run:

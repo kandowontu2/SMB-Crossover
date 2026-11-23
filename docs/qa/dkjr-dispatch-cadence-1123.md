@@ -116,8 +116,31 @@ video frames and wrote zero captures.
 The installed route demonstrates the support and input sequence to compare
 with the private candidate before delivery.
 
+## Private final lift trace
+
+On `14b0b4c2`, the replay reached the top at X3028/Y48 with the lift at
+Y80 and already carrying DK Jr. He advanced as far as X3030, then went
+back to X2990/Y64 before the timer expired. Right reached the original
+input routine for all 1,989 observed updates. The lift moved downward
+through the old boarding window 71 times, while the player remained short
+of the X3038 position used in the passing comparison. The run ended at
+video frame 20,076 and wrote zero captures.
+
+Mesen receipt
+`042335fa295b4f9e3e3d4720dd0de39a719dbd96b94d84d3c4fe01fef82e3699`.
+Controller SHA-256
+`1910ba1f1f864969b4ef31f1bd0526d01486c09c089ea9657fa1f40760710c0d`.
+
+The optional timing replay approaches to X3014 on the solid stairs and
+waits for the lift to rise through Y66–72 before moving Right again.
+This tests the higher approach used in the passing comparison with the
+existing lift at world X3040 on `14b0b4c2`.
+The compiled controller SHA-256 is
+`12648ca8d182e9f163fb5ad5165a2b8ce9211465f1323f7e0d0db1f034b7bfee`.
+
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/dkjr-sonic-combined-dispatch-1123 --max-files 1 --timeout 600 -- python -B tools/audit/check_dkjr_sonic_dispatch_1123.py --interrupts
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 360 -- python -B tools/audit/run_dkjr_dispatch_native_1123.py --combined --run
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 575 -- python -B tools/audit/run_dkjr_dispatch_native_1123.py --combined --full-stage --baseline --cap-trace --run
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 575 -- python -B tools/audit/run_dkjr_dispatch_native_1123.py --combined --full-stage --cap-trace --time-cap-approach --run
 ```

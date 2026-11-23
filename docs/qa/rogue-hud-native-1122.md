@@ -254,3 +254,29 @@ Mesen receipt
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 600 -- python -B tools/audit/run_rogue_screw_acquisition_progress_1123.py --run
 ```
+
+## Screw Attack against a live Goomba
+
+On `28708fa9`, the linked engine replay earned Screw Attack from its
+ordinary block and continued to the next tree canopy. A fresh Right+A
+wall jump activated the spin while Rogue Dawn was rising. The spin hit
+a live Goomba at X1212/Y72, reduced its HP from two to zero, and put it
+in the native defeat state. Rogue Dawn landed on the canopy at
+X1245/Y65 and continued for 25 updates with full health, gear, ammo and
+two lives.
+
+The linked replay began from the compiled roster menu and used ordinary
+input throughout. The same controller passed in Mesen from the title
+screen on the Downloads nightly. The Screw hit reduced the Goomba's HP
+from two to zero and awarded 100 points. Rogue Dawn landed at X1247/Y65,
+then returned through all four observed gameplay routines 25 more times.
+She kept full health, five missiles, one tank and both lives. The Mesen
+run took 16,285 video frames and wrote zero captures.
+
+- Linked receipt `7b4538313200ee9c6cddab3385ec2951f87d098e70ddeb0d1372560d0b3b5c9a`.
+- Mesen receipt `593ea5bae1ff07f5fd6da877bc86550132e8d4745a293729747bd77896e6c436`.
+- Controller SHA-256 `8ed50b13523a50c72cf1991665b4532632cf71d232ed9a31cfc4084c044ec303`.
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 600 -- python -B tools/audit/run_rogue_screw_combat_native_1123.py --run
+```
