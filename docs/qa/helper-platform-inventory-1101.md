@@ -1,6 +1,6 @@
 # Helper platform inventory — functional pass in progress
 
-The current local nightly is `c6915886`. Donkey Kong Jr.'s four pickup
+The current local nightly is `6201e3b6`. Donkey Kong Jr.'s four pickup
 lifts are listed below.
 Mini Mario's current fixed1-1 actor25 placements are world left/center/
 initial top **560/576/192, 688/704/192, 864/880/192**, each32 pixels wide.
