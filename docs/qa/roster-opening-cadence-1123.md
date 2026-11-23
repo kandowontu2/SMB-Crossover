@@ -595,3 +595,29 @@ updates, two calls occurred before the frame counter advanced, then
 original stack. The 16 bytes after the header are already live packet
 data. A scoped replacement needs separate owned state or a different
 way to identify the first validated call.
+
+### Bub and Bob cache checks
+
+The first movement request still checks all 16 bytes of each cache header.
+Later foreground calls in the same gameplay update can reuse that validation
+after checking both owner prefixes. Pause, transitions and a stale or wrapped
+frame counter fall back to the original check. The source probe matched 117
+updates per character and 99 each for the Prince, DK Jr., Mini Mario, Sonic
+and Super Sonic. Thirteen gate cases, 64 full-header rejection checks, 259 IRQ
+returns and 259 busy NMI returns passed. The change saves 2,106 linked CPU
+cycles per empty standing or walking update.
+
+Mesen sampled 48 idle and 16 walking updates in Easy 1-1. Both characters
+now take 96 video frames instead of 108. Frames without a game update fell
+from 44 to 32. The full native replays used the regular route, cleared all four
+pipes and three pits, and observed 25 living grounded updates in 1-2. Both
+characters kept both lives and used their original bubble movement.
+
+| Character | Empty opening receipt | Full route frames | Full route receipt |
+| --- | --- | ---: | --- |
+| Bub | `c885a6d8e3aa7c4469d34e6ffe862433e3784dea7844ed05c0452bff6363b940` | 11,315 | `6fb945a91ede92e505136c25388b8d2403022f6af11f38cc4b1ec0383aaa5795` |
+| Bob | `f3c937dbcb1d38fe42c40d5f26edd1150dd7e7f9f999104491152adda38f47e6` | 11,342 | `a9f4073d667b2df9f778024a408343a28854138640bec01a90cfb7b71984c9ae` |
+
+The tested ROM `e5cb1367ecfa022b610b2705a91280ac47b2aec943c6eb84cf036f50f2879c88`
+replaced the Downloads nightly. Both full stage receipts matched from the
+actual Downloads path. The automatic patch check found no sidecar patches.

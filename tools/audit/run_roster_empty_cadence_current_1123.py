@@ -12,6 +12,7 @@ import run_roster_empty_cadence_1122 as Previous
 
 
 def reference(raw):
+    import compose_bub_epoch_1123 as BubbleBobble
     import compose_donkey_side_early_1123 as EarlyDonkey
     import compose_donkey_side_shortcut_1123 as Donkey
     import compose_karnov_side_route_1123 as Karnov
@@ -20,6 +21,8 @@ def reference(raw):
     import compose_prince_side_current_1123 as Side
 
     observed = raw
+    if Previous.Timing.H(raw) == BubbleBobble.CANDIDATE:
+        raw = BubbleBobble.inverse(raw)
     if Previous.Timing.H(raw) == Karnov.CANDIDATE:
         raw = Karnov.inverse(raw)
     if Previous.Timing.H(raw) == Needles.CANDIDATE:
