@@ -1,6 +1,6 @@
 # Shared projectile draw timing
 
-The installed MMC5 nightly `ffd70810` uses five character dispatchers before
+The previous MMC5 nightly `ffd70810` used five character dispatchers before
 the common projectile renderer. A linked CPU trace from Bass's normal 1-1
 opening measured 6,277 cycles for the complete sprite draw while standing
 and 6,087 while walking. The shared projectile dispatch accounted for about
@@ -80,7 +80,7 @@ skipped NMIs. Bass and Donkey Kong each improved by two zero-update frames.
 | Mini Mario | 0 / 64 / 0 | 0 | `67cedb4f97e594fdb3afc4eb09743efbc952bebadf6fae051a2421dbcf92d600` |
 | Roll | 0 / 64 / 0 | 0 | `dd7eee33fd276699bdbd78117fe883d93c9bf01156ca6cc1e637041db485ff1d` |
 
-The retained Donkey Kong Jr. controller prevented delivery of `27e01af3`.
+The first Donkey Kong Jr. replay stopped at the final stairs on `27e01af3`.
 It reached X2911/Y144 with two lives and 99 on the timer and gained no
 height on the first final stair. Mesen receipt
 `798cac49c31a2595fc4234efba2cefb615481d0451d4868920a01796b7df6186`.
@@ -92,8 +92,7 @@ accepted the jump at X1099/Y171 and landed on the far bank at X1145/Y176.
 He collected the Flower, threw the dagger and ended with both lives and
 full HP after 2,037 video frames. Mesen receipt
 `d3189e986859f6b327198bfa0061cef577c62d1ba4a489d397bc7e3bbad10cf4`.
-The tested ROM matched in both attempts. Downloads retains the qualified
-`ffd70810` build while the Donkey Kong Jr. stair check remains open.
+The tested ROM matched in both attempts.
 
 A controller-only backoff after the first failed stair jump passed the
 first two risers. The same private ROM stopped at the third riser at
@@ -103,9 +102,22 @@ Mesen receipt `79948d396f4c76f9ceaac5b37afdea13c01ea413166efd6db4646517cb9c0d2c`
 The original failure and the later third-riser failure both remain
 reproducible through separate controller factories.
 
+## Downloads nightly
+
+Extending the same backoff to each of the first three risers cleared the
+staircase and the stage on the unchanged `27e01af3` ROM. Donkey Kong Jr.
+reached X40/Y176 in 1-2 with two lives and 25 grounded movement returns.
+The terminal event occurred at video frame 17,381. Mesen receipt
+`6193901229240e9ff9f98ec1bcb282c3763348f731b02be48a40482b16023108`.
+
+Downloads now contains the tested `27e01af3` bytes. Mesen launched that
+file directly and exactly repeated the private opening timing receipts for
+Bass and Zelda II Link. Patch guards passed before and after replacement.
+
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/shared-special-draw-1123 --max-files 1 --timeout 520 -- python -B tools/audit/probe_special_draw_routing_1123.py 'ZELDA II LINK' 'LEONARDO' 'MIKE JONES' 'SMB3 MARIO' 'BASS' 'DONKEY KONG' 'MINI MARIO' 'ROLL' 'LINK'
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 360 -- python -B tools/audit/probe_special_draw_routing_1123.py --native 'ZELDA II LINK' 'BASS' 'DONKEY KONG' 'MINI MARIO' 'ROLL'
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 440 -- python -B tools/audit/run_shared_special_draw_routes_1123.py
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 170 -- python -B tools/audit/run_shared_special_draw_routes_1123.py --grant-first-pit
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 420 -- python -B tools/audit/install_shared_special_draw_1123.py
 ```

@@ -1,7 +1,8 @@
 # Helper platform inventory — functional pass in progress
 
-The current local nightly is `ffd70810`. Its new Donkey Kong Jr. placement
-is listed below.
+The current local nightly is `27e01af3`. The Donkey Kong Jr. Mushroom lift
+placement is listed below. The draw update passed his full 1-1 route with
+the same helpers.
 Mini Mario's current fixed1-1 actor25 placements are world left/center/
 initial top **560/576/192, 688/704/192, 864/880/192**, each32 pixels wide.
 The manual Flower-route vertical lift spawns at1203/1219/208, also32 wide.
