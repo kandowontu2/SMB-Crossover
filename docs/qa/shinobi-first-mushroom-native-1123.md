@@ -46,8 +46,7 @@ The linked-code checks preserved the outputs of 2,313 terrain lookups and
 cases. They also checked 768 pose and animation-header lookups, 48 item
 maturity cases and 42 native pickup-dispatch cases. The latter cover
 food heal, Fire Flower weapon upgrades, Star and 1-UP behavior in
-controlled states. The Fire Flower, Star and 1-UP still need playthrough
-verification.
+controlled states.
 
 The same build passed the full above-ground 1-1 route in Mesen. Shinobi
 defeated a Goomba, passed the flagpole, and retained both lives through 25
@@ -61,6 +60,20 @@ Mushroom run from Downloads and returned the same pickup receipt
 Both patch guards passed without a same-name patch. The file was replaced
 directly. The previous ROM can be reconstructed in memory from the
 documented source preimages.
+
+## Fire Flower and the upgraded shot
+
+On the Downloads build `c6915886`, Shinobi collected the Mushroom,
+crossed the four opening pipes and first pit, and hit the Fire Flower
+block at X1248. The Flower matured at X1248/Y119. The live collision
+boxes overlapped and Shinobi collected it at X1249/Y176. The weapon
+tier advanced from 0 to 1, and the pickup awarded 1,000 points. He kept
+the upgrade through 25 original movement updates with four HP and both
+lives. A crouch and B press then fired the upgraded shot, which moved
+69 pixels. Mesen receipt
+`979806204fffcfa53d9354c18c792c2fa27f4a8d5cb9e37ad4917aeedc49f483`.
+
+The hidden 1-UP and Star still need ordinary playthrough checks.
 
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/shinobi-pickups-1123 --resume --max-files 8 --timeout 335 -- python -B tools/audit/compose_shinobi_pickups_1123.py --run
