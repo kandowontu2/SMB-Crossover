@@ -28,6 +28,25 @@ The original component tests cover the full 24-point heal, the three-star
 maximum, and native Star and 1-UP collection in a prepared scene.
 [Original boxing-star checks](little-mac-star-2026-10-24.md)
 
+## Natural hidden 1-UP
+
+Little Mac, Doc Louis and Mike Tyson each cleared the opening pickup
+route, hit the hidden block at X1024 and collected the 1-UP in Easy
+1-1 on Downloads `3af597a7`. In each Mesen replay the native extra-life
+cue played, the life counter rose from two to three and the boxer
+landed with all 96 health and three lives after 25 further movement
+updates. No captures were saved. The Star pickup remains open for all
+three.
+
+| Character | Video frames | Mesen receipt SHA-256 |
+| --- | ---: | --- |
+| Little Mac | 1,572 | `d626d5ddee11f9fd2118a792adcea8ac761226efaf1d50c03d9822c484e3ecdf` |
+| Doc Louis | 1,578 | `de21b6718332812e939a93ada751248f0ff00a168d3682e8cbe67ffcd8ebfaa8` |
+| Mike Tyson | 1,563 | `10d7da95b3789e6903670cb4905991aa9d6e9a6d9b20da1a31d368fb978b6bdb` |
+
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_mac_family_stock_1123.py --form mac --run
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_mac_family_life_1123.py --form mac --run
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_mac_family_life_1123.py --form doc --run
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_mac_family_life_1123.py --form tyson --run
 ```
