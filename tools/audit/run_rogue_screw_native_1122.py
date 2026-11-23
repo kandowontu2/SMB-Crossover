@@ -1,6 +1,7 @@
 """Controller-only earned Rogue Screw continuation on installed Sonic59."""
 
 import argparse
+from contextlib import contextmanager
 from functools import lru_cache
 import inspect
 import json
@@ -8,6 +9,8 @@ from pathlib import Path
 from unittest.mock import patch
 
 import current_sonic_parent_rom_1122 as Parent
+import audit_rogue_stock_foundation_1327_1116 as Foundation
+import check_contra_force_combined_palette_1122 as Combined
 import repair_contra_force_beans_ground_1122 as Beans
 import run_rogue_bomb_block_native_1122 as Base
 import run_rogue_missile_enemy_native_1122 as Previous
@@ -16,20 +19,55 @@ from check_ff_stdout_controller_source_1110 import LuaRuntime
 R, ROM, H = Base.R, Base.ROM, Base.H
 PIN = Parent.CANDIDATE
 POLICY = R/'tools/playthroughs/rogue_screw_native_1122.lua'
-PINNED_CONTROLLER_SHA256 = '9ae88510c8f72f34d5d3127d9159237459c9e4cc28999d6cc18e7eef1dbc3f94'
+PINNED_CONTROLLER_SHA256 = '08c7ad7fe505a05e8d3969cd992c1604c273db972d25f2411e96d66b747eb311'
+BASE_CONTROLLER_SHA256 = '1f8406cf1693e2dac5e7e2108b72090b4bc0ff5d76c266dfb9d1fefc133baa7a'
+
+
+@lru_cache(maxsize=1)
+def symbols():
+    return Base.W.Symbols.bundle()
+
+
+def comparison_reference(image):
+    """Exact retained preimages; historical forward CPU checks stay frozen."""
+    if H(image)==Combined.BASE_SHA:return image
+    assert H(image)==Combined.COMBINED_SHA
+    parent=bytearray(image)
+    for at,old in Combined.BASE_PREIMAGES+Combined.Palette.preimages():
+        parent[at:at+len(old)]=old
+    parent=bytes(parent)
+    assert H(parent)==Combined.BASE_SHA
+    return parent
+
+
+def rogue_metadata(image):
+    assert H(image)==Foundation.PIN
+    return dict(bundle=dict(symbols(),raw=image))
+
+
+@contextmanager
+def compilation_bindings():
+    # The exact original Base Lua hash below covers the entire retained
+    # controller and binding table. Skip unrelated Jay ancestry rebuilds.
+    with patch.object(Base,'comparison_base',comparison_reference), \
+         patch.object(Foundation.Current,'bindings',rogue_metadata):
+        yield
 
 
 @lru_cache(maxsize=1)
 def bundle(raw):
     raw32=Parent.inverse(raw)
     baseline=Beans.inverse(raw32)
-    parent=Base.comparison_base(baseline)
-    return baseline,parent,dict(Base.J.bindings(parent)['bundle'],raw=raw)
+    parent=comparison_reference(baseline)
+    with compilation_bindings():
+        return baseline,parent,dict(Base.J.bindings(parent)['bundle'],raw=raw)
 
 
 def controller(raw):
     baseline,parent,b=bundle(raw)
-    original=Base.controller(baseline,wall_jump=True,wall_left=True)
+    with compilation_bindings():
+        original=Base.controller(baseline,wall_jump=True,wall_left=True)
+    assert H(original.encode())==BASE_CONTROLLER_SHA256,'Exact retained controller and metadata'
     text=original;changes=[]
     def edit(old,new):
         nonlocal text
@@ -46,13 +84,27 @@ def controller(raw):
     additions.append('for n,at in pairs('+lua({n:Base.W.address(b,n)for n in names})+')do C.ram[n]=at end')
     line=text.split('\n',1)[0];edit(line,line+'\n'+'\n'.join(additions))
     edit('local function bombDrive()',POLICY.read_text(encoding='utf-8')+'\nlocal function bombDrive()')
+    edit('local function wallJumpTravel(c, wall, grounded)',
+         'local screwPairedGap\nlocal function wallJumpTravel(c, wall, grounded)')
+    wall_source=Base.WALL_JUMP_ROUTE.read_text(encoding='utf-8')
+    start=wall_source.index('local function wallJumpLift(c,wall,grounded)')
+    end=wall_source.index('local function wallJumpTravel(c, wall, grounded)',start)
+    edit(wall_source[start:end],'local screwLift\n\n')
+    edit('local input=wallJumpLift(c,wall,grounded)','local input=screwLift(c,wall,grounded)')
+    start=wall_source.index(' if c.x>=1890 and not wall.pairedGaps then')
+    end=wall_source.index(' if c.x>=2184 and not wall.crossedLiftGap then',start)
+    edit(wall_source[start:end],""" if c.x>=1840 and not wall.pairedGaps then
+  return screwPairedGap(c,wall,grounded)
+ end
+""")
+    edit('and a.y>=128 and a.y<=156 then','and a.y>=64 and a.y<=80 then')
     edit("if grounded and c.y >= 175 and c.y <= 177 and not b.left and not b.right and releasedA() then",
          "if grounded and c.y >= 175 and c.y <= 177 and not b.left and not b.right and releasedA() and r('RdAction')==0 then")
     edit(' local c=context();assert(identity()',' local c=context();if gear.screw then return screwDrive(c)end\n assert(identity()')
     edit("finish('natural-wall-jump-and-landing')","""gear.screw={phase='leave-underground',started=updates,steps={},tail={}}
   stock='screw';born=nil;mature=nil;collector=nil;credit=nil""")
     edit("reason=='natural-wall-jump-and-landing'and gear.complete and gear.high.complete and gear.wall.complete",
-         "reason=='natural-Screw-body-defeat-and-landing'and gear.complete and gear.high.complete and gear.wall.complete and gear.screw.complete")
+         "reason=='natural-Screw-body-defeat-and-landing'and gear.complete and gear.high.complete and gear.wall.acquisition and gear.wall.acquisition.credit and gear.screw.complete")
     edit("(r('LevelNumber')==0 or(gear.started and r('LevelNumber')==1))",
          "(r('LevelNumber')==0 or(gear.started and r('LevelNumber')==1)or(gear.screw and r('LevelNumber')==2))")
     edit("(a.private==(gear.wall and 210 or(gear.high and 209 or 208)) and a.owner==2)",
@@ -69,6 +121,8 @@ def controller(raw):
     gear.screw.acquisition={birth=born,mature=mature,collector=collector,credit=credit}
     stock='screw-earned';credit=nil;screwPhase('use')
    elseif stock=='wall-jump-credit'then""")
+    edit("wallJumpPhase('prepare');stock='wall-jump-earned';credit=nil","""gear.screw={phase='leave-underground',started=updates,steps={},tail={}}
+    stock='screw';born=nil;mature=nil;collector=nil;credit=nil""")
     edit("stock=='wall-jump'and 2 or(stock=='high-jump'and 1 or(stock=='bomb'and 0 or 9))",
          "stock=='screw'and 3 or(stock=='wall-jump'and 2 or(stock=='high-jump'and 1 or(stock=='bomb'and 0 or 9)))")
     edit("stock=='wall-jump'and 7 or(stock=='high-jump'and 3 or(stock=='bomb'and 1 or 0))",

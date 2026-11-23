@@ -1,8 +1,8 @@
 """Installed59e empty-scene clock; reuse the existing stdout observer/queue.
 
-Default compiles both controllers without writes. Root-only --run changes
-only the existing shared controller.lua, restores it finally, and launches
-the installed Downloads ROM. No candidate, capture or receipt files.
+Default compiles both controllers without writes. Root-only --run uses the
+existing shared slot and restores it on exit. --auth-candidate also tests a
+private image in that slot. No additional files are created.
 """
 import argparse
 from hashlib import sha256
@@ -25,8 +25,9 @@ def H(raw):
     return sha256(raw).hexdigest()
 
 
-def controller(raw, form):
+def controller(raw, form, *, candidate=None):
     assert H(raw) == PIN and form in FORMS
+    image = raw if candidate is None else candidate
     text = BASE.read_text(encoding='utf-8')
 
     def once(old, new):
@@ -81,8 +82,10 @@ emu.addMemoryCallback(guarded(function()
 end),emu.callbackType.exec,0xbbb0)
 '''
     once('local function frames(n)', extra+'\nlocal function frames(n)')
-    q = dict(sha=PIN, form=form, select=FORMS[form], cookie=list(raw[Motion.COOKIE_AT:Motion.COOKIE_AT+16]),
-             motor=list(Motion.kernel(raw)[0x1bb0:0x1bb0+16]))
+    motor = Motion.kernel(raw)[0x1bb0:0x1bb0+16]
+    assert Motion.kernel(image)[0x1bb0:0x1bb0+16] == motor
+    q = dict(sha=H(image), form=form, select=FORMS[form], cookie=list(image[Motion.COOKIE_AT:Motion.COOKIE_AT+16]),
+             motor=list(motor))
     result = 'local C='+value(q)+'\n'+text
     executable = '\n'.join(line.split('--', 1)[0] for line in result.splitlines())
     assert not re.search(r'\bio\s*[.:]|\bemu\s*[.:]\s*(?:write|save|load)|os\s*\.\s*(?:execute|remove|rename)', executable)
@@ -102,14 +105,24 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--run', action='store_true')
     parser.add_argument('--shared-slot', action='store_true')
+    parser.add_argument('--auth-candidate', action='store_true')
     parser.add_argument('--form', choices=(*FORMS,'both'), default='both')
     args=parser.parse_args()
     raw=ROM.read_bytes();assert H(raw)==PIN
+    if args.auth_candidate:
+        from compose_sonic_current_auth_epoch_1122 import proposal
+        image, _ = proposal(raw)
+    else:
+        image = raw
     if not args.run:
         def deny(*a,**k):raise AssertionError('Source validation attempted file/process output')
-        with patch.object(Path,'write_bytes',deny),patch.object(Path,'write_text',deny),patch('subprocess.Popen',deny):q=validate(raw)
+        with patch.object(Path,'write_bytes',deny),patch.object(Path,'write_text',deny),patch('subprocess.Popen',deny):
+            q=validate(raw) if not args.auth_candidate else dict(
+                ROM_SHA256=H(image),source_only=True,
+                controllers={form:H(controller(raw,form,candidate=image).encode()) for form in FORMS})
         print('SONIC CADENCE SOURCE '+json.dumps(q,separators=(',',':')),flush=True);return
     assert args.shared_slot,'Root native run requires the existing shared slot'
+    from mesen_session_guard_v1 import require_free_workspace
     from nightly_patch_guard_v1 import check
     from run_stdout_mesen_1110 import run
     import build_storage_guard_v1 as Storage
@@ -118,14 +131,23 @@ def main():
     target,script=SHARED/'candidate.nes',SHARED/'controller.lua'
     assert target.read_bytes()==raw
     original=script.read_bytes();guard=check(ROM)
-    assert guard['ROM_sha256']==PIN
+    assert guard['ROM_sha256']==PIN and not guard['matching_patch_files']
+    require_free_workspace(R, ROM, allow_interactive=True)
     try:
+        launch = ROM
+        if args.auth_candidate:
+            assert not check(target)['matching_patch_files']
+            target.write_bytes(image)
+            launch = target
+            assert check(launch)['ROM_sha256'] == H(image)
         for form in FORMS if args.form=='both' else (args.form,):
-            script.write_text(controller(raw,form),encoding='utf-8',newline='\n')
-            result=run(script,ROM,SHARED/'capture',PIN,120,extra_env={'SMB_STDOUT_IMAGES':'0'})
-            print('SONIC CURRENT CADENCE '+json.dumps(dict(form=form,script_SHA256=result['script_SHA256'],receipt_SHA256=result['receipt_SHA256'],receipt=result['receipt']),separators=(',',':')),flush=True)
+            script.write_text(controller(raw,form,candidate=image),encoding='utf-8',newline='\n')
+            result=run(script,launch,SHARED/'capture',H(image),120,extra_env={'SMB_STDOUT_IMAGES':'0'})
+            print('SONIC CURRENT CADENCE '+json.dumps(dict(form=form,ROM_SHA256=H(image),script_SHA256=result['script_SHA256'],receipt_SHA256=result['receipt_SHA256'],receipt=result['receipt']),separators=(',',':')),flush=True)
             assert result['passed'] and result['outputs_written']==0 and not result['images']
     finally:
+        if args.auth_candidate:
+            target.write_bytes(raw)
         script.write_bytes(original)
         assert script.read_bytes()==original and target.read_bytes()==ROM.read_bytes()==raw and check(ROM)==guard
         assert {p.name for p in SHARED.iterdir()}=={'candidate.nes','controller.lua'}

@@ -1,5 +1,7 @@
 """Build and exercise an in-memory DK Jr. dispatch optimization."""
 
+import argparse
+from collections import Counter
 from hashlib import sha256
 import json
 
@@ -273,12 +275,80 @@ def verify(parent, candidate):
     return phases
 
 
+def verify_interrupts(candidate):
+    from check_dkjr_retire_lease_1113 import inject_checked
+    from check_mini_funded_actor_1108_v3 import live_stack, registers, run, slim_fork
+
+    opening = Profile.Opening
+    m = Profile.boot(candidate)
+    sections = {193: ((0xa738, 0xa7bf), (0xa7d5, 0xa7d9)),
+                213: ((0xa8dc, 0xa900), (0xb06b, 0xb08c), (0xb8f0, 0xb900)),
+                2: ((MAIN, MAIN+MAIN_SIZE),)}
+    names = ('FrameCounter', 'SelectedCharacter', 'GameEngineSubroutine', 'NumberofLives',
+             'PlayerStatus', 'Player_State', 'Player_X_Position', 'Player_PageLoc',
+             'Player_Y_Position', 'Player_Y_HighPos', 'CurrentBank', 'CurrentBankC')
+    tested = set()
+    counts = Counter()
+    minimum = 255
+
+    def clone(source):
+        replica = Profile.N.NesMPU(memory=slim_fork(source.memory), pc=source.pc)
+        replica.a, replica.x, replica.y, replica.p, replica.sp = registers(source)
+        return replica
+
+    def gameplay(cpu):
+        host = cpu.memory
+        return (registers(cpu), tuple(Profile.N.get(host, name) for name in names),
+                tuple(host.rawtags), tuple(host.chr_latches), tuple(bytes(q) for q in host.ram))
+
+    class InterruptTrace:
+        def run(self, cpu, endpoint):
+            def done(current):
+                return (current.pc, current.sp) == endpoint
+
+            def visit(current):
+                nonlocal minimum
+                pc = current.pc
+                tag = m.rawtags[(pc-0x8000)//8192] if pc >= 0x8000 else -1
+                key = tag, pc, current.sp
+                if key in tested or not any(start <= pc < end for start, end in sections.get(tag, ())):
+                    return
+                tested.add(key)
+                baseline = clone(current)
+                run(baseline, done)
+                for kind in ('IRQ', 'lagNMI'):
+                    if kind == 'IRQ' and current.p & 4:
+                        continue
+                    interrupt = clone(current)
+                    stack = live_stack(interrupt)
+                    low, _ = inject_checked(interrupt, kind)
+                    assert live_stack(interrupt) == stack, (key, kind)
+                    run(interrupt, done)
+                    assert gameplay(interrupt) == gameplay(baseline), (key, kind)
+                    counts[kind] += 1
+                    minimum = min(minimum, low)
+
+            run(cpu, done, visit)
+
+    for pad in (0, 1, 0x81):
+        opening.main_step(m, pad, InterruptTrace())
+    assert counts['IRQ'] and counts['lagNMI']
+    return dict(cuts=len(tested), interrupt_returns=dict(counts), minimum_interrupt_SP=minimum)
+
+
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--interrupts', action='store_true')
+    args = parser.parse_args()
     parent = ROM.read_bytes()
     candidate, spans = proposal(parent)
     print('DK DISPATCH CANDIDATE '+json.dumps(dict(SHA256=h(candidate), spans=spans)), flush=True)
-    result = dict(parent=h(parent), candidate=h(candidate), selector=verify_selector(candidate),
-                  matched=verify(parent, candidate), output_files=0)
+    result = dict(parent=h(parent), candidate=h(candidate), output_files=0)
+    if args.interrupts:
+        result['interrupts'] = verify_interrupts(candidate)
+    else:
+        result['selector'] = verify_selector(candidate)
+        result['matched'] = verify(parent, candidate)
     result['receipt_SHA256'] = h(json.dumps(result, sort_keys=True).encode())
     print('DK DISPATCH '+json.dumps(result, separators=(',', ':')), flush=True)
 

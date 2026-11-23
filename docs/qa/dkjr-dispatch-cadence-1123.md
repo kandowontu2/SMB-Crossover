@@ -26,9 +26,9 @@ walking still took about two video frames per game update.
 | Private `b7562774` | 115 | 51 | 83 | `0e2678cb33ea64052c6b9ffa74b48f00df78bf6df5eef3f17690006e6258badc` |
 | Private `7bcf137e` | 112 | 48 | 80 | `d553b52f69c1706c614d15bb505bab35fdca69a3ac5301d1a726f191325d2fa6` |
 
-The Downloads nightly still contains `59e1a591`. The candidate needs the
-full stage and interrupt checks before delivery. The private tests used
-the same shared test slot. All three runs wrote zero captures.
+The Downloads nightly still contains `59e1a591`. A full-stage check is
+pending before delivery. The private clock tests used the same shared
+test slot. All three runs wrote zero captures.
 
 The first private test exposed a dispatch issue during source review.
 Out-of-range service addresses could reach a candidate helper before the
@@ -39,6 +39,13 @@ helper. The first service also rejected a corrupted header in either bank
 despite a matching frame stamp. Paired game state still matched and the
 revision saved 5,158 cycles per standing or walking update. Source receipt
 `6fbb422c919d4367e0eb2719cd4a34df1c6abe1ba11f6091618434a15716f690`.
+
+The same revision passed 626 IRQs and 626 busy NMIs injected at reached
+instructions during ordinary play. The original interrupt handlers
+returned with the same live stack, and each affected game update reached
+the same gameplay state as its uninterrupted counterpart. The minimum
+observed stack pointer was 167. Receipt
+`ec9008f5eb74b2f785ee519dfd47d68679922122aa7d50979a97e0e2e20ad2be`.
 
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_dkjr_dispatch_native_1123.py --run

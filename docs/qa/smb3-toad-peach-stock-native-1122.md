@@ -98,8 +98,11 @@ SMB3 Peach also collected the suit, used tail attacks against seven
 enemies, earned full P, flew and made 11 observed one-pixel descent
 steps after her character-specific float had ended. She landed with
 the suit and both lives. Her tail timer stayed at 12 after landing,
-so the replay stopped at its final check. Test the timer's effect on
-her next jump before closing this case. Diagnostic receipt
+so the replay stopped at its final check. Linked CPU tests confirmed
+that the grounded timer is idle and that a fresh A press clears it
+before the next jump. This matches SMB3 Rev 1. The updated Mesen check
+will verify 25 complete grounded updates followed by a fresh jump and
+another landing. Diagnostic receipt
 `2ae5572d2d950bb9c60b93bbf29fb81235990b0658a4d15633ec7246ec07f537`.
 
 ## Targeting an authored suit with ordinary controller input

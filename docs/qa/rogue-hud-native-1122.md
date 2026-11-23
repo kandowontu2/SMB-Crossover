@@ -139,3 +139,16 @@ tests produced zero capture files.
 - Native receipt `f01321f9eaf48649693ab925c8e664c0e3a8e9f5de605269f29ae2f05b19b72c`
 - Controller `9ae88510c8f72f34d5d3127d9159237459c9e4cc28999d6cc18e7eef1dbc3f94`
 - Linked CPU receipt `bdd24e44267d78100a028127b0a731a920ef53944c2a0d767be5fe16eb153355`
+
+The latest replay on the same Downloads nightly passed both gaps and
+boarded the moving lift at X2253/Y145. A separate jump carried Rogue Dawn
+off the lift to the far bank at X2320. She earned Wall Jump from its
+authored block and kept full health and two lives.
+
+The run then stopped outside the side pipe to 1-3. Rogue Dawn reached
+X2643/Y129 with Right held and stayed there. The loaded pipe mouth showed
+the expected upper `$1C` and lower `$1F` tiles. Pipe entry and the Screw
+Attack acquisition remain open. This run wrote zero captures.
+
+- Native receipt `6ecd83de61ba39f89b02eb7b5c3057376f7da26e6ea596fd770da3d6afec3a7f`
+- Controller `08c7ad7fe505a05e8d3969cd992c1604c273db972d25f2411e96d66b747eb311`
