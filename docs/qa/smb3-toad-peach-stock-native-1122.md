@@ -82,6 +82,26 @@ Both ended with two lives. The runs created no captures.
 
 Suit acquisition and suit-specific moves are checked separately below.
 
+## Raccoon flight and runway combat
+
+SMB3 Toad collected the Raccoon upgrade from the regular 1-1 upgrade
+block on the installed `59e1a591` nightly. He used the tail to defeat
+seven enemies on the runway and earned a full P-meter by running. A
+fresh A press started the native 128-update flight timer. After the
+timer expired, he held a controlled one-pixel descent for 22 updates,
+landed on the stairs at X2085/Y48 and completed 25 more movement updates
+with the suit and two lives. The run took 3,290 video frames and wrote
+zero captures. Receipt
+`d8c1e7c573a6df36095021e11edc2cdade4db835ce71c7b9206583855e6ddf1c`.
+
+SMB3 Peach also collected the suit, used tail attacks against seven
+enemies, earned full P, flew and made 11 observed one-pixel descent
+steps after her character-specific float had ended. She landed with
+the suit and both lives. Her tail timer stayed at 12 after landing,
+so the replay stopped at its final check. Test the timer's effect on
+her next jump before closing this case. Diagnostic receipt
+`2ae5572d2d950bb9c60b93bbf29fb81235990b0658a4d15633ec7246ec07f537`.
+
 ## Targeting an authored suit with ordinary controller input
 
 The suit block chooses its pickup from the game's random state when the

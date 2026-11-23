@@ -75,6 +75,78 @@ def packet(raw):
     return b''.join(raw[CHR+page*1024:CHR+(page+1)*1024] for page in PAGES)
 
 
+def guarded_selector():
+    # Bank 85 uses the native target as its veneer entry. Reject a bad high
+    # byte or wrapped low byte while the original mapper state is still live.
+    source = Fit.once(Fit.OLD_SELECTOR, '''PrOdd:
+ cmp #4
+ beq MiniTry''', '''PrOdd:
+ tax
+ lda FarHi
+ cmp #$b0
+ bne DkLocalNo
+ lda FarLo
+ sbc #$8c
+ pha
+ beq MiniFullCheck
+ cmp #114
+ bcs DkAuthNo
+ txa
+ adc #1
+ lsr
+ cmp #2
+ beq MiniTry''')
+    source = Fit.once(source, ''' bcc DkLocalNo
+MiniAuthorized:
+ lda FarHi
+ cmp #$b0
+ bne DkLocalNo
+ lda FarLo
+ sec
+ sbc #$8c
+ bcc DkLocalNo
+ cmp #114
+ bcs DkLocalNo
+ sta FarLo''', ''' bcc DkAuthNo
+MiniAuthorized:
+ pla
+ sta FarLo''')
+    source = Fit.once(source, ''' bcc Source37
+ cmp #43
+ beq Source43
+ lda #$a0
+ bne Shared
+Source37:
+ lda #$a5
+ bne Shared
+Source43:
+ lda #$d1
+Shared:
+ jmp PrSharedCall
+DkLocalNo:''', ''' tax
+ lda SourceBanks-37,x
+Shared:
+ jmp PrSharedCall
+DkAuthNo:
+ pla
+DkLocalNo:''')
+    # CMP #$aa sets C on the only path here. Underflow already exceeds 110.
+    source = Fit.once(source, '''PrSh:
+ lda FarLo
+ sec
+ sbc #$88
+ bcc DkLocalNo''', '''PrSh:
+ lda FarLo
+ sbc #$88''')
+    source = Fit.once(source, ' lda #$a0\n jmp PrSharedCall', ' lda #$a0\n bne Shared')
+    source = Fit.once(source, ''' lda #$df
+ jmp PrSharedCall''', ''' lda #$df
+ bne Shared
+SourceBanks:
+ .byte $a5,$df,$a0,$a0,$a0,$a0,$d1''')
+    return source
+
+
 def proposal(raw):
     assert h(raw) == Profile.PIN
     assert len(OLD_MAIN) == MAIN_SIZE and raw[MAIN_FILE:MAIN_FILE+MAIN_SIZE] == OLD_MAIN
@@ -99,14 +171,9 @@ MiniStamp:
         images.append((offset(85, pc), old_helper[section].ljust(size, b'\xff'),
                        new_helper[section].ljust(size, b'\xff')))
 
-    changed = Fit.once(Fit.OLD_SELECTOR, ' cmp #4\n beq MiniTry',
-                       ' adc #1\n lsr\n cmp #2\n beq MiniTry')
-    # For both tables, unsigned underflow wraps past the existing upper bound.
-    for base in ('8c', '88'):
-        changed = Fit.once(changed, f' sbc #${base}\n bcc DkLocalNo', f' sbc #${base}')
     selector = {'SELECTOR': (0xA740, 127)}
     before = Fit.A(Fit.OLD_SELECTOR, selector)
-    after = Fit.A(changed, selector)
+    after = Fit.A(guarded_selector(), selector)
     images.append((offset(65, 0xA740), before['images']['SELECTOR'],
                    after['images']['SELECTOR'].ljust(127, b'\xea')))
 
@@ -145,6 +212,49 @@ def compare(a, b):
         assert not changes, (bank, changes)
 
 
+def verify_selector(candidate):
+    m = Profile.boot(candidate)
+    m.raw_page(1, 193)
+    m[0x145] = 193
+    m[0x0e] = 9
+    m.ram[2][0x8ff] = 9
+    original_maps = tuple(m.rawtags)
+
+    def dispatch(owner, high, low):
+        m[0x6002], m[0x16d], m[0x16c] = owner, high, low
+        cpu = Profile.N.NesMPU(memory=m, pc=0xa743)
+        cpu.a, cpu.x, cpu.y, cpu.p, cpu.sp = 73, 11, 19, 0x31, 210
+        full = quick = 0
+        for _ in range(1200):
+            if cpu.pc in (0xab12, 0xab4f) and m.rawtags[1] == 193:
+                assert cpu.sp == 210 and tuple(m.rawtags) == original_maps
+                return cpu.pc, full, quick
+            full += int((m.rawtags[1], cpu.pc) == Profile.HEADER)
+            quick += int((m.rawtags[1], cpu.pc) == (193, 0xa738))
+            assert m[cpu.pc], (hex(cpu.pc), m.rawtags, owner, high, low)
+            cpu.step()
+        raise AssertionError(('Selector did not return', owner, high, low))
+
+    rejected = 0
+    for owner in (40, 41):
+        for high in (0, 0xa9, 0xaf, 0xb0, 0xb1, 0xff):
+            for low in (0, 0x87, 0x8b, 0x8c, 0x8f, 0xfb, 0xfd, 0xfe, 0xff):
+                if high == 0xb0 and 0x8c <= low <= 0xfd:
+                    continue
+                assert dispatch(owner, high, low) == (0xab4f, 0, 0), (owner, high, low)
+                rejected += 1
+    # Even a current stamp and two valid prefixes cannot grant the first
+    # service when a byte in either full header is wrong.
+    assert dispatch(40, 0xb0, 0x8c) == (0xab12, 1, 0)
+    for bank in (2, 3):
+        m.ram[bank][0x1fef] ^= 1
+        assert dispatch(40, 0xb0, 0x8c) == (0xab4f, 1, 0), bank
+        m.ram[bank][0x1fef] ^= 1
+    assert dispatch(40, 0xb0, 0xa7) == (0xab12, 0, 1)
+    return dict(rejected_out_of_range=rejected, corrupt_first_service_headers=2,
+                accepted_first_full=1, accepted_later_quick=1)
+
+
 def verify(parent, candidate):
     a, b = (Profile.boot(raw) for raw in (parent, candidate))
     phases = {}
@@ -167,7 +277,8 @@ def main():
     parent = ROM.read_bytes()
     candidate, spans = proposal(parent)
     print('DK DISPATCH CANDIDATE '+json.dumps(dict(SHA256=h(candidate), spans=spans)), flush=True)
-    result = dict(parent=h(parent), candidate=h(candidate), matched=verify(parent, candidate), output_files=0)
+    result = dict(parent=h(parent), candidate=h(candidate), selector=verify_selector(candidate),
+                  matched=verify(parent, candidate), output_files=0)
     result['receipt_SHA256'] = h(json.dumps(result, sort_keys=True).encode())
     print('DK DISPATCH '+json.dumps(result, separators=(',', ':')), flush=True)
 
