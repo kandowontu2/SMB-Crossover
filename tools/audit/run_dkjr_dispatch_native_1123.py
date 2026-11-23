@@ -199,6 +199,54 @@ def recover_flag_takeoff(program):
     return updated.encode()
 
 
+def backward_flag_takeoff(program):
+    """Set the airborne direction on the jump edge while still facing left."""
+    text = program.decode()
+    old = """  if not flagHop and player>=3152 and settled and y==176 and camera()>=3072 then
+   hold=updates+8;flagHop=snapshot();remember('flag-hop')
+  end"""
+    new = """  if not flagRecovery and player>=3152 and settled and y==176 and camera()>=3072 then
+   flagRecovery={started=updates,phase='settle',trace={}}
+  end
+  if flagRecovery and not flagHop then
+   local q=flagRecovery
+   local source,facing,direction=ram(2,0x6b),ram(2,0x6d),ram(2,0x54)
+   local held,sampled=ram(2,0x14),ram(2,0x15)
+   if #q.trace<40 then
+    q.trace[#q.trace+1]={Main=updates,x=player,y=y,held=held,sampled=sampled,requested=bits,
+     native_state=read(0x1e),source=source,facing=facing,direction=direction}
+   end
+   assert(updates-q.started<60 and player>=3140,'Bounded flagpole preparation over the actual floor')
+   if q.phase=='settle' then
+    if player>3150 or not settled or y~=176 then bits=0;return end
+    q.phase='face-left'
+   end
+   if q.phase=='face-left' then
+    assert(settled and y==176,'Turn on the grounded run-up to the flagpole')
+    if facing~=0 or direction~=3 then bits=2;return end
+    q.phase='release';q.release=updates
+   end
+   if q.phase=='release' then
+    hold=0
+    if settled and facing==0 and y==176 and updates-q.release>=4 and (held|sampled)&128==0 then
+     q.phase='takeoff';q.takeoff=updates;bits=129;return
+    end
+    bits=0;return
+   end
+   if source==3 and direction==4 and facing==0 and y<176 then
+    flagHop=snapshot();remember('flag-hop')
+    q.phase='forward';hold=q.takeoff+8;bits=1|(updates<hold and 128 or 0);return
+   end
+   assert(updates-q.takeoff<12,'Grounded Right+A edge must start an actual backward-facing jump')
+   bits=129;return
+  end"""
+    marker = 'events=events,'
+    assert text.count(old) == text.count(marker) == 1
+    updated = 'local flagRecovery\n' + text.replace(old, new, 1).replace(marker, marker+'flag_recovery=flagRecovery,', 1)
+    LuaRuntime().compile(updated)
+    return updated.encode()
+
+
 def report(result, image, full_stage):
     receipt = result['receipt']
     if full_stage:
@@ -231,8 +279,11 @@ def main():
                         help='Wait on solid stairs for the final lift to reach the boarding height')
     parser.add_argument('--center-flag-takeoff', action='store_true',
                         help='Wait for the flagpole camera to reach the tested takeoff position')
-    parser.add_argument('--recover-flag-hop', action='store_true',
-                        help='Jump vertically after an acknowledged A release, then steer into the pole')
+    flag_mode = parser.add_mutually_exclusive_group()
+    flag_mode.add_argument('--recover-flag-hop', action='store_true',
+                           help='Jump vertically after an acknowledged A release, then steer into the pole')
+    flag_mode.add_argument('--backward-flag-hop', action='store_true',
+                           help='Use the original backward-facing jump at the pole')
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument('--full-stage', action='store_true')
     mode.add_argument('--sonic', choices=('sonic', 'super', 'both'), help='Check the combined dispatcher with the retained Sonic full-stage routes')
@@ -242,11 +293,11 @@ def main():
     if (args.sonic or args.mini) and not shared_dispatch:
         parser.error('--sonic and --mini require a shared dispatcher candidate')
     full_stage_options = (args.baseline or args.cap_trace or args.time_cap_approach
-                          or args.center_flag_takeoff or args.recover_flag_hop)
+                          or args.center_flag_takeoff or args.recover_flag_hop or args.backward_flag_hop)
     if full_stage_options and not (shared_dispatch and args.full_stage):
         parser.error('Full-stage controls require a shared dispatcher candidate and --full-stage')
-    if args.recover_flag_hop and not args.center_flag_takeoff:
-        parser.error('--recover-flag-hop requires --center-flag-takeoff')
+    if (args.recover_flag_hop or args.backward_flag_hop) and not args.center_flag_takeoff:
+        parser.error('Flagpole controls require --center-flag-takeoff')
     rom = Roster.Timing.ROM
     parent = rom.read_bytes()
     reference = parent
@@ -291,6 +342,8 @@ def main():
         cases = [(name, image, center_flag_takeoff(program)) for name, image, program in cases]
     if args.recover_flag_hop:
         cases = [(name, image, recover_flag_takeoff(program)) for name, image, program in cases]
+    if args.backward_flag_hop:
+        cases = [(name, image, backward_flag_takeoff(program)) for name, image, program in cases]
     if args.cap_trace:
         cases = [(name, image, trace_final_cap(program)) for name, image, program in cases]
     if not args.run:

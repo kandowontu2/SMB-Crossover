@@ -30,15 +30,19 @@ def prepare(installed):
     candidate, _ = Combined.proposal(parent)
     assert Combined.inverse(candidate) == parent
     reference = Sonic.inverse(Pipe.restore_pipe_bytes(parent))
+    return candidate, cadence_programs(reference, Combined.CANDIDATE, PROOFS)
+
+
+def cadence_programs(reference, digest, characters):
     rows = Roster.roster(reference)
     programs = {}
-    for name in PROOFS:
+    for name in characters:
         control = Roster.controller(reference, rows[name])
         assert control.count(Roster.Timing.PIN) == 1
-        control = control.replace(Roster.Timing.PIN, Combined.CANDIDATE, 1)
+        control = control.replace(Roster.Timing.PIN, digest, 1)
         LuaRuntime().compile(control)
         programs[name] = control.encode()
-    return candidate, programs
+    return programs
 
 
 def guard(path, digest):
@@ -46,13 +50,16 @@ def guard(path, digest):
     assert result['passed'] and result['ROM_sha256'] == digest and not result['matching_patch_files']
 
 
-def deliver(installed, candidate, programs):
+def deliver(installed, candidate, programs, *, proofs=PROOFS, private_cadence=PRIVATE_CADENCE,
+            expected_frames=None):
     rom = Roster.Timing.ROM
     out = Roster.Timing.SHARED
     target, script = out/'candidate.nes', out/'controller.lua'
+    assert proofs.keys() <= programs.keys()
     assert set(out.iterdir()) == {target, script}
     assert rom.read_bytes() == target.read_bytes() == installed
     installed_sha = Combined.H(installed)
+    candidate_sha = Combined.H(candidate)
     guard(rom, installed_sha)
     guard(target, installed_sha)
     require_free_workspace(Roster.Timing.R, rom, allow_interactive=True)
@@ -62,11 +69,11 @@ def deliver(installed, candidate, programs):
         if installed != candidate:
             rom.write_bytes(candidate)
             target.write_bytes(candidate)
-        guard(rom, Combined.CANDIDATE)
-        guard(target, Combined.CANDIDATE)
+        guard(rom, candidate_sha)
+        guard(target, candidate_sha)
         for name, program in programs.items():
             script.write_bytes(program)
-            result = run(script, rom, out/'capture', Combined.CANDIDATE, 90)
+            result = run(script, rom, out/'capture', candidate_sha, 90)
             receipt = result['receipt']
             assert result['passed'] and not result['images'] and result['outputs_written'] == 0
             assert result['script_SHA256'] == Combined.H(program) and receipt['character'] == name
@@ -75,17 +82,20 @@ def deliver(installed, candidate, programs):
                       'no_controller_read_frames', 'native_lag_NMI')
             row = {key: receipt[key] for key in fields}
             row['receipt_SHA256'] = result['receipt_SHA256']
-            if name in PRIVATE_CADENCE:
-                row['private_receipt_match'] = result['receipt_SHA256'] == PRIVATE_CADENCE[name]
+            if name in private_cadence:
+                row['private_receipt_match'] = result['receipt_SHA256'] == private_cadence[name]
             print('COMBINED DOWNLOADS CADENCE '+json.dumps(row,separators=(',',':')), flush=True)
+            if expected_frames is not None:
+                assert name not in private_cadence or row['private_receipt_match'], row
+                assert row['inclusive_video_frames'] in expected_frames[name], row
             if name == 'DONKEY KONG JR':
                 assert receipt['inclusive_video_frames'] < 128, row
             if name == 'MINI MARIO':
                 assert receipt['inclusive_video_frames'] == 64 and receipt['no_controller_read_frames'] == 0, row
                 assert receipt['native_lag_NMI'] == 0, row
         assert rom.read_bytes() == target.read_bytes() == candidate
-        guard(rom, Combined.CANDIDATE)
-        guard(target, Combined.CANDIDATE)
+        guard(rom, candidate_sha)
+        guard(target, candidate_sha)
         verified = True
     finally:
         script.write_bytes(previous)
@@ -96,8 +106,8 @@ def deliver(installed, candidate, programs):
             guard(target, installed_sha)
         assert set(out.iterdir()) == {target, script}
         assert script.read_bytes() == previous
-    print('COMBINED NIGHTLY DELIVERED '+json.dumps(dict(ROM_SHA256=Combined.CANDIDATE,
-          private_receipts=PROOFS, Downloads_standing_and_walking=list(programs), backups=0)), flush=True)
+    print('COMBINED NIGHTLY DELIVERED '+json.dumps(dict(ROM_SHA256=candidate_sha,
+          private_receipts=proofs, Downloads_standing_and_walking=list(programs), backups=0)), flush=True)
 
 
 def main():

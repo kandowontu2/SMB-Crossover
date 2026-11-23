@@ -231,7 +231,7 @@ Right+A from X3152/Y176 with the camera at X3072 and 54 on the timer.
 DK Jr. returned to X3150/Y176 and ran out of time at the flagpole base
 after 19,551 video frames. Receipt
 `7b76392f38cf2730da56ec5766a23943ab0772d96b7875cbe40eb46b077d3a49`.
-The faster candidate remains private while the flagpole timing is checked.
+This run kept the candidate private while the flagpole timing was checked.
 
 The next controller released all buttons, waited four game updates and
 then used A without a direction. The actual input edge entered the original
@@ -244,14 +244,65 @@ frames. The run confirms that the neutral jump can rise at the base.
 It leaves the horizontal flagpole contact unresolved. Receipt
 `914818c187977efd4f3e07c820df02e79ce600daead7ca6bc7544feb318134c2`.
 
+The original jump reads its horizontal direction on takeoff and keeps it
+until the landing. In a linked cold-opening test on `94fa7a02`, jumping
+neutrally and then holding Right left DK Jr. at X43 throughout the jump.
+Left, then neutral, then Right+A moved him from X43 to X58 while still
+facing left. Receipt
+`8d5156cb7bd70a7d22059a2164cd0035579e2aceda8f24a34ece1d01836c3e78`.
+A separate linked fixture used the parsed flagpole terrain at X3150.
+The forward-facing jump hit the base, and the backward-facing jump
+reached the flag slide at X3161/Y160 with both lives. The native
+replay waits for X3150 before turning left and taking off.
+
+The full private Mesen replay passed with the backward-facing jump.
+DK Jr. released Right and settled at X3150/Y176, turned left at
+X3149, then jumped toward the pole with Right+A. He had 54 on the
+timer at takeoff. He cleared the flag and castle and completed 26
+grounded source movement returns at X40/Y176 in 1-2 with both lives.
+The replay used 18,495 video frames and saved zero captures. Receipt
+`ca794b5ef7aeff1691c16246c3f665fc594033538a873d6db9dd551924dd728a`.
+Controller SHA-256
+`191bcef97c3a55e3c804e366ffd1376a759d8d23b45ffe7ba86b6ef3bca1af1c`.
+
+Sonic and Super Sonic each defeated four Goombas by spinning, cleared
+1-1 and completed 25 grounded movement updates in 1-2 with both lives
+on the same private candidate. Sonic used 5,415 video frames and Super
+Sonic used 5,438. Mesen receipts
+`b0accb408b3b0f5a462b6ae195c9555c5e520fcc0057dc45256823e9e9ff73e6` and
+`467576a927314bdf8d35cbf278b001ea4883544f1d6ac64ef7a2e8d4210671a1`.
+
 The next terrain-dispatch change could save about 2,464 more cycles per
 game update by reusing the existing epoch check for the four side probes.
 Even with that estimated saving, walking would remain above a frame's
 CPU budget in the linked profile. This is a design estimate.
 
+## November 23 Downloads delivery
+
+The Downloads MMC5 nightly is now
+`94fa7a028ea86cc33eee50e9890e1eda05765bf6e8fd8fe82134a0388fa330db`.
+Its bytes match the private full-route candidate and the shared test ROM.
+The same-name patch guard passed before and after installation. There
+were zero backup files or captures.
+
+| Character | Video frames for 64 updates | Skipped NMIs | Downloads Mesen receipt SHA-256 |
+| --- | ---: | ---: | --- |
+| Donkey Kong Jr. | 104 | 72 | `928876ca96c1db045f15332e6492e3a21c73b6e64630a41080d3fccdbc111e8e` |
+| Sonic | 97 | 65 | `98a64094a8e0118e3315b9bb36df0fc14769070f3584464ae6911ac3480a965d` |
+| Super Sonic | 97 | 65 | `845bbd1a00affb2f593ca694ea6554e5f69df852761c16d345646e2f7ea43ea2` |
+| Mini Mario | 64 | 0 | `8b2c061a8d0f8fa4792da0a3ca9f768209036c616c5a52709d06d2e948dc7322` |
+
+Each sample included 48 standing and 16 walking updates. DK Jr.'s
+standing phase needed 16 fewer video frames. Walking still needed
+32 video frames for 16 updates. The other three results matched the
+prior nightly's cadence.
+
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/dkjr-side-forwarder-1123 --max-files 1 --timeout 600 -- python -B tools/audit/check_dkjr_public_side_forward_1123.py
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 210 -- python -B tools/audit/run_dkjr_dispatch_native_1123.py --public-side-forward --run
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 320 -- python -B tools/audit/run_dkjr_dispatch_native_1123.py --public-side-forward --full-stage --time-cap-approach --center-flag-takeoff --backward-flag-hop --run
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 570 -- python -B tools/audit/run_dkjr_dispatch_native_1123.py --public-side-forward --sonic both --run
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 420 -- python -B tools/audit/install_dkjr_side_forward_1123.py --install
 python -B tools/audit/run_bounded_build_v1.py --output build/dkjr-sonic-combined-dispatch-1123 --max-files 1 --timeout 600 -- python -B tools/audit/check_dkjr_sonic_dispatch_1123.py --interrupts
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 360 -- python -B tools/audit/run_dkjr_dispatch_native_1123.py --combined --run
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 575 -- python -B tools/audit/run_dkjr_dispatch_native_1123.py --combined --full-stage --baseline --cap-trace --run
