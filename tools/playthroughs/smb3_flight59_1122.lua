@@ -114,5 +114,21 @@ return function(c)
   if(F.slow_steps or 0)>=8 then change(c,'land')
   else b.a=c.r('M3Previous')&128==0;return b end
  end
+ if F.phase=='land'and F.ground_verified then
+  local vx=c.vx>=128 and c.vx-256 or c.vx
+  if vx~=0 then return {left=vx>0,right=vx<0}end
+  assert(c.grounded and c.r('M3Native::Player_InAir')==0 and c.r('M3Previous')&128==0,
+   'Stationary grounded release before an ordinary fresh follow-up jump')
+  F.followup_request={motor=c.motor,x=c.x,y=c.y,wag=c.r('M3Native::Player_WagCount')}
+  change(c,'followup-jump')
+ end
+ if F.phase=='followup-jump'then
+  assert(c.motor-F.at<12,'Bounded actual fresh-A follow-up acceptance')
+  if F.followup and F.followup.launch then change(c,'followup-land');return{}end
+  return {a=true}
+ elseif F.phase=='followup-land'then
+  assert(c.motor-F.at<240,'Bounded released-A follow-up and retained-suit landing')
+  return {}
+ end
  return b
 end

@@ -94,16 +94,15 @@ with the suit and two lives. The run took 3,290 video frames and wrote
 zero captures. Receipt
 `d8c1e7c573a6df36095021e11edc2cdade4db835ce71c7b9206583855e6ddf1c`.
 
-SMB3 Peach also collected the suit, used tail attacks against seven
-enemies, earned full P, flew and made 11 observed one-pixel descent
-steps after her character-specific float had ended. She landed with
-the suit and both lives. Her tail timer stayed at 12 after landing,
-so the replay stopped at its final check. Linked CPU tests confirmed
-that the grounded timer is idle and that a fresh A press clears it
-before the next jump. This matches SMB3 Rev 1. The updated Mesen check
-will verify 25 complete grounded updates followed by a fresh jump and
-another landing. Diagnostic receipt
-`2ae5572d2d950bb9c60b93bbf29fb81235990b0658a4d15633ec7246ec07f537`.
+SMB3 Peach also passed. She defeated seven enemies with her tail, filled
+the P-meter, flew and slowed her descent for 11 observed one-pixel steps
+after her usual float had ended. She landed with the suit and two lives
+and made 25 complete grounded updates. The grounded tail timer stayed
+idle at 12, as in SMB3 Rev 1. Her next normal jump cleared the timer to
+zero, started a new timer at 16, and lowered it to 15 when she released A.
+She landed again and completed 25 more grounded updates. The Downloads
+replay took 3,289 video frames and wrote zero captures. Receipt
+`926ad7f96f925d7fc06abe330e7113fd086772a9e8f98ec0f862a32db63dd7e0`.
 
 ## Targeting an authored suit with ordinary controller input
 

@@ -9,11 +9,18 @@ import measure_dkjr_shared_epoch_fit_1114 as Fit
 import profile_sonic_empty_cpu_1110 as B
 
 PIN='59e1a591d5ea31d62dafa9332990598b74b5b0852194ef7cc7ad22788196b723'
+CANDIDATE='2ac7c084b079ca6920b71346013bca82f1b8dd37a4de48f13d39de9ab2605446'
 SOURCE=M.R/'tools/reference/sonic_current_auth_epoch_1122.s'
 LAYOUT=dict(GATE=(0xa8dc,36),UTIL=(0xb06b,33),HEADER=(0xb8f0,16),SONIC_EPOCH=(0xda40,128))
 H=M.H
 
 def off(bank,pc):return 16+bank*8192+(pc&8191)
+
+
+def checked_branches(assembled):
+    symbols = assembled['symbols']
+    return bytes((0x90, (symbols['MiniFullCheck']-0xa7d7)&255,
+                  0xb0, (symbols['MiniAuthorized']-0xa7d9)&255, 0xea))
 
 @lru_cache(maxsize=1)
 def program():
@@ -41,8 +48,7 @@ def proposal(parent):
     news=M.assemble(new_selector,dict(SELECTOR=(0xa740,127)))
     assert olds['used']['SELECTOR']==127 and news['used']['SELECTOR']<=127
     put(off(65,0xa740),olds['images']['SELECTOR'],news['images']['SELECTOR'].ljust(127,b'\xea'),'shared bounded selector, owner43 plus Mini admission, row0 mandatory full')
-    def branch(q):return bytes((0x90,(q['symbols']['MiniFullCheck']-0xa7d7)&255,0xb0,(q['symbols']['MiniAuthorized']-0xa7d9)&255,0xea))
-    put(off(65,0xa7d5),branch(olds),branch(news),'existing checked-result branches')
+    put(off(65,0xa7d5),checked_branches(olds),checked_branches(news),'existing checked-result branches')
     # The retained source-fit file spells the actual inline-map revision;
     # every byte is asserted against this exact parent before substitution.
     oldh=M.assemble(Fit.OLD_HELPER,Fit.HELPER_LAYOUT)
@@ -67,7 +73,39 @@ def proposal(parent):
     assert parent[off(65,0xaee2):off(65,0xaf85)]==result[off(65,0xaee2):off(65,0xaf85)]
     assert parent[off(126,0x9c6e):off(126,0x9cb6)]==result[off(126,0x9c6e):off(126,0x9cb6)]
     assert parent[off(82,0xb16d):off(82,0xb189)]==result[off(82,0xb16d):off(82,0xb189)]
+    assert H(result)==CANDIDATE
     return result,dict(parent_SHA256=PIN,candidate_SHA256=H(result),source_SHA256=H(SOURCE.read_bytes()),shared_selector_source_SHA256=H(Path(Shared.__file__).read_bytes()),selector_used=news['used'],used=p['used'],symbols=p['symbols'],selector_symbols=news['symbols'],spans=spans,changed_bytes=len(changed),state=dict(epoch=0xc3f0,exclusive_owner=43,cold_clear_half_open=[0xc000,0xc900]),all_unowned_exact=True,full_checker_and_Prince_predicate_exact=True,outputs=0,native_qualified=False)
+
+def inverse(raw):
+    """Recover the exact previous nightly in memory for existing replays."""
+    assert isinstance(raw, bytes) and H(raw) == CANDIDATE
+    parent = bytearray(raw)
+
+    def restore(at, code):
+        parent[at:at+len(code)] = code
+
+    selector = M.assemble(Fit.OLD_SELECTOR, {'SELECTOR': (0xa740, 127)})
+    restore(off(65, 0xa740), selector['images']['SELECTOR'])
+    restore(off(65, 0xa7d5), checked_branches(selector))
+    helpers = M.assemble(Fit.OLD_HELPER, Fit.HELPER_LAYOUT)['images']
+    for name in ('GATE', 'UTIL', 'HEADER'):
+        pc, size = LAYOUT[name]
+        restore(off(85, pc), helpers[name].ljust(size, b'\xff'))
+
+    kernel = M.kernel(raw)
+    stamp = b'\xa5\x0e\x20' + program()['symbols']['StampSonicEpoch'].to_bytes(2, 'little')
+    stamp += bytes.fromhex('a9018d1ac1')
+    assert kernel.count(stamp) == 1
+    index = kernel.index(stamp)+2
+    restore(M.CHR+M.CODE_PAGES[index//1024]*1024+index%1024, bytes.fromhex('8d1bc1'))
+    start, size = LAYOUT['SONIC_EPOCH']
+    restore(M.CHR+334*1024+start-0xd800, b'\xff'*size)
+    original_cookie = b'\xa7\x2b\x01' + sha256(b''.join(M.page(parent,n) for n in M.COOKIE_PAGES)).digest()[:13]
+    restore(M.COOKIE_AT, original_cookie)
+    result = bytes(parent)
+    assert H(result) == PIN and proposal(result)[0] == raw
+    return result
+
 
 if __name__=='__main__':
     _,q=proposal(M.ROM.read_bytes());print('SONIC AUTH PROPOSAL '+json.dumps(q,separators=(',',':')),flush=True)

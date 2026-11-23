@@ -60,8 +60,8 @@ def prepare_full_stage(parent, candidate):
    and groundTile(player)==0x54,'Supported second-gap bank while waiting')
   if nativeState==2 then gap.nativeState2=(gap.nativeState2 or 0)+1 end"""
     observer = Full.once(observer, wait, steady)
-    observer = Full.once(observer, '  if movingLeft==gapLeft and direction==2 then\n   gap.takeoff',
-                         '  if movingLeft==gapLeft and direction==2 and nativeState==0 then\n   gap.takeoff')
+    observer = Full.once(observer, '  if earlyTakeoff or (movingLeft==gapLeft and direction==2) then',
+                         '  if nativeState==0 and (earlyTakeoff or (movingLeft==gapLeft and direction==2)) then')
     old_pin = Dispatch.h(reference)
     position = Dispatch.COOKIE
     old_cookie = reference[position:position+16].hex()
@@ -112,6 +112,7 @@ def main():
         assert guard['ROM_sha256'] == Dispatch.h(parent) and not guard['matching_patch_files']
     require_free_workspace(Roster.Timing.R, rom, allow_interactive=True)
     previous = script.read_bytes()
+    passed = True
     try:
         for image, program, path in ((parent, scripts[0], rom), (candidate, scripts[1], target)):
             if path == target:
@@ -122,14 +123,13 @@ def main():
             result = run(script, path, out/'capture', Dispatch.h(image), 240 if args.full_stage else 90)
             assert result['outputs_written'] == 0 and not result['images']
             report(result, image, args.full_stage)
-            if not result['passed']:
-                return 1
+            passed = passed and result['passed']
     finally:
         target.write_bytes(parent)
         script.write_bytes(previous)
         assert check(target) == test_guard and check(rom) == public_guard
         assert script.read_bytes() == previous and set(out.iterdir()) == {target, script}
-    return 0
+    return int(not passed)
 
 
 if __name__ == '__main__':

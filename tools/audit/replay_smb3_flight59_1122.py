@@ -6,6 +6,7 @@ The default source checks create no files. Only root may request --run.
 
 import argparse
 import json
+from pathlib import Path
 
 import replay_smb3_actions_1122 as Base
 from check_ff_stdout_controller_source_1110 import LuaRuntime
@@ -29,8 +30,22 @@ def bindings(raw, form):
         assert at-16==bank*8192+(pc&8191)
         code=raw[at:at+16];assert code==b['raw'][at:at+16],symbol
         q['hooks'][key]=dict(pc=pc,tag=bank|128,offset=at-16,hex=code.hex(),bytes=list(code))
+    # Observe the instruction after the real fresh-jump WagCount clear. This
+    # internal checkpoint has no independent RTS and must not enter pending.
+    at=W.location(b,'M3Native::Player_JumpFlyFlutter')
+    needle=b'\xa9\x00\x8d'+q['ram']['M3Native::Player_WagCount'].to_bytes(2,'little')
+    needle+=b'\x8d'+W.address(b,'M3Native::Player_AllowAirJump').to_bytes(2,'little')
+    hits=[i for i in range(256)if raw[at+i:at+i+len(needle)]==needle]
+    assert len(hits)==1 and raw[at:at+256]==b['raw'][at:at+256]
+    reset_at=at+hits[0]+5;bank=(reset_at-16)//8192
+    pc=0x8000+((reset_at-16)&8191)
+    # Both native entry and reset live in the same CPU window.
+    pc=(q['hooks']['FlightJump']['pc']&0xe000)|(pc&8191)
+    code=raw[reset_at:reset_at+16]
+    q['hooks']['FlightWagReset']=dict(pc=pc,tag=bank|128,offset=reset_at-16,
+        hex=code.hex(),bytes=list(code))
     q.update(flight_policy_SHA256=H(POLICY.read_bytes()),flight_landing_target=2080,
-             flight_scope='Natural Raccoon and P-meter, native flight, slow descent and retained-suit landing')
+             flight_scope='Natural Raccoon/P flight, slow descent,25 full ground steps, fresh-jump reset/release and second25-step landing')
     return q
 
 
@@ -45,7 +60,25 @@ local function flightState()
 end
 local function flightEntry(name,p)
  if not A.acquired then return end
- if name=='FlightPower'or name=='FlightJump'then p.flight={name=name,before=flightState()}end
+ if name=='M3Step'and(F.phase=='land'or F.phase=='followup-land')then
+  p.flight_ground={before=flightState(),phase=F.phase}
+ elseif name=='FlightPower'or name=='FlightJump'then
+  p.flight={name=name,before=flightState()}
+  if name=='FlightJump'and F.phase=='followup-jump'and not F.followup
+     and p.flight.before.native_air==0 and r('M3Fresh')&128~=0 then
+   local before=p.flight.before
+   assert(F.ground_verified and F.followup_request and before.input&128~=0 and before.fly==0
+    and before.meter~=127,'Ordinary fresh-A follow-up after25 genuinely grounded steps')
+   F.followup={before=before};p.flight.followup=F.followup
+  end
+ end
+end
+local function flightWagReset()
+ if not A.acquired or F.phase~='followup-jump'then return end
+ local q=assert(F.followup,'Actual fresh-jump entry precedes its WagCount clear')
+ assert(not q.reset and r('M3Native::Player_WagCount')==0 and r('M3Native::Pad_Input')&128~=0,
+  'Actual original fresh-jump instruction clears the previous grounded wag')
+ q.reset=flightState()
 end
 local function flightReturned(p)
  local before=p.flight.before;local s=flightState()
@@ -57,6 +90,29 @@ local function flightReturned(p)
    'Fresh A launches source flight from a genuinely full P-meter')
   F.launch=F.launch or {before=before,after=s}
  end
+ if p.flight.followup then
+  local q=p.flight.followup
+  assert(q.reset and s.wag==16 and s.fly==0 and s.native_air~=0 and s.native_vy>=128,
+   'Fresh jump clears the old wag and rearms exactly16 new ticks without flight')
+  q.launch=s
+ elseif p.flight.name=='FlightJump'and F.followup and F.followup.launch and not F.followup.release
+     and before.native_air~=0 and before.input&128==0 and r('M3Fresh')&128==0 then
+  assert(before.wag>0 and s.wag==before.wag-1 and s.fly==0,
+   'Released A lets the new native airborne wag decrement without rearming')
+  F.followup.release={before=before,after=s}
+ end
+end
+local function flightGroundReturned(p)
+ if not p.flight_ground then return end
+ local before=p.flight_ground.before;local s=flightState()
+ -- The host collision can publish state0 on the arrival update while native
+ -- InAir still says1. Only the next complete M3Step can qualify as grounded.
+ if before.state==0 and s.state==0 and s.native_air==0 and s.native_vy==0
+    and before.y==s.y and before.yHigh==s.yHigh and s.yHigh==1
+    and before.input&128==0 and s.input&128==0 and before.fly==0 and s.fly==0 then
+  assert(before.wag==s.wag,'Grounded native Raccoon wag is inert until a fresh jump')
+  F.ground_return={before=before,after=s,phase=p.flight_ground.phase}
+ else F.ground_return=nil end
 end
 local function flightActionReturned(p)
  local q=F.active_combat;local a=p.action
@@ -79,7 +135,8 @@ local function flightTick()
   if s.y<=F.launch.before.y-16 then F.lift=F.lift or s end
  end
  if F.launch and s.fly==0 and not F.expiry then F.expiry=s end
- if F.expiry and s.native_air~=0 and s.wag>0 and s.native_vy==16
+ if F.expiry and (F.phase=='slow-descent'or F.phase=='land')
+    and s.native_air~=0 and s.wag>0 and s.native_vy==16
     and F.last and s.motor==F.last.motor+1 and s.yHigh==1 and F.last.yHigh==1 and s.y==F.last.y+1 then
   assert(C.variant~=3 or s.float_expired~=0,'Peach ordinary float does not substitute for Raccoon descent')
   F.slow_steps=(F.slow_steps or 0)+1;F.slow_first=F.slow_first or s;F.slow_last=s
@@ -87,11 +144,31 @@ local function flightTick()
  if F.expiry and(F.slow_steps or 0)>=8 and F.phase=='land'and s.state==0 then
   F.landing=F.landing or s
  end
- if F.landing and s.motor-F.landing.motor>=25 then
-  assert(F.charge and F.launch and F.lift and(F.flight_steps or 0)>=24 and s.state==0
-   and s.fly==0 and s.wag==0 and s.growth==0 and s.poof==0,
-   'Earned flight and slow descent finish with25 actual retained-suit ground steps')
-  F.after=s;F.complete=true
+ if F.followup and F.followup.launch and s.native_air~=0 and s.yHigh==1
+    and s.y<=F.followup.before.y-4 then F.followup.lift=F.followup.lift or s end
+ local stage=F.phase=='land'and F.landing or F.phase=='followup-land'and F.followup
+ if stage and not stage.ground_verified then
+  local q=F.ground_return
+  if q and q.phase==F.phase and q.after.motor==s.motor and stage.last_ground_motor~=s.motor
+     and s.state==0 and s.native_air==0 and s.native_vy==0 and s.fly==0
+     and s.y==q.after.y and s.yHigh==q.after.yHigh and s.wag==q.after.wag and s.input&128==0 then
+   if stage.last_ground_motor~=s.motor-1 then stage.ground_steps=0;stage.ground_first=nil end
+   stage.ground_steps=(stage.ground_steps or 0)+1;stage.last_ground_motor=s.motor
+   stage.ground_first=stage.ground_first or q;stage.ground_last={source=q,after_host_collision=s}
+   if stage.ground_steps==25 then
+    assert(F.charge and F.launch and F.lift and(F.flight_steps or 0)>=24 and s.growth==0 and s.poof==0,
+     'Earned flight and slow descent finish with25 full retained-suit ground steps')
+    stage.ground_verified=s
+    if F.phase=='land'then F.ground_verified=s
+    else
+     assert(F.followup.reset and F.followup.launch and F.followup.release and F.followup.lift,
+      'Actual fresh-jump reset, release, rise and second25-step grounded landing')
+     F.after=s;F.complete=true
+    end
+   end
+  elseif stage.last_ground_motor~=s.motor then
+   stage.ground_steps=0;stage.ground_first=nil;stage.last_ground_motor=nil
+  end
  end
  F.last=s
 end
@@ -111,6 +188,10 @@ def controller(raw,form):
         "  if F.complete then finish(true,'Natural Raccoon, earned flight, slow descent and25 retained-suit ground steps');return end")
     text=Base.Acquire.once(text,"updates-A.acquired.update<500","updates-A.acquired.update<1800")
     text=Base.Acquire.once(text,'\n actionEntry(name,p,cpu)\n','\n actionEntry(name,p,cpu);flightEntry(name,p)\n')
+    text=Base.Acquire.once(text," if name=='TargetPauseInput'then",
+        " if name=='FlightWagReset'then flightWagReset();return end\n if name=='TargetPauseInput'then")
+    text=Base.Acquire.once(text,"if p.name=='M3Step' then motor=motor+1",
+        "if p.name=='M3Step' then motor=motor+1;flightGroundReturned(p)")
     text=Base.Acquire.once(text,'elseif p.action_poof then','elseif p.flight then flightReturned(p)\n  elseif p.action_poof then')
     text=Base.Acquire.once(text,'elseif p.action then actionReturned(p)',
                           'elseif p.action then actionReturned(p);flightActionReturned(p)')
@@ -220,6 +301,112 @@ def encounter_checks(raw):
     return dict(passed=True,scope='Typed flat moving-Koopa/native tail and subsequent earned flight; no natural-stage/Mesen claim',cases=rows,files=0)
 
 
+def wag_lifecycle_checks(raw):
+    """Original/native CPU lifecycle plus arrival/ground-counter observer mocks."""
+    original=Path('C:/NES/Super Mario Bros. 3 (USA) (Rev 1).nes').read_bytes()
+    assert H(original)=='1ddc4b429490e298c05fa70389034107c0cb50f671c7c1baaa3f228224afc2e9'
+    reference=[]
+    for fresh,held in ((0,0),(0,128),(128,128)):
+        m=bytearray(65536)
+        for bank,address in ((8,0xa000),(0,0xc000)):
+            m[address:address+8192]=original[16+bank*8192:16+(bank+1)*8192]
+        assert m[0xac28:0xac30]==bytes.fromhex('ad1f04f003ce1f04')
+        assert m[0xc3e0:0xc3e7]==bytes.fromhex('00000001020102')
+        assert m[0xdd4e:0xdd54]==bytes.fromhex('49ff18690160')
+        for at,v in ((0x18,fresh),(0x17,held),(0xd8,0),(0xed,3),(0xf0,12),(0xbd,0)):m[at]=v
+        cpu=N.NesMPU(memory=m,pc=0xac28);cpu.sp=253;cpu.p=48;cpu.stPushWord(0x5aff)
+        reset=False
+        for _ in range(2000):
+            if cpu.pc==0x5b00:break
+            cpu.step()
+            if cpu.pc==0xac8a:assert m[0xf0]==0;reset=True
+        else:raise AssertionError('Bounded original fresh-jump component')
+        assert (m[0xd8],m[0xf0],reset)==((1,16,True)if fresh else(0,12,False))
+        reference.append(dict(fresh_A=bool(fresh),held_A=bool(held),air=m[0xd8],wag=m[0xf0],actual_clear=reset))
+    b=dict(Base.authority(),raw=raw);base=N.fresh(b)
+    N.put(base,SelectedCharacter=17,M3Marker=179,NumberofLives=2,AreaType=1,AreaNumber=0,
+          LevelNumber=0,PlayerFacingDir=1,OperMode=1,OperMode_Task=3,GameEngineSubroutine=8)
+    N.invoke(base,'M3Reset');rows=[]
+    reset_hook=bindings(raw,'peach3')['hooks']['FlightWagReset']
+    for variant in (2,3):
+        launches=[]
+        for wag in (0,12):
+            m=N.fork(base)
+            N.put(m,M3Variant=variant,M3Form=3,Player_X_Position=27,Player_PageLoc=8,
+                  Player_Y_Position=48,Player_Y_HighPos=1,Player_State=0,Player_X_Speed=0,
+                  Player_Y_Speed=0,SavedJoypadBits=0)
+            m[W.address(b,'M3Native::Player_WagCount')]=wag
+            for tick in range(25):
+                N.put(m,FrameCounter=tick);N.invoke(m,'M3Movement')
+                assert all(N.get(m,n)==v for n,v in dict(Player_State=0,Player_Y_Position=48,
+                    **{'M3Native::Player_InAir':0,'M3Native::Player_YVel':0,'M3Native::Player_WagCount':wag}).items())
+            N.put(m,M3Previous=128,SavedJoypadBits=128,FrameCounter=25);N.invoke(m,'M3Movement')
+            assert N.get(m,'Player_State')==0 and N.get(m,'M3Native::Player_WagCount')==wag
+            N.put(m,SavedJoypadBits=0,FrameCounter=26);N.invoke(m,'M3Movement')
+            resets=[];step_original=N.NesMPU.step
+            def step(cpu):
+                if cpu.pc==reset_hook['pc']and m.rawtags[(cpu.pc-32768)//8192]==reset_hook['tag']:
+                    resets.append(N.get(m,'M3Native::Player_WagCount'));assert resets[-1]==0
+                return step_original(cpu)
+            N.NesMPU.step=step
+            try:
+                N.put(m,SavedJoypadBits=128,FrameCounter=27);N.invoke(m,'M3Movement')
+            finally:N.NesMPU.step=step_original
+            assert resets==[0]
+            names=('Player_State','Player_Y_Position','M3Native::Player_InAir',
+                   'M3Native::Player_WagCount','M3Native::Player_FlyTime','M3Native::Player_YVel')
+            launch={name:N.get(m,name)for name in names};launches.append(launch)
+            assert launch['Player_State']==1 and launch['M3Native::Player_WagCount']==16
+            assert launch['M3Native::Player_FlyTime']==0 and launch['M3Native::Player_YVel']>=128
+            N.put(m,SavedJoypadBits=0,FrameCounter=28);N.invoke(m,'M3Movement')
+            release={name:N.get(m,name)for name in names}
+            assert release['M3Native::Player_WagCount']==15 and release['M3Native::Player_FlyTime']==0
+            rows.append(dict(variant=variant,grounded_wag=wag,grounded_steps=25,held_A_without_fresh_keeps_ground=True,
+                actual_clear=resets[0],fresh_jump=launch,released_A=release))
+        assert launches[0]==launches[1],('Prior grounded wag must not alter the next fresh jump',variant)
+
+    # These are observer fixtures, not stage or acquisition evidence. In
+    # particular, arrival state0/native_air1 and duplicate GameLoops count0.
+    lua=LuaRuntime();s=dict(motor=100,update=100,frame=100,y=48,yHigh=1,state=0,
+        power=3,lives=2,growth=0,poof=0,x=2080)
+    ram={'M3Native::Player_InAir':1,'M3Native::Player_WagCount':12,
+         'M3Native::Player_YVel':0,'SavedJoypadBits':0,'M3Fresh':0}
+    lua.globals().actionState=lambda:lua.table_from(s)
+    lua.globals().r=lambda name:ram.get(name,0)
+    lua.execute("A={acquired=true};C={variant=3};SMB3_FLIGHT_STATE={phase='land',slow_steps=8,expiry={},charge={},launch={before={y=176}},lift={},flight_steps=24}")
+    functions=lua.execute(OBSERVE+'\nreturn{entry=flightEntry,returned=flightReturned,reset=flightWagReset,ground=flightGroundReturned,tick=flightTick}')
+    f=lua.globals().SMB3_FLIGHT_STATE;functions.tick()
+    assert f.landing and not f.landing.ground_steps and not f.ground_verified
+    def ground_steps():
+        for i in range(25):
+            p=lua.table_from({});functions.entry('M3Step',p)
+            s['motor']+=1;s['update']+=1;ram['M3Native::Player_InAir']=0
+            ram['M3Native::Player_YVel']=0;functions.ground(p);functions.tick();functions.tick()
+            stage=f.landing if f.phase=='land'else f.followup
+            assert stage.ground_steps==i+1
+            if i<24:assert not stage.ground_verified
+    ground_steps();assert f.ground_verified and not f.complete
+    f.phase='followup-jump';f.followup_request=lua.table_from(dict(motor=s['motor']))
+    ram.update(SavedJoypadBits=128,M3Fresh=128);p=lua.table_from({});functions.entry('FlightJump',p)
+    # Reject an unobserved/uncleared prior wag before accepting the real reset.
+    try:functions.reset()
+    except Exception:pass
+    else:raise AssertionError('Observer must reject uncleared wag at the reset checkpoint')
+    ram['M3Native::Player_WagCount']=0;ram['M3Native::Pad_Input']=128;functions.reset()
+    ram.update({'M3Native::Player_WagCount':16,'M3Native::Player_InAir':1,'M3Native::Player_YVel':201})
+    functions.returned(p);assert f.followup.launch and f.followup.reset
+    f.phase='followup-land';s.update(state=1,y=44,motor=s['motor']+1)
+    ram.update(SavedJoypadBits=0,M3Fresh=0);p=lua.table_from({});functions.entry('FlightJump',p)
+    ram['M3Native::Player_WagCount']=15;functions.returned(p);functions.tick()
+    assert f.followup.release and f.followup.lift and not f.complete
+    s.update(state=0,y=48,motor=s['motor']+1);ram['M3Native::Player_WagCount']=12;functions.tick()
+    assert not f.followup.ground_steps and not f.complete
+    ground_steps();assert f.complete and f.followup.ground_steps==25
+    return dict(passed=True,scope='Original and exact59 typed lifecycle plus isolated observer fixtures; no natural-stage/Mesen claim',
+        original=reference,cases=rows,observer=dict(arrival_counted=0,duplicate_tick_counted=0,
+        first_full_ground_steps=25,rejected_uncleared_wag=True,fresh_reset_release_lift=True,second_full_ground_steps=25),files=0)
+
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--run',action='store_true',help="Root only: one existing sequential Mesen slot")
@@ -229,7 +416,7 @@ def main():
     if not args.run:
         cases=[dict(form=form,script_SHA256=H(controller(raw,form).encode()))for form in forms]
         print('SMB3 FLIGHT SOURCE '+json.dumps(dict(passed=True,ROM_SHA256=PIN,cases=cases,
-              cpu=cpu_checks(raw),encounters=encounter_checks(raw),files=0,Mesen=False)),flush=True);return
+              cpu=cpu_checks(raw),encounters=encounter_checks(raw),wag=wag_lifecycle_checks(raw),files=0,Mesen=False)),flush=True);return
     from capture_budget import preflight
     from nightly_patch_guard_v1 import check
     from mesen_session_guard_v1 import require_free_workspace
