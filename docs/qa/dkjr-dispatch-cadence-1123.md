@@ -82,8 +82,16 @@ at X50/Y176 with two lives, zero enemies and zero captures.
 | Downloads `28708fa9` | 128 | 64 | 96 | `48939baa89370f98fa9231c846fdc7ee5605e20f6d018db28909b54784832856` |
 | Private `14b0b4c2` | 120 | 56 | 88 | `f9fd3f2c8a605e35959bf8563534e16a9039ee9f9a606bdc2f68d6cfbf14b84c` |
 
-The full Donkey Kong Jr. stage and the native Sonic and Super Sonic
-routes are still open for this combined candidate.
+The first full-stage Mesen run on `14b0b4c2` reached the top of the last
+staircase at X3028/Y48 with 82 on the timer. During the wait for the
+final lift it went left to X2990/Y64, where the timer expired with
+both lives still recorded. The run ended after 20,076 video frames.
+The trace establishes the point to inspect before the next full-stage
+run. The native Sonic and Super Sonic routes also need testing on
+this combined candidate.
+
+Full-stage receipt
+`9a29c99b9db5e459f3919a306f288a71bc0ab418e9668c906ab8070c510d10b3`.
 
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/dkjr-sonic-combined-dispatch-1123 --max-files 1 --timeout 600 -- python -B tools/audit/check_dkjr_sonic_dispatch_1123.py --interrupts
