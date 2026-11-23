@@ -260,13 +260,26 @@ tracked 25 consecutive grounded updates on the bank as Toad continued
 toward the third pit. He passed that pit, reached the flag and castle,
 and completed 429 swim returns across 17 exercises in 2-2. He had Frog
 and both lives after 25 final neutral returns. The replay used 6,773 video
-frames and saved zero captures. Peach's physical swim replay remains open.
+frames and saved zero captures.
 
 Mesen receipt
 `2085d40dfd78b3cdcce0284f6f471ac3eaaf409cecf4e2d18e90175c7595f222`.
 Controller SHA-256
 `9deb4173121e8f778657664a32f3445aee313aa63f4b8468f34a724a7c9287db`.
 
+Peach passed the same route and swim checks on Downloads `14b0b4c2`.
+She earned and kept Frog, cleared the tall pipe and landed at X2199/Y176.
+She crossed both remaining gaps and completed 25 grounded updates on
+each far bank. In 2-2 she completed 431 swim returns across 17 exercises
+and finished at X113/Y112 with both lives after the final 25 neutral
+returns. The replay used 6,652 video frames and saved zero captures.
+
+Peach's Mesen receipt SHA-256
+`29548ebba5561259ffd9a2d5f6929bec9e929436fea33cb3edc1909ae38bc83e`.
+Controller SHA-256
+`f2b89fd41258da74ad66cd6f219354bed10da3359cb7bc2cef4cff287ffcc7db`.
+
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 330 -- python -B tools/audit/replay_smb3_frog_water_1123.py --combined-nightly --shell-runout --run --form toad3
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 330 -- python -B tools/audit/replay_smb3_frog_water_1123.py --combined-nightly --shell-runout --run --form peach3
 ```
