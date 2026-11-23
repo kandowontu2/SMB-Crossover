@@ -370,13 +370,24 @@ def source(raw,route,limit):
 
 
 def native(raw,route):
-    program=controller(raw,route);assert H(program)==PINS[route]
+    digest=H(raw)
+    parent=raw
+    if digest!=PIN:
+        from compose_scrooge_prepare_stack_1123 import inverse
+        parent=inverse(raw)
+    program=controller(parent,route);assert H(program)==PINS[route]
+    if digest!=PIN:
+        for hook in bindings(parent,route)['hooks'].values():
+            start=16+hook['offset'];expected=bytes.fromhex(hook['hex'])
+            assert raw[start:start+len(expected)]==expected
+        assert program.count(PIN.encode())==1
+        program=program.replace(PIN.encode(),digest.encode(),1)
     guard=check(ROM);candidate,script=OUT/'candidate.nes',OUT/'controller.lua';before=script.read_bytes()
-    assert guard['ROM_sha256']==PIN and not guard['matching_patch_files']
+    assert guard['ROM_sha256']==digest and not guard['matching_patch_files']
     assert set(OUT.iterdir())=={candidate,script}and candidate.read_bytes()==raw
     try:
         with Host.Shared.preserve_script(script,candidate,raw)as stage:
-            stage(program);q=run(script,ROM,OUT/'capture',PIN,210)
+            stage(program);q=run(script,ROM,OUT/'capture',digest,210)
         assert q['script_SHA256']==H(program)and q['outputs_written']==0 and not q['images']
     finally:
         assert script.read_bytes()==before and candidate.read_bytes()==raw and ROM.read_bytes()==raw and check(ROM)==guard
@@ -387,9 +398,10 @@ def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--route',choices=tuple(ROUTES),default='mushroom')
     mode=p.add_mutually_exclusive_group();mode.add_argument('--source',action='store_true');mode.add_argument('--run',action='store_true')
     p.add_argument('--limit',type=int,default=4900);a=p.parse_args();assert 800<=a.limit<=5000
-    raw=ROM.read_bytes();assert H(raw)==PIN
+    raw=ROM.read_bytes()
     if a.run:q=native(raw,a.route)
     else:
+        assert H(raw)==PIN
         def deny(*args,**kwargs):raise AssertionError('Darkwing source attempted files or emulator')
         with patch.object(Path,'write_bytes',deny),patch.object(Path,'write_text',deny),patch('subprocess.Popen',deny):
             if a.source:q=source(raw,a.route,a.limit)

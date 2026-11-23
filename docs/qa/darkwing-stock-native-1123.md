@@ -75,3 +75,10 @@ Darkwing's four standard pickup tests.
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_darkwing_stock_1123.py --route life --run
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_darkwing_stock_1123.py --route star --run
 ```
+
+The hidden 1-UP replay also passed on installed `82e8da0e` after Scrooge's
+pogo fix changed the shared pickup dispatch. It took the same 1,924 video
+frames and ended at X1039/Y176 with three lives, four HP, four gas and
+Arrow. Controller SHA-256
+`caef12d2b58d35858e477529871373aa420ce3ce58d8eafbc555c9bcb7aee476`.
+Mesen receipt `5e160a30ba0260d058ef3619b8c12b636eb3ffa802a8aedc0723438e1cb0dd48`.
