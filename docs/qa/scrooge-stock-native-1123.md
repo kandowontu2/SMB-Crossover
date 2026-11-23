@@ -38,3 +38,40 @@ The short Mesen trace receipt is
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_simon_ryu_stock_1123.py --form scrooge --route life --run
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_simon_ryu_stock_1123.py --form scrooge --route star --run
 ```
+
+## Pogo freeze fix and Star verification
+
+Scrooge's pogo used the same extra-life pickup preparation as a normal
+head hit, but reached it through a deeper chain of calls. The fix prepares
+Scrooge's ordinary 1-UP directly. It uses the existing three pickup
+dispatch routines, changes 130 bytes and retains the original destinations
+for other characters and items. Source tests verified the original
+pickup state, including Darkwing's paths, and tested the pogo preparation
+through 34 placements each of the scanline interrupt, audio interrupt and
+nested interrupt. The updated dispatch adds up to 28 cycles to the sampled
+item-name reads.
+
+Mesen tested the private `82e8da0e` ROM in two separate Easy 1-1 runs.
+Scrooge earned the Mushroom, pogoed into the hidden block at X1024 and
+collected the released 1-UP. The life counter advanced to three with its
+cue. He landed at X1045/Y176 with the Mushroom after 25 more movement
+updates. The separate Star route continued past the former freeze,
+released the Star at X1616 and caught it at X1683/Y152. It started
+invincibility and queued the Star music, awarded 1,000 points and remained
+active after 25 more movement updates. Scrooge kept both lives and his
+Mushroom and finished on the ground at X1675/Y176. No captures were saved.
+
+| Replay | Video frames | Mesen receipt SHA-256 |
+| --- | ---: | --- |
+| Pogo 1-UP | 1,508 | `cb19b664f8ee78f38993aece44cf18937d4d20e7fd2fcd51dea56b1d0b2b87a5` |
+| Star | 2,478 | `9f115dd24e8dc32097c0fb86fce2d51299490f3c12ef6db791dce4955d7092b8` |
+
+The Downloads nightly was replaced directly with `82e8da0e`. Launching
+that file reproduced both Mesen receipts exactly. The patch guard found
+no IPS, BPS or UPS sidecar before or after replacement. The installed ROM,
+the tested candidate and the shared test ROM match byte for byte.
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/scrooge-pogo-prepare-native-1123 --max-files 2 --timeout 280 -- python -B tools/audit/run_scrooge_prepare_native_1123.py --route life --installed
+python -B tools/audit/run_bounded_build_v1.py --output build/scrooge-pogo-prepare-native-1123 --max-files 2 --timeout 280 -- python -B tools/audit/run_scrooge_prepare_native_1123.py --route star --installed
+```
