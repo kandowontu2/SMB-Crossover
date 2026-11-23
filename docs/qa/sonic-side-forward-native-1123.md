@@ -28,6 +28,24 @@ X47 at the end of the measured walking phase with two lives. The candidate
 saved one video frame per sample and substantial standing and walking lag
 remains. The Mesen runs saved zero captures. Downloads remains `ffd70810`.
 
+## Side-query batch measurement
+
+A separate linked test started at the real side-loop entry for both forms.
+It ran the current loop in RAM bank C2 and preserved the native upper
+predicate, side effect and FarCall saved-A value. In the four reached
+standing and walking calls, the current dispatch used 5,332 cycles and
+the local loop used 857. This 4,475-cycle difference excludes the cost of
+authenticating, mapping and restoring C2. The probe also matched the
+registers, live stack and compared game memory in 70 terrain fixture cases
+per form, including 36 native side-effect calls each. The live game maps C3
+at this entry, so a real bridge still needs guarded bank switching and
+interrupt qualification. A region of zeros examined for that bridge is an
+active metatile attribute table.
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/sonic-side-current-leaf-1123 --max-files 1 --timeout 300 -- python -B tools/audit/probe_sonic_batched_side_current_1123.py
+```
+
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/sonic-cost-1123 --timeout 600 --max-files 1 -- python -B tools/audit/check_sonic_side_forward_1123.py
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 420 -- python -B tools/audit/run_sonic_side_forward_native_1123.py
