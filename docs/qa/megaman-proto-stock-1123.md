@@ -61,8 +61,9 @@ moving 10 world pixels by age three.
 | Proto Man | 2,442 | `07fe1a2102f44ccf13b54e3b1c1e1cc5a28d79ea4bca0c9229e77a8fc84ef6d3` |
 
 Both runs finished with the second power level and two lives in Easy
-1-1. These checks cover charging, spawning and travel. Charged-shot
-damage, sprite appearance and the other weapons still need review.
+1-1. These checks cover charging, spawning and travel. See the live
+Goomba tests below for damage. Sprite appearance and the other weapons
+still need review.
 
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 360 -- python -B tools/audit/run_megaman_proto_charge_1123.py --form megaman --run
@@ -101,8 +102,33 @@ power level and two lives.
 
 These were zero-capture runs from Downloads `28708fa9`. The tests
 covered block collision, the coin award and the bounce object's
-coordinates. Charged-shot damage to live enemies still needs testing.
+coordinates.
 
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 360 -- python -B tools/audit/run_megaman_proto_buster_brick_1123.py --form megaman --run
 ```
+
+## Full charge against a live Goomba
+
+Both characters earned the Mushroom in normal 1-1 on Downloads
+`28708fa9`. In Easy, the full charge left the Goomba with 25 HP. A
+fresh pellet defeated the same Goomba. In Hard, the full charge
+defeated the Goomba in one hit after the Mushroom granted Charge.
+
+Each test observed the enemy-hit sound cue in the native queue, the
+score popup at the defeated Goomba's position and the score increase.
+Both characters finished grounded, with Mushroom power and two lives,
+26 movement updates after the defeat. The runs wrote zero captures.
+
+| Character and mode | Video frames | Mesen receipt SHA-256 |
+| --- | ---: | --- |
+| Mega Man, Easy | 1,125 | `421b69833a94635c148e16feb89a7eaabb191bb81b5094c1c1d025b92c055eac` |
+| Proto Man, Easy | 1,176 | `bf8c9a172311407408cbc74366061edcb5010751f5c2df8a1a902581a1552bf7` |
+| Mega Man, Hard | 1,612 | `05908ed02afeb1147acb1a58bc9837ddcfc3a011c6cc44b54a6fe74e577a457e` |
+| Proto Man, Hard | 1,641 | `296bbaaa301be665ad87fd6f1cb951799cdf100108857e8a3cd70a32a851664d` |
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 360 -- python -B tools/audit/run_megaman_proto_buster_enemy_1123.py --form megaman --run
+```
+
+Use `--form proto` for Proto Man and add `--hard` for Hard mode.
