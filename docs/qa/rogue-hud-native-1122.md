@@ -223,3 +223,10 @@ still needs to be collected and used against an enemy.
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 600 -- python -B tools/audit/run_rogue_screw_trees_native_1123.py --run --trees-only
 ```
+
+The longer linked run reached X730/Y33 with full health and both
+lives. Its next jump overshot the lower tree from X800 to X863 and
+fell short of the later ledge. The next replay needs to land on the
+lower tree at Y208 before jumping toward the Screw Attack block at
+X944. Linked receipt
+`57febf4c8a178d31e659e983d0039abe3e39c84ec5389e7f2377f24ec8b06224`.

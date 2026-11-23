@@ -82,6 +82,10 @@ def controller(raw, form, route):
   local c=context();ROBOT_STOCK_STATE.injury={player=s,nearest=c.enemy(),mask=mask}
   finish(false,'Injury after the naturally earned Mushroom');return
  end
+ local stock=ROBOT_STOCK_STATE
+ if stock.missing and not checks[tostring(stock.kind)].collect then
+  finish(false,'Authored pickup disappeared before collection');return
+ end
  local complete=true''')
     edit('local a=actor(i);local q=checks[tostring(a.kind)]', '''local a=actor(i);local q=checks[tostring(a.kind)]
   if q and q.birth and q.birth.actor.slot==i and a.flag>0 and a.flag<128 and a.id==46

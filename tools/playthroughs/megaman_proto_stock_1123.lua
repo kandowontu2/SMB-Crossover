@@ -43,12 +43,18 @@ end
 return function(c)
  if c.growth~=0 then return {}end
  if c.status>0 and T.kind==0 then
-  T.kind=C.expected[2];T.actor=nil;T.attempts=0;change(c,'travel')
+  T.kind=C.expected[2];T.actor=nil;T.missing=nil;T.attempts=0;change(c,'travel')
  end
  local kind=T.kind;local target=targetByKind[kind]
  local a=item(c,kind)
- if a and not T.actor then T.actor=a;change(c,'emerge')end
- if T.actor and not a then return {}end
+ if a and not T.actor then T.actor=a;T.trace={};change(c,'emerge')end
+ if T.actor and not a then
+  T.missing=T.missing or {update=c.update,x=c.x,y=c.y};return {}
+ end
+ if a and c.update%8==0 then
+  if #T.trace==16 then table.remove(T.trace,1)end
+  T.trace[#T.trace+1]={update=c.update,x=c.x,y=c.y,item=a}
+ end
  if T.phase=='travel'then
   if c.x<target-72 then return base(c)end
   change(c,'align')
@@ -72,12 +78,13 @@ return function(c)
   return {a=c.update<heldUntil}
  end
  if T.phase=='emerge'then
-  if not a.mature then return defend(c,steer(c,target+(kind==0 and 56 or -49),4))end
+  local waitX=kind==0 and target+56 or kind==1 and target-49 or target+38
+  if not a.mature then return defend(c,steer(c,waitX,4))end
   change(c,'collect')
  end
  if T.phase=='collect'then
-  if kind==0 or kind==3 then
-   local aim=a.y>=148 and a.x-4 or target+(kind==0 and 66 or 28)
+  if kind==0 then
+   local aim=a.y>=148 and a.x-4 or target+66
    return defend(c,steer(c,aim,3))
   end
   if kind==1 and c.grounded and c.y>=160 then
@@ -86,8 +93,13 @@ return function(c)
    end
    return defend(c,steer(c,target-47,2))
   end
-  if kind==2 and c.grounded and c.y-a.y>14 and math.abs(c.x-a.x)<56 and not c.lastA then
-   heldUntil=c.update+30;change(c,'collect-jump');return {a=true,right=a.x>c.x,left=a.x<c.x}
+  if kind>=2 then
+   if c.grounded and c.y-a.y>14 and a.x>=target+9 and math.abs(c.x-a.x)<24 and not c.lastA then
+    heldUntil=c.update+30;change(c,'collect-jump');return {a=true}
+   end
+   local aim=math.max(target+34,a.x-4)
+   if kind==3 then aim=math.min(aim,1091)end
+   return defend(c,steer(c,aim,3))
   end
   return defend(c,steer(c,a.x-4,3))
  end
