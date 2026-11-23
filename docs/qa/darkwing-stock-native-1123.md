@@ -25,3 +25,25 @@ controller input and saved no captures.
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_darkwing_stock_1123.py --route mushroom --run
 ```
+
+## Fire Flower block and Heavy adaptor
+
+On the same nightly, Darkwing earned the Arrow adaptor and reached the
+Fire Flower block at X1248 in the same run. The block gave a stationary
+Heavy adaptor. Darkwing spent three gas to fire Left and made a temporary
+grip with the Arrow adaptor. The arrow formed at world X1280, with its
+center at X1292. He grabbed the arrow at X1299/Y149 and jumped from it
+onto the block row to reach the Heavy adaptor.
+
+The Heavy adaptor replaced Arrow on contact at X1264/Y101 and added ten
+gas, from one to eleven. The pickup awarded 1,000 points and queued the
+pickup sound. Darkwing kept Heavy, eleven gas, four HP and both lives
+through 25 more movement and owner updates. He finished at X1262/Y112 in
+2,222 video frames. The replay saved no captures.
+
+- Controller SHA-256 `93fcee85ca766daebd3330cc4732a93832def45c170dd2d24636a0d20ddf2675`
+- Mesen receipt SHA-256 `3b8a7e237feba6a7e1310f27cf78debc59336905cf72f88fa0e96e2a1d918f3d`
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_darkwing_stock_1123.py --route upgrades --run
+```

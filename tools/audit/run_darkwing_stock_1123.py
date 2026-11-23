@@ -22,7 +22,7 @@ H,R,ROM,OUT,W,N=Host.H,Host.R,Host.ROM,Host.OUT,Host.W,Host.N
 PIN='06336f15fae4d24afa8025e972764091def63b6c01d41f206828a5105939661f'
 ROUTES={'mushroom':(0,),'upgrades':(0,1),'life':(0,3),'star':(0,2)}
 PINS={'mushroom':'3edcba9a21c8d4b221e554b5263e03246109cee15f3eb4f04d1ff4356621a3be',
-      'upgrades':'0e1f8338642dee5f9ff9a524c6556ade2b5a16c0933079927c5acaf82ada75b5',
+      'upgrades':'93fcee85ca766daebd3330cc4732a93832def45c170dd2d24636a0d20ddf2675',
       'life':'55c6c414da3b434a2f81fe04e374db9b0b55a410ad9b8d33bb964722ed7f8b1d',
       'star':'7943a5391121662eb83011f901bb249fe577c67a8e8997617db473d24cc22c1d'}
 OBSERVER=R/'tools/audit/ice_climbers_stock_observer_1122.lua'
@@ -149,6 +149,78 @@ end
 '''
 
 
+FLOWER_SUPPORT=r'''
+local function flowerSupport(c,a)
+ local q=T.flower_arrow
+ if not q then q={phase='setup',at=c.update,events={}};T.flower_arrow=q end
+ assert(c.update-q.at<160,'Bounded native Flower toolkit phase '..q.phase)
+ local function step(p)q.phase=p;q.at=c.update;q.events[#q.events+1]={phase=p,player=sample(c)};assert(#q.events<20,'Bounded natural Flower Arrow phases')end
+ local prev=c.r('DwPrevious')
+ if q.phase=='setup'then
+  if not c.grounded or c.y<160 then return steer(c,1306,1)end
+  if math.abs(c.x-1306)>1 then return steer(c,1306,1)end
+  step('face')
+ end
+ if q.phase=='face'then
+  if c.r('PlayerFacingDir')~=2 then return{left=true}end
+  step('select')
+ end
+ if q.phase=='select'then
+  assert(c.power==2 and c.gas>=3,'Naturally earned Arrow toolkit funds the Flower step')
+  if c.mode~=1 then return{select=prev&32==0}end
+  step('takeoff')
+ end
+ if q.phase=='takeoff'then
+  if c.grounded and not c.lastA then step('rise');return{a=true}end
+  return{}
+ end
+ if q.phase=='rise'then
+  if not c.grounded and c.y<=136 and prev&64==0 then q.before=sample(c);step('fire');return{a=true,b=true}end
+  assert(c.update-q.at<80,'Natural vertical Arrow firing height')
+  return{a=true}
+ end
+ if q.phase=='fire'then
+  for i=0,9 do
+   if c.r('RgShotType',i)==8 and c.r('RgShotImpact',i)==2 and c.r('RgShotDir',i)==2 and c.r('RgShotAge',i)<8 then
+    q.slot=i;q.paid=sample(c);assert(c.gas==q.before.gas-3,'Actual earned Arrow debit3')
+    step('attach');return{}
+   end
+  end
+  assert(c.update-q.at<30,'Actual left Arrow allocation')
+  return{a=true,b=prev&64==0}
+ end
+ if q.phase=='attach'then
+  local i=q.slot;local slot=c.r('RgShotImpact',i)-1
+  if c.r('RgShotType',i)==6 and slot>=0 and slot<=5 and c.r('Enemy_Flag',slot)==1 and c.r('Enemy_ID',slot)==0x26 and c.r('Enemy_State',slot)&127==(0x20|i)then
+   local x=c.r('Enemy_X_Position',slot)+256*c.r('Enemy_PageLoc',slot);local y=c.r('Enemy_Y_Position',slot)
+   q.actor={slot=slot,x=x,y=y,shotX=c.r('RgShotX',i)+256*c.r('RgShotPage',i)}
+   assert(x>=1264 and x<=1312 and y>=144 and y<160,'Real Flower-row attached Arrow geometry')
+   step('bar-takeoff')
+  else assert(c.update-q.at<100,'Original Arrow charge/flight/attachment');return{}end
+ end
+ if q.phase=='bar-takeoff'then
+  if c.grounded and not c.lastA then step('hang');return{left=true,a=true}end
+  return{}
+ end
+ if q.phase=='hang'then
+  if c.hang==(0x80|q.slot)then
+   q.hang=q.hang or sample(c)
+   if c.lastA then return{}end
+   step('bar-jump');return{left=true,a=true}
+  end
+  assert(c.update-q.at<100,'Actual native bar grip')
+  return{left=true,a=true}
+ end
+ if q.phase=='bar-jump'then
+  if c.grounded and c.y<=112 then q.landing=sample(c);step('catch')end
+  assert(c.update-q.at<100,'Native bar jump onto the Flower row')
+  return{left=true,a=true}
+ end
+ return steer(c,a.x-2,2)
+end
+'''
+
+
 @lru_cache(maxsize=4)
 def bindings(raw,route):
     assert H(raw)==PIN and route in ROUTES
@@ -247,6 +319,12 @@ def controller(raw,route):
     for a,b in reversed(edits):assert restored.count(b)==1;restored=restored.replace(b,a,1)
     assert restored==OBSERVER.read_text()
     policy=POLICY.replace(" if DARKWING_TARGET_COLLECTED then return{}end", " if DARKWING_TARGET_COLLECTED then return{}end\n if DARKWING_FIRST_COLLECTED and not DARKWING_FIRST_AFTER then T.phase='first-earned';return{}end")
+    if route=='upgrades':
+        at="return function(c)\n if DARKWING_TARGET_COLLECTED"
+        assert policy.count(at)==1;policy=policy.replace(at,FLOWER_SUPPORT+'\n'+at,1)
+        at=" if T.phase=='collect'then"
+        new=" if kind==1 and(T.phase=='collect'or T.phase=='flower-tool')then T.phase='flower-tool';return flowerSupport(c,a)end\n"+at
+        assert policy.count(at)==1;policy=policy.replace(at,new,1)
     program='\n'.join(('local C='+value(cfg),'local ROSTER_CONFIG={name="darkwing",root=""}',
                        'local toolkit=(function()\n'+toolkit()+'\nend)()',
                        'local choose=(function()\n'+policy+'\nend)()',text))
