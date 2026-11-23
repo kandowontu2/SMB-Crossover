@@ -207,7 +207,40 @@ The first install attempt rolled back because of a mistyped expected
 receipt hash. The Downloads run reproduced the private DK Jr. and Mini
 Mario receipts listed above.
 
+## Follow-up DK Jr. terrain optimization
+
+Offloading the Donkey Kong Jr. terrain request to its existing authenticated
+entry produces candidate SHA-256
+`94fa7a028ea86cc33eee50e9890e1eda05765bf6e8fd8fe82134a0388fa330db`.
+It changes 78 bytes in PRG bank 33. The two changed spans occupy the existing
+terrain hook and 28 padding bytes following the intact Giant Mario terrain
+routine. Linked checks preserved the Giant Mario and Rogue Dawn readers,
+the foreign caller results, and 442 IRQ and busy-NMI continuations. Linked
+game updates saved 1,776 CPU cycles for DK Jr., cost 28 for Sonic and
+Super Sonic, and measured the same for Mini Mario. Source receipt
+`17642f0c193231827a3b75caa9f9ca81663be31938816488ecb751da8b1532d7`.
+
+The private Mesen opening used 104 video frames for the same 64 game
+updates, down from 120 on Downloads `14b0b4c2`. Skipped NMIs fell from
+88 to 72. The 16 walking updates still took 32 video frames.
+Private cadence receipt
+`928876ca96c1db045f15332e6492e3a21c73b6e64630a41080d3fccdbc111e8e`.
+
+Private full 1-1 passed the final lift. The controller then requested
+Right+A from X3152/Y176 with the camera at X3072 and 54 on the timer.
+DK Jr. returned to X3150/Y176 and ran out of time at the flagpole base
+after 19,551 video frames. Receipt
+`7b76392f38cf2730da56ec5766a23943ab0772d96b7875cbe40eb46b077d3a49`.
+The faster candidate remains private while the flagpole timing is checked.
+
+The next terrain-dispatch change could save about 2,464 more cycles per
+game update by reusing the existing epoch check for the four side probes.
+Even with that estimated saving, walking would remain above a frame's
+CPU budget in the linked profile. This is a design estimate.
+
 ```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/dkjr-side-forwarder-1123 --max-files 1 --timeout 600 -- python -B tools/audit/check_dkjr_public_side_forward_1123.py
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 210 -- python -B tools/audit/run_dkjr_dispatch_native_1123.py --public-side-forward --run
 python -B tools/audit/run_bounded_build_v1.py --output build/dkjr-sonic-combined-dispatch-1123 --max-files 1 --timeout 600 -- python -B tools/audit/check_dkjr_sonic_dispatch_1123.py --interrupts
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 360 -- python -B tools/audit/run_dkjr_dispatch_native_1123.py --combined --run
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 575 -- python -B tools/audit/run_dkjr_dispatch_native_1123.py --combined --full-stage --baseline --cap-trace --run

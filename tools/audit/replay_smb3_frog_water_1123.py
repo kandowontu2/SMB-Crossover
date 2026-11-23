@@ -15,18 +15,100 @@ from replay_sonic_hidden_life_f7c9_1116 import value
 R,ROM,H,N,W=Base.R,Base.ROM,Base.H,Base.N,Base.W
 PIN=Epoch.CANDIDATE
 PIPE_NIGHTLY='28708fa9a4e7dd88f1aaa72653b7d5a6ba0fb3c6d5abf544a526b09d333a884c'
+COMBINED_NIGHTLY='14b0b4c23baa1ff454d25720b0585dd45f7fa4179bbba6b7f38d68b6e0c141b5'
 POLICY=R/'tools/playthroughs/smb3_frog_water_1123.lua'
 once=Base.Acquire.once
 FROZEN_POLICY_SHA='9ca03d77e93f7d3babb5897952e4ef177b5dc21af3e4a4268cbaffeb7f3d7898'
 FROZEN_PIPE_SCRIPTS={
     'toad3':'7dade7aa336dd716e38bbf9b59512c4d665cf5ed5f9004612cf1111b011be71a',
     'peach3':'e462ba074f0e85fefe950ec91dbca22dbf3ef15550a7a2c69d7463b644761004'}
+FROZEN_BRIDGE_POLICY_SHA='d6a0f4f28d59fb8eba1590b8587b5de33717e076970a7b82d94e9f3c14f376fd'
+FROZEN_BRIDGE_SCRIPTS={
+    'toad3':'d83e3b288d7f82be3644c8cb77cd3141231681a756f5f46069ea2e985a481b30',
+    'peach3':'89a9b271cd0a5c1ba72a110bdf1adcb849a1259f99e011367dd910dcaec642e2'}
+FROZEN_ADAPTIVE_POLICY_SHA='6d325a4dc90e7bfb2ccf2de411bd46c667b4d572fff8b098a59e4ae05d7a3291'
+FROZEN_ADAPTIVE_SCRIPTS={
+    'toad3':'b99fdf1794428ade2b75e9674d135f006041d4836c12905201a06041af0edeef',
+    'peach3':'09634f64a13bdc894c5f0c870612290319338ca8859c79b51522d79a3abb60fe'}
+FROZEN_RETRACTION_POLICY_SHA='79e70638ebac7e969476cfa9608e1480a46819fe89b017f9f5c1eea4a1a703a2'
+FROZEN_RETRACTION_SCRIPTS={
+    'toad3':'c7390a3ff6e766ad51d3986e77c7158ecd1f865e3d0e83b67122d7736190a088',
+    'peach3':'29c7f539fc0d1ab47f87385e5b2741192f412970df76e169ba4bf181ba920cdb'}
+FROZEN_BRIDGE_STAGE=''' if g.phase=='stage'then
+  if c.grounded and c.y<=112 and c.x>=1640 and c.x<=1672 then
+   g.pipe_landing={motor=c.motor,x=c.x,y=c.y};gapPhase(c,g,'pipe-release')
+  elseif c.grounded and c.y==48 and math.abs(c.x-1512)<=3 and vx==0
+      and c.r('M3Previous')&128==0 then
+   assert(solid(c,1520,80),'Stand on the actual1472-to1535 authored brick ledge')
+   local actors={}
+   for i=0,5 do
+    if c.r('Enemy_Flag',i)>0 then
+     actors[#actors+1]={slot=i,id=c.r('Enemy_ID',i),state=c.r('Enemy_State',i),
+      x=c.r('Enemy_X_Position',i)+256*c.r('Enemy_PageLoc',i),y=c.r('Enemy_Y_Position',i)}
+    end
+   end
+   g.bridge_transfer=true;g.bridge_staging={motor=c.motor,x=c.x,y=c.y,vx=c.vx,actors=actors}
+   g.climb_input={motor=c.motor,x=c.x,y=c.y};gapPhase(c,g,'climb-pipe')
+   return{right=true,b=true,a=true}
+  else local b=steer(c,1512);b.a=not c.grounded and c.motor-jumpAt<32;return b end
+ end'''
 
 
 def policy_text(frozen=False):
     """Reconstruct the earlier approach from its small source delta, in memory."""
     text=POLICY.read_text(encoding='utf-8');assert POLICY.read_bytes()==text.encode()
     if not frozen:return text
+    lo=text.index('-- high-pipe-retry-1123 begin\n')
+    hi=text.index('-- high-pipe-retry-1123 end\n',lo)+len('-- high-pipe-retry-1123 end\n')
+    text=text[:lo]+text[hi:]
+    text=once(text," assert(c.motor-g.at<(g.x==2088 and 960 or 480)and c.r('Enemy_ID',g.slot)==13,'Finite live authored plant crossing')",
+        " assert(c.motor-g.at<480 and c.r('Enemy_ID',g.slot)==13,'Finite live authored plant crossing')")
+    text=once(text,' local staged,pad=highPipeStage(c,g);if staged then return pad end\n','')
+    text=once(text,'''  else
+   assert(not(g.step_from_right and c.grounded and c.y==176 and c.motor-g.step_at>16),
+    'The single ordinary retry must reach the lower pipe')
+   if g.step_from_right and c.x>2034 then return{left=true,a=c.motor-g.step_at<32}end
+   local b=steer(c,2032);b.a=c.motor-g.step_at<32;return b
+  end''',"  else local b=steer(c,2032);b.a=c.motor-g.step_at<32;return b end")
+    text=once(text,'''  if g.x==2088 and not g.top_ready and c.grounded and c.y<=128 and c.x>=1968 and c.x<2048 then
+   g.phase='stage-elevated';g.stage_at=c.motor;g.top_samples=0
+   local handled,b=highPipeStage(c,g);if handled then return b end
+  end
+''','')
+    text=once(text,'''  if g.x==2088 then
+   if c.x>=2072 and c.x<=2112 and c.yHigh==1 and c.y<=96 then
+    g.cap_cross=g.cap_cross or{motor=c.motor,x=c.x,y=c.y,native_air=c.r('M3Native::Player_InAir')}
+   end
+   if c.grounded and c.y==176 and c.x>=2048 and c.x<2080 and c.motor-g.jump_at>12 then
+    return retryHighPipe(c,g,'short-high-cap')
+   end
+  end
+''','')
+    text=once(text,'''  if c.x>=g.x+24 then
+   assert(g.x~=2088 or g.cap_cross,'Observe actual high-cap clearance before completing the crossing')
+   g.clear={motor=c.motor,x=c.x,y=c.y};g.phase='brake'
+''',"  if c.x>=g.x+24 then g.clear={motor=c.motor,x=c.x,y=c.y};g.phase='brake'\n")
+    assert H(text.encode())==FROZEN_RETRACTION_POLICY_SHA,'Exact previous retraction policy reconstruction'
+    if frozen=='retraction':return text
+    lo=text.index('-- first-pipe-retraction-1123 begin\n')
+    hi=text.index('-- first-pipe-retraction-1123 end\n',lo)+len('-- first-pipe-retraction-1123 end\n')
+    text=text[:lo]+text[hi:]
+    text=once(text,"     if not firstPipeReady(c,g,true)then return gapRecord(c,g,'first-plant-retraction',{})end\n",'')
+    text=once(text,"    if not firstPipeReady(c,g,false)then return gapRecord(c,g,'first-plant-retraction',{})end\n",'')
+    assert H(text.encode())==FROZEN_ADAPTIVE_POLICY_SHA,'Exact previous adaptive policy reconstruction'
+    if frozen=='adaptive':return text
+    lo=text.index('-- adaptive-approach-1123 begin\n')
+    hi=text.index('-- adaptive-approach-1123 end\n',lo)+len('-- adaptive-approach-1123 end\n')
+    text=text[:lo]+text[hi:]
+    text=once(text," if not g then g={phase='stage',at=c.motor,start=c.motor,changes={}};F.gap=g;gapRecord(c,g,'entry')end",
+        " if not g then g={phase='stage',at=c.motor,start=c.motor,changes={}};F.gap=g end")
+    text=once(text," assert(c.motor-g.start<(g.low_arc and 600 or 480),'Finite ordinary pipe/pit crossing')",
+        " assert(c.motor-g.start<480,'Finite ordinary pipe/pit crossing')")
+    lo=text.index(' -- adaptive-stage-1123 begin\n')
+    hi=text.index(' -- adaptive-stage-1123 end\n',lo)+len(' -- adaptive-stage-1123 end\n')
+    text=text[:lo]+FROZEN_BRIDGE_STAGE+'\n'+text[hi:]
+    assert H(text.encode())==FROZEN_BRIDGE_POLICY_SHA,'Exact previous bridge policy reconstruction'
+    if frozen=='bridge':return text
     lo=text.index('  elseif c.grounded and c.y==48 and math.abs(c.x-1512)<=3 and vx==0')
     hi=text.index("\n end\n if g.phase=='climb-pipe'then",lo)
     text=text[:lo]+'''  elseif c.grounded and c.y==176 and math.abs(c.x-1608)<=3 and math.abs(vx)<=3
@@ -42,6 +124,12 @@ def policy_text(frozen=False):
    local b=steer(c,1656);b.a=c.motor-g.at<32;return b
   end''',"  else local b=steer(c,1656);b.a=c.motor-g.at<32;return b end")
     text=once(text,'  if c.x>=1472 and c.x<1808','  if c.x>=1584 and c.x<1808')
+    lo=text.index(" if g.phase=='step-up'then")
+    hi=text.index(" if g.phase=='enemy-jump'then",lo)
+    text=text[:lo]+text[hi:]
+    lo=text.index('  if g.x==2088 and c.x>=1984 and c.x<=2008')
+    hi=text.index('  local nearest',lo)
+    text=text[:lo]+text[hi:]
     assert H(text.encode())==FROZEN_POLICY_SHA,'Exact previous policy reconstruction'
     return text
 
@@ -421,8 +509,42 @@ def pipe_controller(raw,form,*,frozen=False):
     script='local C='+value(q)+'\n'+body
     assert script.split('\n',1)[1]==controller(parent,form,frozen=frozen).split('\n',1)[1]
     LuaRuntime().compile(script)
-    if frozen:assert H(script.encode())==FROZEN_PIPE_SCRIPTS[form],'Exact previous controller reconstruction'
+    if frozen:
+        expected=FROZEN_RETRACTION_SCRIPTS if frozen=='retraction'else FROZEN_ADAPTIVE_SCRIPTS if frozen=='adaptive'else FROZEN_BRIDGE_SCRIPTS if frozen=='bridge'else FROZEN_PIPE_SCRIPTS
+        assert H(script.encode())==expected[form],'Exact previous controller reconstruction'
     return script
+
+
+def combined_parent(raw):
+    """Strict in-memory recovery of287; never install or write recovered bytes."""
+    import compose_dkjr_sonic_dispatch_1123 as Combined
+    assert H(raw)==COMBINED_NIGHTLY==Combined.CANDIDATE
+    parent=Combined.inverse(raw);assert H(parent)==PIPE_NIGHTLY==Combined.PIN
+    assert Combined.proposal(parent)[0]==raw
+    return parent
+
+
+def combined_controller(raw,form,*,frozen=False):
+    """Strict actual14b0 facade, distinct from every earlier287 script identity."""
+    import repair_rogue_side_pipe_1123 as Pipe
+    parent=combined_parent(raw)
+    old=pipe_controller(parent,form,frozen=frozen)
+    _,body=old.split('\n',1)
+    reference=Pipe.restore_pipe_bytes(parent)
+    q=bindings(reference,form,frozen=frozen)
+    for name,hook in q['hooks'].items():
+        at=16+hook['offset'];assert raw[at:at+len(hook['bytes'])]==bytes(hook['bytes']),name
+    for bank in Base.NATIVE_BANKS:
+        lo=16+bank*8192;assert raw[lo:lo+8192]==parent[lo:lo+8192]
+    for area in q['authored_areas'].values():
+        at=area['file'];assert H(raw[at:at+area['bytes']])==area['SHA256']
+    spans=Pipe.spans(Epoch.inverse(reference))
+    q.update(sha=COMBINED_NIGHTLY,actual_input_CPU_SHA256=COMBINED_NIGHTLY,reference2ac=PIN,
+        reference287=PIPE_NIGHTLY,disjoint_pipe_spans=[dict(file=at,bytes=len(after))for at,_,after in spans],
+        parent_script_SHA256=H(old.encode()),strict_combined_roundtrip=True)
+    script='local C='+value(q)+'\n'+body
+    assert script.split('\n',1)[1]==old.split('\n',1)[1]
+    LuaRuntime().compile(script);return script
 
 
 def source_checks(raw):
@@ -552,7 +674,8 @@ def cpu_opening(raw,form,*,full=False,frozen=False):
     for name,fn in dict(read=read,convertAddress=convert,getState=getstate,addMemoryCallback=addmem,
                         addEventCallback=addevent,setInput=setinput,stop=stop).items():g.emu[name]=fn
     g.print=output
-    lua.execute((pipe_controller if H(raw)==PIPE_NIGHTLY else controller)(raw,form,frozen=frozen))
+    make=combined_controller if H(raw)==COMBINED_NIGHTLY else pipe_controller if H(raw)==PIPE_NIGHTLY else controller
+    lua.execute(make(raw,form,frozen=frozen))
     g.SMB3_FROG_WATER.menu_configured=lua.table_from(dict(source_menu_arena=True))
     original_cpu=N.NesMPU
     def dispatch(cpu):
@@ -588,7 +711,9 @@ def cpu_opening(raw,form,*,full=False,frozen=False):
                 observed=(receipt or{}).get('frog',{});gap=observed.get('gap',{})
                 compact_frog={k:observed[k]for k in ('phase','flag','castle','water_entry','swim_returns','plant_active','plants','pit2','pit3',
                     'jumps','spring_compress','spring_release')if k in observed}
-                if gap:compact_frog['gap']={k:gap[k]for k in ('phase','changes','bridge_staging','bridge_jump','pipe_landing','jump','lift','bank_landing','ground_steps','complete')if k in gap}
+                if gap:
+                    compact_frog['gap']={k:gap[k]for k in ('phase','changes','approach_entry','last_decision','last_requested','floor','first_plant','bridge_staging','bridge_jump','pipe_landing','jump','lift','bank_landing','ground_steps','complete')if k in gap}
+                    compact_frog['gap']['approach_trace_count']=len(gap.get('approach_trace',[]))
                 compact_frog['segments']=[dict(name=q['name'],returns=q['returns'])for q in observed.get('segments',[])]
                 return dict(passed=bool(receipt and receipt['passed']),reason=receipt and receipt['reason'],epoch=epoch,terminal=now,
                     receipt_SHA256=H(json.dumps(receipt,sort_keys=True,separators=(',',':')).encode())if receipt else None,
@@ -611,21 +736,33 @@ def main():
     p.add_argument('--run',action='store_true',help='Root only: existing shared sequential Mesen slot')
     p.add_argument('--form',choices=('toad3','peach3','both'),default='toad3')
     p.add_argument('--pipe-nightly',action='store_true',help='Strict disjoint28708 successor; keep exact2ac controls')
+    p.add_argument('--combined-nightly',action='store_true',help='Strict actual14b0 full source/native binding')
     p.add_argument('--frozen-pipe-approach',action='store_true',help='Reproduce exact7dade7aa/e462ba07 earlier controls in memory')
+    p.add_argument('--frozen-bridge-approach',action='store_true',help='Reproduce exactd83e3b28/89a9b271 bridge controls in memory')
+    p.add_argument('--frozen-adaptive-approach',action='store_true',help='Reproduce exactb99fdf17/09634f64 controls in memory')
+    p.add_argument('--frozen-retraction-approach',action='store_true',help='Reproduce exactc7390a3f/29c7f539 controls in memory')
     p.add_argument('--cpu-opening',action='store_true',help='Optional real linked parser/input opening; source-only')
     p.add_argument('--cpu-full',action='store_true',help='Continue the linked controller through2-2 or first failure; source-only')
     args=p.parse_args();forms=('toad3','peach3')if args.form=='both'else(args.form,)
     assert not(args.run and(args.cpu_opening or args.cpu_full))
-    pin=PIPE_NIGHTLY if args.pipe_nightly else PIN
-    raw=ROM.read_bytes();assert H(raw)==pin
-    make=pipe_controller if args.pipe_nightly else controller
-    program=lambda raw,form:make(raw,form,frozen=args.frozen_pipe_approach)
+    assert not(args.pipe_nightly and args.combined_nightly)
+    assert sum((args.frozen_pipe_approach,args.frozen_bridge_approach,args.frozen_adaptive_approach,args.frozen_retraction_approach))<=1
+    frozen='retraction'if args.frozen_retraction_approach else 'adaptive'if args.frozen_adaptive_approach else 'bridge'if args.frozen_bridge_approach else args.frozen_pipe_approach
+    pin=COMBINED_NIGHTLY if args.combined_nightly else PIPE_NIGHTLY if args.pipe_nightly else PIN
+    installed=ROM.read_bytes();raw=installed
+    if args.pipe_nightly and H(installed)==COMBINED_NIGHTLY:
+        assert not args.run,'287 identity is source-only after14b0 delivery; use --combined-nightly for Mesen'
+        raw=combined_parent(installed)
+    assert H(raw)==pin
+    make=combined_controller if args.combined_nightly else pipe_controller if args.pipe_nightly else controller
+    program=lambda raw,form:make(raw,form,frozen=frozen)
     if not args.run:
         rows=[dict(form=form,script_SHA256=H(program(raw,form).encode()))for form in forms]
-        opening=[dict(form=form,**cpu_opening(raw,form,full=args.cpu_full,frozen=args.frozen_pipe_approach))for form in forms]if(args.cpu_opening or args.cpu_full)else None
+        opening=[dict(form=form,**cpu_opening(raw,form,full=args.cpu_full,frozen=frozen))for form in forms]if(args.cpu_opening or args.cpu_full)else None
         passed=opening is None or all(case['passed']for case in opening)
         print('SMB3 FROG WATER SOURCE '+json.dumps(dict(passed=passed,ROM_SHA256=pin,cases=rows,
-            controller_only=True,source_validated=True,opening=opening,components=None if(args.cpu_opening or args.cpu_full)else source_checks(raw),files=0,Mesen=False)),flush=True);return int(not passed)
+            controller_only=True,source_validated=True,installed_input_SHA256=H(installed),reconstructed_in_memory=raw!=installed,
+            opening=opening,components=None if(args.cpu_opening or args.cpu_full)else source_checks(raw),files=0,Mesen=False)),flush=True);return int(not passed)
     from capture_budget import preflight
     from nightly_patch_guard_v1 import check
     from mesen_session_guard_v1 import require_free_workspace

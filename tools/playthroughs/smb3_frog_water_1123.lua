@@ -26,29 +26,152 @@ local function gapPhase(c,g,phase)
  g.changes[#g.changes+1]={phase=phase,motor=c.motor,x=c.x,y=c.y,vx=c.vx}
  assert(#g.changes<=10,'Finite authored pipe/pit phases')
 end
+-- adaptive-approach-1123 begin
+local function gapRecord(c,g,decision,b)
+ local mask=b and((b.a and 128 or 0)+(b.b and 64 or 0)+(b.left and 2 or 0)+(b.right and 1 or 0))or 0
+ local key=math.floor(c.x/8)..':'..math.floor(c.y/16)..':'..c.yHigh..':'..decision..':'..c.r('SavedJoypadBits')
+ if not g.approach_entry or(c.x>=1472 and c.x<=1568 and key~=g.trace_key and g.trace_motor~=c.motor)then
+  local box={};for j=0,3 do box[j+1]=c.r('BoundingBox_UL_Corner',j)end
+  local camera=c.r('ScreenLeft_X_Pos')+256*c.r('ScreenLeft_PageLoc')
+  local q={motor=c.motor,update=c.update,frame=c.frame,x=c.x,y=c.y,yHigh=c.yHigh,
+   state=c.r('Player_State'),grounded=c.grounded,vx=c.vx,vy=c.vy,input=c.r('SavedJoypadBits'),
+   previous=c.r('M3Previous'),fresh=c.r('M3Fresh'),native_air=c.r('M3Native::Player_InAir'),
+   native_vx=c.r('M3Native::Player_XVel'),native_vy=c.r('M3Native::Player_YVel'),
+   camera=camera,box_screen=box,box_world={camera+box[1],box[2],camera+box[3],box[4]},
+   decision=decision,requested=mask,tiles={},actors={}}
+  for x=1472,1568,16 do
+   for _,y in ipairs({80,144,176,208})do q.tiles[#q.tiles+1]={x=x,y=y,tile=c.block(x,y)}end
+  end
+  for i=0,5 do
+   if c.r('Enemy_Flag',i)>0 then
+    local eb={};for j=0,3 do eb[j+1]=c.r('BoundingBox_UL_Corner',(i+1)*4+j)end
+    q.actors[#q.actors+1]={slot=i,id=c.r('Enemy_ID',i),state=c.r('Enemy_State',i),
+     x=c.r('Enemy_X_Position',i)+256*c.r('Enemy_PageLoc',i),y=c.r('Enemy_Y_Position',i),box_screen=eb}
+   end
+  end
+  g.approach_entry=g.approach_entry or q;g.approach_trace=g.approach_trace or{}
+  if #g.approach_trace==32 then table.remove(g.approach_trace,2)end
+  g.approach_trace[#g.approach_trace+1]=q;g.trace_key=key;g.trace_motor=c.motor
+ elseif g.trace_motor==c.motor and g.approach_trace then
+  local q=g.approach_trace[#g.approach_trace];q.decision=decision;q.requested=mask;g.trace_key=key
+ end
+ g.last_decision=decision;g.last_requested=mask;return b
+end
+local function floorApproach(c,g)
+ local f=g.floor
+ if not f then f={phase='settle',at=c.motor,clears=0};g.floor=f end
+ if f.done then return nil end
+ assert(c.motor-f.at<360,'Finite actual ground-enemy clearance before the pipe')
+ if f.phase=='stomp'then
+  if c.r('M3Native::Player_InAir')~=0 and c.r('M3Native::Player_YVel')>=128 then
+   f.jump=f.jump or{motor=c.motor,x=c.x,y=c.y,native_air=c.r('M3Native::Player_InAir'),native_vy=c.r('M3Native::Player_YVel')}
+  end
+  if c.r('Enemy_Flag',f.enemy.slot)==0 or c.r('Enemy_State',f.enemy.slot)>=2 then
+   f.clears=f.clears+1;assert(f.clears<=3,'Bounded pre-pipe ground enemies');f.phase='recover'
+  else
+   assert(c.motor-f.jump_at<90,'Actual pre-pipe enemy stomp finishes')
+   local b=steer(c,f.jump_goal);b.a=c.motor-f.jump_at<18;return b
+  end
+ end
+ if f.phase=='recover'then
+  if not c.grounded or c.r('M3Previous')&128~=0 then return{}end
+  f.phase='settle'
+ end
+ if not c.grounded or c.y~=176 then local b=steer(c,1560);b.a=c.motor-jumpAt<32;return b end
+ local enemy
+ for i=0,5 do
+  local id=c.r('Enemy_ID',i);local x=c.r('Enemy_X_Position',i)+256*c.r('Enemy_PageLoc',i);local dx=x-c.x
+  if c.r('Enemy_Flag',i)>0 and(id==0 or id==6)and c.r('Enemy_State',i)<2 and dx>=0 and dx<=112
+     and x<1648 and c.r('Enemy_Y_Position',i)>=160 and(not enemy or dx<enemy.dx)then
+   enemy={slot=i,id=id,x=x,dx=dx,vx=c.r('Enemy_X_Speed',i)}
+  end
+ end
+ if enemy then
+  f.quiet=0;f.last_enemy=enemy
+  local vx=signed(c.vx);if vx>0 then return{left=true}elseif vx<0 then return{right=true}end
+  if enemy.vx>0 and enemy.vx<128 then return{}end
+  if enemy.dx<=32 and c.r('M3Previous')&128==0 then
+   f.enemy=enemy;f.phase='stomp';f.jump_at=c.motor;f.jump_goal=math.min(c.x+20,1600)
+   return{right=true,a=true}
+  end
+  if enemy.vx==0 then return steer(c,math.min(1560,enemy.x-28))end
+  return{}
+ end
+ if math.abs(c.x-1560)>4 or c.vx~=0 or c.r('M3Previous')&128~=0 then return steer(c,1560)end
+ if f.last_motor~=c.motor then f.quiet=(f.quiet or 0)+1;f.last_motor=c.motor end
+ if f.quiet>=8 then f.done={motor=c.motor,x=c.x,y=c.y};return nil end
+ return{}
+end
+-- first-pipe-retraction-1123 begin
+local function firstPipeReady(c,g,bridge)
+ local slot
+ for i=0,5 do
+  if c.r('Enemy_Flag',i)>0 and c.r('Enemy_ID',i)==13 and c.r('Enemy_State',i)==0
+     and c.r('Enemy_X_Position',i)+256*c.r('Enemy_PageLoc',i)==1656 then slot=i;break end
+ end
+ local f=g.first_plant
+ if not f then f={at=c.motor,bridge=bridge,states={}};g.first_plant=f end
+ if not slot then f.absent={motor=c.motor,x=c.x,y=c.y};return true end
+ assert(c.motor-f.at<240,'Observe the actual first Piranha retraction within one cycle')
+ local box,hero={},{}
+ for j=0,3 do box[j+1]=c.r('BoundingBox_UL_Corner',(slot+1)*4+j);hero[j+1]=c.r('BoundingBox_UL_Corner',j)end
+ local q={motor=c.motor,update=c.update,frame=c.frame,native_frame=c.r('FrameCounter'),x=c.x,y=c.y,
+  input=c.r('SavedJoypadBits'),slot=slot,plant_x=1656,plant_y=c.r('Enemy_Y_Position',slot),
+  down=c.r('PiranhaPlantDownYPos',slot),up=c.r('PiranhaPlantUpYPos',slot),
+  moving=c.r('PiranhaPlant_MoveFlag',slot),speed=c.r('PiranhaPlant_Y_Speed',slot),
+  timer=c.r('EnemyFrameTimer',slot),hero_box_screen=hero,plant_box_screen=box}
+ local key=q.plant_y..':'..q.moving..':'..math.floor(q.timer/8)
+ if key~=f.key and f.last_motor~=c.motor then
+  if #f.states==16 then table.remove(f.states,2)end
+  f.states[#f.states+1]=q;f.key=key;f.last_motor=c.motor
+ end
+ f.last=q
+ -- At a floor start we enter the native33px suppression radius shortly after
+ -- launch. The longer ledge transfer requires a newly retracted full pause.
+ local minimum=bridge and 60 or 48
+ if q.plant_y==q.down and q.moving==0 and q.speed<128 and q.timer>=minimum then
+  f.retracted=q;return true
+ end
+ return false
+end
+-- first-pipe-retraction-1123 end
+-- adaptive-approach-1123 end
 local function pipeGap(c)
  local g=F.gap
- if not g then g={phase='stage',at=c.motor,start=c.motor,changes={}};F.gap=g end
- assert(c.motor-g.start<480,'Finite ordinary pipe/pit crossing')
+ if not g then g={phase='stage',at=c.motor,start=c.motor,changes={}};F.gap=g;gapRecord(c,g,'entry')end
+ assert(c.motor-g.start<(g.low_arc and 600 or 480),'Finite ordinary pipe/pit crossing')
  local vx=signed(c.vx)
+ -- adaptive-stage-1123 begin
  if g.phase=='stage'then
   if c.grounded and c.y<=112 and c.x>=1640 and c.x<=1672 then
    g.pipe_landing={motor=c.motor,x=c.x,y=c.y};gapPhase(c,g,'pipe-release')
-  elseif c.grounded and c.y==48 and math.abs(c.x-1512)<=3 and vx==0
-      and c.r('M3Previous')&128==0 then
-   assert(solid(c,1520,80),'Stand on the actual1472-to1535 authored brick ledge')
-   local actors={}
-   for i=0,5 do
-    if c.r('Enemy_Flag',i)>0 then
-     actors[#actors+1]={slot=i,id=c.r('Enemy_ID',i),state=c.r('Enemy_State',i),
-      x=c.r('Enemy_X_Position',i)+256*c.r('Enemy_PageLoc',i),y=c.r('Enemy_Y_Position',i)}
+  else
+   local sy=c.y+(c.yHigh==0 and -256 or 0)
+   if sy<=48 and c.x<=1532 and c.x+math.max(vx,0)^2/64+4<1536 and solid(c,1520,80)then
+    if c.grounded and c.y==48 and math.abs(c.x-1512)<=3 and vx==0 and c.r('M3Previous')&128==0 then
+     if not firstPipeReady(c,g,true)then return gapRecord(c,g,'first-plant-retraction',{})end
+     g.bridge_transfer=true;g.bridge_staging={motor=c.motor,x=c.x,y=c.y,vx=c.vx}
+     g.climb_input={motor=c.motor,x=c.x,y=c.y};gapPhase(c,g,'climb-pipe')
+     return gapRecord(c,g,'above-ledge-jump',{right=true,b=true,a=true})
     end
+    local b=steer(c,1512);b.a=not c.grounded and c.motor-jumpAt<32
+    return gapRecord(c,g,'above-ledge-brake',b)
    end
-   g.bridge_transfer=true;g.bridge_staging={motor=c.motor,x=c.x,y=c.y,vx=c.vx,actors=actors}
-   g.climb_input={motor=c.motor,x=c.x,y=c.y};gapPhase(c,g,'climb-pipe')
-   return{right=true,b=true,a=true}
-  else local b=steer(c,1512);b.a=not c.grounded and c.motor-jumpAt<32;return b end
+   g.low_arc=true
+   if c.x<1536 or not solid(c,c.x+8,208)then
+    return gapRecord(c,g,'low-arc-right',{right=true,b=true,a=not c.grounded and c.motor-jumpAt<32})
+   end
+   local b=floorApproach(c,g)
+   if b then return gapRecord(c,g,'safe-floor-clear',b)end
+   if c.grounded and c.y==176 and math.abs(c.x-1608)<=3 and math.abs(vx)<=3 and c.r('M3Previous')&128==0 then
+    if not firstPipeReady(c,g,false)then return gapRecord(c,g,'first-plant-retraction',{})end
+    g.bridge_transfer=false;g.climb_input={motor=c.motor,x=c.x,y=c.y};gapPhase(c,g,'climb-pipe')
+    return gapRecord(c,g,'cleared-floor-jump',{right=true,a=true})
+    end
+   return gapRecord(c,g,'cleared-floor-approach',steer(c,1608))
+   end
  end
+ -- adaptive-stage-1123 end
  if g.phase=='climb-pipe'then
   assert(c.motor-g.at<120,'Actual normal jump reaches the authored pipe top')
   if g.bridge_transfer and not g.bridge_jump and c.r('M3Native::Player_InAir')~=0
@@ -96,14 +219,87 @@ local function plantAhead(c)
  end
  return best
 end
+-- high-pipe-retry-1123 begin
+local function lowerPipeReady(c,g)
+ for i=0,5 do
+  if c.r('Enemy_Flag',i)>0 and c.r('Enemy_ID',i)==13 and c.r('Enemy_State',i)==0
+     and c.r('Enemy_X_Position',i)+256*c.r('Enemy_PageLoc',i)==2024 then
+   local q={motor=c.motor,x=c.x,y=c.y,slot=i,plant_y=c.r('Enemy_Y_Position',i),
+    down=c.r('PiranhaPlantDownYPos',i),moving=c.r('PiranhaPlant_MoveFlag',i),timer=c.r('EnemyFrameTimer',i)}
+   g.lower_plant=q
+   return q.plant_y==q.down and q.moving==0 and c.r('PiranhaPlant_Y_Speed',i)<128 and q.timer>=48
+  end
+ end
+ g.lower_plant={motor=c.motor,absent=true};return true
+end
+local function retryHighPipe(c,g,reason)
+ assert((g.retries or 0)<1,'Bounded high-pipe retry exhausted')
+ assert(c.grounded and c.y==176 and c.x>=2048 and c.x<2080 and solid(c,c.x+8,208),
+  'Retry only from the actual solid floor between the two authored pipes')
+ g.retries=(g.retries or 0)+1;g.retry={reason=reason,motor=c.motor,x=c.x,y=c.y,vx=c.vx}
+ g.phase='retry-stage';g.retry_at=c.motor;g.top_ready=nil;g.top_samples=0;g.cap_cross=nil
+ return steer(c,2060)
+end
+local function highPipeStage(c,g)
+ if g.phase=='retry-stage'then
+  assert(c.motor-g.retry_at<240,'Bounded ordinary leftward pipe recovery')
+  assert(solid(c,2032,160)and solid(c,2088,128),'Use the authored2016 and2080 pipe geometry')
+  if c.grounded and c.y==176 and math.abs(c.x-2060)<=3 and c.vx==0
+     and c.r('M3Native::Player_InAir')==0 and c.r('M3Native::Player_YVel')==0
+     and c.r('M3Previous')&128==0 and lowerPipeReady(c,g)then
+   g.retry_launch={motor=c.motor,x=c.x,y=c.y,vx=c.vx};g.step_at=c.motor
+   g.step_from_right=true;g.phase='step-up';return true,{left=true,a=true}
+  end
+  return true,steer(c,2060)
+ end
+ if g.phase~='stage-elevated'then return false end
+ assert(c.motor-g.stage_at<320,'Bounded actual support on the lower pipe')
+ assert(solid(c,2032,160)and solid(c,2088,128),'Actual authored lower and higher pipe caps')
+ if c.grounded and c.y==176 then
+  if c.x>=2048 then return true,retryHighPipe(c,g,'lost-lower-support')end
+  if c.r('M3Previous')&128==0 and lowerPipeReady(c,g)then
+   g.step_input={motor=c.motor,x=c.x,y=c.y};g.step_at=c.motor;g.phase='step-up'
+   return true,{right=true,a=true}
+  end
+  return true,{}
+ end
+ local stable=c.grounded and c.y==128 and math.abs(c.x-2032)<=3 and c.vx==0
+  and c.r('M3Native::Player_InAir')==0 and c.r('M3Native::Player_YVel')==0
+  and c.r('M3Previous')&128==0 and solid(c,c.x+4,160)and solid(c,c.x+12,160)
+ if stable then
+  if g.top_motor~=c.motor then g.top_samples=(g.top_samples or 0)+1;g.top_motor=c.motor end
+  if g.top_samples>=3 then
+   g.top_ready={motor=c.motor,x=c.x,y=c.y,vx=c.vx,samples=g.top_samples,
+    foot_left=c.block(c.x+4,160),foot_right=c.block(c.x+12,160),native_air=c.r('M3Native::Player_InAir')}
+   g.phase='approach';return false
+  end
+  return true,{}
+ end
+ g.top_samples=0;g.top_motor=nil
+ if not lowerPipeReady(c,g)then return true,{}end
+ return true,steer(c,2032)
+end
+-- high-pipe-retry-1123 end
 local function plantCross(c,plant)
  local g=F.plant_active
  if not g then
   F.plants=F.plants or{};assert(#F.plants<8,'Bounded authored Piranha pipes')
   g={phase='approach',slot=plant.slot,x=plant.x,at=c.motor};F.plant_active=g;F.plants[#F.plants+1]=g
  end
- assert(c.motor-g.at<480 and c.r('Enemy_ID',g.slot)==13,'Finite live authored plant crossing')
+ assert(c.motor-g.at<(g.x==2088 and 960 or 480)and c.r('Enemy_ID',g.slot)==13,'Finite live authored plant crossing')
  local goal=g.x-28
+ local staged,pad=highPipeStage(c,g);if staged then return pad end
+ if g.phase=='step-up'then
+  assert(c.motor-g.step_at<140,'Climb the real empty2016 pipe before the taller2080 pipe')
+  if c.grounded and c.y==128 and math.abs(c.x-2032)<=4 and c.vx==0 and c.r('M3Previous')&128==0 then
+   g.step_complete={motor=c.motor,x=c.x,y=c.y};g.phase='approach'
+  else
+   assert(not(g.step_from_right and c.grounded and c.y==176 and c.motor-g.step_at>16),
+    'The single ordinary retry must reach the lower pipe')
+   if g.step_from_right and c.x>2034 then return{left=true,a=c.motor-g.step_at<32}end
+   local b=steer(c,2032);b.a=c.motor-g.step_at<32;return b
+  end
+ end
  if g.phase=='enemy-jump'then
   local e=g.enemy;local state=c.r('Enemy_State',e.slot)
   if state>=2 or c.r('Enemy_Flag',e.slot)==0 then g.phase='enemy-recover'
@@ -117,6 +313,15 @@ local function plantCross(c,plant)
   g.phase='approach'
  end
  if g.phase=='approach'then
+  if g.x==2088 and not g.top_ready and c.grounded and c.y<=128 and c.x>=1968 and c.x<2048 then
+   g.phase='stage-elevated';g.stage_at=c.motor;g.top_samples=0
+   local handled,b=highPipeStage(c,g);if handled then return b end
+  end
+  if g.x==2088 and c.x>=1984 and c.x<=2008 and c.grounded and c.y==176
+     and c.r('M3Previous')&128==0 and solid(c,2024,160)then
+   g.step_input={motor=c.motor,x=c.x,y=c.y};g.step_at=c.motor;g.phase='step-up'
+   return{right=true,a=true}
+  end
   local nearest
   for i=0,5 do
    local id=c.r('Enemy_ID',i);local x=c.r('Enemy_X_Position',i)+256*c.r('Enemy_PageLoc',i);local dx=x-c.x
@@ -155,6 +360,14 @@ local function plantCross(c,plant)
   return{}
  end
  if g.phase=='cross'then
+  if g.x==2088 then
+   if c.x>=2072 and c.x<=2112 and c.yHigh==1 and c.y<=96 then
+    g.cap_cross=g.cap_cross or{motor=c.motor,x=c.x,y=c.y,native_air=c.r('M3Native::Player_InAir')}
+   end
+   if c.grounded and c.y==176 and c.x>=2048 and c.x<2080 and c.motor-g.jump_at>12 then
+    return retryHighPipe(c,g,'short-high-cap')
+   end
+  end
   -- Keep a real landing on this pipe when the next authored pipe rises higher.
   -- Dropping to the floor here leaves an80px wall above Frog's standing jump.
   if not g.next_step then
@@ -174,7 +387,9 @@ local function plantCross(c,plant)
    end
    local b=steer(c,goal);b.b=true;b.a=c.motor-g.jump_at<32;return b
   end
-  if c.x>=g.x+24 then g.clear={motor=c.motor,x=c.x,y=c.y};g.phase='brake'
+  if c.x>=g.x+24 then
+   assert(g.x~=2088 or g.cap_cross,'Observe actual high-cap clearance before completing the crossing')
+   g.clear={motor=c.motor,x=c.x,y=c.y};g.phase='brake'
   else return{right=true,b=true,a=c.motor-g.jump_at<32}end
  end
  assert(g.phase=='brake','Known retracted-plant crossing phase')

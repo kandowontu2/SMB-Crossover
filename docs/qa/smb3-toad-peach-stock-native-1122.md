@@ -240,3 +240,20 @@ movement updates. The replays made no captures.
 | Luigi | Mushroom and Fire Flower | 1,579 | `16393e23fcadcd32340e5d6a074766fa3ffe21f14eba1563bfab9c2ec6c2013b` | `63d258c0218c04e0a89db2a78c2d33b22e7fe21c39acd59541031bbb3bab6044` |
 | Luigi | Hidden 1-UP | 1,355 | `36219824377f71b7d14e19ddaf98df65ee97ecab599c02686110c7c77a48623e` | `990b507f68006df372be87e4de84e0821cbd92b700a27f47d05c09b891106403` |
 | Luigi | Star | 1,849 | `0f0b3aa87cf6675c376a993510938fb27ed3298468d3bc553ab629d303d91774` | `c7a35fa5fbc00e9b9ec8f1423704da36b8b950f8dc10d69afb5dacacef128f84` |
+## Frog high pipe follow-up on the November 22 nightly
+
+The linked Toad replay on `14b0b4c2` waited on the solid lower pipe at
+X2029/Y128 until the tall pipe's Piranha Plant retracted. It jumped past
+the cap, cleared the upper pipe at X2114/Y96 and landed at X2140/Y176.
+It went on to clear 2-1 and complete all 17 swim segments in 2-2, with Frog
+power and both lives through 25 neutral updates. Linked receipt
+`67c0204c2f1544780f48ea2890ef312df2921c3c78b152ece36eab81d0513d90`.
+
+The Downloads Mesen replay crossed the same pipes and reached the same
+landing. A sliding Koopa shell approached from behind and hit Toad just
+after landing, removing Frog at X2140/Y176. The full Mesen swim test
+remains open. Receipt
+`9be752dce7ea200e59493992752eda6f6a17e83edee9580edbb35eca9a1ddac0`.
+
+Controller SHA-256
+`ea97dc227874dcf318d5ea216483fecb999cff3cefbff9bd3760bc339467809e`.

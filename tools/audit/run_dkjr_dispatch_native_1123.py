@@ -181,7 +181,11 @@ def report(result, image, full_stage):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--run', action='store_true')
-    parser.add_argument('--combined', action='store_true', help='Use the combined DK Jr. and Sonic candidate on the current nightly')
+    candidate_mode = parser.add_mutually_exclusive_group()
+    candidate_mode.add_argument('--combined', action='store_true',
+                                help='Qualify the combined DK Jr. and Sonic dispatcher')
+    candidate_mode.add_argument('--public-side-forward', action='store_true',
+                                help='Qualify the DK Jr. bank-33 shortcut on the combined nightly')
     parser.add_argument('--baseline', action='store_true', help='Run only the full-stage replay on the installed nightly')
     parser.add_argument('--cap-trace', action='store_true', help='Record the last staircase position and lift predicates')
     parser.add_argument('--time-cap-approach', action='store_true',
@@ -193,24 +197,31 @@ def main():
     mode.add_argument('--sonic', choices=('sonic', 'super', 'both'), help='Check the combined dispatcher with the retained Sonic full-stage routes')
     mode.add_argument('--mini', action='store_true', help='Compare Mini Mario idle and walking cadence')
     args = parser.parse_args()
-    if (args.sonic or args.mini) and not args.combined:
-        parser.error('--sonic and --mini require --combined')
+    shared_dispatch = args.combined or args.public_side_forward
+    if (args.sonic or args.mini) and not shared_dispatch:
+        parser.error('--sonic and --mini require a shared dispatcher candidate')
     full_stage_options = args.baseline or args.cap_trace or args.time_cap_approach or args.center_flag_takeoff
-    if full_stage_options and not (args.combined and args.full_stage):
-        parser.error('Full-stage controls require --combined --full-stage')
+    if full_stage_options and not (shared_dispatch and args.full_stage):
+        parser.error('Full-stage controls require a shared dispatcher candidate and --full-stage')
     rom = Roster.Timing.ROM
     parent = rom.read_bytes()
     reference = parent
-    if args.combined:
+    if shared_dispatch:
         import compose_dkjr_sonic_dispatch_1123 as Combined
         import compose_sonic_current_auth_epoch_1122 as Sonic
         import repair_rogue_side_pipe_1123 as Pipe
-        if args.baseline:
+        if args.public_side_forward:
+            import compose_dkjr_public_side_forward_1123 as Side
+            original = Combined.inverse(parent)
+            candidate, spans = (parent, []) if args.baseline else Side.proposal(parent)
+        elif args.baseline:
             assert Dispatch.h(parent) == Combined.PIN
+            original = parent
             candidate, spans = parent, []
         else:
+            original = parent
             candidate, spans = Combined.proposal(parent)
-        reference = Sonic.inverse(Pipe.restore_pipe_bytes(parent))
+        reference = Sonic.inverse(Pipe.restore_pipe_bytes(original))
     else:
         candidate, spans = Dispatch.proposal(parent)
     if args.sonic:
@@ -222,13 +233,13 @@ def main():
         name = 'MINI MARIO' if args.mini else 'DONKEY KONG JR'
         before, after = (prepare_full_stage(reference, candidate) if args.full_stage
                          else prepare(reference, candidate, name))
-        if args.combined and not args.full_stage:
+        if shared_dispatch and not args.full_stage:
             old = Dispatch.h(reference).encode()
             assert before.count(old) == 1
             before = before.replace(old, Dispatch.h(parent).encode(), 1)
             LuaRuntime().compile(before.decode())
         cases = [('baseline' if args.baseline else 'candidate', candidate, after)]
-        if not (args.combined and args.full_stage):
+        if not (shared_dispatch and args.full_stage):
             cases.insert(0, ('baseline', parent, before))
     if args.time_cap_approach:
         cases = [(name, image, time_final_cap_approach(program)) for name, image, program in cases]
@@ -237,7 +248,7 @@ def main():
     if args.cap_trace:
         cases = [(name, image, trace_final_cap(program)) for name, image, program in cases]
     if not args.run:
-        scripts = {name:Dispatch.h(program) for name,_,program in cases} if args.combined else [Dispatch.h(program) for _,_,program in cases]
+        scripts = {name:Dispatch.h(program) for name,_,program in cases} if shared_dispatch else [Dispatch.h(program) for _,_,program in cases]
         print('DK CADENCE SOURCE '+json.dumps(dict(candidate=Dispatch.h(candidate), spans=spans,
             scripts=scripts)), flush=True)
         return 0
