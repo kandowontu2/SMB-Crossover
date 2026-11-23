@@ -125,7 +125,8 @@ end
     return text
 
 
-def controller(installed, image, overlay, mode, later=False, centered=False, face_first=False):
+def controller(installed, image, overlay, mode, later=False, centered=False, face_first=False,
+               reach=False):
     if mode == 'cadence':
         import run_roster_empty_cadence_current_1123 as Cadence
 
@@ -143,6 +144,20 @@ def controller(installed, image, overlay, mode, later=False, centered=False, fac
         once = Route.P.G.First.once
         text = once(text, 'descending120-145', 'descending128-145')
         text = once(text, 'if a.y>=120 and a.y<=145', 'if a.y>=128 and a.y<=145')
+        Route.P.Base.LuaRuntime().compile(text)
+    if reach:
+        once = Route.P.G.First.once
+        text = once(text, "stockPhase('lift-jump',128)", "stockPhase('lift-jump',8)")
+        text = once(text, 'pad=l.admission and 0 or 128', 'pad=l.reached_apex and 0 or 8')
+        text = once(text, 'if s.action==3 and not l.admission then l.admission={state=s,actor=a}end',
+                    '''if (s.action==28 or s.pose==78) and not l.admission then
+   l.admission={state=s,actor=a}
+  end
+  if s.pose==78 then l.reached_apex=s end''')
+        text = once(text, "then l.admission=nil;stockPhase('lift-settle',0)end",
+                    "then l.admission=nil;l.reached_apex=nil;stockPhase('lift-settle',0)end")
+        text = once(text, 'stock.prince_returns-stock.start.Prince_returns<1100',
+                    'stock.prince_returns-stock.start.Prince_returns<1600')
         Route.P.Base.LuaRuntime().compile(text)
     if centered:
         once = Route.P.G.First.once
@@ -182,6 +197,7 @@ def main():
     parser.add_argument('--later', action='store_true', help='Test the later cap departure window')
     parser.add_argument('--centered', action='store_true', help='Release Right during the cap jump')
     parser.add_argument('--face-first', action='store_true', help='Turn before taking a careful step')
+    parser.add_argument('--reach', action='store_true', help='Use the original Up reach from the lift')
     support = parser.add_mutually_exclusive_group()
     support.add_argument('--carry-first', action='store_true', help='Test carried support before the terrain fallback')
     support.add_argument('--swept', action='store_true', help='Test the swept landing variant')
@@ -194,6 +210,8 @@ def main():
         parser.error('--centered uses the regular departure window on pickup and collision routes')
     if args.face_first and not args.centered:
         parser.error('--face-first requires --centered')
+    if args.reach and args.mode not in ('pickup', 'collision'):
+        parser.error('--reach applies only to the pickup and collision routes')
     downloads = check(Timing.ROM)
     installed = Timing.ROM.read_bytes()
     assert Compose.H(installed) == downloads['ROM_sha256'] == Compose.PARENT
@@ -217,7 +235,7 @@ def main():
         image, overlay = Compose.compose(installed)
     pin = Compose.H(image)
     program = controller(installed, image, overlay, args.mode, args.later, args.centered,
-                         args.face_first).encode()
+                         args.face_first, args.reach).encode()
     prior_controller = controls.read_bytes()
     try:
         rom.write_bytes(image)
@@ -235,7 +253,12 @@ def main():
             receipt = {key: receipt[key] for key in keep if key in receipt}
             stock = receipt.get('natural_stock', {})
             stock.pop('samples', None)
-            stock.pop('head_queries', None)
+            queries = stock.pop('head_queries', [])
+            stock['head_query_trace'] = [
+                {key: query[key] for key in ('predicted_world_x', 'predicted_y', 'native_speed',
+                                             'raw_tile', 'queried_row', 'source_actor_y') if key in query}
+                | dict(pose=query['before']['pose'], action=query['before']['action'])
+                for query in queries]
             lift = stock.get('lift', {})
             samples = lift.pop('samples', [])
             if samples:

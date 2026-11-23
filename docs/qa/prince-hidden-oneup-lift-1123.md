@@ -147,9 +147,25 @@ while he still faced right. His careful step followed his facing, and it
 took him off the right edge. Mesen receipt
 `26b5ac0b5907c435d5ae2a13d8a073c633003360c736af125b7e118e6bf62892`.
 
+Turning before the careful step let the Prince settle beneath the hidden
+block at X1027 and ride a full descent and ascent. Mesen recorded 407
+attached updates, with the top moving in 257 of them. The original
+standing A jump carried him horizontally away from the block before
+it released a 1-UP. Mesen receipt
+`fcd7c4a1ceb249c92196b1c230ce5414efc256413858c485e9abbdbd3609a317`.
+
+The original Up reach also began on the moving lift at X1027/Y141.
+The head probes read the actual hidden `$60` tile at X1035 on row Y128
+as the head rose from Y142 to Y128. Native vertical speed was zero or
+positive throughout those probes, so the rising head-hit rule did not
+trigger. The reach ended at X1026/Y76. The subsequent fall lost a life
+below the viewport near X1001. Mesen receipt
+`250f6dd7c739aded00d630a7d93a13918909dd6f987c99753114de23cb2a5f61`.
+
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/prince-oneup-lift-admission-1123 --resume --max-files 1 --timeout 240 -- python -B tools/audit/probe_prince_oneup_lift_admission_1123.py
 python -B tools/audit/run_bounded_build_v1.py --output build/prince-oneup-lift-cold-1123 --resume --max-files 1 --timeout 350 -- python -B tools/audit/check_prince_oneup_lift_cold_1123.py
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 8 --timeout 480 -- python -B tools/audit/run_prince_oneup_lift_native_1123.py --stage
 python -B tools/audit/run_bounded_build_v1.py --output build/prince-oneup-lift-cold-1123 --resume --max-files 1 --timeout 350 -- python -B tools/audit/check_prince_oneup_lift_cold_1123.py --swept
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 8 --timeout 420 -- python -B tools/audit/run_prince_oneup_lift_native_1123.py --hold-plane --centered --face-first --reach
 ```
