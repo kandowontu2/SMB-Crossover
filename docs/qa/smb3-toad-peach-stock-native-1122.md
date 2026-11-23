@@ -196,6 +196,16 @@ Mesen receipt `67ffe7d39573ab9af4b280c99ff968cdd4f989789d0af5e737964dd65ef57ad8`
 Both runs used controller
 `d83e3b288d7f82be3644c8cb77cd3141231681a756f5f46069ea2e985a481b30`.
 
+The next linked replay reached 2-2 and passed the 17 swim segments again,
+receipt `3747ba40e04fe70c03ed662410e8b7d6fac59764c62a978a789ceae340a9a063`.
+In Mesen, Toad crossed under the ledge and got back onto solid ground.
+He started the pipe jump at X1605/Y176. The Piranha Plant above the pipe
+hit him at X1646/Y109 before he could land. This run reached video frame
+2,988. Mesen receipt
+`8246a27de0a5ddf4e89bed9316630025a84ceeb01601f27dfa68c0a9e3ebbc3d`.
+The next physical replay needs to time the pipe jump against the plant's
+observed movement.
+
 To reproduce the recorded linked route, choose `toad3` or `peach3`.
 
 ```powershell

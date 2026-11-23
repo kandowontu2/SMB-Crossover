@@ -148,6 +148,17 @@ def time_final_cap_approach(program):
     return timed.encode()
 
 
+def center_flag_takeoff(program):
+    text = program.decode()
+    old = '  if not flagHop and player>=3152 and settled and y==176 then\n'
+    new = '  if not flagHop and player>=3152 and settled and y==176 and camera()>=3072 then\n'
+    assert text.count(old) == 1
+    centered = text.replace(old, new, 1)
+    assert centered.replace(new, old, 1) == text
+    LuaRuntime().compile(centered)
+    return centered.encode()
+
+
 def report(result, image, full_stage):
     receipt = result['receipt']
     if full_stage:
@@ -174,14 +185,17 @@ def main():
     parser.add_argument('--cap-trace', action='store_true', help='Record the last staircase position and lift predicates')
     parser.add_argument('--time-cap-approach', action='store_true',
                         help='Wait on solid stairs for the final lift to reach the boarding height')
+    parser.add_argument('--center-flag-takeoff', action='store_true',
+                        help='Wait for the flagpole camera to reach the tested takeoff position')
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument('--full-stage', action='store_true')
     mode.add_argument('--sonic', choices=('sonic', 'super', 'both'), help='Check the combined dispatcher with the retained Sonic full-stage routes')
     args = parser.parse_args()
     if args.sonic and not args.combined:
         parser.error('--sonic requires --combined')
-    if (args.baseline or args.cap_trace or args.time_cap_approach) and not (args.combined and args.full_stage):
-        parser.error('--baseline, --cap-trace and --time-cap-approach require --combined --full-stage')
+    full_stage_options = args.baseline or args.cap_trace or args.time_cap_approach or args.center_flag_takeoff
+    if full_stage_options and not (args.combined and args.full_stage):
+        parser.error('Full-stage controls require --combined --full-stage')
     rom = Roster.Timing.ROM
     parent = rom.read_bytes()
     reference = parent
@@ -214,6 +228,8 @@ def main():
             cases.insert(0, ('baseline', parent, before))
     if args.time_cap_approach:
         cases = [(name, image, time_final_cap_approach(program)) for name, image, program in cases]
+    if args.center_flag_takeoff:
+        cases = [(name, image, center_flag_takeoff(program)) for name, image, program in cases]
     if args.cap_trace:
         cases = [(name, image, trace_final_cap(program)) for name, image, program in cases]
     if not args.run:

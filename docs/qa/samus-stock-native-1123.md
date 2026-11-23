@@ -68,10 +68,24 @@ was standing and firing. The next replay jumps past the Koopa before
 lining up under the Star block. The stopped run took 2,804 video frames.
 Mesen receipt `c3b9eb603f34a14243cbac9196825b12f16ef3218d4ab01d68f45eea8c86d9c4`.
 
+## Star
+
+Samus jumped past the Koopa, hit the normal Star block at X1616 from
+below and collected the fully emerged item at X1656. The native timer,
+Star music cue and 1,000 points passed. She landed at X1648/Y176 with
+both lives and the Star still active after the follow-up movement check.
+All four standard pickups have passed in Easy 1-1.
+
+The Downloads run took 2,922 video frames. Mesen receipt
+`a960990b780ca6695eeb4596ca62081ba2c7d81c8713794e92d31f14faf1af90`.
+Controller SHA-256
+`305e92564f07dcfd54bec4a25c5ed5572f1b64b177233ac5d4380496878a620d`.
+
 Use the ordinary shared queue for each pickup route. These runs write
 no captures.
 
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 225 -- python -B tools/audit/run_megaman_proto_stock_1123.py --form samus --route upgrades --run
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 225 -- python -B tools/audit/run_megaman_proto_stock_1123.py --form samus --route life --run
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 225 -- python -B tools/audit/run_megaman_proto_stock_1123.py --form samus --route star --run
 ```

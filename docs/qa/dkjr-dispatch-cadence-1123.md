@@ -138,9 +138,27 @@ existing lift at world X3040 on `14b0b4c2`.
 The compiled controller SHA-256 is
 `12648ca8d182e9f163fb5ad5165a2b8ce9211465f1323f7e0d0db1f034b7bfee`.
 
+The timed Mesen run resumed walking at X3014/Y48 with the lift at Y72,
+reached X3038/Y48, and boarded at lift top Y73. DK Jr. left the lift
+at X3067/Y160 and reached the flagpole base with 56 on the timer. The
+jump request at X3152/Y176 stalled at the base until time expired. The
+run took 20,085 video frames. Receipt
+`bf876f96414e6907d6c4651f3275aeb1dcda7ddbc2e689d024c3def15a1267a7`.
+An earlier linked trace at the same position caught a late jump
+intersecting the flagpole base before it gained height. [Earlier flagpole trace](dkjr-floor-entry-source-1114.md)
+
+A component test on `14b0b4c2` parsed the actual flagpole terrain and
+started the player on the approach. Six takeoffs between X3138 and X3148
+stopped before the pole. Walking to X3152 with the camera settled at
+X3072, then jumping, reached X3161/Y160 in the native flagpole slide.
+The optional camera timing holds Right until that takeoff position is
+available in the full replay. The compiled controller SHA-256 is
+`58a101f58fdf628ae17d9cf1c1f1423c25cb22a699f07b0ddbef07821e3af441`.
+
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/dkjr-sonic-combined-dispatch-1123 --max-files 1 --timeout 600 -- python -B tools/audit/check_dkjr_sonic_dispatch_1123.py --interrupts
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 360 -- python -B tools/audit/run_dkjr_dispatch_native_1123.py --combined --run
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 575 -- python -B tools/audit/run_dkjr_dispatch_native_1123.py --combined --full-stage --baseline --cap-trace --run
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 575 -- python -B tools/audit/run_dkjr_dispatch_native_1123.py --combined --full-stage --cap-trace --time-cap-approach --run
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 575 -- python -B tools/audit/run_dkjr_dispatch_native_1123.py --combined --full-stage --cap-trace --time-cap-approach --center-flag-takeoff --run
 ```
