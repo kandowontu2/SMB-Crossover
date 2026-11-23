@@ -1,8 +1,7 @@
 # Helper platform inventory — functional pass in progress
 
-The current local nightly is `27e01af3`. The Donkey Kong Jr. Mushroom lift
-placement is listed below. The draw update passed his full 1-1 route with
-the same helpers.
+The current local nightly is `d1a40df1`. Donkey Kong Jr.'s Mushroom and
+Flower lifts are listed below.
 Mini Mario's current fixed1-1 actor25 placements are world left/center/
 initial top **560/576/192, 688/704/192, 864/880/192**, each32 pixels wide.
 The manual Flower-route vertical lift spawns at1203/1219/208, also32 wide.
@@ -10,11 +9,12 @@ His9826 native full clear and the pickup-specific support evidence remain
 versioned in the later sections below. Rogue Dawn's cb95 full clear uses
 no new helper. Older current-ROM statements below are historical.
 
-## November 23 Donkey Kong Jr. Mushroom lift
+## November 23 Donkey Kong Jr. pickup lifts
 
 | Character | Stage | World left X | Center X | Initial top Y | Collision width | Native actor |
 | --- | --- | ---: | ---: | ---: | ---: | --- |
 | Donkey Kong Jr. (Donkey Kong, Select once) | 1-1 | 336 | 352 | 192 | 32 | `$25` vertical platform |
+| Donkey Kong Jr. (Donkey Kong, Select once) | 1-1 | 1264 | 1280 | 192 | 32 | `$25` vertical platform |
 
 The lift appears 287 pixels ahead of the camera and supports an ordinary
 jump into the first Mushroom block. It starts its slot search at 4. The
@@ -22,7 +22,12 @@ original thirteen helpers listed below keep their placements and slot
 preference. The full 1-1 replay verified the X880 ascent and second-gap
 horizontal platform, cleared the stage and continued in 1-2 with both
 lives. The Mushroom pickup and opening cadence were also verified after
-launching the installed Downloads ROM. [DK Jr. verification](dkjr-mushroom-lift-native-1123.md)
+launching the installed Downloads ROM. [Mushroom lift verification](dkjr-mushroom-lift-native-1123.md)
+
+The Flower lift at X1264 oscillates around top Y176. It appears before
+the camera reaches it and supports the jump onto the X1248 Flower block.
+The combined ROM passed Flower collection and the full 1-1 route into
+1-2, including the existing horizontal lift at X1408. [Flower lift verification](dkjr-flower-lift-native-1123.md)
 
 ## November16 current platform qualification
 
