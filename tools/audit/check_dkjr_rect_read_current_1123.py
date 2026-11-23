@@ -37,7 +37,7 @@ def state(m):
         native=N.get(m, 'Player_State'), age=m.ram[2][0x7e], fraction=m.ram[2][0x7f])
 
 
-def compare(a, b, raw, image, old, new):
+def compare(a, b, raw, image, old, new, normalize_carrier=None):
     for lo, hi in ((0, 0x15a), (0x1fd, 0x800), (0x5c00, 0x8000)):
         assert bytes(a[lo:hi]) == bytes(b[lo:hi]), ('Full native gameplay', hex(lo),
             [hex(i) for i in range(lo, hi) if a[i] != b[i]][:12])
@@ -62,6 +62,8 @@ def compare(a, b, raw, image, old, new):
         for bank in (2, 3):
             assert bytes(m.ram[bank][0x1fe0:0x1ff0]) == cookie
             rows[index][bank][0x1fe0:0x1ff0] = bytes(16)
+    if normalize_carrier:
+        normalize_carrier(rows)
     assert rows[0] == rows[1], ('All remaining WRAM gameplay',
         [(bank, hex(i)) for bank in range(4) for i,(a,b) in enumerate(zip(rows[0][bank],rows[1][bank])) if a != b][:16])
 

@@ -45,8 +45,8 @@ def chunks(pc, data):
 
 
 @lru_cache(maxsize=1)
-def program(raw):
-    assert H(raw) == PIN
+def program(raw, pin=PIN):
+    assert H(raw) == pin
     source = Head.SOURCE.read_text()
     assert H(Head.SOURCE.read_bytes()) == '578f7e97b70bc36739cdbeb95750fb6d0a4a3733b106332a1abc56b9ff4e3eb8'
     definitions = prelude(raw)

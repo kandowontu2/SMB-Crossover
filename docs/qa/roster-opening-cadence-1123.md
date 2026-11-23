@@ -298,3 +298,47 @@ verified there with no matching auto-patch.
 python -B tools/audit/run_bounded_build_v1.py --output build/first-goomba-profile-1123 --max-files 1 --timeout 430 -- python -B tools/audit/check_donkey_side_early_1123.py 'DONKEY KONG' 'DONKEY KONG JR' 'BASS' 'STEVE HERMANN' 'MINI MARIO' 'SAMUS ARAN' --occupied
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 8 --timeout 600 -- python -B tools/audit/run_donkey_side_route_1123.py --early --install
 ```
+
+## Donkey Kong Jr. scene update trial
+
+The private `e3cc8f2a` trial resolves terrain pointers once per collision
+or drawing loop and recognizes the eight sprite tile IDs in the existing
+lookup table directly. It uses Donkey Kong Jr.'s existing code and data space.
+The linked comparison matched gameplay RAM, sprite data, mapper state
+and PPU writes through 174 ordinary 1-1 updates covering standing,
+movement in both directions, jumps and landings. It also verified the
+sprite filter for all 256 possible input tile IDs.
+
+| Linked Easy 1-1 sample | Installed CPU cycles per update | Trial CPU cycles per update |
+| --- | ---: | ---: |
+| Standing | 38,252 | 37,304 |
+| Walking right | 41,217 | 39,117 |
+
+Both versions took 96 video frames for 64 game updates in Mesen's
+empty opening and skipped 64 NMIs. With the first Goomba visible, both
+took 73 video frames for 48 game updates, skipped 49 NMIs and completed
+24 sprite draws. The trial reached the Goomba test marker 12 video
+frames sooner. Both versions ended the occupied sample at X157/Y176
+with two lives. No captures were written. The Downloads nightly stays
+on `2f1e4b8d` while the sustained stutter is investigated.
+
+| Mesen sample | Installed receipt SHA-256 | Trial receipt SHA-256 |
+| --- | --- | --- |
+| Empty, 48 standing and 16 Right updates | `3045d7af198c7880c663f8573a0dd9cd99b37eee8d87e3a4d0ec3b06e850c7a6` | `46091c94c6a8a547089e18f8cd02be4542b2e34d4a4af39c536d4c295dfa8336` |
+| First Goomba, 48 standing updates | `7b277f2c901b44651e4319f24aa8e694991b4fa648a70fb88c1433d1a2e6696e` | `384ca4eb5c48cb8abe1e62b14004013147814bfc5646a6a83b0fb945153e3df0` |
+
+The installed foreground profile spent about 6,048 cycles per update
+in shared bank switching and 5,380 in bank 65. On the trial, four
+authenticated DK Jr. services cost 3,324 cycles per update combined.
+Two return with carry set. The others also set Y to 1 or 2. None of
+these four bodies writes game state. A character-specific shortcut
+could return those results after the existing ownership check. It
+would need to preserve the public caller contract and fall back when
+authentication fails. The native head collision that follows still
+handles question blocks and other overhead contacts.
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/dkjr-scene-hot-1123 --max-files 8 --timeout 600 -- python -B tools/audit/check_dkjr_scene_hot_1123.py
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 8 --timeout 600 -- python -B tools/audit/run_dkjr_scene_hot_native_1123.py empty
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 8 --timeout 600 -- python -B tools/audit/run_dkjr_scene_hot_native_1123.py goomba
+```
