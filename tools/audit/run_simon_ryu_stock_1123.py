@@ -146,16 +146,20 @@ local bits={a=128""")
    else assert(s.power==q.grant.power and s.status==q.grant.status,'Upgrade persists during movement') end""")
     policy = '''local firstFood={}
 local flowerJump
+local function flowerRowRightEdge(c,x)
+ local edge=x+16
+ for j=1,6 do
+  if c.block(edge+8,144)==0 then break end
+  edge=edge+16
+ end
+ return edge
+end
 local function reachRyuFlower(c)
  for i=0,5 do
   if c.r('Enemy_Flag',i)==1 and c.r('Enemy_ID',i)==46 and c.r('PowerUpType',i)==1 then
    local x=c.r('Enemy_X_Position',i)+256*c.r('Enemy_PageLoc',i)
    if not flowerJump then
-    local edge=x+16
-    for j=1,6 do
-     if c.block(edge+8,144)==0 then break end
-     edge=edge+16
-    end
+    local edge=flowerRowRightEdge(c,x)
     flowerJump={phase='runout',started=c.update,minY=c.y,edge=edge,launch=edge+12}
     ROBOT_STOCK_STATE.ryu_flower=flowerJump
    end
@@ -174,10 +178,16 @@ local function reachRyuFlower(c)
     return{right=c.x<j.launch-2,left=c.x>j.launch+2}
    end
    if j.phase=='jump' then
-    if c.y<=112 then j.cleared=true end
     if c.grounded and c.y<=112 then j.phase='walk'
-    elseif c.r('XgWall')~=0 then return{up=true,a=not c.lastA}
-    else return{left=j.cleared and c.x>x+2,a=c.update-j.first<32}end
+    elseif c.r('XgWall')~=0 then
+     local probe=c.x+(c.r('PlayerFacingDir')==1 and 21 or -5)
+     local lip=c.block(probe,c.y+3)
+     j.attached=j.attached or {x=c.x,y=c.y,update=c.update}
+     return{up=true,left=c.x>x+2,a=not c.lastA and lip==0}
+    else
+     -- Approach the wall within grabbing height, before the jump peaks.
+     return{left=c.y<=147 and c.x>x+2,a=c.update-j.first<32}
+    end
    end
    return{right=c.x<x-5,left=c.x>x+2}
   end
@@ -188,31 +198,41 @@ local function reachSimonFlower(c)
   if c.r('Enemy_Flag',i)==1 and c.r('Enemy_ID',i)==46 and c.r('PowerUpType',i)==1 then
    local x=c.r('Enemy_X_Position',i)+256*c.r('Enemy_PageLoc',i)
    if not flowerJump then
-    flowerJump={phase='takeoff',started=c.update,minY=c.y}
+    local launch=flowerRowRightEdge(c,x)+36
+    flowerJump={phase='takeoff',started=c.update,minY=c.y,trace={},launch=launch}
     ROBOT_STOCK_STATE.simon_flower=flowerJump
    end
    local j=flowerJump;j.minY=math.min(j.minY,c.y)
    assert(c.update-j.started<230,'Reach the Flower row with both jumps')
+   if j.phase~='takeoff' and c.update%6==0 and #j.trace<24 then
+    j.trace[#j.trace+1]={x=c.x,y=c.y,vx=c.vx,state=c.state,itemY=c.r('Enemy_Y_Position',i),
+                       pad=c.r('SavedJoypadBits')}
+   end
    if j.phase=='takeoff' then
     if c.grounded and c.y<=112 then
      j.phase='walk'
-    elseif c.grounded and c.y==176 and math.abs(c.x-1198)<=2 and c.vx==0 and not c.lastA then
-     j.phase='rise';j.first=c.update;return{a=true}
-    else return{right=c.x<1196,left=c.x>1200}end
+    elseif c.grounded and c.y==176 and math.abs(c.x-j.launch)<=2 and c.vx==0 and not c.lastA then
+     j.phase='rise';j.first=c.update;return{left=true,a=true}
+    else
+     local e=c.enemy()
+     if c.grounded and e and e.dx>25 and e.dx<55 and e.y>=c.y and c.r('PlayerFacingDir')==1 then
+      return{down=e.id==6,b=c.r('RgAttack')==0}
+     end
+     return{right=c.x<j.launch-2,left=c.x>j.launch+2}
+    end
    end
    if j.phase=='rise' then
-    if c.update-j.first<14 then return{a=true}end
+    if c.update-j.first<14 then return{left=true,a=true}end
     if not c.grounded and not c.lastA and c.r('RgDoubleJump')~=0 then
      -- Easy Simon keeps his direction until the next jump or landing.
-     j.phase='second';j.second=c.update;return{right=true,a=true}
+     j.phase='second';j.second=c.update;return{left=true,a=true}
     end
-    return{}
+    return{left=true}
    end
    if j.phase=='second' then
-    if c.y<=112 then j.cleared=true end
     if c.grounded and c.y<=112 then j.phase='walk'
     else
-     return{right=j.cleared and c.x<x-4,a=c.update-j.second<24}
+     return{left=true,a=c.update-j.second<24}
     end
    end
    return{right=c.x<x-4,left=c.x>x+3}

@@ -47,12 +47,34 @@ Both revised Flower replays released the correct reward on `3af597a7`
 and kept the first power tier and both lives. Simon's double jump
 reached Y82, but he dropped back to the floor at X1244 before collecting
 the Flower. Ryu reached X1290 on the right and jumped to Y126, short of
-the height needed to land on the row. Both Flower checks remain open.
+the height needed to land on the row. The first two attempts ended
+before collection.
 
 | Flower replay | Video frames | Mesen receipt SHA-256 |
 | --- | ---: | --- |
 | Simon | 2,151 | `039484b1a7e678d0e383d9a57e0c8dbe70484fc5fe0e83f9c8eeb42fd03e14b2` |
 | Ryu | 2,529 | `cef8a8fe626b946de0be35e405bc4635cbabbfa3034e2f7411e8b96081b581f2` |
+
+## Passing Fire Flower replays
+
+On Downloads `3af597a7`, Simon started at X1316 on the ground to the
+right of the row. He held Left through both jump edges. That carried
+him from X1294/Y126 to X1287/Y104 and then onto the row. He collected
+the Fire Flower, finished growing to tier two and kept both lives
+through 25 further movement updates. Simon still needs passing hidden
+1-UP and Star tests.
+
+Ryu faced the right edge from X1290 and moved Left during the rise.
+The wall grab attached at X1278/Y130. Up and a fresh jump with room at
+the lip carried him above the row. The Flower block's reward was Fire
+Dragon Ball. The inventory changed from `01` to `11` hex, kept the
+Mushroom and both lives, and passed 25 further movement updates. Ryu
+now has passing replays for all four standard Easy 1-1 pickups.
+
+| Character | Video frames | Mesen receipt SHA-256 |
+| --- | ---: | --- |
+| Simon | 2,093 | `5ba6657f057b4baee015dff06d526c073236dcb7e586e2035fae1b86fb852451` |
+| Ryu | 2,340 | `af57ab7504e0c3b21654812fc72aa0efbca15f21f5394a67ebe995dfc1880ecf` |
 
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_simon_ryu_stock_1123.py --form ryu --route mushroom --run
