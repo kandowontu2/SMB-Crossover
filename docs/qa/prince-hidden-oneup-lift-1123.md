@@ -206,6 +206,32 @@ HP. The first pursuit started too far left and followed the 1-UP into
 the pit. Mesen receipt
 `887e1c65faf2b6f89e1ae48f4d9a8bd31972ed50c8ce8d9cf814a89c48e412cd`.
 
+### Verified in the Downloads nightly
+
+The passing Easy 1-1 replay took a careful step just right of the
+block's column, faced left, and pressed Up on the rising lift. The
+native `$60` hit released a 1-UP at X1024/Y120. An early contact left
+it on screen. After it emerged, the Prince took a careful step into
+it at player X1027/Y96 and item X1039/Y109. The native boxes shared
+an edge pixel and overlapped vertically by ten pixels. The pickup
+played its sound, displayed the 1-UP popup, and increased lives from
+two to three. The Prince kept four HP and three lives through 25
+further completed game updates.
+
+The same ROM cleared 1-1 with the earned sword and reached 25
+grounded game updates in 1-2. The Downloads launch repeated the
+pickup receipt exactly after direct replacement. Both runs wrote
+zero captures.
+
+- ROM `5c89b9b727a6c718edccd873bbdff69409e4280c7e0db4e1c3c169304c6a84c9`
+- Pickup receipt `8566de14d00d68430b99484b07c1a8df65514259a2eadfd29124ca516c9cd65b`
+- Full-stage receipt `94703a45f6db9985b616058bf4401566ffe963c138a7c8b2e90cee5c0efb7c0b`
+
+The empty-opening cadence also repeated on the installed bytes.
+Ninety-six game updates took 168 video frames, with 72 frames
+without a completed game update. Receipt
+`7ce4ceb977dde5c42046bbb69bb7a602a41a9d6e6a4aa8578d3354390312ad5d`.
+
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/prince-oneup-lift-admission-1123 --resume --max-files 1 --timeout 240 -- python -B tools/audit/probe_prince_oneup_lift_admission_1123.py
 python -B tools/audit/run_bounded_build_v1.py --output build/prince-oneup-lift-cold-1123 --resume --max-files 1 --timeout 350 -- python -B tools/audit/check_prince_oneup_lift_cold_1123.py

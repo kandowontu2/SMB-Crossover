@@ -81,9 +81,25 @@ def controller(parent, image, overlay, *, stage=False):
     text = once(text, extent, once(extent, old_entry, new_entry))
     if stage:
         return Native.stage_controller(R, image, overlay, text)
+    text = once(text, '''  pad=0
+  if idle(s)and s.action==0 then
+   if s.x<1015 then pad=s.facing==255 and 64 or 1
+   elseif s.x>1030 then pad=s.facing==0 and 64 or 2 end
+  end''', '''  pad=0
+  if idle(s)and s.action==0 then
+   if s.facing==255 then pad=s.x<1038 and 64 or 2
+   elseif s.x<1025 then pad=1
+   elseif s.x>1031 then pad=64 end
+  end''')
+    text = once(text, 'and s.x>=1015 and s.x<=1030 and a.y>=164',
+                'and s.facing==0 and s.x>=1025 and s.x<=1031 and a.y>=164')
     text = once(text, '''   target=math.min(right,math.max(left,s.x))
    pad=s.x<left and 1 or s.x>right and 2 or 0''', '''   target=1040
-   pad=floor(s) and s.x<target and 1 or 0''')
+   pad=floor(s) and s.x<target and 1 or 0
+   if a and s.foot<176 and s.x<1019 and idle(s) and s.action==0 then
+    target=1019
+    pad=s.facing==0 and 1 or 64
+   end''')
     text = once(text, '''   target=item.x-4
    if high then target=math.max(left,math.min(right,target))
    else target=math.max(left,math.min(1076,target))end
@@ -116,6 +132,8 @@ def controller(parent, image, overlay, *, stage=False):
   return
  end
  if stock.born and a.state>=128 then stock.mature=''')
+    text = once(text, "assert(ox>0 and oy>0,'Actual positive native body/item overlap')",
+                "assert(ox>=0 and oy>=0,'Actual inclusive native body/item contact')")
     text = once(text, "assert(stock.lift.head.speed>=128 and stock.lift.admission,"
                 "'Actual rising native hidden hit from original Up reach')", '''
  local flag=read(7)
@@ -219,7 +237,7 @@ def main():
         for name in ('birth', 'admission', 'head', 'contacts', 'moving_contacts', 'reached_apex'):
             if name in lift:
                 result['lift_' + name] = lift[name]
-        for name in ('born', 'mature', 'erase', 'popup', 'credit', 'finished', 'immature_contacts'):
+        for name in ('born', 'mature', 'collector', 'erase', 'popup', 'credit', 'finished', 'immature_contacts'):
             if name in stock:
                 result['stock_' + name] = stock[name]
         if not passed:

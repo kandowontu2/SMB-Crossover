@@ -1036,3 +1036,17 @@ receipt hashes531922c1/f95e3631. The three fixed1-1 lifts atleft/center/top
 560/576/192,688/704/192,864/880/192 and the two-shot route's manual Flower
 lift1203/1219/208, all width32, retain the same actual native support/motion
 measurements. No helper is added or moved by this delivered weapon fix.
+
+## November 23 Prince of Persia
+
+The Downloads MMC5 build `5c89b9b7` uses the stock 48-pixel vertical
+platform (actor `$25`) in **1-1**. Its world **left edge is X1008**,
+**center is X1032**, and **initial top is Y192**. The vertical travel
+is centered at Y166. It enters slot 5 at camera X722, while still
+beyond the right edge of the visible screen. It gives the Prince a
+route to the hidden 1-UP block at X1024/Y128.
+
+Ordinary play boarded and rode the platform, hit the hidden block
+with Up, and collected the fully emerged 1-UP. The confirmed pickup
+and separate full-stage clear are recorded in
+`prince-hidden-oneup-lift-1123.md`.
