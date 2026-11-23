@@ -152,3 +152,12 @@ Attack acquisition remain open. This run wrote zero captures.
 
 - Native receipt `6ecd83de61ba39f89b02eb7b5c3057376f7da26e6ea596fd770da3d6afec3a7f`
 - Controller `08c7ad7fe505a05e8d3969cd992c1604c273db972d25f2411e96d66b747eb311`
+
+The linked CPU reproduced the stall with the actual `$1C` and `$1F` side
+contacts. Rogue Dawn's movement used its own terrain resolver and omitted
+the native pipe entry. The source repair sends that contact to the existing
+native pipe routine while preserving Rogue Dawn's movement. Standing and
+Morph Ball both entered with the normal timer, sprite priority and sound
+cue. Controls for blocked contacts, flagpoles and other characters passed.
+The source check also covered cold startup and reached interrupt points.
+Source receipt `c8f6387e5b636edc366a62343549bee19b5732e8933418635dc8cd6f0cf7997e`.

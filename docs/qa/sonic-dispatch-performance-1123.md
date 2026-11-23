@@ -45,6 +45,12 @@ These runs wrote zero captures.
 | Sonic | 5,398 | `4af2023c9dfe61466a7a58214f23073a8dba51bc8d2edb86c219b36281640e20` |
 | Super Sonic | 5,417 | `211952d2e32152b83084e04a827ac8b5f25dfaa5b5faefb5edbf5f0fe7a85831` |
 
+The Downloads nightly was replaced with exact `2ac7c084`. Both full routes
+passed from the actual Downloads file and reproduced the private receipts
+above. The installed ROM and shared test ROM matched byte for byte. The
+before and after checks found no automatic patch beside the nightly, and
+the replacement created no backup file.
+
 The next performance target is the shared dispatch and mapper work around
 repeated terrain checks.
 

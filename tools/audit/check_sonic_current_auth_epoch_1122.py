@@ -279,7 +279,8 @@ if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__);group=parser.add_mutually_exclusive_group();group.add_argument('--controls-only',action='store_true');group.add_argument('--fallbacks-only',action='store_true');args=parser.parse_args()
     def deny(*a,**k):raise AssertionError('Source proof attempted file/process output')
     with patch.object(Path,'write_bytes',deny),patch.object(Path,'write_text',deny),patch('subprocess.Popen',deny):
-        raw=C.M.ROM.read_bytes()
+        installed=C.M.ROM.read_bytes()
+        raw=C.inverse(installed) if C.H(installed)==C.CANDIDATE else installed
         if args.controls_only or args.fallbacks_only:
             candidate,composition=C.proposal(raw);seed=enter(candidate,3)
             for _ in range(300):

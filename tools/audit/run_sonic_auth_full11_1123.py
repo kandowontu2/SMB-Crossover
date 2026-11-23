@@ -56,8 +56,11 @@ def main():
     parser.add_argument('--deliver-nightly', action='store_true')
     args = parser.parse_args()
     assert args.run or not args.deliver_nightly
-    parent = Full.ROM.read_bytes()
-    candidate, _ = Auth.proposal(parent)
+    installed = Full.ROM.read_bytes()
+    installed_pin = Auth.H(installed)
+    already_delivered = installed_pin == Auth.CANDIDATE
+    parent = Auth.inverse(installed) if already_delivered else installed
+    candidate = installed if already_delivered else Auth.proposal(parent)[0]
     programs = controllers(parent, candidate)
     pin = Auth.H(candidate)
     print('SONIC AUTH FULL SOURCE '+json.dumps(dict(ROM_SHA256=pin,
@@ -67,26 +70,27 @@ def main():
 
     out = Full.SHARED
     target, script = out/'candidate.nes', out/'controller.lua'
-    assert set(out.iterdir()) == {target, script} and target.read_bytes() == parent
+    assert set(out.iterdir()) == {target, script} and target.read_bytes() == installed
     public_guard, test_guard = check(Full.ROM), check(target)
     for guard in (public_guard, test_guard):
-        assert guard['ROM_sha256'] == Auth.PIN and not guard['matching_patch_files']
+        assert guard['ROM_sha256'] == installed_pin and not guard['matching_patch_files']
     require_free_workspace(Full.R, Full.ROM, allow_interactive=True)
     original = script.read_bytes()
     passed = True
     verified_install = False
     install_started = False
     try:
-        launch = target
+        launch = Full.ROM if already_delivered else target
         if args.deliver_nightly:
             assert Auth.inverse(candidate) == parent
             for form, program in programs.items():
                 assert Auth.H(program) == PRIVATE_PASSES[form][0]
             assert check(Full.ROM) == public_guard
-            install_started = True
-            Full.ROM.write_bytes(candidate)
+            if not already_delivered:
+                install_started = True
+                Full.ROM.write_bytes(candidate)
             launch = Full.ROM
-        else:
+        elif not already_delivered:
             target.write_bytes(candidate)
         installed_guard = check(launch)
         assert installed_guard['ROM_sha256'] == pin and not installed_guard['matching_patch_files']
@@ -102,15 +106,17 @@ def main():
                 assert result['passed'] and result['receipt_SHA256'] == PRIVATE_PASSES[form][1]
                 assert check(Full.ROM) == installed_guard
         if args.deliver_nightly:
-            target.write_bytes(candidate)
+            if not already_delivered:
+                target.write_bytes(candidate)
             assert target.read_bytes() == Full.ROM.read_bytes() == candidate
             verified_install = True
     finally:
         script.write_bytes(original)
         if not verified_install:
-            target.write_bytes(parent)
+            if not already_delivered:
+                target.write_bytes(installed)
             if install_started:
-                Full.ROM.write_bytes(parent)
+                Full.ROM.write_bytes(installed)
             assert check(Full.ROM) == public_guard and check(target) == test_guard
         assert set(out.iterdir()) == {target, script} and script.read_bytes() == original
     if verified_install:

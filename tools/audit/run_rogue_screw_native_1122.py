@@ -239,31 +239,67 @@ def source(raw,limit):
     return q
 
 
-def native(raw):
+def side_pipe_candidate(installed):
+    import compose_sonic_current_auth_epoch_1122 as Sonic
+    import repair_rogue_side_pipe_1123 as Pipe
+
+    owner = Sonic.inverse(installed) if H(installed) == Sonic.CANDIDATE else installed
+    repaired = Pipe.compose(owner)
+    assert H(owner) == PIN and Pipe.inverse(repaired) == owner
+    image = bytearray(installed)
+    for at, old, new in Pipe.spans(owner):
+        assert image[at:at+len(old)] == old and repaired[at:at+len(new)] == new
+        image[at:at+len(old)] = new
+    return owner, bytes(image)
+
+
+def native_program(raw, image):
+    program = controller(raw)
+    assert H(program.encode()) == PINNED_CONTROLLER_SHA256,'Exact frozen native diagnostic controller'
+    if H(image) != PIN:
+        assert program.count(PIN) == 1
+        program = program.replace(PIN, H(image), 1)
+        LuaRuntime().compile(program)
+    return program.encode()
+
+
+def native(raw, installed=None, *, private=None):
     import build_storage_guard_v1 as Storage
     from capture_budget import preflight
     from mesen_session_guard_v1 import require_free_workspace
     from nightly_patch_guard_v1 import check
     from run_mario_luigi_stock_native_1122 import preserve_script
     from run_stdout_mesen_1110 import run
-    program=controller(raw).encode()
-    assert H(program)==PINNED_CONTROLLER_SHA256,'Exact frozen native diagnostic controller'
-    guard=check(ROM);assert guard['ROM_sha256']==PIN and not guard['matching_patch_files']
+    installed = raw if installed is None else installed
+    image = installed if private is None else private
+    program = native_program(raw, image)
+    guard=check(ROM);assert guard['ROM_sha256']==H(installed) and not guard['matching_patch_files']
     target,script=Base.OUT/'candidate.nes',Base.OUT/'controller.lua'
     assert {p.name for p in Base.OUT.iterdir()}=={'candidate.nes','controller.lua'}
-    assert target.read_bytes()==raw
+    assert target.read_bytes()==installed
     Storage.preflight(private_root=Base.OUT,reserved_bytes=0,reserved_files=0,fresh=True)
     preflight(Base.OUT/'capture',reserved_files=0);require_free_workspace(R,ROM,allow_interactive=True)
     previous=H(script.read_bytes())
     try:
-        with preserve_script(script,target,raw)as stage:
-            stage(program);q=run(script,ROM,Base.OUT/'capture',PIN,240)
-        assert q['script_SHA256']==H(program)and q['ROM_SHA256']==PIN
+        with preserve_script(script,target,installed)as stage:
+            stage(program)
+            try:
+                launch = ROM
+                if private is not None:
+                    assert not check(target)['matching_patch_files']
+                    target.write_bytes(private)
+                    launch = target
+                    assert check(launch)['ROM_sha256'] == H(image)
+                q=run(script,launch,Base.OUT/'capture',H(image),240)
+            finally:
+                if private is not None:
+                    target.write_bytes(installed)
+        assert q['script_SHA256']==H(program)and q['ROM_SHA256']==H(image)
         assert q['native_Mesen']and q['shared_Mesen_queue']and q['capture_watchdog']
         assert not q['images']and q['outputs_written']==0
         assert q['receipt_SHA256']==H(json.dumps(q['receipt'],sort_keys=True).encode())
     finally:
-        assert H(script.read_bytes())==previous and target.read_bytes()==raw and ROM.read_bytes()==raw and check(ROM)==guard
+        assert H(script.read_bytes())==previous and target.read_bytes()==installed and ROM.read_bytes()==installed and check(ROM)==guard
     return q
 
 
@@ -271,17 +307,23 @@ def main():
     p=argparse.ArgumentParser(description=__doc__);mode=p.add_mutually_exclusive_group()
     mode.add_argument('--source',action='store_true');mode.add_argument('--run',action='store_true')
     mode.add_argument('--validate',action='store_true');p.add_argument('--limit',type=int,default=13000)
+    p.add_argument('--side-pipe-candidate',action='store_true')
     a=p.parse_args();assert 8000<=a.limit<=15000
-    raw=ROM.read_bytes();assert H(raw)==PIN
-    if a.run:q=native(raw)
+    installed=ROM.read_bytes();raw=installed;private=None
+    if a.side_pipe_candidate:
+        assert not a.source
+        raw,private=side_pipe_candidate(installed)
+    assert H(raw)==PIN
+    if a.run:q=native(raw,installed,private=private)
     else:
         def deny(*args,**kwargs):raise AssertionError('Source Screw test attempted files or process launch')
         with patch.object(Path,'write_bytes',deny),patch.object(Path,'write_text',deny),patch('subprocess.Popen',deny):
             if a.source:q=source(raw,a.limit)
             else:
-                program=controller(raw);assert H(program.encode())==PINNED_CONTROLLER_SHA256
-                q=dict(passed=True,route_executed=False,controller_SHA256=H(program.encode()),outputs=0,native=False)
-    assert ROM.read_bytes()==raw
+                image=installed if private is None else private
+                program=native_program(raw,image)
+                q=dict(passed=True,route_executed=False,controller_SHA256=H(program),ROM_SHA256=H(image),outputs=0,native=False)
+    assert ROM.read_bytes()==installed
     receipt=q.get('receipt',{});gear=receipt.get('natural_Bomb',{})
     print('ROGUE_SCREW_SUMMARY '+json.dumps(dict(passed=q['passed'],reason=receipt.get('reason'),
           controller_SHA256=q.get('script_SHA256',q.get('controller_SHA256')),receipt_SHA256=q.get('receipt_SHA256'),

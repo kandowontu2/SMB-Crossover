@@ -108,4 +108,6 @@ def inverse(raw):
 
 
 if __name__=='__main__':
-    _,q=proposal(M.ROM.read_bytes());print('SONIC AUTH PROPOSAL '+json.dumps(q,separators=(',',':')),flush=True)
+    image = M.ROM.read_bytes()
+    parent = inverse(image) if H(image) == CANDIDATE else image
+    _,q=proposal(parent);print('SONIC AUTH PROPOSAL '+json.dumps(q,separators=(',',':')),flush=True)
