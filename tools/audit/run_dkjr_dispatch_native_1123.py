@@ -273,6 +273,8 @@ def main():
                                 help='Qualify the combined DK Jr. and Sonic dispatcher')
     candidate_mode.add_argument('--public-side-forward', action='store_true',
                                 help='Qualify the DK Jr. bank-33 shortcut on the combined nightly')
+    candidate_mode.add_argument('--fast-side-epoch', action='store_true',
+                                help='Qualify fast authorization for the DK Jr. terrain probes')
     parser.add_argument('--baseline', action='store_true', help='Run only the full-stage replay on the installed nightly')
     parser.add_argument('--cap-trace', action='store_true', help='Record the last staircase position and lift predicates')
     parser.add_argument('--time-cap-approach', action='store_true',
@@ -289,7 +291,7 @@ def main():
     mode.add_argument('--sonic', choices=('sonic', 'super', 'both'), help='Check the combined dispatcher with the retained Sonic full-stage routes')
     mode.add_argument('--mini', action='store_true', help='Compare Mini Mario idle and walking cadence')
     args = parser.parse_args()
-    shared_dispatch = args.combined or args.public_side_forward
+    shared_dispatch = args.combined or args.public_side_forward or args.fast_side_epoch
     if (args.sonic or args.mini) and not shared_dispatch:
         parser.error('--sonic and --mini require a shared dispatcher candidate')
     full_stage_options = (args.baseline or args.cap_trace or args.time_cap_approach
@@ -305,7 +307,12 @@ def main():
         import compose_dkjr_sonic_dispatch_1123 as Combined
         import compose_sonic_current_auth_epoch_1122 as Sonic
         import repair_rogue_side_pipe_1123 as Pipe
-        if args.public_side_forward:
+        if args.fast_side_epoch:
+            import compose_dkjr_public_side_forward_1123 as Side
+            import compose_dkjr_side_epoch_fast_1123 as Fast
+            original = Combined.inverse(Side.inverse(parent))
+            candidate, spans = (parent, []) if args.baseline else Fast.proposal(parent)
+        elif args.public_side_forward:
             import compose_dkjr_public_side_forward_1123 as Side
             original = Combined.inverse(parent)
             candidate, spans = (parent, []) if args.baseline else Side.proposal(parent)

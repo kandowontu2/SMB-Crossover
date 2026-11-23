@@ -297,12 +297,65 @@ standing phase needed 16 fewer video frames. Walking still needed
 32 video frames for 16 updates. The other three results matched the
 prior nightly's cadence.
 
+## Faster authorization for DK Jr.'s terrain probes
+
+Private candidate `3af597a7` reuses the existing epoch check for DK Jr.'s
+four side probes and calls the original terrain routine directly on a hit.
+An epoch or header mismatch still enters the public validation path. The
+adapter preserves X across the fast check so a rejected request returns
+the caller's X. It changes 47 ROM bytes and adds no RAM.
+
+Linked execution saved 605 cycles per side probe and 2,420 cycles per
+game update for DK Jr. The sampled walking update dropped from
+43,736 to 41,316 foreground cycles, with 4,369 logical NMI cycles in
+both runs. The Sonic, Super Sonic and Mini Mario samples had identical
+state and cycle counts. The verifier also exercised 199 native IRQ and
+199 busy-NMI continuations. Linked receipt
+`9f167ca529c096be372027ff95c5555b4a11d218d669f281084cecf6c3b13d6f`.
+
+The Mesen comparison held Right for the same 16 game updates.
+Both runs advanced from X40 to X50. The installed build needed 32
+video frames and the candidate needed 24. The 48 standing updates
+took 72 video frames in both runs. The complete opening sample fell
+from 104 to 96 video frames and from 72 to 64 skipped NMIs.
+
+Candidate Mesen receipt
+`b1f4e616bd425fbc602eaf5502eb94828cd1c6a78df962a9dfce38e925198f15`.
+Controller SHA-256
+`f367dc94cfd375355355fdc75a3cc570b5aaed788b83e028389156b34e4c4c64`.
+
+The full Mesen replay on those bytes cleared 1-1 in 17,631 video
+frames and completed 26 grounded movement returns in 1-2 with both
+lives. The final lift and backward flagpole jump both worked. Full
+stage receipt `a010886cbbad8412a630c7fb505f34f6b65c71e97473f58d703a91a5b34a5aea`.
+
+The Downloads nightly now matches `3af597a7`. The automatic patch
+guards passed before and after replacement. When Mesen launched the
+installed file, DK Jr. matched the private opening receipt exactly.
+Sonic and Super Sonic each took 97 video frames for 64 game updates.
+Mini Mario took 64 frames with zero skipped NMIs. There are no backup
+ROMs from this delivery.
+
+DK Jr.'s Mushroom still needs a passing playtest. From the first lift,
+his head contacts the underside of the brick at X384 and stops the jump
+without triggering a block effect. The later powerup block at X1248 is
+out of reach from the floor with his existing jump. Both observations
+come from linked controller replays against `94fa7a02`. Receipts
+`8c174c814e35571dfad8de57490184993051140dffda1fbc2d2f4e09c55d1ba8`
+and `e3211c07ae4cf0f30092ca278a861e83ddfa745c720c389fb1a224df66f80fcf`.
+The next check is whether an actual underside collision can trigger the
+standard block effect without changing the jump or the stage route.
+
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/dkjr-side-forwarder-1123 --max-files 1 --timeout 600 -- python -B tools/audit/check_dkjr_public_side_forward_1123.py
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 210 -- python -B tools/audit/run_dkjr_dispatch_native_1123.py --public-side-forward --run
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 320 -- python -B tools/audit/run_dkjr_dispatch_native_1123.py --public-side-forward --full-stage --time-cap-approach --center-flag-takeoff --backward-flag-hop --run
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 570 -- python -B tools/audit/run_dkjr_dispatch_native_1123.py --public-side-forward --sonic both --run
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 420 -- python -B tools/audit/install_dkjr_side_forward_1123.py --install
+python -B tools/audit/run_bounded_build_v1.py --output build/dkjr-side-epoch-fast-1123 --max-files 1 --timeout 600 -- python -B tools/audit/check_dkjr_side_epoch_fast_1123.py
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 240 -- python -B tools/audit/run_dkjr_dispatch_native_1123.py --fast-side-epoch --run
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 320 -- python -B tools/audit/run_dkjr_dispatch_native_1123.py --fast-side-epoch --full-stage --time-cap-approach --center-flag-takeoff --backward-flag-hop --run
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 520 -- python -B tools/audit/install_dkjr_side_epoch_fast_1123.py --install
 python -B tools/audit/run_bounded_build_v1.py --output build/dkjr-sonic-combined-dispatch-1123 --max-files 1 --timeout 600 -- python -B tools/audit/check_dkjr_sonic_dispatch_1123.py --interrupts
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 360 -- python -B tools/audit/run_dkjr_dispatch_native_1123.py --combined --run
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 575 -- python -B tools/audit/run_dkjr_dispatch_native_1123.py --combined --full-stage --baseline --cap-trace --run
