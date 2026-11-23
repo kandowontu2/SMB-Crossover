@@ -1,7 +1,7 @@
 # Helper platform inventory — functional pass in progress
 
-The current local nightly is `bcc26bb5`. Donkey Kong Jr.'s Mushroom and
-Flower lifts are listed below.
+The current local nightly is `c6915886`. Donkey Kong Jr.'s four pickup
+lifts are listed below.
 Mini Mario's current fixed1-1 actor25 placements are world left/center/
 initial top **560/576/192, 688/704/192, 864/880/192**, each32 pixels wide.
 The manual Flower-route vertical lift spawns at1203/1219/208, also32 wide.
@@ -14,7 +14,9 @@ no new helper. Older current-ROM statements below are historical.
 | Character | Stage | World left X | Center X | Initial top Y | Collision width | Native actor |
 | --- | --- | ---: | ---: | ---: | ---: | --- |
 | Donkey Kong Jr. (Donkey Kong, Select once) | 1-1 | 336 | 352 | 192 | 32 | `$25` vertical platform |
+| Donkey Kong Jr. (Donkey Kong, Select once) | 1-1 | 1008 | 1024 | 192 | 32 | `$25` vertical platform |
 | Donkey Kong Jr. (Donkey Kong, Select once) | 1-1 | 1264 | 1280 | 192 | 32 | `$25` vertical platform |
+| Donkey Kong Jr. (Donkey Kong, Select once) | 1-1 | 1616 | 1632 | 192 | 32 | `$25` vertical platform |
 
 The lift appears 287 pixels ahead of the camera and supports an ordinary
 jump into the first Mushroom block. It starts its slot search at 4. The
@@ -28,6 +30,12 @@ The Flower lift at X1264 oscillates around top Y176. It appears before
 the camera reaches it and supports the jump onto the X1248 Flower block.
 The combined ROM passed Flower collection and the full 1-1 route into
 1-2, including the existing horizontal lift at X1408. [Flower lift verification](dkjr-flower-lift-native-1123.md)
+
+The hidden 1-UP lift at X1008 and Star lift at X1616 both move around
+top Y176. Each spawned 287 pixels ahead of the camera in the passing
+1-1 run. DK Jr. collected both items and finished each pickup test with
+25 grounded movement updates. The Downloads Star replay matched the
+test ROM replay. [Hidden 1-UP and Star verification](dkjr-flower-lift-native-1123.md#hidden-1-up-and-star-follow-up)
 
 ## November16 current platform qualification
 

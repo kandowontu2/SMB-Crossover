@@ -213,10 +213,12 @@ def prepare(installed):
     return raw,base
 
 
-def controller(raw,base,kind,*,mount_top=150,life_timing='source-passed',star_top=178,star_reboard=False):
+def controller(raw,base,kind,*,mount_top=150,life_timing='source-passed',star_top=178,star_reboard=False,
+               star_helper=1632):
     assert H(raw)==ROM_SHA and kind in(2,3)
     bundle=dict(W.Symbols.bundle(),raw=raw)
-    helper,target,row,tile,side,low,high=(1008,1024,128,96,1039,162,174)if kind==3 else(1632,1616,144,87,1631,star_top,star_top)
+    helper,target,row,tile,side,low,high=(1008,1024,128,96,1039,162,174)if kind==3 else(star_helper,1616,144,87,1631,star_top,star_top)
+    assert star_helper in (1616,1632)
     assert 160<=star_top<=192
     assert life_timing in('source-passed','early161','early160','ascending162','ascending164')
     if kind==3 and life_timing!='source-passed':low=high=int(life_timing[-3:])
@@ -241,6 +243,7 @@ def controller(raw,base,kind,*,mount_top=150,life_timing='source-passed',star_to
             "if ground and released then lpSet('side')end\n  return p<LPC.helper and 1 or 0")
     if kind==3 and life_timing.startswith('ascending'):
         text=Check.Replay.one(text,"LPC.kind==3 and top>prior_top", "LPC.kind==3 and top<prior_top")
+    if kind==3 and life_timing.startswith('ascending') or kind==2 and star_helper==1616:
         text=Check.Replay.one(text,"if ground and released then lpSet('side')end",
             "if ground and released then lpSet('wait-early')end")
         text=Check.Replay.one(text," if LP.phase=='side'then",''' if LP.phase=='wait-early'then
@@ -249,6 +252,9 @@ def controller(raw,base,kind,*,mount_top=150,life_timing='source-passed',star_to
   return 0
  end
  if LP.phase=='side'then''')
+        if kind==2:
+            text=text.replace('Real Life remains above the same lift','Real Star remains above the same lift')
+            text=text.replace('early-Life contact','early Star contact')
     if kind==3 and life_timing!='source-passed' or kind==2 and star_top!=178:
         text=Check.Replay.one(text,"LP.phase=p;LP.since=updates;remember('stock-'..p,currentTop(LPC.helper))",'''LP.phase=p;LP.since=updates;remember('stock-'..p,currentTop(LPC.helper))
  if p=='head'then LP.request={Main=updates,completed_source_returns=LP.returns,top=currentTop(LPC.helper),

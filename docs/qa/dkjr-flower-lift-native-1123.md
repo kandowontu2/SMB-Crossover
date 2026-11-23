@@ -92,11 +92,41 @@ left of the lift and entered the hard-landing state before reaching the
 Star. Receipt `a5ab8edab1e7f133fc38833c53a21e54e728344ec49a759eccd0730820ce25ee`.
 Pressing Right as the Star appeared produced the same receipt. Both
 runs first touched down at X1614/Y176, left of the lift's X1632 edge.
-The Star run needs a way to stay over the lift as the brick bounces.
+
+### Star collection with the lift directly under the block
+
+Test build `c6915886` moves that native lift one tile left. Its left edge
+is X1616, its center is X1632 and its initial top is Y192. It uses the
+native vertical platform motor and oscillates around Y176. DK Jr.'s
+original hard-landing check still governs the exit.
+
+Mesen hit the X1616/Y144 brick from the rising lift and collected the
+Star at player X1631/Y130 while the lift was at Y162. Star protection
+and music started on collection. The game awarded 1,000 points and
+DK Jr. reached X1665/Y176 with two lives and 25 grounded movement
+updates. No captures were written. Receipt
+`1f93a372927ab70c7ea7b5385541a962b939fb12089f8fb4de3b815bf562b81e`.
+
+The same ROM passed the normal hidden 1-UP route. DK Jr. hit X1024/Y128,
+collected the item during emergence, and retained three lives through 25
+grounded movement updates at X1070/Y176. Mesen receipt
+`df8b083336e753422887712d728b56a2a81e83974247b7e3d231b00541cf9589`.
+
+The above-ground 1-1 run recorded both lifts entering the level 287
+pixels ahead of the camera. DK Jr. finished the flag sequence with both
+lives and completed 25 grounded updates in 1-2. The run took 18,059 video
+frames and wrote no captures. Mesen receipt
+`c0e399e79b1ca7e0501af44e91ff0eb9855cb7aca3bc8b4834a2e72f61f73f46`.
+
+Mesen repeated the Star pickup from Downloads on the same `c6915886`
+ROM. The receipt matched the test run exactly. Both patch guards passed.
+The hidden 1-UP and Star join the previously verified Mushroom and Fire
+Flower as completed 1-1 pickup tests.
 
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 600 -- python -B tools/audit/run_dkjr_flower_draw_native_1123.py --run
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 600 -- python -B tools/audit/install_dkjr_flower_draw_1123.py
 python -B tools/audit/run_bounded_build_v1.py --output build/dkjr-life-star-source-1123 --max-files 8 --timeout 600 -- python -B tools/audit/probe_dkjr_life_star_1123.py --kind star --limit 5200
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 8 --timeout 560 -- python -B tools/audit/compose_dkjr_shinobi_1123.py --run star --star-top 180
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 8 --timeout 560 -- python -B tools/audit/compose_dkjr_shinobi_1123.py --run star --star-under
 ```
