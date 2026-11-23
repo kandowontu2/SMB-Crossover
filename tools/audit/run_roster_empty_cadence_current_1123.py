@@ -12,6 +12,14 @@ import run_roster_empty_cadence_1122 as Previous
 
 
 def reference(raw):
+    import compose_prince_epoch_current_1123 as Epoch
+    import compose_prince_side_current_1123 as Side
+
+    observed = raw
+    if Previous.Timing.H(raw) == Side.CORRECTED:
+        raw = Side.inverse(raw)
+    if Previous.Timing.H(raw) == Epoch.PARENT:
+        raw = Epoch.Reach.recover_parent(raw)
     assert Previous.Timing.H(raw) == Mega.CANDIDATE
     # The older inverses call their own reference resolver during validation.
     with patch.object(Previous, 'cadence_reference', OLD_REFERENCE):
@@ -27,7 +35,7 @@ def reference(raw):
     # Verify their instruction bytes against the observer's original image.
     for pc in (0x82D9, 0x82BE, 0x82D0):
         offset = 16 + 126 * 8192 + (pc & 8191)
-        assert raw[offset:offset + 16] == baseline[offset:offset + 16]
+        assert observed[offset:offset + 16] == baseline[offset:offset + 16]
     return baseline
 
 

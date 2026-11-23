@@ -112,3 +112,58 @@ Linked CPU receipt `c1be1ac5780251632446de896306f462ab42218f48dab1e94ba623209b78
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/prince-empty-current-1123 --max-files 1 --timeout 300 -- python -B tools/audit/profile_prince_empty_current_1123.py
 ```
+
+## Shared sprite scan on the current nightly
+
+The installed `c85cde8f` and the private renderer trial `53962dab` ran
+the same 48 idle and 16 Right updates from the normal menu in Easy 1-1.
+All enemy slots stayed empty. Both versions reached the same walking
+endpoint for each character. The runs saved no captures.
+
+| Character | Video frames, installed → trial | Frames with no game update, installed → trial | Skipped NMIs, installed → trial |
+| --- | ---: | ---: | ---: |
+| Donkey Kong | 64 → 64 | 30 → 14 | 30 → 9 |
+| Bass | 64 → 64 | 29 → 28 | 29 → 28 |
+| Steve Hermann | 66 → 64 | 31 → 32 | 34 → 32 |
+| Mini Mario | 64 → 64 | 0 → 0 | 0 → 0 |
+
+| Character | Installed Mesen receipt | Trial Mesen receipt |
+| --- | --- | --- |
+| Donkey Kong | `cce0f0726b41d8a73a7a6b8296a07227c08f0c1c2ef6c89ef0de538075f6ec42` | `2954624661621d8be0cb22b0caf658613fb86ca69e349ada08fa868f44046b8c` |
+| Bass | `6ea9c3b12361068318d8fd0a804498a1f8ffddc4b23295df86156f930f6f0eb7` | `b4264e0b7b6ac8b29a8bf05d9e74465d3419c07472d4323f1b5fe789ba517588` |
+| Steve Hermann | `c6765013ba5d5de345315e7ab20fa17527fff6996b18b935d0721f8ebb9797e7` | `7d3d789cc4b43524e47891ae7f5e168bd89887e9d48317c5815b5ae67848fa99` |
+| Mini Mario | `b429b0fe7c4cbcd3cc238ca19b9767ec61ae434a7ae89bf8f995849383b341a8` | `b80bfeda4b9fdff05ecb07d8f834ccfb1981cc1b08f400640e5c9d48ed489deb` |
+
+Bass and Donkey Kong spent about 803 CPU cycles on the shuffled world
+sprite pass in the empty opening. The trial checks the sprite slots and
+enemy IDs in groups. If any slot may draw, the original shuffled loop
+runs. Mini Mario reaches a separate loop with its own Goomba renderer.
+That loop uses the same empty check and keeps its own populated path.
+
+The earlier `06610edf` benchmark saved roughly 467 cycles per empty
+game update and cut Donkey Kong's no-update frames to 12. It used space
+in the Castlevania audio mirror and was rejected for delivery. The new
+trial fits in the renderer bank. It frees room by grouping writes that
+hide unused sprites. The test verified the exact write order and
+registers for all 64 aligned tail offsets and 256 full-clear inputs.
+
+Six characters matched in 312 linked idle, walking, jumping and landing
+updates. The new trial saved about 328 cycles for Donkey Kong, Bass and
+Steve Hermann and about 330 for Mini Mario in those empty samples.
+The linked suite exercised 235 IRQ and 235 busy NMI returns. The 1,488
+sprite-scan cases included both frame parities and all 24 shuffle starts.
+Sixteen additional fixtures compared the two compiled draw loops with live
+world actors. Twelve produced identical ordered OAM writes for firebars
+or small lifts. Four matched the original culled firebar outcome.
+
+The compact clear adds work on populated frames, including up to 240
+cycles in the tested fallback checks before the additional clear cost.
+Heavy scenes still need native comparison before this change is ready
+for Downloads. Steve's overall timing improved by two frames, but he
+still missed an update on half of the video frames. The installed
+nightly remains `c85cde8f`.
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/roster-empty-draw-1123 --max-files 1 --timeout 430 -- python -B tools/audit/check_sparse_sprite_scan_1123.py 'DONKEY KONG' 'BASS' 'STEVE HERMANN' 'MINI MARIO' 'MARIO' 'SAMUS ARAN' --matrix --interrupts
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 8 --timeout 550 -- python -B tools/audit/run_sparse_sprite_scan_native_1123.py 'MINI MARIO' 'DONKEY KONG' 'BASS' 'STEVE HERMANN'
+```
