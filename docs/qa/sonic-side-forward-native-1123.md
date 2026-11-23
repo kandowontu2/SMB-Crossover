@@ -26,7 +26,8 @@ Each run used ordinary controls from character select and measured 48
 standing and 16 walking updates without enemies. Both characters reached
 X47 at the end of the measured walking phase with two lives. The candidate
 saved one video frame per sample and substantial standing and walking lag
-remains. The Mesen runs saved zero captures. Downloads remains `ffd70810`.
+remains. The Mesen runs saved zero captures. They used `ffd70810` as the
+installed comparison build.
 
 ## Side-query batch measurement
 
@@ -41,6 +42,19 @@ per form, including 36 native side-effect calls each. The live game maps C3
 at this entry, so a real bridge still needs guarded bank switching and
 interrupt qualification. A region of zeros examined for that bridge is an
 active metatile attribute table.
+
+The later `27e01af3` linked check tested the existing MMC5 bank C switch
+at 18 interruption points in both directions between RAM banks 2 and 3.
+IRQ, busy NMI and nested IRQ preserved the CPU registers, active stack,
+far-call scratch, private RAM and final bank mappings. Receipt
+`a369d20d501b76eb1a41dcb500dbde3191f7a3fd7e6bd1d861d7bc742fd76b0e`.
+
+The side-loop entry at `$9C6E` has PRG bank `$94` mapped in the `$A000`
+window, so a direct jump would miss the spare space in PRG bank 33. The
+existing first query already reaches that bank. Batching through it needs
+to restore the original mapping on both worker exits and resume at the
+correct caller address for contact or no contact. The measured 4,475 cycles
+exclude this bridge work. `27e01af3` ships the shared draw update.
 
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/sonic-side-current-leaf-1123 --max-files 1 --timeout 300 -- python -B tools/audit/probe_sonic_batched_side_current_1123.py
