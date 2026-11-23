@@ -1,0 +1,89 @@
+# Shared projectile draw timing
+
+The installed MMC5 nightly `ffd70810` uses five character dispatchers before
+the common projectile renderer. A linked CPU trace from Bass's normal 1-1
+opening measured 6,277 cycles for the complete sprite draw while standing
+and 6,087 while walking. The shared projectile dispatch accounted for about
+1,261 of the standing cycles, including its render work. The main loop also
+runs other work during this window.
+
+The private `609ebde6` trial took a shorter path for Bass and high roster
+IDs. Roll returns directly when his alternate is selected. The other IDs
+still run the original dispatchers, including Zelda II Link's special draw
+rule. The new routine uses 39 bytes of padding following the Rush call's
+return. It leaves Rush, the adjacent shot pose and the renderer intact.
+
+The paired linked CPU test matched native and guest RAM, OAM, VRAM, mapper
+state and the live caller stack across 36 normal updates per character.
+The paired tests also measured the same normal NMI cost.
+
+| Character | Main cycles saved per update |
+| --- | ---: |
+| Bass | 447 |
+| Donkey Kong | 451 |
+| Mini Mario | 0 |
+| Roll | 11 |
+| Zelda II Link | −87 |
+
+The `−87` means Zelda II Link's fallback uses 87 extra cycles. The proof
+covers the empty opening through the ordinary character menu. Source receipt
+`25695b767f91e7062237268bda1cea483485529593a8a6abb0a4fe042998076e`.
+
+Mesen measured the following counts across the same 64 game updates.
+Zero-update and double-update video frames measure uneven timing that the
+average can hide. No enemies or captures were present.
+
+| Character | Installed frames with 0 / 1 / 2 updates | Private frames with 0 / 1 / 2 updates | Private receipt SHA-256 |
+| --- | ---: | ---: | --- |
+| Bass | 31 / 2 / 31 | 29 / 6 / 29 | `88da199e2b0a398a0d1b98c4a4a3899fa7be523564d597fc82e394d7c742fba0` |
+| Donkey Kong | 32 / 0 / 32 | 27 / 10 / 27 | `0afd911078384d3627fc16a1af647e42bc7c40366ce8bd7616a748ab0e8a015e` |
+| Mini Mario | 0 / 64 / 0 | 0 / 64 / 0 | `36095f520a5492ef764c5e0308c61776c715f7099d7fe420ce2b82905cbb3dd1` |
+| Roll | 0 / 64 / 0 | 0 / 64 / 0 | `309aa5495e857b0861ce71f2c3b001876189095a5b77f7f5a33529b2eac3fd0c` |
+| Zelda II Link | 20 / 24 / 20 | 32 / 2 / 31 | `0c930eb2a2fe1e50bce0464470367bec28ff3285a22156f3d27dec5f39905547` |
+
+The Zelda II Link run regressed from 64 to 65 video frames and went from 20
+to 32 skipped NMIs. This trial was rejected for delivery. His installed
+receipt is `abca297264083463a5e1168edd706f3790486c7e3a34725653bab05db9f22d50`.
+Roll's installed receipt is
+`ea16aacb69f80d3745594c1d01fa72de3f07750065913159ebad91ec23750b78`.
+
+## Direct dispatch test `27e01af3`
+
+The revised private test fits all five exceptions into 42 bytes in the
+same padding. Roll, Mike and SMB3 return before the shared renderer. The
+turtles still clear the shared CHR flag. Zelda II Link still bypasses the
+shared renderer for his alternate. Every other owner uses the same
+projectile renderer as before.
+
+The linked CPU comparisons passed 36 normal updates each for nine
+characters. The saved cycles per update were 442 for Bass, 438 for Donkey
+Kong, 375 for Zelda II Link, 283 for Leonardo, 184 for SMB3 Mario, 87 for Mike
+Jones, 445 for Link, eight for Roll and zero for Mini Mario. Receipt
+`b2fee945150e44fac943b1285e7f2c0cd08d03bb1e7f931f2d75b5bccd5d210e`.
+The actual IRQ and busy-NMI handlers returned safely at 27 reached caller
+and helper instructions each, receipt
+`a2acd42ee989e1908771d768e559133bfbb3e35db36396620bc41694bbee68e2`.
+Five paired 72-update controller tests using B, Right and jumps matched the
+same gameplay, OAM and PPU state throughout. In the Bass test the live
+projectile pool held a shot in all 72 compared updates. Receipt
+`8c7b6e5cf0893a02a4f0bf09b5e46fca52d1cc6f4c1cc723ce9adffdb7dc70ca`.
+
+Each private Mesen run completed 64 game updates in 64 video frames. Zelda
+II Link improved from 20 to 11 frames without a game update and 20 to six
+skipped NMIs. Bass and Donkey Kong each improved by two zero-update frames.
+
+| Character | Private frames with 0 / 1 / 2 updates | Private skipped NMIs | Private receipt SHA-256 |
+| --- | ---: | ---: | --- |
+| Zelda II Link | 11 / 42 / 11 | 6 | `4189d79b06754bdc1e3cc6922783eee257e86577a70d3d7b966b371b81b29d5a` |
+| Bass | 29 / 6 / 29 | 29 | `536e015ca53177e949c058084415c458e223663c7a6bb1eca687f6643d4c423f` |
+| Donkey Kong | 30 / 4 / 30 | 30 | `64725848b8e9cc36234440888e2ac1e43413c24b0d36cb74623510239f012adf` |
+| Mini Mario | 0 / 64 / 0 | 0 | `67cedb4f97e594fdb3afc4eb09743efbc952bebadf6fae051a2421dbcf92d600` |
+| Roll | 0 / 64 / 0 | 0 | `dd7eee33fd276699bdbd78117fe883d93c9bf01156ca6cc1e637041db485ff1d` |
+
+The private candidate still needs representative live combat and full-stage
+tests before replacing Downloads.
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/shared-special-draw-1123 --max-files 1 --timeout 520 -- python -B tools/audit/probe_special_draw_routing_1123.py 'ZELDA II LINK' 'LEONARDO' 'MIKE JONES' 'SMB3 MARIO' 'BASS' 'DONKEY KONG' 'MINI MARIO' 'ROLL' 'LINK'
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 360 -- python -B tools/audit/probe_special_draw_routing_1123.py --native 'ZELDA II LINK' 'BASS' 'DONKEY KONG' 'MINI MARIO' 'ROLL'
+```
