@@ -162,6 +162,35 @@ play, Raccoon flight and Frog swimming still need playtests.
 | Peach | Frog | 1,587 | `fa8e13404c4c09766c5382c6a21286668a170be0b1bb932258a11691428baed2` | `b260234e5f10a616b94269d6344e499fb981ed98102473d30064a50fc02cbd6e` |
 | Peach | Hammer | 1,572 | `7d78e07ac86323592115da9fd55c7c13f2c3621008049a9698bf394f409c9859` | `0ca39d32c583da065d0ce2f77d094d17ff54c10d2683c59edbd4d6889681d7db` |
 
+## Frog Suit through 2-1 and into 2-2
+
+On the `28708fa9` ROM, the linked engine replay earned the Mushroom and
+Frog Suit from normal 2-1 blocks at X256 and X848. Toad and Peach
+crossed the three gaps, reached the spring, cleared the flag and castle,
+and entered 2-2 with the suit and two lives. Each completed 428 native
+swimming updates across 17 input segments. The last 25 were neutral,
+ending at X113/Y113 with both velocities zero.
+
+| Character | Linked replay final epoch | Controller SHA-256 |
+| --- | ---: | --- |
+| Toad | 5,400 | `7dade7aa336dd716e38bbf9b59512c4d665cf5ed5f9004612cf1111b011be71a` |
+| Peach | 5,404 | `e462ba074f0e85fefe950ec91dbca22dbf3ef15550a7a2c69d7463b644761004` |
+
+Toad's first continuous Mesen run from Downloads collected both items.
+During the landing at X1607/Y176, a live Goomba at X1616/Y184 hit him.
+The Frog Suit reverted to Super form after the hit. The run stopped before
+the first water entrance, at video frame 2,738. The Mesen receipt is
+`0099b5bc05f8238c3412e0ed3936a2692d6b91daea0c6a6f8cc1b37a069e63a4`.
+The approach needs a separate enemy check before the landing. The linked
+results establish the swimming behavior with the earned suit. The full
+route in Mesen remains open for both characters. The runs wrote zero captures.
+
+To reproduce the recorded linked route, choose `toad3` or `peach3`.
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/smb3-frog-source-1123 --max-files 1 --timeout 600 -- python -B tools/audit/replay_smb3_frog_water_1123.py --pipe-nightly --frozen-pipe-approach --cpu-full --form toad3
+```
+
 ## Mario and Luigi's standard pickups
 
 Each brother collected all four standard powerups in the November 22
