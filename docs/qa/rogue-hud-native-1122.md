@@ -117,3 +117,25 @@ remaining. The run took 9,069 physical frames and created no captures.
 
 - Receipt `c60c4b6aa9dd3004254b4a8870212a46df74b05bee05de26038f3a451d98ab03`
 - Controller `5b608700704e84387e772e6272b6f77d40884585980c68c0505e49040e9d6ba4`
+
+### Route to the Screw Attack upgrade
+
+The controller-only diagnostic reached High Jump and crossed the first
+long gap of 1-2 from the Downloads nightly `59e1a591`. Rogue Dawn jumped
+from X1275/Y177 and reached Y69 near X1326. The later approach fell at
+X1940/Y241 on update 7,148, before the descending lift at X2236. The
+replay stopped when the fall cleared her health. The next attempt needs
+a different approach to the gap at X1940.
+
+A linked CPU replay reached the descending lift after landing from the
+earned High Jump. Its jump from X2196/Y113 aimed for the lift at X2236/Y128
+and missed. Those two replays establish separate points where the controls
+need adjustment. The Screw Attack pickup and its hit are still open.
+
+The [controller runner](../../tools/audit/run_rogue_screw_native_1122.py)
+uses the existing two-file test slot and launches the Downloads ROM. Both
+tests produced zero capture files.
+
+- Native receipt `f01321f9eaf48649693ab925c8e664c0e3a8e9f5de605269f29ae2f05b19b72c`
+- Controller `9ae88510c8f72f34d5d3127d9159237459c9e4cc28999d6cc18e7eef1dbc3f94`
+- Linked CPU receipt `bdd24e44267d78100a028127b0a731a920ef53944c2a0d767be5fe16eb153355`
