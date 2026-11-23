@@ -446,3 +446,85 @@ rendering callbacks. Karnov's pause callback checks the prior frame
 before movement advances the frame counter. The first movement call
 then precedes the repeated terrain work. A shortcut needs to preserve
 the complete first check and both owner-bank identities.
+
+### Karnov's repeated checks and side probes
+
+The first trial runs the complete two-bank check at pause and at the
+first movement call. Later calls in the same game update check the
+first four bytes of both headers. The loader clears the private stamp,
+and a zero or expired stamp forces both complete checks. This saved
+3,545 foreground CPU cycles per ordinary standing or walking update.
+
+A second trial also routes four side probes into Karnov's existing
+authenticated terrain entry. It saved 4,893 foreground cycles per
+ordinary update. In a standing sample, foreground cost fell from
+40,249 to 35,356 cycles, with another 4,560 cycles in the logical NMI.
+Three requests (`$1B`, `$24`, `$27`) each take roughly 750 cycles to
+return a constant result. The four side probes still spend around
+4,836 cycles in all, including their callers.
+
+The linked comparisons covered 117 Karnov updates and 41 Rygar
+updates, including jumps, landings and movement in both directions.
+Each variation passed 96 bad-header controls, 218 IRQ returns and
+218 busy NMI returns. In the combined trial, Donkey Kong and Little
+Mac each matched 41 linked updates and completed 64 ordinary game
+updates in 64 video frames in Mesen.
+
+| Karnov Mesen sample | ROM | Video frames for game updates | Frames without an update | Skipped NMIs | Receipt SHA-256 |
+| --- | --- | ---: | ---: | ---: | --- |
+| Installed empty opening | `2f1e4b8d` | 96 for 64 | 32 | 64 | `68893edbb465c4e3a5224f27bde5371bef219622292eff52349b8a00502fa5bd` |
+| Short checks, empty opening | `a2a89f2a` | 96 for 64 | 32 | 64 | `ffe2f8b30a2618a4b801141c3a67a62f347e40c37bce1e983aeba3ecb4c917c4` |
+| Combined trial, empty opening | `cb6fcb50` | 96 for 64 | 32 | 64 | `40688d7d3caaeef83951614d8c4c52f90e05d8fb3253c5f534c11b0ce4b23552` |
+| Installed, first Goomba visible | `2f1e4b8d` | 72 for 48 | 24 | 48 | `f2bc71a3650cd625a2df0764d9f49e35f6447aa9110ca328712f01fa77943fad` |
+| Combined trial, first Goomba visible | `cb6fcb50` | 72 for 48 | 24 | 48 | `034b0ca648d8ddd9a7fd9541476d4745abcebc685949978cd8f7dffe5fce1633` |
+
+Both first-Goomba samples completed 24 sprite draws. The combined
+trial used 1,737,114 inclusive CPU cycles over 48 updates, compared
+with 1,964,274 on Downloads. Both had the same frame pacing and
+sprite draw count.
+
+The Star route took 4,070 video frames on `cb6fcb50` and 4,660 on
+`2f1e4b8d`, a 590-frame reduction. Both finished with the same 2,378
+movement updates, head-bump positions, landing position, health,
+equipment, and lives. Karnov hit both
+authored reward blocks, earned his shot from the Mushroom, collected
+the Star with its invincibility and music, and landed at X1668/Y176
+with both lives. He completed 2,378 movement updates, including 61
+after the Star pickup. The route used the existing pipe platforms at
+left X688 and X872, centers X704 and X888, initial top Y208.
+
+| Star replay | Controller SHA-256 | Mesen receipt SHA-256 |
+| --- | --- | --- |
+| Installed at the start of the test | `c62f1a0908b3fce089baf896b35c96ca4c558f5e8c1409f36f06a4087d6e7bd8` | `b9ba6cf8991f35c3573f4ccc62e173f00d6edb00fc43f6669a38d80b220f17ea` |
+| Side and cache trial | `6ce96ef4bb9b0e7d5e8dc9f1556c0b895f739ff25f8e59513770d0b10fe4e290` | `95855cdc3c94d5591a1b20374c552191a2fbb599405373dc60fdc63602419b3c` |
+
+The full route continued after the Star pickup. Karnov cleared the
+late gap, reached the flagpole at X3161 and walked into the castle.
+He kept both lives and his shot through 25 grounded movement updates
+in 1-2. The run took 8,615 video frames. The controller SHA-256 is
+`b96799d7586aa266ccdc97e9ae82fa992a5034fb977e9811ba91c5e5cc399b32`.
+The Mesen receipt SHA-256 is
+`7c0a73e50bf217efef13bd1be3da6bd53fce008a7058012827c72fddfcd1bdbb`.
+The directly replaced Downloads nightly `cb6fcb50` produced the
+same controller and Mesen receipt. Its installed bytes matched the
+tested candidate, and both automatic patch checks passed.
+
+### Native block-buffer worker comparison
+
+The native side probe already contains Karnov's standing side offsets.
+The Mega Man slide rows contain his crouching side offsets. In linked
+tests, the native worker produced the same metatile, flags and shared
+scratch in 86,528 in-bounds cases after accounting for the translated
+crouch probe index. The cases cover all vertical byte positions,
+both crouch states, page boundaries and the four side probes. Outside
+the valid vertical range, Karnov returns an empty tile and leaves the
+row and fraction scratch alone. The unguarded native worker returned
+a nonzero tile in 17,664 of 19,968 out-of-range cases. A direct path
+would need that guard, the original probe index on return, and an
+admission check for Karnov's active gameplay.
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/karnov-native-side-fixtures-1123 --max-files 1 --timeout 240 -- python -B tools/audit/check_karnov_native_side_1123.py
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 8 --timeout 460 -- python -B tools/audit/run_karnov_side_pickup_1123.py --installed
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 8 --timeout 570 -- python -B tools/audit/run_karnov_side_stage_1123.py --installed
+```
