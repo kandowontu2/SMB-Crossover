@@ -187,3 +187,21 @@ The corrected controller passed in private Mesen with the same movement
 and all 25 game loop, control step, dispatch and movement returns. It
 ran 12,770 video frames and wrote zero captures. The verified receipt is
 `a1b28f926ba78c15ea3eb365352b4d36281eb4e37658b79bbcc3d93ff37cb3fe`.
+
+The same Mesen controller passed from the installed Downloads ROM and
+matched that receipt exactly. Rogue Dawn entered the exterior at
+X2872/Y144 and reached X2896/Y87 during the staircase jump. All
+25 updates preserved her health, gear, five missiles and two lives.
+The installed ROM and the test slot matched byte for byte. The patch
+guard passed before and after replacement. No backup or captures were
+created. The exact installed ROM is
+`28708fa9a4e7dd88f1aaa72653b7d5a6ba0fb3c6d5abf544a526b09d333a884c`.
+
+The longer linked replay passed the stairs and castle, then entered
+1-3 at X40/Y176 with full health, Wall Jump and two lives. Its first
+jump over the tree platforms launched at about X238 and overshot the
+first landing. Rogue Dawn fell at X381 before reaching Screw Attack.
+The next controller needs to land on the tree from X288 to X351, with
+its top at Y192, before jumping again. The longer route still needs a
+full Mesen run. Its linked receipt is
+`ca490d003777f2e67c99a35abcca7bc47b61a401ca47712d27c3ea78e2e60d65`.
