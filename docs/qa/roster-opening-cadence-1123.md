@@ -342,3 +342,67 @@ python -B tools/audit/run_bounded_build_v1.py --output build/dkjr-scene-hot-1123
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 8 --timeout 600 -- python -B tools/audit/run_dkjr_scene_hot_native_1123.py empty
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 8 --timeout 600 -- python -B tools/audit/run_dkjr_scene_hot_native_1123.py goomba
 ```
+
+### Donkey Kong Jr. constant service calls
+
+Two linked CPU trials ran the same native dispatcher and compared the
+four fixed-result services against the installed `2f1e4b8d` MMC5 build.
+The first returned directly after the existing owner check and saved
+68 CPU cycles across an ordinary update. The second intercepted the
+same four services before the costly stack and bank wrapper. It called
+the existing owner and update-stamp check and then returned the same
+A, X, Y and flags as the original services. It saved **1,782 CPU cycles** per ordinary standing,
+walking or jumping update.
+
+The early trial matched the installed movement, PPU and mapper state
+across 105 linked updates and used the shortcut 416 times. It used
+the ordinary dispatcher when the update counter wrapped to zero.
+The 16 directed controls also fell back for an expired stamp, either
+invalid owner header or Quick Man. The actual IRQ and busy NMI handlers
+each returned transparently at 181 reached instruction boundaries.
+
+The linked tests supplied the 110-byte routine directly to instruction
+fetches. A separate Mesen trial combined it with the scene update trial
+in a temporary ROM. The control recorded zero reads or instruction
+fetches from the temporary address range. Mesen reached the
+shortcut 276 times, including startup. Both versions ended the same
+64 game updates at X50/Y176 and needed 96 video frames, with 32 frames
+without a game update and 64 skipped NMIs. The combined trial saved
+117,480 CPU cycles across the 48 standing updates and 57,592 across the
+16 walking updates. This was a timing experiment. The temporary ROM
+was removed from the emulator slot after the run.
+
+| Mesen sample | ROM | Receipt SHA-256 |
+| --- | --- | --- |
+| Installed control | `2f1e4b8d` | `5309dc9322bd45ce9104480b91307c23012ea06f21428d76372bcfe31ca2e000` |
+| Combined trial | `a12df7e6` | `19ece5fd20907209d31e972a8cecc7932b5672236b911218c352033ac764111c` |
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/dkjr-service-early-1123 --max-files 1 --timeout 600 -- python -B tools/audit/check_dkjr_constant_service_trial_1123.py --early
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 8 --timeout 600 -- python -B tools/audit/probe_dkjr_constant_service_native_1123.py
+```
+
+## Six more characters on Downloads 2f1e4b8d
+
+Mesen observed the standard 48 standing and 16 Right updates through
+the actual character menu in Easy 1-1. Each character moved right,
+kept both lives, and had no active enemies throughout the sample.
+
+| Character | Video frames | Frames with 0 / 1 / 2 updates | Skipped NMIs | Mesen receipt SHA-256 |
+| --- | ---: | ---: | ---: | --- |
+| Kirby | 64 | 4 / 56 / 4 | 3 | `9e5aa0beff0709449528808acb40074343aaeade16ec5ca0976f23edef773b9d` |
+| Meta Knight | 64 | 2 / 60 / 2 | 2 | `931e8dfebb38db6887cc1ebd523459b87cff88348f4481207cfcb2da6ef79572` |
+| Leonardo | 64 | 0 / 64 / 0 | 0 | `99c1e7dce1b2a94f00dbd9c9e09208d3dfced5b38e98933355050d4999541d2f` |
+| Donatello | 64 | 0 / 64 / 0 | 0 | `e3f658309aa391dc1f1c5c8910a5a46166f15eba6e5b92e942ebe5a7a54b73b2` |
+| Arthur | 96 | 32 / 64 / 0 | 64 | `de6c293ca26c71b2611376a2ff2e9dfa307b3694d9aa6cd5a632ead6fe4b8f03` |
+| Karnov | 96 | 32 / 64 / 0 | 64 | `68893edbb465c4e3a5224f27bde5371bef219622292eff52349b8a00502fa5bd` |
+
+Arthur's linked trace on the same build attributed about 5,052 CPU cycles
+per game update to four native side collision calls. They pass through
+the generic character dispatch to Arthur's existing side routine. An
+earlier dispatch to that same routine is a candidate for reducing the
+overhead while preserving terrain and exit handling.
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 8 --timeout 600 -- python -B tools/audit/run_roster_empty_cadence_current_1123.py KIRBY 'META KNIGHT' LEONARDO DONATELLO ARTHUR KARNOV
+```
