@@ -205,3 +205,21 @@ The next controller needs to land on the tree from X288 to X351, with
 its top at Y192, before jumping again. The longer route still needs a
 full Mesen run. Its linked receipt is
 `ca490d003777f2e67c99a35abcca7bc47b61a401ca47712d27c3ea78e2e60d65`.
+
+### The first two trees in 1-3
+
+The revised route brakes over the first tree before jumping toward the
+lower left section of the second. On the Downloads nightly `28708fa9`,
+Mesen reached 1-3 at X40/Y176 and landed at X313/Y161 and X393/Y113.
+The original collision routine stopped descent at canopy tops Y192
+and Y144. The replay then completed 25 game updates on the second
+tree with full health, the earned upgrades, five missiles and two
+lives. The linked CPU replay also passed both landings. Screw Attack
+still needs to be collected and used against an enemy.
+
+- Mesen receipt `0d4839b87be509c8f8ff3a68a01e7985076cfa9dc0da7775ecd87249b58ca36e`, 14,522 video frames, zero captures.
+- Linked receipt `29f15e14403b2f963094008a22002add44cdd340b0fcad9796d2aaa70d63c4e0`.
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 600 -- python -B tools/audit/run_rogue_screw_trees_native_1123.py --run --trees-only
+```
