@@ -43,6 +43,15 @@ jump also fell short, and he kept both lives through 25 more grounded
 updates. Receipt `0b13cbd47742f2d91e638d72bdfb6d0f9b74048f1ee746df7e9ac912237f97c1`.
 Both pickup checks remain open.
 
+Mesen also cleared 1-1 on a private build with two additional lifts.
+The native vertical platforms had left edges at X1008 and X1632, with
+centers X1024 and X1648. Both started at top Y192
+and moved around Y176. Each spawned 287 pixels ahead of the camera. The
+existing gap platforms still worked, and DK Jr. reached 1-2 with both
+lives and 25 grounded movement updates. This run verified the level route.
+The two pickup runs are still pending. The lifts are private.
+Mesen receipt `e5c110217da4b6e3b3ec9b4f56a594a299ce53a4b457734f36cc51b1ce1f1f0c`.
+
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 600 -- python -B tools/audit/run_dkjr_flower_draw_native_1123.py --run
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 600 -- python -B tools/audit/install_dkjr_flower_draw_1123.py
