@@ -3,6 +3,8 @@
 import argparse
 from functools import lru_cache
 import json
+from pathlib import Path
+from unittest.mock import patch
 
 from check_ff_stdout_controller_source_1110 import LuaRuntime
 from compose_dkjr_sonic_dispatch_1123 import CANDIDATE as COMBINED_NIGHTLY
@@ -20,9 +22,94 @@ CONTRA = {'bill': (0, 'BILL RIZER'), 'lance': (1, 'LANCE BEAN')}
 ROUTES = {'upgrades': (0, 1), 'life': (0, 3), 'star': (0, 2)}
 W, N = Linked.W, Linked.N
 
+BILL_PINS = {'upgrades':'39938db02846524dec7b240a7ea18aefbb75b1e0d50a70b2168433c64d4fd48e',
+             'life':'c9ecb1b68cf4048683db66e98f49b8cb3f770f0f7fb675851c0d94eb16cf733d',
+             'star':'1e8e91e0a3b38131d66e9feab2c630afe90b9b5d63ab4c3f3df4464fc6893475'}
+LANCE_LEGACY_PINS = {'upgrades':'db9a4bbba0647162dba0418645e01e46c31fc98d680bc1f6c76a24be9b24eada',
+                     'life':'7f7e85fd9b0498c39ef7a33d5b20bd22eba271120ed0b88cbe63b1de73307062',
+                     'star':'9b2ac8c2836dec11c0a2b9476878dc4100ddc93d804e7f9674dc364b7c4335b6'}
+
+LANCE_LANDING = r'''
+local lancePipe
+local function lanceState(c)
+ return{x=c.x,y=c.y,yHigh=c.yHigh,state=c.state,vx=c.vx,vy=c.vy,update=c.update,
+        power=c.status,facing=c.r('PlayerFacingDir'),previous=c.r('PreviousA_B_Buttons'),
+        input=c.r('SavedJoypadBits'),crouch=c.r('RgCrouch'),aim=c.r('RgAim')}
+end
+local function lanceActor(c,i)
+ return{slot=i,id=c.r('Enemy_ID',i),flag=c.r('Enemy_Flag',i),state=c.r('Enemy_State',i),
+        x=c.r('Enemy_X_Position',i)+256*c.r('Enemy_PageLoc',i),y=c.r('Enemy_Y_Position',i),
+        yHigh=c.r('Enemy_Y_HighPos',i),vx=c.r('Enemy_X_Speed',i)}
+end
+local function lanceFloorEnemy(c)
+ local nearest
+ for i=0,5 do
+  local e=lanceActor(c,i);local dx=e.x-c.x
+  if e.flag==1 and e.id==6 and e.state==0 and e.yHigh==1 and e.y>=168 and e.y<=192
+     and dx>=0 and dx<=160 and(not nearest or dx<nearest.x-c.x)then nearest=e end
+ end
+ return nearest
+end
+local function lancePipeLanding(c)
+ if c.world~=0 or c.level~=0 or c.status==0 then return end
+ if not lancePipe then
+  if c.x<784 or c.x>=836 or c.grounded then return end
+  lancePipe={phase='air',started=c.update,target=lanceFloorEnemy(c),entry=lanceState(c),tail={}}
+  ROBOT_STOCK_STATE.lance_pipe=lancePipe
+ end
+ local f=lancePipe
+ if f.complete then return end
+ assert(c.update-f.started<180 and c.yHigh==1 and c.x>=772 and c.x<=816,
+        'Bounded ordinary left landing before the fourth-pipe ground threat')
+ if c.update%4==0 then
+  if #f.tail==16 then table.remove(f.tail,1)end
+  f.tail[#f.tail+1]={player=lanceState(c),enemy=f.target and lanceActor(c,f.target.slot)}
+ end
+ if f.phase=='air'then
+  if not c.grounded then
+   -- Airborne neutral deliberately coasts. Explicit directions keep the
+   -- landing near792 while avoiding the forward Goomba's ground band.
+   return{left=c.x>794,right=c.x<=794}
+  end
+  local l,r=c.block(c.x+4,208),c.block(c.x+12,208)
+  assert(c.y==176 and l~=0 and r~=0,'Actual native landing on continuous floor before the Goomba')
+  f.landing={player=lanceState(c),foot_left=l,foot_right=r}
+  f.target=f.target or lanceFloorEnemy(c);f.phase='face'
+ end
+ if f.phase=='face'then
+  if c.r('PlayerFacingDir')~=1 then return{right=true}end
+  f.phase='prone';f.fire_at=c.update;return{down=true,b=c.update%8<3}
+ end
+ assert(c.grounded and c.y==176,'Retain real ground support during prone combat')
+ if f.target then
+  local e=lanceActor(c,f.target.slot)
+  if e.flag==0 or e.state&32~=0 then
+   f.defeat=f.defeat or{player=lanceState(c),enemy=e};f.safe_at=f.safe_at or c.update
+  else
+   assert(e.id==6 and e.flag==1 and e.state==0 and e.x-c.x>24,
+          'Keep a useful real Goomba gap until the grounded weapon defeats it')
+  end
+ else f.safe_at=f.safe_at or c.update end
+ if c.r('RgCrouch')==1 and c.r('RgAim')==5 then
+  for i=0,9 do
+   if c.r('RgShotType',i)>0 and c.r('RgShotAge',i)<=3 then
+    f.prone_projectile=f.prone_projectile or{player=lanceState(c),slot=i,kind=c.r('RgShotType',i),
+     x=c.r('RgShotX',i)+256*c.r('RgShotPage',i),y=c.r('RgShotY',i),
+     vx=c.r('RgShotVXHi',i),vy=c.r('RgShotVYHi',i)}
+   end
+  end
+ end
+ if f.safe_at and c.update-f.safe_at>=25 then
+  assert(not f.target or(f.defeat and f.prone_projectile),'Real grounded projectile and native defeat precede resuming')
+  f.complete={player=lanceState(c),updates=c.update-f.safe_at};return
+ end
+ return{down=true,b=c.update%8<3}
+end
+'''
+
 
 @lru_cache(maxsize=1)
-def bindings(raw, form, route):
+def bindings(raw, form, route, *, historical_lance=False):
     expected_sha = COMBINED_NIGHTLY if form in CONTRA else NIGHTLY
     assert H(raw) == expected_sha
     if form in CONTRA:
@@ -45,6 +132,9 @@ def bindings(raw, form, route):
     fields = [n for n in RAM_FIELDS if not n.startswith('Ic')]
     fields += [variant_field, 'GuestPowerupActive', 'GuestPowerupTarget', 'GuestLegacyHurt',
                'MmSliding', 'PlayerScoreDisplay']
+    if form == 'lance' and not historical_lance:
+        fields += ['RgCrouch','RgAim','Enemy_X_Speed','RgShotType','RgShotAge',
+                   'RgShotX','RgShotPage','RgShotY','RgShotVXHi','RgShotVYHi']
     ram = {n: W.address(bundle, n) for n in fields}
 
     hooks = {}
@@ -73,8 +163,8 @@ def bindings(raw, form, route):
                 hooks=hooks, navigation=navigation)
 
 
-def controller(raw, form, route):
-    config = bindings(raw, form, route)
+def controller(raw, form, route, *, historical_lance=False):
+    config = bindings(raw, form, route, historical_lance=historical_lance)
     base = (R/'tools/playthroughs/megaman_bass_policy.lua').read_text(encoding='utf-8')
     policy = (R/'tools/playthroughs/megaman_proto_stock_1123.lua').read_text(encoding='utf-8')
     observer = (R/'tools/audit/ice_climbers_stock_observer_1122.lua').read_text(encoding='utf-8')
@@ -113,6 +203,13 @@ def controller(raw, form, route):
   return {right=e.dx>35,down=true,b=c.update%8<3}
  end'''
             base = base.replace(base_guard, base_guard+landing, 1)
+            if not historical_lance:
+                assert base.count(landing)==1
+                base=base.replace(landing,'',1)
+                marker='return function(c)\n'
+                assert base.count(marker)==1
+                base=base.replace(marker,LANCE_LANDING+'\n'+marker,1)
+                base=base.replace(base_guard,base_guard+"\n local safe=lancePipeLanding(c);if safe then return safe end",1)
     if form == 'samus':
         # Samus chooses horizontal speed directly from the current input.
         # The robot's braking lead caused alternating Left and Right at the target.
@@ -230,19 +327,68 @@ local bits={a=128''')
     assert not any(t in script for t in ('emu.write', 'emu.setState', 'io.open', 'dofile',
                                          'saveState', 'loadState', 'takeScreenshot'))
     LuaRuntime().compile(script)
+    if form == 'bill':
+        assert H(script.encode())==BILL_PINS[route],'Preserve every passing Bill controller byte'
+    elif form == 'lance' and historical_lance:
+        assert H(script.encode())==LANCE_LEGACY_PINS[route],'Exact prior airborne Down+B controller'
     return script.encode()
+
+
+def source(raw, form, route, limit, *, historical_lance=False):
+    """Declared compiled-menu cold, followed only by the actual controller."""
+    assert form=='lance' and H(raw)==COMBINED_NIGHTLY
+    import inspect_rogue_missile_targets_cb95_1116 as Engine
+    import check_bub_current_budget_1113 as Frames
+    import check_contra_force_fast_ingress_1122 as Fast
+    program=controller(raw,form,route,historical_lance=historical_lance).decode()
+    def cold(image):
+        assert image is raw
+        bundle=dict(W.Symbols.bundle(),raw=image)
+        with patch.object(N,'Bus',W.ControllerBus):m=W.UI.seed(bundle,3)
+        W.UI.key(m,32)
+        assert W.UI.menu_name(m)[0]=='LANCE BEAN' and N.get(m,'BillVariant')==1
+        start=W.UI.key(m,16)
+        N.invoke(m,'NativeRareGameMenuRoutineCore::ChkContinue',a=start['A'],x=start['X'],y=start['Y'],p=start['P'])
+        old=m.bundle['syms']['PauseRoutine']
+        m.bundle=dict(m.bundle,syms=dict(m.bundle['syms'],PauseRoutine=dict(old,val=hex(Fast.Layout.NEW_PAUSE))))
+        N.invoke(m,'PauseRoutine',a=0)
+        for _ in range(700):
+            if tuple(N.get(m,n)for n in('OperMode','OperMode_Task','GameEngineSubroutine'))==(1,3,8):
+                assert N.get(m,'SelectedCharacter')==3 and N.get(m,'PlayerStatus')==0 and N.get(m,'NumberofLives')==2
+                assert N.get(m,'CheatInvincible')==N.get(m,'CheatStartLevel')==0
+                return m
+            m.controller_pad=0;Frames.frame(m,cold=True)
+        raise AssertionError('Actual Lance compiled-menu cold bound')
+    def runtime(*args,**kwargs):
+        lua=LuaRuntime(*args,**kwargs)
+        lua.globals().os.getenv=lambda name:H(raw)if name=='SMB_STDOUT_ROM_SHA'else None
+        return lua
+    with patch.object(Engine.J,'cold',cold),patch.object(Engine.J,'PIN',COMBINED_NIGHTLY),patch.object(Engine,'LuaRuntime',runtime):
+        return Engine.run(raw,limit,text=program)
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--form', choices=(*FORMS, 'samus', *CONTRA), default='megaman')
     parser.add_argument('--route', choices=tuple(ROUTES), default='upgrades')
-    parser.add_argument('--run', action='store_true')
+    mode=parser.add_mutually_exclusive_group()
+    mode.add_argument('--run', action='store_true')
+    mode.add_argument('--source', action='store_true')
+    parser.add_argument('--limit',type=int,default=4000)
+    parser.add_argument('--historical-lance-landing',action='store_true')
     args = parser.parse_args()
     raw = ROM.read_bytes()
-    program = controller(raw, args.form, args.route)
+    assert 2000<=args.limit<=5100
+    assert not args.historical_lance_landing or args.form=='lance'
+    program = controller(raw, args.form, args.route,historical_lance=args.historical_lance_landing)
     print('ROBOT_STOCK_SOURCE '+json.dumps(dict(form=args.form, route=args.route, ROM_SHA256=H(raw),
           controller_SHA256=H(program))), flush=True)
+    if args.source:
+        def deny(*args,**kwargs):raise AssertionError('Lance source attempted file or emulator writes')
+        with patch.object(Path,'write_bytes',deny),patch.object(Path,'write_text',deny),patch('subprocess.Popen',deny):
+            result=source(raw,args.form,args.route,args.limit,historical_lance=args.historical_lance_landing)
+        print('LANCE_STOCK_LINKED '+json.dumps(result,separators=(',',':')),flush=True)
+        return int(not result['passed'])
     if not args.run:
         return 0
     guard = check(ROM)
