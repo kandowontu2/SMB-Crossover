@@ -60,7 +60,7 @@ def _install_packet(image, chunks, payload):
     return bytes(out), cookie
 
 
-def _loader(old, bundle, config):
+def _loader(old, bundle, config, use_stage_y):
     assert len(old) == 450
     boot, body = old[:BOOT_BYTES], old[BOOT_BYTES:]
     assert len(body) == 353 and WORKER_START + len(body) == 0xC261
@@ -74,18 +74,23 @@ def _loader(old, bundle, config):
     # The first two decodes and the finalizer keep their existing entry ABI.
     # Stage the new stream between metadata and state. The state stream must
     # stay last because it overwrites the worker during its decode.
+    added_code = 18 if use_stage_y else 20
     prelude = bytearray((0xA0, 24, 0x20))
-    _word(prelude, stage + 20)
-    prelude.extend((0xA9, 0, 0x8D))
+    _word(prelude, stage + added_code)
+    if use_stage_y:
+        # Stage initializes Y before both copy passes and returns with Y=0.
+        prelude.append(0x8C)  # STY FarcallJmpTarget low
+    else:
+        prelude.extend((0xA9, 0, 0x8D))
     _word(prelude, vector)
     prelude.extend((0xA9, 0xC0, 0x8D))
     _word(prelude, vector + 1)
     prelude.extend((0xA9, 1, 0x20))
     _word(prelude, bank_call)
-    assert len(prelude) == 20
+    assert len(prelude) == added_code
 
     def moved(address):
-        return address + (20 if address >= cut else 0) + (8 if address >= rows_end else 0)
+        return address + (added_code if address >= cut else 0) + (8 if address >= rows_end else 0)
 
     original = bytearray(65536)
     original[WORKER_START:WORKER_START + len(body)] = body
@@ -123,7 +128,7 @@ def _loader(old, bundle, config):
     out[cells:table] = variables
     struct.pack_into('<16H', out, table, *(field for row in config for field in row))
     out[-30:] = body[-30:]
-    assert first_stream == Packet.LOADER + 478 and WORKER_START + size - BOOT_BYTES <= WRAP
+    assert size == 450 + added_code + 8 and WORKER_START + size - BOOT_BYTES <= WRAP
     return bytes(out)
 
 
@@ -131,10 +136,12 @@ def extract(image):
     """Authenticate and decode the four streams in their declared config order."""
     assert len(image) == 2097168
     data = _backing(image)
-    first_stream = Packet.LOADER + 478
+    prelude = Packet.LOADER + BOOT_BYTES + 0x10
+    signature = data[prelude:prelude + 5]
+    sizes = {bytes.fromhex('a0182032c1'): 478, bytes.fromhex('a0182030c1'): 476}
+    assert signature in sizes
+    first_stream = Packet.LOADER + sizes[signature]
     head = data[:first_stream]
-    assert head[Packet.LOADER + BOOT_BYTES + 0x10:Packet.LOADER + BOOT_BYTES + 0x15] == (
-        bytes.fromhex('a0182032c1'))
     numbers = struct.unpack_from('<16H', head, first_stream - 62)
     rows = tuple(tuple(numbers[i:i + 4]) for i in range(0, 16, 4))
     assert tuple(row[0] for row in rows) == (0xC500, 0xE100 - rows[1][2], STAGING, STAGING)
@@ -154,7 +161,7 @@ def extract(image):
 @lru_cache(maxsize=2)
 def compose(raw, planner=Lift.plan):
     assert H(raw) == PARENT
-    blob, _, originals, packed, plan = planner(raw)
+    blob, labels, originals, packed, plan = planner(raw)
     chunks = originals + (blob,)
     head, _, _ = Packet.extract(raw)
     assert head[Packet.LOADER:] == PARENT_LOADER
@@ -162,14 +169,17 @@ def compose(raw, planner=Lift.plan):
     config = _stage_spec(chunks, packed)
     assert config[0][2] <= (0xDC00 - 0xC500) + (0xC500 - WRAP)
     assert config[1][0] >= 0xC900 and all(STAGING + config[i][2] < 0xC800 for i in (2, 3))
-    loader = _loader(head[Packet.LOADER:], bundle, config)
+    use_stage_y = len(head) + 28 + sum(map(len, packed)) > len(Packet.PAGES) * 1024
+    loader = _loader(head[Packet.LOADER:], bundle, config, use_stage_y)
     payload = head[:Packet.LOADER] + loader + b''.join(packed[i] for i in STREAM_ORDER)
     image, cookie = _install_packet(raw, chunks, payload)
     assert extract(image) == (chunks, config, cookie, len(payload))
 
+    width = plan.get('lift_width', 32)
     overlay = dict(passed=True, parent_SHA256=PARENT, expected_memory_only_SHA256=H(image),
                    decoded=chunks, cookie=cookie.hex(),
-                   lift=dict(id=37, left=1008, width=32, initial_top=192),
+                   lift=dict(id=37, left=1008, width=width, initial_top=192),
+                   raw1_labels=labels,
                    packed_bytes=tuple(map(len, packed)), support=plan,
                    boot_and_worker_bytes=len(loader),
                    spare_bytes=len(Packet.PAGES) * 1024 - len(payload), patches=[])

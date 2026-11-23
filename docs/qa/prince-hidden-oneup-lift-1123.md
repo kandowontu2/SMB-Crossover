@@ -81,8 +81,75 @@ five times on the later departure, and the Prince still fell to the
 ground. Mesen receipt
 `1bcf832715b1a671c132ad4ca5c7ae496d61a517d9039c9a7132736ad99b7f60`.
 
+## Landing between updates
+
+The next trial checks where the Prince's foot was before and after an
+original falling step. When it crosses the actual lift surface, his
+original terrain routine aligns him to the top and runs the original
+landing transition. The stock platform collision then takes over the
+carry. This route is scoped to the Prince's 1-1 lift.
+
+The linked CPU test moved the foot from Y187 to Y198 across top Y192.
+It observed the original landing action and native carry. It separately
+verified a carried fall from the animated pose, then ran 96 more
+updates with sustained contact. It passed 28 rejection cases and 28
+comparisons against ordinary movement and terrain queries. CPU receipt
+`5454a57d0e77edf4866cfd15c5125ed8ef810703a8ecdfe64998f67e423d4b76`.
+
+The integrated trial `ee3d59c6` uses a 476-byte loader and fits on the
+same 45 backing pages with one byte to spare. Cold startup verified all
+four streams, 18 calls into the new bank and both owner headers. CPU
+receipt `d944de1e4aed5d1cba1d206ce560fe1ae958be1ffc7e565fa28bbf80eada4e4f`.
+
+On `ee3d59c6`, Mesen saw the Prince land with his original landing action
+on the lift. His standing jump kept carrying him right through the
+landing steps, and he fell past the 32-pixel collision edge. Releasing
+Right earlier produced six actual contacts over three moving positions
+before his feet went past the edge. Mesen receipts
+`44f8fc75772855f76afe30bf0db702c96e831a7b5ef7a65d8e611b4a1daa6996`
+and `33fc5b897959731486d96d3c72f854fd74d98786a8b68cc7c99d0ca02b8b6603`.
+
+Private trial `342992b0` uses the full stock girder width drawn in 1-1.
+Its 48-pixel surface starts at X1008, has center X1032 and starts at
+top Y192. The full cold decode passed with two carrier bytes to spare.
+CPU receipt `37e09762341c0afa8aed5cc3e2d28b9c89f8dfd46cf7a7cf7d9ca1f7cacc9d8c`.
+The wider case also passed the controlled fresh landing, held landing,
+96 ride updates and 28 rejection checks. CPU receipt
+`2198f621b3d997ad40be16700faccb81585a062a9cd1083e53adb5a337f00792`.
+
+The wider lift caught the Prince at X1025/Y159 in ordinary Mesen play.
+He still lost contact at X1037, inside the girder's collision width,
+while the platform was moving down. This narrows the remaining problem
+to maintaining support across his landing updates. Mesen receipt
+`2d00e9caa3b457e0bc2fffb314a161177e7b1a8c9b4715cdd4aceeeee732bb9c`.
+
+A second Mesen trace followed the real support callback. With the lift at
+Y194, the carried pose briefly projected its foot to Y195 and wrote that
+value into the previous-foot field. On a later fall step the current foot
+was Y202. The sweep declined because its previous foot was already below
+the surface, although the last actual carry was at Y194. Mesen receipt
+`f2be090e3adf43be8645c41ebf0d0d990c6a5c971c0f435794b1c23a23a9f476`.
+
+The next trial, `1124ad42`, records the lift's actual support plane in
+that history field during genuine carry. The original animated foot
+projection still supplies the current body. Its four-stream cold decode
+passed with nine bytes left on the existing carriers. CPU receipt
+`b2794c7bc8e071d4c05768c632c0a4e6c99e88458362ea91c0b5b16feb45e5c8`.
+The linked test verified an animated foot at Y195 with recorded history
+at the actual top Y194. It also passed 96 sustained ride updates and 28
+rejection checks. CPU receipt
+`99f7c62e7178127775767200c176ee90a48f9280a9d2f528b47eb03d600f07db`.
+
+On `1124ad42`, the Prince completed the original landing sequence while
+the lift moved. Mesen counted 65 attached movement updates, including 32
+with a changed lift height. The replay pressed B and Left together
+while he still faced right. His careful step followed his facing, and it
+took him off the right edge. Mesen receipt
+`26b5ac0b5907c435d5ae2a13d8a073c633003360c736af125b7e118e6bf62892`.
+
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/prince-oneup-lift-admission-1123 --resume --max-files 1 --timeout 240 -- python -B tools/audit/probe_prince_oneup_lift_admission_1123.py
 python -B tools/audit/run_bounded_build_v1.py --output build/prince-oneup-lift-cold-1123 --resume --max-files 1 --timeout 350 -- python -B tools/audit/check_prince_oneup_lift_cold_1123.py
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 8 --timeout 480 -- python -B tools/audit/run_prince_oneup_lift_native_1123.py --stage
+python -B tools/audit/run_bounded_build_v1.py --output build/prince-oneup-lift-cold-1123 --resume --max-files 1 --timeout 350 -- python -B tools/audit/check_prince_oneup_lift_cold_1123.py --swept
 ```

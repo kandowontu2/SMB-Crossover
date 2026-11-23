@@ -1,5 +1,6 @@
 """Verify actual cold transport and ready Prince code across all four streams."""
 
+import argparse
 import json
 from pathlib import Path
 from unittest.mock import patch
@@ -99,8 +100,20 @@ def verify(parent, image, overlay):
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--swept', action='store_true')
+    parser.add_argument('--wide-lift', action='store_true')
+    parser.add_argument('--hold-plane', action='store_true')
+    args = parser.parse_args()
     parent = P.G.ROM.read_bytes()
-    image, overlay = Compose.compose(parent)
+    if args.swept or args.wide_lift or args.hold_plane:
+        import probe_prince_lift_swept_plane_1123 as Sweep
+
+        planner = (Sweep.hold_plane_plan if args.hold_plane else
+                   Sweep.wide_plan if args.wide_lift else Sweep.compact_plan)
+        image, overlay = Compose.compose(parent, planner)
+    else:
+        image, overlay = Compose.compose(parent)
     print('PRINCE LIFT COMPOSE ' + json.dumps(dict(candidate=H(image), cookie=overlay['cookie'],
           packed=overlay['packed_bytes'], spare=overlay['spare_bytes']), separators=(',', ':')), flush=True)
 

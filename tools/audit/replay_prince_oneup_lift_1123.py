@@ -70,7 +70,8 @@ def authenticate(image,overlay):
     cookie=overlay['cookie'];assert len(cookie)==32 and bytes.fromhex(cookie)[:3]==P.Packet.PREFIX
     assert image[P.Packet.COOKIE:P.Packet.COOKIE+16].hex()==cookie
     lift=overlay.get('lift',dict(id=37,left=1008,width=32,initial_top=192))
-    assert tuple(lift[k]for k in('id','left','width','initial_top'))==(37,1008,32,192)
+    assert tuple(lift[k]for k in('id','left','initial_top'))==(37,1008,192)
+    assert lift['width'] in (32,48)
     return parent,decoded,dict(prior,candidate=H(image),cookie=cookie,decoded_SHA256=list(map(H,decoded)),
         RAM3_changes=CHANGES,patch_count=len(overlay['patches']),lift=lift)
 
@@ -194,6 +195,11 @@ def controller(image,overlay,*,policy='descending'):
     controls={'descending':LIFT,'v1':LIFT_V1,'v2':LIFT_V2}[policy]
     parent,decoded,binding=authenticate(image,overlay)
     text=baseline_controller(parent);once=P.G.First.once
+    if binding['lift']['width']==48:
+        controls=once(controls,'left=1008,center=1024,initial_top=192,width=32',
+                      'left=1008,center=1032,initial_top=192,width=48')
+        controls=once(controls,"assert(a.box==5,'Actual32px native lift rectangle')",
+                      "assert(a.box==6,'Actual48px native lift rectangle')")
     text=text.replace(PIN,H(image))
     text=once(text,"local cookie = '"+P.COOKIE+"'","local cookie = '"+overlay['cookie']+"'")
     # Rebuild the exact first-draw readback, changing only explicitly declared
