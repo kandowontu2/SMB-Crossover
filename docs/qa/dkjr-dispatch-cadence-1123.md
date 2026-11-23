@@ -182,6 +182,31 @@ The installer verifies the exact 233 changed bytes through full-image
 hashes and a reversible in-memory composition. It then checks the four
 affected characters' opening cadence from the actual Downloads path.
 
+## Downloads nightly
+
+The installed MMC5 nightly is
+`14b0b4c23baa1ff454d25720b0585dd45f7fa4179bbba6b7f38d68b6e0c141b5`.
+The ROM in Downloads and the shared test ROM match the private candidate
+byte for byte. The installer checked for automatic patches before and
+after replacement and created zero backup files.
+
+Each Downloads launch completed 48 standing and 16 walking updates with
+no enemies in the opening. DK Jr. saved eight video frames over the
+original 128-frame measurement, all during standing. The walking phase
+still took 32 video frames for 16 updates. Mini Mario completed one game
+update per video frame throughout the measured opening.
+
+| Character | Video frames for 64 updates | Skipped NMIs | Downloads Mesen receipt SHA-256 |
+| --- | ---: | ---: | --- |
+| Donkey Kong Jr. | 120 | 88 | `f9fd3f2c8a605e35959bf8563534e16a9039ee9f9a606bdc2f68d6cfbf14b84c` |
+| Sonic | 97 | 65 | `c9b324028ac71ef0a657d3064b2a4d2cd0722255dab138a7fb0bfb5a22d80b93` |
+| Super Sonic | 97 | 65 | `0d2797452a5099c05fe59f8d3fcc105b19256f856d215abc507f26827113ee0d` |
+| Mini Mario | 64 | 0 | `0ea949314ac1f8c41671478b928ff2fe92bfd253f714ad1da5d4985d83cbc788` |
+
+The first install attempt rolled back because of a mistyped expected
+receipt hash. The Downloads run reproduced the private DK Jr. and Mini
+Mario receipts listed above.
+
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/dkjr-sonic-combined-dispatch-1123 --max-files 1 --timeout 600 -- python -B tools/audit/check_dkjr_sonic_dispatch_1123.py --interrupts
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 360 -- python -B tools/audit/run_dkjr_dispatch_native_1123.py --combined --run
