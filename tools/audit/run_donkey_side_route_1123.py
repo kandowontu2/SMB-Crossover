@@ -5,11 +5,13 @@ from copy import deepcopy
 from functools import cache
 from hashlib import sha256
 import json
+import re
 
 import check_contra_force_combined_palette_1122 as ContraPalette
 import compose_battletoads_carry_current_1115 as Carry
 import compose_battletoads_native_service_1114 as Service
 import compose_bub_selected_star_palette_prince_1115 as BubStar
+import compose_donkey_side_early_1123 as EarlySide
 import compose_donkey_side_shortcut_1123 as Side
 import compose_gimmick_empty_side_1115 as Gimmick
 import compose_hot_draw_bt_67e_1115 as Draw
@@ -25,6 +27,7 @@ import run_roster_empty_cadence_current_1123 as Cadence
 Native = Cadence.Previous
 ROM = Native.Timing.ROM
 REFERENCE_SCRIPT = '4601d3a2e38181a865436dda92101aa47f15bac56b58c382aaaacc3bea50289f'
+QUALIFIED_SCRIPT = '32fb952c5f147f6eff8a4f3221497db1b917c9fb9321231429fcd20c1ef8df6f'
 # The main entry changed after the original replay. Its two fixed-bank
 # callers are also used by the current cadence observer.
 CURRENT_MAIN = {
@@ -105,14 +108,38 @@ def verify_route(script, rom, capture, expected):
     return proof['receipt_SHA256']
 
 
-def run(*, install=False):
+def rebind_verified_script(program, reference, candidate):
+    """Reuse the exact prior native controller when all its code banks match."""
+    assert digest(program) == QUALIFIED_SCRIPT and digest(reference) == Side.PARENT
+    config, _, _ = program.partition(b'\n')
+    offsets = [int(n) for n in re.findall(rb'\["offset"\]=(\d+)', config)]
+    assert len(offsets) >= 10
+    for bank in {offset // 8192 for offset in offsets}:
+        at = 16 + bank * 8192
+        assert reference[at:at + 8192] == candidate[at:at + 8192]
+    assert config.count(Side.PARENT.encode()) == 1
+    return program.replace(Side.PARENT.encode(), digest(candidate).encode(), 1)
+
+
+def run(*, install=False, early=False, qualified_script=None):
     installed_guard = Native.check(ROM)
     parent = ROM.read_bytes()
-    assert installed_guard['ROM_sha256'] == Side.PARENT and not installed_guard['matching_patch_files']
-    candidate, expected = Side.compose(parent)
-    reference = replay_reference(parent)
-    print(f'DONKEY SIDE REFERENCE {digest(reference)}', flush=True)
-    scripts = [controller(reference, image) for image in (parent, candidate)]
+    parent_digest = EarlySide.PARENT if early else Side.PARENT
+    assert installed_guard['ROM_sha256'] == parent_digest and not installed_guard['matching_patch_files']
+    if early:
+        base = Side.inverse(parent)
+        candidate = EarlySide.compose(parent)
+        assert EarlySide.inverse(candidate) == parent
+    else:
+        base = parent
+        candidate, _ = Side.compose(parent)
+    expected = digest(candidate)
+    if qualified_script is None:
+        reference = replay_reference(base)
+        print(f'DONKEY SIDE REFERENCE {digest(reference)}', flush=True)
+        scripts = [controller(reference, image) for image in (parent, candidate)]
+    else:
+        scripts = [rebind_verified_script(qualified_script, base, image) for image in (parent, candidate)]
     work = Native.Timing.SHARED
     rom, script = work / 'candidate.nes', work / 'controller.lua'
     assert set(work.iterdir()) == {rom, script} and rom.read_bytes() == parent
@@ -121,7 +148,7 @@ def run(*, install=False):
     replaced = installed = False
     try:
         script.write_bytes(scripts[0])
-        verify_route(script, rom, work / 'capture', Side.PARENT)
+        verify_route(script, rom, work / 'capture', parent_digest)
         rom.write_bytes(candidate)
         script.write_bytes(scripts[1])
         receipt = verify_route(script, rom, work / 'capture', expected)
@@ -148,4 +175,6 @@ def run(*, install=False):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--install', action='store_true')
-    run(install=parser.parse_args().install)
+    parser.add_argument('--early', action='store_true')
+    options = parser.parse_args()
+    run(install=options.install, early=options.early)

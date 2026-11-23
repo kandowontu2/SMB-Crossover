@@ -238,3 +238,63 @@ The automatic patch guard found no matching patch at either launch.
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 8 --timeout 600 -- python -B tools/audit/run_donkey_side_route_1123.py --install
 ```
+
+### Earlier side dispatch with a Goomba visible
+
+A linked CPU trace on `84b3de86` timed one real Goomba's movement,
+collision and sprite selection at about 1,253 cycles per game update.
+Classic Donkey Kong's occupied sample cost about 27,358 foreground
+cycles with the full draw. The scene used ordinary Right input until
+the first Goomba was visible, then released Right outside contact range.
+
+`ae28a3ec` sends classic Donkey Kong directly from bank 33 to the same
+terrain and flagpole routine. It preserves the exact native target and
+provides Donkey Kong Jr. the same original continuation. Four side
+probes save 580 foreground cycles per game update. The linked test
+matched gameplay state across 360 idle, walking, jumping and landing
+updates across six characters, plus 48 updates with the first Goomba.
+It also matched 540 directed terrain cases, eight IRQ returns and eight
+busy NMI returns. The generic owner check costs 20 cycles per update in
+the linked Bass, Samus and Steve Hermann samples. Donkey Kong Jr. spent
+eight more cycles. Mini Mario's cycle count matched the parent.
+
+| Mesen scene | Video frames | Frames with no game update | Skipped NMIs | Completed sprite draws |
+| --- | ---: | ---: | ---: | ---: |
+| Donkey Kong, 64 empty updates | 64 → 64 | 0 → 0 | 0 → 0 | |
+| Donkey Kong, first Goomba, 48 updates | 52 → 52 | 24 → 14 | 23 → 12 | 28 → 40 |
+| Bass, first Goomba, 48 updates | 48 → 48 | 24 → 24 | 24 → 24 | 24 → 24 |
+| Donkey Kong Jr., 64 empty updates | 96 → 96 | 32 → 32 | 64 → 64 | |
+
+Both classic Donkey Kong Goomba samples began at X195 and ended at X225.
+The candidate spent more total inclusive CPU time in Mesen while finishing
+12 more sprite draws. Its busiest measured update cost 31,007 cycles,
+down from 31,579. Later crowded scenes still need their own tests.
+
+| Candidate Mesen scene | Receipt |
+| --- | --- |
+| Donkey Kong, empty | `52f045724364532461964b5fa7176ea37ec3fbe42f5aa79a2984c473c8fcc84d` |
+| Donkey Kong, first Goomba | `6db2200a32be8b1630765ca19c7a7559b2e60f2910033bd1688d0457d43bdcd5` |
+| Bass, first Goomba | `a42c647e1ecede42c35e792fcf027d9843d7b2d9a2fe330ba98ecd401c9c2223` |
+| Donkey Kong Jr., empty | `fb8425332270c3f1368b9f78dfff7b953a777ab3306857e23d868f1895cafb9d` |
+
+The first private variation reached the same collision guard through an
+alternate address and left two different far-call target bytes after a
+directed probe. The current variation reaches the original entry address
+and matches those bytes. The first full Mesen run stopped when C: fell
+below the capture watchdog's 25 GB floor. The retry passed after free
+space recovered.
+
+Classic Donkey Kong earned the Mushroom, threw eight barrels, finished
+Easy 1-1 with both lives and continued for 25 grounded updates in 1-2.
+The linked route passed with receipt
+`4ea0fe6c331f0ac96dc54ce5e282ebe409e4c976d9e76db0af706f136b1cc2e7`.
+The private and installed Mesen replays of `ae28a3ec` both produced
+receipt `7f6317ec5d3c5378c17829cee8c21093dd31c8cb9116f8ee5b7526cd2df461a5`.
+The adaptive stage replay took 4,448 video frames, compared with 4,418
+on `84b3de86`. The same ROM was installed directly in Downloads and
+verified there with no matching auto-patch.
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/first-goomba-profile-1123 --max-files 1 --timeout 430 -- python -B tools/audit/check_donkey_side_early_1123.py 'DONKEY KONG' 'DONKEY KONG JR' 'BASS' 'STEVE HERMANN' 'MINI MARIO' 'SAMUS ARAN' --occupied
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 8 --timeout 600 -- python -B tools/audit/run_donkey_side_route_1123.py --early --install
+```
