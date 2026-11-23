@@ -1,6 +1,6 @@
 # Helper platform inventory — functional pass in progress
 
-The current local nightly is `d1a40df1`. Donkey Kong Jr.'s Mushroom and
+The current local nightly is `bcc26bb5`. Donkey Kong Jr.'s Mushroom and
 Flower lifts are listed below.
 Mini Mario's current fixed1-1 actor25 placements are world left/center/
 initial top **560/576/192, 688/704/192, 864/880/192**, each32 pixels wide.
