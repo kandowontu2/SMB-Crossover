@@ -1,10 +1,11 @@
-"""Replay normal Easy 1-1 pickups for Mega Man, Proto Man and Samus."""
+"""Replay normal Easy 1-1 pickups for the robots, Samus and Contra."""
 
 import argparse
 from functools import lru_cache
 import json
 
 from check_ff_stdout_controller_source_1110 import LuaRuntime
+from compose_dkjr_sonic_dispatch_1123 import CANDIDATE as COMBINED_NIGHTLY
 from current_ice_stock_binding_1122 import RAM_FIELDS
 from nightly_patch_guard_v1 import check
 import profile_sonic_empty_cpu_1110 as Linked
@@ -15,14 +16,20 @@ from run_stdout_mesen_1110 import run
 
 
 FORMS = {'megaman': (0, 'MEGA MAN'), 'proto': (1, 'PROTO MAN')}
+CONTRA = {'bill': (0, 'BILL RIZER'), 'lance': (1, 'LANCE BEAN')}
 ROUTES = {'upgrades': (0, 1), 'life': (0, 3), 'star': (0, 2)}
 W, N = Linked.W, Linked.N
 
 
 @lru_cache(maxsize=1)
 def bindings(raw, form, route):
-    assert H(raw) == NIGHTLY
-    if form == 'samus':
+    expected_sha = COMBINED_NIGHTLY if form in CONTRA else NIGHTLY
+    assert H(raw) == expected_sha
+    if form in CONTRA:
+        char = 3
+        variant, name = CONTRA[form]
+        variant_field, movement = 'BillVariant', 'RosterMovement'
+    elif form == 'samus':
         char, variant, name = 2, 0, 'SAMUS ARAN'
         variant_field, movement = 'RdVariant', 'SamusMovement'
     else:
@@ -59,7 +66,9 @@ def bindings(raw, form, route):
     ]
     if form == 'samus':
         navigation[1:3] = ['right', '']
-    return dict(sha=NIGHTLY, form=form, route=route, name=name, char=char, slot=char,
+    elif form in CONTRA:
+        navigation[:4] = ['right', 'right', 'right', '']
+    return dict(sha=expected_sha, form=form, route=route, name=name, char=char, slot=char,
                 variant=variant, mode_value=0, expected=list(ROUTES[route]), ram=ram,
                 hooks=hooks, navigation=navigation)
 
@@ -69,6 +78,41 @@ def controller(raw, form, route):
     base = (R/'tools/playthroughs/megaman_bass_policy.lua').read_text(encoding='utf-8')
     policy = (R/'tools/playthroughs/megaman_proto_stock_1123.lua').read_text(encoding='utf-8')
     observer = (R/'tools/audit/ice_climbers_stock_observer_1122.lua').read_text(encoding='utf-8')
+    if form in CONTRA:
+        braking = 'local distance=goal-c.x-speed(c)/5'
+        retreat = '   local b=steer(c,target-53,3)'
+        assert policy.count(braking) == policy.count(retreat) == 1
+        policy = policy.replace(braking, 'local distance=goal-c.x', 1)
+        policy = policy.replace(retreat, '''   if kind==0 then
+    -- Walk past the left edge of the first question block before turning.
+    return {left=c.x>221,b=c.update%8<3}
+   end
+'''+retreat, 1)
+        # Contra can fire from prone to hit Goombas at floor height.
+        standing = '  if T.kind~=0 then return {b=c.update%8<3}end\n  buttons.b=c.update%8<3'
+        prone = '''  if c.grounded and e.y>=c.y+8 then
+   return {down=true,b=c.update%8<3,a=math.abs(e.dx)<22 and not c.lastA}
+  end
+  if T.kind~=0 and e.dx>0 then return {b=c.update%8<3}end
+  buttons.b=c.update%8<3'''
+        assert policy.count(standing) == 1
+        policy = policy.replace(standing, prone, 1)
+        base_guard = 'local close=e and e.dx>0 and e.dx<112 and math.abs(e.y-c.y)<40'
+        prone_window = '''
+ if e and e.id~=13 and c.grounded and e.dx>=25 and e.dx<96 and e.y>=c.y+8
+    and c.r('PlayerFacingDir')==1 and c.block(c.x+8,208)~=0 then
+  return {down=true,b=c.update%8<3}
+ end'''
+        assert base.count(base_guard) == 1
+        base = base.replace(base_guard, base_guard+prone_window, 1)
+        if form == 'lance':
+            landing = '''
+ if c.x>=800 and c.x<870 and not c.grounded and e and e.id==6
+    and e.dx>0 and e.dx<92 and e.y>c.y+12 then
+  -- Shoot diagonally on the way down from the fourth pipe.
+  return {right=e.dx>35,down=true,b=c.update%8<3}
+ end'''
+            base = base.replace(base_guard, base_guard+landing, 1)
     if form == 'samus':
         # Samus chooses horizontal speed directly from the current input.
         # The robot's braking lead caused alternating Left and Right at the target.
@@ -127,7 +171,7 @@ def controller(raw, form, route):
         assert observer.count(old) == 1, old
         observer = observer.replace(old, new, 1)
 
-    variant_field = 'RdVariant' if form == 'samus' else 'ProtoVariant'
+    variant_field = 'BillVariant' if form in CONTRA else 'RdVariant' if form == 'samus' else 'ProtoVariant'
     edit("r('SelectedCharacter')==20 and r('IcVariant')==C.variant", f"r('SelectedCharacter')==C.char and r('{variant_field}')==C.variant")
     edit("r('IcVariant')~=C.variant", f"r('{variant_field}')~=C.variant")
     edit("power=r('IcPower')", "power=r('PlayerStatus'),growth=r('GuestPowerupActive')")
@@ -137,7 +181,8 @@ def controller(raw, form, route):
     edit("local lifePending", "local lifePending\nlocal clockInput={}\nlocal sound={}")
     edit("local function afterMain()", "local function score()\n local n=0;for i=0,5 do n=n*10+r('PlayerScoreDisplay',i)end;return n\nend\nlocal function afterMain()")
     edit('if #tail==6 then table.remove(tail,1) end', 'if #tail==12 then table.remove(tail,1) end')
-    edit('Living Ice Climber', 'Living Samus' if form == 'samus' else 'Living requested robot')
+    label = 'Contra soldier' if form in CONTRA else 'Samus' if form == 'samus' else 'requested robot'
+    edit('Living Ice Climber', 'Living ' + label)
     edit("assert(updates<5100,'Bounded pickup route')", "assert(updates<5100 and s.yHigh<2,'Bounded living pickup route')")
     edit(' local complete=true', ''' if checks['0'].after and r('GuestLegacyHurt')==1 then
   local c=context();ROBOT_STOCK_STATE.injury={player=s,nearest=c.enemy(),mask=mask}
@@ -162,7 +207,7 @@ def controller(raw, form, route):
     edit('sound=r(\'Square2SoundQueue\')}', "sound=r('Square2SoundQueue'),score_before=p.score,cue64_before=sound[64]or 0}")
     edit("assert(p.before.power==a.kind and s.power==a.kind+1 and s.status==s.power,'Normal Ice power tier transition')",
          "assert(p.before.power==a.kind and s.growth~=0 and r('GuestPowerupTarget')==a.kind+1,'Normal "
-         + ('Samus' if form == 'samus' else 'robot') + " growth starts');return")
+         + (label if form in CONTRA or form == 'samus' else 'robot') + " growth starts');return")
     edit("elseif kind==2 then assert(s.star>0,'Earned Star persists during movement')",
          "elseif kind==2 then assert(s.star>0 and score()>=q.collect.score_before+1000,'Earned Star and points persist during movement')")
     edit("if kind==3 then assert(s.lives==q.grant.lives,'Earned life persists during movement')",
@@ -190,7 +235,7 @@ local bits={a=128''')
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--form', choices=(*FORMS, 'samus'), default='megaman')
+    parser.add_argument('--form', choices=(*FORMS, 'samus', *CONTRA), default='megaman')
     parser.add_argument('--route', choices=tuple(ROUTES), default='upgrades')
     parser.add_argument('--run', action='store_true')
     args = parser.parse_args()
@@ -206,7 +251,7 @@ def main():
     try:
         with preserve_script(script, candidate, raw) as stage:
             stage(program)
-            result = run(script, ROM, OUT/'capture', NIGHTLY, 180)
+            result = run(script, ROM, OUT/'capture', H(raw), 180)
             print('ROBOT_STOCK_NATIVE '+json.dumps(result,separators=(',', ':')), flush=True)
             assert result['script_SHA256'] == H(program)
             assert result['outputs_written'] == 0 and not result['images']
