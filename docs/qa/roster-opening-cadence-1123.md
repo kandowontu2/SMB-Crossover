@@ -83,3 +83,32 @@ receipt `ee6b119f69637ecdab677760198d0b0b7c778d6547c1336f2046dd3fe21bf6c3`.
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 8 --timeout 300 -- python -B tools/audit/run_roster_empty_cadence_current_1123.py 'PRINCE PERSIA'
 ```
+
+### Prince opening CPU profile
+
+The linked CPU test on `6201e3b6` measured about 45,459 foreground cycles
+for each grounded standing update and 45,876 for each grounded moving
+update. It counted 16 of each and started the walking sample after the
+Prince began moving. Each game update ran 12 full checks of the two
+16-byte owner headers, spending 6,876 cycles in those checks. Interbank
+call handling took about 6,225 more cycles. The profile covers the empty
+opening and counts CPU instructions through the original game routines.
+
+The first call of a game update can keep its complete ownership check.
+The Prince already records which game update ran his original movement.
+Later callbacks could use that record after checking the live ownership
+markers, with the existing validation as the fallback. This path still
+needs ROM space and tests for stage loads, owner changes and interrupts.
+The current dispatch can admit the Prince to that check within its
+existing 11-byte selector at PRG bank 65, `$A76E–$A778`. After masking
+bit 1 of the normalized owner, values 1 and 4 select owners 1, 3, 4 and 6.
+The first callback still goes through the original full check at `$A779`.
+Bank 85's current helper reads the wrong epoch address for the Prince.
+Any patch must give his `$C0A9/$C0AA` fields their own branch in that
+helper before making the selector change.
+
+Linked CPU receipt `c1be1ac5780251632446de896306f462ab42218f48dab1e94ba623209b788a5f`.
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/prince-empty-current-1123 --max-files 1 --timeout 300 -- python -B tools/audit/profile_prince_empty_current_1123.py
+```

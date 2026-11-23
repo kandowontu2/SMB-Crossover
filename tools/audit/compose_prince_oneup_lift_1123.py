@@ -151,10 +151,10 @@ def extract(image):
     return tuple(chunks), rows, cookie, position
 
 
-@lru_cache(maxsize=1)
-def compose(raw):
+@lru_cache(maxsize=2)
+def compose(raw, planner=Lift.plan):
     assert H(raw) == PARENT
-    blob, _, originals, packed, plan = Lift.plan(raw)
+    blob, _, originals, packed, plan = planner(raw)
     chunks = originals + (blob,)
     head, _, _ = Packet.extract(raw)
     assert head[Packet.LOADER:] == PARENT_LOADER
