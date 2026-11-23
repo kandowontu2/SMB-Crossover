@@ -50,6 +50,24 @@ The Downloads replay took 1,968 video frames. Mesen receipt
 Controller SHA-256
 `2cbb9394cd2044082a3deabf634106d5d25fd2aebd0eb5cc7abe2694b859a3de`.
 
+## Fire Flower
+
+The revised approach collected the Fire Flower from its normal block at
+X1248. Samus let the item finish emerging, then jumped up from the left
+and collected it at player X1235/Y100. The pickup queued its sound and
+granted the second power level. She kept the upgrade through 26 more
+movement updates and landed at X1235/Y112 with both lives.
+
+| Run | Video frames | Controller SHA-256 | Mesen receipt SHA-256 |
+| --- | ---: | --- | --- |
+| Mushroom and Fire Flower | 2,142 | `d176207812f0e11c6090e6858eba2d2afd897e194866cec25e40f1a8c4354271` | `f3936de6c50ec4f15e8872610914be16443f676f9fd26bb456914f4343497e64` |
+
+The later Star replay stayed low past the elevated Goomba and reached
+the Star approach. A green Koopa hit Samus at X1585/Y176 while she
+was standing and firing. The next replay jumps past the Koopa before
+lining up under the Star block. The stopped run took 2,804 video frames.
+Mesen receipt `c3b9eb603f34a14243cbac9196825b12f16ef3218d4ab01d68f45eea8c86d9c4`.
+
 Use the ordinary shared queue for each pickup route. These runs write
 no captures.
 

@@ -84,6 +84,43 @@ def controller(raw, form, route):
 '''
         assert policy.count(facing) == 1
         policy = policy.replace(facing, evade+facing, 1)
+        if route == 'upgrades':
+            # Use the right side of the Flower block's underside. The old
+            # takeoff at X1241 intersected the Goomba on the left.
+            aim = '  local aim=target-5\n'
+            assert policy.count(aim) == 1
+            policy = policy.replace(aim, '  local aim=kind==1 and target+3 or target-5\n', 1)
+        elif route == 'star':
+            # The ground under the Flower row is continuous. A fresh jump
+            # there would put Samus into the elevated Goomba's path.
+            travel = '  if c.x<target-72 then return base(c)end\n'
+            walk = '''  if kind==2 and c.x>=1176 and c.x<1272 then
+   local e=c.enemy()
+   if e and e.dx>=24 and e.dx<90 and e.y>=172 and c.grounded then
+    return defend(c,{right=true})
+   end
+   return {right=true,b=c.update%8<3}
+  end
+'''
+            assert policy.count(travel) == 1
+            policy = policy.replace(travel, walk+travel, 1)
+            align = " if T.phase=='align'then\n"
+            hop = '''  if kind==2 then
+   local e=c.enemy()
+   if T.starHop then
+    local age=c.update-T.starHop
+    if c.grounded and age>3 then T.starHop=nil
+    else return {right=c.x<target-5,a=age<18}end
+   elseif c.grounded and not c.lastA and e and e.id==0 and e.y>=172
+      and e.dx>=24 and e.dx<=56 then
+    T.starHop=c.update;return {right=true,a=true}
+   end
+  end
+'''
+            # Clear the Koopa before settling under the Star block. Staying
+            # still and firing let it reach Samus's box before the bump.
+            assert policy.count(align) == 1
+            policy = policy.replace(align, align+hop, 1)
 
     def edit(old, new):
         nonlocal observer
