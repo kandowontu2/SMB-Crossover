@@ -44,5 +44,42 @@ earned effect after at least 25 further movement updates.
 | Proto Man, Star | 2,737 | `9254db84287d211d2f19dab59771618cfb793ea4a9b410e038c01bcca77f08b0` |
 
 Use `--route life` or `--route star` with the same commands to replay
-these two routes. Charged shots and the rest of the move set still
-need review.
+these two routes.
+
+## Charged Buster in Easy
+
+Both characters fired after earning the first and second power levels
+from the same normal blocks. Each trial began with a fresh B press and
+an ordinary pellet. Releasing B at 47 updates reset the counter.
+Releasing at 48 or 87 updates fired the partial or full charge. The
+replay checked the Buster sound cue and recorded each charged shot
+moving 10 world pixels by age three.
+
+| Character | Video frames | Mesen receipt SHA-256 |
+| --- | ---: | --- |
+| Mega Man | 2,719 | `efcd41aff3507c6c344fcb4cb6616ed91e96b2298e2b26bb68f34d0ef5462993` |
+| Proto Man | 2,442 | `07fe1a2102f44ccf13b54e3b1c1e1cc5a28d79ea4bca0c9229e77a8fc84ef6d3` |
+
+Both runs finished with the second power level and two lives in Easy
+1-1. These checks cover charging, spawning and travel. Charged-shot
+damage, sprite appearance and the other weapons still need review.
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 360 -- python -B tools/audit/run_megaman_proto_charge_1123.py --form megaman --run
+```
+
+## Charge upgrade in Hard
+
+The Mushroom at X336 awarded Charge in the inventory for both heroes
+while leaving the Buster equipped. Each replay kept both lives and
+verified releases at 47, 48 and 87 updates from the first earned power
+level. The same Buster sound and projectile movement checks passed.
+
+| Character | Video frames | Mesen receipt SHA-256 |
+| --- | ---: | --- |
+| Mega Man | 1,119 | `79e2786d6000527580295f64476d1e631ec78ba962f6e0c59beb0e92d113d0b0` |
+| Proto Man | 1,095 | `cf00da7c8af9338f11d8c37dd0356a23c14113c58af01e02f1cf5ad7ea13670c` |
+
+Add `--hard` to the replay command to test the inventory award and
+first Buster power level. The four Easy and Hard Buster replays ran
+from Downloads `28708fa9` and wrote zero captures.
