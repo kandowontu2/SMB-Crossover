@@ -12,10 +12,10 @@ Previous, Timing = Current.Previous, Current.Previous.Timing
 TARGETS = ('BASS', 'DONKEY KONG', 'STEVE HERMANN', 'MINI MARIO')
 
 
-def run(names):
+def run(names, compose=Sparse.compose):
     downloads = Previous.check(Timing.ROM)
     parent = Timing.ROM.read_bytes()
-    candidate = Sparse.compose(parent)
+    candidate = compose(parent)
     digest = sha256(candidate).hexdigest()
     reference = Current.reference(parent)
     roster = Previous.roster(parent)

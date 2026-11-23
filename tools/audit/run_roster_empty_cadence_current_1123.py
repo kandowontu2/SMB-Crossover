@@ -12,10 +12,13 @@ import run_roster_empty_cadence_1122 as Previous
 
 
 def reference(raw):
+    import compose_donkey_side_shortcut_1123 as Donkey
     import compose_prince_epoch_current_1123 as Epoch
     import compose_prince_side_current_1123 as Side
 
     observed = raw
+    if Previous.Timing.H(raw) == Donkey.CANDIDATE:
+        raw = Donkey.inverse(raw)
     if Previous.Timing.H(raw) == Side.CORRECTED:
         raw = Side.inverse(raw)
     if Previous.Timing.H(raw) == Epoch.PARENT:

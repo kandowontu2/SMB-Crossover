@@ -158,12 +158,83 @@ or small lifts. Four matched the original culled firebar outcome.
 
 The compact clear adds work on populated frames, including up to 240
 cycles in the tested fallback checks before the additional clear cost.
-Heavy scenes still need native comparison before this change is ready
-for Downloads. Steve's overall timing improved by two frames, but he
-still missed an update on half of the video frames. The installed
-nightly remains `c85cde8f`.
+Steve's overall timing improved by two frames, but he still missed an
+update on half of the video frames.
 
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/roster-empty-draw-1123 --max-files 1 --timeout 430 -- python -B tools/audit/check_sparse_sprite_scan_1123.py 'DONKEY KONG' 'BASS' 'STEVE HERMANN' 'MINI MARIO' 'MARIO' 'SAMUS ARAN' --matrix --interrupts
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 8 --timeout 550 -- python -B tools/audit/run_sparse_sprite_scan_native_1123.py 'MINI MARIO' 'DONKEY KONG' 'BASS' 'STEVE HERMANN'
+```
+
+### Shared scan with the first Goomba visible
+
+Each Mesen run walked until the first Goomba was visible and then released
+Right. Over the next 48 game updates, the sprite trial cost more CPU time
+for all three characters. Positions, game cadence, and the number of
+completed sprite draws matched between versions for each character.
+The shared renderer change stays private.
+
+| Character | Video frames | Frames with no game update | Total CPU cycles, installed → trial |
+| --- | ---: | ---: | ---: |
+| Donkey Kong | 54 | 26 | 1,277,912 → 1,289,146 |
+| Bass | 48 | 24 | 1,224,958 → 1,234,654 |
+| Mini Mario | 48 | 0 | 788,427 → 807,195 |
+
+| Character | Installed Mesen receipt | Trial Mesen receipt |
+| --- | --- | --- |
+| Donkey Kong | `94b2885dd758f2e1cb1a791ce0f146ff4dde59a92105849541a838959f1bb760` | `00f8cfb04065e7a55064444b26a800d5ccf75abb95bbfe0b738831ec2d242777` |
+| Bass | `400fd4b3b7bb42b7498d891976a7adb32f50cde08de7a81e49d5c267dfa22dcd` | `c92a7593bf1e0fbb462cf3a588bbfcf9c271299436096f009341f18271235cc7` |
+| Mini Mario | `992df4369c1f2a1dfe2cf350ecd69510e6a423629bdc739052d89aa9d43f1a9f` | `25d8db3b148cb59425152873368dc36df4d2f1ecb49f1c78bb8132e6240c94df` |
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 8 --timeout 540 -- python -B tools/audit/run_sparse_sprite_occupied_1123.py 'DONKEY KONG' 'BASS' 'MINI MARIO'
+```
+
+## Donkey Kong terrain dispatch
+
+ROM `84b3de865849ce01af78ee9a71b3fdc922d6f24acc39c22fe018b50801c914b6`
+routes classic Donkey Kong through the existing side collision routine.
+It skips the two generic bank dispatchers that eventually reach the same
+routine on `c85cde8f`. The native routine still handles the flagpole and
+castle transition. The patch sits in physical PRG bank 89.
+
+In the linked test, four collision probes per update saved a total of
+1,460 CPU cycles during standing, walking, jumping, and landing. Bass
+and Mini Mario used their existing entries and had identical timings.
+Steve Hermann reached the general branch and saved 16 CPU cycles per
+update. All four matched their previous gameplay state across 60 paired
+updates each. The test also passed 540 directed terrain cases, including
+flagpole and castle states, and 29 IRQ and 29 busy NMI resumptions.
+
+| Mesen scene | Video frames for the sample | Frames with no game update | Skipped NMIs |
+| --- | ---: | ---: | ---: |
+| Empty opening, 64 game updates | 64 → 64 | 30 → 0 | 30 → 0 |
+| First Goomba visible, 48 game updates | 54 → 52 | 26 → 24 | 27 → 23 |
+
+The movement endpoints matched in both scenes. In the occupied sample,
+CPU cycles dropped from 1,277,912 to 1,218,915 and completed sprite draws
+rose from 26 to 28. The empty sample's Mesen receipt for `84b3de86` is
+`ed8d1a313dfbf0376cdf8d3791ba391efab8a9c05bb83a6ea058b09d21450a9f`.
+The occupied sample's receipt is
+`e615528c9ffb966f91e049e446a2b05be1925c89e535f84b7659bc77d6819384`.
+
+The full Easy 1-1 controller replay passed on both versions. Donkey Kong
+collected the Mushroom from the first question block with a powerup, threw
+real barrels, used the flagpole and entered 1-2 with both lives and his
+upgrade. Both versions continued for 25 grounded game updates in 1-2.
+The adaptive replay took 4,361 video frames on `c85cde8f` and 4,418 on
+`84b3de86`. Those runs establish stage completion. The controlled scenes
+above establish the timing improvement.
+
+| ROM | Mesen full-route receipt |
+| --- | --- |
+| `c85cde8f` | `3353f23ed12fffe349ff33444d48f8de0492860e72de2a0fddc78f425fd4f6ce` |
+| `84b3de86` | `aca3c1b7ad333f90cf693f7f58a4dbfd45342e7faaa90c746123401b63cc6a63` |
+
+The candidate replaced the Downloads nightly directly. The full route
+launched from Downloads produced the same receipt as the candidate.
+The automatic patch guard found no matching patch at either launch.
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 8 --timeout 600 -- python -B tools/audit/run_donkey_side_route_1123.py --install
 ```
