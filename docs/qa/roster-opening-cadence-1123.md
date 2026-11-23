@@ -528,3 +528,70 @@ python -B tools/audit/run_bounded_build_v1.py --output build/karnov-native-side-
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 8 --timeout 460 -- python -B tools/audit/run_karnov_side_pickup_1123.py --installed
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 8 --timeout 570 -- python -B tools/audit/run_karnov_side_stage_1123.py --installed
 ```
+
+### Guarded native probe trial
+
+The private `ea3539bd` trial checks the current terrain frame and both
+cache headers before calling the native block-buffer worker. It uses
+the standing probe offsets or shifts the crouching probe index into
+the matching offsets. Out-of-bounds coordinates and ineligible cache
+states go through the installed service.
+
+All 132 paired updates matched, including crouched firing, jumps and
+landings. The trial used the native worker 524 times and the existing
+fallback four times. The 432 directed geometry cases and 50 targeted
+fallback cases matched. The matched frame samples covered 984 IRQ and
+984 busy NMI returns. Standing and walking saved 1,448 foreground
+cycles per update, with smaller savings during crouching and landings.
+
+| Mesen sample | Installed `cb6fcb50` | Trial `ea3539bd` | Trial receipt SHA-256 |
+| --- | ---: | ---: | --- |
+| Empty opening, 64 game updates | 96 frames, 32 missed updates | 96 frames, 32 missed updates | `78b5fbd6e9b243f58ed45624fe18e27b59b5e74e31a898c87e74cf01f2498182` |
+| Mushroom and Star route, 2,378 movement updates | 4,070 frames | 4,037 frames | `b2a1335de502a1330ddbe0ab79a344ad416c28cdaf877212a9d9441d246ee9f9` |
+
+The replay reached the same block bumps, pickups and landing. The
+trial code uses 186 bytes in two physical pages of Rogue Dawn's audio
+storage. Neither page overlapped the recorded reads across 36 original
+audio campaigns totaling 69,409 updates. The page map still exposes the
+changed bytes to the live reader, so the bounded source history alone
+cannot qualify that allocation. The 33-frame saving on the longer
+route did not justify publishing this trial.
+
+## Final Fantasy, Bubble Bobble and wrestlers
+
+Mesen launched the Downloads build `cb6fcb50` and selected each
+character from the actual menu. Every sample starts with 48 standing
+updates in Easy 1-1. The Final Fantasy characters, Bub and Bob follow
+with 16 Right updates. The wrestlers follow with 48, because the short
+Right sample ended before Hulk Hogan moved. All six wrestler samples
+ended at X59 after starting at X40. All enemy slots stayed empty.
+
+| Character | Game updates | Video frames | Frames without an update | Skipped NMIs | Mesen receipt SHA-256 |
+| --- | ---: | ---: | ---: | ---: | --- |
+| Fighter | 64 | 96 | 32 | 64 | `52b3272d8776b3ba7f9cf507f90352498f2bc61161735d66214c1e198e1aa539` |
+| White Mage | 64 | 96 | 32 | 64 | `bfa164c7be123fc0245e9f9618a54839ac111c59f263c0d4a20a796ddb054c61` |
+| Black Mage | 64 | 96 | 32 | 64 | `fb3f135651709fca62e1083aef6ca996362f745edd342f0d5a49509a4d53efe7` |
+| Thief | 64 | 96 | 32 | 64 | `7a5855ab9c9c034ea5dafd9e7036c45a75c22853c94e57b4da0387458e753b4c` |
+| Bub | 64 | 108 | 44 | 75 | `94a4d700c378dbc4a9aed899cca25af3fcc9c18671bc7aea8ab4b662ea5a5a6a` |
+| Bob | 64 | 108 | 44 | 76 | `95a0253f61cc642507215c3e6bb8a724a2750429c9473b9f754a59dc05aa18b4` |
+| Hulk Hogan | 96 | 163 | 67 | 115 | `0a1d05d87fe07dd526b750e191b4a05ad5d4f798636728fe6fb6f3f121cb4b46` |
+| Ted DiBiase | 96 | 165 | 69 | 117 | `c189864cd96e6da53dee578791be3ad7599fc59e35037316ebb4c5acdae6c406` |
+| Bam Bam Bigelow | 96 | 180 | 84 | 132 | `c56231fd23231beccb4b1195aa85c27d370fa5aa48588fc4209da2bd6a52d0d1` |
+| Honky Tonk Man | 96 | 164 | 68 | 116 | `80dc5c3378d0468e3473e273d82fee1768234c11a561ae4f2e77ff77eecd6c11` |
+| Randy Savage | 96 | 164 | 68 | 116 | `aae12886abb45cb6f8558326389d479ccf4417f0ede0e3a2e7e62227079301b7` |
+| Andre the Giant | 96 | 162 | 66 | 114 | `892e77e73e480d6f7357442388f8010085be186d9b75723f236ac077b625a49b` |
+
+The linked empty-opening traces measured about 41,817 foreground cycles
+per standing update for Bub and 42,612 while walking. The repeated
+header-check region alone used 7,345 cycles per update. Hulk Hogan took
+about 45,958 standing and 48,354 walking. The fixed far-call transport
+accounted for about 7,134 cycles in each.
+
+Fighter took about 48,571 standing and 48,836 walking. The
+`FwCheck` loop accounted for 6,153 cycles per update. In two traced
+updates, two calls occurred before the frame counter advanced, then
+19 requests used the new counter. The first of the 19 returned to
+`B49B`, and all shared the same foreground return address in the
+original stack. The 16 bytes after the header are already live packet
+data. A scoped replacement needs separate owned state or a different
+way to identify the first validated call.

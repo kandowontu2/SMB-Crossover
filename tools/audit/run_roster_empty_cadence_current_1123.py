@@ -53,15 +53,19 @@ def reference(raw):
 
 OLD_REFERENCE = Previous.cadence_reference
 OLD_CONTROLLER = Previous.controller
+LONG_WALK = {
+    'PRINCE PERSIA', 'HULK HOGAN', 'TED DIBIASE', 'BAM BAM BIGELOW',
+    'HONKY TONK MAN', 'RANDY SAVAGE', 'ANDRE THE GIANT',
+}
 
 
 def controller(raw, row):
     text = OLD_CONTROLLER(raw, row)
-    if row['name'] != 'PRINCE PERSIA':
+    if row['name'] not in LONG_WALK:
         return text
 
-    # A short Right sample ended before the Prince had left his starting pixel.
-    # Keep the standing sample and count the full 48 Main walking request.
+    # The Prince and wrestlers can still be at their starting pixel after
+    # 16 Right updates. Keep the standing sample and let acceleration finish.
     for old, new in (('ticks<64', 'ticks<96'), ('ticks==64', 'ticks==96'),
                      ('ticks>=64', 'ticks>=96'), ('Right16', 'Right48'),
                      ('64 actual Main completions', '96 actual Main completions'),

@@ -129,7 +129,7 @@ def header_controls(images, snapshots):
     return dict(counts)
 
 
-def matched_interrupts(base, cuts):
+def matched_interrupts(base, cuts, compare_results=compare):
     counts = Counter()
     for (_, key), cut in cuts.items():
         for kind in ('irq', 'nmi'):
@@ -144,7 +144,7 @@ def matched_interrupts(base, cuts):
                 CPU.run(c, lambda z: (z.pc, z.sp) == c.memory.combined_terminal)
             assert CPU.registers(old) == CPU.registers(new)
             assert CPU.live_stack(old) == CPU.live_stack(new)
-            compare(old.memory, new.memory, (kind, key, hex(cut.pc)))
+            compare_results(old.memory, new.memory, (kind, key, hex(cut.pc)))
             counts[kind] += 1
     assert counts
     return dict(counts)
