@@ -37,9 +37,23 @@ first jump at X1241/Y167. Move the takeoff clear of that enemy before the
 next Fire Flower run. The revised run took 1,915 video frames. Mesen
 receipt `896f1b368c0c6d070f9101d64ea3ee7106e17e22f6d365eceb4a66182a78437c`.
 
+## Hidden 1-UP
+
+With the revised steering, Samus hit the hidden block at X1024 in Easy
+1-1, then met the fully emerged 1-UP at X1046/Y126. The native reward
+popup appeared, the delayed credit raised the life count from two to
+three, and the extra-life sound queued. She kept all three lives through
+the follow-up movement check and landed at X1049/Y176.
+
+The Downloads replay took 1,968 video frames. Mesen receipt
+`dac18393b573e245db5d6c24be4d11e2ab3d01f1e5fed86dcf62856fc5130879`.
+Controller SHA-256
+`2cbb9394cd2044082a3deabf634106d5d25fd2aebd0eb5cc7abe2694b859a3de`.
+
 Use the ordinary shared queue for each pickup route. These runs write
 no captures.
 
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 225 -- python -B tools/audit/run_megaman_proto_stock_1123.py --form samus --route upgrades --run
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 225 -- python -B tools/audit/run_megaman_proto_stock_1123.py --form samus --route life --run
 ```

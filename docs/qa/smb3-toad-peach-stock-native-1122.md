@@ -185,6 +185,17 @@ The approach needs a separate enemy check before the landing. The linked
 results establish the swimming behavior with the earned suit. The full
 route in Mesen remains open for both characters. The runs wrote zero captures.
 
+The revised approach cleared a live Goomba using the ledge at X1472–1535
+in the linked replay. It also climbed the empty pipe at X2016 and passed
+all 17 swimming segments with the Frog Suit and both lives. The linked
+receipt is `abe768d732d498dd5a8af77a751d49489c9106f9feb631bd66f367b547980c4b`.
+In Mesen, the same approach fell below that ledge before landing. Toad
+reached X1513/Y242 at video frame 2,745, with the last 12 inputs neutral.
+The next approach needs to reach the ledge from above before braking.
+Mesen receipt `67ffe7d39573ab9af4b280c99ff968cdd4f989789d0af5e737964dd65ef57ad8`.
+Both runs used controller
+`d83e3b288d7f82be3644c8cb77cd3141231681a756f5f46069ea2e985a481b30`.
+
 To reproduce the recorded linked route, choose `toad3` or `peach3`.
 
 ```powershell
