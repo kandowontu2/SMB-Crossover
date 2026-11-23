@@ -83,3 +83,26 @@ level. The same Buster sound and projectile movement checks passed.
 Add `--hard` to the replay command to test the inventory award and
 first Buster power level. The four Easy and Hard Buster replays ran
 from Downloads `28708fa9` and wrote zero captures.
+
+## Full charge against a brick and coin block
+
+Both characters earned the Mushroom in Easy 1-1 and fired a full
+charge from an ordinary jump. One shot broke the intact brick at
+X384/Y144, played the shatter cue and continued into the adjacent coin
+block at X368/Y144. The coin block awarded one coin and stayed at
+X368 for the 12 measured bounce updates. Its used tile returned at
+the same map cell. Each character landed at X419/Y176 with the earned
+power level and two lives.
+
+| Character | Video frames | Mesen receipt SHA-256 |
+| --- | ---: | --- |
+| Mega Man | 987 | `bfc7cd81f703d573ecbc3668969851b49a961fc6652a551e89150f0818f5fa4c` |
+| Proto Man | 1,036 | `708b14c500a0e2d3f62102ef52ee6c1f5aaaee5b6070ac811453a2815bd33912` |
+
+These were zero-capture runs from Downloads `28708fa9`. The tests
+covered block collision, the coin award and the bounce object's
+coordinates. Charged-shot damage to live enemies still needs testing.
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 360 -- python -B tools/audit/run_megaman_proto_buster_brick_1123.py --form megaman --run
+```
