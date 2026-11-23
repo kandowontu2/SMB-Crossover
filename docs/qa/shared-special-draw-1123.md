@@ -95,6 +95,14 @@ full HP after 2,037 video frames. Mesen receipt
 The tested ROM matched in both attempts. Downloads retains the qualified
 `ffd70810` build while the Donkey Kong Jr. stair check remains open.
 
+A controller-only backoff after the first failed stair jump passed the
+first two risers. The same private ROM stopped at the third riser at
+X2943/Y112 with two lives and 95 on the timer. The first-riser replay
+SHA-256 is `4dd52e15a897f90c1ce546987d17716b793cf678a9fa85366005945a783402f3`.
+Mesen receipt `79948d396f4c76f9ceaac5b37afdea13c01ea413166efd6db4646517cb9c0d2c`.
+The original failure and the later third-riser failure both remain
+reproducible through separate controller factories.
+
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/shared-special-draw-1123 --max-files 1 --timeout 520 -- python -B tools/audit/probe_special_draw_routing_1123.py 'ZELDA II LINK' 'LEONARDO' 'MIKE JONES' 'SMB3 MARIO' 'BASS' 'DONKEY KONG' 'MINI MARIO' 'ROLL' 'LINK'
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 360 -- python -B tools/audit/probe_special_draw_routing_1123.py --native 'ZELDA II LINK' 'BASS' 'DONKEY KONG' 'MINI MARIO' 'ROLL'
