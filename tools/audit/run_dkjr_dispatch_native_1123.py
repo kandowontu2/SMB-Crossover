@@ -11,12 +11,13 @@ import run_roster_empty_cadence_1122 as Roster
 from run_stdout_mesen_1110 import run
 
 
-def prepare(parent, candidate):
+def prepare(parent, candidate, name='DONKEY KONG JR'):
     for pc in (0x82D9, 0x82BE, 0x82D0):
         offset = Dispatch.offset(126, pc)
         assert parent[offset:offset+16] == candidate[offset:offset+16]
-    row = Roster.roster(parent)['DONKEY KONG JR']
-    assert (row['raw'], row['slot'], row['cycle']) == (40, 27, 1)
+    expected = {'DONKEY KONG JR': (40, 27, 1), 'MINI MARIO': (41, 0, 8)}
+    row = Roster.roster(parent)[name]
+    assert (row['raw'], row['slot'], row['cycle']) == expected[name]
     original = Roster.controller(parent, row)
     pin = Dispatch.h(parent)
     assert original.count(pin) == 1
@@ -190,9 +191,10 @@ def main():
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument('--full-stage', action='store_true')
     mode.add_argument('--sonic', choices=('sonic', 'super', 'both'), help='Check the combined dispatcher with the retained Sonic full-stage routes')
+    mode.add_argument('--mini', action='store_true', help='Compare Mini Mario idle and walking cadence')
     args = parser.parse_args()
-    if args.sonic and not args.combined:
-        parser.error('--sonic requires --combined')
+    if (args.sonic or args.mini) and not args.combined:
+        parser.error('--sonic and --mini require --combined')
     full_stage_options = args.baseline or args.cap_trace or args.time_cap_approach or args.center_flag_takeoff
     if full_stage_options and not (args.combined and args.full_stage):
         parser.error('Full-stage controls require --combined --full-stage')
@@ -217,7 +219,9 @@ def main():
         forms = tuple(programs) if args.sonic == 'both' else (args.sonic,)
         cases = [(form, candidate, programs[form]) for form in forms]
     else:
-        before, after = (prepare_full_stage(reference, candidate) if args.full_stage else prepare(reference, candidate))
+        name = 'MINI MARIO' if args.mini else 'DONKEY KONG JR'
+        before, after = (prepare_full_stage(reference, candidate) if args.full_stage
+                         else prepare(reference, candidate, name))
         if args.combined and not args.full_stage:
             old = Dispatch.h(reference).encode()
             assert before.count(old) == 1

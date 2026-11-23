@@ -14,6 +14,9 @@ import repair_rogue_side_pipe_1123 as Rogue
 
 M, Fit, H = S.M, S.Fit, S.H
 PIN = '28708fa9a4e7dd88f1aaa72653b7d5a6ba0fb3c6d5abf544a526b09d333a884c'
+CANDIDATE = '14b0b4c23baa1ff454d25720b0585dd45f7fa4179bbba6b7f38d68b6e0c141b5'
+PARENT_DK_COOKIE = bytes.fromhex('a72801bbdb7d84eb2485d69d23df750c')
+PARENT_SONIC_COOKIE = bytes.fromhex('a72b0158e8caa097edbf84fef762ea81')
 SOURCE = M.R/'tools/reference/dkjr_sonic_dispatch_1123.s'
 LAYOUT = dict(GATE=(0xa8dc,36), UTIL=(0xb06b,36), HEADER=(0xb8f0,16))
 SONIC_LAYOUT = dict(SONIC_EPOCH=(0xda40,128))
@@ -58,12 +61,35 @@ def program():
     return base,sonic,selector,main
 
 
-def proposal(parent):
-    assert isinstance(parent,bytes) and len(parent)==2097168 and H(parent)==PIN
-    assert H(Rogue.restore_pipe_bytes(parent)) == S.CANDIDATE
+@lru_cache(maxsize=1)
+def static_changes():
     base,sonic,selector,main = program()
     old = S.program()
     prior_selector = M.assemble(selector_source(False),dict(SELECTOR=(0xa740,127)))
+    changes = [
+        (S.off(65,0xa740),prior_selector['images']['SELECTOR'].ljust(127,b'\xea'),
+         selector['images']['SELECTOR'],'bounded combined admission; public row0 complete'),
+        (S.off(65,0xa7d5),S.checked_branches(prior_selector),S.checked_branches(selector),
+         'existing checked-result branch slot'),
+    ]
+    for name,(pc,size) in LAYOUT.items():
+        old_size=S.LAYOUT[name][1]
+        before=old['images'][name].ljust(old_size,b'\xff')
+        if name=='UTIL':before+=bytes.fromhex('4cdca8')
+        changes.append((S.off(85,pc),before,base['images'][name].ljust(size,b'\xff'),
+                        'native85 '+name+('; retires private row0 mirror' if name=='UTIL' else '')))
+    pc,size=SONIC_LAYOUT['SONIC_EPOCH'];at=M.CHR+334*1024+pc-0xd800
+    changes.append((at,old['images']['SONIC_EPOCH'].ljust(size,b'\xff'),
+                    sonic['images']['SONIC_EPOCH'].ljust(size,b'\xff'),'retained Sonic scope, two relinked continuations'))
+    changes.append((D.MAIN_FILE,D.OLD_MAIN,main['images']['MAIN'].ljust(D.MAIN_SIZE,b'\xea'),
+                    'DK successful score/motor epoch C8FF'))
+    return tuple(changes)
+
+
+def proposal(parent):
+    assert isinstance(parent,bytes) and len(parent)==2097168 and H(parent)==PIN
+    assert H(Rogue.restore_pipe_bytes(parent)) == S.CANDIDATE
+    base,sonic,selector,_ = program()
     out=bytearray(parent);spans=[]
 
     def put(at,before,after,role):
@@ -72,31 +98,19 @@ def proposal(parent):
         out[at:at+len(after)]=after
         spans.append(dict(file=at,bytes=len(after),role=role,old_SHA256=H(before),new_SHA256=H(after)))
 
-    put(S.off(65,0xa740),prior_selector['images']['SELECTOR'].ljust(127,b'\xea'),
-        selector['images']['SELECTOR'],'bounded combined admission; public row0 complete')
-    put(S.off(65,0xa7d5),S.checked_branches(prior_selector),S.checked_branches(selector),
-        'existing checked-result branch slot')
     mirror=S.off(85,0xb08c)
     assert parent[mirror:mirror+114] == bytes.fromhex('4cdca8')*38
-    for name,(pc,size) in LAYOUT.items():
-        old_size=S.LAYOUT[name][1]
-        before=old['images'][name].ljust(old_size,b'\xff')
-        if name=='UTIL':before+=bytes.fromhex('4cdca8')
-        put(S.off(85,pc),before,base['images'][name].ljust(size,b'\xff'),
-            'native85 '+name+('; retires private row0 mirror' if name=='UTIL' else ''))
-    pc,size=SONIC_LAYOUT['SONIC_EPOCH'];at=M.CHR+334*1024+pc-0xd800
-    put(at,old['images']['SONIC_EPOCH'].ljust(size,b'\xff'),
-        sonic['images']['SONIC_EPOCH'].ljust(size,b'\xff'),'retained Sonic scope, two relinked continuations')
-    put(D.MAIN_FILE,D.OLD_MAIN,main['images']['MAIN'].ljust(D.MAIN_SIZE,b'\xea'),
-        'DK successful score/motor epoch C8FF')
+    for change in static_changes():
+        put(*change)
     dk_cookie=b'\xa7\x28\x01'+sha256(D.packet(parent)).digest()[:13]
-    assert parent[D.COOKIE:D.COOKIE+16]==dk_cookie
+    assert parent[D.COOKIE:D.COOKIE+16]==dk_cookie==PARENT_DK_COOKIE
     put(D.COOKIE,dk_cookie,dk_cookie[:3]+sha256(D.packet(out)).digest()[:13],'complete DK packet cookie')
     sonic_cookie=b'\xa7\x2b\x01'+sha256(b''.join(M.page(parent,n) for n in M.COOKIE_PAGES)).digest()[:13]
-    assert parent[M.COOKIE_AT:M.COOKIE_AT+16]==sonic_cookie
+    assert parent[M.COOKIE_AT:M.COOKIE_AT+16]==sonic_cookie==PARENT_SONIC_COOKIE
     put(M.COOKIE_AT,sonic_cookie,sonic_cookie[:3]+sha256(b''.join(M.page(out,n) for n in M.COOKIE_PAGES)).digest()[:13],
         'complete retained Sonic packet cookie')
     candidate=bytes(out)
+    assert H(candidate)==CANDIDATE
     changed={i for i,(a,b) in enumerate(zip(parent,candidate,strict=True)) if a!=b}
     owned={i for s in spans for i in range(s['file'],s['file']+s['bytes'])}
     assert changed<=owned and len(parent)==len(candidate)
@@ -117,6 +131,19 @@ def proposal(parent):
         retained_private_rows=[1,37],all_unowned_exact=True,
         Rogue_bank95_exact=True,Prince_predicate_exact=True,
         outputs=0,native_qualified=False)
+
+
+def inverse(candidate):
+    assert isinstance(candidate,bytes) and H(candidate)==CANDIDATE
+    restored=bytearray(candidate)
+    for at,before,after,role in static_changes():
+        assert candidate[at:at+len(after)]==after, role
+        restored[at:at+len(before)]=before
+    restored[D.COOKIE:D.COOKIE+16]=PARENT_DK_COOKIE
+    restored[M.COOKIE_AT:M.COOKIE_AT+16]=PARENT_SONIC_COOKIE
+    parent=bytes(restored)
+    assert H(parent)==PIN and proposal(parent)[0]==candidate
+    return parent
 
 
 if __name__=='__main__':

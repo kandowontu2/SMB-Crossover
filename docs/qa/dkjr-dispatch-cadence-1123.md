@@ -155,10 +155,40 @@ The optional camera timing holds Right until that takeoff position is
 available in the full replay. The compiled controller SHA-256 is
 `58a101f58fdf628ae17d9cf1c1f1423c25cb22a699f07b0ddbef07821e3af441`.
 
+The full Mesen replay with both timing changes passed on `14b0b4c2`.
+DK Jr. rode the final lift, waited for the camera at X3072 and jumped
+from X3152/Y176 with 55 on the timer. He cleared the flag and castle,
+then completed 25 grounded original movement updates in 1-2 at
+X40/Y176 with two lives. The run took 18,933 video frames and wrote
+zero captures. Receipt
+`0fcb4c740d491c870383e2088a0f44737e51ca4ab478f6ab0d3f6477cb0b0a04`.
+
+## Shared character checks
+
+Sonic and Super Sonic each defeated four Goombas with the spin, cleared
+the flag and castle, and completed 25 grounded 1-2 returns on `14b0b4c2`.
+Both finished at X40/Y176 with two lives. Mini Mario completed 48 standing
+and 16 walking updates in 64 video frames on both ROMs. Every measured
+Mini Mario frame had a controller read, with zero skipped NMIs.
+
+| Character and run | Video frames | Mesen receipt SHA-256 |
+| --- | ---: | --- |
+| Sonic full 1-1 and 1-2 entrance | 5,411 | `4d48ea7af82073761a2097ab95a63ef31a7eb7768619dd3201d70f1c780e0dba` |
+| Super Sonic full 1-1 and 1-2 entrance | 5,437 | `b10d8dfbba98f6dbbdc8da889ccbb43650e0dd95789bde15964564f946b18333` |
+| Mini Mario opening, Downloads `28708fa9` | 64 | `208c35e9435ad956bf906f5f7fe134ccf1cf7cfb34e1bcdef2e503e534ddf078` |
+| Mini Mario opening, private `14b0b4c2` | 64 | `0ea949314ac1f8c41671478b928ff2fe92bfd253f714ad1da5d4985d83cbc788` |
+
+The installer verifies the exact 233 changed bytes through full-image
+hashes and a reversible in-memory composition. It then checks the four
+affected characters' opening cadence from the actual Downloads path.
+
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/dkjr-sonic-combined-dispatch-1123 --max-files 1 --timeout 600 -- python -B tools/audit/check_dkjr_sonic_dispatch_1123.py --interrupts
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 360 -- python -B tools/audit/run_dkjr_dispatch_native_1123.py --combined --run
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 575 -- python -B tools/audit/run_dkjr_dispatch_native_1123.py --combined --full-stage --baseline --cap-trace --run
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 575 -- python -B tools/audit/run_dkjr_dispatch_native_1123.py --combined --full-stage --cap-trace --time-cap-approach --run
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 575 -- python -B tools/audit/run_dkjr_dispatch_native_1123.py --combined --full-stage --cap-trace --time-cap-approach --center-flag-takeoff --run
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 600 -- python -B tools/audit/run_dkjr_dispatch_native_1123.py --combined --sonic both --run
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 220 -- python -B tools/audit/run_dkjr_dispatch_native_1123.py --combined --mini --run
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 450 -- python -B tools/audit/install_dkjr_sonic_dispatch_1123.py --install
 ```
