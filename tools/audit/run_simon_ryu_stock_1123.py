@@ -1,4 +1,4 @@
-"""Play authored Easy 1-1 pickups with Simon Belmont and Ryu Hayabusa."""
+"""Play authored Easy 1-1 pickups with Simon Belmont, Ryu Hayabusa and Scrooge."""
 
 import argparse
 import json
@@ -16,6 +16,7 @@ from run_stdout_mesen_1110 import run
 FORMS = {
     'simon': (5, 'SIMON BELMONT', 'Cv3Variant', 0xff, 'RosterMovement'),
     'ryu': (10, 'RYU HAYABUSA', 'FmAlts', 0x44, 'ExpandedMovement'),
+    'scrooge': (12, 'SCROOGE MCDUCK', 'DarkwingVariant', 0xff, 'ScroogeMovement'),
 }
 ROUTES = {'mushroom': (0,), 'upgrades': (0, 1), 'life': (0, 3), 'star': (0, 2)}
 OBSERVER = R/'tools/audit/ice_climbers_stock_observer_1122.lua'
@@ -29,15 +30,20 @@ def bindings(raw, form, route):
         from compose_dkjr_side_epoch_fast_1123 import inverse
         assert H(inverse(raw)) == NIGHTLY
     char, name, variant_field, variant_mask, move = FORMS[form]
+    slot = 8 if form == 'scrooge' else char
     bundle = dict(W.Symbols.bundle(), raw=raw)
-    menu = W.UI.seed(bundle, char)
-    assert W.UI.menu_name(menu)[0] == name and N.get(menu, 'SelectedCharacter') == char
+    menu = W.UI.seed(bundle, slot)
+    assert W.UI.menu_name(menu)[0] == name and N.get(menu, 'SelectedCharacter') == char, (slot, name)
     assert N.get(menu, variant_field) & variant_mask == 0
     fields = [n for n in RAM_FIELDS if not n.startswith('Ic')]
     fields += [variant_field, 'GuestPowerupActive', 'GuestPowerupTarget', 'GuestLegacyHurt',
                'RgDoubleJump', 'RgAttack', 'Enemy_BoundBoxCtrl', 'XgWall', 'PlayerScoreDisplay']
     if form=='ryu' and route=='upgrades':
         fields += ['InvPickup', 'InvPickupOwner', 'InvOwnedLo']
+    if form == 'scrooge':
+        fields += ['ScPogo', 'MmVY', 'JumpspringAnimCtrl', 'Player_SprAttrib']
+        if route == 'star':
+            fields += ['FrameCounter', 'NmiDisable', 'NmiSkipped', 'CurrentBankC']
     ram = {n: W.address(bundle, n) for n in fields}
 
     def hook(symbol, delta=0):
@@ -56,13 +62,28 @@ def bindings(raw, form, route):
         assert body.count(life_increment) == 1
         hooks['LifeCredit'] = hook(symbol, body.index(life_increment))
     navigation = ['']*32
-    if char>=8:
+    if slot>=8:
         navigation[0] = 'down'
-    for cursor in range(char&24, char):
+    for cursor in range(slot&24, slot):
         navigation[cursor] = 'right'
-    return dict(sha=digest, form=form, route=route, char=char, name=name, slot=char, variant=0,
+    return dict(sha=digest, form=form, route=route, char=char, name=name, slot=slot, variant=0,
                 variant_field=variant_field, variant_mask=variant_mask, mode_value=0,
                 expected=list(ROUTES[route]), ram=ram, hooks=hooks, navigation=navigation)
+
+
+def opening_policy(form):
+    if form != 'scrooge':
+        return OPENING.read_text()
+    folder = OPENING.parent
+    navigation = (folder/'mario_luigi_scrooge_nav.lua').read_text()
+    shared = (folder/'mario_luigi_scrooge_policy.lua').read_text()
+    shared = once(shared, "local root=assert(ROSTER_CONFIG.out:match('^(.*)/build/'))\n"
+                  "local travel=assert(dofile(root..'/tools/playthroughs/mario_luigi_scrooge_nav.lua'))",
+                  'local travel=(function()\n'+navigation+'\nend)()')
+    native = (folder/'scrooge_native_policy.lua').read_text()
+    return once(native, "local root=assert(ROSTER_CONFIG.out:match('^(.*)/build/'))\n"
+                "local normal=assert(dofile(root..'/tools/playthroughs/mario_luigi_scrooge_policy.lua'))",
+                'local normal=(function()\n'+shared+'\nend)()')
 
 
 def controller(raw, form, route):
@@ -128,6 +149,23 @@ local bits={a=128""")
     edit('local b=not entered and menu() or (scope() and choose(context()) or {})',
          'local b=not entered and menu() or (scope() and clockInput or {})')
     edit('  entered=physical', '  entered=physical;clockInput=choose(context())')
+    if form == 'scrooge' and route == 'star':
+        edit('local physical,polls,updates,motor,mask=0,0,0,0,0',
+             'local physical,polls,updates,motor,mask=0,0,0,0,0\nlocal stall,previousMain,lastMain={}')
+        edit('phase=ROBOT_STOCK_STATE or {},sound_cues=cues,controller_only=true,files=0,images=0',
+             'phase=ROBOT_STOCK_STATE or {},sound_cues=cues,stalled_frames=stall,controller_only=true,files=0,images=0')
+        edit(' physical=physical+1', ''' physical=physical+1
+ if not lastMain or updates~=previousMain then previousMain=updates;lastMain=physical end
+ if entered and physical-lastMain>=90 and (physical-lastMain)%90==0 then
+  local cpu=emu.getState();local pc=cpu['cpu.pc'];local sp=cpu['cpu.sp']
+  local at=emu.convertAddress(pc);local p=pending[#pending];local stack={}
+  for i=1,10 do stack[i]=emu.read(256+((sp+i)&255),emu.memType.nesDebug)end
+  if #stall>=8 then table.remove(stall,1)end
+  stall[#stall+1]={frame=physical,update=updates,nativeFrame=r('FrameCounter'),pc=pc,sp=sp,
+   physicalAddress=at and at.address,bankC=r('CurrentBankC'),nmiDisable=r('NmiDisable'),
+   nmiSkipped=r('NmiSkipped'),polls=polls,request=mask,pad=r('SavedJoypadBits'),
+   pending=p,count=#pending,stack=stack}
+ end''')
     if form=='ryu' and route=='upgrades':
         edit("kind=r('PowerUpType',i),", "kind=r('PowerUpType',i),stamp=r('InvPickup',i),owner=r('InvPickupOwner',i),")
         edit("power=r('PlayerStatus'),growth=", "power=r('PlayerStatus'),owned=r('InvOwnedLo',C.char),growth=")
@@ -299,7 +337,7 @@ local function choose(c)
   return opening(c)
  end
  if C.route=='mushroom'then return{}end
- if C.route=='upgrades' and c.status==1 then
+ if C.route=='upgrades' and c.status==1 and (C.char==5 or C.char==10) then
   local flower=(C.char==5 and reachSimonFlower or reachRyuFlower)(c)
   if flower then return flower end
  end
@@ -309,7 +347,10 @@ local function choose(c)
 end'''
     stock = once(STOCK.read_text(encoding='utf-8'), 'local distance=goal-c.x-speed(c)/5',
                  'local distance=goal-c.x')
-    script = '\n'.join(('local C='+value(cfg), 'local opening=(function()\n'+OPENING.read_text()+'\nend)()',
+    if form != 'scrooge':
+        policy = once(policy, "if C.route=='upgrades' and c.status==1 and (C.char==5 or C.char==10) then",
+                      "if C.route=='upgrades' and c.status==1 then")
+    script = '\n'.join(('local C='+value(cfg), 'local opening=(function()\n'+opening_policy(form)+'\nend)()',
                         'local base=opening', 'local stock=(function()\n'+stock+'\nend)()', policy, text))
     assert not any(t in script for t in ('emu.write', 'emu.setState', 'io.open', 'dofile',
                                          'saveState', 'loadState', 'takeScreenshot'))
