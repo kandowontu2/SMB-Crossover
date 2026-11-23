@@ -26,9 +26,9 @@ walking still took about two video frames per game update.
 | Private `b7562774` | 115 | 51 | 83 | `0e2678cb33ea64052c6b9ffa74b48f00df78bf6df5eef3f17690006e6258badc` |
 | Private `7bcf137e` | 112 | 48 | 80 | `d553b52f69c1706c614d15bb505bab35fdca69a3ac5301d1a726f191325d2fa6` |
 
-The Downloads nightly still contains `59e1a591`. A full-stage check is
-pending before delivery. The private clock tests used the same shared
-test slot. All three runs wrote zero captures.
+The Downloads nightly for this comparison was `59e1a591`. The private
+clock tests used the same shared test slot. All three runs wrote zero
+captures.
 
 The first private test exposed a dispatch issue during source review.
 Out-of-range service addresses could reach a candidate helper before the
@@ -49,4 +49,43 @@ observed stack pointer was 167. Receipt
 
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_dkjr_dispatch_native_1123.py --run
+```
+
+## Combined test ROM on `28708fa9`
+
+The next private candidate, `14b0b4c2`, combines the Donkey Kong Jr.
+optimization with the Sonic dispatcher. The first call still checks
+both complete headers. Later calls in the same game update check the
+live bank prefixes and the owning character's update stamp. Donkey
+Kong Jr. uses `$C8FF`. Sonic, Super Sonic and Mini Mario retain their
+existing stamp. The verifier also checks the Rogue Dawn pipe bank.
+
+The linked opening comparisons passed 167 cold game updates and 53
+ordinary updates per character. Donkey Kong Jr. saved 5,009 CPU cycles
+per grounded update and 5,010 in the airborne test. Sonic and Super
+Sonic used 156 additional cycles per update. Mini Mario used eight
+additional cycles. The verifier passed 1,976 native IRQ and 1,976 busy
+NMI checks, plus malformed target and corrupted header tests. It also
+checked foreign dispatcher inputs and the current DK address ranges
+that could have reached the stamp.
+
+- Source and interrupts receipt `86500689b1292916e43d80e457aa52bf103cebfa84815b58668032a88781384e`.
+- Foreign selector receipt `e176fc89b8af30a4b8df9cb793ab4dcd0cd4c2cd8f4366fc35fd56fc6dd69491`.
+
+Mesen ran the same 48 standing and 16 walking updates through the
+normal menu. The private ROM saved eight video frames while standing.
+The walking phase took 32 video frames on both ROMs. Both runs ended
+at X50/Y176 with two lives, zero enemies and zero captures.
+
+| ROM | Video frames | Frames with no game update | Skipped NMIs | Mesen receipt SHA-256 |
+| --- | ---: | ---: | ---: | --- |
+| Downloads `28708fa9` | 128 | 64 | 96 | `48939baa89370f98fa9231c846fdc7ee5605e20f6d018db28909b54784832856` |
+| Private `14b0b4c2` | 120 | 56 | 88 | `f9fd3f2c8a605e35959bf8563534e16a9039ee9f9a606bdc2f68d6cfbf14b84c` |
+
+The full Donkey Kong Jr. stage and the native Sonic and Super Sonic
+routes are still open for this combined candidate.
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/dkjr-sonic-combined-dispatch-1123 --max-files 1 --timeout 600 -- python -B tools/audit/check_dkjr_sonic_dispatch_1123.py --interrupts
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 360 -- python -B tools/audit/run_dkjr_dispatch_native_1123.py --combined --run
 ```

@@ -93,15 +93,43 @@ def report(result, image, full_stage):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--run', action='store_true')
-    parser.add_argument('--full-stage', action='store_true')
+    parser.add_argument('--combined', action='store_true', help='Use the combined DK Jr. and Sonic candidate on the current nightly')
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument('--full-stage', action='store_true')
+    mode.add_argument('--sonic', choices=('sonic', 'super', 'both'), help='Check the combined dispatcher with the retained Sonic full-stage routes')
     args = parser.parse_args()
+    if args.sonic and not args.combined:
+        parser.error('--sonic requires --combined')
     rom = Roster.Timing.ROM
     parent = rom.read_bytes()
-    candidate, spans = Dispatch.proposal(parent)
-    scripts = prepare_full_stage(parent, candidate) if args.full_stage else prepare(parent, candidate)
+    reference = parent
+    if args.combined:
+        import compose_dkjr_sonic_dispatch_1123 as Combined
+        import compose_sonic_current_auth_epoch_1122 as Sonic
+        import repair_rogue_side_pipe_1123 as Pipe
+        candidate, spans = Combined.proposal(parent)
+        reference = Sonic.inverse(Pipe.restore_pipe_bytes(parent))
+    else:
+        candidate, spans = Dispatch.proposal(parent)
+    if args.sonic:
+        from run_sonic_auth_full11_1123 import controllers
+        programs = controllers(reference, candidate)
+        forms = tuple(programs) if args.sonic == 'both' else (args.sonic,)
+        cases = [(form, candidate, programs[form]) for form in forms]
+    else:
+        before, after = (prepare_full_stage(reference, candidate) if args.full_stage else prepare(reference, candidate))
+        if args.combined and not args.full_stage:
+            old = Dispatch.h(reference).encode()
+            assert before.count(old) == 1
+            before = before.replace(old, Dispatch.h(parent).encode(), 1)
+            LuaRuntime().compile(before.decode())
+        cases = [('candidate', candidate, after)]
+        if not (args.combined and args.full_stage):
+            cases.insert(0, ('baseline', parent, before))
     if not args.run:
+        scripts = {name:Dispatch.h(program) for name,_,program in cases} if args.combined else [Dispatch.h(program) for _,_,program in cases]
         print('DK CADENCE SOURCE '+json.dumps(dict(candidate=Dispatch.h(candidate), spans=spans,
-                                                    scripts=list(map(Dispatch.h, scripts)))), flush=True)
+            scripts=scripts)), flush=True)
         return 0
 
     out = Roster.Timing.SHARED
@@ -114,15 +142,22 @@ def main():
     previous = script.read_bytes()
     passed = True
     try:
-        for image, program, path in ((parent, scripts[0], rom), (candidate, scripts[1], target)):
+        for name, image, program in cases:
+            path = rom if image == parent else target
             if path == target:
                 target.write_bytes(image)
                 guard = check(target)
                 assert guard['ROM_sha256'] == Dispatch.h(image) and not guard['matching_patch_files']
             script.write_bytes(program)
-            result = run(script, path, out/'capture', Dispatch.h(image), 240 if args.full_stage else 90)
+            result = run(script, path, out/'capture', Dispatch.h(image), 240 if args.full_stage or args.sonic else 90)
+            assert result['script_SHA256'] == Dispatch.h(program)
             assert result['outputs_written'] == 0 and not result['images']
-            report(result, image, args.full_stage)
+            if args.sonic:
+                print('COMBINED SONIC NATIVE '+json.dumps(dict(form=name, passed=result['passed'],
+                    ROM_SHA256=result['ROM_SHA256'], receipt_SHA256=result['receipt_SHA256'],
+                    script_SHA256=result['script_SHA256'], receipt=result['receipt']),separators=(',', ':')), flush=True)
+            else:
+                report(result, image, args.full_stage)
             passed = passed and result['passed']
     finally:
         target.write_bytes(parent)
