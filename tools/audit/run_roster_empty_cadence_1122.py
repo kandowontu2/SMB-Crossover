@@ -94,8 +94,12 @@ def controller(raw, row):
 
 def cadence_reference(raw):
     """Recover the observer's verified source image from the current nightly."""
-    if Timing.H(raw) == Timing.PIN:
+    digest = Timing.H(raw)
+    if digest == Timing.PIN:
         return raw
+    if digest == '27e01af3ad9e581ac1b77227bc4ba491af76eaf9c7995c3a6eea10d891087866':
+        from probe_special_draw_routing_1123 import inverse
+        return cadence_reference(inverse(raw))
 
     import compose_dkjr_mushroom_slot_order_1123 as Lift
     import compose_dkjr_head_bridge_current_1123 as Head

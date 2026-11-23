@@ -19,6 +19,8 @@ SPECIAL_BANK = 60
 FAST = 0xA582
 LIMIT = 0xA5AD
 OLD_ENTRY = bytes.fromhex('8d6a01a9c58d6c01a9bb8d6d01a9ce205a01')
+PARENT = 'ffd7081036bca9cb165d9f4c5527e909126df70f993b4ebec75b7dd7ac83a6b1'
+CANDIDATE = '27e01af3ad9e581ac1b77227bc4ba491af76eaf9c7995c3a6eea10d891087866'
 
 
 def offset(bank, pc):
@@ -26,6 +28,7 @@ def offset(bank, pc):
 
 
 def proposal(raw):
+    assert sha256(raw).hexdigest() == PARENT
     Cadence.cadence_reference(raw)
     begin, room = offset(DRAW_BANK, ENTRY), offset(SPECIAL_BANK, FAST)
     assert raw[begin:begin + len(OLD_ENTRY)] == OLD_ENTRY
@@ -71,7 +74,20 @@ def proposal(raw):
     assert len(redirect) == len(OLD_ENTRY)
     result[begin:begin + len(redirect)] = redirect
     result[room:room + len(fast)] = fast
-    return bytes(result), len(fast)
+    candidate = bytes(result)
+    assert sha256(candidate).hexdigest() == CANDIDATE
+    return candidate, len(fast)
+
+
+def inverse(candidate):
+    assert sha256(candidate).hexdigest() == CANDIDATE
+    original = bytearray(candidate)
+    begin, room = offset(DRAW_BANK, ENTRY), offset(SPECIAL_BANK, FAST)
+    original[begin:begin + len(OLD_ENTRY)] = OLD_ENTRY
+    original[room:room + LIMIT - FAST] = b'\xea' * (LIMIT - FAST)
+    parent = bytes(original)
+    assert sha256(parent).hexdigest() == PARENT and proposal(parent)[0] == candidate
+    return parent
 
 
 def boot(raw, row, source_bundle):

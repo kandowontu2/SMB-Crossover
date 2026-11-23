@@ -80,10 +80,24 @@ skipped NMIs. Bass and Donkey Kong each improved by two zero-update frames.
 | Mini Mario | 0 / 64 / 0 | 0 | `67cedb4f97e594fdb3afc4eb09743efbc952bebadf6fae051a2421dbcf92d600` |
 | Roll | 0 / 64 / 0 | 0 | `dd7eee33fd276699bdbd78117fe883d93c9bf01156ca6cc1e637041db485ff1d` |
 
-The private candidate still needs representative live combat and full-stage
-tests before replacing Downloads.
+The retained Donkey Kong Jr. controller prevented delivery of `27e01af3`.
+It reached X2911/Y144 with two lives and 99 on the timer and gained no
+height on the first final stair. Mesen receipt
+`798cac49c31a2595fc4234efba2cefb615481d0451d4868920a01796b7df6186`.
+
+The initial Grant controller fell at X1118 before the Fire Flower. Mesen
+receipt `a932cf3e37f54188bcd6305232c219e336fcca9a5c1f551b429348ef615b3c98`.
+A controller-only change waited for grounded takeoff at X1095/Y176. Grant
+accepted the jump at X1099/Y171 and landed on the far bank at X1145/Y176.
+He collected the Flower, threw the dagger and ended with both lives and
+full HP after 2,037 video frames. Mesen receipt
+`d3189e986859f6b327198bfa0061cef577c62d1ba4a489d397bc7e3bbad10cf4`.
+The tested ROM matched in both attempts. Downloads retains the qualified
+`ffd70810` build while the Donkey Kong Jr. stair check remains open.
 
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/shared-special-draw-1123 --max-files 1 --timeout 520 -- python -B tools/audit/probe_special_draw_routing_1123.py 'ZELDA II LINK' 'LEONARDO' 'MIKE JONES' 'SMB3 MARIO' 'BASS' 'DONKEY KONG' 'MINI MARIO' 'ROLL' 'LINK'
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 360 -- python -B tools/audit/probe_special_draw_routing_1123.py --native 'ZELDA II LINK' 'BASS' 'DONKEY KONG' 'MINI MARIO' 'ROLL'
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 440 -- python -B tools/audit/run_shared_special_draw_routes_1123.py
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 170 -- python -B tools/audit/run_shared_special_draw_routes_1123.py --grant-first-pit
 ```
