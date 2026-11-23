@@ -78,6 +78,20 @@ saved no captures.
 Mesen receipt `091059d539620125474b489465eb32a8fa644ac575cbdb7f15b023af62237aa5`.
 Controller SHA-256 `c3fd7daa2485b51a2d1d018668a150faeaf94dd2cd230207fb5bca2decb92e08`.
 
+## Zelda II Link's Star
+
+Zelda II Link cast Jump and used crouching sword strikes to get past
+the ground enemies. He hit the Star block at X1616 and collected the
+moving Star at X1675/Y127. The pickup started invincibility and Star
+music and awarded 1,000 points. At X1680/Y176 he still had both lives,
+full health and an active Star after 34 further movement updates.
+The Easy 1-1 replay on Downloads `3af597a7` took 2,268 video frames
+and saved no captures. All four standard pickups have now passed for
+Zelda II Link.
+
+Mesen receipt `f9deb10ca8f734bd56e493d16854fd77d5cee993b83d3204404c3e218ed82067`.
+Controller SHA-256 `8e81e24a9795722979b04a317dc78744f5865f5484be850da64d11629c5cdd58`.
+
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_link_family_mushroom_1123.py --run --form link
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_link_family_mushroom_1123.py --run --form zelda2 --pursuit
@@ -85,4 +99,5 @@ python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-11
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_link_family_stock_1123.py --form link --route life --run
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_link_family_stock_1123.py --form zelda2 --route flower --run
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_link_family_stock_1123.py --form link --route flower --run
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_link_family_stock_1123.py --form zelda2 --route star --star-guard --run
 ```

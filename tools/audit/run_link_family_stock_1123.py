@@ -27,6 +27,28 @@ PINS={('link','life'):'22db7f901508c1c405ea2121c7c6d9c41e766574a822fcba161cc7252
       ('zelda2','flower'):'a5d6739f086855b2fc5c8c8ced8b8bca9de37be0f9ec769d87ffa432af94be8d'}
 HISTORICAL_STAR={'link':'6d03c9233a34adde56f849ebd033343f947d8ab87b7ce7c9461a1756693fbdc0',
                  'zelda2':'50e8c6dcf6f27202dbbf6421cdf2c05644e33343b9efe7c44425d42415a04e0b'}
+GUARD_PIN='f69e1b06fcf6b853d205e83be99523543e9abf0a89010db23e79e4943a9cf2f9'
+DOWNTHRUST_FLOWER_PIN='b0ba1ae2f3bf86c629fcec4661aa9e3fdb1e940d087f9cdc2e383e57fbb35546'
+
+STAR_GUARD=r'''local function defend(c,b)
+ if c.grounded and c.y>=160 then
+  local e
+  for i=0,5 do
+   local id,st=c.r('Enemy_ID',i),c.r('Enemy_State',i)
+   local dx=c.r('Enemy_X_Position',i)+256*c.r('Enemy_PageLoc',i)-c.x
+   local y=c.r('Enemy_Y_Position',i)
+   if c.r('Enemy_Flag',i)==1 and(id==0 or id==3 or id==6)and st<32 and y>=168
+      and dx> -52 and dx<72 and(not e or math.abs(dx)<math.abs(e.dx))then e={dx=dx,slot=i,id=id,state=st}end
+  end
+  if e then
+   local facing=e.dx<0 and 2 or 1
+   if c.r('PlayerFacingDir')~=facing then return{right=facing==1,left=facing==2}end
+   return{down=C.variant==1,b=C.variant==1 and c.update%12<3 or C.variant==0 and c.r('RgAttack')==0}
+  end
+ end
+ return b
+end
+'''
 
 POLICY=r'''
 local T={phase='start',events={},target=C.target_kind}
@@ -258,6 +280,35 @@ def controller(raw,form,route,*,historical_star=False):
     return text
 
 
+def variant(program,form,route,*,star_guard=False,historical_flower_label=False):
+    """Add separately pinned inputs/labels; baseline constructors stay exact."""
+    assert not star_guard or(form=='zelda2'and route=='star')
+    assert not historical_flower_label or(form=='zelda2'and route=='flower')
+    text=program;edits=[]
+    if star_guard:
+        begin=text.index('local function defend(c,b)')
+        old=text[begin:text.index('return function(c)',begin)]
+        assert text.count(old)==1
+        text=text.replace(old,STAR_GUARD,1);edits.append((old,STAR_GUARD))
+    if form=='zelda2'and route=='flower'and not historical_flower_label:
+        old='Actual next Z2 Flower food grants original Shield technology'
+        new='Actual next Z2 Flower food grants original Downthrust'
+        assert text.count(old)==1
+        text=text.replace(old,new,1);edits.append((old,new))
+    restored=text
+    for old,new in reversed(edits):
+        assert restored.count(new)==1;restored=restored.replace(new,old,1)
+    assert restored==program
+    LuaRuntime().compile(text)
+    return text
+
+
+def program_pin(form,route,*,star_guard=False,historical_flower_label=False):
+    if star_guard:return GUARD_PIN
+    if form=='zelda2'and route=='flower'and not historical_flower_label:return DOWNTHRUST_FLOWER_PIN
+    return PINS[(form,route)]
+
+
 def reference(raw):
     if H(raw)==PIN:return raw
     import compose_dkjr_side_epoch_fast_1123 as Fast
@@ -267,10 +318,12 @@ def reference(raw):
     return old
 
 
-def native_program(raw,form,route):
+def native_program(raw,form,route,*,star_guard=False,historical_flower_label=False):
     """Authenticate the exact inverse and hooks, then change only ROM identity."""
-    old=reference(raw);program=controller(old,form,route).encode()
-    assert H(program)==PINS[(form,route)]
+    old=reference(raw);baseline=controller(old,form,route)
+    assert H(baseline.encode())==PINS[(form,route)]
+    program=variant(baseline,form,route,star_guard=star_guard,historical_flower_label=historical_flower_label).encode()
+    assert H(program)==program_pin(form,route,star_guard=star_guard,historical_flower_label=historical_flower_label)
     hooks=LuaRuntime().execute(program.decode().split('\n',1)[0]+'\nreturn C.hooks')
     for name,hook in hooks.items():
         at=16+int(hook['offset']);expected=bytes.fromhex(hook['hex'])
@@ -283,9 +336,9 @@ def native_program(raw,form,route):
     return rebound
 
 
-def source(raw,form,route,limit):
+def source(raw,form,route,limit,*,star_guard=False):
     import inspect_rogue_missile_targets_cb95_1116 as Engine
-    program=native_program(raw,form,route).decode();original_reference=First.reference
+    program=native_program(raw,form,route,star_guard=star_guard).decode();original_reference=First.reference
     def cold(image):
         assert image is raw
         def bind(value):return original_reference(reference(value))
@@ -294,8 +347,8 @@ def source(raw,form,route,limit):
         return Engine.run(raw,limit,text=program)
 
 
-def native(raw,form,route):
-    program=native_program(raw,form,route);expected=H(raw)
+def native(raw,form,route,*,star_guard=False):
+    program=native_program(raw,form,route,star_guard=star_guard);expected=H(raw)
     guard=check(ROM);candidate,script=OUT/'candidate.nes',OUT/'controller.lua';before=script.read_bytes()
     assert guard['ROM_sha256']==expected and not guard['matching_patch_files']
     assert set(OUT.iterdir())=={candidate,script} and candidate.read_bytes()==raw
@@ -311,16 +364,18 @@ def native(raw,form,route):
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--form',choices=tuple(First.FORMS),default='link')
     p.add_argument('--route',choices=tuple(KINDS),default='life')
+    p.add_argument('--star-guard',action='store_true',help='Separately pinned Zelda II Star floor-enemy crouched sword guard')
     mode=p.add_mutually_exclusive_group();mode.add_argument('--source',action='store_true');mode.add_argument('--run',action='store_true')
     p.add_argument('--limit',type=int,default=4200);a=p.parse_args();assert 1600<=a.limit<=4800
     raw=ROM.read_bytes();reference(raw)
-    if a.run:q=native(raw,a.form,a.route)
+    assert not a.star_guard or(a.form=='zelda2'and a.route=='star')
+    if a.run:q=native(raw,a.form,a.route,star_guard=a.star_guard)
     else:
         def deny(*args,**kwargs):raise AssertionError('Link continuation attempted files or emulator')
         with patch.object(Path,'write_bytes',deny),patch.object(Path,'write_text',deny),patch('subprocess.Popen',deny):
-            if a.source:q=source(raw,a.form,a.route,a.limit)
+            if a.source:q=source(raw,a.form,a.route,a.limit,star_guard=a.star_guard)
             else:
-                program=native_program(raw,a.form,a.route);q=dict(passed=True,ROM_SHA256=H(raw),reference_SHA256=PIN,controller_SHA256=H(program),reference_controller_SHA256=PINS[(a.form,a.route)],route_executed=False,files=0)
+                program=native_program(raw,a.form,a.route,star_guard=a.star_guard);q=dict(passed=True,ROM_SHA256=H(raw),reference_SHA256=PIN,controller_SHA256=H(program),reference_controller_SHA256=program_pin(a.form,a.route,star_guard=a.star_guard),baseline_controller_SHA256=PINS[(a.form,a.route)],route_executed=False,files=0)
     print('LINK_FAMILY_STOCK '+json.dumps(q,separators=(',',':')),flush=True)
     return int(not q['passed'])
 
