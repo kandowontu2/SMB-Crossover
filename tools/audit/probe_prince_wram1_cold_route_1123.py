@@ -40,7 +40,7 @@ def gateway(target,bundle):
     return out
 
 
-def plan(raw):
+def plan(raw, *, extend=None, build_allocator=None, rewrite_core=None):
     B.binding(raw)
     assert H(Path(Admission.__file__).read_bytes())==ADMISSION_SOURCE
     bundle=dict(W.Symbols.bundle(),raw=raw)
@@ -71,15 +71,23 @@ def plan(raw):
  lda #3
  jsr ${far:04x}'''
     text=once(text,' jsr $bde2',nested)
+    if extend is not None:
+        text=extend(text)
     fields=dict(F.symbols(raw),Allocator=0xa000)
+    if extend is not None:
+        for name in ('R2', 'R3', 'R4', 'R6', 'Enemy_Y_Speed'):
+            fields[name] = W.address(bundle, name)
     provisional,_=assemble(text,fields)
     allocator_at=0xa000+len(provisional)
     fields['Allocator']=allocator_at
     helper,labels=assemble(text,fields)
     assert len(helper)==len(provisional)
-    make=F.Q.P.clone(Admission.machine_code,dict(ORIGIN=allocator_at))
-    allocator=make(SimpleNamespace(bundle=bundle))
-    assert len(allocator)==183
+    if build_allocator is None:
+        make=F.Q.P.clone(Admission.machine_code,dict(ORIGIN=allocator_at))
+        allocator=make(SimpleNamespace(bundle=bundle))
+        assert len(allocator)==183
+    else:
+        allocator=build_allocator(allocator_at, labels, bundle)
     action_at=allocator_at+len(allocator)
     blob=helper+allocator+action
     assert action_at+31==0xa000+len(blob)<0xbfe0
@@ -90,6 +98,8 @@ def plan(raw):
     ):
         at=pc-0xa000;assert core[at:at+len(old)]==old and len(old)==len(new)
         core[at:at+len(new)]=new
+    if rewrite_core is not None:
+        rewrite_core(core, labels, bundle)
     parts2=(bytes(core),parts[1],parts[2])
     codec=F.Q.P.Packet
     packed=[codec.encode(x)for x in parts2+(blob,)]

@@ -121,8 +121,10 @@ def load_prototype(m, blob):
     return out
 
 
-def compact_plan(parent, width=32, logical_history=False):
+def compact_plan(parent, width=32, logical_history=False, *, builder=None):
     assert width in (32, 48)
+    if builder is None:
+        builder = C.Lift.plan
     # The common typed-owner/actor search is shared by carried and swept
     # contacts. This is an additive in-memory alternate to the frozen plan.
     prefix = F.ASM.split('Material:\n',1)[0]
@@ -312,7 +314,7 @@ ActorNext:
                     ' jsr $c312')
     if width == 32:
         with patch.object(F,'ASM',text):
-            return C.Lift.plan(parent)
+            return builder(parent)
 
     text = once(text, ' lda Enemy_BoundBoxCtrl,x\n cmp #5',
                 ' lda Enemy_BoundBoxCtrl,x\n cmp #6')
@@ -324,7 +326,7 @@ ActorNext:
     allocator = once(admission.ASM, ' lda #5\n sta Enemy_BoundBoxCtrl,x',
                      ' lda #6\n sta Enemy_BoundBoxCtrl,x')
     with patch.object(F, 'ASM', text), patch.object(admission, 'ASM', allocator):
-        blob, labels, parts, packed, info = C.Lift.plan(parent)
+        blob, labels, parts, packed, info = builder(parent)
     return blob, labels, parts, packed, dict(info, lift_width=width)
 
 

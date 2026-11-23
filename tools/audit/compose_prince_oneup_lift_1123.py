@@ -208,6 +208,10 @@ def inverse(image, overlay):
 def recover_parent(image):
     """Restore the exact original packet from the new image alone."""
     (core, metadata, state, lift), _, _, _ = extract(image)
+    return restore_original_packet(image, core, metadata, state, lift)
+
+
+def restore_original_packet(image, core, metadata, state, lift):
     action = lift[-31:]
     assert H(action) == Lift.ACTION_SHA
     core = bytearray(core)

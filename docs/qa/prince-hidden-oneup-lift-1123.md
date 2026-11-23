@@ -162,10 +162,56 @@ trigger. The reach ended at X1026/Y76. The subsequent fall lost a life
 below the viewport near X1001. Mesen receipt
 `250f6dd7c739aded00d630a7d93a13918909dd6f987c99753114de23cb2a5f61`.
 
+## Up reach and the return to the floor
+
+The background check declined the hidden block because the platform was
+carrying the Prince upward while the host Y speed was zero. The trial
+lets the ordinary block check recognize the original Up action when the
+Prince still rides the ascending stock lift and its native head probe
+finds the hidden tile on the correct row. The same native block checks
+still run for the actual bump and item release.
+
+The original Prince terrain routine also stopped checking for floors once
+the source Y reached 196. After the carry changed the world origin, it
+crossed that threshold while the Prince was still above the authored
+ground at Y208. Checking the world foot instead let the original landing
+run. The isolated source test observed that transition and 96 further
+grounded updates with two lives. It matched the original results in
+three ordinary ground cases and two lift cases. Source receipt
+`23dd403f54c57a0158e473087f603076359e3c38fc872bd61d5535e3c6fac42c`.
+
+Mesen reached the genuine hidden hit with a stationary native Y-speed
+value and the Prince still on the rising lift. The 1-UP was born at
+X1024/Y120. Early overlap hit the Prince's item handler before the 1-UP
+finished emerging, exposing a separate bug in the pickup routine.
+Diagnostic receipt
+`71d40aa09a3860572edc0cc09748de01e6be7083d5a3e23e08aeb7c149722a5f`.
+
+The pickup now checks the emerging state before choosing a reward.
+The linked test confirmed that the old routine could award an immature
+Star or 1-UP. The new routine left all 16 immature cases untouched
+and matched the old routine in all 432 mature cases. Source receipt
+`dcc02c4c62d25ff3e1ba961033e932a9d0d814462bf0ab0f7e3113f3aa6d6e73`.
+
+With that fix, the original lift center at Y128 carried the Prince to
+player Y25. The mature 1-UP fell on the far side while he was still
+high above it. He died of the resulting fall near X1070 with no enemies
+in the chase. Mesen receipt
+`7fa15eb5c49b2b24df1521b01c4cb1cde1b094eefe0a973add6e027b3c537099`.
+The next trial, `5c89b9b7`, uses the same stock oscillator with center
+Y166. It still enters at left X1008 and top Y192. The source motion
+sample reached a minimum top Y134 over 512 updates. Mesen confirmed a
+real hidden hit, normal emergence, and a safe landing at Y176 with four
+HP. The first pursuit started too far left and followed the 1-UP into
+the pit. Mesen receipt
+`887e1c65faf2b6f89e1ae48f4d9a8bd31972ed50c8ce8d9cf814a89c48e412cd`.
+
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/prince-oneup-lift-admission-1123 --resume --max-files 1 --timeout 240 -- python -B tools/audit/probe_prince_oneup_lift_admission_1123.py
 python -B tools/audit/run_bounded_build_v1.py --output build/prince-oneup-lift-cold-1123 --resume --max-files 1 --timeout 350 -- python -B tools/audit/check_prince_oneup_lift_cold_1123.py
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 8 --timeout 480 -- python -B tools/audit/run_prince_oneup_lift_native_1123.py --stage
 python -B tools/audit/run_bounded_build_v1.py --output build/prince-oneup-lift-cold-1123 --resume --max-files 1 --timeout 350 -- python -B tools/audit/check_prince_oneup_lift_cold_1123.py --swept
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 8 --timeout 420 -- python -B tools/audit/run_prince_oneup_lift_native_1123.py --hold-plane --centered --face-first --reach
+python -B tools/audit/run_bounded_build_v1.py --output build/prince-lift-head-lab-1123 --resume --max-files 1 --timeout 160 -- python -B tools/audit/run_prince_lift_reach_1123.py cold
+python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 300 -- python -B tools/audit/run_prince_lift_reach_1123.py pickup
 ```
