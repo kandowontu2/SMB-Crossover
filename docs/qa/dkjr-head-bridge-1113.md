@@ -226,6 +226,9 @@ art bytes, and keeps the 13 existing helper placements. The X336 private
 lift described above is outside this candidate. The source checks passed
 224 IRQ and 224 busy-NMI interruptions against a matched native control.
 The native audio writes and skipped-frame increment matched that control.
+The final source check reconstructed the parent from the installed ROM
+and passed with receipt
+`14fbbd3f9f12bdc2fbf736953710ca9cb450ec87fd69b05506194353d1073100`.
 
 In Mesen, DK Jr. rode the existing lift at X416, jumped Left toward the
 underside of the X384 brick and hit it at X401/Y144. His original fall
@@ -247,7 +250,8 @@ a route to a Mushroom. After the brick bounce, DK Jr. reached X344/Y112
 on the row and jumped from there, leaving the Mushroom block unchanged.
 
 Downloads now has `06336f15`. Its DK Jr. opening matched the private
-receipt exactly. The same launch checks took 97 video frames for 64
+receipt exactly, as did a repeat of the block hit launched from Downloads.
+The same launch checks took 97 video frames for 64
 updates with each Sonic form and 64 with Mini Mario. The automatic patch
 guard passed before and after direct replacement. No backup was created.
 
