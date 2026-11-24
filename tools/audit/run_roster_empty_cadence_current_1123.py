@@ -18,9 +18,15 @@ def reference(raw):
     import compose_karnov_side_route_1123 as Karnov
     import compose_kirby_spiny_sound_1123 as Needles
     import compose_prince_epoch_current_1123 as Epoch
+    import compose_prince_ground_approach_1123 as PrinceGround
+    import compose_prince_pipe_approach_1123 as PrincePipe
     import compose_prince_side_current_1123 as Side
 
     observed = raw
+    if Previous.Timing.H(raw) == PrinceGround.CANDIDATE:
+        raw = PrinceGround.inverse(raw)
+    if Previous.Timing.H(raw) == PrincePipe.CANDIDATE:
+        raw = PrincePipe.inverse(raw)
     if Previous.Timing.H(raw) == BubbleBobble.CANDIDATE:
         raw = BubbleBobble.inverse(raw)
     if Previous.Timing.H(raw) == Karnov.CANDIDATE:
