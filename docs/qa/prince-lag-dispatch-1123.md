@@ -143,5 +143,23 @@ Sonic's run took 96 rather than 97 video frames for 64 game updates.
 Frames without an update went from 33 to 32. The Mesen receipts are
 `cb19db20b970a5b9f81f79b54d5896aefa31bf275675e564650cb2b2a9d78ed6` and
 `3366d6972a42c26f9578f7d75f9ec0e80293ec2eb5f3a1d41d8afbb00329657e`.
-The shared change stays private pending full native route coverage. The
-Downloads nightly contains the fourth-pipe collision fix.
+
+### Shared dispatcher delivery
+
+The `50ddd9b1` candidate cleared the regular 1-1 route and ran 25 grounded
+game updates in 1-2 for these five characters. Each kept both lives. The
+Prince also kept full health and the sword he earned in 1-1.
+
+| Character | Video frames | Mesen receipt SHA-256 |
+| --- | ---: | --- |
+| Prince of Persia | 15,070 | `c1a4e0bd46f15846c1472eb8b66305858111ecb9797911f2971dd5971a0729e5` |
+| Sonic | 5,362 | `81cd346c82f8494e8feef43ee6b45f4c8bcd5a70bd7ccd2cdefcf4d8d6eb0d0f` |
+| Super Sonic | 5,380 | `eb57a07b361d4b8b376234ae61df837767334c07126e1b40f3f3779ee4e51de6` |
+| Bub | 11,201 | `dbdc1e5c8ec164320db52fba35489316d61ed50ce9e406405b588a9ba57e9695` |
+| Bob | 11,230 | `f5d59edbf222a887e3ad885d19ef5691be307ff531b7e96d7597fdfdd6bb62e9` |
+
+The actual Downloads launch matched the Prince's full-stage receipt on
+`50ddd9b19e0185a3e8c436f09bed28e6d110fa675af3d433ff6439fb4b3d8d05`.
+The version delivered directly after that check contains both the shared
+result copy and the fourth-pipe correction. The guard found no matching
+automatically loaded patch.

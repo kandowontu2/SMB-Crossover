@@ -640,5 +640,17 @@ corruption and foreign owner. A valid check takes 288 cycles instead of
 Linked movement, jumping and attack inputs match for Fighter, White Mage,
 Black Mage and Thief. Each saves 777 CPU cycles per sampled update. All
 35 IRQ and 35 busy-NMI continuations return to the same registers, live
-stack, bank mapping and gameplay endpoint. The physical Mesen cadence and
-full-stage checks are separate.
+stack, bank mapping and gameplay endpoint.
+
+Mesen tested all four classes on `50ddd9b1` and the combined private trial
+`24465988`. Each class took 96 video frames for 64 standing and walking
+updates on both builds. In each run 32 frames had no gameplay update. The
+trial still reduced work inside those updates. For example, Fighter averaged
+740 fewer measured cycles per update in both portions of the opening.
+
+| Character | Installed opening receipt | Trial opening receipt |
+| --- | --- | --- |
+| Fighter | `3c843b6112694952d3488aede0df3214604180d2aa57235090e46e37f56ee50d` | `47c0d4f7482bd5f97831faecf6602a4f596f71f4744edf724da74e2737833e34` |
+| White Mage | `abe81d98f2e7310be057412d3594dda5551ad16945be0b4bfc4e926f16a929ab` | `4681887c76d4e0f5a5ed68f6ce4027bfb944f70bc668074f80ff422310b8709f` |
+| Black Mage | `9105702631ecc65935039b5e93a0407ce4e72e1df7a1ec749ab7eea5182dd22f` | `6d270d75476ca7fe167a079494077471894c0155468a9b994a8c39e335190702` |
+| Thief | `2f6383e789574e5526a176b341cd83d848f70be70250828ae11031273ab8aeae` | `d201e952b1b492fd7fd8d510b059f27127f80b15851c5d40e89ac0a241259596` |

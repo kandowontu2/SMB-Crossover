@@ -13,6 +13,13 @@ Prince, Cadence = Copy.Prince, Copy.Cadence
 Base, Timing = Cadence.Previous, Cadence.Previous.Timing
 H = Prince.H
 NAMES = ('prince', 'sonic', 'super', 'bub', 'bob')
+PRIVATE_PASSES = {
+    'prince': 'c1a4e0bd46f15846c1472eb8b66305858111ecb9797911f2971dd5971a0729e5',
+    'sonic': '81cd346c82f8494e8feef43ee6b45f4c8bcd5a70bd7ccd2cdefcf4d8d6eb0d0f',
+    'super': 'eb57a07b361d4b8b376234ae61df837767334c07126e1b40f3f3779ee4e51de6',
+    'bub': 'dbdc1e5c8ec164320db52fba35489316d61ed50ce9e406405b588a9ba57e9695',
+    'bob': 'f5d59edbf222a887e3ad885d19ef5691be307ff531b7e96d7597fdfdd6bb62e9',
+}
 
 
 def bubble_reference(raw):
@@ -51,7 +58,7 @@ def programs(raw, image, names):
     return {name: controls[name] for name in names}
 
 
-def run(raw, image, controls):
+def run(raw, image, controls, install=False):
     work = Timing.SHARED
     candidate, script = work / 'candidate.nes', work / 'controller.lua'
     before = Base.check(Timing.ROM)
@@ -60,34 +67,53 @@ def run(raw, image, controls):
     Base.require_free_workspace(Timing.R, Timing.ROM, allow_interactive=True)
     original = script.read_bytes()
     done = True
+    delivered = False
     try:
         candidate.write_bytes(image)
         assert Base.check(candidate)['ROM_sha256'] == H(image)
+        path = candidate
+        if install:
+            assert set(PRIVATE_PASSES) == set(NAMES) and H(image) == Copy.CANDIDATES[Prince.CapSupport.CANDIDATE]
+            assert 'prince' in controls and Base.check(Timing.ROM) == before
+            Timing.ROM.write_bytes(image)
+            path = Timing.ROM
+            target = Base.check(path)
+            assert target['ROM_sha256'] == H(image) and not target['matching_patch_files']
         for name, text in controls.items():
             script.write_bytes(text)
-            proof = Base.run(script, candidate, work / 'capture', H(image), 320,
+            proof = Base.run(script, path, work / 'capture', H(image), 320,
                              variant=3 if name == 'prince' else 0,
                              extra_env={'SMB_STDOUT_IMAGES': '0'}, long_no_capture=True)
             assert not proof['images'] and proof['outputs_written'] == 0
             receipt = proof['receipt']
             terminal = receipt.get('terminal', receipt.get('stage_terminal'))
-            result = dict(character=name, passed=proof['passed'], reason=receipt.get('reason'),
+            result = dict(character=name, passed=proof['passed'], reason=receipt.get('reason'), downloads=install,
                           receipt_SHA256=proof['receipt_SHA256'], script_SHA256=proof['script_SHA256'],
                           frames=receipt.get('physical_frames'), terminal=terminal)
             print(json.dumps(result, separators=(',', ':')), flush=True)
             done &= proof['passed']
+            if install:
+                assert proof['passed'] and proof['receipt_SHA256'] == PRIVATE_PASSES[name]
+        if install:
+            assert path.read_bytes() == candidate.read_bytes() == image and Base.check(path) == target
+            delivered = True
     finally:
-        candidate.write_bytes(raw)
+        if not delivered:
+            candidate.write_bytes(raw)
+            if install and Timing.ROM.read_bytes() != raw:
+                Timing.ROM.write_bytes(raw)
+            assert Base.check(Timing.ROM) == before
         script.write_bytes(original)
-        assert Base.check(Timing.ROM) == before and set(work.iterdir()) == {candidate, script}
+        assert set(work.iterdir()) == {candidate, script}
     return int(not done)
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--install', action='store_true')
     parser.add_argument('names', nargs='+', choices=NAMES)
     args = parser.parse_args()
     raw = Timing.ROM.read_bytes()
     image = Copy.compose(raw)
     print(H(image), flush=True)
-    raise SystemExit(run(raw, image, programs(raw, image, args.names)))
+    raise SystemExit(run(raw, image, programs(raw, image, args.names), install=args.install))

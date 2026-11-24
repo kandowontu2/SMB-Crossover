@@ -21,17 +21,20 @@ def native(raw, image, names, stage):
     assert set(work.iterdir()) == {candidate, script} and candidate.read_bytes() == raw
     Base.require_free_workspace(Timing.R, Timing.ROM, allow_interactive=True)
     original = script.read_bytes()
-    anchor = Cadence.reference(raw)
-    rows = Base.roster(raw)
-    stage_source = STAGE.read_bytes()
-    assert H(stage_source) == STAGE_SHA
+    if stage:
+        stage_source = STAGE.read_bytes()
+        assert H(stage_source) == STAGE_SHA
+    else:
+        anchor = Cadence.reference(raw)
+        rows = Base.roster(raw)
     passed = True
     try:
         candidate.write_bytes(image)
         assert Base.check(candidate)['ROM_sha256'] == H(image)
         for name in names:
-            controller = Cadence.controller(anchor, rows[name])
-            assert controller.count(Timing.PIN) == 1
+            if not stage:
+                controller = Cadence.controller(anchor, rows[name])
+                assert controller.count(Timing.PIN) == 1
             for cartridge, path in ((raw, Timing.ROM), (image, candidate)):
                 digest = H(cartridge)
                 script.write_bytes(stage_source if stage else controller.replace(Timing.PIN, digest, 1).encode())

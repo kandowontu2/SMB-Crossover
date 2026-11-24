@@ -14,7 +14,10 @@ import profile_roster_empty_draw_1123 as Roster
 H = Shared.Prince.H
 ROM = Shared.Prince.ROM
 PARENT = Shared.Prince.CapSupport.CANDIDATE
-TRIAL = 'e75044b53f561c43e539e3ca1f8a9d83f9ed126f31bea9c8bad3263bc3e4cfff'
+CANDIDATES = {
+    PARENT: 'e75044b53f561c43e539e3ca1f8a9d83f9ed126f31bea9c8bad3263bc3e4cfff',
+    Shared.CANDIDATES[PARENT]: '24465988509464962100afcca7560aeb64d77eae8cb095a973ec1f52dbb25308',
+}
 CHECK, RESTORE, COOKIE = 0xAA2D, 0xBFF5, 0xAF0E
 BANK = 62
 OLD = bytes.fromhex('08488a48ada17d48ad0260c916d01da9038da17d8d1651a20fbde0dfdd0eafd00bca10f5'
@@ -86,25 +89,25 @@ def check_allocation(raw):
 
 
 def compose(raw):
-    assert H(raw) in (PARENT, Shared.CANDIDATES[PARENT])
+    expected = CANDIDATES[H(raw)]
     check_allocation(raw)
     image = bytearray(raw)
     for at, before, after in edits():
         assert image[at:at + len(before)] == before
         image[at:at + len(after)] = after
     image = bytes(image)
-    if H(raw) == PARENT:
-        assert H(image) == TRIAL
+    assert H(image) == expected
     return image
 
 
 def inverse(image):
+    assert H(image) in CANDIDATES.values()
     raw = bytearray(image)
     for at, before, after in edits():
         assert raw[at:at + len(after)] == after
         raw[at:at + len(before)] = before
     raw = bytes(raw)
-    assert H(raw) in (PARENT, Shared.CANDIDATES[PARENT])
+    assert CANDIDATES[H(raw)] == H(image)
     return raw
 
 

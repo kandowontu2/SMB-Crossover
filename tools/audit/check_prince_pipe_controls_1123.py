@@ -233,6 +233,12 @@ def source(raw, pad, return_left=False):
     return summary(receipts[0], pad)
 
 
+def pipe_reference(raw):
+    import check_shared_result_copy_1123 as SharedResult
+
+    return SharedResult.inverse(raw) if H(raw) in SharedResult.CANDIDATES.values() else raw
+
+
 def stage_controller(raw, baseline, extra_extents=()):
     import compose_donkey_side_early_1123 as DonkeyEarly
     import compose_donkey_side_shortcut_1123 as Donkey
@@ -241,6 +247,9 @@ def stage_controller(raw, baseline, extra_extents=()):
     import compose_prince_side_current_1123 as Prince
     import run_prince_epoch_native_1123 as Stage
 
+    baseline = pipe_reference(baseline)
+    if H(baseline) == CapSupport.CANDIDATE:
+        baseline = CapSupport.inverse(baseline)
     if H(baseline) == Reverse.CANDIDATE:
         baseline = Reverse.inverse(baseline)
     if H(baseline) == Ground.CANDIDATE:
@@ -301,6 +310,7 @@ def later_pipe_controller(raw, target, baseline=None, extra_extents=()):
     assert target in (3, 4)
     if baseline is None:
         baseline = raw
+    baseline = pipe_reference(baseline)
     if H(baseline) == CapSupport.CANDIDATE:
         baseline = CapSupport.inverse(baseline)
     text = stage_controller(raw, Reverse.inverse(baseline), extra_extents)
@@ -391,7 +401,8 @@ def native(raw, pad, trial, stage=False, install=False, trace=False, return_left
     assert set(SHARED.iterdir()) == {candidate, script} and candidate.read_bytes() == installed
     require_free_workspace(Original.R, ROM, allow_interactive=True)
     script_before = script.read_bytes()
-    extra_extents = CapSupport.static_extents(raw) if H(raw) == CapSupport.CANDIDATE else ()
+    cap_reference = pipe_reference(raw)
+    extra_extents = CapSupport.static_extents(cap_reference) if H(cap_reference) == CapSupport.CANDIDATE else ()
     replaced = delivered = False
 
     def replay(path, stage, target_pipe=None):
