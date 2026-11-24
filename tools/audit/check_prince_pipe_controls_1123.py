@@ -118,6 +118,22 @@ end)
 '''
         assert text.count(marker) == 1
         text = text.replace(marker, marker + '\n' + witness)
+        if return_left:
+            witness = '''
+probe.left_queries={}
+for _,pc in ipairs({0xbde2,0xbde5})do
+ observe(pc,3,function()
+  local s=state()
+  if progress~='usability-return' or s.x<476 or s.x>493 or #probe.left_queries>=24 then return end
+  if source(0x40a)~=8 or (s.action~=8 and s.action~=24 and s.action~=28)then return end
+  local cpu=emu.getState();local sp=cpu['cpu.sp']
+  local ret=(read(0x100+((sp+1)&255))+256*read(0x100+((sp+2)&255))+1)&65535
+  probe.left_queries[#probe.left_queries+1]={x=s.x,y=s.y,action=s.action,pose=s.pose,mode=s.mode,
+    foot=s.foot,commit=s.commit,pc=pc,ret=ret,a=cpu['cpu.a'],xreg=cpu['cpu.x'],yreg=cpu['cpu.y']}
+ end)
+end
+'''
+            text = text.replace(marker, marker + '\n' + witness, 1)
     Original.LuaRuntime().compile(text)
     return text
 
@@ -205,6 +221,7 @@ def summary(receipt, pad):
         return {key: state[key] for key in fields if key in state} if state else None
 
     return dict(pad=pad, passed=receipt['passed'], reason=receipt['reason'], ground_queries=probe.get('ground_queries'),
+                left_queries=probe.get('left_queries'),
                 approach=compact(probe.get('release')), hang=probe['hang'], cap=compact(probe.get('crossing')),
                 right_clear=compact(probe.get('right_clear')), left_cap=compact(probe.get('left_cap')),
                 terminal=compact(receipt['terminal']), max_x=max((s['x'] for s in probe['samples']), default=None),

@@ -52,6 +52,14 @@ completes 25 grounded updates in 1-2.
 Both receipts matched from the actual Downloads path. Its ROM is
 `fcb67a68cfd2aadcf0fc68fb8dbf8152204796cdb58d5caf98bb0127f96f3c01`.
 
-Climbing the first pipe from its right side still needs work. The linked
-controller replay successfully crossed it going right and turned back with
-Up+Left. It continued to recoil at X479/Y176 throughout the return attempt.
+The empty opening took 146 video frames for 96 standing and walking game
+updates, one more frame than the measured earlier nightly. Fifty video
+frames had no game update. Mesen receipt
+`ea715b1dcd21db4a2f70e71d49de297173ff8c9715ff1c49a8ee9df7bd993fad`.
+
+Climbing the first pipe from its right side still needs work. Both the
+linked controller replay and Mesen crossed it going right and turned back
+with Up+Left. Mesen observed the original Up action 28 at X479/Y176, then
+repeated recoil with no climb. The remaining issue is ledge admission
+after Up is accepted. Mesen receipt
+`b36ce6837975e5d19c9fae07bbd9abe4ab77a93830b1d4d5f0d0fefabf57bfed`.
