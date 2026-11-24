@@ -162,3 +162,35 @@ byte for byte.
 | First pipe, Up+A+direction | Repeated the same sequence in both directions with full health | `2ae620db984f43ba7a3ec1df27c8be86c3a77a0a646d0bd8b70821a8f628954f` |
 | Fourth pipe | Climbed to the 64-pixel cap, stood for 20 updates, then walked and fell to X962/Y176 with the same health as on approach | `74cf97e103a0b25a2f6ddb5e07f89312c766e85ab8a3cd4fcf402b334faf7ac9` |
 | Full Easy 1-1 | Earned the sword and completed 25 grounded updates in 1-2 with full health and two lives | `b078d33853f3dc872d9416ae462ac79165cb176be44d50ce646cd0859ad83e6a` |
+
+## Used coin block and pipe landing
+
+On `d2ca7fe0`, the Prince climbed the first coin block in 1-1 at world
+X256–271 with top Y144. The block changed from question block `$C0` to
+used block `$C4` during the climb. He reached idle at X243/Y112 with his
+right foot over the block. Two gameplay updates later the donor's missed
+terrain query moved him to X222/Y121 and began a fall. Receipt
+`bbb9b240a779d5d205c96f0602dcee37bd80b44efde45d332b357daaf2b84b69`.
+
+The grounded fallback now reads the exposed native ledge under both foot
+positions. It accepts either supported foot on a pipe cap, a supported
+brick, or a live or used question block. The current and previous source
+sole projections must agree with the native surface within three pixels
+on the grounded fallback. The legacy careful-step fallback still handles
+its original cases. On the first pipe, the sweep for projecting a falling
+foot onto the real cap also runs during landing recovery. The recorded
+maximum dip during recovery fell from five pixels to two before the Prince
+settled on the cap.
+
+The linked support check passed 14 cases. They include one-foot support in
+both directions, air, a covered block, a shaft, a coin and an axe. The
+Prince packet remains in its existing carrier pages and uses 46,864 of
+47,104 bytes. The inverse recipe restores `d2ca7fe0` byte for byte.
+
+| Downloads Mesen replay on `5b9c21e6` | Outcome | Receipt SHA-256 |
+| --- | --- | --- |
+| Opening coin block | Climbed as the block became used and stood at X243/Y112 for 20 updates with full health | `4068d1289634891b3aee7fc4398cecb8b4c18a4567cc66728a6062504de1b81d` |
+| First pipe, release Up during the climb | Reached the cap and stayed at X459/Y144 for 20 updates with full health | `d2b804b8664d98a5ba003b4e61eb66e531844e5b3b9f404b8816225141738bae` |
+| First pipe from both sides | Climbed, paused, walked off and landed in both directions with full health | `379db763c5f76b60c19220594da889e3216da947f01d0b4ef28032cbba0b5c20` |
+| Fourth pipe | Stood on the tall cap and walked off without losing health | `6e06011ee2689d08ce941564b7687d49c9758c2ec68d6c4dad39befd8aa09008` |
+| Full Easy 1-1 | Earned the sword and retained full health and both lives through 25 grounded updates in 1-2 | `e9b4b15ff507ef9e11f7f34f8caffff065f8f22db9c2abc86ceca28c2bdac9e1` |
