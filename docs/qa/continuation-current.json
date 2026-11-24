@@ -1,4 +1,10 @@
 {
+  "PRINCE_PIPE_CONTROLS_1124": {
+    "nightly": "d2ca7fe07060f25d1bd5451f3219c44522d959f6d7dd02a0d667e9927b9137e0",
+    "replay_scope": "The Prince climbed the first 1-1 pipe in both directions using Up alone and Up+A+direction. Both replays included a bump, released Up mid-climb, 20 supported updates on the cap, and a directional walk off each side with five HP. The fourth pipe passed the stand and walk-off check. The full Easy 1-1 sword route held five HP and two lives into 25 grounded updates in 1-2.",
+    "rollback": "compose_prince_pipe_play_1124.inverse(image) restores 50ddd9b1 byte for byte.",
+    "details": "docs/qa/prince-pipe-approach-1123.md"
+  },
   "LATEST_1123_CURRENT_WORK": {
     "shared_result_copy_delivery": "Installed 50ddd9b1 after normal full 1-1 Mesen passes for Prince, Sonic, Super Sonic, Bub and Bob, each retaining both lives into at least 25 grounded updates in 1-2. The actual Downloads Prince sword route matched receipt c1a4e0bd46f15846c1472eb8b66305858111ecb9797911f2971dd5971a0729e5 with full health and both lives. Quiet-opening improvement is one frame in the Prince and Sonic samples. The Final Fantasy header loop is a separate pending candidate. See prince-lag-dispatch-1123.md.",
     "final_fantasy_header_pair_trial": "Private e75044b5 compares all 16 Final Fantasy header bytes two at a time. Each check takes 288 instead of 325 cycles. All 4591 register/header cases, 75 linked updates per class, and 35 each IRQ and busy NMI returns matched. The loop and 11-byte restore fit in PRG62, whose bank is excluded by all 224 Rogue Dawn raw audio page mappings. The linked gameplay saving is 777 cycles per update. Native frame cadence and route qualification are pending. See roster-opening-cadence-1123.md.",

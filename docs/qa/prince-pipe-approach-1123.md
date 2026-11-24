@@ -137,3 +137,28 @@ walking updates.
 | Second pipe climb and landing from the usual left approach | `5ec7e968d24412339c6f7552fb38f84bbc57b93a9f3cfb70b4cef473bbfb3ee1` |
 | Third pipe climb and 25 supported updates from the usual left approach | `25abd2c684bac0f8b6d702b789073ae820f1368f52be3b8de371916b8e681a8d` |
 | Full Easy 1-1 with the earned sword | `fb473e00f40bfc0bd26e273f2716e4139263b27e63f0d20d7a3f0c04e7d463a8` |
+
+## Climbing after a bump and walking off the pipe
+
+The previous nightly `50ddd9b1` could recoil from the first pipe to X417
+and stay there with Right+A or Right+Up+A held. The original input filter
+required an exact Up+direction combination. The revised filter accepts Up by
+itself and Up+direction with A or B held. It checks for a pipe ahead and uses
+both halves of the pipe when the Prince's first running step moves him into
+reach. A without Up still uses the normal jump input.
+
+The pipe-top check now takes the actual tile surface and accepts either
+supported foot. It allows the source animation to project the foot slightly
+below the surface without starting a fall. The ordinary falling routine
+takes over once the edge is clear. Eleven linked cases cover exposed and
+covered pipe tops, one-foot support, a two-pixel projection, ordinary
+terrain, and an existing fall. The updated packet uses 46,802 of its
+existing 47,104 carrier bytes. The reverse recipe restores `50ddd9b1`
+byte for byte.
+
+| Mesen replay on `d2ca7fe0` | Outcome | Receipt SHA-256 |
+| --- | --- | --- |
+| First pipe, Up alone | Walked into both sides, climbed after a recoil, released Up for 12 updates mid-climb, rested 20 updates on the cap, and walked off each edge with full health | `bd89980d91523ce91c98997b1a2c5a9f23ba8ba01ec0ff5a66a70b31b9296888` |
+| First pipe, Up+A+direction | Repeated the same sequence in both directions with full health | `2ae620db984f43ba7a3ec1df27c8be86c3a77a0a646d0bd8b70821a8f628954f` |
+| Fourth pipe | Climbed to the 64-pixel cap, stood for 20 updates, then walked and fell to X962/Y176 with the same health as on approach | `74cf97e103a0b25a2f6ddb5e07f89312c766e85ab8a3cd4fcf402b334faf7ac9` |
+| Full Easy 1-1 | Earned the sword and completed 25 grounded updates in 1-2 with full health and two lives | `b078d33853f3dc872d9416ae462ac79165cb176be44d50ce646cd0859ad83e6a` |
