@@ -131,11 +131,50 @@ class Trace(P.D.Trace):
         finally:c.step=original
 
 
+def installed_profile(raw):
+    """Profile either verified November 23 pipe build with ordinary controls."""
+    import check_prince_pipe_controls_1123 as Pipe
+
+    assert H(raw) in (Pipe.Reverse.CANDIDATE, Pipe.CapSupport.CANDIDATE)
+    cookie = Pipe.authenticate(raw)['cookie']
+    load = P.Prince.clone(P.Prince.cold, dict(authenticate=Pipe.authenticate, COOKIE=cookie))
+    model = load(raw)
+    private = Pipe.packet(raw)[0][3]
+    for _ in range(4):
+        B.main_step(model, 0)
+    phases = {}
+    for name, pad, count in (('standing', 0, 8), ('walking', 1, 32)):
+        trace, rows = Trace(model, private), []
+        for _ in range(count):
+            assert not any(B.flags(model))
+            main, nmi = B.main_step(model, pad, trace)
+            assert not any(B.flags(model)) and model.ram[2][0x6cf] == 5
+            assert N.get(model, 'NumberofLives') == 2
+            rows.append(dict(main_cycles=main, NMI_cycles=nmi, x=B.position(model)))
+        profile = trace.summary(rows)
+        phases[name] = dict(updates=count, first=rows[0], last=rows[-1],
+                            mean_main_cycles=profile['mean_main_cycles'],
+                            mean_logical_nmi_cycles=profile['mean_logical_NMI_cycles'],
+                            hot_regions=profile['hot_regions'][:16], far_calls=profile['hot_FarCallCommon'][:20],
+                            mapper_writes_per_update=sum(trace.maps.values()) / count)
+    assert phases['walking']['last']['x'] > phases['standing']['last']['x']
+    receipt = dict(ROM=H(raw), phases=phases)
+    canonical = json.dumps(receipt, sort_keys=True, separators=(',', ':'))
+    print('PRINCE CURRENT TRANSPORT ' + json.dumps(dict(receipt, receipt_SHA256=H(canonical.encode())),
+                                                    separators=(',', ':')), flush=True)
+
+
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--hoist',action='store_true')
+    mode=parser.add_mutually_exclusive_group()
+    mode.add_argument('--hoist',action='store_true')
+    mode.add_argument('--installed',action='store_true')
     args=parser.parse_args()
-    raw=P.D.Old.ROM.read_bytes();assert H(raw)==PIN
+    raw=P.D.Old.ROM.read_bytes()
+    if args.installed:
+        installed_profile(raw)
+        return
+    assert H(raw)==PIN
     def deny(*a,**k):raise AssertionError('Transport profile attempted files/native')
     with patch.object(Path,'write_bytes',deny),patch.object(Path,'write_text',deny),patch('subprocess.Popen',deny):
         m,chunks=cold(raw)

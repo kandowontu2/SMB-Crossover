@@ -112,3 +112,36 @@ idle. Far-call handling in the internal RAM trampoline consumes 5,873
 cycles per update. The remaining calls also spend 3,008 cycles across the
 two hot bank 65 transport regions. These costs leave work for another
 performance pass after the pickup and stage replay checks.
+
+## Current transport profile
+
+The linked opening on `c674004a` averages 37,945 foreground cycles while
+standing and 38,109 during the Right sequence. Each update crosses the
+shared result-copy code eight times. The full cost of the eight private
+calls, including the code they run, averages 10,217 cycles while standing.
+The calls contain movement, drawing, collision and short return routines.
+Profile receipt `f7dd1ec6d087570504f44d068a734caa988338dfb1a4db1bcff82e1e23702077`.
+
+The private `99aca8f4` trial writes the four result bytes directly to the
+existing stack slots. The common restore routine reads the same values at
+the same stack depth. In 8,192 CPU checks, the result copy took 43 cycles
+instead of 88. Linked standing, walking and jump sequences matched gameplay
+state and saved 360 cycles per update for the Prince, 405 for Donkey Kong Jr.,
+and 630 for Sonic and Super Sonic. Mini Mario's measured gameplay path did
+not call the changed routine.
+Twelve IRQ and twelve busy-NMI probes along the revised copy return to the
+same linked gameplay state, mapper state, live stack and registers.
+
+The same trial on top of the fourth-pipe fix (`50ddd9b1`) took 145 video
+frames for the Prince's 96 game updates. The installed `e37ada6a` took 146.
+Frames without a game update went from 50 to 49. It still stutters in the
+empty opening. The paired Mesen receipts are
+`172edd2a3f036742bedaa35190a2fe618ce680ddd629b21b6d9ce327ecd41950` and
+`f45fe2a7a5404892f2a8011276b16a4a2e29c5316bf34a4c978b687f45ffe574`.
+
+Sonic's run took 96 rather than 97 video frames for 64 game updates.
+Frames without an update went from 33 to 32. The Mesen receipts are
+`cb19db20b970a5b9f81f79b54d5896aefa31bf275675e564650cb2b2a9d78ed6` and
+`3366d6972a42c26f9578f7d75f9ec0e80293ec2eb5f3a1d41d8afbb00329657e`.
+The shared change stays private pending full native route coverage. The
+Downloads nightly contains the fourth-pipe collision fix.
