@@ -621,3 +621,24 @@ characters kept both lives and used their original bubble movement.
 The tested ROM `e5cb1367ecfa022b610b2705a91280ac47b2aec943c6eb84cf036f50f2879c88`
 replaced the Downloads nightly. Both full stage receipts matched from the
 actual Downloads path. The automatic patch check found no sidecar patches.
+
+### Final Fantasy header validation
+
+On the `e37ada6a` nightly, Fighter runs the same complete 16-byte cache
+check 21 times during an ordinary game update. It runs twice before the
+frame counter advances and 19 times afterward. Every sampled caller had
+the gameplay ROM mapped at `$C000` on entry.
+
+Private `e75044b5` keeps the complete comparison and checks two bytes per
+loop instead of one. The existing register and bank restore moves to the
+11-byte tail after the last return in the same PRG bank. The 224 Rogue
+Dawn raw audio page mappings exclude that bank. The checker retains the
+original owner gate and returns the same result for every single-byte
+corruption and foreign owner. A valid check takes 288 cycles instead of
+325 across 4,591 CPU cases.
+
+Linked movement, jumping and attack inputs match for Fighter, White Mage,
+Black Mage and Thief. Each saves 777 CPU cycles per sampled update. All
+35 IRQ and 35 busy-NMI continuations return to the same registers, live
+stack, bank mapping and gameplay endpoint. The physical Mesen cadence and
+full-stage checks are separate.

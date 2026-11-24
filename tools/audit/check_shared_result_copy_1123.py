@@ -54,6 +54,17 @@ def compose(raw):
     return image
 
 
+def inverse(image):
+    digest = Prince.H(image)
+    (parent,) = (old for old, trial in CANDIDATES.items() if trial == digest)
+    code = replacement()
+    end = OFFSET + len(code)
+    assert image[OFFSET:end] == code
+    raw = image[:OFFSET] + OLD + image[end:]
+    assert Prince.H(raw) == parent
+    return raw
+
+
 def component_controls():
     machines = [MPU(memory=bytearray(65536)) for _ in range(2)]
     for cpu, code in zip(machines, (OLD, replacement()), strict=True):
