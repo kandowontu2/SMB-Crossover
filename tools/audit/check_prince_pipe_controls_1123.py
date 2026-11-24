@@ -13,6 +13,7 @@ import compose_prince_oneup_lift_1123 as Lift
 import compose_prince_pipe_approach_1123 as Trial
 import compose_prince_ground_approach_1123 as Ground
 import compose_prince_reverse_ledge_1123 as Reverse
+import compose_prince_pipe_cap_support_1123 as CapSupport
 import replay_prince_pipe_direct_1114 as Direct
 import replay_prince_pipe_usability_1114 as Original
 
@@ -24,6 +25,9 @@ GROUND_PIPE_RECEIPT = '5bad9c624f6db272377f93cccc24f4266c1b789e111cccb4e9aee2f25
 GROUND_STAGE_RECEIPT = 'fde5119f518de8ba421d0d26636af19b94e570d39cad30f2226b96192abecd25'
 REVERSE_PIPE_RECEIPT = '252b1fde2ac609cc2aa5bd2a84f8e8be3f66fc52f117f5959174a87f0399d24e'
 REVERSE_STAGE_RECEIPT = '71a2887007382456ba516b5e30630f52b73082b949dc588ae710652fd8767bbb'
+CAP_FIRST_RECEIPT = '16561b3f933afbb4a89d1c4f226fe0639854ffb3daae64febe7f121db7ee5e0c'
+CAP_FOURTH_RECEIPT = '99ba6419b77fc75d21ea5b31917e169ecbd002a68d01c2c5babf708cc8930b4b'
+CAP_STAGE_RECEIPT = 'fb473e00f40bfc0bd26e273f2716e4139263b27e63f0d20d7a3f0c04e7d463a8'
 
 
 @lru_cache(maxsize=2)
@@ -43,7 +47,42 @@ def rebind(function, **names):
     return scope[function.__name__]
 
 
-def controller(raw, pad, trace=False, return_left=False):
+def pipe_audit(text, target, marker):
+    left, top = {2: (608, 160), 3: (736, 144), 4: (912, 144)}[target]
+    before = 'local function laterTick(s)'
+    assert text.count(before) == 1 and text.count(marker) == 1
+    watch = f'''local audit={{pipe={target},left={left},top={top}}}
+late.pipe_audit=audit
+local function auditPipe(s)
+ audit.approach=audit.approach or s
+ if s.action==10 and s.x>=audit.left-20 and s.x<audit.left+32 then audit.climb=audit.climb or s end
+ local leftFoot,rightFoot=capFeet(s,audit.left,audit.top)
+ if audit.climb and (leftFoot or rightFoot) and not audit.cap then
+  audit.cap=s
+  if audit.pipe==3 then pad=0 end
+ end
+ if audit.cap and audit.pipe==4 and (commits-audit.cap.commit)%4==0 then
+  audit.after_cap=audit.after_cap or {{}}
+  if #audit.after_cap<28 then
+   audit.after_cap[#audit.after_cap+1]={{x=s.x,y=s.y,action=s.action,ground=s.ground,mode=s.mode,hp=s.hp}}
+  end
+ end
+ local floorClear=audit.pipe~=3 and s.x>=audit.left+32 and floor(s) and support(s)
+ local steadyCap=audit.pipe==3 and (leftFoot or rightFoot) and idle(s) and audit.cap
+  and commits-audit.cap.commit>=25
+ if audit.cap and (floorClear or steadyCap) then
+  audit.exit=s;final=s
+  finish(s.hp==audit.approach.hp and s.lives==initial.lives,'Pipe '..audit.pipe..' climbed using Up and Right')
+ elseif (not audit.cap and s.x>=audit.left+48) or commits-changedAt>=650 then
+  final=s;finish(false,'Did not verify held Up and Right at pipe '..audit.pipe)
+ end
+end
+'''
+    return text.replace(before, watch + before, 1)
+
+
+def controller(raw, pad, trace=False, return_left=False, second_pipe=False):
+    assert not (return_left and second_pipe)
     factory = rebind(Original.controller, authenticate=authenticate, PIN=H(raw))
     text = rebind(Direct.controller, Frozen=SimpleNamespace(controller=factory))(raw, pad=pad, hold=300)
     assert text.count('hold_commits=300,') == 1
@@ -65,6 +104,15 @@ def controller(raw, pad, trace=False, return_left=False):
   end'''
     assert text.count(old) == 1
     text = text.replace(old, new)
+    if second_pipe:
+        old = "   finish(true,'First pipe crossed from a continuous approach');return"
+        new = "   switch('audit-approach',9);return"
+        assert text.count(old) == 1
+        text = text.replace(old, new, 1)
+        marker = "  if progress:sub(1,10)=='usability-'then"
+        pos = text.index(marker)
+        text = text[:pos] + "  if progress=='audit-approach' then auditPipe(s);return end\n" + text[pos:]
+        text = pipe_audit(text, 2, "  if progress=='audit-approach' then auditPipe(s);return end")
     if return_left:
         old = '''   final=probeState(s);probe.terminal=final
    finish(true,'First pipe crossed from a continuous approach');return'''
@@ -185,7 +233,7 @@ def source(raw, pad, return_left=False):
     return summary(receipts[0], pad)
 
 
-def stage_controller(raw, baseline):
+def stage_controller(raw, baseline, extra_extents=()):
     import compose_donkey_side_early_1123 as DonkeyEarly
     import compose_donkey_side_shortcut_1123 as Donkey
     import compose_karnov_side_route_1123 as Karnov
@@ -193,6 +241,8 @@ def stage_controller(raw, baseline):
     import compose_prince_side_current_1123 as Prince
     import run_prince_epoch_native_1123 as Stage
 
+    if H(baseline) == Reverse.CANDIDATE:
+        baseline = Reverse.inverse(baseline)
     if H(baseline) == Ground.CANDIDATE:
         baseline = Ground.inverse(baseline)
     if H(baseline) == Trial.CANDIDATE:
@@ -213,13 +263,14 @@ def stage_controller(raw, baseline):
     start = Trial.GATE - 0xA000
     contents = packet(raw)[0]
     regions = [(3, start, contents[0][start:start + len(Trial.OLD_GATE)])]
-    if H(raw) in (Ground.CANDIDATE, Reverse.CANDIDATE):
+    if H(raw) in (Ground.CANDIDATE, Reverse.CANDIDATE) or extra_extents:
         start = Ground.NATIVE_FLOOR - 0xC800
         regions.append((2, start + 0x800, contents[1][start:start + Ground.NATIVE_FLOOR_SIZE]))
-    if H(raw) == Reverse.CANDIDATE:
+    if H(raw) == Reverse.CANDIDATE or extra_extents:
         start = Reverse.GATE - 0xA000
         regions.append((3, start, contents[0][start:start + len(Reverse.OLD_GATE)]))
         regions.append((1, Reverse.PRIVATE_SIZE, contents[3][Reverse.PRIVATE_SIZE:]))
+    regions.extend(extra_extents)
     rows = Original.LuaRuntime().eval(line[len(prefix):])
     extents = []
     for i in range(1, len(rows) + 1):
@@ -246,6 +297,71 @@ def stage_controller(raw, baseline):
     return text
 
 
+def later_pipe_controller(raw, target, baseline=None, extra_extents=()):
+    assert target in (3, 4)
+    if baseline is None:
+        baseline = raw
+    if H(baseline) == CapSupport.CANDIDATE:
+        baseline = CapSupport.inverse(baseline)
+    text = stage_controller(raw, Reverse.inverse(baseline), extra_extents)
+    finish = "local function finish(passed,reason)\n  if passed then "
+    assert text.count(finish) == 1
+    text = text.replace(finish, '''local function finish(passed,reason)
+  if passed and progress=='audit-approach' then
+    assert(newPacketVerified,'Actual Prince packet readback before the pipe')
+  elseif passed then ''', 1)
+    check = '  local enemy=enemyNear(s.x)\n  firstEnemy=firstEnemy or enemy'
+    assert text.count(check) == 1
+    if target == 3:
+        check_point = "progress=='later-approach' and laterPipe==2 and s.x>=690 and s.x<736"
+    else:
+        check_point = "progress=='third-running-flight' and ((s.x>=897 and idle(s)) or s.mode==2 or s.mode==6)"
+    marker = "  if progress=='audit-approach' then auditPipe(s);return end"
+    text = text.replace(check, f'''  if {check_point} then switch('audit-approach',9) end
+{marker}
+{check}''', 1)
+    text = pipe_audit(text, target, marker)
+    if target == 4:
+        text += '''
+local function auditActive()
+ local audit=late.pipe_audit
+ return audit.cap and commits-audit.cap.commit<=40 and audit or nil
+end
+local function xCorrection(addr,value)
+ local audit=auditActive()
+ if not audit then return end
+ local field=addr==0x75 and 'export' or 'source'
+ local old=addr==0x75 and read(addr) or source(0x60f)
+ if math.abs(old-value)<8 then return end
+ local s=state();local cpu=emu.getState();local pc=cpu['cpu.pc'];local mapped=emu.convertAddress(pc)
+ local sp=cpu['cpu.sp'];local caller=(read(0x100+((sp+1)&255))+256*read(0x100+((sp+2)&255))+1)&65535
+ audit.corrections=audit.corrections or {}
+ if #audit.corrections>=24 then return end
+ audit.corrections[#audit.corrections+1]={x=s.x,y=s.y,pc=pc,physical=mapped and mapped.address,field=field,
+  commit=commits,old=old,value=value,foot=s.foot,previous=source(0x86)+256*source(0x87),
+  tile=read(6),row=read(5),probeX=read(8),side=read(3),backing=read(0x7da1),
+  sourceX=source(0x60f)+256*source(0x610),action=s.action,mode=s.mode,grid=source(0x4b1),
+  rawX=source(0x78)+256*source(0x79),pointY=source(0x136b,3),caller=caller,
+  cellX=source(0x7d)+256*source(0x7e),surface=source(0x7f)+256*source(0x80),
+  alignX=source(0xa1),material=source(0x9f),index=source(0x7b),gridBase=source(0x7a)}
+end
+emu.addMemoryCallback(guarded(xCorrection),emu.callbackType.write,0x75)
+emu.addMemoryCallback(guarded(xCorrection),emu.callbackType.write,0xc60f)
+observe(0xb352,3,function()
+ local audit=auditActive()
+ if not audit or commits-audit.cap.commit<21 then return end
+ local cpu=emu.getState()
+ audit.tiles=audit.tiles or {}
+ if #audit.tiles>=36 then return end
+ audit.tiles[#audit.tiles+1]={commit=commits,x=source(0x1369,3)+256*source(0x136a,3),
+  y=source(0x136b,3),tile=cpu['cpu.a'],grid=source(0x4b1),
+  material=source(0x9f),solid=cpu['cpu.ps']&1}
+end)
+'''
+    Original.LuaRuntime().compile(text)
+    return text
+
+
 def summary(receipt, pad):
     probe = receipt['later_route']['usability']
     def compact(state):
@@ -253,7 +369,8 @@ def summary(receipt, pad):
                   'source_pad', 'foot', 'query_x', 'query_raw', 'wall_timer', 'side', 'collision')
         return {key: state[key] for key in fields if key in state} if state else None
 
-    return dict(pad=pad, passed=receipt['passed'], reason=receipt['reason'], ground_queries=probe.get('ground_queries'),
+    return dict(pad=pad, passed=receipt['passed'], reason=receipt['reason'],
+                ground_queries=probe.get('ground_queries'),
                 ledge_queries=probe.get('ledge_queries'),
                 approach=compact(probe.get('release')), hang=probe['hang'], cap=compact(probe.get('crossing')),
                 right_clear=compact(probe.get('right_clear')), left_climb=compact(probe.get('left_climb')),
@@ -262,7 +379,7 @@ def summary(receipt, pad):
                 walls=[compact(s) for s in probe['walls'][:4]], samples=[compact(s) for s in probe['samples'][::6]])
 
 
-def native(raw, pad, trial, stage=False, install=False, trace=False, return_left=False):
+def native(raw, pad, trial, stage=False, install=False, trace=False, return_left=False, pipe=None):
     from run_stdout_mesen_1110 import run
     from run_sonic_current_empty_cadence_1122 import SHARED
     from mesen_session_guard_v1 import require_free_workspace
@@ -274,10 +391,16 @@ def native(raw, pad, trial, stage=False, install=False, trace=False, return_left
     assert set(SHARED.iterdir()) == {candidate, script} and candidate.read_bytes() == installed
     require_free_workspace(Original.R, ROM, allow_interactive=True)
     script_before = script.read_bytes()
+    extra_extents = CapSupport.static_extents(raw) if H(raw) == CapSupport.CANDIDATE else ()
     replaced = delivered = False
 
-    def replay(path, stage):
-        text = stage_controller(raw, installed) if stage else controller(raw, pad, trace, return_left)
+    def replay(path, stage, target_pipe=None):
+        if target_pipe in (3, 4):
+            text = later_pipe_controller(raw, target_pipe, installed, extra_extents)
+        elif stage:
+            text = stage_controller(raw, installed, extra_extents)
+        else:
+            text = controller(raw, pad, trace, return_left, second_pipe=target_pipe == 2)
         script.write_bytes(text.encode())
         result = run(script, path, SHARED / 'capture', H(raw), 320 if stage else 135,
                      variant=3, long_no_capture=True)
@@ -292,28 +415,35 @@ def native(raw, pad, trial, stage=False, install=False, trace=False, return_left
                 Trial.CANDIDATE: (Trial, PIPE_RECEIPT, STAGE_RECEIPT),
                 Ground.CANDIDATE: (Ground, GROUND_PIPE_RECEIPT, GROUND_STAGE_RECEIPT),
                 Reverse.CANDIDATE: (Reverse, REVERSE_PIPE_RECEIPT, REVERSE_STAGE_RECEIPT),
+                CapSupport.CANDIDATE: (CapSupport, CAP_FIRST_RECEIPT, CAP_STAGE_RECEIPT),
             }
             recipe, pipe_receipt, stage_receipt = tests[H(raw)]
             trace = recipe is Ground
-            return_left = recipe is Reverse
+            return_left = recipe in (Reverse, CapSupport)
             assert H(raw) == recipe.CANDIDATE and recipe.inverse(raw) == installed
             assert not guard['matching_patch_files']
             candidate.write_bytes(raw)
             replaced = True
             ROM.write_bytes(raw)
             assert check(ROM)['ROM_sha256'] == recipe.CANDIDATE
-            for full, expected in ((False, pipe_receipt), (True, stage_receipt)):
-                result = replay(ROM, full)
+            runs = [('first pipe', False, None, pipe_receipt), ('full stage', True, None, stage_receipt)]
+            if recipe is CapSupport:
+                runs.insert(1, ('fourth pipe', False, 4, CAP_FOURTH_RECEIPT))
+            for label, full, target, expected in runs:
+                result = replay(ROM, full, target)
                 assert result['passed'] and result['receipt_SHA256'] == expected
-                print('Downloads', 'full stage' if full else 'first pipe', expected, flush=True)
+                print('Downloads', label, expected, flush=True)
             assert ROM.read_bytes() == raw and not check(ROM)['matching_patch_files']
             delivered = True
-            return dict(installed=str(ROM), ROM=H(raw), pipe_receipt=pipe_receipt, stage_receipt=stage_receipt)
+            return dict(installed=str(ROM), ROM=H(raw), receipts={label: digest for label, _, _, digest in runs})
         if trial:
             candidate.write_bytes(raw)
-        result = replay(path, stage)
+        result = replay(path, stage, pipe)
         receipt = result['receipt']
-        if stage:
+        if pipe:
+            report = dict(passed=receipt['passed'], reason=receipt['reason'],
+                          witness=receipt['later_route'].get('pipe_audit'), terminal=receipt.get('terminal'))
+        elif stage:
             keys = ('passed', 'reason', 'phase', 'terminal', 'physical_frames', 'commits',
                     'grounded_1_2_completed_returns', 'persistent_sword')
             report = {key: receipt[key] for key in keys if key in receipt}
@@ -341,22 +471,28 @@ if __name__ == '__main__':
     parser.add_argument('--trace', action='store_true')
     parser.add_argument('--ground', action='store_true')
     parser.add_argument('--reverse', action='store_true')
+    parser.add_argument('--cap-support', action='store_true')
     parser.add_argument('--return-left', action='store_true')
+    parser.add_argument('--pipe', type=int, choices=(2, 3, 4))
     args = parser.parse_args()
     assert not args.stage or (args.native and args.trial and len(args.pads) == 1)
     assert not args.install or (args.native and args.trial and args.pads == [9])
     assert not args.trace or (args.native and not args.install and not args.stage)
     assert not args.ground or args.trial
     assert not args.reverse or (args.trial and not args.ground)
+    assert not args.cap_support or (args.trial and not args.ground and not args.reverse)
     assert not args.return_left or (args.pads == [9] and not args.install and not args.stage)
+    assert not args.pipe or (args.native and args.pads == [9] and not args.install
+                             and not args.stage and not args.return_left)
     raw = ROM.read_bytes()
     if args.trial:
-        recipe = Reverse if args.reverse else Ground if args.ground else Trial
+        recipe = CapSupport if args.cap_support else Reverse if args.reverse else Ground if args.ground else Trial
         raw = recipe.compose(raw)
     print(H(raw), flush=True)
     for pad in args.pads:
         if args.native:
-            result = native(raw, pad, args.trial, args.stage, args.install, args.trace, args.return_left)
+            result = native(raw, pad, args.trial, args.stage, args.install,
+                            args.trace, args.return_left, args.pipe)
         else:
             result = source(raw, pad, args.return_left)
         print(json.dumps(result, separators=(',', ':')), flush=True)

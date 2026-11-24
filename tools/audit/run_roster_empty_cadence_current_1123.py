@@ -20,10 +20,13 @@ def reference(raw):
     import compose_prince_epoch_current_1123 as Epoch
     import compose_prince_ground_approach_1123 as PrinceGround
     import compose_prince_pipe_approach_1123 as PrincePipe
+    import compose_prince_pipe_cap_support_1123 as PrinceCap
     import compose_prince_reverse_ledge_1123 as PrinceReverse
     import compose_prince_side_current_1123 as Side
 
     observed = raw
+    if Previous.Timing.H(raw) == PrinceCap.CANDIDATE:
+        raw = PrinceCap.inverse(raw)
     if Previous.Timing.H(raw) == PrinceReverse.CANDIDATE:
         raw = PrinceReverse.inverse(raw)
     if Previous.Timing.H(raw) == PrinceGround.CANDIDATE:

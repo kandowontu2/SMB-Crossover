@@ -92,3 +92,46 @@ instruction cycles on every update.
 The empty opening still takes 146 video frames for 96 standing and walking
 game updates. Fifty frames have no game update. Mesen receipt
 `1b33a6cd4cfb851e58faafcb51b7f33f2bd76a3e04ea88cd488284d25e10a281`.
+
+## Later pipes in 1-1
+
+The exact Downloads build also accepts a continuous Up+Right climb on the
+second pipe at X608, top Y160. The Prince reaches X670/Y176 on the ground
+with five HP and both lives. Receipt
+`33e0baf919a360fa5055b0de25b12793c8e901328bdc39c0f9152c87c516f24c`.
+Continuing straight across the next clearing reaches a live Goomba before
+the third pipe. The third-pipe check uses the established route through that
+clearing before holding Up+Right. It grabs the X736 lip, top Y144, and holds
+a supported idle stance for 25 updates with full health and both lives.
+Receipt `7504fa2923827ee9b4cc1980e8cb52947a7f1667b5426f0dc8a9dd44d1e6b083`.
+
+On the fourth pipe (X912, top Y144), the Prince originally reached the cap,
+then went backward from X915 to X892 while Up+Right stayed held. The native
+tile reads found exposed pipe cap under both feet. The running-to-falling
+call at `$A7BB` aligned the source center to X864+36 using a stale donor
+cell. The game moved him off the pipe and he fell toward the Goomba.
+Mesen trace `6b787a01347c38592d8710327d24126942dce561b017752408b576ff8a95176e`.
+
+The repaired call tests both feet against exposed native pipe tops at the
+Prince's current height before applying that alignment. A single supported
+foot, a gap, solid material overhead, and a genuine fall retain the actor's
+original route. Fifteen compiled cases cover both block buffers, multiple
+pipe heights, and those rejection conditions.
+
+On candidate `e37ada6a`, the Prince uses the original climb, runs across
+the cap with Up+Right held, and lands at X962/Y176. He keeps the same four HP
+he had at the start of the approach and both lives. The earlier landing
+from the third pipe accounts for the missing HP. Fourth-pipe receipt
+`99ba6419b77fc75d21ea5b31917e169ecbd002a68d01c2c5babf708cc8930b4b`.
+
+The Downloads nightly `e37ada6a3940b9dba133f596d1f1d1c953b45e9ef6dfb94e22aba6becbc77058`
+reproduces that result, the two-direction first pipe, and the full Easy
+1-1 sword route with five HP and both lives through 25 grounded gameplay
+updates in 1-2. The automatic patch check is clear. The linked quiet
+opening kept the same positions and CPU costs over 48 standing and 48
+walking updates.
+
+| Additional Mesen replay | Receipt SHA-256 |
+| --- | --- |
+| First pipe in both directions | `16561b3f933afbb4a89d1c4f226fe0639854ffb3daae64febe7f121db7ee5e0c` |
+| Full Easy 1-1 with the earned sword | `fb473e00f40bfc0bd26e273f2716e4139263b27e63f0d20d7a3f0c04e7d463a8` |
