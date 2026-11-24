@@ -134,4 +134,6 @@ walking updates.
 | Additional Mesen replay | Receipt SHA-256 |
 | --- | --- |
 | First pipe in both directions | `16561b3f933afbb4a89d1c4f226fe0639854ffb3daae64febe7f121db7ee5e0c` |
+| Second pipe climb and landing from the usual left approach | `5ec7e968d24412339c6f7552fb38f84bbc57b93a9f3cfb70b4cef473bbfb3ee1` |
+| Third pipe climb and 25 supported updates from the usual left approach | `25abd2c684bac0f8b6d702b789073ae820f1368f52be3b8de371916b8e681a8d` |
 | Full Easy 1-1 with the earned sword | `fb473e00f40bfc0bd26e273f2716e4139263b27e63f0d20d7a3f0c04e7d463a8` |
