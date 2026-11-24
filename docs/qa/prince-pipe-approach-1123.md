@@ -57,9 +57,38 @@ updates, one more frame than the measured earlier nightly. Fifty video
 frames had no game update. Mesen receipt
 `ea715b1dcd21db4a2f70e71d49de297173ff8c9715ff1c49a8ee9df7bd993fad`.
 
-Climbing the first pipe from its right side still needs work. Both the
-linked controller replay and Mesen crossed it going right and turned back
-with Up+Left. Mesen observed the original Up action 28 at X479/Y176, then
-repeated recoil with no climb. The remaining issue is ledge admission
-after Up is accepted. Mesen receipt
-`b36ce6837975e5d19c9fae07bbd9abe4ab77a93830b1d4d5f0d0fefabf57bfed`.
+## Climbing back from the right
+
+On `fcb67a68`, a return approach with Up+Left admitted the original Up action
+28 at X479/Y176. The first lookup found the real pipe top at Y176. The next
+lookup advanced the donor grid from column 9 to row 1, column 0. It sampled
+X152 and X168 even though the pipe was at X448–479. The ground in those
+columns was treated as blocked headroom. Mesen trace
+`ace850240f3f17cd8cfe64a35971b0bd5f2589523aa832ef81f94e621b7daf47`.
+
+The follow-up uses the authored native pipe lip and tests two rows of
+clearance over the lip and the body. It applies while facing left during
+the original standing Up action. The rest of the ledge routine still uses
+its original decisions and animations. Fourteen compiled checks cover
+both block buffers, a lip at a page edge, a 64-pixel pipe, covered tiles,
+missing lips, and inactive controls.
+
+Mesen crossed the first pipe with Up+Right, turned back, and crossed it with
+Up+Left. The original climb action 10 started at X480/Y173 during the return.
+The Prince kept five HP and both lives. The separate Easy 1-1 replay kept the
+earned sword through 25 grounded updates in 1-2.
+
+| Mesen replay on `c674004a` | Receipt SHA-256 |
+| --- | --- |
+| First pipe in both directions | `252b1fde2ac609cc2aa5bd2a84f8e8be3f66fc52f117f5959174a87f0399d24e` |
+| Full Easy 1-1 with the earned sword | `71a2887007382456ba516b5e30630f52b73082b949dc588ae710652fd8767bbb` |
+
+The actual Downloads nightly reproduced both receipts on
+`c674004ad12133ce5d4181ea613450bdddc3726a79adb69d4f9ab40c0dca44c0`.
+The automatic patch check is clear. In a linked comparison with the previous
+nightly, 48 standing and 48 walking updates matched the Prince's state and
+instruction cycles on every update.
+
+The empty opening still takes 146 video frames for 96 standing and walking
+game updates. Fifty frames have no game update. Mesen receipt
+`1b33a6cd4cfb851e58faafcb51b7f33f2bd76a3e04ea88cd488284d25e10a281`.

@@ -12,6 +12,7 @@ import compose_bub_epoch_1123 as BubbleBobble
 import compose_prince_oneup_lift_1123 as Lift
 import compose_prince_pipe_approach_1123 as Trial
 import compose_prince_ground_approach_1123 as Ground
+import compose_prince_reverse_ledge_1123 as Reverse
 import replay_prince_pipe_direct_1114 as Direct
 import replay_prince_pipe_usability_1114 as Original
 
@@ -21,6 +22,8 @@ PIPE_RECEIPT = '1f4cda2e7d069cb35dc72c3ff2b4370742e5847385cc89700c0fb0483e312002
 STAGE_RECEIPT = '18752d751a3fef60d7e4ed38932db77b53d553c3120273dff355d974c39c2e15'
 GROUND_PIPE_RECEIPT = '5bad9c624f6db272377f93cccc24f4266c1b789e111cccb4e9aee2f2587296e6'
 GROUND_STAGE_RECEIPT = 'fde5119f518de8ba421d0d26636af19b94e570d39cad30f2226b96192abecd25'
+REVERSE_PIPE_RECEIPT = '252b1fde2ac609cc2aa5bd2a84f8e8be3f66fc52f117f5959174a87f0399d24e'
+REVERSE_STAGE_RECEIPT = '71a2887007382456ba516b5e30630f52b73082b949dc588ae710652fd8767bbb'
 
 
 @lru_cache(maxsize=2)
@@ -72,7 +75,10 @@ def controller(raw, pad, trace=False, return_left=False):
         old = 'local function laterTick(s)probeTick(s)end'
         guard = '''local function returnTick(s)
  local age=commits-changedAt
- if not probe.left_cap and s.y<=145 and s.x<=480 and s.x+13>=448 and support(s) and s.mode~=2 and s.mode~=6 then
+ if not probe.left_climb and s.action==10 and s.x>=463 and s.x<=490 then
+  probe.left_climb=probeState(s)
+ end
+ if probe.left_climb and not probe.left_cap and s.y<=145 and s.x<=480 and s.x+13>=448 and support(s) and s.mode~=2 and s.mode~=6 then
   probe.left_cap=probeState(s)
  end
  if probe.left_cap and s.x<=433 and floor(s) then
@@ -120,16 +126,37 @@ end)
         text = text.replace(marker, marker + '\n' + witness)
         if return_left:
             witness = '''
-probe.left_queries={}
-for _,pc in ipairs({0xbde2,0xbde5})do
+probe.ledge_queries={outbound={},returning={}}
+local ledgeQuery,ledgePoint
+observe(0xbde5,3,function()
+ local s=state()
+ if s.x<420 or s.x>493 or source(0x40a)~=8 then return end
+ local cpu=emu.getState();local sp=cpu['cpu.sp']
+ local ret=(read(0x100+((sp+1)&255))+256*read(0x100+((sp+2)&255))+1)&65535
+ if ret~=0xa487 and ret~=0xa493 and ret~=0xa4bd and ret~=0xa51e and ret~=0xa52a and ret~=0xa556 then return end
+ local rows=probe.ledge_queries[progress=='usability-return' and 'returning' or 'outbound']
+ if #rows>=18 then return end
+ ledgeQuery={x=s.x,y=s.y,facing=s.facing,foot=s.foot,commit=s.commit,ret=ret,
+  raw_x=source(0x78)+256*source(0x79),source_x=source(0x60f)+256*source(0x610),
+  grid=source(0x4b1),query_y=cpu['cpu.y'],action=s.action,points={}}
+ rows[#rows+1]=ledgeQuery
+end)
+observe(0xb310,3,function()
+ if not ledgeQuery then return end
+ ledgePoint={x=source(0x1369,3)+256*source(0x136a,3),y=source(0x136b,3)}
+ ledgeQuery.points[#ledgeQuery.points+1]=ledgePoint
+end)
+observe(0xb352,3,function()
+ if not ledgePoint then return end
+ local cpu=emu.getState()
+ ledgePoint.tile=cpu['cpu.a'];ledgePoint.solid=(cpu['cpu.ps']&1)~=0;ledgePoint=nil
+end)
+for _,pc in ipairs({0xa487,0xa493,0xa4bd,0xa51e,0xa52a,0xa556})do
  observe(pc,3,function()
-  local s=state()
-  if progress~='usability-return' or s.x<476 or s.x>493 or #probe.left_queries>=24 then return end
-  if source(0x40a)~=8 or (s.action~=8 and s.action~=24 and s.action~=28)then return end
-  local cpu=emu.getState();local sp=cpu['cpu.sp']
-  local ret=(read(0x100+((sp+1)&255))+256*read(0x100+((sp+2)&255))+1)&65535
-  probe.left_queries[#probe.left_queries+1]={x=s.x,y=s.y,action=s.action,pose=s.pose,mode=s.mode,
-    foot=s.foot,commit=s.commit,pc=pc,ret=ret,a=cpu['cpu.a'],xreg=cpu['cpu.x'],yreg=cpu['cpu.y']}
+  if not ledgeQuery or ledgeQuery.ret~=pc then return end
+  local cpu=emu.getState()
+  ledgeQuery.material=cpu['cpu.a'];ledgeQuery.surface=source(0x7f)+256*source(0x80)
+  ledgeQuery=nil
  end)
 end
 '''
@@ -166,6 +193,8 @@ def stage_controller(raw, baseline):
     import compose_prince_side_current_1123 as Prince
     import run_prince_epoch_native_1123 as Stage
 
+    if H(baseline) == Ground.CANDIDATE:
+        baseline = Ground.inverse(baseline)
     if H(baseline) == Trial.CANDIDATE:
         baseline = Trial.inverse(baseline)
     anchor = baseline
@@ -184,9 +213,13 @@ def stage_controller(raw, baseline):
     start = Trial.GATE - 0xA000
     contents = packet(raw)[0]
     regions = [(3, start, contents[0][start:start + len(Trial.OLD_GATE)])]
-    if H(raw) == Ground.CANDIDATE:
+    if H(raw) in (Ground.CANDIDATE, Reverse.CANDIDATE):
         start = Ground.NATIVE_FLOOR - 0xC800
         regions.append((2, start + 0x800, contents[1][start:start + Ground.NATIVE_FLOOR_SIZE]))
+    if H(raw) == Reverse.CANDIDATE:
+        start = Reverse.GATE - 0xA000
+        regions.append((3, start, contents[0][start:start + len(Reverse.OLD_GATE)]))
+        regions.append((1, Reverse.PRIVATE_SIZE, contents[3][Reverse.PRIVATE_SIZE:]))
     rows = Original.LuaRuntime().eval(line[len(prefix):])
     extents = []
     for i in range(1, len(rows) + 1):
@@ -204,7 +237,7 @@ def stage_controller(raw, baseline):
         extents.append(dict(bank=bank, offset=offset, bytes=list(expected)))
     assert text.count(line) == 1
     text = text.replace(line, prefix + Stage.Route.R.P.Base.lua(extents), 1)
-    if H(raw) == Ground.CANDIDATE:
+    if H(raw) in (Ground.CANDIDATE, Reverse.CANDIDATE):
         old = "'Actual16a static extent before first renderer'"
         new = "string.format('Static extent bank %d offset %04X expected %02X',row.bank,row.offset+i-1,value)"
         assert text.count(old) == 1
@@ -221,9 +254,10 @@ def summary(receipt, pad):
         return {key: state[key] for key in fields if key in state} if state else None
 
     return dict(pad=pad, passed=receipt['passed'], reason=receipt['reason'], ground_queries=probe.get('ground_queries'),
-                left_queries=probe.get('left_queries'),
+                ledge_queries=probe.get('ledge_queries'),
                 approach=compact(probe.get('release')), hang=probe['hang'], cap=compact(probe.get('crossing')),
-                right_clear=compact(probe.get('right_clear')), left_cap=compact(probe.get('left_cap')),
+                right_clear=compact(probe.get('right_clear')), left_climb=compact(probe.get('left_climb')),
+                left_cap=compact(probe.get('left_cap')),
                 terminal=compact(receipt['terminal']), max_x=max((s['x'] for s in probe['samples']), default=None),
                 walls=[compact(s) for s in probe['walls'][:4]], samples=[compact(s) for s in probe['samples'][::6]])
 
@@ -254,11 +288,14 @@ def native(raw, pad, trial, stage=False, install=False, trace=False, return_left
         path = candidate if trial else ROM
         if install:
             assert trial and pad == 9 and not stage
-            ground = H(raw) == Ground.CANDIDATE
-            recipe = Ground if ground else Trial
-            pipe_receipt, stage_receipt = ((GROUND_PIPE_RECEIPT, GROUND_STAGE_RECEIPT) if ground
-                                           else (PIPE_RECEIPT, STAGE_RECEIPT))
-            trace = ground
+            tests = {
+                Trial.CANDIDATE: (Trial, PIPE_RECEIPT, STAGE_RECEIPT),
+                Ground.CANDIDATE: (Ground, GROUND_PIPE_RECEIPT, GROUND_STAGE_RECEIPT),
+                Reverse.CANDIDATE: (Reverse, REVERSE_PIPE_RECEIPT, REVERSE_STAGE_RECEIPT),
+            }
+            recipe, pipe_receipt, stage_receipt = tests[H(raw)]
+            trace = recipe is Ground
+            return_left = recipe is Reverse
             assert H(raw) == recipe.CANDIDATE and recipe.inverse(raw) == installed
             assert not guard['matching_patch_files']
             candidate.write_bytes(raw)
@@ -303,16 +340,19 @@ if __name__ == '__main__':
     parser.add_argument('--install', action='store_true')
     parser.add_argument('--trace', action='store_true')
     parser.add_argument('--ground', action='store_true')
+    parser.add_argument('--reverse', action='store_true')
     parser.add_argument('--return-left', action='store_true')
     args = parser.parse_args()
     assert not args.stage or (args.native and args.trial and len(args.pads) == 1)
     assert not args.install or (args.native and args.trial and args.pads == [9])
     assert not args.trace or (args.native and not args.install and not args.stage)
     assert not args.ground or args.trial
+    assert not args.reverse or (args.trial and not args.ground)
     assert not args.return_left or (args.pads == [9] and not args.install and not args.stage)
     raw = ROM.read_bytes()
     if args.trial:
-        raw = Ground.compose(raw) if args.ground else Trial.compose(raw)
+        recipe = Reverse if args.reverse else Ground if args.ground else Trial
+        raw = recipe.compose(raw)
     print(H(raw), flush=True)
     for pad in args.pads:
         if args.native:
