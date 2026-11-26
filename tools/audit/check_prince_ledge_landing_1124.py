@@ -65,12 +65,29 @@ end
 """
 
 
-def ledge_controller(raw, brake, reverse=False):
+def ledge_controller(raw, brake, reverse=False, used_return=False):
     pipe = brake >= 400
     text = Pipes.Replay.controller(raw, 9)
     before = 'local function laterTick(s)'
     assert text.count(before) == 1
     route = LEDGE_ROUTE.replace('@BRAKE@', str(brake))
+    if used_return:
+        marker = "  if age>=20 then final=ledgeState(s);finish(true,'Stable ledge landing');return end"
+        assert route.count(marker) == 1
+        route = route.replace(marker, """  if age>=20 then
+   assert(tile(256,144)==0xc4,'Expected the used coin block')
+   if ledge.outbound then
+    final=ledgeState(s)
+    finish(s.facing==0 and s.hp==ledge.outbound.hp and s.lives==initial.lives,'Used block climbed from both sides')
+   else
+    ledge.outbound=ledgeState(s);switch('ledge-cross',1)
+   end
+   return
+  end
+ elseif progress=='ledge-cross' and s.x>=320 and floor(s) then
+  ledge.climb=nil;switch('ledge-return',2)
+ elseif progress=='ledge-return' and s.facing==0 and s.x<=307 then
+  switch('ledge-settle',0)""")
     if reverse:
         route = route.replace(f's.x>={brake}', f's.x<={brake} and s.facing==0')
     for token, value in zip(('@LEFT@', '@TOP@', '@WIDTH@'), (448, 176, 32) if pipe else (256, 144, 16)):
@@ -151,6 +168,8 @@ def replay(script, path, raw, test, parent):
             contents = Pipes.Replay.stage_controller(raw, base, Build.static_extents(raw))
         else:
             contents = pipe_four(raw, base, reverse=test == 'fourth-return')
+    elif test == 'used-return':
+        contents = ledge_controller(raw, 224, used_return=True)
     else:
         contents = ledge_controller(raw, int(test.removeprefix('right-')), test.startswith('right-'))
     script.write_bytes(contents.encode())
