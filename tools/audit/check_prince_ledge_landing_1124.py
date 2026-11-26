@@ -85,10 +85,19 @@ def ledge_controller(raw, brake, reverse=False, used_return=False, return_brake=
    return
   end
  elseif progress=='ledge-cross' and s.x>=320 and floor(s) then
-  ledge.climb=nil;switch('ledge-return',2)
+  ledge.climb=nil;ledge.stand=nil;ledge.trace={};switch('ledge-return',2)
  elseif progress=='ledge-return' and s.facing==0 and s.x<=RETURN_BRAKE then
   switch('ledge-settle',0)""".replace('RETURN_BRAKE', str(return_brake)))
         route += """
+for _,pc in ipairs({0xa446,0xa481,0xa484,0xa490,0xa493,0xa4af,0xa4b0,0xa4b3,0xa4ba,0xa4cd,0xa51b,0xa51e,0xa52f,0xa547,0xa553,0xa556,0xa56b,0xa5b6,0xa970}) do
+ observe(pc,3,function()
+  if not ledge.outbound or progress~='ledge-climb' or source(0x616)~=28 then return end
+  ledge.path=ledge.path or {}
+  if #ledge.path<32 then
+   ledge.path[#ledge.path+1]={pc,source(0x4b1),source(0x4b2),source(0x4b3),source(0x4bc)}
+  end
+ end)
+end
 observe(0xb310,3,function()
  if not ledge.outbound or progress~='ledge-climb' then return end
  local x=source(0x1369,3)+256*source(0x136a,3)
@@ -177,57 +186,94 @@ def check_support(raw):
 def replay(script, path, raw, test, parent):
     if test in ('ordinary', 'mixed'):
         contents = Pipes.first_pipe(raw, mixed=test == 'mixed')
-    elif test in ('stage', 'fourth', 'fourth-return'):
+    elif test in ('stage', 'fourth', 'fourth-return', 'third-return', 'third-edge'):
         base = Pipes.Build.inverse(parent)
         if test == 'stage':
             contents = Pipes.Replay.stage_controller(raw, base, Build.static_extents(raw))
         else:
-            contents = pipe_four(raw, base, reverse=test == 'fourth-return')
+            contents = pipe_crossing(raw, base, 3 if test.startswith('third-') else 4,
+                                     reverse=test != 'fourth', brake=11 if test == 'third-edge' else 18)
     elif test in ('used-return', 'used-late'):
         contents = ledge_controller(raw, 224, used_return=True, return_brake=292 if test=='used-late' else 307)
     else:
         contents = ledge_controller(raw, int(test.removeprefix('right-')), test.startswith('right-'))
+    Pipes.Replay.Original.LuaRuntime().compile(contents)
     script.write_bytes(contents.encode())
     return Pipes.run(script, path, Pipes.SHARED / 'capture', Build.H(raw),
                      320 if test == 'stage' else 135, variant=3, long_no_capture=True)
 
 
-def pipe_four(raw, base, reverse=False):
-    text = Pipes.Replay.later_pipe_controller(raw, 4, base, Build.static_extents(raw))
+def pipe_crossing(raw, base, target, reverse=False, brake=18):
+    text = Pipes.Replay.later_pipe_controller(raw, target, base, Build.static_extents(raw))
     text = text.replace('if audit.pipe==3 then pad=0 end', 'pad=0', 1)
     marker = ' local floorClear=audit.pipe~=3'
     assert text.count(marker) == 1
     text = text.replace(marker, """ if audit.cap and commits-audit.cap.commit==20 then
   audit.rest=s
   if not (leftFoot or rightFoot) or not idle(s) then
-   final=s;finish(false,'Fourth pipe top lost support while waiting');return
+   final=s;finish(false,'Pipe top lost support while waiting');return
   end
   pad=1
  end
  local floorClear=audit.pipe~=3""", 1)
     if reverse:
+        text = text.replace('audit.pipe~=3 and s.x>=', 's.x>=').replace('(floorClear or steadyCap)', 'floorClear')
+        if target == 3:
+            text = text.replace("""  pad=1
+ end
+ local floorClear""", ''' end
+ if audit.rest and not audit.departure then
+  local walkers=thirdWalkers()
+  if #walkers==2 and walkers[1].direction==1 and walkers[2].direction==1 then
+   audit.departure=s;pad=1
+  end
+ end
+ if audit.departure and not audit.brake and s.x>=audit.left+BRAKE then
+  audit.brake=s;pad=0
+ end
+ if audit.brake and not leftFoot and not rightFoot and idle(s) and math.abs(s.y+32-audit.top)<=1 then
+  audit.overhang=audit.overhang or s
+  if commits-audit.overhang.commit>=20 then
+   s.previous_foot=source(0x86);audit.edge=s;final=s;finish(false,'Prince stayed at cap height with both feet past the edge');return
+  end
+ else
+  audit.overhang=nil
+ end
+ local floorClear'''.replace('BRAKE', str(brake)))
+            text = text.replace('s.x>=audit.left+32 and floor(s) and support(s)',
+                                's.x>=audit.left+26 and s.y+32>audit.top+4')
         marker = ' audit.approach=audit.approach or s'
         assert text.count(marker) == 1
         text = text.replace(marker, """ if audit.return_start then
   local left,right=capFeet(s,audit.left,audit.top)
+  if audit.pipe==3 and not audit.return_climb then
+   if not audit.turn and s.facing==0 and floor(s) and s.x<=audit.left+48 then
+    audit.turn=s;pad=0
+   elseif audit.turn and idle(s) and floor(s) then pad=8 end
+  end
   if not audit.return_climb and s.facing==0 and s.action==10 and s.x>=audit.left+16 then
    audit.return_climb=s;pad=0
   end
   if audit.return_climb and (left or right) and idle(s) then
    audit.return_rest=audit.return_rest or s
    if commits-audit.return_rest.commit>=20 then
-    final=s;finish(s.hp==audit.return_start.hp and s.lives==initial.lives,'Reverse fourth-pipe landing');return
+    final=s;finish(s.hp==audit.return_start.hp and s.lives==initial.lives,'Reverse landing on pipe '..audit.pipe);return
    end
   else
    audit.return_rest=nil
   end
-  if commits-audit.return_start.commit>=400 then final=s;finish(false,'Reverse fourth-pipe timeout') end
+  if commits-audit.return_start.commit>=400 then final=s;finish(false,'Reverse climb timeout on pipe '..audit.pipe) end
   return
  end
 """ + marker, 1)
         marker = "  finish(s.hp==audit.approach.hp and s.lives==initial.lives,'Pipe '..audit.pipe..' climbed using Up and Right')"
         assert text.count(marker) == 1
-        text = text.replace(marker, '  audit.return_start=s;pad=10;return', 1)
+        text = text.replace(marker, '  audit.return_start=s;final=nil;pad=10;return', 1)
+        if target == 3 and brake == 11:
+            text = text.replace(' if audit.return_start then', ''' if audit.brake and s.x>=audit.left+30 and floor(s) and support(s) then
+  audit.floor=s;final=s;finish(s.hp==audit.brake.hp and s.lives==initial.lives,'Walked off the pipe and landed');return
+ end
+ if audit.return_start then''', 1)
     return text
 
 
@@ -241,6 +287,7 @@ def native(raw, installed, parent, tests, install=False):
     assert set(Pipes.SHARED.iterdir()) == {candidate, script} and candidate.read_bytes() == installed
     before = script.read_bytes()
     delivered = False
+    failed = []
     try:
         candidate.write_bytes(raw)
         if install:
@@ -257,7 +304,16 @@ def native(raw, installed, parent, tests, install=False):
                 result = report(dict(result, steps=ledge))
             else:
                 result['terminal'] = Pipes.compact(result['terminal'])
+            if test.startswith('third-'):
+                audit = receipt['later_route'].get('pipe_audit', {})
+                result['crossing'] = {key: Pipes.compact(audit[key]) for key in
+                                      ('cap', 'departure', 'brake', 'return_start', 'turn', 'return_climb', 'return_rest')
+                                      if key in audit}
+                if 'edge' in audit:
+                    result['unsupported_feet'] = [audit['edge'][key] for key in ('foot', 'previous_foot')]
             print(json.dumps({test: result}), flush=True)
+            if not result['passed']:
+                failed.append(test)
             if install:
                 assert result['passed'], test
                 if test == '224':
@@ -277,6 +333,8 @@ def native(raw, installed, parent, tests, install=False):
             candidate.write_bytes(installed)
             if install:
                 rom.write_bytes(installed)
+    if failed:
+        raise AssertionError(f'Failed Prince replay(s): {failed}')
     return delivered
 
 
@@ -287,6 +345,8 @@ def report(result):
     result = {key: result[key] for key in ('passed', 'reason', 'receipt_SHA256')}
     if 'recovery_y' in steps:
         result['max_recovery_y'] = steps['recovery_y']
+    if 'path' in steps:
+        result['grab_path'] = steps['path']
     if 'queries' in steps:
         result['terrain_queries'] = steps['queries']
     result['states'] = {key: Pipes.compact(state) | {field: state[field] for field in ('tile', 'coins') if field in state}
@@ -302,10 +362,19 @@ def report(result):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('tests', nargs='+')
+    parser.add_argument('--grab', action='store_true', help='Test the close-range used-block grab update')
     parser.add_argument('--trial', action='store_true')
     parser.add_argument('--install', action='store_true')
     args = parser.parse_args()
     installed = Pipes.Replay.ROM.read_bytes()
+    if args.grab:
+        import compose_prince_used_ledge_grab_1126 as Grab
+        INSTALL_TESTS = ('used-late', '224', '405', 'ordinary', 'fourth-return', 'stage')
+        base = Grab.inverse(installed) if Build.H(installed) == Grab.CANDIDATE else installed
+        rom, used = Grab.compose(base)
+        assert Grab.inverse(rom) == base
+        native(rom, installed, Build.inverse(base), args.tests, args.install)
+        raise SystemExit(0)
     parent = Build.inverse(installed) if Build.H(installed) == Build.CANDIDATE else installed
     rom, used = Build.compose(parent) if args.trial or args.install else (installed, 0)
     if used:
