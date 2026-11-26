@@ -69,6 +69,51 @@ The test verified each item's graphics and the heal animation. The same
 food replay still authenticates its code and graphics table in the November 16
 nightly. See [Kirby's food pickup tests](kirby-natural-food-1111.md).
 
+## Current-byte shell pool regression, November 26
+
+The installed `83b38793` ROM passed the new
+[`check_kirby_shell_slots_current_1126.py`](../../tools/audit/check_kirby_shell_slots_current_1126.py)
+linked CPU regression. No new inhale-damage or shell pass-through defect was
+demonstrated, and no game bytes changed. The earlier directional inhale,
+grounded green hit and red catch native receipts above retain their versions.
+
+The current PRG74 hash is
+`ba13d6e1c5ea9f8c4ce293fec5e4d3048ad72f8c7cd244b8ad370a7b45ce7a66`.
+It differs from the older `119a6fe4` bank by the delivered eleven-byte needle
+cue change and two shared Sonic body spans: 64 bytes at ABDC and 49 bytes at
+BF03. Restoring their typed original preimages in memory recovers the complete
+older bank hash. All other bytes are exact, including Kirby's inhale, shell
+rectangle/sweep and red-catch repairs. The fixture executes the actual current
+ROM, including its relocated native PauseRoutine at 8359; restored bytes serve
+only to authenticate retained metadata.
+
+Four copies are earned with inhale and Down: green/red in both facings. Three
+actual source allocations then populate each projectile slot, and a fourth
+allocation preserves the full pool. Across 36 cases, twelve page-one targets
+take the actual native defeat and only the selected shell is consumed. The
+other two shots survive. All 108 observed shot updates advance exactly three
+pixels with zero horizontal fraction. Twenty-four synthetic off-page targets
+are rejected. Kirby retains six HP, two lives and the earned copy.
+
+These are flat-scene and NPC-data fixtures. Direct source attack/shot calls
+bypass input cooldown to isolate slots 0, 1 and 2; they do not establish a
+natural three-shell route or new Mesen coverage. Initial authentication failures
+were stale metadata: PRG74 also contains the later Sonic body ingress, and
+Contra Force moved the common pause entry. The first hit fixture placed the
+target three pixels beyond rectangle overlap; correcting the NPC placement
+left the native-hit assertion intact. No gameplay patch followed those failures.
+
+```powershell
+python -B tools/audit/run_bounded_build_v1.py --output build/kirby-shell-slots-current-1126 --max-files 1 --timeout 600 -- python -B tools/audit/check_kirby_shell_slots_current_1126.py
+```
+
+The final bounded run exits zero and creates no files or captures. Receipt
+`4c22f792c75dbd9f21f1163a37184707dc915d7c4844b37ff9560eabb41fc818`;
+source `fdf8b4579bdb94c2d673845326ef5f3f844b775f44e815fd34904fd6110ed046`.
+The generic non-shell spit Y-page concern remains separate and fixture-only
+as documented in [inhale safety](kirby-inhale-safety-1113.md); no naturally
+reachable witness has been established here.
+
 ## All four natural pickups verified in the November 22 nightly
 
 Two [controller replays](../../tools/audit/replay_kirby_stock_native_1122.py)
