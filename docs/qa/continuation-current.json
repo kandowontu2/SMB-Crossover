@@ -1,4 +1,11 @@
 {
+  "PRINCE_PIPE_LANDING_1126": {
+    "nightly": "83b387931d2cf22981b6267fe062d246ba684d1bcb62e066d932dc9ae82aee40",
+    "scope": "Mesen loaded the Downloads ROM and passed seven controller replays. Prince climbed the opening used block and each of the first four 1-1 pipes from both sides. He landed on the floor after braking past the third cap, and landed on the right before turning to climb pipes two and three. The full Easy sword route cleared 1-1 with five health and both lives and stood in 1-2 for 25 updates.",
+    "replay": "check_prince_ledge_landing_1124.py --active-fall second-return third-close stage third-edge ordinary fourth-return used-late",
+    "rollback": "compose_prince_active_pipe_fall_1126.inverse restores 2b4f9ad0. Applying compose_prince_idle_walkoff_1126.compose to that parent reproduces fbc1ebd2.",
+    "coverage_limit": "The new controller routes exercise World 1-1."
+  },
   "PRINCE_NEUTRAL_PIPE_EDGE_1126": {
     "nightly": "fbc1ebd24fb347afbf165c34df3e927b7a123c92fed9482219f96ee55bafa0d3",
     "scope": "Braking at the third pipe's right edge now drops Prince to the floor at X773/Y176 with five health, instead of leaving him hovering at X770/Y113. The Downloads build passed the full 1-1 sword clear with five health and two lives, the opening used-block return and both sides of pipes one and four.",

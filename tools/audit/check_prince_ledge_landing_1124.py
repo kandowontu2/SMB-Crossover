@@ -230,7 +230,14 @@ def pipe_crossing(raw, base, target, reverse=False, brake=18, stop_on_floor=Fals
  local floorClear=audit.pipe~=3""", 1)
     if target == 2:
         text = text.replace('if audit.cap and commits-audit.cap.commit==20 then', '''if audit.cap and not audit.steady and (leftFoot or rightFoot) and idle(s) then audit.steady=s end
- if audit.steady and commits-audit.steady.commit==20 then''', 1)
+ if audit.steady and commits-audit.steady.commit==200 then''', 1)
+        text = text.replace(' if audit.cap and audit.pipe==4', ''' if audit.cap and commits%24==0 then
+  local e=enemyNear(audit.left+32)
+  if e then
+   audit.walkers=audit.walkers or {};audit.walkers[#audit.walkers+1]={commits,e.x,read(0x53f+e.slot)}
+  end
+ end
+ if audit.cap and audit.pipe==4''', 1)
         text = text.replace('  pad=1\n end\n local floorClear', '  pad=65\n end\n local floorClear', 1)
         text = text.replace(' local floorClear=', ''' if audit.rest and not audit.brake and s.x>=audit.left+33 then
   audit.brake=s;pad=0
@@ -343,6 +350,8 @@ def native(raw, installed, parent, tests, install=False):
                 result['crossing'] = {key: Pipes.compact(audit[key]) for key in
                                       ('cap', 'departure', 'brake', 'return_start', 'turn', 'return_climb', 'return_rest')
                                       if key in audit}
+                if not result['passed'] and 'walkers' in audit:
+                    result['walkers'] = audit['walkers']
                 if not result['passed'] and 'edge_motion' in audit:
                     result['edge_motion'] = audit['edge_motion']
                 if 'edge' in audit:
@@ -398,12 +407,21 @@ def report(result):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('tests', nargs='+')
+    parser.add_argument('--active-fall', action='store_true', help='Test steering during pipe descent')
     parser.add_argument('--walkoff', action='store_true', help='Test both the used-block grab and pipe walk-off updates')
     parser.add_argument('--grab', action='store_true', help='Test the close-range used-block grab update')
     parser.add_argument('--trial', action='store_true')
     parser.add_argument('--install', action='store_true')
     args = parser.parse_args()
     installed = Pipes.Replay.ROM.read_bytes()
+    if args.active_fall:
+        import compose_prince_used_ledge_grab_1126 as Grab
+        import compose_prince_active_pipe_fall_1126 as Active
+        INSTALL_TESTS = ('second-return', 'third-close', 'stage', 'third-edge', 'ordinary', 'fourth-return', 'used-late')
+        base = Active.Fallback.inverse(installed) if Build.H(installed) == Active.FALLBACK else Active.inverse(installed)
+        rom = Active.compose(base)
+        native(rom, installed, Build.inverse(Grab.inverse(base)), args.tests, args.install)
+        raise SystemExit(0)
     if args.walkoff:
         import compose_prince_used_ledge_grab_1126 as Grab
         import compose_prince_idle_walkoff_1126 as Edge
