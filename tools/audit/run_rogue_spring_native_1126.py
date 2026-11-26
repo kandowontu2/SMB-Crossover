@@ -39,6 +39,11 @@ def main():
     if spring:
         summary['spring'] = {key: spring.get(key) for key in ('phase', 'leg', 'complete', 'launch')}
         summary['last_sample'] = (spring.get('tail') or [None])[-1]
+        if not result['passed']:
+            summary['last_transition'] = (spring.get('events') or [None])[-1]
+            summary['jump_request'] = spring.get('request')
+            if spring.get('cache'):
+                summary['castle_tiles'] = spring['cache']
     print(json.dumps(summary | {'receipt_SHA256': result['receipt_SHA256']}), flush=True)
     expected = ('natural-Screw-body-defeat-and-landing' if args.baseline
                 else 'natural-Spring-Ball-acquisition-jump-and25')

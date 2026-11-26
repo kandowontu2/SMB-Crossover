@@ -286,7 +286,10 @@ python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-11
 Spring Ball follows Screw Attack in Rogue Dawn's upgrade order. With the first four gear bits set, the next normal Flower block yields item D4. The castle in 1-4 has a power block at world X480, top Y96.
 
 On nightly `83b38793`, 960 paired CPU cases ran the Spring Ball routine from the installed cartridge and from the original Rogue Dawn 1.21 cartridge. The comparison covered fresh, held and released A, ordinary and frozen-platform support, dry and reduced gravity, and gear combinations with and without High Jump. The two routines agreed on vertical speed, gravity and the sound request in every case. These checks supplied the downward terrain result. Natural acquisition and a bounce in the level still need a controller replay.
-# November 26 Downloads replay
+
+### November 26 Downloads replay
 
 On the MMC5 nightly `83b38793`, Mesen reached the first Screw Attack body defeat and landed in World 1-3 after 10,759 gameplay updates. Rogue Dawn had gear mask $0F, two lives, one tank, and five of five missiles at X1247/Y65. Receipt SHA-256 `3fd21c37ff97c698961f819a9dc28d38f35b4b669908e710ff15ba331bebf635`. Spring Ball comes after this checkpoint.
+
+The extended route cleared the first four crossings after Screw Attack. Its fifth crossing timed out at X1825/Y71 in 1-3 with both lives and all five missiles. The next attempt needs a landing on the lower canopy near X1808; the 1-4 pickup remains open. Receipt SHA-256 `5ae7431244f3246032b5812e677252a28a4984d2fb5034f9a1e2459c3e8757d7`.
 
