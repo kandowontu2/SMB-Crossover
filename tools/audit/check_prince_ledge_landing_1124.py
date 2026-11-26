@@ -65,7 +65,7 @@ end
 """
 
 
-def ledge_controller(raw, brake, reverse=False, used_return=False):
+def ledge_controller(raw, brake, reverse=False, used_return=False, return_brake=307):
     pipe = brake >= 400
     text = Pipes.Replay.controller(raw, 9)
     before = 'local function laterTick(s)'
@@ -86,8 +86,23 @@ def ledge_controller(raw, brake, reverse=False, used_return=False):
   end
  elseif progress=='ledge-cross' and s.x>=320 and floor(s) then
   ledge.climb=nil;switch('ledge-return',2)
- elseif progress=='ledge-return' and s.facing==0 and s.x<=307 then
-  switch('ledge-settle',0)""")
+ elseif progress=='ledge-return' and s.facing==0 and s.x<=RETURN_BRAKE then
+  switch('ledge-settle',0)""".replace('RETURN_BRAKE', str(return_brake)))
+        route += """
+observe(0xb310,3,function()
+ if not ledge.outbound or progress~='ledge-climb' then return end
+ local x=source(0x1369,3)+256*source(0x136a,3)
+ local y=source(0x136b,3)
+ if y<96 or y>192 then return end
+ ledge.queries=ledge.queries or {}
+ if #ledge.queries>=32 then return end
+ local row={x,y,tile(x,y),source(0x616)}
+ for _,v in ipairs(ledge.queries)do
+  if v[1]==x and v[2]==y and v[4]==row[4] then return end
+ end
+ ledge.queries[#ledge.queries+1]=row
+end)
+"""
     if reverse:
         route = route.replace(f's.x>={brake}', f's.x<={brake} and s.facing==0')
     for token, value in zip(('@LEFT@', '@TOP@', '@WIDTH@'), (448, 176, 32) if pipe else (256, 144, 16)):
@@ -168,8 +183,8 @@ def replay(script, path, raw, test, parent):
             contents = Pipes.Replay.stage_controller(raw, base, Build.static_extents(raw))
         else:
             contents = pipe_four(raw, base, reverse=test == 'fourth-return')
-    elif test == 'used-return':
-        contents = ledge_controller(raw, 224, used_return=True)
+    elif test in ('used-return', 'used-late'):
+        contents = ledge_controller(raw, 224, used_return=True, return_brake=292 if test=='used-late' else 307)
     else:
         contents = ledge_controller(raw, int(test.removeprefix('right-')), test.startswith('right-'))
     script.write_bytes(contents.encode())
@@ -272,6 +287,8 @@ def report(result):
     result = {key: result[key] for key in ('passed', 'reason', 'receipt_SHA256')}
     if 'recovery_y' in steps:
         result['max_recovery_y'] = steps['recovery_y']
+    if 'queries' in steps:
+        result['terrain_queries'] = steps['queries']
     result['states'] = {key: Pipes.compact(state) | {field: state[field] for field in ('tile', 'coins') if field in state}
                         for key, state in states if state}
     fields = ('commit', 'x', 'y', 'action', 'mode', 'ground', 'foot', 'before', 'align',
