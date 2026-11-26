@@ -42,6 +42,43 @@ def evaluate(base, fields, values, supported, port):
     raise AssertionError(('Spring Ball did not return', hex(cpu.pc)))
 
 
+def pickup_routine(memory, entry, slot):
+    cpu = MPU(memory=memory, pc=entry)
+    cpu.x = slot
+    cpu.stPushWord(0x5AFF)
+    for _ in range(160):
+        if cpu.pc == 0x5B00:
+            assert cpu.x == slot
+            return bool(cpu.p & 1)
+        cpu.step()
+    raise AssertionError(('Pickup routine did not return', hex(cpu.pc)))
+
+
+def check_rewards(raw):
+    base = image(raw, ((0xA000, 95),))
+    base[0x6002], base[0x5FEE] = 2, 1  # Samus slot, Rogue Dawn alternate
+    base[0x5FB2] = 5  # Missile tank already earned
+    count = 0
+    for owned, slot in product(range(255), range(6)):
+        memory = base.copy()
+        memory[0x5FB0] = owned
+        memory[0x10 + slot] = 1
+        memory[0x17 + slot] = 0x2E  # Active power-up actor
+        memory[0x34 + slot] = 1  # Flower reward
+        expected = next(bit for bit in range(8) if not owned & (1 << bit))
+        assert pickup_routine(memory, 0xACB2, slot)
+        assert memory[0x7D62 + slot] == 0xD0 + expected
+        assert memory[0x7D6E + slot] == 2 and memory[0x5FB0] == owned
+        assert not pickup_routine(memory, 0xACDE, slot)
+        assert memory[0x5FB0] == owned and memory[0x5C24] == 0
+        memory[0x1F + slot] = 0x80  # Actor has finished emerging
+        assert pickup_routine(memory, 0xACDE, slot)
+        assert memory[0x5FB0] == owned | (1 << expected)
+        assert memory[0x5C24] == 0x40
+        count += 1
+    return count
+
+
 def main():
     raw, donor = NIGHTLY.read_bytes(), DONOR.read_bytes()
     assert sha256(donor).hexdigest() == '9271411a20cc26c09f4d4bffe74c0d69a1bf91b815f7716fcf4610c4cee61077'
@@ -59,6 +96,7 @@ def main():
         assert actual == expected, (values, floor, actual, expected)
         count += 1
     print(f'{count} Spring Ball cases matched Rogue Dawn 1.21 on {sha256(raw).hexdigest()}')
+    print(f'{check_rewards(raw)} gear rewards passed preparation, emergence and collection checks')
 
 
 if __name__ == '__main__':
