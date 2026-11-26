@@ -183,16 +183,25 @@ def check_support(raw):
     return len(cases)
 
 
+def replay_extents(raw):
+    import compose_prince_used_ledge_grab_1126 as Grab
+    import compose_prince_idle_walkoff_1126 as Edge
+    return (*Build.static_extents(raw), *Grab.static_extents(raw), *Edge.static_extents(raw))
+
+
 def replay(script, path, raw, test, parent):
     if test in ('ordinary', 'mixed'):
         contents = Pipes.first_pipe(raw, mixed=test == 'mixed')
-    elif test in ('stage', 'fourth', 'fourth-return', 'third-return', 'third-edge'):
+    elif test == 'second-return':
+        contents = pipe_crossing(raw, None, 2, reverse=True)
+    elif test in ('stage', 'fourth', 'fourth-return', 'third-return', 'third-edge', 'third-close'):
         base = Pipes.Build.inverse(parent)
         if test == 'stage':
-            contents = Pipes.Replay.stage_controller(raw, base, Build.static_extents(raw))
+            contents = Pipes.Replay.stage_controller(raw, base, replay_extents(raw))
         else:
             contents = pipe_crossing(raw, base, 3 if test.startswith('third-') else 4,
-                                     reverse=test != 'fourth', brake=11 if test == 'third-edge' else 18)
+                                     reverse=test != 'fourth', brake=18 if test == 'third-return' else 11,
+                                     stop_on_floor=test == 'third-edge')
     elif test in ('used-return', 'used-late'):
         contents = ledge_controller(raw, 224, used_return=True, return_brake=292 if test=='used-late' else 307)
     else:
@@ -203,8 +212,11 @@ def replay(script, path, raw, test, parent):
                      320 if test == 'stage' else 135, variant=3, long_no_capture=True)
 
 
-def pipe_crossing(raw, base, target, reverse=False, brake=18):
-    text = Pipes.Replay.later_pipe_controller(raw, target, base, Build.static_extents(raw))
+def pipe_crossing(raw, base, target, reverse=False, brake=18, stop_on_floor=False):
+    if target == 2:
+        text = Pipes.Replay.controller(raw, 9, second_pipe=True)
+    else:
+        text = Pipes.Replay.later_pipe_controller(raw, target, base, replay_extents(raw))
     text = text.replace('if audit.pipe==3 then pad=0 end', 'pad=0', 1)
     marker = ' local floorClear=audit.pipe~=3'
     assert text.count(marker) == 1
@@ -216,8 +228,19 @@ def pipe_crossing(raw, base, target, reverse=False, brake=18):
   pad=1
  end
  local floorClear=audit.pipe~=3""", 1)
+    if target == 2:
+        text = text.replace('if audit.cap and commits-audit.cap.commit==20 then', '''if audit.cap and not audit.steady and (leftFoot or rightFoot) and idle(s) then audit.steady=s end
+ if audit.steady and commits-audit.steady.commit==20 then''', 1)
+        text = text.replace('  pad=1\n end\n local floorClear', '  pad=65\n end\n local floorClear', 1)
+        text = text.replace(' local floorClear=', ''' if audit.rest and not audit.brake and s.x>=audit.left+33 then
+  audit.brake=s;pad=0
+ end
+ local floorClear=''', 1)
     if reverse:
         text = text.replace('audit.pipe~=3 and s.x>=', 's.x>=').replace('(floorClear or steadyCap)', 'floorClear')
+        if target == 2:
+            text = text.replace('s.x>=audit.left+32 and floor(s) and support(s)',
+                                's.x>=audit.left+26 and s.y+32>audit.top+4', 1)
         if target == 3:
             text = text.replace("""  pad=1
  end
@@ -231,6 +254,13 @@ def pipe_crossing(raw, base, target, reverse=False, brake=18):
  if audit.departure and not audit.brake and s.x>=audit.left+BRAKE then
   audit.brake=s;pad=0
  end
+ if audit.brake and s.x>=audit.left+30 then
+  audit.edge_motion=audit.edge_motion or {}
+  local seq=audit.edge_motion
+  if #seq<48 and (#seq==0 or seq[#seq][3]~=s.action) then
+   seq[#seq+1]={s.x,s.y,s.action,s.mode,s.foot}
+  end
+ end
  if audit.brake and not leftFoot and not rightFoot and idle(s) and math.abs(s.y+32-audit.top)<=1 then
   audit.overhang=audit.overhang or s
   if commits-audit.overhang.commit>=20 then
@@ -241,12 +271,12 @@ def pipe_crossing(raw, base, target, reverse=False, brake=18):
  end
  local floorClear'''.replace('BRAKE', str(brake)))
             text = text.replace('s.x>=audit.left+32 and floor(s) and support(s)',
-                                's.x>=audit.left+26 and s.y+32>audit.top+4')
+                                's.x>=audit.left+26 and s.y+32>audit.top+4' if not stop_on_floor else 's.x>=audit.left+30 and floor(s) and support(s)')
         marker = ' audit.approach=audit.approach or s'
         assert text.count(marker) == 1
         text = text.replace(marker, """ if audit.return_start then
   local left,right=capFeet(s,audit.left,audit.top)
-  if audit.pipe==3 and not audit.return_climb then
+  if audit.pipe~=4 and not audit.return_climb then
    if not audit.turn and s.facing==0 and floor(s) and s.x<=audit.left+48 then
     audit.turn=s;pad=0
    elseif audit.turn and idle(s) and floor(s) then pad=8 end
@@ -269,7 +299,7 @@ def pipe_crossing(raw, base, target, reverse=False, brake=18):
         marker = "  finish(s.hp==audit.approach.hp and s.lives==initial.lives,'Pipe '..audit.pipe..' climbed using Up and Right')"
         assert text.count(marker) == 1
         text = text.replace(marker, '  audit.return_start=s;final=nil;pad=10;return', 1)
-        if target == 3 and brake == 11:
+        if stop_on_floor:
             text = text.replace(' if audit.return_start then', ''' if audit.brake and s.x>=audit.left+30 and floor(s) and support(s) then
   audit.floor=s;final=s;finish(s.hp==audit.brake.hp and s.lives==initial.lives,'Walked off the pipe and landed');return
  end
@@ -304,11 +334,17 @@ def native(raw, installed, parent, tests, install=False):
                 result = report(dict(result, steps=ledge))
             else:
                 result['terminal'] = Pipes.compact(result['terminal'])
-            if test.startswith('third-'):
+            if test == 'stage' and not result['passed']:
+                result['phase'] = receipt.get('progress')
+                result['third_jump'] = {k: Pipes.compact(v) for k, v in receipt['later_route'].items()
+                                        if k in ('third_running_request', 'third_running_admission', 'fourth_practical_stand')}
+            if test.startswith('third-') or test == 'second-return':
                 audit = receipt['later_route'].get('pipe_audit', {})
                 result['crossing'] = {key: Pipes.compact(audit[key]) for key in
                                       ('cap', 'departure', 'brake', 'return_start', 'turn', 'return_climb', 'return_rest')
                                       if key in audit}
+                if not result['passed'] and 'edge_motion' in audit:
+                    result['edge_motion'] = audit['edge_motion']
                 if 'edge' in audit:
                     result['unsupported_feet'] = [audit['edge'][key] for key in ('foot', 'previous_foot')]
             print(json.dumps({test: result}), flush=True)
@@ -362,11 +398,20 @@ def report(result):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('tests', nargs='+')
+    parser.add_argument('--walkoff', action='store_true', help='Test both the used-block grab and pipe walk-off updates')
     parser.add_argument('--grab', action='store_true', help='Test the close-range used-block grab update')
     parser.add_argument('--trial', action='store_true')
     parser.add_argument('--install', action='store_true')
     args = parser.parse_args()
     installed = Pipes.Replay.ROM.read_bytes()
+    if args.walkoff:
+        import compose_prince_used_ledge_grab_1126 as Grab
+        import compose_prince_idle_walkoff_1126 as Edge
+        INSTALL_TESTS = ('third-edge', 'stage', 'ordinary', 'fourth-return', 'used-late', '224', '405')
+        base = installed if Build.H(installed) == Grab.CANDIDATE else Edge.inverse(installed)
+        rom = Edge.compose(base)
+        native(rom, installed, Build.inverse(Grab.inverse(base)), args.tests, args.install)
+        raise SystemExit(0)
     if args.grab:
         import compose_prince_used_ledge_grab_1126 as Grab
         INSTALL_TESTS = ('used-late', '224', '405', 'ordinary', 'fourth-return', 'stage')
