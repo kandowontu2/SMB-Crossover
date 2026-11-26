@@ -145,12 +145,12 @@ def check_support(raw):
 def replay(script, path, raw, test, parent):
     if test in ('ordinary', 'mixed'):
         contents = Pipes.first_pipe(raw, mixed=test == 'mixed')
-    elif test in ('stage', 'fourth'):
+    elif test in ('stage', 'fourth', 'fourth-return'):
         base = Pipes.Build.inverse(parent)
         if test == 'stage':
             contents = Pipes.Replay.stage_controller(raw, base, Build.static_extents(raw))
         else:
-            contents = pipe_four(raw, base)
+            contents = pipe_four(raw, base, reverse=test == 'fourth-return')
     else:
         contents = ledge_controller(raw, int(test.removeprefix('right-')), test.startswith('right-'))
     script.write_bytes(contents.encode())
@@ -158,7 +158,7 @@ def replay(script, path, raw, test, parent):
                      320 if test == 'stage' else 135, variant=3, long_no_capture=True)
 
 
-def pipe_four(raw, base):
+def pipe_four(raw, base, reverse=False):
     text = Pipes.Replay.later_pipe_controller(raw, 4, base, Build.static_extents(raw))
     text = text.replace('if audit.pipe==3 then pad=0 end', 'pad=0', 1)
     marker = ' local floorClear=audit.pipe~=3'
@@ -171,6 +171,29 @@ def pipe_four(raw, base):
   pad=1
  end
  local floorClear=audit.pipe~=3""", 1)
+    if reverse:
+        marker = ' audit.approach=audit.approach or s'
+        assert text.count(marker) == 1
+        text = text.replace(marker, """ if audit.return_start then
+  local left,right=capFeet(s,audit.left,audit.top)
+  if not audit.return_climb and s.facing==0 and s.action==10 and s.x>=audit.left+16 then
+   audit.return_climb=s;pad=0
+  end
+  if audit.return_climb and (left or right) and idle(s) then
+   audit.return_rest=audit.return_rest or s
+   if commits-audit.return_rest.commit>=20 then
+    final=s;finish(s.hp==audit.return_start.hp and s.lives==initial.lives,'Reverse fourth-pipe landing');return
+   end
+  else
+   audit.return_rest=nil
+  end
+  if commits-audit.return_start.commit>=400 then final=s;finish(false,'Reverse fourth-pipe timeout') end
+  return
+ end
+""" + marker, 1)
+        marker = "  finish(s.hp==audit.approach.hp and s.lives==initial.lives,'Pipe '..audit.pipe..' climbed using Up and Right')"
+        assert text.count(marker) == 1
+        text = text.replace(marker, '  audit.return_start=s;pad=10;return', 1)
     return text
 
 
