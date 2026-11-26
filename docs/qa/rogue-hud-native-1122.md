@@ -280,3 +280,9 @@ run took 16,285 video frames and wrote zero captures.
 ```powershell
 python -B tools/audit/run_bounded_build_v1.py --output build/smb2-flag-native-1113 --resume --max-files 2 --timeout 600 -- python -B tools/audit/run_rogue_screw_combat_native_1123.py --run
 ```
+
+### Spring Ball physics on the November 26 nightly
+
+Spring Ball follows Screw Attack in Rogue Dawn's upgrade order. With the first four gear bits set, the next normal Flower block yields item D4. The castle in 1-4 has a power block at world X480, top Y96.
+
+On nightly `83b38793`, 960 paired CPU cases ran the Spring Ball routine from the installed cartridge and from the original Rogue Dawn 1.21 cartridge. The comparison covered fresh, held and released A, ordinary and frozen-platform support, dry and reduced gravity, and gear combinations with and without High Jump. The two routines agreed on vertical speed, gravity and the sound request in every case. These checks supplied the downward terrain result. Natural acquisition and a bounce in the level still need a controller replay.

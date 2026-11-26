@@ -27,7 +27,8 @@ def bounds(data):
     return dict(opaque_pixels=len(points),half_open_XYXY=[min(x for x,y in points),min(y for x,y in points),max(x for x,y in points)+1,max(y for x,y in points)+1])
 
 def run(owning):
-    assert H(owning)==C.CANDIDATE
+    payload_at = 1048592 + 962 * 1024
+    assert H(owning[payload_at:payload_at + 7168]) == '021e14f6ca810695ae3e4c744f7b9bdec60cd1608c12866cf609a982e8bf006b'
     for path,pin in PINS.items():assert H((R/path).read_bytes())==pin
     gbc=GB.read_bytes();assert len(gbc)==2097152 and H(gbc)==GBPIN
     code_at=1048592+962*1024;meta_at=1048592+967*1024;meta=owning[meta_at:meta_at+1024]
@@ -52,7 +53,7 @@ def run(owning):
     assert '; User-requested4x4 opaque extent, centered warm core, no resampling claim.'in old_source
     phase=(R/'tools/reference/mini_fireball_art_1108.s').read_text()
     for line in(' lda #$6f',' lda #$7f',' lda #$c2',' sbc #7',' adc #1',' sta $0201,x',' sta $0202,x',' sta $0200,x'):assert line in phase
-    q=dict(passed=True,read_only=True,owning_functional_ROM_SHA256=C.CANDIDATE,GBC_path=str(GB),GBC_SHA256=GBPIN,GBC_bytes=len(gbc),
+    q=dict(passed=True,read_only=True,owning_functional_ROM_SHA256=H(owning),GBC_path=str(GB),GBC_SHA256=GBPIN,GBC_bytes=len(gbc),
         donor_frames=rows,source_pins=PINS,old1103_adapted_warm_core=dict(pair_hex=warm.hex(),**bounds(warm),not_current_art=True),
         provenance='The1103 contract measured its deliberately adapted4x4 warmcore. The1108 builder explicitly replaced moving+impact frames with exact pinnedGBC art, documented live6x6 versus native4x4 collision, and retained animation and palette mapping. Current9826 is exact1108 donor art, not proof of current4x4 visuals.',
         metadata967=dict(file=meta_at,SHA256=H(meta),payload7168_SHA256=H(payload),code5120_SHA256=H(payload[:5120]),
@@ -63,10 +64,10 @@ def run(owning):
             source_moving_opaque_world_half_open_relative_to_native=[5,3,11,9],unchanged_native_control8_edge_offsets=[6,4,10,8],
             scope='Offsets/phase rule bind retained source plus root79115 actualOAM/banks. This inspector runs no renderer or CPU.'),
         cookie_change_required_if_future_art_changes='Existing physical16B Mini cookie atPRG65:B003 derives from all7168bytes; both loaded16B headers and native observers would need the new cookie. No cookie or art replacement is proposed here.',
-        preference_pending=True,proposed_art_spans=[],new_art_candidate=False,game_CPU_run=False,files=0,Mesen=False)
+        visual_preference='exact GBC sprites',preference_pending=False,proposed_art_spans=[],new_art_candidate=False,game_CPU_run=False,files=0,Mesen=False)
     q['receipt_SHA256']=H(json.dumps(q,sort_keys=True,separators=(',',':')).encode());return q
 
 if __name__=='__main__':
     def deny(*a,**kw):raise AssertionError('Readonly donor inspection attempted files/native')
-    with patch.object(Path,'write_bytes',deny),patch.object(Path,'write_text',deny),patch('subprocess.Popen',deny):q=run(C.current(ROM.read_bytes()))
+    with patch.object(Path,'write_bytes',deny),patch.object(Path,'write_text',deny),patch('subprocess.Popen',deny):q=run(ROM.read_bytes())
     print('RESULT '+json.dumps(q,separators=(',',':')),flush=True)

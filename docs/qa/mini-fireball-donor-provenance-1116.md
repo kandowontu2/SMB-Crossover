@@ -1,6 +1,8 @@
 # Mini moving fireball art provenance
 
-Read-only receipt `e5cfbd90db168d8877a6d011479869db1a412255de57d641ab3bd950a217a13f` authenticates the existing functional 9826 image and the actual GBC donor. No art replacement, new game image, CPU route, screenshot or native run is proposed or executed here. The user's later exact-GBC appearance request must be resolved before treating the earlier 4×4 visual request as current authority. Root holds that preference question; the functional 20-byte repair remains independent.
+Mini Mario uses the exact Game Boy Color moving fireball sprites the player requested. Both moving frames occupy 6×6 visible pixels inside the NES sprite. The original 4×4 collision box is retained.
+
+On November 26 the donor comparison read the installed MMC5 nightly 83b38793 directly. Both moving frames and both impact frames matched the original converted pixels. The check also verified Mini's full 7,168-byte payload against the earlier working build. Receipt 3bd2a69c9e15a5004b89a2cb725004394c45f7d59948d264cf68475929cc0362.
 
 The actual donor is `C:/Users/kando/Downloads/SuperMarioBrosMini.gb`, 2,097,152 bytes, SHA256 `837d39a438f85c5b3ef32c4e41c6c4403147046a7e93bdeac039a09a4a202c81`. Its active 8×8 tiles have GB row-interleaved bitplanes; the existing builder maps palette indexes `[0,2,3,1]` and moves the active tile ahead of a blank tile for NES 8×16 rendering. All four current moving/impact pairs match this exact conversion.
 

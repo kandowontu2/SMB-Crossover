@@ -75,3 +75,19 @@ the tested candidate and the shared test ROM match byte for byte.
 python -B tools/audit/run_bounded_build_v1.py --output build/scrooge-pogo-prepare-native-1123 --max-files 2 --timeout 280 -- python -B tools/audit/run_scrooge_prepare_native_1123.py --route life --installed
 python -B tools/audit/run_bounded_build_v1.py --output build/scrooge-pogo-prepare-native-1123 --max-files 2 --timeout 280 -- python -B tools/audit/run_scrooge_prepare_native_1123.py --route star --installed
 ```
+
+## November 26 installed fix retention
+
+The exact Downloads nightly
+`83b387931d2cf22981b6267fe062d246ba684d1bcb62e066d932dc9ae82aee40`
+retains all three assembled 47-byte dispatch segments from
+`compose_scrooge_prepare_stack_1123.py`: PRG78 `$BA1D`, `$BA4C` and
+`$BA7B` (file offsets 645677, 645724 and 645771). The full 141-byte
+allocation matches the deterministic source assembly. Assembly source
+SHA-256 is `5486db10d56d48c710b5d75d193d0b2f091c90b4f54cd2415e605a3d475df1df`.
+This check ran through the bounded runner and created no output files.
+
+The old continuation entries claiming the repair and Star remained open
+were stale and are corrected. This retention check does not claim a fresh
+Mesen run on `83b38793`; the native pogo, Star and Darkwing regression
+evidence remains bound to the delivered `82e8da0e` build above.
