@@ -65,12 +65,14 @@ end
 """
 
 
-def ledge_controller(raw, brake):
+def ledge_controller(raw, brake, reverse=False):
     pipe = brake >= 400
     text = Pipes.Replay.controller(raw, 9)
     before = 'local function laterTick(s)'
     assert text.count(before) == 1
     route = LEDGE_ROUTE.replace('@BRAKE@', str(brake))
+    if reverse:
+        route = route.replace(f's.x>={brake}', f's.x<={brake} and s.facing==0')
     for token, value in zip(('@LEFT@', '@TOP@', '@WIDTH@'), (448, 176, 32) if pipe else (256, 144, 16)):
         route = route.replace(token, str(value))
     text = text.replace(before, route + before, 1)
@@ -81,6 +83,10 @@ def ledge_controller(raw, brake):
         before = "switch('usability-approach',1)"
         assert text.count(before) == 2
         text = text.replace(before, "switch('ledge-approach',1)")
+    elif reverse:
+        before = "if s.x>=400 then switch('usability-approach',1) else switch('approach',1) end"
+        assert text.count(before) == 1
+        text = text.replace(before, "switch('ledge-approach',2)", 1)
     else:
         before = "    switch('approach',1)"
         assert text.count(before) == 1
@@ -146,7 +152,7 @@ def replay(script, path, raw, test, parent):
         else:
             contents = pipe_four(raw, base)
     else:
-        contents = ledge_controller(raw, int(test))
+        contents = ledge_controller(raw, int(test.removeprefix('right-')), test.startswith('right-'))
     script.write_bytes(contents.encode())
     return Pipes.run(script, path, Pipes.SHARED / 'capture', Build.H(raw),
                      320 if test == 'stage' else 135, variant=3, long_no_capture=True)
